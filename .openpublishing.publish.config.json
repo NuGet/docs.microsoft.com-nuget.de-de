@@ -17,7 +17,7 @@
     "live-sxs",
     "live"
   ],
-  			"git_repository_url_open_to_public_contributors": "https://github.com/NuGet/docs.microsoft.com-nuget.de-de",
+ "git_repository_url_open_to_public_contributors": "https://github.com/NuGet/docs.microsoft.com-nuget.de-de",
 "git_repository_branch_open_to_public_contributors": "live",
   "continue_with_document_error": true,
   "skip_source_output_uploading": false,
