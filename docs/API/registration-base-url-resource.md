@@ -17,11 +17,11 @@ keywords: NuGet-API-Metadaten von Paketen, die NuGet-API-Registrierung NuGet-API
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 15d3c836a5748497fe33dadc17e5a44846b4a8c0
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 1aabe6ae5c661e12b2639700813946e7a9a58b24
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="package-metadata"></a>Metadaten von Paketen
 
@@ -76,7 +76,7 @@ Die URL des Indexes Registrierung ist vorhersagbar und kann bestimmt werden, vom
 
 ### <a name="registration-pages-and-leaves"></a>Registrierungsseiten und bewirkt, dass
 
-Zwar nicht zwingend erforderlich ist, für eine Server-Implementierung zum Speichern von Registrierung leafs in separaten Registrierung mehrseitige Dokumente, es wird empfohlen, die clientseitige Speicherplatz zu sparen. Anstelle von inlining alle Registrierung bewirkt, dass der Index oder sofort bewirkt, dass in mehrseitige Dokumente zu speichern, es wird empfohlen, dass die Server-Implementierung einem heuristischen Wert zwischen den beiden Ansätzen basierend auf der Anzahl von Paketversionen auswählen definieren oder die kumulierte Größe des Pakets verlässt.
+Obwohl es nicht unbedingt für eine Server-Implementierung zum Speichern von, dass die Registrierung in separaten Registrierung mehrseitige Dokumente leafs erforderlich ist, ist es eine empfohlene Methode, um die clientseitige Speicherplatz zu sparen. Anstelle von inlining alle Registrierung bewirkt, dass der Index oder sofort bewirkt, dass in mehrseitige Dokumente zu speichern, es wird empfohlen, dass die Server-Implementierung einem heuristischen Wert zwischen den beiden Ansätzen basierend auf der Anzahl von Paketversionen auswählen definieren oder die kumulierte Größe des Pakets verlässt.
 
 Speichern alle Paketversionen Blätter () in der Registrierung Index speichert auf der Anzahl der HTTP-Anforderungen erforderlich, Fetch Paketmetadaten jedoch bedeutet, die dass ein größeres Dokument heruntergeladen werden muss und mehr Clientarbeitsspeicher zugeordnet werden muss. Andererseits, wenn die Server-Implementierung Registrierung bewirkt, dass sofort in separaten mehrseitige Dokumente gespeichert werden, muss der Client ausführen Weitere HTTP-Anforderungen zum Abrufen der Informationen, die es benötigt.
 
@@ -88,17 +88,17 @@ GET {@id}/{LOWER_ID}/index.json
 
 ### <a name="request-parameters"></a>Anforderungsparameter
 
-Name     | In     | Typ    | Erforderlich | Hinweise
+name     | In     | Typ    | Erforderlich | Hinweise
 -------- | ------ | ------- | -------- | -----
-LOWER_ID | URL    | string  | ja      | Die Paket-ID, klein
+LOWER_ID | URL    | Zeichenfolge  | ja      | Die Paket-ID, klein
 
-Die `LOWER_ID` Wert ist die gewünschte Paket-ID, die klein gemäß den Vergleichsregeln von implementiert. NET [ `System.String.ToLowerInvariant()` ](https://msdn.microsoft.com/en-us/library/system.string.tolowerinvariant.aspx) Methode.
+Die `LOWER_ID` Wert ist die gewünschte Paket-ID, die klein gemäß den Vergleichsregeln von implementiert. NET [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) Methode.
 
 ### <a name="response"></a>Antwort
 
 Die Antwort ist ein JSON-Dokument ein Stammobjekt mit den folgenden Eigenschaften besitzt:
 
-Name  | Typ             | Erforderlich | Hinweise
+name  | Typ             | Erforderlich | Hinweise
 ----- | ---------------- | -------- | -----
 count | Ganze Zahl          | ja      | Die Anzahl der Registrierungsseiten, die im index
 items | Array von Objekten | ja      | Das Array der Registrierungsseiten, die
@@ -109,14 +109,14 @@ Jedes Element in des Indexobjekt `items` Array ist ein JSON-Objekt, das eine Reg
 
 Die Registrierung Page-Objekt in der Registrierung Index gefunden hat die folgenden Eigenschaften:
 
-Name   | Typ             | Erforderlich | Hinweise
+name   | Typ             | Erforderlich | Hinweise
 ------ | ---------------- | -------- | -----
-@id    | string           | ja      | Die URL zu der Seite "Registrierung"
+@id    | Zeichenfolge           | ja      | Die URL zu der Seite "Registrierung"
 count  | Ganze Zahl          | ja      | Die Anzahl der Registrierung Blätter in der Seite "
 items  | Array von Objekten | Nein       | Das Array von Registrierung bewirkt, dass und die zugeordneten Metadaten
-Niedrigere  | string           | ja      | Die niedrigste SemVer 2.0.0-Version auf der Seite (inklusiv)
-parent | string           | Nein       | Die URL, die dem Index für die Registrierung
-obere  | string           | ja      | Die höchste SemVer 2.0.0-Version auf der Seite (inklusiv)
+Niedrigere  | Zeichenfolge           | ja      | Die niedrigste SemVer 2.0.0-Version auf der Seite (inklusiv)
+parent | Zeichenfolge           | Nein       | Die URL, die dem Index für die Registrierung
+obere  | Zeichenfolge           | ja      | Die höchste SemVer 2.0.0-Version auf der Seite (inklusiv)
 
 Die `lower` und `upper` Grenzen der Page-Objekt sind nützlich, wenn die Metadaten für eine bestimmte Seitenversion erforderlich ist.
 Diese Grenzen können verwendet werden, benötigt nur Registrierungsseite abgerufen. Die Versionszeichenfolgen entsprechen [NuGet Versionsregeln](../reference/package-versioning.md). Die Versionszeichenfolgen werden normalisiert und beinhalten keine Build Metadaten. Mit allen Versionen der NuGet-Ökosystem Vergleich von Versionszeichenfolgen implementierte mit [SemVer 2.0.0's Version Rangfolgeregeln](http://semver.org/spec/v2.0.0.html#spec-item-11).
@@ -133,11 +133,11 @@ Jedes Element in der Page-Objekt `items` Array ist ein JSON-Objekt, das eine Reg
 
 Die Registrierung Endknotenobjekt in eine Registrierungsseite gefunden hat die folgenden Eigenschaften:
 
-Name           | Typ   | Erforderlich | Hinweise
+name           | Typ   | Erforderlich | Hinweise
 -------------- | ------ | -------- | -----
-@id            | string | ja      | Die URL zu der Registrierung Blattknoten
+@id            | Zeichenfolge | ja      | Die URL zu der Registrierung Blattknoten
 catalogEntry   | object | ja      | Der Katalogeintrag, enthält die Metadaten von Paketen
-packageContent | string | ja      | Die URL für den Inhalt des Pakets (.nupkg)
+packageContent | Zeichenfolge | ja      | Die URL für den Inhalt des Pakets (.nupkg)
 
 Jeder Endknoten Registrierungsobjekt stellt ein einzelnes Paketversion zugeordnete Daten dar.
 
@@ -145,24 +145,24 @@ Jeder Endknoten Registrierungsobjekt stellt ein einzelnes Paketversion zugeordne
 
 Die `catalogEntry` Eigenschaft in der Registrierung Endknotenobjekt hat die folgenden Eigenschaften:
 
-Name                     | Typ                       | Erforderlich | Hinweise
+name                     | Typ                       | Erforderlich | Hinweise
 ------------------------ | -------------------------- | -------- | -----
-@id                      | string                     | ja      | Die URL zum Dokument verwendet, um dieses Objekt zu erzeugen.
+@id                      | Zeichenfolge                     | ja      | Die URL zum Dokument verwendet, um dieses Objekt zu erzeugen.
 authors                  | Zeichenfolge oder ein Array von Zeichenfolgen | Nein       | 
 dependencyGroups         | Array von Objekten           | Nein       | Die URL für den Inhalt des Pakets (.nupkg)
-Beschreibung              | string                     | Nein       | 
-iconUrl                  | string                     | Nein       | 
-ID                       | string                     | ja      | Die ID des Pakets
-licenseUrl               | string                     | Nein       | 
+Beschreibung              | Zeichenfolge                     | Nein       | 
+iconUrl                  | Zeichenfolge                     | Nein       | 
+ID                       | Zeichenfolge                     | ja      | Die ID des Pakets
+licenseUrl               | Zeichenfolge                     | Nein       | 
 Liste                   | boolean                    | Nein       | Sollte angesehen als aufgelisteten Falls nicht vorhanden
-"Minclientversion"         | string                     | Nein       | 
-projectUrl               | string                     | Nein       | 
-Veröffentlicht                | string                     | Nein       | Eine Zeichenfolge mit dem ISO 8601 Zeitstempel wann das Paket veröffentlicht wurde.
+"Minclientversion"         | Zeichenfolge                     | Nein       | 
+projectUrl               | Zeichenfolge                     | Nein       | 
+Veröffentlicht                | Zeichenfolge                     | Nein       | Eine Zeichenfolge mit dem ISO 8601 Zeitstempel wann das Paket veröffentlicht wurde.
 requireLicenseAcceptance | boolean                    | Nein       | 
-Zusammenfassung                  | string                     | Nein       | 
+Zusammenfassung                  | Zeichenfolge                     | Nein       | 
 Tags                     | String oder Array von Zeichenfolgen  | Nein       | 
-Titel                    | string                     | Nein       | 
-version                  | string                     | ja      | Die Version des Pakets
+Titel                    | Zeichenfolge                     | Nein       | 
+Version                  | Zeichenfolge                     | ja      | Die Version des Pakets
 
 Die `dependencyGroups` Eigenschaft ist ein Array von Objekten, die die Abhängigkeiten des Pakets, gruppiert nach Zielframework darstellen. Wenn das Paket keine Abhängigkeiten enthält die `dependencyGroups` Eigenschaft nicht vorhanden, wird ein leeres Array oder die `dependencies` Eigenschaft aller Gruppen ist leer oder nicht vorhanden.
 
@@ -170,9 +170,9 @@ Die `dependencyGroups` Eigenschaft ist ein Array von Objekten, die die Abhängig
 
 Jede Gruppe Abhängigkeitsobjekt hat die folgenden Eigenschaften:
 
-Name            | Typ             | Erforderlich | Hinweise
+name            | Typ             | Erforderlich | Hinweise
 --------------- | ---------------- | -------- | -----
-targetFramework | string           | Nein       | Das Zielframework, dem diese Abhängigkeiten betreffen
+targetFramework | Zeichenfolge           | Nein       | Das Zielframework, dem diese Abhängigkeiten betreffen
 Abhängigkeiten    | Array von Objekten | Nein       |
 
 Die `targetFramework` Zeichenfolge verwendet das Format von NuGet .NET Bibliothek implementiert [NuGet.Frameworks](https://www.nuget.org/packages/NuGet.Frameworks/). Wenn kein `targetFramework` angegeben ist, wird der Abhängigkeitsgruppe betrifft alle Zielframeworks.
@@ -183,11 +183,11 @@ Die `dependencies` Eigenschaft ist ein Array von Objekten, die jeweils eine pake
 
 Jede paketabhängigkeit hat die folgenden Eigenschaften:
 
-Name         | Typ   | Erforderlich | Hinweise
+name         | Typ   | Erforderlich | Hinweise
 ------------ | ------ | -------- | -----
-ID           | string | ja      | Die paketabhängigkeit-ID
+ID           | Zeichenfolge | ja      | Die paketabhängigkeit-ID
 range        | object | Nein       | Die zulässigen [Versionsbereich](../reference/package-versioning.md#version-ranges-and-wildcards) gegen das Abhängigkeitsverhältnis
-Registrierung | string | Nein       | Die URL, die dem Index der Registrierung für diese Abhängigkeit
+Registrierung | Zeichenfolge | Nein       | Die URL, die dem Index der Registrierung für diese Abhängigkeit
 
 Wenn die `range` -Eigenschaft ausgeschlossen oder eine leere Zeichenfolge des Clients sollte der Versionsbereich standardmäßig `(, )`. D. h. ist jede Version der Abhängigkeit zulässig.
 
@@ -209,14 +209,14 @@ Die Registrierungsseite enthält Registrierung bleibt. Die URL eine Registrierun
 
 Wenn die `items` Array nicht in der Registrierung Index angegeben ist, eine HTTP GET-Anforderung von der `@id` Rückgabewert ein JSON-Dokument ein Objekt als Stamm besitzt. Das Objekt hat die folgenden Eigenschaften:
 
-Name   | Typ             | Erforderlich | Hinweise
+name   | Typ             | Erforderlich | Hinweise
 ------ | ---------------- | -------- | -----
-@id    | string           | ja      | Die URL zu der Seite "Registrierung"
+@id    | Zeichenfolge           | ja      | Die URL zu der Seite "Registrierung"
 count  | Ganze Zahl          | ja      | Die Anzahl der Registrierung Blätter in der Seite "
 items  | Array von Objekten | ja      | Das Array von Registrierung bewirkt, dass und die zugeordneten Metadaten
-Niedrigere  | string           | ja      | Die niedrigste SemVer 2.0.0-Version auf der Seite (inklusiv)
-parent | string           | ja      | Die URL, die dem Index für die Registrierung
-obere  | string           | ja      | Die höchste SemVer 2.0.0-Version auf der Seite (inklusiv)
+Niedrigere  | Zeichenfolge           | ja      | Die niedrigste SemVer 2.0.0-Version auf der Seite (inklusiv)
+parent | Zeichenfolge           | ja      | Die URL, die dem Index für die Registrierung
+obere  | Zeichenfolge           | ja      | Die höchste SemVer 2.0.0-Version auf der Seite (inklusiv)
 
 Die Form des Registrierungs-Endknotenobjekten ist dasselbe wie bei der Registrierung Index [oben](#registration-leaf-object-in-a-page).
 
@@ -238,14 +238,14 @@ Die URL zur Registrierung Endknoten fetch abgerufen wird, aus der `@id` Eigensch
 
 Das Blatt für die Registrierung ist ein JSON-Dokument mit einem Stammobjekt mit den folgenden Eigenschaften:
 
-Name           | Typ    | Erforderlich | Hinweise
+name           | Typ    | Erforderlich | Hinweise
 -------------- | ------- | -------- | -----
-@id            | string  | ja      | Die URL zu der Registrierung Blattknoten
-catalogEntry   | string  | Nein       | Die URL für den Katalogeintrag, der diese Endknoten erzeugt
+@id            | Zeichenfolge  | ja      | Die URL zu der Registrierung Blattknoten
+catalogEntry   | Zeichenfolge  | Nein       | Die URL für den Katalogeintrag, der diese Endknoten erzeugt
 Liste         | boolean | Nein       | Sollte angesehen als aufgelisteten Falls nicht vorhanden
-packageContent | string  | Nein       | Die URL für den Inhalt des Pakets (.nupkg)
-Veröffentlicht      | string  | Nein       | Eine Zeichenfolge mit dem ISO 8601 Zeitstempel wann das Paket veröffentlicht wurde.
-Registrierung   | string  | Nein       | Die URL, die dem Index für die Registrierung
+packageContent | Zeichenfolge  | Nein       | Die URL für den Inhalt des Pakets (.nupkg)
+Veröffentlicht      | Zeichenfolge  | Nein       | Eine Zeichenfolge mit dem ISO 8601 Zeitstempel wann das Paket veröffentlicht wurde.
+Registrierung   | Zeichenfolge  | Nein       | Die URL, die dem Index für die Registrierung
 
 > [!Note]
 > Auf nuget.org die `published` auf Jahr 1900, wenn das Paket nicht aufgeführte wird, Wert festgelegt ist.

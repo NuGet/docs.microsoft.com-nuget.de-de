@@ -14,17 +14,17 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3423e30eae07ff0c70a010576b8e701be027b847
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 53fccbb86f2920d870b5383070d043e25045a626
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="errors-and-warnings"></a>Fehler und Warnungen
 
 Im NuGet 4.3.0 Fehler und Warnungen werden nummeriert, wie in diesem Thema beschrieben und bieten detaillierte Informationen, damit Sie die Probleme zu beheben. 
 
-Die Fehler und Warnungen, die hier aufgeführten stehen nur mit [PackageReference basierende](../Consume-Packages/Package-References-in-Project-Files.md) Projekte und NuGet-4.3.0. NuGet wird auch berücksichtigt, MSBuild-Eigenschaften zum Unterdrücken von Warnungen oder Fehler zu erhöhen. Weitere Informationen finden Sie unter [wie: Unterdrücken von Compiler-Warnungen](https://docs.microsoft.com/visualstudio/ide/how-to-suppress-compiler-warnings) in der Visual Studio-Dokumentation.
+Die Fehler und Warnungen, die hier aufgeführten stehen nur mit [PackageReference basierende](../Consume-Packages/Package-References-in-Project-Files.md) Projekte und NuGet-4.3.0. NuGet wird auch berücksichtigt, MSBuild-Eigenschaften zum Unterdrücken von Warnungen oder Fehler zu erhöhen. Weitere Informationen finden Sie unter [wie: Unterdrücken von Compiler-Warnungen](/visualstudio/ide/how-to-suppress-compiler-warnings) in der Visual Studio-Dokumentation.
 
 **Fehler**
 

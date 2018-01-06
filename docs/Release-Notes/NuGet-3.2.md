@@ -13,17 +13,17 @@ keywords: "NuGet-3.2 Anmerkungen zu dieser Version, aufgrund von Fehlerbehebunge
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 364a1ac62af25351e78df0b9a506f0919fc8fb61
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 551a54482f83803a2e5e5b6ba57a1bf3dd06db8a
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-32-release-notes"></a>3.2 NuGet-Versionshinweise
 
 [NuGet-3.2 RC-Versionsanmerkungen](../release-notes/nuget-3.2-RC.md) | [NuGet 3.2.1-Versionshinweise](../release-notes/nuget-3.2.1.md)
 
-NuGet-3.2 wurde veröffentlicht 16 September 2015 als eine Sammlung von Verbesserungen und Fehlerbehebungen für die 3.1.1 freigeben und steht über beide [dist.nuget.org](http://dist.nuget.org/index.html) und [Visual Studio Gallery](https://visualstudiogallery.msdn.microsoft.com/5d345edc-2e2d-4a9c-b73b-d53956dc458d?SRC=Home).
+NuGet-3.2 wurde veröffentlicht 16 September 2015 als eine Sammlung von Verbesserungen und Fehlerbehebungen für die 3.1.1 freigeben und steht über beide [dist.nuget.org](http://dist.nuget.org/index.html) und [Visual Studio Gallery](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManagerforVisualStudio2015).
 
 ## <a name="new-features"></a>Neue Funktionen
 

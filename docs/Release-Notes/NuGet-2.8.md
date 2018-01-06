@@ -13,11 +13,11 @@ keywords: "NuGet 2.8 enthalten Anmerkungen zu dieser Version, aufgrund von Fehle
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0bb35e9d6ef6f3dde7919cd502b32ba5a550c689
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 182e7d1e2224c431631cddd14fdbea8dd9e14278
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-28-release-notes"></a>NuGet 2.8-Versionshinweise
 
@@ -96,7 +96,7 @@ Es ist nicht ungewöhnlich, installieren Sie eine Vorabversion von einem Paket, 
 
 ## <a name="development-dependencies"></a>Entwicklung Abhängigkeiten
 
-Viele verschiedene Arten von Funktionen können als NuGet-Pakete - einschließlich Tools, die verwendet werden, für die Optimierung des Entwicklungsprozesses übermittelt werden. Diese Komponenten, während sie bei der Entwicklung eines neuen Pakets instrumentellen stehen sollte nicht verwendet werden, dass eine Abhängigkeit für das neue Paket, wenn sie später veröffentlicht. NuGet 2.8 kann ein Paket zur Identifizierung in den `.nuspec` -Datei als ein DevelopmentDependency. Bei der Installation, diese Metadaten werden auch hinzugefügt werden die `packages.config` -Datei des Projekts, in dem das Paket installiert wurde. Wenn, `packages.config` Datei wird später für NuGet Abhängigkeiten während analysiert `nuget.exe pack`, schließt er diese Abhängigkeiten als Entwicklung Abhängigkeiten gekennzeichnet.
+Viele verschiedene Arten von Funktionen können als NuGet-Pakete - einschließlich Tools, die verwendet werden, für die Optimierung des Entwicklungsprozesses übermittelt werden. Diese Komponenten sollte können sie bei der Entwicklung eines neuen Pakets instrumentellen sein nicht verwendet werden eine Abhängigkeit für das neue Paket, wenn sie später erneut veröffentlicht wird. NuGet 2.8 kann ein Paket zur Identifizierung in den `.nuspec` -Datei als ein DevelopmentDependency. Bei der Installation, diese Metadaten werden auch hinzugefügt werden die `packages.config` -Datei des Projekts, in dem das Paket installiert wurde. Wenn, `packages.config` Datei wird später für NuGet Abhängigkeiten während analysiert `nuget.exe pack`, schließt er diese Abhängigkeiten als Entwicklung Abhängigkeiten gekennzeichnet.
 
 ## <a name="individual-packagesconfig-files-for-different-platforms"></a>Einzelne "Packages.config" Dateien für unterschiedliche Plattformen
 

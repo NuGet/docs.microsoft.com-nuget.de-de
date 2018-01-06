@@ -17,17 +17,17 @@ keywords: "NuGet-V3-API, NuGet V2-API, NuGet JSON, NuGet-Registrierung API NuGet
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: a9515d90ad66d8840f575bba542f0cf887c41718
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 05ed17f12f413d29d97a253d7d55f154d4910834
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-api"></a>NuGet-API
 
 Die NuGet-API ist eine Sammlung von HTTP-Endpunkten, die verwendet werden können, um Pakete herunterzuladen, Metadaten abzurufen, veröffentlichen neue Pakete und die meisten andere Vorgänge in der offiziellen NuGet-Clients verfügbar.
 
-Diese API wird vom NuGet-Client in Visual Studio, nuget.exe und die CLI .NET NuGet-Vorgänge ausführen, z. B. verwendet [ `dotnet restore` ](https://docs.microsoft.com/dotnet/articles/core/preview3/tools/dotnet-restore), suchen Sie in der Visual Studio-Benutzeroberfläche und [ `nuget.exe push` ](../tools/cli-ref-push.md).
+Diese API wird vom NuGet-Client in Visual Studio, nuget.exe und die CLI .NET NuGet-Vorgänge ausführen, z. B. verwendet [ `dotnet restore` ](/dotnet/articles/core/preview3/tools/dotnet-restore), suchen Sie in der Visual Studio-Benutzeroberfläche und [ `nuget.exe push` ](../tools/cli-ref-push.md).
 
 Beachten Sie in einigen Fällen nuget.org zusätzliche Anforderungen hat, die nicht von anderen Paketquellen erzwungen werden. Diese Unterschiede sind dokumentiert, durch die [nuget.org Protokolle](nuget-protocols.md).
 
@@ -79,7 +79,7 @@ Alle Zeitstempel, die von der API zurückgegebenen UTC werden oder sind anderwei
 
 ## <a name="http-methods"></a>HTTP-Methoden
 
-Verb   | Verwendung
+Verb   | Mit
 ------ | -----------
 GET    | Führt einen schreibgeschützten Vorgang, der in der Regel Abrufen von Daten an.
 HEAD-,   | Ruft die Antwortheader für den entsprechenden `GET` Anforderung.
@@ -110,7 +110,7 @@ Im Fall einer auf 500-Statuscode kann der Client einen angemessene Wiederholungs
 
 ## <a name="http-request-headers"></a>HTTP-Anforderungsheader
 
-Name                     | Beschreibung
+name                     | Beschreibung
 ------------------------ | -----------
 X-NuGet-"apikey"           | Erforderlich für Push-als auch löschen, siehe [ `PackagePublish` Ressource](package-publish-resource.md)
 X-NuGet-Clientversion   | **Als veraltet markiert** und ersetzt durch`X-NuGet-Protocol-Version`

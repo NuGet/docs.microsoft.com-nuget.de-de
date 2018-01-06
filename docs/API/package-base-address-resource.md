@@ -17,11 +17,11 @@ keywords: NuGet Flatfile-Container, die NuGet-Paket-Basisadresse, die NuGet Nupk
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 756001ff7376a8dd8d66bd2136408e90e6a85d19
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: a581f9854410bc1a84d65310b38928a1d889ece2
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="package-content"></a>Paketinhalt
 
@@ -58,11 +58,11 @@ GET {@id}/{LOWER_ID}/index.json
 
 ### <a name="request-parameters"></a>Anforderungsparameter
 
-Name     | In     | Typ    | Erforderlich | Hinweise
+name     | In     | Typ    | Erforderlich | Hinweise
 -------- | ------ | ------- | -------- | -----
-LOWER_ID | URL    | string  | ja      | Die Paket-ID Kleinbuchstaben
+LOWER_ID | URL    | Zeichenfolge  | ja      | Die Paket-ID Kleinbuchstaben
 
-Die `LOWER_ID` Wert ist die gewünschte Paket-ID, die klein gemäß den Vergleichsregeln von implementiert. NET [ `System.String.ToLowerInvariant()` ](https://msdn.microsoft.com/en-us/library/system.string.tolowerinvariant.aspx) Methode.
+Die `LOWER_ID` Wert ist die gewünschte Paket-ID, die klein gemäß den Vergleichsregeln von implementiert. NET [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) Methode.
 
 ### <a name="response"></a>Antwort
 
@@ -70,7 +70,7 @@ Wenn die Paketquelle keine Versionen der bereitgestellte Paket-ID verfügt, wird
 
 Wenn die Paketquelle an eine oder mehrere Versionen verfügbar sind, wird ein Statuscode "200" zurückgegeben. Der Antworttext ist ein JSON-Objekt, wenn Sie die folgende Eigenschaft:
 
-Name     | Typ             | Erforderlich | Hinweise
+name     | Typ             | Erforderlich | Hinweise
 -------- | ---------------- | -------- | -----
 Versionen | Array von Zeichenfolgen | ja      | Die Paket-IDs verfügbar
 
@@ -98,12 +98,12 @@ GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.{LOWER_VERSION}.nupkg
 
 ### <a name="request-parameters"></a>Anforderungsparameter
 
-Name          | In     | Typ   | Erforderlich | Hinweise
+name          | In     | Typ   | Erforderlich | Hinweise
 ------------- | ------ | ------ | -------- | -----
-LOWER_ID      | URL    | string | ja      | Die Paket-ID Kleinbuchstaben
-LOWER_VERSION | URL    | string | ja      | Die Paketversion normalisiert und klein
+LOWER_ID      | URL    | Zeichenfolge | ja      | Die Paket-ID Kleinbuchstaben
+LOWER_VERSION | URL    | Zeichenfolge | ja      | Die Paketversion normalisiert und klein
 
-Beide `LOWER_ID` und `LOWER_VERSION` sind klein gemäß den Vergleichsregeln von implementiert. NET [ `System.String.ToLowerInvariant()` ](https://msdn.microsoft.com/en-us/library/system.string.tolowerinvariant.aspx) Methode.
+Beide `LOWER_ID` und `LOWER_VERSION` sind klein gemäß den Vergleichsregeln von implementiert. NET [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) Methode.
 
 Die `LOWER_VERSION` ist die gewünschte Paketversion normalisiert mithilfe des NuGet-Version [Normalisierungsregeln](../reference/package-versioning.md#normalized-version-numbers). Dies bedeutet, dass dieser Build-Metadaten, die die SemVer 2.0.0-Spezifikation nicht zulässig ist in diesem Fall ausgeschlossen werden sollen.
 
@@ -133,12 +133,12 @@ GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.nuspec
 
 ### <a name="request-parameters"></a>Anforderungsparameter
 
-Name          | In     | Typ    | Erforderlich | Hinweise
+name          | In     | Typ    | Erforderlich | Hinweise
 ------------- | ------ | ------- | -------- | -----
-LOWER_ID      | URL    | string  | ja      | Die Paket-ID Kleinbuchstaben
+LOWER_ID      | URL    | Zeichenfolge  | ja      | Die Paket-ID Kleinbuchstaben
 LOWER_VERSION | URL    | Ganze Zahl | ja      | Die Paketversion normalisiert und klein
 
-Beide `LOWER_ID` und `LOWER_VERSION` sind klein gemäß den Vergleichsregeln von implementiert. NET [ `System.String.ToLowerInvariant()` ](https://msdn.microsoft.com/en-us/library/system.string.tolowerinvariant.aspx) Methode.
+Beide `LOWER_ID` und `LOWER_VERSION` sind klein gemäß den Vergleichsregeln von implementiert. NET [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) Methode.
 
 Die `LOWER_VERSION` ist die gewünschte Paketversion normalisiert mithilfe des NuGet-Version [Normalisierungsregeln](../reference/package-versioning.md#normalized-version-numbers). Dies bedeutet, dass dieser Build-Metadaten, die die SemVer 2.0.0-Spezifikation nicht zulässig ist in diesem Fall ausgeschlossen werden sollen.
 

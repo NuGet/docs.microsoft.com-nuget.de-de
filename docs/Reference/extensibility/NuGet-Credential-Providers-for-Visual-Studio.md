@@ -13,11 +13,11 @@ keywords: NuGet-Anmeldeinformationsanbieter, authentifizieren sich mit dem Feed,
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2b2fac23102865a08509acc1cc3d09f0cd375f26
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 8d7360205387d4813f95560018e2ac68f71f5603
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>Authentifizieren von Datenfeeds in Visual Studio mit NuGet-Anmeldeinformationsanbieter
 
@@ -88,5 +88,5 @@ Eine benutzerdefinierte NuGet-Anmeldeinformationsanbieter für Visual Studio mus
 | Bool isRetry | "True", wenn Anmeldeinformationen für diesen Uri bereits zuvor angefordert wurden, aber die angegebenen Anmeldeinformationen wurde aufgrund nicht autorisierten Zugriff zugelassen. |
 | nicht interaktive bool | Bei "true", muss die Anmeldeinformationsanbieter werden alle benutzeraufforderungen unterdrückt und verwenden Sie stattdessen Default-Werte. |
 | CancellationToken cancellationToken | Dieses Abbruchtoken sollte überprüft werden, um festzustellen, ob der Vorgang Anfordern von Anmeldeinformationen wurde abgebrochen. |
-  
-**Rückgabewert**: Anmeldeinformationen Objekt implementiert die [ `System.Net.ICredentials` Schnittstelle](https://msdn.microsoft.com/library/system.net.icredentials.aspx).
+
+**Rückgabewert**: Anmeldeinformationen Objekt implementiert die [ `System.Net.ICredentials` Schnittstelle](/dotnet/api/system.net.icredentials?view=netstandard-2.0).

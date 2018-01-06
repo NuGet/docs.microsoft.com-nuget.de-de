@@ -13,11 +13,11 @@ keywords: "NuGet-2.1 Anmerkungen zu dieser Version, aufgrund von Fehlerbehebunge
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c45cfb9f6a46a1efd9fe4531602191973da66290
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: dafe575eedbfed215c0b1c86795bea281de97252
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-21-release-notes"></a>NuGet-Version 2.1 Hinweise
 
@@ -80,7 +80,7 @@ NuGet-2.1 bietet eine detailliertere Kontrolle über den Speicherort des Ordners
 In diesem Beispiel wird die freigegebene `Nuget.Config` Datei gibt einen freigegebenen Paketordner für jedes Projekt, das unter C:\myteam, unabhängig von der Tiefe erstellt wird. Beachten Sie, dass wenn Sie einen vorhandenen Ordner "Pakete" unterhalb der Lösung haben, müssen Sie es löschen, bevor NuGet Pakete am neuen Speicherort abgelegt werden.
 
 ## <a name="support-for-portable-libraries"></a>Unterstützung für Portable Bibliotheken
-[Portable Bibliotheken](http://msdn.microsoft.com/library/gg597391.aspx) ist eine Funktion, die mit .NET 4, mit dem Sie zum Erstellen von Assemblys, die ohne Änderung auch in anderen Microsoft-Plattformen aus Versionen von.NET Framework für Silverlight, Windows Phone und Xbox sogar funktionieren können, eingeführt 360 (obwohl Sie zu diesem Zeitpunkt NuGet das Xbox portable Library-Ziel nicht unterstützt).  Durch das Erweitern der [Paket Konventionen](../create-packages/supporting-multiple-target-frameworks.md) für Framework-Versionen und Profile NuGet 2.1 unterstützt jetzt portable Bibliotheken aktivieren Sie zum Erstellen von Paketen, die zusammengesetzte Framework und profilziels haben `lib` Ordner.
+[Portable Bibliotheken](/dotnet/standard/cross-platform/cross-platform-development-with-the-portable-class-library) ist eine Funktion, die mit .NET 4, mit dem Sie zum Erstellen von Assemblys, die ohne Änderung auch in anderen Microsoft-Plattformen aus Versionen von.NET Framework für Silverlight, Windows Phone und Xbox sogar funktionieren können, eingeführt 360 (obwohl Sie zu diesem Zeitpunkt NuGet das Xbox portable Library-Ziel nicht unterstützt).  Durch das Erweitern der [Paket Konventionen](../create-packages/supporting-multiple-target-frameworks.md) für Framework-Versionen und Profile NuGet 2.1 unterstützt jetzt portable Bibliotheken aktivieren Sie zum Erstellen von Paketen, die zusammengesetzte Framework und profilziels haben `lib` Ordner.
 
 Beispielsweise sollten Sie die folgenden portablen Bibliothek verfügbaren Zielplattformen.
 

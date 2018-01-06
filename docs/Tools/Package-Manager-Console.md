@@ -13,11 +13,11 @@ keywords: NuGet-Paket-Manager-Konsole, NuGet Powershell NuGet-Pakete verwalten
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d9df514c6f92a3ea0841503d86c44271e70f95f2
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: cc11963a9b9bfe9aa456d8cd4c8397e1084f660b
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="package-manager-console"></a>Paket-Manager-Konsole
 
@@ -62,7 +62,7 @@ In diesem Thema:
 
 ## <a name="opening-the-console-and-console-controls"></a>Öffnen der Konsole und die Konsole-Steuerelemente
 
-1. Öffnen Sie die Konsole in Visual Studio mithilfe der **Extras > NuGet-Paket-Manager > Package Manager Console** Befehl. Die Konsole ist ein Visual Studio-Fenster, das angeordnet und jedoch beliebig positioniert werden kann (siehe [Anpassen der Fensterlayouts in Visual Studio](https://docs.microsoft.com/visualstudio/ide/customizing-window-layouts-in-visual-studio)).
+1. Öffnen Sie die Konsole in Visual Studio mithilfe der **Extras > NuGet-Paket-Manager > Package Manager Console** Befehl. Die Konsole ist ein Visual Studio-Fenster, das angeordnet und jedoch beliebig positioniert werden kann (siehe [Anpassen der Fensterlayouts in Visual Studio](/visualstudio/ide/customizing-window-layouts-in-visual-studio)).
 
 1. Standardmäßig ausgeführt werden Konsolenbefehle an einen bestimmten Paketquelle und das Projekt als Gruppe im Steuerelement am oberen Rand des Fensters:
 
@@ -171,7 +171,7 @@ In Visual Studio 2017 werden NuGet und NuGet-Paket-Manager automatisch installie
 
 Überprüfen Sie auch, wenn Sie den NuGet-Paket-Manager in Visual Studio 2015 und früheren Versionen nicht vorhanden sind, **Tools > Erweiterungen und Updates...**  und suchen Sie nach der Erweiterung von NuGet-Paket-Manager. Wenn Sie nicht das Installationsprogramm für Erweiterungen in Visual Studio verwenden möchten, können Sie die Erweiterung direkt von herunterladen [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
 
-Der Paket-Manager-Konsole ist zurzeit nicht verfügbar in Visual Studio für Mac. Allerdings stehen die entsprechenden Befehle zur Verfügung, über die [NuGet CLI](nuget-exe-CLI-reference.md). Visual Studio für Mac besitzt eine Benutzeroberfläche zum Verwalten von NuGet-Paketen. Finden Sie unter [einschließlich eines NuGet-Paket im Projekt](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough).
+Der Paket-Manager-Konsole ist zurzeit nicht verfügbar in Visual Studio für Mac. Allerdings stehen die entsprechenden Befehle zur Verfügung, über die [NuGet CLI](nuget-exe-CLI-reference.md). Visual Studio für Mac besitzt eine Benutzeroberfläche zum Verwalten von NuGet-Paketen. Finden Sie unter [einschließlich eines NuGet-Paket im Projekt](/visualstudio/mac/nuget-walkthrough).
 
 Der Paket-Manager-Konsole ist nicht mit Visual Studio-Code enthalten.
 

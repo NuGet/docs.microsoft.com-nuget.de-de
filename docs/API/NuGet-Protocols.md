@@ -12,11 +12,11 @@ description: Die Interaktion mit NuGet-Clients sich entwickelnden nuget.org-Prot
 ms.reviewer:
 - kraigb
 - karann-msft
-ms.openlocfilehash: 097b7a86d056b692c52d6de76bc2fb99d1b58c6f
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 0bc71795d120256b9eb14ca64141f0b69f01e620
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nugetorg-protocols"></a>NuGet.org-Protokolle
 
@@ -43,7 +43,7 @@ Clients müssen die folgenden Header übergeben werden soll, wenn sie API-Aufruf
 X-NuGet-Protocol-Version: 4.1.0
 ```
 
-Beachten Sie, dass die bereits vorhandenen `X-NuGet-Client-Version` Header hat den gleichen Zweck aber ist inzwischen veraltet und sollte nicht mehr verwendet werden.
+Beachten Sie, dass die `X-NuGet-Client-Version` Header weist eine ähnliche Semantik jedoch reserviert nur durch den offiziellen NuGet-Client verwendet werden. Clients von Drittanbietern verwenden sollten die `X-NuGet-Protocol-Version` Header und Wert.
 
 Die **Push** Protokoll selbst wird beschrieben, in der Dokumentation für die [ `PackagePublish` Ressource](package-publish-resource.md).
 
@@ -59,11 +59,11 @@ POST api/v2/package/create-verification-key/{ID}/{VERSION}
 
 #### <a name="request-parameters"></a>Anforderungsparameter
 
-Name           | In     | Typ   | Erforderlich | Hinweise
+name           | In     | Typ   | Erforderlich | Hinweise
 -------------- | ------ | ------ | -------- | -----
-ID             | URL    | string | ja      | Die Paket-Identidier für die der überprüfen Bereich Schlüssel angefordert wird
-VERSION        | URL    | string | Nein       | Die Paketversion
-X-NuGet-"apikey" | Header | string | ja      | Beispiel: `X-NuGet-ApiKey: {USER_API_KEY}`
+Id             | URL    | Zeichenfolge | ja      | Die Paket-Identidier für die der überprüfen Bereich Schlüssel angefordert wird
+VERSION        | URL    | Zeichenfolge | Nein       | Die Paketversion
+X-NuGet-"apikey" | Header | Zeichenfolge | ja      | Beispiel: `X-NuGet-ApiKey: {USER_API_KEY}`
 
 #### <a name="response"></a>Antwort
 
@@ -84,11 +84,11 @@ GET api/v2/verifykey/{ID}/{VERSION}
 
 #### <a name="request-parameters"></a>Anforderungsparameter
 
-Name           | In     | Typ   | Erforderlich | Hinweise
+name           | In     | Typ   | Erforderlich | Hinweise
 -------------  | ------ | ------ | -------- | -----
-ID             | URL    | string | ja      | Die Paket-ID für die der überprüfen Bereich Schlüssel angefordert wird
-VERSION        | URL    | string | Nein       | Die Paketversion
-X-NuGet-"apikey" | Header | string | ja      | Beispiel: `X-NuGet-ApiKey: {VERIFY_SCOPE_KEY}`
+Id             | URL    | Zeichenfolge | ja      | Die Paket-ID für die der überprüfen Bereich Schlüssel angefordert wird
+VERSION        | URL    | Zeichenfolge | Nein       | Die Paketversion
+X-NuGet-"apikey" | Header | Zeichenfolge | ja      | Beispiel: `X-NuGet-ApiKey: {VERIFY_SCOPE_KEY}`
 
 > [!Note]
 > Diese überprüfen Bereich API-Schlüssel läuft ab, in einem Tag oder bei der ersten Verwendung, welcher Fall zuerst eintritt.

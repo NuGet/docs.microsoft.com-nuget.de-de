@@ -17,16 +17,15 @@ keywords: "NuGet-API-Push-Paket-API die NuGet-Paket löschen, NuGet-API Benutzer
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 1fa3c0e1698a11208d9ef29fdf26a4980cb60cf5
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 87970a701c63bce2b74c619069ec1d231ea77ab5
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="push-and-delete"></a>Push-als auch löschen
 
-Es ist möglich, mithilfe von Push übertragen, und löschen (oder Benutzerauswahl, je nach serverimplementierung)-Pakete mit der NuGet-V3-API.
-Beide Vorgänge basieren, der die `PackagePublish` Ressource gefunden, der [Dienst Index](service-index.md).
+Es ist möglich, mithilfe von Push übertragen, löschen (oder Benutzerauswahl, je nach serverimplementierung), und stellen Sie Pakete mithilfe der NuGet-V3-API. Basieren diese Vorgänge deaktivieren, der die `PackagePublish` Ressource gefunden, der [Dienst Index](service-index.md).
 
 ## <a name="versioning"></a>Versionskontrolle
 
@@ -44,9 +43,12 @@ Beachten Sie, dass diese URL verweist auf am gleichen Speicherort wie die älter
 
 ## <a name="http-methods"></a>HTTP-Methoden
 
-Die `PUT` und `DELETE` HTTP-Methoden werden durch diese Ressource unterstützt. Welche Methoden für jeden Endpunkt unterstützt werden finden Sie weiter unten.
+Die `PUT`, `POST` und `DELETE` HTTP-Methoden werden durch diese Ressource unterstützt. Welche Methoden für jeden Endpunkt unterstützt werden finden Sie weiter unten.
 
 ## <a name="push-a-package"></a>Ein Paket mithilfe von Push übertragen
+
+> [!Note]
+> NuGet.org hat [zusätzliche Anforderungen](NuGet-Protocols.md) für die Interaktion mit der Push-Endpunkt.
 
 NuGet.org unterstützt, wie neue Pakete, die mithilfe der folgenden-API. Wenn das Paket mit der angegebenen ID und die Version bereits vorhanden ist, lehnt nuget.org der Push-Vorgang. Andere Paketquellen unterstützen möglicherweise das Ersetzen eines vorhandenen Pakets.
 
@@ -56,9 +58,9 @@ PUT https://www.nuget.org/api/v2/package
 
 ### <a name="request-parameters"></a>Anforderungsparameter
 
-Name           | In     | Typ   | Erforderlich | Hinweise
+name           | In     | Typ   | Erforderlich | Hinweise
 -------------- | ------ | ------ | -------- | -----
-X-NuGet-"apikey" | Header | string | ja      | Beispiel: `X-NuGet-ApiKey: {USER_API_KEY}`
+X-NuGet-"apikey" | Header | Zeichenfolge | ja      | Beispiel: `X-NuGet-ApiKey: {USER_API_KEY}`
 
 API-Schlüssel ist eine nicht transparente Zeichenfolge, aus der Paketquelle vom Benutzer erhalten und in den Client konfiguriert. Wird kein bestimmtes Zeichenfolgenformat beauftragt, aber der API-Schlüssel sollte nicht länger als eine angemessene Größe für HTTP-Header-Werte.
 
@@ -90,15 +92,40 @@ DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
 
 ### <a name="request-parameters"></a>Anforderungsparameter
 
-Name           | In     | Typ   | Erforderlich | Hinweise
+name           | In     | Typ   | Erforderlich | Hinweise
 -------------- | ------ | ------ | -------- | -----
-ID             | URL    | string | ja      | Die ID des Pakets zu löschenden
-VERSION        | URL    | string | ja      | Die Version des Pakets gelöscht
-X-NuGet-"apikey" | Header | string | ja      | Beispiel: `X-NuGet-ApiKey: {USER_API_KEY}`
+Id             | URL    | Zeichenfolge | ja      | Die ID des Pakets zu löschenden
+VERSION        | URL    | Zeichenfolge | ja      | Die Version des Pakets gelöscht
+X-NuGet-"apikey" | Header | Zeichenfolge | ja      | Beispiel: `X-NuGet-ApiKey: {USER_API_KEY}`
 
 ### <a name="response"></a>Antwort
 
 Statuscode | Bedeutung
 ----------- | -------
 204         | Das Paket wurde gelöscht.
+404         | Kein Paket mit dem angegebenen `ID` und `VERSION` vorhanden ist
+
+## <a name="relist-a-package"></a>Ein Paket wiedereinstellen
+
+Wenn ein Paket nicht aufgeführte ist, ist es möglich, das Paket erneut in den Suchergebnissen unter Verwendung des Endpunkts "Artikel" sichtbar zu machen. Dieser Endpunkt hat dieselbe Form wie die [löschen (Benutzerauswahl) Endpunkt](#delete-a-package) verwendet jedoch die `POST` HTTP-Methode der `DELETE` Methode.
+
+Wenn das Paket bereits aufgeführt ist, wird die Anforderung trotzdem ausgeführt.
+
+```
+POST https://www.nuget.org/api/v2/package/{ID}/{VERSION}
+```
+
+### <a name="request-parameters"></a>Anforderungsparameter
+
+name           | In     | Typ   | Erforderlich | Hinweise
+-------------- | ------ | ------ | -------- | -----
+Id             | URL    | Zeichenfolge | ja      | Die ID des Pakets wiedereinstellen
+VERSION        | URL    | Zeichenfolge | ja      | Die Version des Pakets wiedereinstellen
+X-NuGet-"apikey" | Header | Zeichenfolge | ja      | Beispiel: `X-NuGet-ApiKey: {USER_API_KEY}`
+
+### <a name="response"></a>Antwort
+
+Statuscode | Bedeutung
+----------- | -------
+204         | Das Paket wird jetzt aufgeführt.
 404         | Kein Paket mit dem angegebenen `ID` und `VERSION` vorhanden ist

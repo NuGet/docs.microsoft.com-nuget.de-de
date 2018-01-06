@@ -17,15 +17,15 @@ keywords: "NuGet UI, NuGet-Paket-Manager NuGet in Visual Studio, Verwalten von N
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 88e987054f3c59a327f71b15330a99eb350449e5
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 0f08e5a36499c4481c4e0cd70738d67d65cd980a
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-package-manager-ui"></a>NuGet-Paket-Manager-Benutzeroberfläche
 
-Die NuGet-Paket-Manager-UI in Visual Studio unter Windows können Sie problemlos installieren, deinstallieren und Aktualisieren von NuGet-Pakete in Projekten und Projektmappen. Die Erfahrung in Visual Studio für Mac, finden Sie unter [einschließlich eines NuGet-Paket im Projekt](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough). Die Paket-Manager-UI kann nicht mit Visual Studio-Code enthalten ist.
+Die NuGet-Paket-Manager-UI in Visual Studio unter Windows können Sie problemlos installieren, deinstallieren und Aktualisieren von NuGet-Pakete in Projekten und Projektmappen. Die Erfahrung in Visual Studio für Mac, finden Sie unter [einschließlich eines NuGet-Paket im Projekt](/visualstudio/mac/nuget-walkthrough). Die Paket-Manager-UI kann nicht mit Visual Studio-Code enthalten ist.
 
 In diesem Thema:
 

@@ -13,11 +13,11 @@ keywords: "NuGet-2.6 Anmerkungen zu dieser Version, aufgrund von Fehlerbehebunge
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f93e34326aa9ab3d6bd5d1756126e6bfa24fd82e
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: b34c0049a5ba42f6bcd5b36fa5b0ba261e27ecd5
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-26-release-notes"></a>NuGet-2.6-Versionshinweise
 
@@ -35,8 +35,8 @@ Um die beste Möglichkeit Unterstützung für Visual Studio 2013 zugleich Unters
 
 Mit NuGet 2.6 beginnen, werden zwei Erweiterungen wie unten beschrieben veröffentlichen:
 
-1. [NuGet Package Manager](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c/file/37502/30/NuGet.Tools.vsix) (gilt für Visual Studio 2010 and 2012)
-2. [NuGet-Paket-Manager für Visual Studio 2013](http://visualstudiogallery.msdn.microsoft.com/4ec1526c-4a8c-4a84-b702-b21a8f5293ca)
+1. [NuGet Package Manager](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManager) (gilt für Visual Studio 2010 and 2012)
+1. [NuGet-Paket-Manager für Visual Studio 2013](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManagerforVisualStudio2013)
 
 Mit diesen Teilen der [nuget.org](https://nuget.org) Startseite ""Installieren von NuGet"Schaltfläche jetzt gelangen Sie zur der [Installieren von NuGet](../guides/install-nuget.md) Seite, in denen Sie weitere Informationen zum Installieren der verschiedenen NuGet-Clients suchen können.
 
@@ -44,7 +44,8 @@ Mit diesen Teilen der [nuget.org](https://nuget.org) Startseite ""Installieren v
 
 ### <a name="xdt-webconfig-transformation-support"></a>Die Transformation Unterstützung XDT "Web.config"
 
-Eine der Funktionen für den NuGet-Client hoch angefordert wurde zur Unterstützung von leistungsfähiger XML-Transformations, die mit XDT Transformationsmodul in Visual Studio verwendet [erstellen Konfiguration Transformationen](http://msdn.microsoft.com/library/dd465318(v=vs.100).aspx).
+Eine der Funktionen für den NuGet-Client hoch angefordert wurde zur Unterstützung von leistungsfähiger XML-Transformations, die mit XDT Transformationsmodul die in Visual Studio Build Configuration Transformationen verwendet wird.
+
 Im April 2013 haben wir zwei große Ankündigungen zu NuGet-Unterstützung für XDT haben. Die erste wurde, dass die XDT-Bibliothek selbst selbst gleichzeitig wurde [als NuGet-Paket veröffentlicht](https://nuget.org/packages/Microsoft.Web.Xdt) und [Open Source auf CodePlex](http://xdt.codeplex.com/). Dieser Schritt aktiviert das Modul XDT frei von anderen Open-Source-Software, einschließlich des NuGet-Clients verwendet werden. Die zweite Ankündigung wurde der Plan für die Unterstützung von XDT-Modul für Transformationen im NuGet-Client. NuGet-2.6 umfasst diese Integration.
 
 #### <a name="how-it-works"></a>Informationen zur Funktionsweise
@@ -101,7 +102,7 @@ Starten mit NuGet 2.6, dass die Daten für den Installationsvorgang jetzt gesend
 
 * Installieren
 * Install-Abhängigkeit
-* Aktualisieren
+* Update
 * Update-Abhängigkeit
 * Neuinstallation
 * Neuinstallation Abhängigkeit

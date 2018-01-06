@@ -13,11 +13,11 @@ keywords: "NuGet-1.8 Anmerkungen zu dieser Version, aufgrund von Fehlerbehebunge
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 875cb752fed102c24da255a336d3f16729ca082c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 350f0d9590c1e0ef1a843fd783203b158059efa7
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-18-release-notes"></a>1.8 NuGet-Versionshinweise
 
@@ -72,7 +72,7 @@ Es gibt 2 Möglichkeiten, diese Zustimmung bereitzustellen. Die erste kann in de
 
 Die zweite Methode ist die Umgebung Variable "EnableNuGetPackageRestore" auf den Wert "True" festgelegt.  Diese Methode wird für unbeaufsichtigte Computer z. B. CI oder Build Server vorgesehen.
 
-Jetzt haben wie oben erwähnt, wir nur die Grundlagen für diese Funktion in NuGet 1.8 angeordnet.  In der Praxis bedeutet dies, dass, während wir die gesamte Logik zum Aktivieren der Funktion hinzugefügt haben, es zurzeit nicht in dieser Version erzwungen wird. Es wird aktiviert, jedoch in der nächsten Version von NuGet, daher Sie sie so bald wie möglich erkennen sollten, damit Sie Ihre Umgebungen entsprechend konfigurieren können und daher nicht betroffen, wenn wir beginnen die Zustimmung Einschränkung erzwungen.
+Jetzt haben wie oben erwähnt, wir nur die Grundlagen für diese Funktion in NuGet 1.8 angeordnet.  In der Praxis bedeutet dies, dass, während wir die gesamte Logik zum Aktivieren der Funktion hinzugefügt haben, es wird derzeit nicht in dieser Version erzwungen wird. Es wird aktiviert, jedoch in der nächsten Version von NuGet, daher Sie sie so bald wie möglich erkennen sollten, damit Sie Ihre Umgebungen entsprechend konfigurieren können und daher nicht betroffen, wenn wir beginnen die Zustimmung Einschränkung erzwungen.
 
 Weitere Informationen finden Sie unter der [team-Blogbeitrag](http://blog.nuget.org/20120518/package-restore-and-consent.html) zu dieser Funktion.
 

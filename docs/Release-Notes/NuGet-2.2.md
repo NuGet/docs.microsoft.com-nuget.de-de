@@ -13,11 +13,11 @@ keywords: "NuGet-2.2 Anmerkungen zu dieser Version, aufgrund von Fehlerbehebunge
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 690e76a0686a5e7bb699410edef4a6e62ccd2a32
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 1f6080e01777431c4dfb2278db167bd3bc9a67ea
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-22-release-notes"></a>NuGet-2.2-Versionshinweise
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/14/2017
 NuGet-2.2 wurde 12 Dezember 2012 veröffentlicht.
 
 ## <a name="visual-studio-quick-launch"></a>Visual Studio-Schnellstart
-Eine der neuen Funktionen, die in Visual Studio 2012 hinzugefügten war die [Schnellstart Dialogfeld](http://msdn.microsoft.com/library/hh417697.aspx). NuGet-2.2 erweitert dieses Dialogfeld so initialisieren das Dialogfeld "Paket-Manager" mit den Suchbegriffen, die in der Schnellstartleiste eingegeben haben. Beispielsweise enthält ein eingeben "Jquery" in der Schnellstartleiste jetzt eine Option in den Ergebnissen, NuGet-Pakete "Jquery" Übereinstimmung gesucht werden soll.
+Eine der neuen Funktionen, die in Visual Studio 2012 hinzugefügten war die [Schnellstart Dialogfeld](/visualstudio/ide/reference/quick-launch-environment-options-dialog-box). NuGet-2.2 erweitert dieses Dialogfeld so initialisieren das Dialogfeld "Paket-Manager" mit den Suchbegriffen, die in der Schnellstartleiste eingegeben haben. Beispielsweise enthält ein eingeben "Jquery" in der Schnellstartleiste jetzt eine Option in den Ergebnissen, NuGet-Pakete "Jquery" Übereinstimmung gesucht werden soll.
 
 ![NuGet in Visual Studio-Schnellstart](./media/quick-launch.png)
 
