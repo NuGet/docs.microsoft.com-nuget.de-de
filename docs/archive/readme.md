@@ -1,0 +1,1 @@
+Dieser Ordner stellt einen Zwischenspeicherort für Inhalte dar, die aus der Hauptdokumentation entfernt wurden. Dabei handelt es sich in der Regel um Material, das sich auf frühere Versionen bezieht und vermutlich dauerhaft archiviert wird.

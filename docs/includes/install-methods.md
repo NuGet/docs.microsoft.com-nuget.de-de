@@ -1,0 +1,7 @@
+Das Installieren eines Pakets kann auf drei Arten erfolgen:
+
+| Methode | Beschreibung | Verweis |
+| --- | --- | --- |
+| nuget.exe-Befehlszeilenschnittstelle: `nuget install <package_name>` | Das anhand von \<package_name\> (Paket_Name) identifizierte Paket wird heruntergeladen und dessen Inhalt im aktuellen Verzeichnis in einen Ordner entpackt. Wenn keine Pakete angegeben werden, werden alle Pakete installiert, die in der Datei `packages.config` des Projekts aufgeführt werden. An den Projektdateien werden keine Änderungen vorgenommen. Abhängigkeiten werden auch heruntergeladen und entpackt. | [Referenz für die Befehlszeilenschnittstelle](../tools/nuget-exe-CLI-Reference.md) |
+| Paket-Manager-Konsole (Visual Studio): `Install-Package <package_name>` | Das Paket wird in das aktuelle Projekt heruntergeladen und installiert, dann wird die Projektdatei aktualisiert, um das Paket als Abhängigkeit aufzulisten. | [Leitfaden für die Paket-Manager-Konsole](../tools/Package-Manager-Console.md) |
+| Benutzeroberfläche des Paket-Managers (Visual Studio) | Bietet eine Benutzeroberfläche, über die Sie die Liste der Pakete durchsuchen können, Pakete auswählen und in ein Projekt installieren können. Aktualisiert die Projektdatei, damit das Paket als Abhängigkeit aufgelistet wird. | [Referenz zur Benutzeroberfläche des Paket-Managers](../tools/Package-Manager-UI.md) |
