@@ -14,11 +14,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 91efd4b4cd2ec0bee4425ab66e0152e580e7975c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: d002f55a75b3daaa2fed7a94e88582dd4f04e05f
+ms.sourcegitcommit: 1ebfff1263992c54de75366a1b1c26dbae6c0318
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="nuspec-reference"></a>NUSPEC-Referenz
 
@@ -66,7 +66,7 @@ Für eine übersichtliche Darstellung des Schemas öffnen Sie die Schemadatei im
 
 Das `<metadata>`-Element unterstützt die in der folgenden Tabelle beschriebenen Attribute.
 
-| Attribut | Erforderlich | Beschreibung |
+| Attribut | Erforderlich | description |
 | --- | --- | --- | 
 | **minClientVersion** | Nein | *(2.5 und höher)* Gibt die mindestens erforderliche Version des NuGet-Clients an, der dieses Paket installieren kann. Dies wird von „nuget.exe“ und dem Paket-Manager von Visual Studio erzwungen. Dieses Attribut wird verwendet, wenn das Paket von bestimmten Funktionen der `.nuspec`-Datei abhängig ist, die in einer bestimmten Version des NuGet-Clients hinzugefügt wurden. Beispielsweise sollte ein Paket, das das `developmentDependency`-Attribut verwendet, „2.8“ für `minClientVersion` angeben. Genauso sollte ein Paket, das das `contentFiles`-Element verwendet (vgl. nächster Abschnitt), `minClientVersion` auf „3.3“ festlegen. Beachten Sie außerdem, dass NuGet-Clients vor Version 2.5 diese Kennzeichnung nicht erkennen und daher die Installation des Pakets, unabhängig vom Inhalt von `minClientVersion`, *immer* verweigern. |
 
@@ -76,20 +76,20 @@ Obwohl es sich bei den folgenden Elementen um die Mindestanforderungen für ein 
 
 Diese Elemente müssen in einem `<metadata>`-Element angezeigt werden.
 
-| Element | Beschreibung |
+| Element | description |
 | --- | --- |
-| **id** | Der Paketbezeichner, der die Groß- und Kleinschreibung nicht berücksichtigt und auf nuget.org oder im für das Paket verwendeten Katalog eindeutig sein muss. IDs dürfen keine Leerzeichen oder für eine URL unzulässige Zeichen enthalten. Sie müssen den Regeln für .NET-Namespaces entsprechen. Informationen finden Sie unter [Choosing a unique package identifier (Auswählen eines eindeutigen Paketbezeichners)](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number). |
+| **ID** | Der Paketbezeichner, der die Groß- und Kleinschreibung nicht berücksichtigt und auf nuget.org oder im für das Paket verwendeten Katalog eindeutig sein muss. IDs dürfen keine Leerzeichen oder für eine URL unzulässige Zeichen enthalten. Sie müssen den Regeln für .NET-Namespaces entsprechen. Informationen finden Sie unter [Choosing a unique package identifier (Auswählen eines eindeutigen Paketbezeichners)](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number). |
 | **version** | Die Version des Pakets, die dem Muster *Hauptversion.Nebenversion.Patch* folgt. Versionsnummern enthalten möglicherweise, wie unter [Paketversionsverwaltung](../reference/package-versioning.md#pre-release-versions) beschrieben, ein Suffix der Vorabversion. |
 | **Beschreibung** | Eine ausführliche Beschreibung des Pakets für die Anzeige der Benutzeroberfläche. |
 | **authors** | Eine durch Kommas getrennte Liste der Paketautoren, die mit Profilnamen unter nuget.org übereinstimmen. Diese werden im NuGet-Katalog unter nuget.org angezeigt und werden verwendet, um Querverweise auf Pakete von den gleichen Autoren zu geben. |
 
 ### <a name="optional-metadata-elements"></a>Optionale Metadatenelemente
 
-Diese Elemente müssen in einem `<metadata>`-Element angezeigt werden.
+Diese Elemente auftreten in einem `<metadata>`-Element angezeigt werden.
 
 #### <a name="single-elements"></a>Einzelne Elemente
 
-| Element | Beschreibung |
+| Element | description |
 | --- | --- |
 | **title** | Ein benutzerfreundlicher Titel des Pakets, der in der Regel in der Benutzeroberfläche wie auf nuget.org angezeigt wird und der Paket-Manager in Visual Studio. Wenn nicht angegeben, wird die Paket-ID verwendet. |
 | **owners** | Eine durch Kommas getrennte Liste der Paketersteller, die auf nuget.org Profilnamen verwenden. Dabei handelt es sich häufig um dieselbe Liste wie in `authors`. Sie wird beim Hochladen der Pakete auf nuget.org ignoriert. Informationen dazu finden Sie unter [Managing package owners on nuget.org (Verwalten von Paketbesitzern auf nuget.org)](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). |
@@ -107,7 +107,7 @@ Diese Elemente müssen in einem `<metadata>`-Element angezeigt werden.
 
 #### <a name="collection-elements"></a>Auflistungselemente
 
-| Element | Beschreibung |
+| Element | description |
 | --- | --- |
 **packageTypes** | *(3.3 und höher)* Eine Auflistung, die kein `<packageType>`-Element oder mindestens eins enthält und den Pakettyp angibt, wenn es sich nicht um ein gewöhnliches Abhängigkeitspaket handelt. Jeder „packageType“ verfügt über Attribute von *name* und *version*. Informationen dazu finden Sie unter [Setting a package type (Festlegen eines Pakettypen)](../create-packages/creating-a-package.md#setting-a-package-type). |
 | **dependencies** | Eine Auflistung, die kein `<dependency>`-Element oder mindestens eins enthält und Abhängigkeiten für das Paket angibt. Jede Abhängigkeit verfügt über Attribute von *id*, *version*, *include* und *exclude* (3.x und höher). Informationen dazu finden Sie im Abschnitt [Abhängigkeiten](#dependencies). |
@@ -171,7 +171,7 @@ und Sie eine Assembly mit der `Release`-Konfiguration in MSBuild erstellen, dere
 
 Das `<dependencies>`-Element in `<metadata>` enthält eine beliebige Anzahl von `<dependency>`-Elementen, die andere Pakete finden, von denen die Pakete auf der obersten Ebene abhängig sind. Im Folgenden werden die Attribute für jede `<dependency>` dargestellt:
 
-| Attribut | Beschreibung |
+| Attribut | description |
 | --- | --- | 
 | `id` | (Erforderlich) Die Paket-ID der Abhängigkeit. |
 | `version` | (Erforderlich) Der Bereich an Versionen, die als Abhängigkeiten akzeptiert werden. Die genaue Syntax finden Sie unter [Paketversionsverwaltung](../reference/package-versioning.md#version-ranges-and-wildcards). |
@@ -297,7 +297,7 @@ Frameworkassemblys gehören zum .NET Framework und sollten für jeden vorhandene
 
 Das `<frameworkAssemblies>`-Element enthält entweder kein `<frameworkAssembly>`-Element oder mindestens eins, das die folgenden Attribute angibt:
 
-| Attribut | Beschreibung |
+| Attribut | description |
 | --- | --- |
 | **assemblyName** | (Erforderlich) Der vollqualifizierte Assemblyname. |
 | **targetFramework** | (Optional) Gibt das Zielframework an, auf das sich dieser Verweis bezieht. Wenn dieses Attribut nicht vorhanden ist, deutet dies darauf hin, dass sich der Verweis auf alle Frameworks bezieht. Die genauen Frameworkbezeichner finden Sie unter [Zielframeworks](../schema/target-frameworks.md). |
@@ -337,7 +337,7 @@ Das `<files>`-Element wird bei NuGet 2.x und früher sowie bei Projekten, die `p
 
 Jedes `<file>`-Element gibt die folgenden Attribute an:
 
-| Attribut | Beschreibung |
+| Attribut | description |
 | --- | --- |
 | **src** | Der Speicherort der Dateien, die eingefügt werden sollen, unterliegt Ausnahmen, die von dem `exclude`-Attribut angegeben werden. Der Pfad ist relativ zur `.nuspec`-Datei, wenn kein absoluter Pfad angegeben ist. Das Platzhalterzeichen `*` ist zulässig, und das zweifache Platzhalterzeichen `**` impliziert eine rekursive Ordnersuche. |
 | **target** | Der relative Pfad zu dem Ordner in dem Paket, in dem die Quelldateien platziert sind, der mit `lib`, `content`, `build` oder `tools` beginnt. Informationen dazu finden Sie unter [Creating a .nuspec from a convention-based working directory (Erstellen einer NUSPEC-Datei aus einem auf Konventionen basierenden Arbeitsverzeichnis)](../Create-Packages/Creating-a-Package.md#from-a-convention-based-working-directory). |
@@ -541,7 +541,7 @@ Das `<contentFiles>`-Element gibt eine Auflistung von `<files>`-Elementen an, di
 
 Diese Dateien werden zusammen mit mehreren Attributen angegeben, die beschreiben, wie sie in dem Projektsystem verwendet werden sollen:
 
-| Attribut | Beschreibung |
+| Attribut | description |
 | --- | --- |
 | **include** | (Erforderlich) Der Speicherort der Dateien, die eingefügt werden sollen, unterliegt Ausnahmen, die von dem `exclude`-Attribut angegeben werden. Der Pfad ist relativ zur `.nuspec`-Datei, wenn kein absoluter Pfad angegeben ist. Das Platzhalterzeichen `*` ist zulässig, und das zweifache Platzhalterzeichen `**` impliziert eine rekursive Ordnersuche. |
 | **exclude** | Eine durch Semikolons abgetrennte Datei oder Dateimuster, die sich nicht im `src`-Speicherort befinden dürfen. Das Platzhalterzeichen `*` ist zulässig, und das zweifache Platzhalterzeichen `**` impliziert eine rekursive Ordnersuche. |
