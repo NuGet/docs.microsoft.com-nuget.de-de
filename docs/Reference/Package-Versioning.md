@@ -14,11 +14,11 @@ ms.reviewer:
 - anandr
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 25b74ab629cab0fff7114bf1621606de5fc18dd2
-ms.sourcegitcommit: 89bb9d429c19ff69084c35acad09daea3e16d56b
+ms.openlocfilehash: cb5624a2fd99e8afd8a8226fd786343f485041c4
+ms.sourcegitcommit: c27e565de485cbe836e6c2a66e44a50b35b487ff
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="package-versioning"></a>Paket-versionsverwaltung
 
@@ -59,8 +59,8 @@ Technisch gesehen können paketerstellern eine beliebige Zeichenfolge als Suffix
 Dies bedeutet, dass paketentwicklern allgemein anerkannte Namenskonventionen entsprechen:
 
 - `-alpha`: Alpha Version, in der Regel für die Arbeit- und Experimente verwendet.
-- `-beta`: Betaversion, in der Regel eine Funktion, die für die nächste vollständige Version geplant, aber bekannte Fehler enthalten kann.
-- `-rc`: Release Candidate (RC) in der Regel eine Version, die potenziell endgültig erteilt wird (stable), es sei denn, erhebliche Fehler auftreten.
+- `-beta`: Beta-Release; in der Regel ein Release, das alle Features des nächsten geplanten Releases besitzt, aber womöglich bereits bekannte Fehler enthält
+- `-rc`: Release Candidate (RC); in der Regel ein stabiles Release, das veröffentlicht werden könnte, sofern keine erheblichen Fehler mehr auftreten
 
 > [!Note]
 > NuGet-4.3.0+ unterstützt [SemVer 2.0.0](http://semver.org/spec/v2.0.0.html), die Vorabversion von Zahlen mit der Punktnotation, wie in unterstützt *1.0.1-build.23*. Punktnotation wird mit NuGet-Versionen vor 4.3.0 nicht unterstützt. Können Sie ein Formular wie *1.0.1-build23*.
@@ -95,7 +95,8 @@ Für nuget.org wird ein Paket als SemVer Version 2.0.0 und Paket definiert, wenn
 Wenn Sie ein SemVer Version 2.0.0 und-spezifische Paket in nuget.org hochladen, ist das Paket für ältere Clients nicht sichtbar, und nur die folgenden NuGet-Clients zur Verfügung:
 
 - NuGet-4.3.0+
-- Visual Studio 2017 Version 15.3 + 
+- Visual Studio 2017 Version 15.3 +
+- Visual Studio 2015 mit [NuGet VSIX v3.6.0](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)
 - dotnet.exe (2.0.0+ .NET SDK)
 
 Drittanbieter-Clients:
@@ -112,7 +113,7 @@ Beim Verweisen auf paketabhängigkeiten unterstützt NuGet mit Intervall Notatio
 
 | Notation | Angewendeten Regel | Beschreibung |
 |----------|--------------|-------------|
-| 1.0 | 1.0 ≤ x | Mindestversion, inklusive |
+| 1,0 | 1.0 ≤ x | Mindestversion, inklusive |
 | (1.0,) | 1.0 < x | Mindestversion, exklusiv |
 | [1.0] | X == 1.0 | Genaue Version übereinstimmen |
 | (,1.0] | X ≤ 1.0 | Maximale Version, inklusive |
