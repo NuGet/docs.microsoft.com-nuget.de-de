@@ -17,11 +17,11 @@ keywords: "NuGet UI, NuGet-Paket-Manager NuGet in Visual Studio, Verwalten von N
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0f08e5a36499c4481c4e0cd70738d67d65cd980a
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: fb2166b727dd01de0f7096535fdbc71c5ab0e2a3
+ms.sourcegitcommit: cde52deee5691d3e8bcb96f46f9645c7ba579af8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="nuget-package-manager-ui"></a>NuGet-Paket-Manager-Benutzeroberfläche
 
@@ -39,7 +39,7 @@ In diesem Thema:
 > [!Note]
 > Wenn Sie das NuGet-Paket-Manager in Visual Studio 2015 nicht vorhanden sind, überprüfen Sie **Tools > Erweiterungen und Updates...**  , suchen Sie nach der *NuGet Package Manager* Erweiterung. Wenn Sie nicht das Installationsprogramm für Erweiterungen in Visual Studio verwenden möchten, laden Sie die Erweiterung direkt aus [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
 >
-> In Visual Studio 2017 werden NuGet und NuGet-Paket-Manager automatisch mit installiert. NET-bezogenen Arbeitslasten. Installieren Sie es Individuall durch Auswahl der **Einzelkomponenten > Tools Code > NuGet-Paket-Manager** Option in Visual Studio 2017 Installer.
+> In Visual Studio 2017 werden NuGet und NuGet-Paket-Manager automatisch mit installiert. NET-bezogenen Arbeitslasten. Dazu einzeln Installieren der **Einzelkomponenten > Code Extras > NuGet-Paket-Manager** -Option in Visual Studio 2017 Installationsprogramm.
 
 ## <a name="finding-and-installing-a-package"></a>Suchen und Installieren eines Pakets
 
