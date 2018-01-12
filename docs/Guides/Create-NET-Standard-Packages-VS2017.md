@@ -13,17 +13,17 @@ keywords: Erstellen eines Pakets, .NET Standard-Pakete, .NET Core
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 82e413119b12503336becd6019e4fa3e4ac0b1f3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 5b48ad2f062fd3a9b99985dbda6f89e6039dac4d
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-net-standard-20-packages-with-visual-studio-2017"></a>Erstellen von .NET Standard 2.0-Paketen mit Visual Studio 2017
 
 *Gilt für NuGet 4.x und höher sowie MSBuild 15.3 und höher mit Visual Studio 2017 Update 3. Für frühere Versionen von Visual Studio 2017 gelten dieses Anweisungen für .NET Standard 1.4 bis 1.6 durch Ändern der Eigenschaft \<TargetFramework\>. Unter [Create .NET Standard Packages with Visual Studio 2015 (Erstellen von .NET Standard-Paketen mit Visual Studio 2015)](../guides/create-net-standard-packages-vs2015.md) erhalten Sie weitere Informationen zur Arbeit mit NuGet 3.x und höher.*
 
-Die [.NET-Standardbibliothek](https://docs.microsoft.com/dotnet/articles/standard/library) ist eine formale Spezifikation von .NET-APIs, die in allen .NET-Runtimes verfügbar sein soll, um so eine umfassendere Einheitlichkeit im .NET-Ökosystem herzustellen. Die .NET-Standardbibliothek definiert einen einheitlichen Satz von BCL-APIs (Base Class Library), die unabhängig von der Workload für alle .NET-Plattformen implementiert werden. Sie ermöglicht Entwicklern, portable Klassenbibliotheken (PCLs) zu erzeugen, die für alle .NET-Runtimes verwendet werden können, und reduziert plattformspezifische Anweisungen für die bedingte Kompilierung in freigegebenem Code, wenn diese nicht sogar ausgeschlossen werden.
+Die [.NET-Standardbibliothek](/dotnet/articles/standard/library) ist eine formale Spezifikation von .NET-APIs, die in allen .NET-Runtimes verfügbar sein soll, um so eine umfassendere Einheitlichkeit im .NET-Ökosystem herzustellen. Die .NET-Standardbibliothek definiert einen einheitlichen Satz von BCL-APIs (Base Class Library), die unabhängig von der Workload für alle .NET-Plattformen implementiert werden. Sie ermöglicht Entwicklern, portable Klassenbibliotheken (PCLs) zu erzeugen, die für alle .NET-Runtimes verwendet werden können, und reduziert plattformspezifische Anweisungen für die bedingte Kompilierung in freigegebenem Code, wenn diese nicht sogar ausgeschlossen werden.
 
 Diese Anleitung begleitet Sie durch das Erstellen eines NuGet-Pakets für die .NET-Standardbibliothek 2.0 mit Visual Studio 2017 Update 3 und NuGet 4.0.
 
@@ -113,5 +113,5 @@ Befolgen Sie die Anweisungen unter [Veröffentlichen eines Pakets](../create-pac
 
 - Unter [Packen von Verweisen in Projektdateien](../consume-packages/package-references-in-project-files.md) werden alle Details zum Beschreiben Ihres Pakets direkt in der Projektdatei beschrieben.
 - Unter [NuGet pack and restore as MSBuild targets (Packen und Wiederherstellen von NuGet als MSBuild-Ziele)](../schema/msbuild-targets.md) werden alle Optionen zur Verwendung von `msbuild /t:pack` zum Erstellen des Pakets beschrieben.
-- [Dokumentation zur .NET Standard-Bibliothek](https://docs.microsoft.com/dotnet/articles/standard/library)
-- [Portieren von .NET Framework auf .NET Core](https://docs.microsoft.com/dotnet/articles/core/porting/index)
+- [Dokumentation zur .NET Standard-Bibliothek](/dotnet/articles/standard/library)
+- [Portieren von .NET Framework auf .NET Core](/dotnet/articles/core/porting/index)

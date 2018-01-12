@@ -13,11 +13,11 @@ keywords: "NuGet-Paketwiederherstellung, NuGet-Paketinstallation, Installieren e
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c2567f45b6bb36cdd94c4ce6f1418cb1c7ceac5e
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 4e819a2bb34bbe70f0f11d5adeed82b976a8cb65
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="package-restore"></a>Paketwiederherstellung
 
@@ -51,7 +51,7 @@ Weitere Details zur Paketwiederherstellung auf Buildservern finden Sie unter [Pa
 
 Zunächst werden Paketverweise in einem der folgenden Formate zur Paketverwaltung verwaltet, die abhängig von dem Projekttypen und der NuGet-Version sind. (Beachten Sie, dass NuGet 4 und MSBuild 15.1 in Visual Studio 2017 installiert sind.)
 
-| Methode | NuGet-Version | Beschreibung | 
+| Methode | NuGet-Version | description | 
 | --- | --- | --- |
 | `packages.config` | 2.x und höher | Führt alle Abhängigkeiten auf. Zu `packages.config` hinzugefügte Pakete sowie Ziele und Eigenschaften müssen der Projektdatei hinzugefügt werden. Dabei handelt es sich um die Baselinemethode für alle NuGet-Versionen, deren Leistung allerdings im Vergleich zu anderen Optionen geringer ist. (Informationen dazu finden Sie unter [packages.config-Schema](../schema/packages-config.md).) | 
 | `project.json` | 3.x und höher | Standardmäßig nur bei UWP-Projekten verwendet, aber Projekte können aus `packages.config` konvertiert werden. `project.json` führt nur die Abhängigkeiten auf oberster Ebene. Verweise, Ziele und Eigenschaften werden während des Buildvorgangs dynamisch dem Projekt hinzugefügt, was im Vergleich zu `packages.config` die Leistung verbessert. (Informationen dazu finden Sie unter [project.json-Schema](../schema/project-json.md).)|
@@ -64,7 +64,7 @@ Beginnen Sie als Nächstes mit einer Wiederherstellung mithilfe der Verweisliste
 | Befehl | Anwendbare Szenarios |
 | --- | --- | 
 | `nuget restore` | Alle NuGet-Versionen und Verweistypen. Informationen dazu finden Sie im Abschnitt [Befehlszeilenwiederherstellungen](#command-line-restore). | 
-| `dotnet restore` | Entspricht `nuget restore` für .NET Core-Projekte. Informationen dazu finden Sie unter [dotnet restore](https://docs.microsoft.com/dotnet/articles/core/tools/dotnet-restore). |
+| `dotnet restore` | Entspricht `nuget restore` für .NET Core-Projekte. Informationen dazu finden Sie unter [dotnet restore](/dotnet/articles/core/tools/dotnet-restore). |
 | `msbuild /t:restore` | Nur NuGet 4.x und höher sowie MSBuild 15.1 und höher mit [Paketverweisen in Projektdateien](../Consume-Packages/Package-References-in-Project-Files.md). Sowohl `nuget restore` als auch `dotnet restore` verwenden diesen Befehl für anwendbare Projekte. Informationen dazu finden Sie unter [NuGet pack and restore as MSBuild targets – restore target (Packen und Wiederherstellen von NuGet als MSBuild-Ziele: Wiederherstellungsziel)](../schema/msbuild-targets.md#restore-target).|
 
 Visual Studio stellt Pakete ebenfalls zu verschiedenen Zeiten wieder her:

@@ -13,11 +13,11 @@ keywords: NuGet in Visual Studio, benutzerdefinierte Projekttypen, Visual Studio
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 39212361e7cb2c214c3e83cef604d40cd057fd7e
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 9c8cad46f18578bec41bd9280985e42972a9b3c1
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-support-for-the-visual-studio-project-system"></a>NuGet-Unterstützung für das Visual Studio-Projektsystem
 
@@ -34,7 +34,7 @@ Für die Integration in NuGet muss ein Projektsystem seine eigene Unterstützung
 Der NuGet-Client bestimmt basierend auf den [Projektfunktionen](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/about_project_capabilities.md), welche Pakete mit Ihrem Projekttyp kompatibel sind, wie in der folgenden Tabelle beschrieben.
 
 
-|Funktion|Beschreibung|
+|Funktion|description|
 |----------------|-----------|
 |AssemblyReferences|Gibt an, dass das Projekt Assemblyverweise unterstützt (im Unterschied zu WinRTReferences)|
 |DeclaredSourceItems|Gibt an, dass es sich bei dem Projekt um ein typisches MSBuild-Projekt (nicht DNX) handelt, da es Quellelemente im Projekt selbst deklariert (anstelle einer Datei vom Typ `project.json`, die voraussetzt, dass alle Dateien im Ordner Teil einer Kompilierung sind).|
@@ -121,9 +121,8 @@ case __VSHPROPID8.VSHPROPID_ProjectCapabilitiesChecker:
     return VSConstants.S_OK;
 ```
 
-
 ## <a name="dte-support"></a>DTE-Unterstützung
 
-NuGet betreibt das Projektsystem, um Referenzen, Inhaltselemente und MSBuild-Importe durch Aufrufen in [DTE](https://msdn.microsoft.com/library/mt452175.aspx) hinzuzufügen. DTE ist in Visual Studio die Automatisierungsschnittstelle der obersten Ebene. DTE setzt sich aus einer Reihe von COM-Schnittstellen zusammen, die Sie bereits implementieren können.
+NuGet betreibt das Projektsystem, um Referenzen, Inhaltselemente und MSBuild-Importe durch Aufrufen in [DTE](/dotnet/api/envdte.dte?view=visualstudiosdk-2017) hinzuzufügen. DTE ist in Visual Studio die Automatisierungsschnittstelle der obersten Ebene. DTE setzt sich aus einer Reihe von COM-Schnittstellen zusammen, die Sie bereits implementieren können.
 
 Wenn Ihr Projekttyp auf CPS basiert, wird DTE für Sie implementiert.
