@@ -13,17 +13,19 @@ keywords: NuGet Verweis Datenquellen, Datenquellen-Befehl
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 52c46dba168e7395d50cb8d8f9775839389e614c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 2eca8557840c467a60f5f708efe242cd83609164
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="sources-command-nuget-cli"></a>Quellen-Befehl (NuGet CLI)
 
 **Gilt für:** Paket Verbrauchs, Veröffentlichung &bullet; **unterstützte Versionen:** alle
 
 Verwaltet die Liste der Datenquellen, die im Verzeichnis `%AppData%\NuGet\NuGet.Config` oder die angegebene Konfigurationsdatei.
+
+Beachten Sie, dass der Quell-URL für nuget.org `https://api.nuget.org/v3/index.json`.
 
 ## <a name="usage"></a>Verwendung
 
@@ -32,7 +34,6 @@ nuget sources <operation> -Name <name> -Source <source>
 ```
 
 auf dem `<operation>` ist einer der *auflisten, hinzufügen, entfernen, aktivieren, deaktivieren,* oder *Update*, `<name>` ist der Name der Quelle, und `<source>` ist die Quell-URL.
-
 
 ## <a name="options"></a>Optionen
 

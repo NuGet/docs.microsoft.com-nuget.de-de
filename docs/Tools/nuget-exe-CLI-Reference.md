@@ -13,17 +13,19 @@ keywords: NuGet.exe Verweisindex, nuget.exe-Befehlszeilenschnittstelle, nuget.ex
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3d1c3585d8bbf4c9bd9b50c8167e860594a42055
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 5dba358b1dda46f551721461e0460219f8210f9a
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="nuget-cli-reference"></a>NuGet-CLI-Referenz
 
 Die NuGet-Befehlszeilenschnittstelle (CLI), `nuget.exe`, enthält das Ausmaß des NuGet-Funktionen zu installieren, erstellen, veröffentlichen und Pakete zu verwalten, ohne Änderungen an der Projektdateien.
 
 Um einen Befehl zu verwenden, öffnen Sie ein Eingabeaufforderungsfenster oder bash-Shell aus, und führen Sie `nuget` gefolgt von dem Befehl und die entsprechenden Optionen wie z. B. `nuget help pack` (zum Anzeigen von Hilfe zum Befehl "Pack").
+
+In dieser Dokumentation gibt die neueste Version des NuGet-CLI wieder. Führen Sie genaue Angaben für eine bestimmte Version, die Sie verwenden `nuget help` für den gewünschten Befehl.
 
 ## <a name="installing-nugetexe"></a>Installieren von nuget.exe
 
@@ -33,34 +35,34 @@ Um einen Befehl zu verwenden, öffnen Sie ein Eingabeaufforderungsfenster oder b
 
 - Alle Befehle sind unter Windows verfügbar.
 - Alle Befehle funktionieren mit [nuget.exe Mono unter](../guides/install-nuget.md#mac-osx-and-linux) außer für angegeben `pack`, `restore`, und `update`.
-- Die `pack`, `restore`, `delete`, `locals`, und `push` Befehle stehen auch für Mac und Linux über das [Dotnet CLI](dotnet-Commands.md). 
+- Die `pack`, `restore`, `delete`, `locals`, und `push` Befehle stehen auch für Mac und Linux über das [Dotnet CLI](dotnet-Commands.md).
 
 ## <a name="commands-and-applicability"></a>Befehle und Anwendbarkeit
 
 Verfügbaren Befehle und Anwendbarkeit auf die Erstellung des Pakets, Paket Verbrauch und/oder veröffentlichen ein Paket auf einem Host:
 
-| Häufig verwendete Befehle | Anwendbaren Serverrollen | NuGet-Version | Beschreibung | 
+| Häufig verwendete Befehle | Anwendbaren Serverrollen | NuGet-Version | Beschreibung |
 | --- | --- | --- | --- |
 | [pack](cli-ref-pack.md) | Erstellung | 2.7+ | Erstellt ein NuGet-Paket aus einer `.nuspec` oder der Projektdatei. Bei Ausführung auf Mono wird das Erstellen eines Pakets aus einer Projektdatei nicht unterstützt. |
 | [push](cli-ref-push.md) | Veröffentlichen | Alle | Ein Paket veröffentlicht eine Paketquelle. |
 | [config](cli-ref-config.md) | Alle | Alle | Ruft ab, oder legt ihn fest NuGet Konfigurationswerte. |
-| [Hilfe oder?](cli-ref-help.md) | Alle | Alle | Zeigt die Informationen oder Hilfe für einen Befehl Hilfe. |
-| ["lokal"](cli-ref-locals.md) | Verbrauch | 3.3+ | Löscht listet Pakete in verschiedenen Caches oder der Ordner "globale Pakete" oder die Ordner identifiziert. |
-| [restore](cli-ref-restore.md) | Verbrauch | 2.7+ | Stellt alle Pakete verweist auf das Paketformat-Verweis verwendet. Bei Ausführung auf Mono wird das Wiederherstellen von Paketen, die mit dem PackageReference-Format nicht unterstützt. | 
+| [help oder ?](cli-ref-help.md) | Alle | Alle | Zeigt die Informationen oder Hilfe für einen Befehl Hilfe. |
+| [locals](cli-ref-locals.md) | Verbrauch | 3.3+ | Löscht listet Pakete in verschiedenen Caches oder der Ordner "globale Pakete" oder die Ordner identifiziert. |
+| [restore](cli-ref-restore.md) | Verbrauch | 2.7+ | Stellt alle Pakete verweist auf das Paketformat-Verweis verwendet. Bei Ausführung auf Mono wird das Wiederherstellen von Paketen, die mit dem PackageReference-Format nicht unterstützt. |
 | [setapikey](cli-ref-setapikey.md) | Veröffentlichen, wählen Sie Verbrauch | Alle | Speichert einen API-Schlüssel für eine bestimmte Paketquelle an, wenn diese Paketquelle einen Schlüssel für den Zugriff erforderlich ist. |
-| [Spezifikation](cli-ref-spec.md) | Erstellung | Alle | Generiert eine `.nuspec` Datei Token verwenden, wenn die Datei aus einem Visual Studio-Projekt generiert wird. |
+| [spec](cli-ref-spec.md) | Erstellung | Alle | Generiert eine `.nuspec` Datei Token verwenden, wenn die Datei aus einem Visual Studio-Projekt generiert wird. |
 
 
-| Sekundäre Befehle | Anwendbaren Serverrollen | NuGet-Version | Beschreibung | 
+| Sekundäre Befehle | Anwendbaren Serverrollen | NuGet-Version | Beschreibung |
 | --- | --- | --- | --- |
 | [add](cli-ref-add.md) | Veröffentlichen | 3.3+ | Eine nicht-HTTP-Paketquelle hierarchischen Anordnung dargestellt mithilfe hinzugefügt ein Pakets. Verwenden Sie für HTTP-Quellen *Push*. |
 | [delete](cli-ref-delete.md) | Veröffentlichen | Alle | Entfernt, oder ein Paket aus einer Paketquelle unlists. |
 | [init](cli-ref-init.md) | Erstellung | 3.3+ | Eine hierarchische Layout mit Paketquelle hinzugefügt Pakete aus einem Ordner. |
-| [Installieren](cli-ref-install.md) | Verbrauch | Alle | Installiert ein Paket in das aktuelle Projekt jedoch keine Projekte ändern oder Dateien zu verweisen. |
+| [install](cli-ref-install.md) | Verbrauch | Alle | Installiert ein Paket in das aktuelle Projekt jedoch keine Projekte ändern oder Dateien zu verweisen. |
 | [list](cli-ref-list.md) | Ressourcenverbrauch, vielleicht veröffentlichen | Alle | Zeigt Pakete von einer bestimmten Quelle an. |
-| [Spiegelserver](cli-ref-mirror.md) | Veröffentlichen | Veraltetes Feature in 3.2 + | Spiegelt ein Paket und seine Abhängigkeiten von einer Quelle in ein Zielrepository. |
-| [Datenquellen](cli-ref-sources.md) | Verbrauch, veröffentlichen | Alle | Verwaltet die Paketquellen in Konfigurationsdateien. |
-| [Aktualisieren](cli-ref-update.md) | Verbrauch | Alle | Wird ein Projekt Pakete auf die neueste Version aktualisiert. Auf Mono Kompatibilitätsmodus unterstützt nicht. |
+| [mirror](cli-ref-mirror.md) | Veröffentlichen | Veraltetes Feature in 3.2 + | Spiegelt ein Paket und seine Abhängigkeiten von einer Quelle in ein Zielrepository. |
+| [sources](cli-ref-sources.md) | Verbrauch, veröffentlichen | Alle | Verwaltet die Paketquellen in Konfigurationsdateien. |
+| [update](cli-ref-update.md) | Verbrauch | Alle | Wird ein Projekt Pakete auf die neueste Version aktualisiert. Auf Mono Kompatibilitätsmodus unterstützt nicht. |
 
 Stellen Sie verschiedene Befehle verwenden verschiedener [Umgebungsvariablen](cli-ref-environment-variables.md).
 
@@ -68,7 +70,7 @@ NuGet-CLI-Befehlen durch den entsprechenden Rollen:
 
 | Rolle | Befehle |
 | --- | --- |
-| Verbrauch | `config`, `help`, `install`, `list`, `locals`, `restore`, `setapikey`, `sources`, `update` | 
+| Verbrauch | `config`, `help`, `install`, `list`, `locals`, `restore`, `setapikey`, `sources`, `update` |
 | Erstellung | `config`, `help`, `init`, `pack`, `spec` |
 | Veröffentlichen | `add`, `config`, `delete`, `help`, `list`, `push`, `setapikey`, `sources` |
 

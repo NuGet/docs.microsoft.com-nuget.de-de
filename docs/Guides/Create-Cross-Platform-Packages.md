@@ -13,11 +13,11 @@ keywords: "Erstellen eines Pakets, Pakete für Xamarin, plattformübergreifende 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8ee825a6299d7de375fd2f242cf456da13b777d9
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: f372856232f151efcf972881cffbe7d4bb7ed6ee
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-cross-platform-packages"></a>Erstellen von plattformübergreifenden Paketen
 
@@ -43,7 +43,7 @@ Mithilfe dieser exemplarischen Vorgehensweise können Sie ein plattformübergrei
 
 ## <a name="create-the-project-structure-and-abstraction-code"></a>Erstellen der Projektstruktur und abstrakten Codes
 
-1. Laden Sie das [Plug-In für Erweiterungen von Xamarin-Vorlagen](https://visualstudiogallery.msdn.microsoft.com/afead421-3fbf-489a-a4e8-4a244ecdbb1e) für Visual Studio herunter, und führen Sie es aus. Diese Vorlagen vereinfachen das Erstellen der für diese exemplarische Vorgehensweise notwendigen Projektstruktur.
+1. Laden Sie das [Plug-In für Erweiterungen von Xamarin-Vorlagen](https://marketplace.visualstudio.com/items?itemName=vs-publisher-473885.PluginForXamarinTemplates) für Visual Studio herunter, und führen Sie es aus. Diese Vorlagen vereinfachen das Erstellen der für diese exemplarische Vorgehensweise notwendigen Projektstruktur.
 1. Suchen Sie in Visual Studio über **Datei > Neu > Projekt** nach `Plugin`, wählen Sie die Vorlage **Plug-In für Xamarin** aus, ändern Sie den Namen in „LoggingLibrary“, und klicken Sie auf „OK“.
 
     ![Neues, leeres App-Projekt (Xamarin.Forms Portable) in Visual Studio](media/CrossPlatform-NewProject.png)

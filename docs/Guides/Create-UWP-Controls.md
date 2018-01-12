@@ -13,11 +13,11 @@ keywords: UWP-Steuerelemente von NuGet, Visual Studio XAML-Designer, Blend-Desig
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f51dbabd406199752e4f9d612b498f59ffb54021
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 8756ce472c11a05370914841245295361b3f179b
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="creating-uwp-controls-as-nuget-packages"></a>Erstellen von UWP-Steuerelementen als NuGet-Pakete
 
@@ -105,7 +105,7 @@ Angenommen beispielsweise, Sie haben die TPMinV für Ihr Steuerelementpaket auf 
 \ref\uap10.0\*
 ```
 
-Erstellen Sie zur Durchsetzung einer entsprechenden Überprüfung der TPMinV eine [MSBuild-Zieldatei](https://docs.microsoft.com/visualstudio/msbuild/msbuild-targets) und verpacken diese unter dem Buildordner (indem Sie „your_assembly_name“ durch den Namen Ihrer spezifischen Assembly ersetzen):
+Erstellen Sie zur Durchsetzung einer entsprechenden Überprüfung der TPMinV eine [MSBuild-Zieldatei](/visualstudio/msbuild/msbuild-targets) und verpacken diese unter dem Buildordner (indem Sie „your_assembly_name“ durch den Namen Ihrer spezifischen Assembly ersetzen):
 
 ```
 \build
@@ -133,7 +133,7 @@ Im Folgenden wird ein Beispiel dafür aufgeführt, wie die Zieldatei aussehen so
 
 ## <a name="add-design-time-support"></a>Hinzufügen von Entwurfszeitunterstützung
 
-Wenn Sie konfigurieren möchten, wo die Steuerelementeigenschaften in der Eigenschaftenanalyse erscheinen sollen, wo benutzerdefinierte Adorner hinzugefügt werden können usw., müssen Sie Ihre Datei entsprechend der Zielplattform `design.dll` im Ordner `lib\<platform>\Design` anordnen. Zudem sollten Sie `Generic.xaml` und alle Ressourcenverzeichnisse einschließen, die im Ordner `<AssemblyName>\Themes` zusammengeführt werden, um sicherzustellen, dass das Feature **[Vorlage bearbeiten > Kopie bearbeiten](https://docs.microsoft.com/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** funktioniert. (Diese Datei hat keine Auswirkungen auf das Laufzeitverhalten eines Steuerelements.)
+Wenn Sie konfigurieren möchten, wo die Steuerelementeigenschaften in der Eigenschaftenanalyse erscheinen sollen, wo benutzerdefinierte Adorner hinzugefügt werden können usw., müssen Sie Ihre Datei entsprechend der Zielplattform `design.dll` im Ordner `lib\<platform>\Design` anordnen. Zudem sollten Sie `Generic.xaml` und alle Ressourcenverzeichnisse einschließen, die im Ordner `<AssemblyName>\Themes` zusammengeführt werden, um sicherzustellen, dass das Feature **[Vorlage bearbeiten > Kopie bearbeiten](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** funktioniert. (Diese Datei hat keine Auswirkungen auf das Laufzeitverhalten eines Steuerelements.)
 
 
 ```
@@ -172,7 +172,7 @@ Zum Packen von Inhalten wie Images, die von Ihrem Steuerelement oder dem verwend
 \tools
 ```
 
-Sie können auch eine [MSBuild-Zieldatei](https://docs.microsoft.com/visualstudio/msbuild/msbuild-targets) erstellen, um sicherzustellen, dass das Objekt in den Ausgabeordner des verwendeten Projekts kopiert wird:
+Sie können auch eine [MSBuild-Zieldatei](/visualstudio/msbuild/msbuild-targets) erstellen, um sicherzustellen, dass das Objekt in den Ausgabeordner des verwendeten Projekts kopiert wird:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
