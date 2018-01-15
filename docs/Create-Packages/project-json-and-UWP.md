@@ -13,11 +13,11 @@ keywords: "NuGet-Abhängigkeiten, NuGet und UWP, UWP und „project.json“, NuG
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 40507e541997cea368052c373a4124d9c4a00a51
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: ae49c017365e1a63622fde318d5c94b64ed1ea2e
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="projectjson-and-uwp"></a>„project.json“ und UWP
 
@@ -70,7 +70,7 @@ NuGet-Pakete mit diesem Format weisen folgende bekannte Ordner und Verhaltenswei
 
 NuGet-Pakete können `.targets`- und `.props`-Dateien enthalten, die in MSBuild-Projekte importiert werden, in die das Paket installiert wird. In NuGet 2.x wurde dies durchgeführt, indem `<Import>`-Anweisungen in die `.csproj`-Datei eingefügt wurden. In NuGet 3.0 gibt es keine spezifische Aktion, um die Installation in ein Projekt vorzunehmen. Stattdessen schreibt der Paketwiederherstellungsprozess die zwei Dateien `[projectname].nuget.props` und `[projectname].NuGet.targets`.
 
-MSBuild sucht gezielt nach diesen beiden Dateien und importiert diese automatisch am Anfang und am Ende des Buildprozesses des Projekts. Dadurch wird ein ähnliches Verhalten wie in NuGet 2.x erzielt, es gibt jedoch einen wesentlichen Unterschied: *In diesem Fall gibt es keine Garantie für eine bestimmte Reihenfolge der TARGETS- und PROPS-Dateien*. MSBuild bietet jedoch die Möglichkeit, Ziele durch die `BeforeTargets`- und `AfterTargets`-Attribute der `<Target>`-Definition zu sortieren. Weitere Informationen finden Sie unter [Target Element (MSBuild) (Target-Element (MSBuild))](https://docs.microsoft.com/visualstudio/msbuild/target-element-msbuild).
+MSBuild sucht gezielt nach diesen beiden Dateien und importiert diese automatisch am Anfang und am Ende des Buildprozesses des Projekts. Dadurch wird ein ähnliches Verhalten wie in NuGet 2.x erzielt, es gibt jedoch einen wesentlichen Unterschied: *In diesem Fall gibt es keine Garantie für eine bestimmte Reihenfolge der TARGETS- und PROPS-Dateien*. MSBuild bietet jedoch die Möglichkeit, Ziele durch die `BeforeTargets`- und `AfterTargets`-Attribute der `<Target>`-Definition zu sortieren. Weitere Informationen finden Sie unter [Target Element (MSBuild) (Target-Element (MSBuild))](/visualstudio/msbuild/target-element-msbuild).
 
 
 ## <a name="lib-and-ref"></a>Lib und Ref
@@ -93,7 +93,7 @@ Es gibt gelegentlich Fälle, in denen eine andere Assembly während der Kompilie
 
 Die meisten Paketersteller benötigen den Ordner `ref` nicht. Dies ist bei Paketen nützlich, die eine einheitliche Oberfläche für die Kompilierung und IntelliSense bereitstellen müssen, aber über eine unterschiedliche Implementierung für unterschiedliche TxMs verfügen. Den häufigsten Anwendungsfall hierfür stellen `System.*`-Pakete dar, die produziert werden, wenn .NET Core in NuGet eingebunden wird. Diese Pakete verfügen über verschiedene Implementierungen, die durch konsistente Verweisassemblys vereinheitlicht werden.
 
-Die Assemblys, die im Ordner `ref` enthalten sind, stellen die Verweisassemblys dar, die an den Compiler übergeben werden. Falls Sie „csc.exe“ verwendet haben, sind dies die Assemblys, die an die C#-Option [/reference](https://docs.microsoft.com/dotnet/articles/csharp/language-reference/compiler-options/reference-compiler-option) übergeben werden.
+Die Assemblys, die im Ordner `ref` enthalten sind, stellen die Verweisassemblys dar, die an den Compiler übergeben werden. Falls Sie „csc.exe“ verwendet haben, sind dies die Assemblys, die an die C#-Option [/reference](/dotnet/articles/csharp/language-reference/compiler-options/reference-compiler-option) übergeben werden.
 
 Die Struktur des `ref`-Ordners entspricht der von `lib`. Beispiel:
 
@@ -121,7 +121,7 @@ In diesem Beispiel sind die Assemblys in den `ref`-Verzeichnissen identisch.
 
 ## <a name="runtimes"></a>Runtimes
 
-Der Ordner „runtimes“ enthält Assemblys und native Bibliotheken, die für bestimmte Runtimes ausgeführt werden müssen und üblicherweise durch das Betriebssystem und die CPU-Architektur definiert werden. Diese Runtimes werden mithilfe von [Runtime-IDs (RIDs)](https://docs.microsoft.com/dotnet/core/rid-catalog) (z.B. `win`, `win-x86`, `win7-x86`, `win8-64` usw.) identifiziert.
+Der Ordner „runtimes“ enthält Assemblys und native Bibliotheken, die für bestimmte Runtimes ausgeführt werden müssen und üblicherweise durch das Betriebssystem und die CPU-Architektur definiert werden. Diese Runtimes werden mithilfe von [Runtime-IDs (RIDs)](/dotnet/core/rid-catalog) (z.B. `win`, `win-x86`, `win7-x86`, `win8-64` usw.) identifiziert.
 
 ## <a name="native-light-up"></a>Erläuterung nativer Komponenten
 

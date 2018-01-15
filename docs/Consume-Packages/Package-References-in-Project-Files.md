@@ -13,11 +13,11 @@ keywords: "Abhängigkeiten von NuGet-Paketen, Paketverweise, Projektdateien, Pac
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c8fc9e558557af444d9a35ace36d043a5f6382a7
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 275957c94e4a4bb45f359cd48816acf4f286ebad
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Paketverweise (PackageReference) in Projektdateien
 
@@ -87,7 +87,7 @@ Sie verwenden eine Abhängigkeit möglicherweise rein als Entwicklungsumgebung u
 
 Mit den folgenden Metadatentags werden Abhängigkeitsobjekte gesteuert:
 
-| Tag | Beschreibung | Standardwert |
+| Tag | description | Standardwert |
 | --- | --- | --- |
 | IncludeAssets | Diese Objekte werden verbraucht | alle |
 | ExcludeAssets | Diese Objekte werden nicht verbraucht | Keine | 
@@ -96,7 +96,7 @@ Mit den folgenden Metadatentags werden Abhängigkeitsobjekte gesteuert:
 
 Folgende Werte sind für diese Tags zulässig, wobei mehrere Werte durch ein Semikolon (;) getrennt sind; eine Ausnahme stellen `all` und `none` dar, die nur alleine dargestellt werden dürfen:
 
-| Wert | Beschreibung |
+| Wert | description |
 | --- | ---
 | compile | Inhalte des Ordners `lib` |
 | Laufzeit | Inhalte des Ordners `runtime` |

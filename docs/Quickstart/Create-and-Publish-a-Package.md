@@ -13,11 +13,11 @@ keywords: "NuGet-Paketerstellung, NuGet-Paketveröffentlichung, NuGet-Tutorial"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 36a7c2b1d056dddf07a59737de1c3e94294689ac
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: ab5235537d869047075b93f9d8255ae9e61dfedd
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-and-publish-a-package"></a>Erstellen und Veröffentlichen eines Pakets
 
@@ -52,7 +52,7 @@ Für jedes NuGet-Paket ist für die Beschreibung der zugehörigen Inhalte und Ab
     nuget spec
     ```
 
-1. Öffnen Sie die Datei in einem Text-Editor. Das Manifest sieht in etwa wie der folgende Code aus. Dabei werden die Token im Format *$`<token>`$* während des Paketerstellungsprozesses durch Werte aus der Datei „Properties/AssemblyInfo.cs“ des Projekts ersetzt. Weitere Einzelheiten zu Token finden Sie unter [Erstellen einer NUSPEC-Datei](../create-packages/creating-a-package.md#creating-the-nuspec-file).
+1. Öffnen Sie die Datei in einem Text-Editor. Das Manifest sieht in etwa wie der folgende Code aus. Dabei werden die Token im Format `<token>` (z.B. `$id$`) während des Paketerstellungsprozesses durch Werte aus der Datei „Properties/AssemblyInfo.cs“ des Projekts ersetzt. Weitere Einzelheiten zu Token finden Sie unter [Erstellen einer NUSPEC-Datei](../create-packages/creating-a-package.md#creating-the-nuspec-file).
 
     ```xml
     <?xml version="1.0"?>
@@ -115,7 +115,6 @@ Sobald Sie eine `.nupkg`-Datei erstellt haben, veröffentlichen Sie diese mit de
 > [!Warning]
 > Die von Ihnen auf nuget.org veröffentlichten Pakete sind für andere Entwickler öffentlich sichtbar. Informationen zum privaten Hosten von Paketen finden Sie unter [Hosting packages](../hosting-packages/overview.md) (Hosten von Paketen).
 
-
 1. Erstellen Sie auf [nuget.org](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) ein kostenloses Konto, oder melden Sie sich an, wenn Sie bereits über ein Konto verfügen. Wenn Sie ein neues Konto erstellen, wird Ihnen eine Bestätigungs-E-Mail gesendet. Sie müssen das Konto bestätigen, bevor Sie ein Paket hochladen können.
 
 1. Wählen sie nach der Anmeldung Ihren Benutzernamen (oben rechts) und anschließend **API-Schlüssel** aus.
@@ -134,7 +133,7 @@ Sobald Sie eine `.nupkg`-Datei erstellt haben, veröffentlichen Sie diese mit de
     ```
     nuget push AppLogger.1.0.0.0.nupkg 47be3377-c434-4c29-8576-af7f6993a54b -Source https://api.nuget.org/v3/index.json
     ```
-    
+
 1. In „NuGet.exe“ werden die Ergebnisse des Veröffentlichungsvorgangs angezeigt:
 
     ```

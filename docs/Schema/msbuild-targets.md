@@ -11,11 +11,11 @@ ms.assetid: 86f7e724-2509-4d7d-aa8d-4a3fb913ded6
 description: "Die NuGet-Befehle „pack“ und „restore“ können direkt als MSBuild-Ziele mit NuGet 4.0 und höher arbeiten."
 keywords: "NuGet und MSBuild, NuGet-Ziel „pack“, NuGet-Wiederherstellungsziel"
 ms.reviewer: karann-msft
-ms.openlocfilehash: def01380e5bc3bf878e72dd437f52cd033641ca5
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: d4778a21a96de6d76d7a20ff9a305960dd6c2bf1
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet pack and restore as MSBuild targets (NuGet-Befehle „pack“ und „restore“ MSBuild-Ziele)
 
@@ -64,7 +64,7 @@ Beachten Sie, dass die Eigenschaften `Owners` und `Summary` aus einer `.nuspec`-
 | Authors | Authors | Name des aktuellen Benutzers | |
 | Besitzer | Nicht zutreffend | In NuSpec nicht vorhanden | |
 | Titel | Titel | Die PackageId| |
-| Beschreibung | Beschreibung | „Paketbeschreibung“ | |
+| description | description | „Paketbeschreibung“ | |
 | Copyright | Copyright | Leer | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | False | |
 | LicenseUrl | PackageLicenseUrl | Leer | |
@@ -84,7 +84,7 @@ Beachten Sie, dass die Eigenschaften `Owners` und `Summary` aus einer `.nuspec`-
 - PackageVersion
 - PackageId
 - Authors
-- Beschreibung
+- description
 - Copyright
 - PackageRequireLicenseAcceptance
 - DevelopmentDependency
@@ -235,7 +235,7 @@ Das Ziel `MSBuild /t:restore` (das von `nuget restore` und `dotnet restore` in .
 
 Weitere Wiederherstellungseigenschaften können aus MSBuild-Eigenschaften in der Projektdatei stammen. Werte können auch mithilfe des `/p:`-Switch über die Befehlszeile festgelegt werden (siehe nachfolgende Beispiele).
 
-| Eigenschaft | Beschreibung |
+| Eigenschaft | description |
 |--------|--------|
 | RestoreSources | Eine durch Semikolons (;) getrennte Liste mit Paketquellen. |
 | RestorePackagesPath | Ordnerpfad der Pakete für Benutzer. |
@@ -267,7 +267,7 @@ Projektdatei:
 
 Bei der Wiederherstellung werden die folgenden Dateien im `obj`-Buildordner erstellt:
 
-| Datei | Beschreibung |
+| Datei | description |
 |--------|--------|
 | `project.assets.json` | Zuvor `project.lock.json` |
 | `{projectName}.projectFileExtension.nuget.g.props` | Verweist auf in Paketen enthaltene MSBuild-Eigenschaften |

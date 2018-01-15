@@ -3,29 +3,28 @@ title: NuGet-Pakete in Visual Studio-Vorlagen | Microsoft-Dokumentation
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 2/8/2017
+ms.date: 1/3/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 0b2cf228-f028-475d-8792-c012dffdb26f
 description: "Anweisungen zum Einschließen von NuGet-Paketen als Teil von Visual Studio Projekt- und Elementvorlagen."
 keywords: "NuGet in Visual Studio, Visual Studio-Projektvorlagen, Elementvorlagen für Visual Studio, Pakete in Projektvorlagen, Pakete in Elementvorlagen"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 5b2ad7616578b5f54d917c4555e861c847814da9
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 45a2ca2c08660be650f9cf38301f628923e1f8be
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="packages-in-visual-studio-templates"></a>Pakete in Visual Studio-Vorlagen
 
-Bei Projekt- und Elementvorlagen in Visual Studio muss häufig sicherstellt werden, dass bestimmte Pakete installiert sind, wenn das Projekt oder Element erstellt wird. Die ASP.NET MVC 3-Vorlage installiert z.B. jQuery, Modernizr und andere Pakete.
+Bei Projekt- und Elementvorlagen in Visual Studio muss häufig sichergestellt werden, dass bestimmte Pakete installiert sind, wenn ein Projekt oder Element erstellt wird. Die ASP.NET MVC 3-Vorlage installiert z.B. jQuery, Modernizr und andere Pakete.
 
 Autoren von Vorlagen können NuGet zum Installieren der erforderlichen Pakete anstatt einzelner Bibliotheken anweisen, um dies zu unterstützen. Entwickler können dann einfach diese Pakete zu einem späteren Zeitpunkt aktualisieren.
 
-Weitere Informationen zum Erstellen von Vorlagen selbst finden Sie unter [Erstellen von Projekt- und Elementvorlagen in Visual Studio](https://msdn.microsoft.com/library/s365byhx.aspx) oder [Erstellen von benutzerdefinierten Projekt- und Elementvorlagen mit dem Visual Studio SDK](https://msdn.microsoft.com/library/ff527340.aspx).
+Weitere Informationen zum Erstellen von Vorlagen selbst finden Sie unter [Vorgehensweise: Erstellen von Projektvorlagen](/visualstudio/ide/how-to-create-project-templates) oder [Erstellen von benutzerdefinierten Projekt- und Elementvorlagen](/visualstudio/extensibility/creating-custom-project-and-item-templates).
 
 Der übrige Teil dieses Abschnitts beschreibt die konkreten Schritte, die beim Erstellen einer Vorlage erforderlich sind, um NuGet-Pakete ordnungsgemäß einzubinden.
 
@@ -34,16 +33,15 @@ Der übrige Teil dieses Abschnitts beschreibt die konkreten Schritte, die beim E
 
 Ein Beispiel finden Sie unter [NuGetInVsTemplates sample (NuGetInVsTemplates-Beispiel)](https://bitbucket.org/marcind/nugetinvstemplates).
 
-
 ## <a name="adding-packages-to-a-template"></a>Hinzufügen von Paketen zu einer Vorlage
 
-Wenn eine Vorlage instanziiert wird, wird ein [Vorlagen-Assistent](https://msdn.microsoft.com/library/ms185301.aspx) aufgerufen, um die Liste der zu installierenden Pakete zu laden, zusammen mit Informationen, wo diese Pakete zu finden sind. Pakete können in VSIX oder in der Vorlage eingebettet werden oder befinden sich auf der lokalen Festplatte, wobei Sie in diesem Fall einen Registrierungsschlüssel verwenden, um auf den Dateipfad zu verweisen. Details zu diesen Speicherorten werden weiter unten in diesem Abschnitt beschrieben.
+Wenn eine Vorlage instanziiert wird, wird ein [Vorlagen-Assistent](/visualstudio/extensibility/how-to-use-wizards-with-project-templates) aufgerufen, um die Liste der zu installierenden Pakete zu laden, zusammen mit Informationen, wo diese Pakete zu finden sind. Pakete können in VSIX oder in der Vorlage eingebettet werden oder befinden sich auf der lokalen Festplatte, wobei Sie in diesem Fall einen Registrierungsschlüssel verwenden, um auf den Dateipfad zu verweisen. Details zu diesen Speicherorten werden weiter unten in diesem Abschnitt beschrieben.
 
-Vorinstallierte Pakete funktionieren mithilfe von [Vorlagen-Assistenten](http://msdn.microsoft.com/library/ms185301.aspx). Wenn die Vorlage instanziiert wird, wird ein spezieller Assistent aufgerufen. Der Assistent lädt die Liste der Pakete, die installiert werden müssen, und übergibt diese Informationen an die entsprechenden NuGet-APIs.
+Vorinstallierte Pakete funktionieren mithilfe von [Vorlagen-Assistenten](/visualstudio/extensibility/how-to-use-wizards-with-project-templates). Wenn die Vorlage instanziiert wird, wird ein spezieller Assistent aufgerufen. Der Assistent lädt die Liste der Pakete, die installiert werden müssen, und übergibt diese Informationen an die entsprechenden NuGet-APIs.
 
 Schritte zum Einschließen von Paketen in eine Vorlage:
 
-1. In Ihrer `vstemplate`-Datei fügen Sie einen Verweis auf den NuGet-Vorlagen-Assistenten hinzu, indem Sie ein [`WizardExtension`](http://msdn.microsoft.com/library/ms171411.aspx)-Element hinzufügen:
+1. In Ihrer `vstemplate`-Datei fügen Sie einen Verweis auf den NuGet-Vorlagen-Assistenten hinzu, indem Sie ein [`WizardExtension`](/visualstudio/extensibility/wizardextension-element-visual-studio-templates)-Element hinzufügen:
 
     ```xml
     <WizardExtension>
@@ -66,12 +64,11 @@ Schritte zum Einschließen von Paketen in eine Vorlage:
 
     *(NuGet 2.2.1+)*  Der Assistent unterstützt mehrere `<package>`-Elemente zur Unterstützung mehrerer Paketquellen. Sowohl die `id`- als auch die `version`-Attribute werden benötigt. Dies bedeutet, dass die jeweilige Version eines Pakets selbst dann installiert wird, wenn eine neuere Version verfügbar ist. Dadurch wird verhindert, dass Paketupdates die Vorlage unterbrechen und die Wahl, das Paket zu aktualisieren, dem Entwickler überlassen wird, der die Vorlage verwendet.
 
-
 1. Geben Sie das Repository an, in dem NuGet die Pakete, wie in den folgenden Abschnitten beschrieben, finden kann.
 
 ### <a name="vsix-package-repository"></a>VSIX-Paketrepository
 
-Der empfohlene Bereitstellungsansatz für Visual Studio-Projekt-/Elementvorlagen ist eine [VSIX-Erweiterung](http://msdn.microsoft.com/library/ff363239.aspx), da sie Ihnen die Möglichkeit gibt, mehrere Projekt-/Elementvorlagen zusammen zu packen, und Entwicklern erlaubt, mühelos Ihre Vorlagen durch Verwenden des Visual Studio-Erweiterungsmanagers oder der Visual Studio Gallery zu ermitteln. Updates der Erweiterung können genauso einfach mit [automatischen Updates für den Visual Studio-Erweiterungsmanager](http://msdn.microsoft.com/library/dd997169.aspx) bereitgestellt werden.
+Der empfohlene Bereitstellungsansatz für Visual Studio-Projekt-/Elementvorlagen ist eine [VSIX-Erweiterung](/visualstudio/extensibility/shipping-visual-studio-extensions), da sie Ihnen die Möglichkeit gibt, mehrere Projekt-/Elementvorlagen zusammen zu packen, und Entwicklern erlaubt, mühelos Ihre Vorlagen durch Verwenden des Visual Studio-Erweiterungsmanagers oder der Visual Studio Gallery zu ermitteln. Updates der Erweiterung können genauso einfach mit [automatischen Updates für den Visual Studio-Erweiterungsmanager](/visualstudio/extensibility/how-to-update-a-visual-studio-extension) bereitgestellt werden.
 
 VSIX selbst kann als Quelle für die von der Vorlage benötigten Pakete dienen:
 
@@ -83,25 +80,17 @@ VSIX selbst kann als Quelle für die von der Vorlage benötigten Pakete dienen:
     </packages>
     ```
 
-    Das `repository`-Attribut gibt den Typ des Repositorys als `extension` an, während `repositoryId` der eindeutige Bezeichner des VSIX-Projekts selbst ist (dies ist der Wert des [`ID`-Attributs](http://msdn.microsoft.com/library/dd393688.aspx) in der Datei `vsixmanifest` der Erweiterung).
+    Das `repository`-Attribut gibt den Typ des Repositorys als `extension` an, während `repositoryId` der eindeutige Bezeichner des VSIX-Projekts selbst ist (dies ist der Wert des `ID`-Attributs in der Datei `vsixmanifest` der Datei der Erweiterung. Informationen dazu finden Sie in der [Referenz zum VSIX-Erweiterungsschema 2.0](/visualstudio/extensibility/vsix-extension-schema-2-0-reference)).
 
 1. Speichern Sie Ihre `nupkg`-Dateien in einem Ordner namens `Packages` im VSIX-Projekt.
-1. Fügen Sie die erforderlichen Paketdateien als [benutzerdefinierten Erweiterungsinhalt](http://msdn.microsoft.com/library/dd393737.aspx) in Ihrer `source.extension.vsixmanifest`-Datei hinzu. Wenn Sie das 2.0-Schema verwenden, sollte es wie folgt aussehen:
+
+1. Fügen Sie die erforderlichen Paketdateien Ihrer `vsixmanifest`-Datei als `<Asset>` hinzu (Informationen hierzu finden Sie in der [Referenz zum VSIX-Erweiterungsschema 2.0](/visualstudio/extensibility/vsix-extension-schema-2-0-reference)):
 
     ```xml
     <Asset Type="Moq.4.0.10827.nupkg" d:Source="File" Path="Packages\Moq.4.0.10827.nupkg" d:VsixSubPath="Packages" />
     ```
 
-    Wenn Sie das 1.0-Schema verwenden, sollte es wie folgt aussehen:
-
-    ```xml
-    <CustomExtension Type="Moq.4.0.10827.nupkg">
-        packages/Moq.4.0.10827.nupkg
-    </CustomExtension>
-    ```
-
 1. Beachten Sie, dass Sie Pakete in derselben Instanz von VSIX wie die Projektvorlagen übermitteln können, oder Sie können diese in einer separaten VSIX-Instanz einfügen, wenn dies für Ihr Szenario sinnvoller ist. Verweisen Sie jedoch auf keine Instanz von VSIX, die Sie nicht selbst steuern, da Änderungen für diese Erweiterung Ihre Vorlage beschädigen könnten.
-
 
 ### <a name="template-package-repository"></a>Vorlage „Paketrepository“
 
@@ -120,7 +109,6 @@ Wenn Sie nur eine einzelne Projekt-/Elementvorlage verteilen und nicht unterschi
 1. Platzieren Sie Pakete im Stammordner der ZIP-Datei der Projekt-/Elementvorlagen.
 
 Beachten Sie, dass es bei Verwenden dieses Ansatzes in einer VSIX-Instanz mit mehreren Vorlagen zu einer unnötigen Überfrachtung kommen kann, wenn ein oder mehrere Pakete den Vorlagen gemeinsam sind. In solchen Fällen verwenden Sie [VSIX als Repository](#vsix-package-repository) wie im vorherigen Abschnitt beschrieben.
-
 
 ### <a name="registry-specified-folder-path"></a>Von der Registrierung angegebener Ordnerpfad
 
@@ -159,6 +147,6 @@ SDKs, die mit MSI installiert werden, können direkt auf dem Computer des Entwic
     <!-- ... -->
     ```
 
-1. Erfordern Sie, dass Projekt-/Elementvorlagen bei der Erstellung gespeichert werden, indem Sie [`<PromptForSaveOnCreation>`](http://msdn.microsoft.com/library/twfxayz5.aspx) in der `.vstemplate`-Datei festlegen.
+1. Erfordern Sie, dass Projekt-/Elementvorlagen bei der Erstellung gespeichert werden, indem Sie [`<PromptForSaveOnCreation>true</PromptForSaveOnCreation>`](/visualstudio/extensibility/promptforsaveoncreation-element-visual-studio-templates) in die `.vstemplate`-Datei einschließen.
 
 1. Vorlagen enthalten keine `packages.config`- oder `project.json`-Datei, und enthalten keinerlei Verweise oder Inhalt, die bei der Installation von NuGet-Paketen hinzugefügt werden.

@@ -13,15 +13,15 @@ keywords: NuGet-Paket-Manager, Nutzung, Paketerstellung, Pakethosting
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 29dcedf33a54e249fe0b6acf588e4aafde28304f
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 2bc6a9e154df287fee6a7e00cc1349dfa2100643
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="an-introduction-to-nuget"></a>Eine Einführung in NuGet
 
-Ein unverzichtbares Tool für jede moderne Entwicklungsplattform ist ein Mechanismus, durch den Entwickler nützliche Codebibliotheken erstellen, freigeben und verwenden können. Diese Bibliotheken werden in der Regel als „Pakete“ bezeichnet, da sie kompilierten Code (als DLL-Dateien) enthalten können, zusammen mit anderem Inhalt, der in den Projekten möglicherweise erforderlich ist, die diese Bibliotheken verwenden.
+Ein unverzichtbares Tool für jede moderne Entwicklungsplattform ist ein Mechanismus, durch den Entwickler nützlichen Code erstellen, freigeben und verwenden können. Solch ein Code wird oft in „Paketen“ gebündelt, in denen kompilierter Code (z.B. DLLs) zusammen mit anderem Inhalt enthalten ist, der in Projekten benötigt wird, die diese Pakete nutzen.
 
 Für .NET ist der Mechanismus zur Freigabe von Code **NuGet**, das definiert, wie Pakete für .NET erstellt, gehostet und verarbeitet werden, und es stellt die Tools für jede dieser Aktionen bereit. 
 
@@ -41,11 +41,11 @@ Ein „kompatibles“ Paket bedeutet in diesem Fall, dass es Assemblys enthält,
 
 Zusätzlich zur Unterstützung für das Hosting bietet NuGet außerdem eine Vielzahl von Tools, die vom Ersteller und Benutzer verwendet werden:
 
-| Tool | Plattformen | Anwendbare Szenarios | Beschreibung |
+| Tool | Plattformen | Anwendbare Szenarios | description |
 | --- | --- | --- | --- |
 | [nuget.exe-CLI](Tools/nuget-exe-CLI-Reference.md) | Alle | Erstellung, Verbrauch | Bietet alle NuGet-Funktionen, mit einigen Befehlen, die speziell für Paketersteller bestimmt sind, anderen Befehlen, die nur für Benutzer, und wieder anderen, die für beide bestimmt sind. Beispielsweise verwenden Paketersteller den `nuget pack`-Befehl zum Erstellen eines Pakets aus verschiedenen Assemblys und zugehörigen Dateien, Paketbenutzer verwenden `nuget install`, um Pakete in ein Projekt einzubinden, und alle verwenden `nuget config`, um NuGet-Konfigurationsvariablen festzulegen.  |
 | [Benutzeroberfläche des Paket-Managers](Tools/Package-Manager-UI.md) | Visual Studio unter Windows | Verbrauch | Stellt eine einfach zu bedienende Benutzeroberfläche zum Installieren und Verwalten von Paketen in .NET-Projekten bereit. | 
-| [Manage NuGet UI (Verwalten der NuGet-Benutzeroberfläche)](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough) | Visual Studio für Mac | Verbrauch | Stellt eine einfach zu bedienende Benutzeroberfläche zum Installieren und Verwalten von Paketen in .NET-Projekten bereit. |
+| [Manage NuGet UI (Verwalten der NuGet-Benutzeroberfläche)](/visualstudio/mac/nuget-walkthrough) | Visual Studio für Mac | Verbrauch | Stellt eine einfach zu bedienende Benutzeroberfläche zum Installieren und Verwalten von Paketen in .NET-Projekten bereit. |
 | [Paket-Manager-Konsole](Tools/Package-Manager-Console.md) | Visual Studio unter Windows | Verbrauch | Stellt [PowerShell-Befehle](Tools/Powershell-Reference.md) zum Installieren und Verwalten von Paketen in .NET-Projekten bereit. | 
 | [dotnet-CLI](Tools/dotnet-Commands.md) | Alle | Erstellung, Verbrauch | Stellt bestimmte NuGet-CLI-Funktionen direkt in der .NET Core-Toolkette bereit. |
 | [MSBuild](Schema/msbuild-targets.md) | Windows | Erstellung, Verbrauch | Bietet die Möglichkeit zum Erstellen von Paketen und Wiederherstellen von Paketen, die in einem Projekt direkt über die MSBuild-Toolkette verwendet werden. |

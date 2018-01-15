@@ -13,11 +13,11 @@ keywords: NuGet-Paketinstallation, erneute Installation eines NuGet-Pakets, NuGe
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 898a431af4ed2e090b87d97bf43cec965b72d3c3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 6a198b371c86166e2bcdee7f6cf2a6c971bea0a3
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Neuinstallieren und Aktualisieren von Paketen
 
@@ -25,13 +25,14 @@ Es gibt einige Situationen, die nachfolgend unter [Wann ein Paket neu installier
 
 Das Aktualisieren und die Neuinstallation von Paketen erfolgt wie im Folgenden dargestellt:
 
-| Methode | Aktualisieren | Neuinstallation | 
+| Methode | Update | Neuinstallation | 
 | --- | --- | --- |
 | Paket-Manager-Konsole (beschrieben unter [Verwenden des Updatepakets](#using-update-package)) | `Update-Package`-Befehl | `Update-Package -reinstall`-Befehl |
 | Benutzeroberfläche des Paket-Managers | Wählen Sie auf der Registerkarte **Updates** mindestens ein Paket aus, und klicken Sie auf **Update** (Aktualisieren). | Wählen Sie auf der Registerkarte **Installiert** ein Paket aus, dokumentieren Sie dessen Namen, und klicken Sie dann auf **Deinstallieren**. Wechseln Sie zur Registerkarte **Durchsuchen**, suchen Sie nach dem Paketnamen, wählen Sie ihn aus, und klicken Sie dann auf **Installieren**. |
 | nuget.exe-CLI | `nuget update`-Befehl | Löschen Sie für alle Pakete den Paketordner, und führen Sie dann `nuget install` aus. Löschen Sie für ein einzelnes Paket den Paketordner, und verwenden Sie `nuget install <id>`, um den gleichen Ordner neu zu installieren. |
 
-In diesem Thema:
+In diesem Artikel:
+
 - [Wann ein Paket neu installiert werden sollte](#when-to-reinstall-a-package)
 - [Einschränken von Updateversionen](#constraining-upgrade-versions)
 
@@ -39,7 +40,7 @@ In diesem Thema:
 
 1. **Fehlerhafte Verweise nach der Paketwiederherstellung:** Wenn Sie ein Projekt geöffnet und NuGet-Pakete wiederhergestellt haben, jedoch noch immer fehlerhafte Verweise angezeigt werden, versuchen Sie, jedes einzelne Paket wiederherzustellen.
 1. **Projekt ist aufgrund gelöschter Dateien fehlerhaft:** NuGet hält Sie nicht davon ab, Elemente zu löschen, die aus Paketen hinzugefügt wurden. Es ist also einfach, versehentlich die aus einem Paket installierten Inhalte zu verändern und Ihr Projekt so zu zerstören. Installieren Sie die betroffenen Pakete erneut, um das Projekt wiederherzustellen.
-1. **Das Paketupdate hat das Projekt zerstört:** Wenn ein Update für ein Paket ein Projekt zerstört, wurde der Fehler in der Regel von einem Abhängigkeitspaket verursacht, das womöglich auch aktualisiert wurde. Installieren Sie das spezifische Paket neu, um den Zustand der Abhängigkeit wiederherzustellen.
+1. **Das Paketupdate hat zu einem Fehler im Projekt geführt:** Wenn ein Update für ein Paket einen Fehler in einem Projekt verursacht, wurde dieser in der Regel von einem Abhängigkeitspaket ausgelöst, das möglicherweise auch aktualisiert wurde. Installieren Sie das spezifische Paket neu, um den Zustand der Abhängigkeit wiederherzustellen.
 1. **Erneutes Zuweisen oder Upgrade eines Projekts:** Dies kann hilfreich sein, wenn ein Projekt erneut zugewiesen oder ein Upgrade für dieses durchgeführt wurde, und wenn das Paket eine Neuinstallation aufgrund der Änderung im Zielframework erfordert. NuGet 2.7 und höher zeigt in solchen Fällen sofort nach der Projektneuzuweisung einen Buildfehler an, und in nachfolgenden Buildwarnungen wird Ihnen mitgeteilt, dass das Paket möglicherweise neu installiert werden muss. Für das Projektupgrade zeigt NuGet einen Fehler im Projektupgradeprotokoll an.
 1. **Neuinstallation eines Pakets während der Entwicklung:** Paketautoren müssen oft dieselbe Version des Pakets neu installieren, das Sie entwickeln, um das Verhalten zu testen. Der `Install-Package`-Befehl bietet keine Option zum Erzwingen einer Neuinstallation an. Verwenden Sie deshalb stattdessen `Update-Package -reinstall`.
 

@@ -13,11 +13,11 @@ keywords: Erstellen von NuGet-Paketen, Erstellen eines Pakets, NUSPEC-Manifest, 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e7a2c4d02afb2387161c22fe5bd443eb0991ea8c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 6675d21a2900a1b61e17c08518b328732f4472c5
+ms.sourcegitcommit: 1cb047b24b3b69d80e808c23b2ace0d98d2dfdcc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="creating-nuget-packages"></a>Erstellen von NuGet-Paketen
 
@@ -185,7 +185,7 @@ Der Vorteil dieses Ansatzes ist, dass Sie nicht wie weiter unten in diesem Thema
 
 Die Ordnerkonventionen lauten folgendermaßen:
 
-| Ordner | Beschreibung | Aktion bei der Paketinstallation |
+| Ordner | description | Aktion bei der Paketinstallation |
 | --- | --- | --- |
 | (Stammverzeichnis) | Speicherort für „readme.txt“ | In Visual Studio wird die Datei „readme.txt“ im Stammverzeichnis des Pakets angezeigt, wenn das Paket installiert wird. |
 | lib/{tfm} | Assembly- (`.dll`), Dokumentations- (`.xml`) und Symboldateien (`.pdb`) für den angegebenen Zielframeworkmoniker (Target Framework Moniker, TFM) | Assemblys werden als Verweise hinzugefügt, und `.xml` sowie `.pdb` werden in Projektordner kopiert. Informationen zum Erstellen von für das Zielframework spezifischen Unterordnern finden Sie unter [Supporting multiple .NET framework versions (Unterstützen mehrerer .NET Framework-Versionen)](Supporting-Multiple-Target-Frameworks.md). |
@@ -284,7 +284,7 @@ In NuGet 3.5 und höher können Pakete mit einem bestimmten *Pakettyp* gekennzei
 
 - Pakete mit Typ `Dependency` fügen Bibliotheken und Anwendungen Build- oder Laufzeitressourcen hinzu und können in jedem Projekttyp installiert werden, wenn sie kompatibel sind.
 
-- Pakete mit Typ `DotnetCliTool` sind Erweiterungen der [.NET-CLI](https://docs.microsoft.com/dotnet/articles/core/tools/index) und werden über die Befehlszeile aufgerufen. Solche Pakete können nur in .NET Core-Projekten installiert werden und haben keine Auswirkungen auf Wiederherstellungsvorgänge. Weitere Informationen zu diesen projektspezifischen Erweiterungen finden Sie in der Dokumentation zur [.NET Core-Erweiterbarkeit](https://docs.microsoft.com/dotnet/articles/core/tools/extensibility#per-project-based-extensibility).
+- Pakete mit Typ `DotnetCliTool` sind Erweiterungen der [.NET-CLI](/dotnet/articles/core/tools/index) und werden über die Befehlszeile aufgerufen. Solche Pakete können nur in .NET Core-Projekten installiert werden und haben keine Auswirkungen auf Wiederherstellungsvorgänge. Weitere Informationen zu diesen projektspezifischen Erweiterungen finden Sie in der Dokumentation zur [.NET Core-Erweiterbarkeit](/dotnet/articles/core/tools/extensibility#per-project-based-extensibility).
 
     Wenn ein DotnetCliTool-Paket installiert wurde, fügt Visual Studio das Paket in den Knoten `project.json` `tools` ein, nicht in den Knoten `dependencies`.
 

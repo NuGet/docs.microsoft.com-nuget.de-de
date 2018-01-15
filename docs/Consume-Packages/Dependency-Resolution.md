@@ -13,11 +13,11 @@ keywords: "NuGet-Paketabhängigkeiten, NuGet-Versionsverwaltung, Abhängigkeitsv
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 44c69c07990fed72b439698d22021ebcbb2eed89
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 93a3d077a6dd1946485fc8c48f97c8009280890c
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Auflösung von Paketabhängigkeiten durch NuGet
 
@@ -151,6 +151,12 @@ Wenn Sie dieses Problem lösen möchten, müssen Sie direkt auf die Version von 
             }
         }
     }
+    ```
+
+- Fügen Sie mit [Paketverweis in Projektdateien](../consume-packages/package-references-in-project-files.md) (nur NuGet 4.0 und höher) der Abhängigkeit `ExcludeAssets="All"` hinzu:
+
+    ```xml
+    <PackageReference Include="packageC" Version="1.0.0" ExcludeAssets="All" />
     ```
 
 ## <a name="dependency-updates-during-package-install"></a>Aktualisierung von Abhängigkeiten bei der Paketinstallation 

@@ -13,11 +13,11 @@ keywords: NuGet-Paketwiederherstellung, NuGet und TFS, NuGet und VSTS, NuGet-Bui
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 4be1bb83549958897a15d690439cac073c9683d1
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 82decfa1a39cb99c405840a8f13b0bc993111c09
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>Einrichten der Paketwiederherstellung mit Team Foundation Build
 
@@ -29,9 +29,9 @@ ms.lasthandoff: 12/14/2017
 >
 > Wenn Sie Visual Studio Team Services oder Team Foundation Server 2013 lokal mit Buildprozessvorlagen verwenden, erfolgt die automatische Paketwiederherstellung im Zuge des Buildprozesses.
 
-Im folgenden Abschnitt wird ausführlich beschrieben, wie Sie Pakete sowohl für [Git](http://en.wikipedia.org/wiki/Git_(software)) als auch für [Team Foundation-Versionskontrolle](http://msdn.microsoft.com/library/ms181237(v=vs.120).aspx) im Rahmen von [Team Foundation Build](http://msdn.microsoft.com/library/ms181710(v=VS.90).aspx) wiederherstellen.
+Im folgenden Abschnitt wird ausführlich beschrieben, wie Sie Pakete sowohl für Git als auch jeweils für Git und Team Services-Versionskontrolle im Rahmen von [Team Services Build](/vsts/build-release/index) wiederherstellen.
 
-Obwohl sich die Beschreibungen auf [Team Foundation Service](http://tfs.visualstudio.com/)-Szenarios beziehen, gelten die Konzepte auch für andere Build- und Versionskontrollsysteme.
+Obwohl sich die Beschreibungen auf Visual Studio Team Services-Szenarios beziehen, gelten die Konzepte auch für andere Build- und Versionskontrollsysteme.
 
 ## <a name="the-general-approach"></a>Allgemeine Vorgehensweise
 
@@ -119,7 +119,7 @@ Die `.gitignore`-Datei ist [leistungsstark](https://www.kernel.org/pub/software/
 
 Dadurch werden alle `packages`-Ordner ausgeschlossen, aber alle beinhalteten `.targets`-Dateien eingeschlossen. Eine Vorlage für `.gitignore`-Dateien, die speziell auf die Bedürfnisse von Visual Studio-Entwicklern zugeschnitten ist, finden Sie [hier](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore).
 
-Team Foundation-Versionskontrolle unterstützt mit der [TFIGNORE](http://msdn.microsoft.com/library/ms245454.aspx)-Datei einen ähnlichen Mechanismus. Die Syntax ist praktisch die gleiche:
+Team Foundation-Versionskontrolle unterstützt mit der [TFIGNORE](/vsts/tfvc/add-files-server#customize-which-files-are-ignored-by-version-control)-Datei einen ähnlichen Mechanismus. Die Syntax ist praktisch die gleiche:
 
     *.user
     *.suo
@@ -135,7 +135,7 @@ Dieses Projekt weist drei konventionelle Ziele auf (`Clean`, `Build` und `Rebuil
 
 - Die Ziele `Build` und `Rebuild` sind von `RestorePackages` abhängig. Dadurch wird sichergestellt, dass Sie `Build` und `Rebuild` ausführen können, während Pakete wiederhergestellt werden.
 - `Clean`, `Build` und `Rebuild` rufen das entsprechende MSBuild-Ziel für alle Projektmappendateien auf.
-- Das `RestorePackages`-Ziel ruft `nuget.exe` für jede Projektmappendatei auf. Dies erfolgt durch die [Batchverarbeitungsfunktion von MSBuild](http://msdn.microsoft.com/library/ms171473.aspx).
+- Das `RestorePackages`-Ziel ruft `nuget.exe` für jede Projektmappendatei auf. Dies erfolgt durch die [Batchverarbeitungsfunktion von MSBuild](/visualstudio/msbuild/msbuild-batching).
 
 Daraus ergibt sich folgendes Ergebnis:
 

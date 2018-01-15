@@ -14,11 +14,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 4d1d2e6850f22306d715b1c2071ee45b0eb050dc
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 36e1f0cd6e4284a6bd272ce3c85749e9ed72cbcd
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="target-frameworks"></a>Zielframeworks
 
@@ -40,7 +40,7 @@ Auf ein Framework wird in der Regel durch einen kurzen Zielframeworkmoniker (Tar
 
 Die NuGet-Clients unterstützen die in der folgenden Tabelle aufgelisteten Frameworks. Äquivalente werden in eckigen Klammern angegeben. Beachten Sie, dass einige Tools (z.B. `dotnet`) möglicherweise Variationen von kanonischen TFMs in einigen Dateien verwenden. `dotnet pack` verwendet beispielsweise `.NETCoreApp2.0` statt `netcoreapp2.0` in einer `.nuspec`-Datei. Die verschiedenen NuGet-Clienttools verarbeiten diese Variationen ordnungsgemäß, Sie sollten jedoch immer kanonische TFMs verwenden, wenn Sie Dateien direkt bearbeiten.
 
-| Name           | Abkürzung | TFMs/TxMs |
+| name           | Abkürzung | TFMs/TxMs |
 | -------------  | ------------ | --------- |
 |.NET Framework  | net          | net11     |
 |                |              | net20     |
@@ -53,7 +53,7 @@ Die NuGet-Clients unterstützen die in der folgenden Tabelle aufgelisteten Frame
 |                |              | net46      |
 |                |              | net461     |
 |                |              | net462     |
-|Windows Store   | netcore      | netcore [netcore45] |
+|Microsoft Store (Windows Store) | netcore      | netcore [netcore45] |
 |                |              | netcore45 [win, win8] |
 |                |              | netcore451 [win81] |
 |                |              | netcore50 |
@@ -122,7 +122,7 @@ Einige Frameworks sind miteinander verwandt und kompatibel, aber nicht notwendig
 
 ## <a name="net-platform-standard"></a>.NET-Plattformstandard
 
-Der [.NET-Plattformstandard](https://github.com/dotnet/corefx/blob/master/Documentation/architecture/net-platform-standard.md) vereinfacht Verweise zwischen binärkompatiblen Frameworks, wodurch ein einzelnes Zielframeworks auf eine Kombination aus anderen Frameworks verweisen kann. (Weitere Informationen finden Sie unter [.NET Primer (Einführung in .NET)](https://docs.microsoft.com/dotnet/articles/standard/index).)
+Der [.NET-Plattformstandard](https://github.com/dotnet/corefx/blob/master/Documentation/architecture/net-platform-standard.md) vereinfacht Verweise zwischen binärkompatiblen Frameworks, wodurch ein einzelnes Zielframeworks auf eine Kombination aus anderen Frameworks verweisen kann. (Weitere Informationen finden Sie unter [.NET Primer (Einführung in .NET)](/dotnet/articles/standard/index).)
 
 Das NuGet-Tool [Get Nearest Framework](https://aka.ms/s2m3th) simuliert, wie NuGet in einem Paket, das auf dem Framework des Projekts basiert, ein Framework aus vielen verfügbaren Frameworkobjekten auswählt.
 
@@ -282,7 +282,7 @@ Zusätzliche Frameworks, die von Drittanbietern definiert wurden, sind mit ander
 
 Darüber hinaus können NuGet-Pakete, die Xamarin anzielen, zusätzliche für Xamarin definierte Frameworks verwenden. Weitere Informationen finden Sie unter [Creating NuGet packages for Xamarin (Erstellen von NuGet-Paketen für Xamarin)](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/).
 
-| Name | Beschreibung | .NET-Standard |
+| name | description | .NET-Standard |
 | --- | --- | ---
 | monoandroid | Mono-Unterstützung für Android | netstandard1.4 |
 | monotouch | Mono-Unterstützung für iOS | netstandard1.4 |

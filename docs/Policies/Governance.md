@@ -13,11 +13,11 @@ keywords: "NuGet-Governance, wohlmeinender Diktator (NuGet), Zuständigkeiten vo
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: db2ed774b35d5698a88f9afba43fd30692001f6a
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 0437b7d41f965da6a7ad44a7d0675916ed655fe1
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-governance"></a>NuGet-Governance
 
@@ -47,7 +47,7 @@ Normalerweise konzentriert sich ein Committer auf einen bestimmten Aspekt des Pr
 
 Committers haben bei der Ausrichtung von NuGet keine Entscheidungsgewalt. Allerdings haben sie das Vertrauen der Projektleitung, die mit Fragen an sie herantritt. Committers sollen sicherstellen, dass die Projektleitung über die Bedürfnisse und die gemeinsamen Ziele der Community informiert ist, und sie sollen Beiträge zum Projekt leisten oder in die Wege leiten. Häufig erhalten Committers die inoffizielle Kontrolle über ihren Zuständigkeitsbereich, und ihnen werden Berechtigungen zum direkten Anpassen gewisser Abschnitte des Quellcodes erteilt. Das heißt also, dass Committers zwar keine Entscheidungsbefugnis haben, ihre Handlungen aber häufig mit den Entscheidungen der Projektleitung übereinstimmen.
 
-### <a name="contributors"></a>Mitwirkende
+### <a name="contributors"></a>Contributors
 
 Mitwirkende sind Mitglieder der Community, die Patches in NuGet einreichen. Diese Patches können sowohl einmal als auch mehrmals über einen längeren Zeitraum vorkommen. Es wird erwartet, dass Mitwirkende Patches einreichen, die zunächst klein sind und mit wachsendem Vertrauen des Mitwirkenden, der Committers und der Projektleitung in die Qualität von Patches des Mitwirkenden immer größer werden. Mitwirkende werden in den Anmerkungen zu der jeweiligen Version des Produkts anerkannt.
 

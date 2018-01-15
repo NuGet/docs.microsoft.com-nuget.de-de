@@ -13,11 +13,11 @@ keywords: "Fragen und Antworten zu NuGet, Fragen und Antworten, häufig auftrete
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 105fa6e1cad3d163b673376c74ce9c835a0b5059
-ms.sourcegitcommit: 122bf7ce308365ea45da018b0768f0536de76a1f
+ms.openlocfilehash: d19a24a2d1955e996e18d44fee346865d36493f8
+ms.sourcegitcommit: e5b7cf6675be9891341c196afe822cea6f71d60c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="nuget-frequently-asked-questions"></a>Häufig gestellte Fragen zu NuGet
 
@@ -57,9 +57,9 @@ Weitere Informationen finden Sie unter [Finding and choosing packages (Suchen un
 **Wie wird NuGet in verschiedenen Visual Studio-Produkten unterstützt?**
 
 - Visual Studio unter Windows unterstützt die [Benutzeroberfläche des Paket-Managers](../tools/Package-Manager-UI.md) und die [Konsole des Paket-Managers](../tools/Package-Manager-Console.md).
-- Visual Studio für Mac verfügt wie unter [Including a NuGet package in your project (Einschließen eines NuGet-Pakets in Ihr Projekt)](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough) beschrieben über integrierte NuGet-Funktionen.
+- Visual Studio für Mac verfügt wie unter [Including a NuGet package in your project (Einschließen eines NuGet-Pakets in Ihr Projekt)](/visualstudio/mac/nuget-walkthrough) beschrieben über integrierte NuGet-Funktionen.
 - Visual Studio Code (alle Plattformen) verfügt nicht über eine direkte NuGet-Integration. Verwenden Sie die [NuGet-CLI](../tools/nuget-exe-CLI-Reference.md) oder die [dotnet-CLI](../tools/dotnet-commands.md).
-- Visual Studio Team Services stellt [einen Buildschritt für das Wiederherstellen von NuGet-Paketen](https://docs.microsoft.com/vsts/build-release/tasks/package/nuget) bereit. Sie können ebenfalls [private NuGet-Paketfeeds auf Team Services hosten](https://www.visualstudio.com/docs/package/nuget/publish).
+- Visual Studio Team Services stellt [einen Buildschritt für das Wiederherstellen von NuGet-Paketen](/vsts/build-release/tasks/package/nuget) bereit. Sie können ebenfalls [private NuGet-Paketfeeds auf Team Services hosten](https://www.visualstudio.com/docs/package/nuget/publish).
 
 **Wie kann überprüft werden, ob die richtige Version der NuGet-Tools installiert ist?**
 
@@ -101,7 +101,7 @@ Ja, es ist möglich, benutzerdefinierte Befehle zu `nuget.exe` hinzuzufügen. Di
 
 **Wie kann auf das DTE-Objekt in der Konsole des Paket-Managers zugegriffen werden?**
 
-Das Objekt auf der obersten Ebene des Visual Studio-Automatisierungsobjektmodells wird als DTE-Objekt (Development Tools Environment) bezeichnet. Die Konsole stellt dieses Objekt über die Variable `$DTE` bereit. Weitere Informationen finden Sie in der Dokumentation zur Erweiterbarkeit von Visual Studio unter [Automation Model Overview (Übersicht über das Automatisierungsmodell)](https://docs.microsoft.com/visualstudio/extensibility/internals/automation-model-overview).
+Das Objekt auf der obersten Ebene des Visual Studio-Automatisierungsobjektmodells wird als DTE-Objekt (Development Tools Environment) bezeichnet. Die Konsole stellt dieses Objekt über die Variable `$DTE` bereit. Weitere Informationen finden Sie in der Dokumentation zur Erweiterbarkeit von Visual Studio unter [Automation Model Overview (Übersicht über das Automatisierungsmodell)](/visualstudio/extensibility/internals/automation-model-overview).
 
 **Beim Versuch, die $DTE-Variable in den Typ DTE2 umzuwandeln, wird eine Fehlermeldung ausgegeben: „Der Wert ‚EnvDTE.DTEClass‘ vom Typ ‚EnvDTE.DTEClass‘ kann nicht in den Typ ‚EnvDTE80.DTE2‘ konvertiert werden.“ Wo liegt der Fehler?**
 
@@ -177,9 +177,9 @@ Wenn ein Paket keine Lizenzbedingungen angibt, kontaktieren Sie den Paketbesitze
 
 ## <a name="managing-packages-on-nugetorg"></a>Verwalten von Paketen auf nuget.org
 
-**Können Paketmetadaten nach dem Upload bearbeitet werden? Warum wird das Bearbeiten der NUSPEC-Datei und das Hochladen eines neuen Pakets für das Ändern der Paketmetadaten empfohlen?**
+**Können Paketmetadaten nach dem Upload bearbeitet werden? Warum ist das Bearbeiten der NUSPEC-Datei und das Hochladen eines neuen Pakets für das Ändern der Paketmetadaten erforderlich?**
 
-In NuGet wird die Paketsignierung implementiert. Ein Entwurfsprinzip der Paketsignierung besteht darin, dass signierte Paketinhalte unveränderlich sein müssen. Dies schließt die NUSPEC-Datei ein. Durch das Bearbeiten der Paketmetadaten wird die NUSPEC-Datei geändert, wodurch bestehende Signaturen ungültig werden. Es wird empfohlen, vorhandene Workflows zu ändern, damit das Bearbeiten der Paketmetadaten nach dem Erstellen des Pakets nicht erforderlich ist.
+Für NuGet müssen alle Pakete signiert sein. Ein Entwurfsprinzip der Paketsignierung besteht darin, dass signierte Paketinhalte unveränderlich sein müssen. Dies schließt die NUSPEC-Datei ein. Durch das Bearbeiten der Paketmetadaten wird die NUSPEC-Datei geändert, wodurch bestehende Signaturen ungültig werden. Es wird empfohlen, vorhandene Workflows zu ändern, damit das Bearbeiten der Paketmetadaten nach dem Erstellen des Pakets nicht erforderlich ist.
 
 Beachten Sie, dass die für Ihr Paket aufgeführten Abhängigkeiten automatisch vom Paket generiert werden und nicht bearbeitet werden können.
 

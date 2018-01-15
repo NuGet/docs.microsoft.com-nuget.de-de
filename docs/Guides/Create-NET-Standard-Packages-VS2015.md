@@ -13,17 +13,17 @@ keywords: Erstellen eines Pakets, .NET Standard-Pakete, .NET Standard-Zuordnungs
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: a912c27e1873d60426f2147995f69e2dcc433ca9
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: e02888bf552997afe25e967f13e021e78e40d48d
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-net-standard-packages-with-visual-studio-2015"></a>Erstellen von .NET Standard-Paketen mit Visual Studio 2015
 
 *Gilt für NuGet 3.x. Unter [Create .NET Standard Packages with Visual Studio 2017 (Erstellen von .NET Standard-Paketen mit Visual Studio 2017)](../guides/create-net-standard-packages-vs2017.md) finden Sie weitere Informationen zum Arbeiten mit NuGet 4.x und höher.*
 
-Die [.NET-Standardbibliothek](https://docs.microsoft.com/dotnet/articles/standard/library) ist eine formale Spezifikation von .NET-APIs, die in allen .NET-Runtimes verfügbar sein soll, um so eine umfassendere Einheitlichkeit im .NET-Ökosystem herzustellen. Die .NET-Standardbibliothek definiert einen einheitlichen Satz von BCL-APIs (Base Class Library), die unabhängig von der Workload für alle .NET-Plattformen implementiert werden. Sie ermöglicht Entwicklern, portable Klassenbibliotheken (PCLs) zu erzeugen, die für alle .NET-Runtimes verwendet werden können, und reduziert plattformspezifische Anweisungen für die bedingte Kompilierung in freigegebenem Code, wenn diese nicht sogar ausgeschlossen werden.
+Die [.NET-Standardbibliothek](/dotnet/articles/standard/library) ist eine formale Spezifikation von .NET-APIs, die in allen .NET-Runtimes verfügbar sein soll, um so eine umfassendere Einheitlichkeit im .NET-Ökosystem herzustellen. Die .NET-Standardbibliothek definiert einen einheitlichen Satz von BCL-APIs (Base Class Library), die unabhängig von der Workload für alle .NET-Plattformen implementiert werden. Sie ermöglicht Entwicklern, portable Klassenbibliotheken (PCLs) zu erzeugen, die für alle .NET-Runtimes verwendet werden können, und reduziert plattformspezifische Anweisungen für die bedingte Kompilierung in freigegebenem Code, wenn diese nicht sogar ausgeschlossen werden.
 
 Diese Anleitung erläutert das Erstellen eines NuGet-Pakets für die .NET-Standardbibliothek 1.4. Sie gilt für .NET Framework 4.6.1, universelle Windows-Plattform 10, .NET Core, Mono und Xamarin. Weitere Informationen finden Sie in diesem Artikel unter [.NET Standard mapping table (.NET Standard-Zuordnungstabelle)](#net-standard-mapping-table).
 
@@ -311,8 +311,8 @@ Erstellen Sie hierfür Ihre `readme.txt`-Datei, platzieren Sie diese im Stammord
 |Plattformname |Alias|
 |--------------|-----|
 |.NET-Standard | netstandard| 1,0| 1,1| 1.2| 1.3| 1.4| 1.5| 1.6|
-|.NET Core | netcoreapp| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;| 1.0|
-|.NET Framework| net| 4.5| 4.5.1| 4.6| 4.6.1| 4.6.2| 4.6.3|
+|.NET Core | netcoreapp| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;| 1,0|
+|.NET Framework| net| 4.5| 4.5.1| 4.6| 4.6.1| 4.6.2| 4.6.3|
 |Mono-/Xamarin-Plattformen| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;|
 |Universelle Windows-Plattform| uap| &#x2192;| &#x2192;| &#x2192;| &#x2192;|10.0|
 |Windows| win| &#x2192;| 8.0| 8.1|
@@ -329,5 +329,5 @@ Erstellen Sie hierfür Ihre `readme.txt`-Datei, platzieren Sie diese im Stammord
 - [Unterstützung mehrerer .NET Framework-Versionen](../create-packages/supporting-multiple-target-frameworks.md)
 - [Einfügen von MSBuild-Eigenschaften und -Zielen in ein Paket](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)
 - [Erstellen von lokalisierten Paketen](../create-packages/creating-localized-packages.md)
-- [Dokumentation zur .NET Standard-Bibliothek](https://docs.microsoft.com/dotnet/articles/standard/library)
-- [Portieren von .NET Framework auf .NET Core](https://docs.microsoft.com/dotnet/articles/core/porting/index)
+- [Dokumentation zur .NET Standard-Bibliothek](/dotnet/articles/standard/library)
+- [Portieren von .NET Framework auf .NET Core](/dotnet/articles/core/porting/index)
