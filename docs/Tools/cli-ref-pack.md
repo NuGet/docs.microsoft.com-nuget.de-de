@@ -13,11 +13,11 @@ keywords: NuGet-Pack-Verweis, Pack-Befehl
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 22643ee4c7d5f858da728ba9d9d2886d600d20f0
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 0dbecb8f01acf781ab8d2e77e8df7fa405f74cf1
+ms.sourcegitcommit: d576d84fb4b6a178eb2ac11f55deb08ac771ba1c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="pack-command-nuget-cli"></a>Pack-Befehl (NuGet CLI)
 
@@ -42,7 +42,7 @@ wobei `<nuspecPath>` und `<projectPath>` angeben der `.nuspec` oder Projektdatei
 | --- | --- |
 | BasePath | Legt den Basispfad der Dateien im definiert die `.nuspec` Datei. |
 | Build | Gibt an, dass das Projekt erstellt werden soll, bevor Sie das Paket erstellen. |
-| Ausschließen | Gibt einen oder mehrere Platzhaltermustern auszuschließende beim Erstellen eines Pakets an. |
+| Ausschließen | Gibt einen oder mehrere Platzhaltermustern auszuschließende beim Erstellen eines Pakets an. Um mehr als ein Muster festzulegen, wiederholen Sie den - Exclude-Flag. Siehe folgendes Beispiel. |
 | ExcludeEmptyDirectories | Verhindert den Einschluss leere Verzeichnisse beim Erstellen des Pakets. |
 | ForceEnglishOutput | *(3.5 +)*  Erzwingt nuget.exe über eine invariante Kultur Englisch-basierte ausgeführt werden. |
 | Hilfe | Zeigt die Hilfe Informationen für den Befehl. |
@@ -100,4 +100,6 @@ nuget pack foo.csproj -Build -Symbols -Properties owners=janedoe,xiaop;version="
 nuget pack foo.nuspec -Version 2.1.0
 
 nuget pack foo.nuspec -Version 1.0.0 -MinClientVersion 2.5
+
+nuget pack Package.nuspec -exclude "*.exe" -exclude "*.bat"
 ```
