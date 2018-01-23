@@ -14,11 +14,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 53fccbb86f2920d870b5383070d043e25045a626
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 29eb72cbb6c095cd3aeb524fd8b28416ec5dc798
+ms.sourcegitcommit: 6ccb963e065680ab2e7df1d8dd5492897fd56b04
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="errors-and-warnings"></a>Fehler und Warnungen
 
@@ -31,7 +31,7 @@ Die Fehler und Warnungen, die hier aufgeführten stehen nur mit [PackageReferenc
 | Gruppieren | Fehlernummern |
 | --- | --- |
 | [Ungültiger Eingabefehler](#invalid-input-errors) | [NU1001](#nu1001), [NU1002](#nu1002), [NU1003](#nu1003) |
-| [Fehler aufgrund fehlender Pakets und der Projektparameter](#missing-package-and-project-errors) | [NU1100](#nu1100), [NU1101](#nu1101), [NU1102](#nu1102), [NU1103](#nu1103), [NU1104](#nu1104), [NU1105](#nu1105), [ NU1106](#nu1106), [NU1107](#nu1107) (zuvor NU1607) [NU1108](#nu1107) (zuvor NU1606) |
+| [Fehler aufgrund fehlender Pakets und der Projektparameter](#missing-package-and-project-errors) | [NU1100](#nu1100), [NU1101](#nu1101), [NU1102](#nu1102), [NU1103](#nu1103), [NU1104](#nu1104), [NU1105](#nu1105), [NU1106](#nu1106), [NU1107](#nu1107) (previously NU1607), [NU1108](#nu1108) (previously NU1606) |
 | [Kompatibilitätsfehler](#compatibility-errors) | [NU1201](#nu1201), [NU1202](#nu1202), [NU1203](#nu1203), [NU1401](#nu1401) |
 
 **Warnungen**
@@ -75,7 +75,7 @@ Die Fehler und Warnungen, die hier aufgeführten stehen nur mit [PackageReferenc
 
 ## <a name="missing-package-and-project-errors"></a>Fehler aufgrund fehlender Pakets und der Projektparameter
 
-[NU1100](#nu1100) | [NU1101](#nu1101) | [NU1102](#nu1102) | [NU1103](#nu1103) | [NU1104 ](#nu1104)  |  [NU1105](#nu1105) | [NU1106](#nu1106)
+[NU1100](#nu1100) | [NU1101](#nu1101) | [NU1102](#nu1102) | [NU1103](#nu1103) | [NU1104](#nu1104) | [NU1105](#nu1105) | [NU1106](#nu1106)
 
 ### <a name="nu1100"></a>NU1100
 
@@ -133,7 +133,7 @@ Die Fehler und Warnungen, die hier aufgeführten stehen nur mit [PackageReferenc
 | **Häufige Ursachen** | Pakete enthalten Abhängigkeit genaue Versionen eines Pakets anstelle von begrenzten Bereichen. |
 | **Beispiel-Nachricht** | *Können nicht erfüllt einen Konflikt verursachenden Anforderungen für {Id}: {Konflikt Path} Framework: {Zieldiagramm}* |
 
-< a Name = "NU1107 ></a>
+<a name="nu1107"></a> 
 
 ### <a name="nu1107-previously-nu1607"></a>NU1107 (zuvor NU1607)
 
@@ -141,9 +141,9 @@ Die Fehler und Warnungen, die hier aufgeführten stehen nur mit [PackageReferenc
 | --- | --- |
 | **Problem** | Kann nicht auf Einschränkungen der Abhängigkeit zwischen Paketen zu beheben. |
 | **Häufige Ursachen** | Pakete mit Abhängigkeit Beschränkungen exakte Version lassen nicht anderen Paketen für die Version bei Bedarf zu erhöhen. |
-| **Beispiel-Nachricht** | *Versionskonflikt für NuGet.Versioning erkannt. Verweisen auf das Paket direkt aus dem Projekt aus, um dieses Problem zu beheben.<br/>  Im NuGet.Packaging 3.5.0 -> (= 3.5.0) NuGet.Versioning<br/> NuGet.Configuration 4.0.0 -> NuGet.Versioning (4.0.0 =)* |
+| **Beispiel-Nachricht** | *Versionskonflikt für NuGet.Versioning erkannt. Verweisen auf das Paket direkt aus dem Projekt aus, um dieses Problem zu beheben.<br/>  NuGet.Packaging 3.5.0 -> NuGet.Versioning (= 3.5.0)<br/>  NuGet.Configuration 4.0.0 -> NuGet.Versioning (= 4.0.0)* |
 
-< a Name = "NU1108 ></a>
+<a name="nu1108"></a>
 
 ### <a name="nu1108-previously-nu1606"></a>NU1108 (zuvor NU1606)
 
@@ -171,7 +171,7 @@ Die Fehler und Warnungen, die hier aufgeführten stehen nur mit [PackageReferenc
 | --- | --- |
 | **Problem** | Eine Abhängigkeit keine Objekte, die kompatibel mit dem Projekt enthalten. |
 | **Häufige Ursachen** | Das Paket unterstützt keine Zielframework des Projekts. |
-| **Beispiel-Nachricht** | *Paket System.ComponentModel.EventBasedAsync 4.0.11 ist nicht kompatibel mit netstandard1.3 (. Netstandard-, Version = V1. 3). Paket System.ComponentModel.EventBasedAsync 4.0.11 unterstützt:<br/> -monoandroid10 (MonoAndroid, Version = V1. 0)<br/> -monotouch10 (MonoTouch, Version = V1. 0)<br/> -net45 (. NETFramework, Version = v4. 5)<br/> -netcore50 (. NETCore, Version = V5. 0)<br/> -netstandard1.0 (. Netstandard-, Version = V1. 0)<br/> -Portable net45 + win8 wp8 + wpa81 (. NETPortable, Version = V0.0 Profil = Profile259)<br/> -win8 (Windows, Version = v8. 0)<br/> -wp8 (WindowsPhone, Version = v8. 0)<br/> -wpa81 (WindowsPhoneApp, Version = v8. 1)<br/> -xamarinios10 ( Xamarin.iOS,Version=v1.0)<br/> -xamarinmac20 (Xamarin.Mac,Version=v2.0)<br/> -xamarintvos10 (Xamarin.TVOS,Version=v1.0)<br/> -xamarinwatchos10 (Xamarin.WatchOS,Version=v1.0)*|
+| **Beispiel-Nachricht** | *Paket System.ComponentModel.EventBasedAsync 4.0.11 ist nicht kompatibel mit netstandard1.3 (. Netstandard-, Version = V1. 3). Package System.ComponentModel.EventBasedAsync 4.0.11 supports:<br/>  - monoandroid10 (MonoAndroid,Version=v1.0)<br/>  - monotouch10 (MonoTouch,Version=v1.0)<br/>  - net45 (.NETFramework,Version=v4.5)<br/>  - netcore50 (.NETCore,Version=v5.0)<br/>  - netstandard1.0 (.NETStandard,Version=v1.0)<br/>  - portable-net45+win8+wp8+wpa81 (.NETPortable,Version=v0.0,Profile=Profile259)<br/>  - win8 (Windows,Version=v8.0)<br/>  - wp8 (WindowsPhone,Version=v8.0)<br/>  - wpa81 (WindowsPhoneApp,Version=v8.1)<br/>  - xamarinios10 (Xamarin.iOS,Version=v1.0)<br/>  - xamarinmac20 (Xamarin.Mac,Version=v2.0)<br/>  - xamarintvos10 (Xamarin.TVOS,Version=v1.0)<br/>  - xamarinwatchos10 (Xamarin.WatchOS,Version=v1.0)*|
 
 ### <a name="nu1203"></a>NU1203
 
@@ -259,11 +259,9 @@ Die Fehler und Warnungen, die hier aufgeführten stehen nur mit [PackageReferenc
 | --- | --- |
 | **Problem** | Eine abhängigkeitspakets angegeben, eine versionseinschränkung für eine spätere Version eines Pakets als wiederherstellen, die letztlich aufgelöst. |
 | **Häufige Ursachen** | Nächste Wins beim Auflösen von Paketen. Ein näher Paket im Diagramm möglicherweise ein entfernten Paket außer Kraft gesetzt haben. |
-| **Beispiel-Nachricht** | *Downgrade für die Paket erkannt: NuGet.Versioning aus 4.0.0 auf 3.5.0. Verweisen auf das Paket direkt aus dem Projekt eine andere Version auswählen.<br/>  Im NuGet.Packaging 3.5.0 -> NuGet.Versioning 3.5.0<br/> NuGet.Commands 4.0.0 -> NuGet.Configuration 4.0.0 -> NuGet.Versioning 4.0.0* |
+| **Beispiel-Nachricht** | *Downgrade für die Paket erkannt: NuGet.Versioning aus 4.0.0 auf 3.5.0. Verweisen auf das Paket direkt aus dem Projekt eine andere Version auswählen.<br/>  NuGet.Packaging 3.5.0 -> NuGet.Versioning 3.5.0<br/>  NuGet.Commands 4.0.0 -> NuGet.Configuration 4.0.0 -> NuGet.Versioning 4.0.0* |
 
 ## <a name="resolver-conflict-warnings"></a>Konfliktlöser Konflikt Warnungen
-
-[NU1608](#nu1608)
 
 ### <a name="nu1608"></a>NU1608
 
@@ -275,8 +273,6 @@ Die Fehler und Warnungen, die hier aufgeführten stehen nur mit [PackageReferenc
 
 ## <a name="package-fallback-warnings"></a>Paket-fallback-Warnungen
 
-[NU1701](#nu1701)
-
 ### <a name="nu1701"></a>NU1701
 
 | | |
@@ -286,8 +282,6 @@ Die Fehler und Warnungen, die hier aufgeführten stehen nur mit [PackageReferenc
 | **Beispiel-Nachricht** | *Paket "NuGet.Versioning" wurde mit "Portable net45 + win8" stattdessen das Zielframework des Projekts "netstandard1.5" wiederhergestellt. Dieses Paket möglicherweise nicht vollständig kompatibel ist, während das Projekt.* |
 
 ## <a name="feed-warnings"></a>Feed-Warnungen
-
-[NU1801](#nu1801)
 
 ### <a name="nu1801"></a>NU1801
 
