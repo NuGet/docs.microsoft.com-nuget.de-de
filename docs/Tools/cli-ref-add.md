@@ -3,21 +3,20 @@ title: "NuGet CLI hinzufügen (Befehl) | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 4f68a016-ad4e-41fc-b869-88910fc5121e
 description: "Referenz für die nuget.exe Befehl hinzufügen."
 keywords: "NuGet Verweis hinzufügen, fügen Sie Paket-Befehl"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: bf9a6e51dfbf1716ba40273487b76ae04c18e948
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 70c86f8d240bd308224f6b7887b630cc1e953bf8
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="add-command-nuget-cli"></a>Fügen Sie hinzu (Befehl) (NuGet CLI)
 
@@ -38,7 +37,7 @@ Um alle Dateien im Paket für die Paketquelle Ziel zu erweitern, verwenden die `
 
 ## <a name="usage"></a>Verwendung
 
-```
+```cli
 nuget add <packagePath> -Source <sourcePath> [options]
 ```
 
@@ -48,18 +47,18 @@ wobei `<packagePath>` der Pfadname für das Paket zum Hinzufügen, und `<sourceP
 
 | Option | Beschreibung |
 | --- | --- |
-| "ConfigFile" hinzu | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, *%AppData%\NuGet\NuGet.Config* verwendet wird.| 
+| ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, *%AppData%\NuGet\NuGet.Config* verwendet wird.| 
 | Expand | Fügt alle Dateien im Paket für die Paketquelle. |
 | ForceEnglishOutput | *(3.5 +)*  Erzwingt nuget.exe über eine invariante Kultur Englisch-basierte ausgeführt werden. |
 | Hilfe | Zeigt die Hilfe Informationen für den Befehl. |
-| Nicht interaktive | Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an. |
+| NonInteractive | Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an. |
 | Ausführlichkeit | Gibt die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *stillen*, *ausführliche*. |
 
 Siehe auch [Umgebungsvariablen](cli-ref-environment-variables.md)
 
 ## <a name="examples"></a>Beispiele
 
-```
+```cli
 nuget add foo.nupkg -Source c:\bar\
 
 nuget add foo.nupkg -Source \\bar\packages\

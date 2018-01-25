@@ -7,19 +7,18 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 082a96b9-607b-4225-864d-e1cea537f591
 description: "Versionshinweise für NuGet 3.5 einschließlich bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design."
 keywords: "NuGet-3.5 Anmerkungen zu dieser Version, aufgrund von Fehlerbehebungen, bekannte Probleme, zusätzliche Funktionen, Archivierung von dcrs Design"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0a0f039d2529e1d41bbc0c7f9ac3f76f51f96ce5
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: ee78ceb2ff032c05c0f8ef9a6623b94cc56ee0a9
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
-#<a name="nuget-35-release-notes"></a>3.5 NuGet-Versionshinweise
+# <a name="nuget-35-release-notes"></a>3.5 NuGet-Versionshinweise
 
 [NuGet-3.5 RC-Versionsanmerkungen](../release-notes/nuget-3.5-RC.md) | [NuGet 4.0 RC-Versionsanmerkungen](../release-notes/nuget-4.0-RC.md)
 
@@ -185,7 +184,7 @@ ms.lasthandoff: 12/14/2017
 
 * NuGet-Pack für `project.json` ignoriert PackOptions Tags wie Zusammenfassung, Autoren und Besitzer usw. - [#3161](https://github.com/NuGet/Home/issues/3161)
 
-* NullReferenceException über NuGet.Packaging.PhysicalPackageFile.GetStream - [#3160](https://github.com/NuGet/Home/issues/3160)
+* NullReferenceException via NuGet.Packaging.PhysicalPackageFile.GetStream - [#3160](https://github.com/NuGet/Home/issues/3160)
 
 * NuGet-Pack ignoriert Abhängigkeiten in der Ausgabe `.nuspec` für `project.json`  -  [#3145](https://github.com/NuGet/Home/issues/3145)
 
@@ -274,7 +273,7 @@ ms.lasthandoff: 12/14/2017
 
 * Aktivieren von SemVer 2.0.0 im Paket - [#3356](https://github.com/NuGet/Home/issues/3356)
 
-## <a name="dcrs"></a>Archivierung von dcrs Design
+## <a name="dcrs"></a>DCRs
 
 * NuGet.exe Push - Timeoutparameter funktioniert nicht – [#2785](https://github.com/NuGet/Home/issues/2785)
 

@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: ec68b5d1-a684-4995-b1a6-6210dbb24875
 description: Die Basisadresse des Pakets ist eine einfache Schnittstelle zum Abrufen der des Pakets selbst.
 keywords: NuGet Flatfile-Container, die NuGet-Paket-Basisadresse, die NuGet Nupkg-API, die NuGet-API-Paketversionen, NuGet-API nicht aufgelistete Pakete, die NuGet-API-Download Nuspec
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: a581f9854410bc1a84d65310b38928a1d889ece2
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: c2e631dc0bba95ac849430d77142f27ef591f741
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="package-content"></a>Paketinhalt
 
@@ -52,9 +51,7 @@ Wenn der Client bekannt eine Paket-ID ist und möchte Ermitteln der Paket-Versio
 > [!Note]
 > Diese Liste enthält beide Paketversionen aufgeführt und nicht aufgeführte.
 
-```
-GET {@id}/{LOWER_ID}/index.json
-```
+    GET {@id}/{LOWER_ID}/index.json
 
 ### <a name="request-parameters"></a>Anforderungsparameter
 
@@ -80,9 +77,7 @@ Das Ziel ist, dass Versionszeichenfolgen, die in diesem Array gefunden wörtlich
 
 ### <a name="sample-request"></a>Beispielanforderung
 
-```
-GET https://api.nuget.org/v3-flatcontainer/owin/index.json
-```
+    GET https://api.nuget.org/v3-flatcontainer/owin/index.json
 
 ### <a name="sample-response"></a>Beispielantwort
 
@@ -92,9 +87,7 @@ GET https://api.nuget.org/v3-flatcontainer/owin/index.json
 
 Wenn der Client bekannt, ein Paket-ID und eine Version ist und den Paketinhalt herunterladen möchte, müssen sie nur so erstellen Sie die folgende URL:
 
-```
-GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.{LOWER_VERSION}.nupkg
-```
+    GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.{LOWER_VERSION}.nupkg
 
 ### <a name="request-parameters"></a>Anforderungsparameter
 
@@ -115,9 +108,7 @@ Wenn das Paket auf die Paketquelle nicht vorhanden ist, wird ein Statuscode "404
 
 ### <a name="sample-request"></a>Beispielanforderung
 
-```
-GET https://api.nuget.org/v3-flatcontainer/newtonsoft.json/9.0.1/newtonsoft.json.9.0.1.nupkg
-```
+    GET https://api.nuget.org/v3-flatcontainer/newtonsoft.json/9.0.1/newtonsoft.json.9.0.1.nupkg
 
 ### <a name="sample-response"></a>Beispielantwort
 
@@ -127,9 +118,7 @@ Der binäre Datenstrom, der NUPKG für Newtonsoft.Json 9.0.1 darstellt.
 
 Wenn der Client bekannt, ein Paket-ID und eine Version ist und das Paketmanifest herunterladen möchte, müssen sie nur so erstellen Sie die folgende URL:
 
-```
-GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.nuspec
-```
+    GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.nuspec
 
 ### <a name="request-parameters"></a>Anforderungsparameter
 
@@ -150,9 +139,7 @@ Wenn das Paket auf die Paketquelle nicht vorhanden ist, wird ein Statuscode "404
 
 ### <a name="sample-request"></a>Beispielanforderung
 
-```
-GET https://api.nuget.org/v3-flatcontainer/newtonsoft.json/6.0.4/newtonsoft.json.nuspec
-```
+    GET https://api.nuget.org/v3-flatcontainer/newtonsoft.json/6.0.4/newtonsoft.json.nuspec
 
 ### <a name="sample-response"></a>Beispielantwort
 

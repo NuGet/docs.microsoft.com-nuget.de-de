@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: ead5cf7a-e51e-4cbb-8798-58226f4c853f
 description: "Die AutoVervollständigen-Suchdienst unterstützt interaktive Ermittlung von Paket-IDs und Versionen."
 keywords: "Suchen NuGet AutoVervollständigen-API, die NuGet-Paket-ID, Substring-Paket-ID"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 313ceb630947b46c34b98e14044ecf121b725087
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 7c984ca61799293d7832851b80cf3fefc4734288
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="autocomplete"></a>AutoVervollständigen
 
@@ -51,19 +50,17 @@ Das erste AutoVervollständigen-API unterstützt die Teil einer Paket-ID-Zeichen
 
 Ein Paket mit nur nicht aufgeführte Versionen werden nicht in den Ergebnissen angezeigt.
 
-```
-GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
-```
+    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
 ### <a name="request-parameters"></a>Anforderungsparameter
 
-Name        | In     | Typ    | Erforderlich | Hinweise
+name        | In     | Typ    | Erforderlich | Hinweise
 ----------- | ------ | ------- | -------- | -----
-q           | URL    | string  | Nein       | Die Zeichenfolge zum Vergleich von Paket-IDs
+q           | URL    | Zeichenfolge  | Nein       | Die Zeichenfolge zum Vergleich von Paket-IDs
 überspringen        | URL    | Ganze Zahl | Nein       | Die Anzahl der Ergebnisse für die Paginierung überspringen
 Take        | URL    | Ganze Zahl | Nein       | Die Anzahl der zurückzugebenden Ergebnisseite, für die Paginierung
 Vorabversion  | URL    | boolean | Nein       | `true`oder `false` bestimmen, ob enthalten [Vorabversion Pakete](../create-packages/prerelease-packages.md)
-semVerLevel | URL    | string  | Nein       | Eine Versionszeichenfolge SemVer 1.0.0 
+semVerLevel | URL    | Zeichenfolge  | Nein       | A SemVer 1.0.0 version string 
 
 Die AutoVervollständigen-Abfrage `q` wird analysiert, die in einer Weise, die durch die Implementierung definiert ist. NuGet.org unterstützt das Abfragen für das Präfix des Paket-ID-Token, die Teile der von Spliting erzeugte ID werden der ursprünglichen Kamel Groß-/Kleinschreibung und das Symbol für Zeichen.
 
@@ -83,16 +80,14 @@ Die Antwort ist, enthält bis zu JSON-Dokument `take` AutoVervollständigen Erge
 
 Der Stamm-JSON-Objekt hat die folgenden Eigenschaften:
 
-Name      | Typ             | Erforderlich | Hinweise
+name      | Typ             | Erforderlich | Hinweise
 --------- | ---------------- | -------- | -----
 totalHits | Ganze Zahl          | ja      | Die Gesamtzahl der Übereinstimmungen, Basiseigenschaft `skip` und`take`
 Daten      | Array von Zeichenfolgen | ja      | Die Paket-IDs übereinstimmen, die von der Anforderung
 
 ### <a name="sample-request"></a>Beispielanforderung
 
-```
 GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
-```
 
 ### <a name="sample-response"></a>Beispielantwort
 
@@ -104,17 +99,15 @@ Eine Paket-ID mithilfe der vorherigen-API ermittelt wurde, können ein Client di
 
 Eine Paketversion, die nicht aufgeführte ist, werden nicht in den Ergebnissen angezeigt.
 
-```
-GET {@id}?id={ID}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
-```
+    GET {@id}?id={ID}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
 ### <a name="request-parameters"></a>Anforderungsparameter
 
-Name        | In     | Typ    | Erforderlich | Hinweise
+name        | In     | Typ    | Erforderlich | Hinweise
 ----------- | ------ | ------- | -------- | -----
-ID          | URL    | string  | ja      | Die Paket-ID für Versionen abgerufen
+ID          | URL    | Zeichenfolge  | ja      | Die Paket-ID für Versionen abgerufen
 Vorabversion  | URL    | boolean | Nein       | `true`oder `false` bestimmen, ob enthalten [Vorabversion Pakete](../create-packages/prerelease-packages.md)
-semVerLevel | URL    | string  | Nein       | Eine Versionszeichenfolge SemVer 2.0.0 
+semVerLevel | URL    | Zeichenfolge  | Nein       | Eine Versionszeichenfolge SemVer 2.0.0 
 
 Wenn `prerelease` nicht angegeben wird, Vorabversion Paketen ausgeschlossen werden.
 
@@ -126,7 +119,7 @@ Die Antwort ist JSON-Dokument, das alle Paketversionen der bereitgestellte Paket
 
 Der Stamm-JSON-Objekt hat die folgende Eigenschaft:
 
-Name      | Typ             | Erforderlich | Hinweise
+name      | Typ             | Erforderlich | Hinweise
 --------- | ---------------- | -------- | -----
 Daten      | Array von Zeichenfolgen | ja      | Die Zeichenfolge, die für der Anforderungs Paketversionen
 
@@ -134,9 +127,7 @@ Die Paketversionen in der `data` Array konnte SemVer 2.0.0 Build Metadaten entha
 
 ### <a name="sample-request"></a>Beispielanforderung
 
-```
-GET https://api-v2v3search-0.nuget.org/autocomplete?id=nuget.protocol&prerelease=true
-```
+    GET https://api-v2v3search-0.nuget.org/autocomplete?id=nuget.protocol&prerelease=true
 
 ### <a name="sample-response"></a>Beispielantwort
 

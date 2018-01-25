@@ -11,17 +11,16 @@ ms.date: 10/30/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: cfd338b5-6253-48c0-88ba-17c6b98fc935
 description: "Der Katalog ist einen Index aller Pakete erstellt und auf nuget.org gelöscht."
 keywords: "NuGet-V3-API-Katalog nuget.org Transaktionsprotokoll NuGet.org replizieren, NuGet.org nur Anhängen-Datensatz der NuGet.org Klonen"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 4c98b7cbd92575f6905e98a5bca5602a4d8ac0dd
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: d1a24be68a60085a40361c374ffb34dc221f09c4
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="catalog"></a>Catalog
 
@@ -73,9 +72,7 @@ Katalogelemente werden immer im Katalog in eine monoton ansteigende, chronologis
 
 Die folgende Anforderung Ruft den Index des ab.
 
-```
-GET {@id}
-```
+    GET {@id}
 
 Der Katalogindex ist ein JSON-Dokument, das ein Objekt mit den folgenden Eigenschaften enthält:
 
@@ -107,9 +104,7 @@ Im Gegensatz zu den [Metadatenressource "package"](registration-base-url-resourc
 
 ### <a name="sample-request"></a>Beispielanforderung
 
-```
-GET https://api.nuget.org/v3/catalog0/index.json
-```
+    GET https://api.nuget.org/v3/catalog0/index.json
 
 ### <a name="sample-response"></a>Beispielantwort
 
@@ -150,7 +145,7 @@ name            | Typ    | Erforderlich | Hinweise
 commitId        | Zeichenfolge  | ja      | Die Commit-ID, die diese Katalogelement zugeordnet
 commitTimeStamp | Zeichenfolge  | ja      | Der commitzeitstempel, der diese Katalogelement
 NuGet:ID        | Zeichenfolge  | ja      | Die Paket-ID, die auf diesem Blatt bezieht
-NuGet:Version   | Zeichenfolge  | ja      | Die Version des Pakets, der auf diesem Blatt bezieht
+nuget:version   | Zeichenfolge  | ja      | Die Version des Pakets, der auf diesem Blatt bezieht
 
 Die `@type` Wert werden die folgenden zwei Werte:
 
@@ -161,9 +156,7 @@ Weitere Informationen zu jeder Art bedeutet finden Sie unter der [Typ entspreche
 
 ### <a name="sample-request"></a>Beispielanforderung
 
-```
-GET https://api.nuget.org/v3/catalog0/page2926.json
-```
+    GET https://api.nuget.org/v3/catalog0/page2926.json
 
 ### <a name="sample-response"></a>Beispielantwort
 
@@ -178,8 +171,8 @@ Das Blatt Katalogdokument ist ein JSON-Objekt mit den folgenden Eigenschaften:
 name                    | Typ                       | Erforderlich | Hinweise
 ----------------------- | -------------------------- | -------- | -----
 @type                   | Zeichenfolge oder ein Array von Zeichenfolgen | ja      | Der/die Typ(en) des Katalogelements
-Katalog: commitId        | Zeichenfolge                     | ja      | Eine Commit-ID, die diese Katalogelement zugeordnet
-Katalog: commitTimeStamp | Zeichenfolge                     | ja      | Der commitzeitstempel, der diese Katalogelement
+catalog:commitId        | Zeichenfolge                     | ja      | Eine Commit-ID, die diese Katalogelement zugeordnet
+catalog:commitTimeStamp | Zeichenfolge                     | ja      | Der commitzeitstempel, der diese Katalogelement
 ID                      | Zeichenfolge                     | ja      | Die Paket-ID des Katalogelements
 Veröffentlicht               | Zeichenfolge                     | ja      | Das Datum der Veröffentlichung des Pakets Katalogelement
 Version                 | Zeichenfolge                     | ja      | Die Paketversion des Katalogelements
@@ -217,7 +210,7 @@ isPrerelease            | boolean                    | ja      | Davon, ob die P
 language                | Zeichenfolge                     | Nein       |
 licenseUrl              | Zeichenfolge                     | Nein       |
 Liste                  | boolean                    | Nein       | Und zwar unabhängig davon, ob das Paket aufgeführt ist
-"Minclientversion"        | Zeichenfolge                     | Nein       |
+minClientVersion        | Zeichenfolge                     | Nein       |
 packageHash             | Zeichenfolge                     | ja      | Der Hashwert des Pakets, mit Codierung [base-64 standard](https://tools.ietf.org/html/rfc4648#section-4)
 packageHashAlgorithm    | Zeichenfolge                     | ja      |
 packageSize             | Ganze Zahl                    | ja      | Die Größe der dem Paket NUPKG in bytes
@@ -242,9 +235,7 @@ Die `published` Zeitstempel ist die Uhrzeit, wann das Paket zuletzt aufgelistet.
 
 #### <a name="sample-request"></a>Beispielanforderung
 
-```
 GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
-```
 
 #### <a name="sample-response"></a>Beispielantwort
 
@@ -265,9 +256,7 @@ Die `published` Eigenschaft entspricht der Zeit, wenn Paket gelöscht wurde, i. 
 
 #### <a name="sample-request"></a>Beispielanforderung
 
-```
 GET https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
-```
 
 #### <a name="sample-response"></a>Beispielantwort
 

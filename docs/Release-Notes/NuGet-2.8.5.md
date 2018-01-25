@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 60b96b2e-2a61-4f10-b5ad-3299f5a6d453
 description: "Versionshinweise für NuGet 2.8.5 einschließlich bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design."
 keywords: "NuGet-2.8.5 versionsanmerkungen aufgrund von Fehlerbehebungen, bekannte Probleme, zusätzliche Funktionen, Archivierung von dcrs Design"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3b297704968b8423f60e9de08e27860dc375c019
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: ace56284e56f24394d49c0598ec3604b62caaf67
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-285-release-notes"></a>Anmerkungen zur Version von NuGet 2.8.5
 
@@ -34,4 +33,4 @@ In dieser Version wurde die Unterstützung für Dialogfeld "NuGet-Paket-Manager"
 
 Ein Fehler behoben wurde, verhindert die von Paketen in FSharp Projekte ordnungsgemäß installiert:
 
-https://NuGet.codeplex.com/WorkItem/4400
+https://nuget.codeplex.com/workitem/4400

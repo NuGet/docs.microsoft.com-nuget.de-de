@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 1eaa403a-5c13-4c05-9352-2f791b98aa7e
 description: "Der Dienst veröffentlichen kann Clients Veröffentlichen neuer Pakete und Benutzerauswahl oder löschen vorhandene Pakete."
 keywords: "NuGet-API-Push-Paket-API die NuGet-Paket löschen, NuGet-API Benutzerauswahl Paket API NuGet-Paket zum Hochladen, API NuGet-Paket erstellen."
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 5fbcd82b09ebd56ae21103640e7c39b482059525
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: f8051ca57fccae77917567d8c9f2f8a120a8d884
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="push-and-delete"></a>Push-als auch löschen
 
@@ -52,15 +51,13 @@ Die `PUT`, `POST` und `DELETE` HTTP-Methoden werden durch diese Ressource unters
 
 NuGet.org unterstützt, wie neue Pakete, die mithilfe der folgenden-API. Wenn das Paket mit der angegebenen ID und die Version bereits vorhanden ist, lehnt nuget.org der Push-Vorgang. Andere Paketquellen unterstützen möglicherweise das Ersetzen eines vorhandenen Pakets.
 
-```
-PUT https://www.nuget.org/api/v2/package
-```
+    PUT https://www.nuget.org/api/v2/package
 
 ### <a name="request-parameters"></a>Anforderungsparameter
 
 name           | In     | Typ   | Erforderlich | Hinweise
 -------------- | ------ | ------ | -------- | -----
-X-NuGet-"apikey" | Header | Zeichenfolge | ja      | Beispiel: `X-NuGet-ApiKey: {USER_API_KEY}`
+X-NuGet-ApiKey | Header | Zeichenfolge | ja      | Beispiel: `X-NuGet-ApiKey: {USER_API_KEY}`
 
 API-Schlüssel ist eine nicht transparente Zeichenfolge, aus der Paketquelle vom Benutzer erhalten und in den Client konfiguriert. Wird kein bestimmtes Zeichenfolgenformat beauftragt, aber der API-Schlüssel sollte nicht länger als eine angemessene Größe für HTTP-Header-Werte.
 
@@ -86,9 +83,7 @@ Serverimplementierungen unterscheiden sich auf dem Erfolgsstatuscode zurückgege
 
 NuGet.org interpretiert die Paket-Delete-Anforderung als ein "Benutzerauswahl". Dies bedeutet, dass das Paket für vorhandene Consumer des Pakets weiterhin verfügbar ist, aber das Paket nicht mehr angezeigt, in den Suchergebnissen oder in der Webschnittstelle wird. Weitere Informationen zu dieser Vorgehensweise finden Sie unter der [Pakete gelöscht](../policies/deleting-packages.md) Richtlinie. Andere serverimplementierungen sind frei, um dieses Signal als feste Löschvorgang interpretieren, vorläufigen löschen oder Benutzerauswahl. Beispielsweise [NuGet.Server in](https://www.nuget.org/packages/NuGet.Server) (eine Server-Implementierung unterstützt nur die ältere V2-API) unterstützt diese Anforderung als ein Unlist oder ein hartes löschen, die basierend auf einer Konfigurationsoption behandeln.
 
-```
-DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
-```
+    DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
 
 ### <a name="request-parameters"></a>Anforderungsparameter
 
@@ -96,7 +91,7 @@ name           | In     | Typ   | Erforderlich | Hinweise
 -------------- | ------ | ------ | -------- | -----
 Id             | URL    | Zeichenfolge | ja      | Die ID des Pakets zu löschenden
 VERSION        | URL    | Zeichenfolge | ja      | Die Version des Pakets gelöscht
-X-NuGet-"apikey" | Header | Zeichenfolge | ja      | Beispiel: `X-NuGet-ApiKey: {USER_API_KEY}`
+X-NuGet-ApiKey | Header | Zeichenfolge | ja      | Beispiel: `X-NuGet-ApiKey: {USER_API_KEY}`
 
 ### <a name="response"></a>Antwort
 
@@ -111,9 +106,7 @@ Wenn ein Paket nicht aufgeführte ist, ist es möglich, das Paket erneut in den 
 
 Wenn das Paket bereits aufgeführt ist, wird die Anforderung trotzdem ausgeführt.
 
-```
-POST https://www.nuget.org/api/v2/package/{ID}/{VERSION}
-```
+    POST https://www.nuget.org/api/v2/package/{ID}/{VERSION}
 
 ### <a name="request-parameters"></a>Anforderungsparameter
 
@@ -121,7 +114,7 @@ name           | In     | Typ   | Erforderlich | Hinweise
 -------------- | ------ | ------ | -------- | -----
 Id             | URL    | Zeichenfolge | ja      | Die ID des Pakets wiedereinstellen
 VERSION        | URL    | Zeichenfolge | ja      | Die Version des Pakets wiedereinstellen
-X-NuGet-"apikey" | Header | Zeichenfolge | ja      | Beispiel: `X-NuGet-ApiKey: {USER_API_KEY}`
+X-NuGet-ApiKey | Header | Zeichenfolge | ja      | Beispiel: `X-NuGet-ApiKey: {USER_API_KEY}`
 
 ### <a name="response"></a>Antwort
 

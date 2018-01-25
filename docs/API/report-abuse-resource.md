@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 148d743a-09e5-4539-8454-675be11902db
 description: "Der Bericht Missbrauch URL-Vorlage kann Clients einen Missbrauch Berichtslink in ihre Benutzeroberfläche anzeigen."
 keywords: NuGet-API Melden des Missbrauchs, NuGet-API-Datei kompatibel, NuGet.org-Berichts-URL-Vorlage
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 7b3413297f5a7fcf0e2c7757036b1f240ed0058a
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: c12be294c71547fbce421c72aa091e0eee15aacd
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="report-abuse-url-template"></a>Berichtsvorlage Missbrauch-URL
 
@@ -54,21 +53,17 @@ Der Wert, der die `@id` ist eine URL-Zeichenfolge, die keines der folgenden Plat
 
 ### <a name="url-placeholders"></a>URL-Platzhalter
 
-Name        | Typ    | Erforderlich | Hinweise
+name        | Typ    | Erforderlich | Hinweise
 ----------- | ------- | -------- | -----
-`{id}`      | string  | Nein       | Die Paket-ID zum Melden des Missbrauchs für
-`{version}` | string  | Nein       | Die Paketversion zum Melden des Missbrauchs für
+`{id}`      | Zeichenfolge  | Nein       | Die Paket-ID zum Melden des Missbrauchs für
+`{version}` | Zeichenfolge  | Nein       | Die Paketversion zum Melden des Missbrauchs für
 
 Die `{id}` und `{version}` Werte interpretiert werden, durch die Implementierung der Server muss die Groß-/Kleinschreibung bei, und gibt an, ob die Version normalisiert wird nicht beachtet.
 
 Beispielsweise sieht sich der Nuget.org Missbrauch Berichtsvorlage wie folgt:
 
-```
-https://www.nuget.org/packages/{id}/{version}/ReportAbuse
-```
+    https://www.nuget.org/packages/{id}/{version}/ReportAbuse
 
 Wenn die Clientimplementierung einen Link zum Bericht Missbrauch Formular für NuGet.Versioning 4.3.0 anzuzeigen muss, würde es erzeugt die folgende URL und für den Benutzer bereitstellen:
 
-```
-https://www.nuget.org/packages/NuGet.Versioning/4.3.0/ReportAbuse
-```
+    https://www.nuget.org/packages/NuGet.Versioning/4.3.0/ReportAbuse

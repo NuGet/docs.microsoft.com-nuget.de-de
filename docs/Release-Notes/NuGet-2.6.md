@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: d99bbf29-2b9a-4dc5-a823-5eb4f9e30f7f
 description: "Versionshinweise für NuGet 2.6 einschließlich bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design."
 keywords: "NuGet-2.6 Anmerkungen zu dieser Version, aufgrund von Fehlerbehebungen, bekannte Probleme, zusätzliche Funktionen, Archivierung von dcrs Design"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b34c0049a5ba42f6bcd5b36fa5b0ba261e27ecd5
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: c2df9721e6941c110948af1a2d4ec4b7aeb476dd
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-26-release-notes"></a>NuGet-2.6-Versionshinweise
 
@@ -38,7 +37,7 @@ Mit NuGet 2.6 beginnen, werden zwei Erweiterungen wie unten beschrieben veröffe
 1. [NuGet Package Manager](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManager) (gilt für Visual Studio 2010 and 2012)
 1. [NuGet-Paket-Manager für Visual Studio 2013](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManagerforVisualStudio2013)
 
-Mit diesen Teilen der [nuget.org](https://nuget.org) Startseite ""Installieren von NuGet"Schaltfläche jetzt gelangen Sie zur der [Installieren von NuGet](../guides/install-nuget.md) Seite, in denen Sie weitere Informationen zum Installieren der verschiedenen NuGet-Clients suchen können.
+Mit diesen Teilen der [nuget.org](https://nuget.org) Startseite ""Installieren von NuGet"Schaltfläche gelangen Sie zur der [Installieren von NuGet](../install-nuget-client-tools.md) Seite, in denen Sie weitere Informationen zum Installieren der verschiedenen NuGet-Clients suchen können.
 
 <a name="xdt"></a>
 
@@ -53,8 +52,8 @@ Im April 2013 haben wir zwei große Ankündigungen zu NuGet-Unterstützung für 
 Um NuGet XDT-Unterstützung nutzen zu können, ähneln sich die Mechanismen, die von der [Transformationsfunktion für die aktuelle Konfiguration](../create-packages/source-and-config-file-transformations.md).
 Transformationsdateien werden Inhaltsordner des Pakets hinzugefügt. Während eine einzelnen Datei Config Transformationen für die Installation und Deinstallation verwendet werden, aktivieren Sie XDT Transformationen jedoch eine präzisere Kontrolle über diese beiden Vorgänge verwenden die folgenden Dateien:
 
-- Web.config.Install.XDT
-- Web.config.Uninstall.XDT
+- Web.config.install.xdt
+- Web.config.uninstall.xdt
 
 Darüber hinaus verwendet NuGet das Dateisuffix, um zu bestimmen, welches Modul für Transformationen, ausgeführt werden, damit Pakete mithilfe der vorhandenen web.config.transforms weiterhin funktionieren. XDT-Transformationen können auch in eine XML-Datei (nicht nur "Web.config"), angewendet werden, damit Sie diese für andere Anwendungen in Ihrem Projekt nutzen können.
 
@@ -69,10 +68,10 @@ NuGet angepasstes Paket Quelle-Funktion bietet eine Möglichkeit zum Organisiere
 
 NuGet-2.6 erweitert die Logik für NuGet konfigurieren, indem Sie die Ordnerhierarchie unter dem Pfad% ProgramData%/NuGet/Config suchen. Produktinstallationsprogramme können benutzerdefinierte NuGet-Konfigurationsdateien unter diesem Ordner so registrieren eine benutzerdefinierte Paketquelle für ihre Produkte hinzufügen. Darüber hinaus unterstützt die Ordnerstruktur Semantik für Produkt, Version und sogar SKU der IDE an. Einstellungen für diese Verzeichnisse werden in der folgenden Reihenfolge mit einer Strategie für "last in Wins" Rangfolge angewendet.
 
-1. %ProgramData%\NuGet\Config\*config
-2. %ProgramData%\NuGet\Config\{IDE}\*config
-3. %ProgramData%\NuGet\Config\{IDE}\{Version}\*config
-4. %ProgramData%\NuGet\Config\{IDE}\{Version}\{SKU}\*config
+1. %ProgramData%\NuGet\Config\*.config
+2. %ProgramData%\NuGet\Config\{IDE}\*.config
+3. %ProgramData%\NuGet\Config\{IDE}\{Version}\*.config
+4. %ProgramData%\NuGet\Config\{IDE}\{Version}\{SKU}\*.config
 
 In dieser Liste bezieht sich der Platzhalter {IDE} auf der IDE in der NuGet ausgeführt wird, damit im Fall von Visual Studio können sie "VisualStudio" werden. Der {Version} und {SKU} Platzhalter (z. B. von der IDE bereitgestellt werden "11,0" und "WDExpress", "VWDExpress" und "Pro" bzw.). Der Ordner kann dann viele verschiedene *.config-Dateien enthalten.
 Aus diesem Grund kann, das ACME Komponente Unternehmen als Teil ihrer Produktinstallationsprogramm, eine benutzerdefinierte Paketquelle hinzufügen, die nur in der Professional oder Ultimate Edition von Visual Studio 2012 sichtbar sein wird, indem Sie den folgenden Dateipfad erstellen:

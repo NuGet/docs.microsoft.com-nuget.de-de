@@ -3,21 +3,20 @@ title: NuGet-Befehlszeilenschnittstelle (CLI)-Referenz | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/23/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: d777c424-0cf3-4bc0-8abd-7ca16c22192b
 description: "Befehlszeilenreferenz Index für die nuget.exe CLI"
 keywords: NuGet.exe Verweisindex, nuget.exe-Befehlszeilenschnittstelle, nuget.exe CLI, NuGet-Befehls
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 5dba358b1dda46f551721461e0460219f8210f9a
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: 8b1ee17702f5a54a77dc2cd663e13729a9b4a39f
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-cli-reference"></a>NuGet-CLI-Referenz
 
@@ -27,15 +26,20 @@ Um einen Befehl zu verwenden, öffnen Sie ein Eingabeaufforderungsfenster oder b
 
 In dieser Dokumentation gibt die neueste Version des NuGet-CLI wieder. Führen Sie genaue Angaben für eine bestimmte Version, die Sie verwenden `nuget help` für den gewünschten Befehl.
 
-## <a name="installing-nugetexe"></a>Installieren von nuget.exe
+## <a name="installing-nugetexe"></a>Installing nuget.exe
 
 [!INCLUDE[install-cli](../includes/install-cli.md)]
 
+> [!Tip]
+> Um die CLI NuGet in Visual Studio in der Paket-Manager-Konsole verfügbar zu machen, finden Sie unter [mithilfe der CLI nuget.exe in der Konsole](package-manager-console.md#using-the-nugetexe-cli-in-the-console).
+
 ## <a name="availability"></a>Verfügbarkeit
 
+Finden Sie unter [Verfügbarkeit von Features](../install-nuget-client-tools.md#feature-availability) genaue Angaben.
+
 - Alle Befehle sind unter Windows verfügbar.
-- Alle Befehle funktionieren mit [nuget.exe Mono unter](../guides/install-nuget.md#mac-osx-and-linux) außer für angegeben `pack`, `restore`, und `update`.
-- Die `pack`, `restore`, `delete`, `locals`, und `push` Befehle stehen auch für Mac und Linux über das [Dotnet CLI](dotnet-Commands.md).
+- Alle Befehle funktionieren mit nuget.exe auf Mono ausgeführt werden, außer für angegeben `pack`, `restore`, und `update`.
+- Die `pack`, `restore`, `delete`, `locals`, und `push` Befehle stehen auch für Mac und Linux über die CLI-Dotnet.
 
 ## <a name="commands-and-applicability"></a>Befehle und Anwendbarkeit
 
@@ -51,7 +55,6 @@ Verfügbaren Befehle und Anwendbarkeit auf die Erstellung des Pakets, Paket Verb
 | [restore](cli-ref-restore.md) | Verbrauch | 2.7+ | Stellt alle Pakete verweist auf das Paketformat-Verweis verwendet. Bei Ausführung auf Mono wird das Wiederherstellen von Paketen, die mit dem PackageReference-Format nicht unterstützt. |
 | [setapikey](cli-ref-setapikey.md) | Veröffentlichen, wählen Sie Verbrauch | Alle | Speichert einen API-Schlüssel für eine bestimmte Paketquelle an, wenn diese Paketquelle einen Schlüssel für den Zugriff erforderlich ist. |
 | [spec](cli-ref-spec.md) | Erstellung | Alle | Generiert eine `.nuspec` Datei Token verwenden, wenn die Datei aus einem Visual Studio-Projekt generiert wird. |
-
 
 | Sekundäre Befehle | Anwendbaren Serverrollen | NuGet-Version | Beschreibung |
 | --- | --- | --- | --- |

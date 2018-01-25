@@ -3,21 +3,20 @@ title: NuGet-CLI-Pack-Befehl | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 12/08/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 55e9e4d2-8039-4e9b-bdd9-c8b3eb0e894b
 description: "Referenz für den nuget.exe-Pack-Befehl"
 keywords: NuGet-Pack-Verweis, Pack-Befehl
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0dbecb8f01acf781ab8d2e77e8df7fa405f74cf1
-ms.sourcegitcommit: d576d84fb4b6a178eb2ac11f55deb08ac771ba1c
+ms.openlocfilehash: 732a712f88c6267caae361673a05af0781877cf4
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="pack-command-nuget-cli"></a>Pack-Befehl (NuGet CLI)
 
@@ -30,7 +29,7 @@ Erstellt ein NuGet-Paket auf der Grundlage der angegebenen `.nuspec` oder der Pr
 
 ## <a name="usage"></a>Verwendung
 
-```
+```cli
 nuget pack <nuspecPath | projectPath> [options]
 ```
 
@@ -57,7 +56,7 @@ wobei `<nuspecPath>` und `<projectPath>` angeben der `.nuspec` oder Projektdatei
 | Suffix | *(3.4.4+)*  Fügt ein Suffix, die intern generierten Versionsnummer, die in der Regel zum Anfügen von Build oder andere Vorabversion Bezeichner verwendet. Beispiel für die Verwendung `-suffix nightly` erstellen Sie ein Paket wird mit Version Number Like `1.2.3-nightly`. Suffixe müssen mit einem Buchstaben zur Vermeidung von Warnungen, Fehler und mögliche Inkompatibilitäten mit verschiedenen Versionen von NuGet und NuGet-Paket-Manager starten. |
 | Symbole | Gibt an, dass das Paket Quellen und Symbole enthält. Bei Verwendung mit einem `.nuspec` Datei dies eine normale NuGet-Paket-Datei erstellt und das entsprechende Paket Symbole. |
 | Tool | Gibt an, dass die Ausgabedateien des Projekts soll, in platziert werden der `tool` Ordner. |
-| Ausführlichkeit | Gibt die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *stillen*, *detaillierte (2.5 und höher)*. |
+| Ausführlichkeit | Gibt die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *stillen*, *ausführliche*. |
 | Version | Überschreibt die Versionsnummer auf der `.nuspec` Datei. |
 
 Siehe auch [Umgebungsvariablen](cli-ref-environment-variables.md)
@@ -83,7 +82,7 @@ Für dieses Projekt das Paket erstellt hat, indem `nuget pack` hat eine Abhängi
 
 ## <a name="examples"></a>Beispiele
 
-```
+```cli
 nuget pack
 
 nuget pack foo.nuspec

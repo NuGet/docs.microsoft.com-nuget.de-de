@@ -7,21 +7,20 @@ ms.date: 12/12/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 3cf592de-39f2-4e7f-a597-62635fdcedfa
 description: "Anmeldeinformationsanbieter NuGet.exe authentifizieren sich mit einem Feed und werden als ausführbare Befehlszeilendateien, die bestimmte Konventionen implementiert."
 keywords: NuGet.exe Anmeldeinformationsanbieter, Anmeldeinformationsanbieter-API authentifizieren sich mit dem Feed, authentifizieren sich mit der Galerie
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 82ab4d6e9be0736e008f5bd27d46e1db166d7bb4
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 88ce0106ad4e628ba8120f94b7951c7746ab67f3
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>Authentifizieren von Feeds mit nuget.exe Anmeldeinformationsanbieter
 
-*NuGet 3.3 +*
+*NuGet 3.3+*
 
 Wenn `nuget.exe` benötigt Anmeldeinformationen für die Authentifizierung bei einem Feed, sucht es nach ihnen auf folgende Weise:
 
@@ -59,7 +58,7 @@ Ein Anbieter muss folgende Anforderungen erfüllen:
 | Parameter-Switch |Beschreibung|
 |----------------|-----------|
 | URI {Value} | Die Paket-URI erfordert Anmeldeinformationen für die Datenquelle.|
-| Nicht interaktive | Falls vorhanden, gibt Anbieter keine interaktive eingabeaufforderungen aus. |
+| NonInteractive | Falls vorhanden, gibt Anbieter keine interaktive eingabeaufforderungen aus. |
 | IsRetry | Falls vorhanden, gibt an, dass dieser Versuch eine Wiederholung für einen zuvor fehlgeschlagenen Versuch ist. Anbieter verwenden Sie dieses Flag in der Regel um sicherzustellen, dass sie alle vorhandenen Caches zu umgehen und nach Möglichkeit zum Eingeben neuer Anmeldeinformationen aufgefordert.|
 | Ausführlichkeit {Value} | Falls vorhanden, einen der folgenden Werte: "normale", "quiet" oder "detailliert". Wenn kein Wert angegeben wird, wird standardmäßig in "Normal". Anbieter sollten diese ein Hinweis auf die Ebene der optionalen Protokollierung verwenden, um den Standardfehlerstream auszugeben. |
 

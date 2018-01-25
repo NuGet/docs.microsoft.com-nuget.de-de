@@ -7,25 +7,24 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 75a9b496-5762-48b6-922f-fdddf1369c45
 description: "Versionshinweise für NuGet 3.5 RC einschließlich bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design."
 keywords: "NuGet-3.5 RC-versionsanmerkungen, aufgrund von Fehlerbehebungen, bekannte Probleme, zusätzliche Funktionen, Archivierung von dcrs Design"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 09d566de6f53bc0f0ddd8049143dc647f3075671
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: fdb84da5f1648ce4508afe6ddcf04bddd41284d3
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
-#<a name="35-rc-release-notes"></a>3.5 Anmerkungen zu dieser Version RC
+# <a name="nuget-35-rc-release-notes"></a>Anmerkungen dieser Version von NuGet 3.5 RC
 
 [Anmerkungen zur Version von NuGet 3.5 Beta2](../release-notes/nuget-3.5-Beta2.md) | [NuGet 3.5-RTM Anmerkungen zu dieser Version](../release-notes/nuget-3.5-RTM.md)
 
 Version 3.5 konzentriert sich auf die Verbesserung der Qualität und Leistung von NuGet-Clients. Darüber hinaus haben wir einige Funktionen wie die Unterstützung für geliefert [alternative Ordner](https://github.com/NuGet/Home/issues/2899), [PackageType](https://github.com/NuGet/Home/issues/2476) -Unterstützung in `.nuspec` und vieles mehr.
 
-[Liste der Probleme](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%223.5 RC")
+[Probleme: Liste](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%223.5 RC")
 
 ## <a name="bug-fixes"></a>Fehlerkorrekturen
 
@@ -95,7 +94,7 @@ Version 3.5 konzentriert sich auf die Verbesserung der Qualität und Leistung vo
 
 * Lösen Sie ReSharper Leistungsprobleme in NuGet-Update - [#3044](https://github.com/NuGet/Home/issues/3044): für ein Beispielprojekt Zeit zum Installieren der Pakete von 140s auf reduziert 68s.
 
-## <a name="dcrs"></a>Archivierung von dcrs Design
+## <a name="dcrs"></a>DCRs
 
 * NuGet muss, damit Benutzer wissen, dass ein Upgrade/Installation in ein Dotnet-Tfm basierend PCL Probleme - verursachen könnte [#3138](https://github.com/NuGet/Home/issues/3138)
 

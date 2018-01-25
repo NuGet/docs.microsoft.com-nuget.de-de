@@ -3,56 +3,51 @@ title: NuGet CLI Wiederherstellungsbefehl | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 6ee41020-e548-4e61-b8cd-c82b77ac6af7
 description: "Referenz für die nuget.exe Restore-Befehl"
 keywords: NuGet restore Verweis, der Synchronisierungsbefehl der Pakete
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b435a3c2ffe08e3c2f8fc6a4dacb06cf674e4fb9
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 93d7b6967d9297ee822df1583351385210775173
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="restore-command-nuget-cli"></a>RESTORE-Befehl (NuGet CLI)
 
 **Gilt für:** Verpacken Sie Verbrauch &bullet; **unterstützte Versionen:** 2.7 +
 
-NuGet 2.7 +: Heruntergeladen und installiert alle Pakete fehlen in der `packages` Ordner.
+Herunterlädt und installiert alle Pakete fehlen in der `packages` Ordner. Bei Verwendung mit NuGet 4.0 und höher und das Format PackageReference generiert eine `<project>.nuget.props` -Datei bei Bedarf in den `obj` Ordner. (Die Datei kann aus der quellcodeverwaltung ausgelassen werden.)
 
-NuGet 3.3 + mit Projekten, die mit `project.json`: generiert eine `project.lock.json` Datei und ein `<project>.nuget.props` -Datei bei Bedarf. (Beide Dateien können aus der quellcodeverwaltung weggelassen.)
-
-NuGet 4.0 und höher mit Projekt, in welches Paket Verweise in der Projektdatei direkt enthalten sind: generiert eine `<project>.nuget.props` -Datei bei Bedarf in den `obj` Ordner. (Die Datei kann aus der quellcodeverwaltung ausgelassen werden.)
-
-Unter Mac OS x und Linux mit der CLI auf Mono wird Wiederherstellen von Paketen mit dem PackageReference-Format nicht unterstützt.
+Unter Mac OS x und Linux mit der CLI auf Mono wird Wiederherstellen von Paketen mit PackageReference nicht unterstützt.
 
 ## <a name="usage"></a>Verwendung
 
-```
+```cli
 nuget restore <projectPath> [options]
 ```
 
-auf dem `<projectPath>` gibt den Speicherort einer Projektmappe ein `packages.config` -Datei oder eine `project.json` Datei. Finden Sie unter ["Hinweise"](#remarks) unten überwachungshilfsprogrammen Informationen.
+wobei `<projectPath>` gibt den Speicherort einer Projektmappe oder ein `packages.config` Datei. Finden Sie unter ["Hinweise"](#remarks) unten überwachungshilfsprogrammen Informationen.
 
 ## <a name="options"></a>Optionen
 
 | Option | Beschreibung |
 | --- | --- |
-| "ConfigFile" hinzu | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, *%AppData%\NuGet\NuGet.Config* verwendet wird. |
+| ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, *%AppData%\NuGet\NuGet.Config* verwendet wird. |
 | DirectDownload | *(4.0 und höher)*  Werden Pakete direkt ohne das Auffüllen des Caches mit Binärdateien oder Metadaten heruntergeladen. |
 | DisableParallelProcessing | Deaktiviert, die mehrere Pakete gleichzeitig wiederhergestellt werden. |
-| Alternativer | *(3.2 +)*  Eine Liste der Paketquellen überein, die als Zugriffe verwendet werden soll, für den Fall, dass das Paket nicht, in der primären gefunden wird oder Standardquelle. |
+| FallbackSource | *(3.2 +)*  Eine Liste der Paketquellen überein, die als Zugriffe verwendet werden soll, für den Fall, dass das Paket nicht, in der primären gefunden wird oder Standardquelle. |
 | ForceEnglishOutput | *(3.5 +)*  Erzwingt nuget.exe über eine invariante Kultur Englisch-basierte ausgeführt werden. |
 | Hilfe | Zeigt die Hilfe Informationen für den Befehl. |
 | MSBuildPath | *(4.0 und höher)*  Gibt den Pfad des MSBuild für die Verwendung mit dem Befehl, Vorrang vor `-MSBuildVersion`. |
 | MSBuildVersion | *(3.2 +)*  Gibt die Version von MSBuild mit diesem Befehl verwendet werden soll. Unterstützte Werte sind 4, 12, 14, 15. Standardmäßig werden die MSBuild-Datei in Ihrem Pfad abgerufen wird, wird standardmäßig andernfalls die neueste installierte Version von MSBuild. |
 | NoCache | Verhindert, dass NuGet Pakete aus lokalen Caches. |
-| Nicht interaktive | Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an. |
+| NonInteractive | Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an. |
 | OutputDirectory | Gibt den Ordner, in dem Pakete installiert sind. Wenn kein Ordner angegeben wird, wird der aktuelle Ordner verwendet. |
 | PackageSaveMode | Gibt die Typen von Dateien nach der Paketinstallation speichern: einer der `nuspec`, `nupkg`, oder `nuspec;nupkg`. |
 | PackagesDirectory | Wie in `OutputDirectory`. |
@@ -61,7 +56,7 @@ auf dem `<projectPath>` gibt den Speicherort einer Projektmappe ein `packages.co
 | RequireConsent | Überprüft, ob Pakete werden wiederhergestellt aktiviert wird vor dem Herunterladen und Installieren der Pakete. Weitere Informationen finden Sie unter [Paketwiederherstellung](../consume-packages/package-restore.md). |
 | SolutionDirectory | Gibt den Projektmappenordner. Gilt nicht beim Wiederherstellen von Paketen für eine Projektmappe. |
 | Quelle | Gibt die Liste der Paketquellen (wie URLs) für die Verwendung für die Wiederherstellung an. Wenn nicht angegeben, wird der Befehl verwendet die Quellen in Konfigurationsdateien bereitgestellt, finden Sie unter [NuGet Konfigurieren von Verhalten](../Consume-Packages/Configuring-NuGet-Behavior.md). |
-| Ausführlichkeit |> Gibt die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *stillen*, *detaillierte (2.5 und höher)*. |
+| Ausführlichkeit |> Gibt die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *stillen*, *ausführliche*. |
 
 Siehe auch [Umgebungsvariablen](cli-ref-environment-variables.md)
 
@@ -74,15 +69,14 @@ Der Restore-Befehl führt die folgenden Schritte aus:
     | --- | --- |
     Lösung (Ordner) | NuGet sucht nach einem `.sln` Datei und verwendet, die andernfalls einen Fehler enthält. `(SolutionDir)\.nuget`Dient als Ordner ab.
     `.sln`Datei | Wiederherstellen von Paketen, die von der Lösung identifiziert; generiert einen Fehler, wenn `-SolutionDirectory` verwendet wird. `$(SolutionDir)\.nuget`Dient als Ordner ab.
-    `packages.config`, `project.json`, oder der Projektdatei | Stellen Sie Pakete, die in der Datei, die zu beheben, und Installieren von Abhängigkeiten aufgelisteten wieder her.
+    `packages.config`oder der Projektdatei | Stellen Sie Pakete, die in der Datei, die zu beheben, und Installieren von Abhängigkeiten aufgelisteten wieder her.
     Andere Dateityp | Datei wird angenommen, ein `.sln` Datei wie oben beschrieben; Wenn es sich nicht um eine Lösung, die NuGet-gibt einen Fehler handelt.
     (ProjectPath nicht angegeben) | -NuGet sucht nach berichtsprojektmappen-Dateien im aktuellen Ordner. Wenn eine einzelne Datei gefunden wird, verwendet wird, dass eine, Pakete wiederherzustellen. Wenn mehrere Lösungen gefunden werden, wird von NuGet ein Fehler generiert.
-    |– Wenn keine Lösungsdateien vorhanden sind, sucht NuGet nach einem `packages.config` oder `project.json` dann verwendet, um das Wiederherstellen von Paketen.
-    |– Wenn keine Projektmappendatei `packages.config`, oder `project.json` gefunden wird, ist NuGet generiert einen Fehler.
+    |– Wenn keine Lösungsdateien vorhanden sind, sucht NuGet nach einem `packages.config` dann verwendet, um das Wiederherstellen von Paketen.
+    |– Wenn keine Lösung oder `packages.config` Datei gefunden wird, NuGet generiert einen Fehler.
 
 1. Bestimmen Sie den Ordner "Pakete" mithilfe der folgenden Prioritätsreihenfolge (NuGet generiert einen Fehler, wenn keiner dieser Ordner gefunden werden):
 
-    - Die `%userprofile%\.nuget\packages` Wert in `project.json`.
     - Mit angegebenen Ordner `-PackagesDirectory`.
     - Die `repositoryPath` Wert in`Nuget.Config`
     - Den Ordner mit angegeben wird.`-SolutionDirectory`
@@ -95,7 +89,7 @@ Der Restore-Befehl führt die folgenden Schritte aus:
 
 ## <a name="examples"></a>Beispiele
 
-```
+```cli
 # Restore packages for a solution file
 nuget restore a.sln
 

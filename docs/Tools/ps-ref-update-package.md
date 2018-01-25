@@ -7,17 +7,16 @@ ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: b4aa92a9-ce47-4d23-ae51-d5683e08a9d5
 description: "Referenz für das Updatepaket PowerShell-Befehl in der NuGet-Paket-Manager-Konsole in Visual Studio."
 keywords: NuGet-Paket-Manager-Konsole, die NuGet Powershell-Befehle, die NuGet Powershell-Referenz, Update-Paket
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 71f5cd7061e0f765d8808db8a3798657a941ba14
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 768fdb4d7c785b4f3ed9e70958390676ea965794
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Update-Paket (Paket-Manager-Konsole in Visual Studio)
 
@@ -46,7 +45,7 @@ NuGet 2.7 und früher erhalten eine Fehlermeldung, dass bereits eine neuere Vers
 |  Parameter | Beschreibung |
 | --- | --- |
 | Id | Der Bezeichner des Pakets aktualisieren. Wenn nicht angegeben, aktualisiert alle Pakete aus. Die - Id Schalter ist optional. |
-| MSI | Überspringt die Abhängigkeiten des Pakets aktualisieren. |
+| IgnoreDependencies | Überspringt die Abhängigkeiten des Pakets aktualisieren. |
 | ProjektName | Der Name des Projekts, enthält die Pakete zu aktualisieren, die Standardwerte für alle Projekte. |
 | Version | Die Version, die für das Upgrade auf die neueste Version standardmäßig verwendet. In 3.0 + NuGet der Versionswert möglich *niedrigste, höchste, HighestMinor*, oder *HighestPatch* (gleichwertig mit "- Safe). |
 | Safe | Schränkt Upgrades auf nur Versionen mit der gleichen Haupt- und Version als der derzeit installierten Paket. |
@@ -57,7 +56,7 @@ NuGet 2.7 und früher erhalten eine Fehlermeldung, dass bereits eine neuere Vers
 | DependencyVersion | Die Version der abhängigkeitspakete zu verwenden, die in der folgenden Werte sind möglich:<br/><ul><li>*Niedrigste* (Standard): die niedrigste Version</li><li>*HighestPatch*: die Version mit der niedrigsten wichtigen, niedrigste Nebenversion, höchste Patch</li><li>*HighestMinor*: die Version mit der niedrigsten Hauptversion, die höchste Nebenversion, höchste Patch</li><li>*Höchste* (Standard für Update-Paket ohne Parameter): die höchste Version</li></ul>Sie können festlegen, den Standard-Wert mit der [ `dependencyVersion` ](../Schema/nuget-config-file.md#config-section) festlegen in der `Nuget.Config` Datei. |
 | ToHighestPatch | Schränkt Upgrades nur Versionen mit der gleichen Nebenversion als der derzeit installierten Paket. |
 | ToHighestMinor | Schränkt Upgrades nur Versionen mit der gleichen Hauptversion als der derzeit installierten Paket. |
-| "WhatIf" | Zeigt an, was passieren würde, wenn der Befehl ausgeführt wird, ohne das Update ausführen. |
+| WhatIf | Zeigt an, was passieren würde, wenn der Befehl ausgeführt wird, ohne das Update ausführen. |
 
 Keines dieser Parameter akzeptieren Pipeline Eingabe- oder Platzhalter-Zeichen.
 

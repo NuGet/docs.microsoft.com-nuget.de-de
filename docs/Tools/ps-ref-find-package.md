@@ -7,17 +7,16 @@ ms.date: 6/1/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 2f7b8847-8259-4366-98c0-13cab88d6e1b
 description: "Referenz für Find-Package-PowerShell-Befehl in der NuGet-Paket-Manager-Konsole in Visual Studio."
 keywords: NuGet-Paket-Manager-Konsole NuGet Powershell-Befehle, NuGet Powershell-Referenz, Find-Package
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: fb55cc71e0d4b8eee28b232e64d2cc42364fc153
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 47b8420cc49d0a76709cf3268af69fcff310d165
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="find-package-package-manager-console-in-visual-studio"></a>Find-Package (Paket-Manager-Konsole in Visual Studio)
 
@@ -42,7 +41,7 @@ Find-Package [-Id] <keywords> -Source <string> [-AllVersions] [-First [<int>]]
 | First | Die Anzahl der Pakete an, ab dem Anfang der Liste zurückgegeben werden soll; Der Standardwert ist 20. |
 | Skip | Lässt die erste &lt;Int&gt; Pakete aus der angezeigten Liste.  |
 | IncludePrerelease | Enthält Vorabversionen von Paketen in den Ergebnissen an. |
-| "ExactMatch" | Mit angegebenen &lt;Schlüsselwörter&gt; als Groß-/Kleinschreibung Paket-ID |
+| ExactMatch | Mit angegebenen &lt;Schlüsselwörter&gt; als Groß-/Kleinschreibung Paket-ID |
 | StartWith | Gibt Pakete, deren ID beginnt mit Paket &lt;Schlüsselwörter&gt;. |
 
 Keines dieser Parameter akzeptieren Pipeline Eingabe- oder Platzhalter-Zeichen.

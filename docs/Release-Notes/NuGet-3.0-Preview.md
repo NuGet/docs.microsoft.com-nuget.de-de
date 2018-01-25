@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 6762b6f8-82b7-4bab-a1f0-cd25e5dc1fb4
 description: "Versionshinweise für NuGet 3.0 Preview einschließlich bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design."
 keywords: "NuGet-3.0 Preview Release Notes aufgrund von Fehlerbehebungen, bekannte Probleme, zusätzliche Funktionen, Archivierung von dcrs Design"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ae137af6f9722c454458fdcb4f20760c08d6e8bb
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: e07bcad2bf713deee0add72663c84b9979f8c5c4
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-30-preview-release-notes"></a>Anmerkungen zur Version von NuGet-3.0-Vorschau
 
@@ -25,7 +24,7 @@ ms.lasthandoff: 01/05/2018
 
 NuGet-3.0-Vorschau wurde am 12. November 2014 als Teil der Visual Studio 2015 Preview-Version veröffentlicht. NuGet-3.0 Preview veröffentlicht. Dies ist eine große Version für uns (obwohl es sich um eine Vorschau), und wir freuen uns, erste Feedback auf unsere Änderungen an.
 
-## <a name="visual-studio-2012"></a>Visual Studio 2012 +
+## <a name="visual-studio-2012"></a>Visual Studio 2012+
 
 Dieses NuGet-3.0-Vorschau ist in Visual Studio 2015 Preview enthalten. Wir arbeiten daran, löscht der Preview für Visual Studio 2012 und Visual Studio 2013 sehr schnell abzurufen. Wir haben unsere versucht, eine zuvor freigegeben [Updates für Visual Studio 2010 eingestellt](http://blog.nuget.org/20141002/visual-studio-2010.html), und wir haben diese schwierige Entscheidung vorgenommen.
 

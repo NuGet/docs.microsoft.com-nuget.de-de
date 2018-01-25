@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: e4856d0a-b408-4c60-ac51-f80ea06d9f79
 description: "Versionshinweise für NuGet 1.4 einschließlich bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design."
 keywords: "NuGet 1.4 Anmerkungen zu dieser Version, aufgrund von Fehlerbehebungen, bekannte Probleme, zusätzliche Funktionen, Archivierung von dcrs Design"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c4c27861c8697c75a06712b8ca6243b3b206cbb3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: a69f4f5c7172817d711fa5e995cf6db3875c4810
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-14-release-notes"></a>1.4 NuGet-Versionshinweise
 
@@ -150,10 +149,10 @@ Eine vollständige Liste der Arbeit Elemente in behoben NuGet 1.4, bitte Ansicht
 * [Problem 1036](http://nuget.codeplex.com/workitem/1036): Hinzufügen von `NuGet Pack SomeProject.csproj` Ereignis nicht mehr nach dem Erstellen verursacht eine Endlosschleife.
 * [Problem 961](http://nuget.codeplex.com/workitem/961): `-Source` Flag unterstützt relative Pfade.
 
-# <a name="nuget-14-update"></a>NuGet-1.4-Update
+## <a name="nuget-14-update"></a>NuGet-1.4-Update
 Kurz nach der Version des NuGet-1.4 stellten wir eine Reihe von Problemen, die wichtig, die behoben wurden.
 Die spezifische Versionsnummer für dieses Update 1.4 ist 1.4.20615.9020.
 
-## <a name="bug-fixes"></a>Fehlerkorrekturen
+### <a name="bug-fixes"></a>Fehlerkorrekturen
 * [Problem 1220](http://nuget.codeplex.com/workitem/1220): Update-Paket nicht ausgeführt werden `install.ps1` / `uninstall.ps1` in allen Projekten bei mehr als ein Projekt
 * [Problem 1156](http://nuget.codeplex.com/workitem/1156): Paket-Manager Computerkonsole hängen unter W2K3/XP (wenn es sich um eine Powershell-2 nicht installiert ist)

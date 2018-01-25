@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 8c81f1ac-18c7-44d1-b2e3-584fe85dee6f
 description: "Die NuGet-API ist eine Sammlung von HTTP-Endpunkten, die zum Herunterladen von Paketen, Metadaten abzurufen, veröffentlichen neue Pakete usw. verwendet werden kann."
 keywords: "NuGet-V3-API, NuGet V2-API, NuGet JSON, NuGet-Registrierung API NuGet-API-Flatfile-Container, NuGet Nupkg API, NuGet-Metadaten-API, NuGet-Such-API, NuGet-Push-API, NuGe veröffentlichen API NuGet API löschen, NuGet Benutzerauswahl-API das NuGet Protokoll"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 05ed17f12f413d29d97a253d7d55f154d4910834
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: c28b0912be6dbccab06078100cb71821c3658e08
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-api"></a>NuGet-API
 
@@ -112,9 +111,9 @@ Im Fall einer auf 500-Statuscode kann der Client einen angemessene Wiederholungs
 
 name                     | Beschreibung
 ------------------------ | -----------
-X-NuGet-"apikey"           | Erforderlich für Push-als auch löschen, siehe [ `PackagePublish` Ressource](package-publish-resource.md)
-X-NuGet-Clientversion   | **Als veraltet markiert** und ersetzt durch`X-NuGet-Protocol-Version`
-X-NuGet-Protokollversion | In bestimmten Fällen auf nuget.org nur erforderlich, siehe [nuget.org-Protokolle](NuGet-Protocols.md)
+X-NuGet-ApiKey           | Erforderlich für Push-als auch löschen, siehe [ `PackagePublish` Ressource](package-publish-resource.md)
+X-NuGet-Client-Version   | **Als veraltet markiert** und ersetzt durch`X-NuGet-Protocol-Version`
+X-NuGet-Protocol-Version | In bestimmten Fällen auf nuget.org nur erforderlich, siehe [nuget.org-Protokolle](NuGet-Protocols.md)
 
 ## <a name="authentication"></a>Authentifizierung
 

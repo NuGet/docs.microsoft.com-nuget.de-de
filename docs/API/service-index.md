@@ -11,26 +11,22 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 2f6d6cf2-53fb-417a-b1d8-e0ac591c1699
 description: Der Dienst-Index ist der Einstiegspunkt der NuGet-HTTP-API und listet die Funktionen des Servers.
 keywords: NuGet-API-Einstiegspunkt, NuGetA PI-Endpunkt-Ermittlung
 ms.reviewer:
 - karann
 - unnir
-ms.openlocfilehash: 0c43a09d8564964bd0140b9ac5deb9d3063e4dc5
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 9d0bb421c163520df4a1f0e9f3f71aab823aace3
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
-# <a name="service-index"></a>Dienst-Index
+# <a name="service-index"></a>Dienst-index
 
 Der Dienst-Index ist ein JSON-Dokument, ist der Einstiegspunkt für die Quelle ein NuGet-Paket und eine Clientimplementierung der Paketquelle Funktionen ermitteln kann. Der Dienst-Index ist ein JSON-Objekt, mit zwei erforderliche Eigenschaften: `version` (die Schemaversion des Indexes Service) und `resources` (die Endpunkte oder die Funktionen des die Paketquelle).
 
-sich der NuGet.org-Dienst Index befindet sich hier:
-```
-https://api.nuget.org/v3/index.json
-```
+sich der NuGet.org-Dienst Index befindet sich unter `https://api.nuget.org/v3/index.json`.
 
 ## <a name="versioning"></a>Versionskontrolle
 
@@ -53,19 +49,17 @@ Die `resources` -Eigenschaft enthält ein Array von Ressourcen, die von diesem P
 
 Eine Ressource ist ein Objekt in der `resources` Array. Es stellt eine Möglichkeit, eine Paketquelle mit Versionsangabe. Eine Ressource hat die folgenden Eigenschaften:
 
-Name          | Typ   | Erforderlich | Hinweise
+name          | Typ   | Erforderlich | Hinweise
 ------------- | ------ | -------- | -----
-@id           | string | ja      | Die URL der Ressource
-@type         | string | ja      | Eine Zeichenfolgenkonstante, die den Ressourcentyp darstellt.
-Kommentar       | string | Nein       | Eine lesbare Beschreibung der Ressource
+@id           | Zeichenfolge | ja      | Die URL der Ressource
+@type         | Zeichenfolge | ja      | Eine Zeichenfolgenkonstante, die den Ressourcentyp darstellt.
+Kommentar       | Zeichenfolge | Nein       | Eine lesbare Beschreibung der Ressource
 
 Die `@id` ist eine URL, die muss absolut sein und muss entweder das HTTP- oder HTTPS-Schema vorhanden sein.
 
 Die `@type` wird verwendet, um das bestimmte Protokoll verwenden, bei der Interaktion mit Ressourcen zu identifizieren. Der Typ der Ressource ist eine nicht transparente Zeichenfolge, aber im Allgemeinen weist das Format:
 
-```
-{RESOURCE_NAME}/{RESOURCE_VERSION}
-```
+    {RESOURCE_NAME}/{RESOURCE_VERSION}
 
 Clients voraussichtlich hartcodieren der `@type` Werte, die sie kennen und effizient in eine Paketquelle Dienst Index gesucht werden. Die genaue `@type` Werte heute werden aufgelistet, auf die einzelne Ressource Referenzdokumente aufgeführt, die der [Übersicht über die API](overview.md#resources-and-schema).
 
@@ -75,9 +69,7 @@ Es ist nicht erforderlich, dass jede Ressource eine eindeutige weist `@id` oder 
 
 ### <a name="sample-request"></a>Beispielanforderung
 
-```
 GET https://api.nuget.org/v3/index.json
-```
 
 ### <a name="sample-response"></a>Beispielantwort
 

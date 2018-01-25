@@ -3,21 +3,20 @@ title: "NuGet-Anmeldeinformationsanbieter für Visual Studio | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/9/2017
+ms.date: 01/09/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 9c7f6d16-f437-47c4-82d4-6c996e0b18ec
 description: NuGet-Anmeldeinformationsanbieter authentifizieren, mit Feeds durch Implementieren der IVsCredentialProvider-Schnittstelle in einer Visual Studio-Erweiterung.
 keywords: NuGet-Anmeldeinformationsanbieter, authentifizieren sich mit dem Feed, authentifizieren sich mit visual Studio-Erweiterung von NuGet-Katalog
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8d7360205387d4813f95560018e2ac68f71f5603
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: ff143526c814c69f1a133a62c1ad1a8f5fbedd60
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>Authentifizieren von Datenfeeds in Visual Studio mit NuGet-Anmeldeinformationsanbieter
 
@@ -82,7 +81,7 @@ Eine benutzerdefinierte NuGet-Anmeldeinformationsanbieter für Visual Studio mus
 
 | Eingabeparameter |Beschreibung|
 | ----------------|-----------|
-| URI-uri | Die Paket-Quell-Uri für die Anmeldeinformationen angefordert werden.|
+| Uri uri | Die Paket-Quell-Uri für die Anmeldeinformationen angefordert werden.|
 | IWebProxy proxy | Der Webproxy verwendet, bei der Kommunikation im Netzwerk. NULL, wenn es keine Proxyauthentifizierung konfiguriert ist. |
 | Bool isProxyRequest | "True", wenn die Anforderung beim Authentifizierungsanmeldeinformationen abrufen ist. Wenn die Implementierung für den Erwerb von Proxy-Anmeldeinformationen ungültig ist, sollte Null zurückgegeben. |
 | Bool isRetry | "True", wenn Anmeldeinformationen für diesen Uri bereits zuvor angefordert wurden, aber die angegebenen Anmeldeinformationen wurde aufgrund nicht autorisierten Zugriff zugelassen. |

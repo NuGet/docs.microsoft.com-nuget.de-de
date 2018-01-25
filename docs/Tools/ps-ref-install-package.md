@@ -3,7 +3,7 @@ title: NuGet-Install-Package-PowerShell-Referenz | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 6/1/2017
+ms.date: 06/01/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
@@ -13,11 +13,11 @@ keywords: NuGet-Paket-Manager-Konsole NuGet Powershell-Befehle, NuGet Powershell
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 5da523d8b517a6867a86998dceaa1eba7b55b5fc
-ms.sourcegitcommit: 51eae111f0fec4fbb21e5e702629beaa3e8abc2b
+ms.openlocfilehash: d6b0c20545ecb82b0c2fa5214508381c0279c7cd
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="install-package-package-manager-console-in-visual-studio"></a>Install-Package (Paket-Manager-Konsole in Visual Studio)
 
@@ -46,14 +46,14 @@ NuGet 2.7 und früher erhalten eine Fehlermeldung, dass bereits eine neuere Vers
 | Parameter | Beschreibung |
 | --- | --- |
 | Id | (Erforderlich) Der Bezeichner des zu installierenden Pakets an. (*3.0 +*) der Bezeichner kann sein, einen Pfad oder URL des ein `packages.config` Datei oder ein `.nupkg` Datei. Die - Id Schalter ist optional. |
-| MSI | Installieren Sie nur dieses Paket und nicht seine Abhängigkeiten. |
+| IgnoreDependencies | Installieren Sie nur dieses Paket und nicht seine Abhängigkeiten. |
 | ProjektName | Das Projekt, in dem das Paket, auf das Standardprojekt direktionales installiert werden soll. |
 | Quelle | Die URL oder einen Ordnerpfad für die Paketquelle, gesucht werden soll. Lokale Ordnerpfaden kann absolut oder relativ zum aktuellen Ordner. Wenn nicht angegeben, `Install-Package` die aktuell ausgewählten Paketquelle durchsucht. |
 | Version | Die Version des Pakets zu installieren, auf die neueste Version auszuführen. |
 | IncludePrerelease | Vorabversionen von Paketen für die Installation wird berücksichtigt. Wenn nicht angegeben, werden nur stabile Pakete berücksichtigt. |
 | FileConflictAction | Die zu ergreifende Maßnahme beim aufgefordert, überschreiben oder ignorieren Sie vorhandene Dateien, die vom Projekt verwiesen wird. Mögliche Werte sind *überschreiben, ignorieren, None, OverwriteAll*, und *(3.0 und höher)* *' ignoreall '*. |
 | DependencyVersion | Die Version der abhängigkeitspakete zu verwenden, die in der folgenden Werte sind möglich:<br/><ul><li>*Niedrigste* (Standard): die niedrigste Version</li><li>*HighestPatch*: die Version mit der niedrigsten wichtigen, niedrigste Nebenversion, höchste Patch</li><li>*HighestMinor*: die Version mit der niedrigsten Hauptversion, die höchste Nebenversion, höchste Patch</li><li>*Höchste* (Standard für Update-Paket ohne Parameter): die höchste Version</li></ul>Sie können festlegen, den Standard-Wert mit der [ `dependencyVersion` ](../Schema/nuget-config-file.md#config-section) festlegen in der `Nuget.Config` Datei. |
-| "WhatIf" | Zeigt an, was passieren würde, wenn der Befehl ausgeführt wird, ohne die Installation ausführen. |
+| WhatIf | Zeigt an, was passieren würde, wenn der Befehl ausgeführt wird, ohne die Installation ausführen. |
 
 Keines dieser Parameter akzeptieren Pipeline Eingabe- oder Platzhalter-Zeichen.
 

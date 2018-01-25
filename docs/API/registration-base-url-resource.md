@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 96b07019-c2e1-4f40-9290-f65ad71af3b1
 description: "Die Basis-URL des Pakets Registrierung ermöglicht das Abrufen von Metadaten zu Paketen."
 keywords: NuGet-API-Metadaten von Paketen, die NuGet-API-Registrierung NuGet-API nicht aufgelistete Pakete
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 1aabe6ae5c661e12b2639700813946e7a9a58b24
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: c098d70d58011bad7f9829f0c95c87c1339dd362
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="package-metadata"></a>Metadaten von Paketen
 
@@ -82,9 +81,7 @@ Speichern alle Paketversionen Blätter () in der Registrierung Index speichert a
 
 Die Heuristik, die nuget.org verwendet wird wie folgt: treten 128 oder mehrere Versionen eines Pakets, das bewirkt, dass in Seiten mit einer Größe von 64 geteilt. Wenn weniger als 128 Versionen verfügbar sind, bewirkt, dass alle Inline in den Index für die Registrierung.
 
-```
-GET {@id}/{LOWER_ID}/index.json
-```
+    GET {@id}/{LOWER_ID}/index.json
 
 ### <a name="request-parameters"></a>Anforderungsparameter
 
@@ -155,7 +152,7 @@ iconUrl                  | Zeichenfolge                     | Nein       |
 ID                       | Zeichenfolge                     | ja      | Die ID des Pakets
 licenseUrl               | Zeichenfolge                     | Nein       | 
 Liste                   | boolean                    | Nein       | Sollte angesehen als aufgelisteten Falls nicht vorhanden
-"Minclientversion"         | Zeichenfolge                     | Nein       | 
+minClientVersion         | Zeichenfolge                     | Nein       | 
 projectUrl               | Zeichenfolge                     | Nein       | 
 Veröffentlicht                | Zeichenfolge                     | Nein       | Eine Zeichenfolge mit dem ISO 8601 Zeitstempel wann das Paket veröffentlicht wurde.
 requireLicenseAcceptance | boolean                    | Nein       | 
@@ -193,11 +190,9 @@ Wenn die `range` -Eigenschaft ausgeschlossen oder eine leere Zeichenfolge des Cl
 
 ### <a name="sample-request"></a>Beispielanforderung
 
-```
-GET https://api.nuget.org/v3/registration3/nuget.server.core/index.json
-```
+    GET https://api.nuget.org/v3/registration3/nuget.server.core/index.json
 
-### <a name="sample-response"></a>Beispielantwort 
+### <a name="sample-response"></a>Beispielantwort
 
 [!code-JSON [package-registration-index.json](./_data/package-registration-index.json)]
 
@@ -222,9 +217,7 @@ Die Form des Registrierungs-Endknotenobjekten ist dasselbe wie bei der Registrie
 
 ## <a name="sample-request"></a>Beispielanforderung
 
-```
-GET https://api.nuget.org/v3/registration3/ravendb.client/page/1.0.531/1.0.729-unstable.json
-```
+    GET https://api.nuget.org/v3/registration3/ravendb.client/page/1.0.531/1.0.729-unstable.json
 
 ## <a name="sample-response"></a>Beispielantwort
 
@@ -252,9 +245,7 @@ Registrierung   | Zeichenfolge  | Nein       | Die URL, die dem Index für die R
 
 ### <a name="sample-request"></a>Beispielanforderung
 
-```
-GET https://api.nuget.org/v3/registration3/nuget.versioning/4.3.0.json
-```
+    GET https://api.nuget.org/v3/registration3/nuget.versioning/4.3.0.json
 
 ### <a name="sample-response"></a>Beispielantwort
 

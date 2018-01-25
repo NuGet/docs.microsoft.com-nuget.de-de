@@ -7,19 +7,18 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 3ec1ff28-18fc-4d53-bd43-208619a7270a
 description: "Versionshinweise für NuGet 1.5 einschließlich bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design."
 keywords: "NuGet-1.5 Anmerkungen zu dieser Version, aufgrund von Fehlerbehebungen, bekannte Probleme, zusätzliche Funktionen, Archivierung von dcrs Design"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 29792f4c7399155bcf5fb3361d7f10ddd1b18ca1
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 261cfbbd262bad28f142b0c3dff8a541641d9fda
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
- # <a name="nuget-15-release-notes"></a>1.5 NuGet-Versionshinweise
+# <a name="nuget-15-release-notes"></a>1.5 NuGet-Versionshinweise
 
 [Anmerkungen zur Version von NuGet 1.4](../release-notes/nuget-1.4.md) | [NuGet 1.6-Versionshinweise](../release-notes/nuget-1.6.md)
 
@@ -35,6 +34,7 @@ Die ASP.NET MVC 3-Projektvorlage enthält eine Reihe von NuGet-Pakete installier
 Weitere Informationen zu diesem Feature finden Sie diese [Blogbeitrag vom Entwickler der Funktion](http://blogs.msdn.com/b/marcinon/archive/2011/07/08/project-templates-and-preinstalled-nuget-packages.aspx).
 
 ### <a name="explicit-assembly-references"></a>Explizite Assemblyverweise
+
 Ein neues hinzugefügt `<references />` , das verwendet wird, explizit angeben, welche Assemblys in der das Paket verwiesen werden soll.
 
 Angenommen, Sie Folgendes hinzufügen:

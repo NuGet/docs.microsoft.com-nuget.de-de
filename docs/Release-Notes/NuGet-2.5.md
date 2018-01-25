@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: c193f1e3-d114-427f-9425-9930cc8e4db3
 description: "Versionshinweise für NuGet 2.5 bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design einschließlich."
 keywords: "NuGet 2.5 Anmerkungen zu dieser Version, aufgrund von Fehlerbehebungen, bekannte Probleme, zusätzliche Funktionen, Archivierung von dcrs Design"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8d3bebbbe550645fcffad078538134427103cf98
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: c2c6cf85b9ebccf200be9ef4a2bf96802cffcaea
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-25-release-notes"></a>NuGet 2.5-Versionshinweise
 
@@ -31,7 +30,7 @@ Wir möchten, vielen Dank, dass die folgenden externen Contributors für ihre be
 
 1. [Daniel Plaisted](https://www.codeplex.com/site/users/view/dsplaisted) ([@dsplaisted](https://twitter.com/dsplaisted))
     - [#2847](https://nuget.codeplex.com/workitem/2847) -MonoAndroid hinzufügen, MonoTouch und MonoMac zur Liste der bekannten Ziel-Framework-Bezeichner.
-1. [G. Aragoneses Andres](https://www.codeplex.com/site/users/view/knocte) ([@knocte](https://twitter.com/knocte))
+1. [Andres G. Aragoneses](https://www.codeplex.com/site/users/view/knocte) ([@knocte](https://twitter.com/knocte))
     - [#2865](https://nuget.codeplex.com/workitem/2865) -korrigieren Sie die Schreibweise des `NuGet.targets` für ein Groß-/Kleinschreibung OS
 1. [David Fowler](https://www.codeplex.com/site/users/view/dfowler) ([@davidfowl](https://twitter.com/davidfowl))
     - Stellen Sie die Projektmappe auf Mono erstellen.
@@ -41,7 +40,7 @@ Wir möchten, vielen Dank, dass die folgenden externen Contributors für ihre be
     - [#2920](https://nuget.codeplex.com/workitem/2920) -nuget.exe-Pack-Befehl wird die Eigenschaften von MSBuild nicht weitergegeben
 1. [Miroslav Bajtos](https://www.codeplex.com/site/users/view/MiroslavBajtos) ([@bajtos](https://twitter.com/bajtos))
     - [#1511](https://nuget.codeplex.com/workitem/1511) - geändert XML Verarbeitung von Code mit Formatierung beibehalten.
-1. [ADAM Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
+1. [Adam Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
     - Erkannte Wörter hinzugefügt Benutzerwörterbuch ermöglichen build.cmd erfolgreich.
 1. [Bruno Roggeri](https://www.codeplex.com/site/users/view/broggeri)
     - Beheben Sie Komponententests, bei der Ausführung in lokalisierten VS.
@@ -56,12 +55,12 @@ Wir möchten, vielen Dank, dass die folgenden externen Contributors für ihre be
 
 Vielen Dank für die folgenden Personen auch Auffinden von Fehlern mit NuGet 2.5 Beta/RC, die genehmigt wurden, und vor der endgültigen Version behoben:
 
-1. [Tony Wand](https://www.codeplex.com/site/users/view/CodeChief) ([@CodeChief](https://twitter.com/codechief))
+1. [Tony Wall](https://www.codeplex.com/site/users/view/CodeChief) ([@CodeChief](https://twitter.com/codechief))
     - [#3200](https://nuget.codeplex.com/workitem/3200) - MSTest mit neueste NuGet 2.4 und 2.5 Builds unterbrochen
 
-# <a name="notable-features-in-the-release"></a>Wichtige Funktionen in der Version
+## <a name="notable-features-in-the-release"></a>Wichtige Funktionen in der Version
 
-## <a name="allow-users-to-overwrite-content-files-that-already-exist"></a>Ermöglichen Sie Benutzern die Inhaltsdateien zu überschreiben, die bereits vorhanden.
+### <a name="allow-users-to-overwrite-content-files-that-already-exist"></a>Ermöglichen Sie Benutzern die Inhaltsdateien zu überschreiben, die bereits vorhanden.
 
 Eine der am häufigsten angeforderten Funktionen der gesamten Zeit wurde die Möglichkeit, die Inhaltsdateien zu überschreiben, die bereits auf dem Laufwerk, wenn in einem NuGet-Paket enthalten vorhanden. Beginnend mit NuGet 2.5, werden diese Konflikte identifiziert, und Sie die Dateien überschrieben werden sollen aufgefordert, wohingegen zuvor diese Dateien immer übersprungen wurden.
 
@@ -71,13 +70,13 @@ Eine der am häufigsten angeforderten Funktionen der gesamten Zeit wurde die Mö
 
 Legen Sie eine Standardaktion, wenn eine Datei aus einem Paket in das Zielprojekt bereits vorhanden ist. Legen Sie "Überschreiben" um immer Dateien überschrieben werden sollen. Legen Sie auf 'Ignorieren', um Dateien zu überspringen. Wenn nicht angegeben wird, fordert er für jede in Konflikt stehende Datei.
 
-## <a name="automatic-import-of-msbuild-targets-and-props-files"></a>Automatisches Importieren von Dateien von MSBuild-Ziele und Eigenschaftendateien enthalten
+### <a name="automatic-import-of-msbuild-targets-and-props-files"></a>Automatisches Importieren von Dateien von MSBuild-Ziele und Eigenschaftendateien enthalten
 
 Ein neuer konventioneller Ordner wurde auf der obersten Ebene des NuGet-Pakets erstellt.  Als eine Peer-zu- `\lib`, `\content`, und `\tools`, enthalten Sie nun eine `\build` Ordner im Paket.  In diesem Ordner können Sie zwei Dateien mit festen Namen platzieren `{packageid}.targets` oder `{packageid}.props`. Zwei dieser Dateien können es sich um direkt unter `build` oder unter frameworkspezifischen Ordner wie die anderen Ordner. Die Regel für die Entnahme der am besten übereinstimmenden frameworkordner ist wie diese in identisch.
 
 Wenn ein Paket mit \build Dateien von NuGet installiert wird, fügen Sie ein MSBuild `<Import>` Element in der Projektdatei, die auf die `.targets` und `.props` Dateien. Die `.props` Datei wird im oberen Bereich hinzugefügt, während die `.targets` Datei wird im unteren Bereich hinzugefügt.
 
-## <a name="specify-different-references-per-platform-using-references-element"></a>Geben Sie die anderen Verweise pro Plattform mit `<References/>` Element
+### <a name="specify-different-references-per-platform-using-references-element"></a>Geben Sie die anderen Verweise pro Plattform mit `<References/>` Element
 
 Vor dem 2.5 in `.nuspec` Datei Benutzer festlegbaren nur die Verweisdateien für alle Framework hinzugefügt werden. Nun mit diesem neuen Feature 2.5, Benutzer erstellen kann die `<reference/>` -Element für jede Plattform unterstützt, beispielsweise:
 
@@ -105,7 +104,7 @@ Mit dieser neuen Funktion können Paketersteller, um die Verweise-Funktion verwe
 
 Hinweis: Sie müssen gegenwärtig nuget.exe Pack verwenden, um dieses Feature zu verwenden; NuGet-Paket-Explorer werden noch keine es unterstützt.
 
-## <a name="update-all-button-to-allow-updating-all-packages-at-once"></a>Aktualisieren Sie Schaltfläche "alle", um zuzulassen, aktualisieren alle Pakete auf einmal
+### <a name="update-all-button-to-allow-updating-all-packages-at-once"></a>Aktualisieren Sie Schaltfläche "alle", um zuzulassen, aktualisieren alle Pakete auf einmal
 
 Viele von Ihnen wissen zum Cmdlet "Update-Paket" PowerShell zum Aktualisieren aller Pakete. Jetzt ist eine einfache Möglichkeit hierzu über die Benutzeroberfläche als auch.
 
@@ -118,7 +117,7 @@ Um diese Funktion zu testen:
 
 ![Aktualisieren Sie die Schaltfläche "alle" im Dialogfeld ""](./media/NuGet-2.5/update-all.png)
 
-## <a name="improved-project-reference-support-for-nugetexe-pack"></a>Verbesserte Verweis projektunterstützung für nuget.exe Pack
+### <a name="improved-project-reference-support-for-nugetexe-pack"></a>Verbesserte Verweis projektunterstützung für nuget.exe Pack
 
 Nuget.exe Pack Befehl Prozesse referenziert jetzt Projekte mit den folgenden Regeln:
 
@@ -132,7 +131,7 @@ Dies ermöglicht ein Referenziertes Projekt als Abhängigkeit behandelt werden s
 
 Weitere Informationen hier: [http://nuget.codeplex.com/workitem/936](http://nuget.codeplex.com/workitem/936)
 
-## <a name="add-a-minimum-nuget-version-property-to-packages"></a>Eigenschaft "Minimale NuGet-Version" zu Paketen hinzufügen
+### <a name="add-a-minimum-nuget-version-property-to-packages"></a>Eigenschaft "Minimale NuGet-Version" zu Paketen hinzufügen
 
 Ein neue Metadatenattribut mit dem Namen "MinClientVersion" kann jetzt die minimale NuGet-Clientversion erforderlich, um ein Paket verwenden angeben.
 
@@ -146,7 +145,7 @@ Wenn der Benutzer verfügt über NuGet 2.5 installiert, und ein Paket 2.6 erford
 
 Dadurch wird die nach der vorhandenen Umgebung verbessert, beginnen die Pakete zu installieren, jedoch dann nicht darauf hingewiesen, dass eine unbekannte Schemaversion identifiziert wurde.
 
-## <a name="dependencies-are-no-longer-unnecessarily-updated-during-package-installation"></a>Abhängigkeiten werden nicht mehr unnötigerweise während der Paketinstallation aktualisiert.
+### <a name="dependencies-are-no-longer-unnecessarily-updated-during-package-installation"></a>Abhängigkeiten werden nicht mehr unnötigerweise während der Paketinstallation aktualisiert.
 
 Vor NuGet 2.5 Wenn ein Paket installiert wurde, der für ein Paket im Projekt bereits installiert sind würde die Abhängigkeit als Teil der neuen Installation aktualisiert werden, auch wenn die vorhandene Version die Abhängigkeit erfüllt.
 
@@ -167,13 +166,13 @@ Beginnen mit NuGet 2.5, wenn bereits eine Version der Abhängigkeit erfüllt wir
 
 Weitere Hintergrundinformationen zu dieser Änderung finden Sie im Abschnitt [Arbeitsaufgabe](http://nuget.codeplex.com/workitem/1681) sowie den zugehörigen [Diskussionsthread](http://nuget.codeplex.com/discussions/436712).
 
-## <a name="nugetexe-outputs-http-requests-with-detailed-verbosity"></a>NuGet.exe gibt HTTP-Anforderungen mit detaillierten Ausführlichkeit
+### <a name="nugetexe-outputs-http-requests-with-detailed-verbosity"></a>NuGet.exe gibt HTTP-Anforderungen mit detaillierten Ausführlichkeit
 
 Wenn nuget.exe Behandlung werden oder nur neugierige welche HTTP-Anforderungen während des Betriebs der "-Ausführlichkeit detaillierte" Switch wird jetzt alle HTTP-Anforderungen ausgeben.
 
 ![HTTP-Ausgabe von nuget.exe](./media/NuGet-2.5/verbosity.png)
 
-## <a name="nugetexe-push-now-supports-unc-and-folder-sources"></a>NuGet.exe Push unterstützt jetzt UNC- und Ordner Datenquellen
+### <a name="nugetexe-push-now-supports-unc-and-folder-sources"></a>NuGet.exe Push unterstützt jetzt UNC- und Ordner Datenquellen
 
 Vor NuGet 2.5 Wenn Sie versucht, "nuget.exe Push" auszuführen, um eine Paketquelle basierend auf einer UNC-Pfad oder einen lokalen Ordner, Fehlschlagen der Push-Vorgang. In das zuletzt hinzugefügte hierarchisches Konfigurationsmodell-Feature hatte diese häufig nuget.exe zum UNC-bzw. den Ordner Quell- oder eine HTTP-basierte NuGet Gallery abzielen möchten, haben.
 
@@ -185,7 +184,7 @@ Es funktioniert jetzt der folgende Befehl aus:
 nuget push -source \\mycompany\repo\ mypackage.1.0.0.nupkg
 ```
 
-## <a name="nugetexe-supports-explicitly-specified-config-files"></a>NuGet.exe unterstützt explizit angegebenen Config-Dateien
+### <a name="nugetexe-supports-explicitly-specified-config-files"></a>NuGet.exe unterstützt explizit angegebenen Config-Dateien
 
 NuGet.exe-Befehle, die Konfiguration (alle außer 'Spezifikation' und 'Pack') nun Zugriff auf ein neues unterstützt "-" ConfigFile "hinzu" Option erzwingt, dass eine bestimmte Konfigurationsdatei anstelle der Standardkonfigurationsdatei am "% AppData%\nuget\Nuget.Config" verwendet werden.
 
@@ -195,7 +194,7 @@ Beispiel:
 nuget sources add -name test -source http://test -ConfigFile C:\test\.nuget\Nuget.Config
 ```
 
-## <a name="support-for-native-projects"></a>Unterstützung für systemeigene Projekte
+### <a name="support-for-native-projects"></a>Unterstützung für systemeigene Projekte
 
 NuGet 2.5 ist das NuGet-Tools sind jetzt für systemeigene Projekte in Visual Studio verfügbar. Wir erwarten, dass die meisten systemeigene Pakete nutzt die MSBuild-Imports-Funktion oben mithilfe eines Tools erstellt, indem die [CoApp Projekt](http://coapp.org). Weitere Informationen finden Sie unter [die Informationen über das Tool](http://coapp.org/news/2013-03-27-The-Long-Awaited-post.html) coapp.org-Website.
 

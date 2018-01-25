@@ -3,21 +3,20 @@ title: NuGet-PowerShell-Referenz | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/2/2017
+ms.date: 10/02/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: cd08b869-44c6-480e-90f7-494a6d08e6d0
 description: "Die vollständige Referenz zu PowerShell-Befehle in der NuGet-Paket-Manager-Konsole in Visual Studio verfügbar."
 keywords: NuGet-Paket-Manager-Konsole NuGet Powershell-Befehle, NuGet Powershell-Referenz
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 64450a8bcca7f6028d4ce389d51ac35e9209cfae
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 0cbd9b13b34bd93fea6c6684c03bca9cff5d9e5e
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="powershell-reference"></a>PowerShell-Referenz
 
@@ -41,7 +40,7 @@ Der Paket-Manager-Konsole bietet eine PowerShell-Schnittstelle innerhalb von Vis
 | [Add-BindingRedirect](ps-ref-add-bindingredirect.md) | Untersucht alle Assemblys im Ausgabepfad auf ein Projekt und fügt Sie bindungsumleitungen zu den `app.config` oder `web.config` bei Bedarf. | Alle |
 | [Get-Project](ps-ref-get-project.md) | Zeigt Informationen zu den Standardwert oder die angegebene Projekt. | 3.0+ |
 | [Open-PackagePage](ps-ref-open-packagepage.md) | Startet den Standardbrowser mit dem Projekt, Lizenzen oder Missbrauch Berichts-URL für das angegebene Paket. | In 3.0 veraltet |
-| [Register-"tabexpansion"](ps-ref-register-tabexpansion.md) | Registriert eine Tab-Taste für die Parameter eines Befehls, sodass Sie benutzerdefinierte Erweiterungen für häufig verwendete Parameterwerte zu erstellen. | Alle |
+| [Register-TabExpansion](ps-ref-register-tabexpansion.md) | Registriert eine Tab-Taste für die Parameter eines Befehls, sodass Sie benutzerdefinierte Erweiterungen für häufig verwendete Parameterwerte zu erstellen. | Alle |
 | [Sync-Package](ps-ref-sync-package.md) | Abrufen der Version des Pakets aus einer installiert Projekt angegeben und synchronisiert die Version mit den restlichen Projekten in der Projektmappe. | 3.0+ |
 | [Uninstall-Package](ps-ref-uninstall-package.md) | Entfernt ein Paket aus einem Projekt, und optional die abhängigen Elemente entfernen. | Alle |
 
@@ -58,7 +57,7 @@ Alle Package Manager Console Befehle unterstützen die folgenden [allgemeine Pow
 - ErrorVariable
 - OutBuffer
 - OutVariable
-- Mit "pipelinevariable"
+- PipelineVariable
 - Ausführlich
 - WarningAction
 - WarningVariable

@@ -7,17 +7,16 @@ ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 1b980b93-fa58-430c-b663-78ce069b1603
 description: "Referenz für die Sync-Paket-PowerShell-Befehl in der NuGet-Paket-Manager-Konsole in Visual Studio."
 keywords: NuGet-Paket-Manager-Konsole, die NuGet Powershell-Befehle, die NuGet Powershell-Referenz, Sync-Pakets
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 4dc542714f14f0e6d3e827292f8fce06561fe270
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 02233cd0532fab2338e65e0d58b9afc3e2dab6af
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="sync-package-package-manager-console-in-visual-studio"></a>Sync-Paket (Paket-Manager-Konsole in Visual Studio)
 
@@ -38,14 +37,14 @@ Sync-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [[-Ver
 | Parameter | Beschreibung |
 | --- | --- |
 | Id | (Erforderlich) Der Bezeichner des Pakets zu synchronisieren. Die - Id Schalter ist optional. |
-| MSI | Installieren Sie nur dieses Paket und nicht seine Abhängigkeiten. |
+| IgnoreDependencies | Installieren Sie nur dieses Paket und nicht seine Abhängigkeiten. |
 | ProjektName | Das Projekt, um das Paket aus, auf das Standardprojekt direktionales zu synchronisieren. |
 | Version | Die Version des Pakets zu synchronisieren, die derzeit installierte Version auszuführen. |
 | Quelle | Die URL oder einen Ordnerpfad für die Paketquelle, gesucht werden soll. Lokale Ordnerpfaden kann absolut oder relativ zum aktuellen Ordner. Wenn nicht angegeben, `Sync-Package` die aktuell ausgewählten Paketquelle durchsucht. |
 | IncludePrerelease | Enthält vorabversionspakete in die Synchronisierung. |
 | FileConflictAction | Die zu ergreifende Maßnahme beim aufgefordert, überschreiben oder ignorieren Sie vorhandene Dateien, die vom Projekt verwiesen wird. Mögliche Werte sind *überschreiben, ignorieren, None, OverwriteAll*, und *(3.0 und höher)* *' ignoreall '*. |
 | DependencyVersion | Die Version der abhängigkeitspakete zu verwenden, die in der folgenden Werte sind möglich:<br/><ul><li>*Niedrigste* (Standard): die niedrigste Version</li><li>*HighestPatch*: die Version mit der niedrigsten wichtigen, niedrigste Nebenversion, höchste Patch</li><li>*HighestMinor*: die Version mit der niedrigsten Hauptversion, die höchste Nebenversion, höchste Patch</li><li>*Höchste* (Standard für Update-Paket ohne Parameter): die höchste Version</li></ul>Sie können festlegen, den Standard-Wert mit der [ `dependencyVersion` ](../Schema/nuget-config-file.md#config-section) festlegen in der `Nuget.Config` Datei. |
-| "WhatIf" | Zeigt an, was passieren würde, wenn der Befehl ausgeführt wird, ohne die Synchronisierung ausführen. |
+| WhatIf | Zeigt an, was passieren würde, wenn der Befehl ausgeführt wird, ohne die Synchronisierung ausführen. |
 
 Keines dieser Parameter akzeptieren Pipeline Eingabe- oder Platzhalter-Zeichen.
 

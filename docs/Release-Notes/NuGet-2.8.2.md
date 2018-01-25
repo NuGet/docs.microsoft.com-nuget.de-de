@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: bb547f5d-3c0e-4721-b2c7-3fc7e09c34de
 description: "Versionshinweise für NuGet 2.8.2 einschließlich bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design."
 keywords: "NuGet-2.8.2 Anmerkungen zu dieser Version, aufgrund von Fehlerbehebungen, bekannte Probleme, zusätzliche Funktionen, Archivierung von dcrs Design"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 221b8970663ca80a986fc3ee542b99971c5e2018
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: f50bd1f0c981ef293a4d2ff425e0dffbdf58036c
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-282-release-notes"></a>NuGet-2.8.2-Versionshinweise
 
@@ -47,7 +46,7 @@ So sieht die Liste der aktualisierten Pakete aus:
 
 1. [NuGet.Core](https://www.nuget.org/packages/NuGet.Core/)
 1. [NuGet.CommandLine](https://www.nuget.org/packages/NuGet.CommandLine/)
-1. [NuGet.Server in](https://www.nuget.org/packages/NuGet.Server/)
+1. [NuGet.Server](https://www.nuget.org/packages/NuGet.Server/)
 1. [NuGet.Build](https://www.nuget.org/packages/NuGet.Build/)
 1. [NuGet.VisualStudio](https://www.nuget.org/packages/NuGet.VisualStudio/) (das Paket, nicht die Erweiterung)
 

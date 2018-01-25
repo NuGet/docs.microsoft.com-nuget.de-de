@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: ba2edaad-4795-47a0-a572-d0e1716bd540
 description: "Versionshinweise für NuGet 2.7 einschließlich bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design."
 keywords: "NuGet-2.7 Anmerkungen zu dieser Version, aufgrund von Fehlerbehebungen, bekannte Probleme, zusätzliche Funktionen, Archivierung von dcrs Design"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 502cb5e68f905e9ad8f4003bb0690d3e676f6bb7
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: b0e12f7e2cffa6e721dd13c117b7b3727cfcb5d7
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-27-release-notes"></a>NuGet-Version 2.7 Hinweise
 
@@ -31,7 +30,7 @@ Wir möchten, vielen Dank, dass die folgenden externen Contributors für ihre be
 
 1. [Mike Roth](http://www.codeplex.com/site/users/view/mxrss) ([@mxrss](https://twitter.com/mxrss))
     - Zeigen Sie Lizenz-Url beim Auflisten von Paketen und Ausführlichkeit detailliert erläutert wird.
-1. [ADAM Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
+1. [Adam Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
     - [#1956](http://nuget.codeplex.com/workitem/1956) -attributhinzufügen DevelopmentDependency auf `packages.config` und zum im Befehl Pack nur Runtime Pakete enthalten
 1. [Rafael Nicoletti](http://www.codeplex.com/site/users/view/tkrafael) ([@tkrafael](https://twitter.com/tkrafael))
     - Vermeiden Sie die doppelten Schlüssel von Eigenschaften in nuget.exe-Pack-Befehl.
@@ -103,9 +102,9 @@ NuGet-2.7 führt ein neues Feature für nuget.exe:`nuget.exe restore`
 
 Diese neue Restore-Befehl können Sie alle Pakete für eine Projektmappe mit einem einzigen Befehl problemlos wiederherstellen, indem eine Projektmappendatei oder einen Ordner als Argument akzeptiert. Darüber hinaus wird dieses Argument impliziert, wenn im aktuellen Ordner nur eine einzige Lösung besteht. Das bedeutet, dass alle folgenden aus einem Ordner geeignet sein, die eine einzelne Projektmappendatei (MySolution.sln) enthält:
 
-1. NuGet.exe Wiederherstellung MySolution.sln
-1. NuGet.exe wiederherstellen.
-1. NuGet.exe wiederherstellen
+1. nuget.exe restore MySolution.sln
+1. nuget.exe restore .
+1. nuget.exe restore
 
 Der Restore-Befehl wird die Projektmappendatei öffnen, und suchen alle Projekte innerhalb der Projektmappe. Dort finden sie die `packages.config` für die einzelnen Projekte und Wiederherstellen aller Pakete gefunden. Auch wird wiederhergestellt, Lösung auf Dokumentebene-Paketen, die aus der `.nuget\packages.config` Datei. Weitere Informationen zu den neuen Restore-Befehl finden Sie der [Command-Line Reference](../tools/cli-ref-restore.md).
 

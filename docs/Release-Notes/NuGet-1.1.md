@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 0e7688f7-09d2-4477-9fdf-0e27f572a4de
 description: "Versionshinweise für NuGet 1.1 einschließlich bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design."
 keywords: "NuGet-1.1 Anmerkungen zu dieser Version, aufgrund von Fehlerbehebungen, bekannte Probleme, zusätzliche Funktionen, Archivierung von dcrs Design"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 593848b3e5e063816fbbec8b4d11e6fc789d05cd
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 68c3415fe328fe6d9db91757a7fc180da8489a9f
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-10-and-11-release-notes"></a>Anmerkungen zur Version von NuGet 1.0 und 1.1
 
@@ -52,7 +51,7 @@ Dieses [neueste Release](http://nuget.codeplex.com/releases/view/52018):
 * Entfernen Sie alle vorhandenen Feeds, die Sie haben.
 * Hinzufügen ein neues Feeds auf [http://go.microsoft.com/fwlink/?LinkId=206669](http://go.microsoft.com/fwlink/?LinkId=206669).
 
-## <a name="nuget-11"></a>NuGet-1.1
+## <a name="nuget-11"></a>NuGet 1.1
 
 Die Liste der in dieser Version behobene Probleme [finden Sie hier](http://nuget.codeplex.com/workitem/list/advanced?keyword=&amp;status=All&amp;type=All&amp;priority=All&amp;release=NuGet%201.1&amp;assignedTo=All&amp;component=All&amp;sortField=LastUpdatedDate&amp;sortDirection=Descending&amp;page=0)
 

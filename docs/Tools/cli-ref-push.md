@@ -3,21 +3,20 @@ title: NuGet-CLI-Push-Befehl | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: a9709eee-add2-47fb-98e6-eec0697087f6
 description: "Referenz für den nuget.exe Push-Befehl"
 keywords: Befehl "Push"-NuGet-Push Verweis
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2828cdc41903d8a948870155b23721724bfa781e
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 50883bc85ab96cba54fb4ce0bd344e8148c4fab1
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="push-command-nuget-cli"></a>Push-Befehl (NuGet CLI)
 
@@ -32,7 +31,7 @@ NuGet Standardkonfiguration erhalten, indem Sie das Laden `%AppData%\NuGet\NuGet
 
 ## <a name="usage"></a>Verwendung
 
-```
+```cli
 nuget push <packagePath> [options]
 ```
 
@@ -42,24 +41,24 @@ wobei `<packagePath>` identifiziert das Paket mithilfe von Push an den Server ü
 
 | Option | Beschreibung |
 | --- | --- |
-| "apikey" | Die API-Schlüssel für das Zielrepository. Wenn Sie nicht vorhanden ist, der im angegebenen *%AppData%\NuGet\NuGet.Config* verwendet wird. |
-| "ConfigFile" hinzu | *(2,5 +)*  Das NuGet-Konfigurationsdatei angewendet. Wenn nicht angegeben, *%AppData%\NuGet\NuGet.Config* verwendet wird. |
+| ApiKey | Die API-Schlüssel für das Zielrepository. Wenn Sie nicht vorhanden ist, der im angegebenen *%AppData%\NuGet\NuGet.Config* verwendet wird. |
+| ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, *%AppData%\NuGet\NuGet.Config* verwendet wird. |
 | DisableBuffering | Deaktiviert die Pufferung, wenn an einem HTTP-/HTTPS-Server per Push übertragen, um Arbeitsspeicher Verwendungen zu verringern. Vorsicht: Wenn diese Option verwendet wird, integrierte Windows-Authentifizierung funktionieren möglicherweise nicht. |
 | ForceEnglishOutput | *(3.5 +)*  Erzwingt nuget.exe über eine invariante Kultur Englisch-basierte ausgeführt werden. |
 | Hilfe | Zeigt die Hilfe Informationen für den Befehl. |
-| Nicht interaktive | Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an. |
+| NonInteractive | Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an. |
 | NoSymbols | *(3.5 +)*  Ist ein Symbolpaket vorhanden, er wird nicht abgelegt werden an einen anderen Symbolserver. |
-| Quelle | Gibt die Server-URL an. Mit NuGet 2.5 + NuGet identifiziert einen UNC- oder lokalen Ordner Quelle und kopieren Sie einfach die Datei statt Programmstapel abzulegen HTTP mit.  Darüber hinaus starting mit NuGet 3.4.2 ist dies ein erforderlicher Parameter, wenn der `NuGet.Config` Datei gibt eine *DefaultPushSource* Wert (finden Sie unter [NuGet Konfigurieren von Verhalten](../Consume-Packages/Configuring-NuGet-Behavior.md)). |
+| Quelle | Gibt die Server-URL an. NuGet gibt einen UNC- oder lokalen Ordner Quelle und einfach die Datei statt Programmstapel abzulegen HTTP mit kopiert.  Darüber hinaus starting mit NuGet 3.4.2 ist dies ein erforderlicher Parameter, wenn der `NuGet.Config` Datei gibt eine *DefaultPushSource* Wert (finden Sie unter [NuGet Konfigurieren von Verhalten](../Consume-Packages/Configuring-NuGet-Behavior.md)). |
 | SymbolSource | *(3.5 +)*  Gibt die Symbol-URL, bei dem nuget.smbsrc.net wird verwendet, wenn an nuget.org per Push übertragen |
 | SymbolApiKey | *(3.5 +)*  Gibt den API-Schlüssel an, für die URL im angegebenen `-SymbolSource`. |
 | Timeout | Gibt das Timeout in Sekunden für die auf einem Server übertragen. Der Standardwert ist 300 Sekunden (5 Minuten). |
-| Ausführlichkeit | Gibt die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *stillen*, *detaillierte (2.5 und höher)*. |
+| Ausführlichkeit | Gibt die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *stillen*, *ausführliche*. |
 
 Siehe auch [Umgebungsvariablen](cli-ref-environment-variables.md)
 
 ## <a name="examples"></a>Beispiele
 
-```
+```cli
 nuget push foo.nupkg
 
 nuget push foo.symbols.nupkg

@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 6f972803-9e17-43f5-b77b-973c3accf695
 description: "Versionshinweise für NuGet 2.1 einschließlich bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design."
 keywords: "NuGet-2.1 Anmerkungen zu dieser Version, aufgrund von Fehlerbehebungen, bekannte Probleme, zusätzliche Funktionen, Archivierung von dcrs Design"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: dafe575eedbfed215c0b1c86795bea281de97252
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 05cdb898cc674ac7eadb238d41896638d8e3488c
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-21-release-notes"></a>NuGet-Version 2.1 Hinweise
 
@@ -59,7 +58,7 @@ Jetzt sehen, dass die Quelle hinzugefügt wurde, durch Ausführen des Befehls "n
 
 1. `.nuget\Nuget.Config`
 2. Rekursives durchlaufen aus dem Projektordner zum Stamm
-3. Globale `Nuget.Config` (`%appdata%\NuGet\Nuget.Config`)
+3. Global `Nuget.Config` (`%appdata%\NuGet\Nuget.Config`)
 
 Konfigurationen handelt es sich in angewendet der *Reihenfolge umkehren,*, d. h., die auf die oben genannten Reihenfolge basieren, die globale "NuGet.config" würde werden zuerst angewendet, gefolgt von den ermittelten "NuGet.config"-Dateien vom Stamm zum Projektordner, gefolgt durch `.nuget\Nuget.Config`.  Dies ist besonders wichtig, wenn Sie verwenden die `<clear/>` zu eine Gruppe von Elementen aus der Konfiguration zu entfernenden Elements.
 
@@ -99,18 +98,18 @@ Zusätzlich zum Hinzufügen von Unterstützung für portable Library-Projekte ab
 
 Suchen die Bezeichner für Windows 8 Store-Anwendungen wie folgt:
 
-|NuGet 2.0 und früheren Versionen|NuGet-2.1|
+|NuGet 2.0 und früheren Versionen|NuGet 2.1|
 |----------------|-----------|
-|winRT45. NETCore45|Windows Windows8, Win, Windows 8|
+|winRT45, .NETCore45|Windows, Windows8, win, win8|
 
 <br/>
 Suchen die Bezeichner für Windows Phone-Projekte wie folgt:
 
-|Phone-Betriebssystem|NuGet 2.0 und früheren Versionen|NuGet-2.1
+|Phone-Betriebssystem|NuGet 2.0 und früheren Versionen|NuGet 2.1
 |----------------|-----------|-----------|
-|Windows Phone 7|silverlight3 wp|WP wp7 WindowsPhone, WindowsPhone7|
-|Windows Phone 7.5 (Mango)|silverilght4 wp71|wp71 WindowsPhone71|
-|Windows Phone 8|(nicht unterstützt)|wp8 WindowsPhone8|
+|Windows Phone 7|silverlight3 wp|wp, wp7, WindowsPhone, WindowsPhone7|
+|Windows Phone 7.5 (Mango)|silverilght4-wp71|wp71, WindowsPhone71|
+|Windows Phone 8|(nicht unterstützt)|wp8, WindowsPhone8|
 <br/>
 In allen den oben beschriebenen Änderungen weiterhin die alten Framework Namen von NuGet 2.1 vollständig unterstützt werden müssen.  Hostdaten, sollte die neuen Namen verwendet werden, wie sie stabiler und ausgereifter für zukünftige Versionen von der jeweiligen Plattformen werden. Werden von die neuen Namen *nicht* werden in den Vorgängerversionen von NuGet 2.1 unterstützt, jedoch so planen Sie entsprechend für den Fall zu wechseln.
 

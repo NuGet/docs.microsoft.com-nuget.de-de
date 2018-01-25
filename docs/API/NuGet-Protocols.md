@@ -7,16 +7,15 @@ ms.date: 10/30/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: ba1d9742-9f1c-42ff-8c30-8e953e23c501
 description: Die Interaktion mit NuGet-Clients sich entwickelnden nuget.org-Protokolle.
 ms.reviewer:
 - kraigb
 - karann-msft
-ms.openlocfilehash: 0bc71795d120256b9eb14ca64141f0b69f01e620
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 488a86a36a6bc83c91f0182bf437ddb83e707e31
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nugetorg-protocols"></a>NuGet.org-Protokolle
 
@@ -39,9 +38,7 @@ Die 4.1.0 Protokoll gibt die Verwendung der überprüfen Bereich Schlüssel für
 
 Clients müssen die folgenden Header übergeben werden soll, wenn sie API-Aufrufe an Stellen **Push** zu nuget.org Pakete:
 
-```
-X-NuGet-Protocol-Version: 4.1.0
-```
+    X-NuGet-Protocol-Version: 4.1.0
 
 Beachten Sie, dass die `X-NuGet-Client-Version` Header weist eine ähnliche Semantik jedoch reserviert nur durch den offiziellen NuGet-Client verwendet werden. Clients von Drittanbietern verwenden sollten die `X-NuGet-Protocol-Version` Header und Wert.
 
@@ -53,9 +50,7 @@ Wenn ein Client mit externen Diensten und Anforderungen interagiert zu prüfen, 
 
 Diese API wird verwendet, um einen Schlüssel überprüfen-Bereich für einen nuget.org-Autor zum Überprüfen von Paketen im Besitz von ihn abzurufen.
 
-```
-POST api/v2/package/create-verification-key/{ID}/{VERSION}
-```
+    POST api/v2/package/create-verification-key/{ID}/{VERSION}
 
 #### <a name="request-parameters"></a>Anforderungsparameter
 
@@ -63,11 +58,11 @@ name           | In     | Typ   | Erforderlich | Hinweise
 -------------- | ------ | ------ | -------- | -----
 Id             | URL    | Zeichenfolge | ja      | Die Paket-Identidier für die der überprüfen Bereich Schlüssel angefordert wird
 VERSION        | URL    | Zeichenfolge | Nein       | Die Paketversion
-X-NuGet-"apikey" | Header | Zeichenfolge | ja      | Beispiel: `X-NuGet-ApiKey: {USER_API_KEY}`
+X-NuGet-ApiKey | Header | Zeichenfolge | ja      | Beispiel: `X-NuGet-ApiKey: {USER_API_KEY}`
 
 #### <a name="response"></a>Antwort
 
-```
+```json
 {
     "Key": "{Verify scope key from nuget.org}",
     "Expires": "{Date}"
@@ -78,9 +73,7 @@ X-NuGet-"apikey" | Header | Zeichenfolge | ja      | Beispiel: `X-NuGet-ApiKey: 
 
 Diese API dient zum Überprüfen Bereich Schlüssel für den Autor nuget.org gehörige Paket zu überprüfen.
 
-```
-GET api/v2/verifykey/{ID}/{VERSION}
-```
+    GET api/v2/verifykey/{ID}/{VERSION}
 
 #### <a name="request-parameters"></a>Anforderungsparameter
 
@@ -88,7 +81,7 @@ name           | In     | Typ   | Erforderlich | Hinweise
 -------------  | ------ | ------ | -------- | -----
 Id             | URL    | Zeichenfolge | ja      | Die Paket-ID für die der überprüfen Bereich Schlüssel angefordert wird
 VERSION        | URL    | Zeichenfolge | Nein       | Die Paketversion
-X-NuGet-"apikey" | Header | Zeichenfolge | ja      | Beispiel: `X-NuGet-ApiKey: {VERIFY_SCOPE_KEY}`
+X-NuGet-ApiKey | Header | Zeichenfolge | ja      | Beispiel: `X-NuGet-ApiKey: {VERIFY_SCOPE_KEY}`
 
 > [!Note]
 > Diese überprüfen Bereich API-Schlüssel läuft ab, in einem Tag oder bei der ersten Verwendung, welcher Fall zuerst eintritt.

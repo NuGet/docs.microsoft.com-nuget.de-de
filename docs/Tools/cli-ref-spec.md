@@ -3,21 +3,20 @@ title: NuGet-CLI-Spec-Befehl | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 85611449-87e6-489b-8c6c-fe1d7be76c13
 description: "Referenz für den nuget.exe Spec-Befehl"
 keywords: "NuGet – technische Referenz, Spec-Befehl"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c32b23e66c8eb4db1c8fa6dc615589219c00239f
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: cc7e772e737a0f74929d13e2b126f7796b6d0dc7
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="spec-command-nuget-cli"></a>gemäß der Spezifikation Befehl (NuGet CLI)
 
@@ -27,7 +26,7 @@ Generiert eine `.nuspec` -Datei für ein neues Paket. Beim Ausführen im gleiche
 
 ## <a name="usage"></a>Verwendung
 
-```
+```cli
 nuget spec [<packageID>] [options]
 ```
 
@@ -41,14 +40,14 @@ wobei `<packageID>` ist ein optionales paketbezeichner zum Speichern in der `.nu
 | Force | Überschreibt alle vorhandenen `.nuspec` Datei. |
 | ForceEnglishOutput | *(3.5 +)*  Erzwingt nuget.exe über eine invariante Kultur Englisch-basierte ausgeführt werden. |
 | Hilfe | Zeigt die Hilfe Informationen für den Befehl. |
-| Nicht interaktive | Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an. |
-| Ausführlichkeit | Gibt die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *stillen*, *detaillierte (2.5 und höher)*. |
+| NonInteractive | Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an. |
+| Ausführlichkeit | Gibt die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *stillen*, *ausführliche*. |
 
 Siehe auch [Umgebungsvariablen](cli-ref-environment-variables.md)
 
 ## <a name="examples"></a>Beispiele
 
-```
+```cli
 nuget spec
 
 nuget spec MyPackage

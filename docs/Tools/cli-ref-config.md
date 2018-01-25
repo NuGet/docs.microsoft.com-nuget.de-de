@@ -3,21 +3,20 @@ title: NuGet-CLI-Befehl "Config" | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: a50295ff-8be9-47d9-a260-822e899334cb
 description: "Referenz für den Befehl \"nuget.exe Config\""
 keywords: NuGet-Config-Verweis, Befehl "Config"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f49751d9747687177e3b6c1890ee9d2919be8d0e
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: 31abc5c1ade0aff9a2f23ec89ec7082acedb3653
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="config-command-nuget-cli"></a>Befehl "Config" (NuGet CLI)
 
@@ -27,7 +26,7 @@ Ruft ab, oder legt ihn fest NuGet Konfigurationswerte. Zusätzliche Nutzung, fin
 
 ## <a name="usage"></a>Verwendung
 
-```
+```cli
 nuget config -Set <name>=[<value>] [<name>=<value> ...] [options]
 nuget config -AsPath <name> [options]
 ```
@@ -43,17 +42,17 @@ Im NuGet 3.4 + `<value>` können [Umgebungsvariablen](cli-ref-environment-variab
 | Option | Beschreibung |
 | --- | --- |
 | AsPath | Config-Datei der Wert als ein Pfad Gibt ignoriert, wenn `-Set` verwendet wird. |
-| "ConfigFile" hinzu | *(2,5 +)*  Das NuGet-Konfigurationsdatei zu ändern. Wenn nicht angegeben, *%AppData%\NuGet\NuGet.Config* verwendet wird. |
+| ConfigFile | Die NuGet-Konfigurationsdatei zu ändern. Wenn nicht angegeben, *%AppData%\NuGet\NuGet.Config* verwendet wird. |
 | ForceEnglishOutput | *(3.5 +)*  Erzwingt nuget.exe über eine invariante Kultur Englisch-basierte ausgeführt werden. |
 | Hilfe | Zeigt die Hilfe Informationen für den Befehl. |
-| Nicht interaktive | Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an. |
-| Ausführlichkeit | Gibt die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *stillen*, *detaillierte (2.5 und höher)*. |
+| NonInteractive | Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an. |
+| Ausführlichkeit | Gibt die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *stillen*, *ausführliche*. |
 
 Siehe auch [Umgebungsvariablen](cli-ref-environment-variables.md)
 
 ### <a name="examples"></a>Beispiele
 
-```
+```cli
 nuget config -Set repositoryPath=c:\packages -configfile c:\my.config
 
 nuget config -Set repositoryPath=

@@ -7,18 +7,17 @@ ms.date: 12/08/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 6ee3c826-dd3a-4fa9-863f-1fd80bc4230f
 description: "Genaue Informationen zu den Versionsnummern und die Bereiche für andere Pakete bei der NuGet-Paket abhängt und die Installationsart von Abhängigkeiten angeben."
 keywords: "versionsverwaltung Abhängigkeiten von NuGet-Pakets NuGet-Abhängigkeit Versionen Versionsnummern NuGet-Version des NuGet-Pakets Versionsbereiche Versionsspezifikationen, normalisierte Versionsnummern"
 ms.reviewer:
 - anandr
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: cb5624a2fd99e8afd8a8226fd786343f485041c4
-ms.sourcegitcommit: c27e565de485cbe836e6c2a66e44a50b35b487ff
+ms.openlocfilehash: 70472d7d97d073009237a047e0fdf528b221dfd0
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="package-versioning"></a>Paket-versionsverwaltung
 
@@ -42,12 +41,11 @@ Eine spezifische Versionsnummer wird in der Form *Major.Minor.Patch [-Suffix]*, 
 - *-Suffix* (optional): ein Bindestrich gefolgt durch eine Zeichenfolge, die eine Vorabversion (folgenden der [Semantischer Versionsverwaltung oder SemVer 1.0 Konvention](http://semver.org/spec/v1.0.0.html)).
 
 **Beispiele:**
-```
-1.0.1
-6.11.1231
-4.3.1-rc
-2.2.44-beta1
-```
+
+    1.0.1
+    6.11.1231
+    4.3.1-rc
+    2.2.44-beta1
 
 > [!Important]
 > NuGet.org lehnt alle Hochladen des Anwendungspakets, auf der eine genaue Versionsnummer fehlt. Die Version muss angegeben werden, der `.nuspec` oder der Projektdatei, die zum Erstellen des Pakets verwendet.
@@ -67,16 +65,14 @@ Dies bedeutet, dass paketentwicklern allgemein anerkannte Namenskonventionen ent
 
 Beim Auflösen von paketverweisen und Paketversionen nur durch Suffix variieren, ob NuGet eine Version ohne Suffix zuerst auswählt und wendet dann Vorrang vor, um die Vorabversion von Versionen in umgekehrter alphabetischer Reihenfolge. Beispielsweise würde die folgenden Versionen in der angegebenen Reihenfolge ausgewählt werden:
 
-```
-1.0.1
-1.0.1-zzz
-1.0.1-rc
-1.0.1-open
-1.0.1-beta
-1.0.1-alpha2
-1.0.1-alpha
-1.0.1-aaa
-```
+    1.0.1
+    1.0.1-zzz
+    1.0.1-rc
+    1.0.1-open
+    1.0.1-beta
+    1.0.1-alpha2
+    1.0.1-alpha
+    1.0.1-aaa
 
 ## <a name="semantic-versioning-200"></a>Semantische Versionsverwaltung 2.0.0
 
@@ -94,10 +90,10 @@ Für nuget.org wird ein Paket als SemVer Version 2.0.0 und Paket definiert, wenn
 
 Wenn Sie ein SemVer Version 2.0.0 und-spezifische Paket in nuget.org hochladen, ist das Paket für ältere Clients nicht sichtbar, und nur die folgenden NuGet-Clients zur Verfügung:
 
-- NuGet-4.3.0+
+- NuGet 4.3.0+
 - Visual Studio 2017 Version 15.3 +
 - Visual Studio 2015 mit [NuGet VSIX v3.6.0](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)
-- dotnet.exe (2.0.0+ .NET SDK)
+- dotnet.exe (.NET SDK 2.0.0+)
 
 Drittanbieter-Clients:
 
@@ -116,14 +112,14 @@ Beim Verweisen auf paketabhängigkeiten unterstützt NuGet mit Intervall Notatio
 | 1,0 | 1.0 ≤ x | Mindestversion, inklusive |
 | (1.0,) | 1.0 < x | Mindestversion, exklusiv |
 | [1.0] | X == 1.0 | Genaue Version übereinstimmen |
-| (,1.0] | X ≤ 1.0 | Maximale Version, inklusive |
+| (,1.0] | x ≤ 1.0 | Maximale Version, inklusive |
 | (,1.0) | x < 1.0 | Exklusive Maximalversion |
-| [1.0,2.0] | 1.0 ≤ X ≤ 2.0 | Genaue Bereich, inklusiv |
+| [1.0,2.0] | 1.0 ≤ x ≤ 2.0 | Genaue Bereich, inklusiv |
 | (1.0,2.0) | 1.0 < x < 2.0 | Genaue Bereich, exklusiv |
 | [1.0,2.0) | 1.0 ≤ x < 2.0 | Gemischte inklusive Mindest- und exklusive Maximalversion |
 | (1.0)    | Ungültig | Ungültig |
 
-Bei Verwendung der PackageReference oder `project.json` Paket NuGet-Verweis-Formate unterstützt die Verwendung einer Notation für Platzhalter auch \*, für die Hauptversion, Nebenversion, Patch- und Vorabversion Suffix Teile der Zahl. Platzhalter werden nicht unterstützt, mit der `packages.config` Format.
+Wenn Sie das Format PackageReference verwenden zu können, NuGet unterstützt auch die Verwendung einer Notation für Platzhalter \*, für die Hauptversion, Nebenversion, Patch- und Vorabversion Suffix Teile der Zahl. Platzhalter werden nicht unterstützt, mit der `packages.config` Format.
 
 > [!Note]
 > Vorabversionen sind nicht enthalten, beim Auflösen von Versionsbereiche. Vorabversionen *sind* enthalten, wenn Sie einen Platzhalter verwenden (\*). Der Versionsbereich *[1.0,2.0]*, z. B. enthält keine 2.0 Beta, aber die Notation für Platzhalter _2.0-*_ verfügt. Finden Sie unter [ausstellen 912](https://github.com/NuGet/Home/issues/912) weitere Erläuterung auf Vorabversion Platzhalter.
@@ -228,18 +224,14 @@ Beim Abrufen von Paketen aus einem Repository während der Installation von inst
 
 - Führende Nullen werden Versionsnummern entfernt:
 
-    ```
-    1.00 is treated as 1.0
-    1.01.1 is treated as 1.1.1
-    1.00.0.1 is treated as 1.0.0.1
-    ```
+        1.00 is treated as 1.0
+        1.01.1 is treated as 1.1.1
+        1.00.0.1 is treated as 1.0.0.1
 
 - Eine NULL in der vierte Teil der Versionsnummer wird ausgelassen werden
 
-    ```
-    1.0.0.0 is treated as 1.0.0
-    1.0.01.0 is treated as 1.0.1
-    ```
+        1.0.0.0 is treated as 1.0.0
+        1.0.01.0 is treated as 1.0.1
 
 Diese Normalisierung wirkt sich nicht auf die Versionsnummern in den Paketen selbst aus; wirkt sich nur wie NuGet Versionen entspricht, beim Auflösen von Abhängigkeiten.
 
