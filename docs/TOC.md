@@ -9,7 +9,6 @@
 ## [Erstellen von UWP-Paketen](Guides/Create-UWP-Packages.md)
 ## [Erstellen von UWP-Steuerelementen als NuGet-Pakete](Guides/Create-UWP-Controls.md)
 ## [Erstellen plattformübergreifender Pakete](Guides/Create-Cross-Platform-Packages.md)
-## [Abfrage für alle Pakete mithilfe der API](Guides/api/query-for-all-published-packages.md)
 # Erstellen von Paketen
 ## [Übersicht und Workflow](Create-Packages/Overview-and-Workflow.md)
 ## [Erstellen eines Pakets](Create-Packages/Creating-a-Package.md)
@@ -86,6 +85,7 @@
 ### [„nuget.exe“-Anmeldeinformationsanbieter](Reference/extensibility/nuget-exe-Credential-Providers.md)
 # API
 ## [Übersicht](API/overview.md)
+## [Gewusst wie: Abfrage für alle Pakete mithilfe der API](Guides/api/query-for-all-published-packages.md)
 ## [Dienstindex](API/service-index.md)
 ## [Per Push Übertragen und Löschen](API/package-publish-resource.md)
 ## [Suchen](API/search-query-service-resource.md)
