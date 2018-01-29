@@ -1,9 +1,9 @@
-# [Was ist NuGet?](What-is-NuGet.md)
+# [Was ist NuGet?](what-is-nuget.md)
+# [Installieren von NuGet-Clienttools](install-nuget-client-tools.md)
 # Schnellstart
 ## [Erstellen und Veröffentlichen eines Pakets](Quickstart/Create-and-Publish-a-Package.md)
 ## [Verwenden eines Pakets](Quickstart/Use-a-Package.md)
 # Führungslinien
-## [Installieren von NuGet-Clienttools](Guides/Install-NuGet.md)
 ## [Erstellen von .NET Standard-Paketen (Visual Studio 2017)](Guides/Create-NET-Standard-Packages-VS2017.md)
 ## [Erstellen von .NET Standard-Paketen (Visual Studio 2015)](Guides/Create-NET-Standard-Packages-VS2015.md)
 ## [Erstellen von UWP-Paketen](Guides/Create-UWP-Packages.md)
@@ -19,8 +19,6 @@
 ## [Native Pakete](Create-Packages/Native-Packages.md)
 ## [Symbolpakete](Create-Packages/Symbol-Packages.md)
 ## [Veröffentlichen eines Pakets](Create-Packages/Publish-a-package.md)
-## [„project.json“ und UWP](Create-Packages/project-json-and-UWP.md)
-## [Auswirkungen von „project.json“](Create-Packages/project-json-Impact.md)
 # Nutzen von Paketen
 ## [Übersicht und Workflow](Consume-Packages/Overview-and-Workflow.md)
 ## [Suchen und Auswählen von Paketen](Consume-Packages/Finding-and-Choosing-Packages.md)
@@ -71,7 +69,6 @@
 # Verweis
 ## [.nuspec](Schema/nuspec.md)
 ## [packages.config](Schema/packages-config.md)
-## [project.json](Schema/project-json.md)
 ## [Paketversionsverwaltung](reference/package-versioning.md)
 ## [Datei „Nuget.Config“](Schema/nuget-config-file.md)
 ## [MSBuild-Ziele](Schema/msbuild-targets.md)
@@ -83,6 +80,10 @@
 ## Erweiterungen
 ### [NuGet-Anmeldeinformationsanbieter für Visual Studio 2017](Reference/extensibility/Nuget-Credential-Providers-for-Visual-Studio.md)
 ### [„nuget.exe“-Anmeldeinformationsanbieter](Reference/extensibility/nuget-exe-Credential-Providers.md)
+## Archivierte Inhalte
+### [project.json-Verweisformat](archive/project-json.md)
+### [„project.json“ und UWP](archive/project-json-and-UWP.md)
+### [Auswirkungen von „project.json“](archive/project-json-impact.md)
 # API
 ## [Übersicht](API/overview.md)
 ## [Gewusst wie: Abfrage für alle Pakete mithilfe der API](Guides/api/query-for-all-published-packages.md)
