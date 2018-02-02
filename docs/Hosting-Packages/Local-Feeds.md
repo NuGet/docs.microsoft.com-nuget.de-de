@@ -7,17 +7,16 @@ ms.date: 12/06/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 1354a527-d988-43d1-8dcf-6ce46ec5d3d4
 description: "Vorgehensweise für das Erstellen eines lokalen Feeds für NuGet-Pakete mithilfe von Ordnern Ihres lokalen Netzwerks"
 keywords: "NuGet-Feed, NuGet-Katalog, lokales Feed für Pakete"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 32217622077ff983abaf00b2e6e5baf3064fff56
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 0b8633db78b19fecddeb057a9f287ef971aef27a
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="local-feeds"></a>Lokale Feeds
 
@@ -40,7 +39,7 @@ Die hierarchische Ordnerstruktur mit Versionsangabe besitzt folgende allgemeine 
 
 Diese Struktur wird in NuGet automatisch erstellt, wenn Sie den Befehl [`nuget add`](../tools/cli-ref-add.md) verwenden, um ein Paket in den Feed zu kopieren:
 
-```
+```cli
 nuget add new_package.1.0.0.nupkg -source \\myserver\packages
 ```
 
@@ -48,7 +47,7 @@ Der Befehl `nuget add` kann allerdings nicht für mehrere Pakete gleichzeitig ve
 
 Verwenden Sie in solchen Fällen den Befehl [`nuget init`](../tools/cli-ref-init.md), um alle Pakete eines Ordners in den Feed zu kopieren – so als ob Sie `nuget add` für jedes Paket separat ausgeführt hätten. Beispielsweise werden durch das Ausführen des folgenden Befehls alle Pakete aus dem Verzeichnis `c:\packages` in eine hierarchische Struktur im Verzeichnis `\\myserver\packages` kopiert:
 
-```
+```cli
 nuget init c:\packages \\myserver\packages
 ```
 
