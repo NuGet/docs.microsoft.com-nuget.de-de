@@ -12,11 +12,11 @@ keywords: "dotnet.exe-CLI, nuget.exe-CLI, NuGet-Clienttools, NuGet-Paket-Manager
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 07ca66b44a981f7fcc108e1b4d97c0cf5e206a6f
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: ec8de83c9e05981016215e487888ab68a616d977
+ms.sourcegitcommit: dbcb872ec10430e1d761f34b851650e31c87a96d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="installing-nuget-client-tools"></a>Installieren von NuGet-Clienttools
 
@@ -59,7 +59,7 @@ Installation:
 > Verwenden Sie `nuget update -self`, um eine vorhandene „nuget.exe“-Datei auf die neueste Version zu aktualisieren.
 
 > [!Note]
-> Die neueste empfohlene NuGet-CLI ist immer unter `https://dist.nuget.org/win-x86-commandline/latest/nuget.exe` verfügbar. Für die Kompatibilität mit älteren Continuous Integration-Systemen wird über die vorherige URL, `https://nuget.org/nuget.exe`, das 2.8.6 CLI-Tool stets zur Verfügung gestellt.
+> Die neueste empfohlene NuGet-CLI ist immer unter `https://dist.nuget.org/win-x86-commandline/latest/nuget.exe` verfügbar. Für die Kompatibilität mit älteren Continuous Integration-Systemen wird aktuell über die vorherige URL, `https://nuget.org/nuget.exe`, das 2.8.6 CLI-Tool zur Verfügung gestellt. [Diese ist veraltet](https://github.com/NuGet/NuGetGallery/issues/5381).
 
 ## <a name="visual-studio"></a>Visual Studio
 
@@ -77,7 +77,7 @@ Installation:
 
 ## <a name="feature-availability"></a>Verfügbarkeit von Features
 
-| Funktion | dotnet-CLI | NuGet-CLI (Windows) | NuGet-CLI (Mono) | Visual Studio (Windows) | Visual Studio für Mac |
+| Feature | dotnet-CLI | NuGet-CLI (Windows) | NuGet-CLI (Mono) | Visual Studio (Windows) | Visual Studio für Mac |
 | --- | --- | --- | --- | --- | --- |
 | Suchen von Paketen |  | &#10004; | &#10004; | &#10004; | &#10004; |
 | Pakete installieren oder deinstallieren | &#10004;(1) | &#10004;(2) | &#10004; | &#10004; | &#10004; |
