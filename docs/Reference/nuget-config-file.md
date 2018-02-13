@@ -12,11 +12,11 @@ keywords: "Datei „NuGet.Config“, NuGet-Konfigurationsverweis, NuGet-Konfigur
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9a183b67ae18f4fa5c042f1806f8abcc9b799b77
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: df602cb561a19f0eac085695de80db1fbaa1a313
+ms.sourcegitcommit: 33436d122873249dbb20616556cd8c6783f38909
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/12/2018
 ---
 # <a name="nugetconfig-reference"></a>Verweis auf „NuGet.Config“
 
@@ -48,7 +48,7 @@ In diesem Thema:
 
 Enthält verschiedene Konfigurationseinstellungen, die mit dem [`nuget config`-Befehl](../tools/cli-ref-config.md) festgelegt werden können.
 
-Hinweis: `dependencyVersion` und `repositoryPath` gelten nur für Projekte, in denen `packages.config` verwendet wird. `globalPackagesFolder`gilt nur für Projekte, die mit dem PackageReference-Format.
+Hinweis: `dependencyVersion` und `repositoryPath` gelten nur für Projekte, in denen `packages.config` verwendet wird. `globalPackagesFolder` gilt nur für Projekte, die mit dem PackageReference-Format.
 
 | Key | Wert |
 | --- | --- |
@@ -131,7 +131,7 @@ Beachten Sie, dass die Quell-URL für nuget.org `https://api.nuget.org/v3/index.
 
 ### <a name="packagesources"></a>packageSources
 
-Listet alle bekannte Paketquellen auf.
+Listet alle bekannte Paketquellen auf. Die Reihenfolge wird bei Wiederherstellungsvorgängen und mit einem bestimmten Projekt unter Verwendung des Formats PackageReference ignoriert. NuGet respektiert die Reihenfolge der Datenquellen für die Installation und update-Vorgänge mit Projekten, die mit `packages.config`.
 
 | Key | Wert |
 | --- | --- |
