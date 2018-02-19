@@ -3,7 +3,7 @@ title: "Möglichkeiten zum Installieren von NuGet-Paketen | Microsoft-Dokumentat
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 01/30/2018
+ms.date: 02/12/2018
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
@@ -12,11 +12,11 @@ keywords: NuGet installieren, NuGet-Paketverbrauch, Installieren von NuGet-Paket
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9e48bbe813168e773bc46b7fe25af29785ff75df
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 3bae03e148a366388c10d08e83c89dac6ff56d06
+ms.sourcegitcommit: 33436d122873249dbb20616556cd8c6783f38909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/12/2018
 ---
 # <a name="different-ways-to-install-a-nuget-package"></a>Verschiedene Möglichkeiten zum Installieren von NuGet-Paketen
 
@@ -35,7 +35,10 @@ Im Allgemeinen befolgt NuGet folgende Schritte, wenn ein Paket installiert werde
 
 1. Erhalten des Pakets:
     - Es überprüft, ob das angeforderte Paket bereits in einem Cache vorhanden ist (siehe [Verwalten des NuGet-Caches](managing-the-nuget-cache.md)).
-    - Wenn das Paket nicht im Cache vorhanden ist, versucht NuGet das Paket aus Quellen herunterzuladen, die in den Konfigurationsdateien aufgelistet sind, beginnend mit dem ersten Eintrag in der Liste. Dieses Verhalten ermöglicht die Verwendung von privaten Paketfeeds, bevor auf nuget.org nach einem Paket gesucht wird (siehe [Konfigurieren des NuGet-Verhaltens](configuring-nuget-behavior.md)).
+    - Wenn sich das Paket nicht im Cache befindet, versucht NuGet das Paket aus Quellen herunterzuladen, die in den [Konfigurationsdateien](Configuring-NuGet-Behavior.md) aufgelistet sind.
+      - Bei Projekten, die das `packages.config`-Referenzformat verwenden, geht NuGet nach der Reihenfolge der Quellen in der Konfiguration vor.
+      - Bei Projekten, die das PackageReference-Format verwenden, prüft NuGet zuerst lokale Quellordner, dann Quellen in Netzwerkfreigaben und schließlich HTTP-Quellen (Internet).
+      - Im Allgemeinen spielt die Reihenfolge, in der NuGet Quellen überprüft, keine besondere Rolle, weil jedes Paket mit einem bestimmten Bezeichner und einer bestimmten Versionsnummer unabhängig von der Quelle, in der es sich befindet, genau identisch ist.
     - Wenn das Paket erfolgreich aus einer der Quellen abgerufen wurde, fügt NuGet es dem Cache zu. Andernfalls schlägt die Installation fehl.
 
 1. Erweitern des Pakets in das Projekt:
