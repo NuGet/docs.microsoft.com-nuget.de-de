@@ -13,11 +13,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: dbeec1d3332571d8e9616dfe9675b5fcf3c85589
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 7e3621f01312e3b4fdbef116e5044869416b851c
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="target-frameworks"></a>Zielframeworks
 
@@ -129,7 +129,7 @@ Die `dotnet`-Reihe von Monikern sollte in NuGet 3.3 und früher verwendet werden
 ## <a name="portable-class-libraries"></a>Portable Klassenbibliotheken
 
 > [!Warning]
-> **Portable Klassenbibliotheken werden nicht empfohlen.** Obwohl portable Klassenbibliotheken unterstützt werden, sollten Paketersteller stattdessen netstandard unterstützen. Der .NET-Plattformstandard ist eine Weiterentwicklung von portablen Klassenbibliotheken und stellt die plattformübergreifende binäre Portabilität mithilfe eines einzelnen Monikers dar, der anders als *portable a+b+c*-Moniker nicht an eine Statik gebunden ist.
+> **Portable Klassenbibliotheken werden nicht empfohlen.** Obwohl portable Klassenbibliotheken unterstützt werden, sollten Paketersteller stattdessen netstandard unterstützen. Der .NET Plattform-Standard ist eine Weiterentwicklung der PCLs und stellt binäre Portabilität plattformübergreifend mit einem einzelnen Moniker, der an eine statische Bibliothek wie gebunden ist nicht *tragbaren-a + b + c* Moniker.
 
 Verwenden Sie zum Definieren eines Zielframeworks, das auf mehrere untergeordnete Zielframeworks verweist, das `portable`-Schlüsselwort, um der Liste der Frameworks, auf die verwiesen wird, ein Präfix hinzuzufügen. Vermeiden Sie das künstliche Hinzufügen von zusätzlichen Frameworks, die nicht direkt kompiliert werden, da dies zu unbeabsichtigten Nebeneffekten bei diesen Frameworks führen kann.
 

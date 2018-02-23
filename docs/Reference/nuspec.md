@@ -13,11 +13,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 56cb9d5b40bbfbd722e611e0e86945eddbe9d19a
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: c52d0a7c0da507cb9688c8a7b2c4eaf54a8ca5c2
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="nuspec-reference"></a>NUSPEC-Referenz
 
@@ -94,7 +94,7 @@ Diese Elemente auftreten in einem `<metadata>`-Element angezeigt werden.
 | **owners** | Eine durch Kommas getrennte Liste der Paketersteller, die auf nuget.org Profilnamen verwenden. Dabei handelt es sich häufig um dieselbe Liste wie in `authors`. Sie wird beim Hochladen der Pakete auf nuget.org ignoriert. Informationen dazu finden Sie unter [Managing package owners on nuget.org (Verwalten von Paketbesitzern auf nuget.org)](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). |
 | **projectUrl** | Eine URL für die Paket-Homepage, häufig auf der Benutzeroberfläche sowie auf nuget.org angezeigt. |
 | **licenseUrl** | Eine URL für die Paketlizenz, häufig auf der Benutzeroberfläche sowie auf nuget.org angezeigt. |
-| **iconUrl** | Eine URL für ein 64x64-Bild mit transparentem Hintergrund, das als Symbol für das Paket in der Benutzeroberfläche verwendet wird. Stellen Sie sicher, dass dieses Element die *direkte Bild-URL* und nicht nur die URL einer Webseite enthält, die das Bild enthält. Mithilfe der URL einer Rohdatendatei wie `https://github.com/<username>/<repository>/raw/<branch>/<logo.png>` können Sie beispielsweise ein Bild von GitHub verwenden. |
+| **iconUrl** | Eine URL für ein 64x64-Bild mit transparentem Hintergrund, das als Symbol für das Paket in der Benutzeroberfläche verwendet wird. Stellen Sie sicher, dass dieses Element die *direkte Bild-URL* und nicht nur die URL einer Webseite enthält, die das Bild enthält. Z. B. um ein Bild von GitHub verwenden zu können, verwenden die Rohdatendatei URL wie *https://github.com/\<Benutzername\>/\<Repository\>/raw/\<Verzweigung\> / \<"Logo.png"\>*. |
 | **requireLicenseAcceptance** | Ein boolescher Wert, der angibt, ob der Client den Benutzer dazu auffordern muss, die Paketlizenz vor der Installation des Pakets zu akzeptieren. |
 | **developmentDependency** | *(2.8 und höher)* Ein boolescher Wert, der angibt, ob das Paket mit einer Abhängigkeit markiert werden soll, die nur für die Entwicklung gilt, wodurch vermieden wird, dass das Paket als Abhängigkeit in andere Pakete eingefügt wird. |
 | **summary** | Eine kurze Beschreibung des Pakets für die Anzeige der Benutzeroberfläche. Wenn diese nicht angegeben wird, wird eine gekürzte Version von `description` verwendet. |
@@ -108,7 +108,7 @@ Diese Elemente auftreten in einem `<metadata>`-Element angezeigt werden.
 
 | Element | Beschreibung |
 | --- | --- |
-**packageTypes** | *(3.5 +)*  Eine Auflistung von NULL oder mehr `<packageType>` Elemente, die den Typ des Pakets angeben, wenn keinem herkömmlichen abhängigkeitspakets. Jeder „packageType“ verfügt über Attribute von *name* und *version*. Informationen dazu finden Sie unter [Setting a package type (Festlegen eines Pakettypen)](../create-packages/creating-a-package.md#setting-a-package-type). |
+**packageTypes** | *(3.5 und höher)* Eine Auflistung, die kein `<packageType>`-Element oder mindestens eins enthält und den Pakettyp angibt, wenn es sich nicht um ein gewöhnliches Abhängigkeitspaket handelt. Jeder „packageType“ verfügt über Attribute von *name* und *version*. Informationen dazu finden Sie unter [Setting a package type (Festlegen eines Pakettypen)](../create-packages/creating-a-package.md#setting-a-package-type). |
 | **dependencies** | Eine Auflistung, die kein `<dependency>`-Element oder mindestens eins enthält und Abhängigkeiten für das Paket angibt. Jede Abhängigkeit verfügt über Attribute von *id*, *version*, *include* und *exclude* (3.x und höher). Informationen dazu finden Sie im Abschnitt [Abhängigkeiten](#dependencies). |
 | **frameworkAssemblies** | *(1.2 und höher)* Eine Auflistung, die kein `<frameworkAssembly>`-Element oder mindestens eins enthält und die für das Paket erforderlichen Verweise auf .NET Framework-Assemblys erkennt und sicherstellt, dass Verweise zu Projekten hinzugefügt werden, die das Paket verarbeiten. Jedes frameworkAssembly-Element verfügt über die Attribute *assemblyName* und *targetFramework*. Informationen dazu finden Sie unter [Specifying framework assembly references GAC (Angeben von GAC-Verweisen auf Frameworkassemblys)](#specifying-framework-assembly-references-gac). |
 | **references** | *(1.5 und höher)* Eine Auflistung, die kein `<reference>`-Element oder mindestens eins enthält, das Assemblys in dem `lib`-Ordner des Pakets benennt, die als Projektverweise hinzugefügt werden. Jeder Verweis verfügt über ein *file*-Attribut. `<references>` kann außerdem ein `<group>`-Element mit einem *targetFramework*-Attribut enthalten, das anschließend `<reference>`-Elemente enthält. Wenn das Element nicht angegeben ist, werden alle Verweise in `lib` eingefügt. Informationen dazu finden Sie unter [Specifying explicit assembly references (Angeben von expliziten Assemblyverweisen)](#specifying-explicit-assembly-references). |
@@ -328,7 +328,7 @@ Legen Sie ein `<files>`-Element als untergeordnetes Element von `<package>` und 
 </files>
 ```
 
-Das `<files>`-Element wird bei NuGet 2.x und früher sowie bei Projekten, die `packages.config` verwenden, außerdem verwendet, um unveränderliche Inhaltsdateien während der Paketinstallation einzufügen. Mit NuGet 3.3 + und Projekten PackageReference die `<contentFiles>` Element wird stattdessen verwendet. Weitere Informationen finden Sie unter [Einfügen von Inhaltsdateien](#including-content-files).
+Das `<files>`-Element wird bei NuGet 2.x und früher sowie bei Projekten, die `packages.config` verwenden, außerdem verwendet, um unveränderliche Inhaltsdateien während der Paketinstallation einzufügen. Bei NuGet 3.3 und höher und Projekten, die PackageReference verwenden, wird stattdessen das `<contentFiles>`-Element verwendet. Weitere Informationen finden Sie unter [Einfügen von Inhaltsdateien](#including-content-files).
 
 ### <a name="file-element-attributes"></a>Dateielementattribute
 
@@ -413,7 +413,7 @@ Bei Inhaltsdateien handelt es sich um unveränderliche Dateien, die ein Paket in
 - Skripts, die in die Buildausgabe des Projekts eingefügt werden müssen
 - Konfigurationsdateien für das Paket, die zwar in das Projekt eingefügt werden müssen, an denen jedoch keine projektspezifischen Änderungen vorgenommen werden müssen.
 
-Inhaltsdateien werden in ein Paket eingefügt, das das `<files>`-Element verwendet, das den `content`-Ordner im `target`-Attribut angibt. Solche Dateien werden jedoch ignoriert, wenn das Paket installiert ist, in einem Projekt mit PackageReference, die stattdessen verwendet die `<contentFiles>` Element.
+Inhaltsdateien werden in ein Paket eingefügt, das das `<files>`-Element verwendet, das den `content`-Ordner im `target`-Attribut angibt. Allerdings werden diese Dateien ignoriert, wenn das Paket über PackageReference in ein Projekt installiert wird, das stattdessen das `<contentFiles>`-Element verwendet.
 
 Im Idealfall geben Pakete die Inhaltsdateien in beiden Elementen an, um ein höchstmögliches Maß an Kompatibilität mit den verarbeitenden Projekten zu erreichen.
 
@@ -544,7 +544,7 @@ Diese Dateien werden zusammen mit mehreren Attributen angegeben, die beschreiben
 | **exclude** | Eine durch Semikolons abgetrennte Datei oder Dateimuster, die sich nicht im `src`-Speicherort befinden dürfen. Das Platzhalterzeichen `*` ist zulässig, und das zweifache Platzhalterzeichen `**` impliziert eine rekursive Ordnersuche. |
 | **buildAction** | Die Buildaktion, die dem Inhaltselement für MSBuild zugewiesen werden soll. Z.B. `Content`, `None`, `Embedded Resource` oder `Compile`. Die Standardeinstellung ist `Compile`. |
 | **copyToOutput** | Ein boolescher Wert, der angibt, ob Inhaltselemente in den Ausgabeordner des Builds kopiert werden sollen. Der Standardwert ist false. |
-| **flatten** | Ein boolescher Wert, der angibt, ob Inhaltselemente in einen Ordner in der Buildausgabe kopiert werden sollen (TRUE) oder ob die Ordnerstruktur in den Paketen beibehalten werden soll (FALSE). Dieses Flag funktioniert nur, wenn CopyToOutput-Flag festgelegt ist auf "true". Der Standardwert ist false. |
+| **flatten** | Ein boolescher Wert, der angibt, ob Inhaltselemente in einen Ordner in der Buildausgabe kopiert werden sollen (TRUE) oder ob die Ordnerstruktur in den Paketen beibehalten werden soll (FALSE). Diese Flag funktioniert nur, wenn das copyToOutput-Flag auf TRUE festgelegt ist. Der Standardwert ist false. |
 
 NuGet wendet die untergeordneten Elemente von `<contentFiles>` bei der Installation eines Pakets von unten nach oben an. Wenn mehrere Einträge in einer Datei vorhanden sind, werden sie alle angewendet. Der höher geordnete Eintrag setzt die untergeordneten Einträge außer Kraft, wenn ein Konflikt für ein Attribut entsteht.
 
@@ -598,7 +598,7 @@ Für leere Ordner kann `.` eingefügt werden, wenn diese keine Inhalte mehr für
 
 ## <a name="example-nuspec-files"></a>Beispiel: NUSPEC-Dateien
 
-**Eine einfache `.nuspec`-Datei, die weder Abhängigkeiten noch Dateien enthält**
+ **Eine einfache `.nuspec`-Datei, die weder Abhängigkeiten noch Dateien enthält**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -615,7 +615,7 @@ Für leere Ordner kann `.` eingefügt werden, wenn diese keine Inhalte mehr für
 </package>
 ```
 
-**Eine `.nuspec`-Datei mit Abhängigkeiten**
+ **Eine `.nuspec`-Datei mit Abhängigkeiten**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

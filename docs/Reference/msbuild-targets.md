@@ -11,17 +11,17 @@ description: "Die NuGet-Befehle „pack“ und „restore“ können direkt als 
 keywords: "NuGet und MSBuild, NuGet-Ziel „pack“, NuGet-Wiederherstellungsziel"
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: 6c488f49e12b014e7bd197d57041745387a4d7b4
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 4d448af3d31e0907cba223c0ccec55604e94f055
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet pack and restore as MSBuild targets (NuGet-Befehle „pack“ und „restore“ MSBuild-Ziele)
 
 *NuGet 4.0 und höher*
 
-Mit dem Format PackageReference NuGet 4.0 und höher kann alle manifest Metadaten direkt in einer Projektdatei, anstatt eine separate speichern `.nuspec` Datei.
+Mit dem PackageReference-Format kann NuGet 4.0 (und höher) alle Manifestmetadaten direkt in einer Projektdatei speichern, anstatt eine separate `.nuspec`-Datei zu verwenden.
 
 Mit MSBuild 15.1 und höher stellt NuGet auch einen MSBuild-Angehörigen der ersten Klasse mit den Zielen `pack` und `restore` dar, wie im Folgenden beschrieben. Durch diese Ziele können Sie mit NuGet wie mit jeder anderen MSBuild-Task oder jedem anderen MSBuild-Ziel arbeiten. (Bei NuGet 3.x und früher verwenden Sie die Befehle [pack](../tools/cli-ref-pack.md) und [restore](../tools/cli-ref-restore.md) stattdessen über die NuGet-CLI.)
 
@@ -42,7 +42,7 @@ Gleichermaßen können Sie eine MSBuild-Task schreiben, Ihr eigenes Ziel schreib
 
 ## <a name="pack-target"></a>Pack-Ziel
 
-Bei Verwendung der Pack-Ziel, d. h. `msbuild /t:pack`, MSBuild zeichnet ihre Eingaben aus der Projektdatei. Die folgende Tabelle beschreibt die MSBuild-Eigenschaften, die einer Projektdatei innerhalb der ersten hinzugefügt werden können `<PropertyGroup>` Knoten. Sie können diese Änderungen problemlos in Visual Studio 2017 und höheren Versionen vornehmen, indem Sie mit der rechten Maustaste auf das Projekt klicken und **{Project_name} bearbeiten** im Kontextmenü auswählen. Der Einfachheit halber ist die Tabelle nach der entsprechenden Eigenschaft in einer [`.nuspec`-Datei](../reference/nuspec.md) organisiert.
+Wenn Sie das Pack-Ziel verwenden, d.h. `msbuild /t:pack`, bezieht MSBuild die Eingaben aus der Projektdatei. In der folgenden Tabelle werden die MSBuild-Eigenschaften beschrieben, die im ersten `<PropertyGroup>`-Knoten zu einer Projektdatei hinzugefügt werden können. Sie können diese Änderungen problemlos in Visual Studio 2017 und höheren Versionen vornehmen, indem Sie mit der rechten Maustaste auf das Projekt klicken und **{Project_name} bearbeiten** im Kontextmenü auswählen. Der Einfachheit halber ist die Tabelle nach der entsprechenden Eigenschaft in einer [`.nuspec`-Datei](../reference/nuspec.md) organisiert.
 
 Beachten Sie, dass die Eigenschaften `Owners` und `Summary` aus einer `.nuspec`-Datei in MSBuild nicht unterstützt werden.
 
@@ -50,8 +50,8 @@ Beachten Sie, dass die Eigenschaften `Owners` und `Summary` aus einer `.nuspec`-
 |--------|--------|--------|--------|
 | Id | PackageId | AssemblyName | $(AssemblyName) aus MSBuild |
 | Version | PackageVersion | Version | Diese Eigenschaft ist mit „semver“ kompatibel, z.B. „1.0.0“, „1.0.0-beta“ oder „1.0.0-beta-00345“ |
-| VersionPrefix | PackageVersionPrefix | Leer | Festlegen von PackageVersion überschreibt PackageVersionPrefix |
-| VersionSuffix | PackageVersionSuffix | Leer | $(VersionSuffix) aus MSBuild. Festlegen von PackageVersion überschreibt PackageVersionSuffix |
+| VersionPrefix | PackageVersionPrefix | Leer | Durch das Festlegen von PackageVersion wird PackageVersionPrefix überschrieben |
+| VersionSuffix | PackageVersionSuffix | Leer | $(VersionSuffix) aus MSBuild. Durch das Festlegen von PackageVersion wird PackageVersionSuffix überschrieben |
 | Authors | Authors | Name des aktuellen Benutzers | |
 | Besitzer | Nicht zutreffend | In NuSpec nicht vorhanden | |
 | Titel | Titel | Die PackageId| |
@@ -63,8 +63,10 @@ Beachten Sie, dass die Eigenschaften `Owners` und `Summary` aus einer `.nuspec`-
 | IconUrl | PackageIconUrl | Leer | |
 | Tags | PackageTags | Leer | Ziele werden durch Semikolons (;) getrennt. |
 | ReleaseNotes | PackageReleaseNotes | Leer | |
-| RepositoryUrl | RepositoryUrl | Leer | |
-| RepositoryType | RepositoryType | Leer | |
+| Repository-Url | RepositoryUrl | Leer | Repository-URL zum Klonen oder Abrufen von Quellcode. Beispiel: *https://github.com/NuGet/NuGet.Client.git* |
+| Repository-Typ | RepositoryType | Leer | Repository-Typ. Beispiele: *Git*, *Tfs*. |
+| Repository-Zweig | RepositoryBranch | Leer | Optionale Verzweigung Repositoryinformationen. *RepositoryUrl* muss auch angegeben werden, für diese Eigenschaft eingeschlossen werden sollen. Beispiel: *master* (NuGet 4.7.0+) |
+| Repository/Commit | RepositoryCommit | Leer | Optionale Repository Commit oder ein Changeset, um anzugeben, die das Paket Datenquelle wurde gegen erstellt. *RepositoryUrl* muss auch angegeben werden, für diese Eigenschaft eingeschlossen werden sollen. Beispiel: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0+) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
 | Zusammenfassung | Nicht unterstützt | | |
 
@@ -90,6 +92,8 @@ Beachten Sie, dass die Eigenschaften `Owners` und `Summary` aus einer `.nuspec`-
 - IsTool
 - RepositoryUrl
 - RepositoryType
+- RepositoryBranch
+- RepositoryCommit
 - NoPackageAnalysis
 - MinClientVersion
 - IncludeBuildOutput
@@ -170,7 +174,7 @@ Es gibt auch eine MSBuild-Eigenschaft, `$(IncludeContentInPack)`, die standardm�
 Weitere für das Ziel „pack“ spezifische Metadaten, die Sie auf ein beliebiges der oben genannten Elemente festlegen können, enthalten ```<PackageCopyToOutput>``` und ```<PackageFlatten>```, die die Werte ```CopyToOutput``` und ```Flatten``` auf den ```contentFiles```-Eintrag in der ausgegebenen Nuspec-Datei festlegen.
 
 > [!Note]
-> Abgesehen von Inhaltselemente die `<Pack>` und `<PackagePath>` Metadaten kann auch festgelegt werden, auf Dateien mit dem Buildvorgang Kompilierung EmbeddedResource ApplicationDefinition Seite Ressource SplashScreen DesignData, DesignDataWithDesignTimeCreateableTypes , CodeAnalysisDictionary, AndroidAsset, AndroidResource, BundleResource oder "None".
+> Die Metadaten `<Pack>` und `<PackagePath>` können nicht nur auf Inhaltselemente, sondern auch auf Dateien mit den Buildvorgängen „Compile“, „EmbeddedResource“, „ApplicationDefinition“, „Page“, „Resource“, „SplashScreen“, „DesignData“, „DesignDataWithDesignTimeCreateableTypes“, „CodeAnalysisDictionary“, „AndroidAsset“, „AndroidResource“, „BundleResource“ oder „None“ festgelegt werden.
 >
 > Damit das Ziel „pack“ bei der Verwendung von Globmustern den Dateinamen an Ihren Paketpfad anhängt, muss Ihr Paketpfad mit dem Ordnertrennzeichen enden. Andernfalls wird der Paketpfad als vollständiger Pfad einschließlich des Dateinamens behandelt.
 
