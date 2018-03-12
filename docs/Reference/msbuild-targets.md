@@ -11,11 +11,11 @@ description: "Die NuGet-Befehle „pack“ und „restore“ können direkt als 
 keywords: "NuGet und MSBuild, NuGet-Ziel „pack“, NuGet-Wiederherstellungsziel"
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: 4d448af3d31e0907cba223c0ccec55604e94f055
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 798b3550718294072d86b6e4827ec5017178d2cc
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet pack and restore as MSBuild targets (NuGet-Befehle „pack“ und „restore“ MSBuild-Ziele)
 
@@ -55,7 +55,7 @@ Beachten Sie, dass die Eigenschaften `Owners` und `Summary` aus einer `.nuspec`-
 | Authors | Authors | Name des aktuellen Benutzers | |
 | Besitzer | Nicht zutreffend | In NuSpec nicht vorhanden | |
 | Titel | Titel | Die PackageId| |
-| Beschreibung | Beschreibung | „Paketbeschreibung“ | |
+| Beschreibung | PackageDescription | „Paketbeschreibung“ | |
 | Copyright | Copyright | Leer | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | False | |
 | LicenseUrl | PackageLicenseUrl | Leer | |
@@ -222,6 +222,9 @@ Das Ziel `MSBuild /t:restore` (das von `nuget restore` und `dotnet restore` in .
 1. Ausführen des Befehls „restore“
 1. Herunterladen von Paketen
 1. Schreiben von Assetdatei, Zielen und Eigenschaften
+
+> [!Note]
+> Die `restore` MSBuild-Ziel funktioniert nur für Projekte mit `PackageReference` Elemente und wird nicht wiederhergestellt, Pakete, die einen Verweis auf eine `packages.config` Datei.
 
 ### <a name="restore-properties"></a>Wiederherstellen von Eigenschaften
 

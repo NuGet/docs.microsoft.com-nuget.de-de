@@ -16,11 +16,11 @@ keywords: NuGet-API-Einstiegspunkt, NuGetA PI-Endpunkt-Ermittlung
 ms.reviewer:
 - karann
 - unnir
-ms.openlocfilehash: 9d0bb421c163520df4a1f0e9f3f71aab823aace3
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 8de0bc15edc358d091d84da54b8b67c085f29645
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="service-index"></a>Dienst-index
 
@@ -30,12 +30,11 @@ sich der NuGet.org-Dienst Index befindet sich unter `https://api.nuget.org/v3/in
 
 ## <a name="versioning"></a>Versionskontrolle
 
-Die `version` Wert ist eine Zeichenfolge der SemVer 2.0.0-Schemakontexts Version gibt die Schemaversion des Dienst-Indexes an.
-Die API ordnet an, dass die Versionszeichenfolge eine höhere Versionsnummer hat `3`. Das IndexSchema Service nicht maßgebliche Änderungen vorgenommen werden, wird die Versionszeichenfolge Nebenversion erhöht werden.
+Die `version` Wert ist eine Zeichenfolge der SemVer 2.0.0-Schemakontexts Version gibt die Schemaversion des Dienst-Indexes an. Die API ordnet an, dass die Versionszeichenfolge eine höhere Versionsnummer hat `3`. Das IndexSchema Service nicht maßgebliche Änderungen vorgenommen werden, wird die Versionszeichenfolge Nebenversion erhöht werden.
 
 Jede Ressource in die Dienst-Index ist unabhängig von der Dienst Index Schemaversion versionsspezifisch.
 
-Die aktuelle Schemaversion ist `3.0.0-beta.1`.
+Die aktuelle Schemaversion ist `3.0.0`. Die `3.0.0` Version ist funktionell gleichwertig mit der älteren `3.0.0-beta.1` Version jedoch sollte bevorzugt werden, wie es deutlich stabile, definierte Schema kommuniziert.
 
 ## <a name="http-methods"></a>HTTP-Methoden
 

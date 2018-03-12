@@ -13,11 +13,11 @@ keywords: NuGet-Paket-Manager-Konsole NuGet Powershell-Befehle, NuGet Powershell
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f5f6b3dffb27af510b750650561cdff597c927e0
-ms.sourcegitcommit: a40a6ce6897b2d9411397b2e29b1be234eb6e50c
+ms.openlocfilehash: f01c990d12392795e90e95e4efe66c6051011c51
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="install-package-package-manager-console-in-visual-studio"></a>Install-Package (Paket-Manager-Konsole in Visual Studio)
 
@@ -39,8 +39,6 @@ Im NuGet 2.8 + `Install-Package` können Sie ein downgrade ein vorhandenes Paket
 Install-Package Microsoft.AspNet.MVC -Version 5.0.0.
 ```
 
-NuGet 2.7 und früher erhalten eine Fehlermeldung, dass bereits eine neuere Version installiert ist.
-  
 ## <a name="parameters"></a>Parameter
 
 | Parameter | Beschreibung |

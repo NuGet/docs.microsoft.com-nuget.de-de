@@ -12,11 +12,11 @@ keywords: "Datei „NuGet.Config“, NuGet-Konfigurationsverweis, NuGet-Konfigur
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: df602cb561a19f0eac085695de80db1fbaa1a313
-ms.sourcegitcommit: 33436d122873249dbb20616556cd8c6783f38909
+ms.openlocfilehash: c76ebcb06adc5e5b862647de6b6f4e19bde87b91
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="nugetconfig-reference"></a>Verweis auf „NuGet.Config“
 
@@ -87,7 +87,7 @@ Konfiguriert, ob NuGet bei der Installation eines Pakets automatische Bindungsum
 
 ## <a name="packagerestore-section"></a>Abschnitt „packageRestore“
 
-*Wird in 2.7 und höher ignoriert*
+*Ignoriert alle aktuellen Versionen (2.7 und höher)*
 
 Steuert die Paketwiederherstellung während der Erstellung von Builds.
 

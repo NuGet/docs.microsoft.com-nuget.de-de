@@ -12,11 +12,11 @@ keywords: NuGet-Paket-Manager-Konsole, die NuGet Powershell-Befehle, die NuGet P
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 7ebb5a420e469c70a9dd790231a92fedbc4713b6
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 293d9a7fdcce633eb5a97e5f76398deb5c13bdb4
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Update-Paket (Paket-Manager-Konsole in Visual Studio)
 
@@ -37,8 +37,6 @@ Im NuGet 2.8 + `Update-Package` herabgestuft werden, ein vorhandenes Paket im Pr
 ```ps
 Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 ```
-
-NuGet 2.7 und früher erhalten eine Fehlermeldung, dass bereits eine neuere Version installiert ist.
 
 ## <a name="parameters"></a>Parameter
 
