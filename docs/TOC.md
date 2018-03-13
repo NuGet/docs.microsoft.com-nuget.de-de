@@ -1,7 +1,7 @@
 # [Was ist NuGet?](what-is-nuget.md)
 # [Installieren von NuGet-Clienttools](install-nuget-client-tools.md)
 # Schnellstarts
-## [Installieren und Verwenden eines Pakets (dotnet CLI)](quickstart/install-and-use-a-package-using-the-dotnet-cli.md)
+## [Installieren und Verwenden eines Pakets (dotnet-CLI)](quickstart/install-and-use-a-package-using-the-dotnet-cli.md)
 ## [Installieren und Verwenden eines Pakets (Visual Studio)](quickstart/install-and-use-a-package-in-visual-studio.md)
 ## [Erstellen und Veröffentlichen eines Pakets (dotnet CLI)](quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)
 ## [Erstellen und Veröffentlichen eines Pakets (Visual Studio)](quickstart/create-and-publish-a-package-using-visual-studio.md)
@@ -26,6 +26,7 @@
 ## [Vorabversionspakete](create-packages/prerelease-packages.md)
 ## [Native Pakete](create-packages/native-packages.md)
 ## [Symbolpakete](create-packages/symbol-packages.md)
+## [Signieren von Paketen](create-packages/sign-a-package.md)
 ## [Veröffentlichen eines Pakets](create-packages/publish-a-package.md)
 ## Führungslinien
 ### [Erstellen von UWP-Paketen](guides/create-uwp-packages.md)
@@ -51,9 +52,11 @@
 ### [push](tools/cli-ref-push.md)
 ### [restore](tools/cli-ref-restore.md)
 ### [setapikey](tools/cli-ref-setapikey.md)
+### [sign](tools/cli-ref-sign.md)
 ### [sources](tools/cli-ref-sources.md)
 ### [spec](tools/cli-ref-spec.md)
 ### [update](tools/cli-ref-update.md)
+### [verify](tools/cli-ref-verify.md)
 ### [Umgebungsvariablen](tools/cli-ref-environment-variables.md)
 ## [Benutzeroberfläche des Paket-Managers](tools/package-manager-ui.md)
 ## [Paket-Manager-Konsole](tools/package-manager-console.md)
@@ -68,7 +71,7 @@
 ### [Uninstall-Package](tools/ps-ref-uninstall-package.md)
 ### [Update-Package](tools/ps-ref-update-package.md)
 ## [dotnet-Befehle](tools/dotnet-Commands.md)
-# Verweis
+# Referenz
 ## [.nuspec](reference/nuspec.md)
 ## [packages.config](reference/packages-config.md)
 ## [Paketversionsverwaltung](reference/package-versioning.md)
@@ -79,6 +82,7 @@
 ## [Fehler und Warnungen](reference/errors-and-warnings.md)
 ## [ID-Präfixreservierung](reference/id-prefix-reservation.md)
 ## [NuGet-Client SDK](reference/nuget-client-sdk.md)
+## [Referenz für signierte Pakete](reference/signed-packages-reference.md)
 ## Erweiterungen
 ### [NuGet-Anmeldeinformationsanbieter für Visual Studio](reference/extensibility/nuget-credential-providers-for-visual-studio.md)
 ### [nuget.exe-Anmeldeinformationsanbieter](reference/extensibility/nuget-exe-credential-providers.md)
@@ -108,9 +112,9 @@
 ## [Ökosystem](policies/ecosystem.md)
 ## [Konfliktlösung](policies/dispute-resolution.md)
 ## [Löschen von Paketen](policies/deleting-packages.md)
-# [GitHub-Repositorys](https://github.com/NuGet)
 # Anmerkungen zu diesem Release
 ## [Bekannte Probleme](release-notes/known-issues.md)
+## [NuGet 4.6 RTM](release-notes/NuGet-4.6-RTM.md)
 ## [NuGet 4.5 RTM](release-notes/NuGet-4.5-RTM.md)
 ## [NuGet 4.4 RTM](release-notes/NuGet-4.4-RTM.md)
 ## [NuGet 4.3 RTM](release-notes/NuGet-4.3-RTM.md)
