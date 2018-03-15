@@ -12,15 +12,15 @@ ms.topic: reference
 ms.prod: nuget
 ms.technology: 
 description: "Der Katalog ist einen Index aller Pakete erstellt und auf nuget.org gelöscht."
-keywords: "NuGet-V3-API-Katalog nuget.org Transaktionsprotokoll NuGet.org replizieren, NuGet.org nur Anhängen-Datensatz der NuGet.org Klonen"
+keywords: "NuGet-V3-API-Katalog nuget.org Transaktionsprotokoll replizieren nuget.org, Klon nuget.org, nur Anhängen-Datensatz der nuget.org"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: d1a24be68a60085a40361c374ffb34dc221f09c4
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: be30b21d488c323c439a59fff290a95adaefd902
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="catalog"></a>Catalog
 
@@ -36,7 +36,7 @@ Die **Katalog** ist eine Ressource, die auf eine Paketquelle, wie, wann alle Pak
 
 Die folgenden `@type` Wert wird verwendet:
 
-@type-Wert   | Hinweise
+@type-Wert   | Notizen
 ------------- | -----
 Catalog/3.0.0 | Die erste Version
 
@@ -50,7 +50,7 @@ Alle URLs, die in der Unterstützung des Katalogs Ressource nur die HTTP-Methode
 
 ## <a name="catalog-index"></a>Katalogfeldindex
 
-Der Katalogindex ist ein Dokument in einem bekannten Speicherort ein, der eine Liste von Katalogelementen, Cronologically bestellt hat. Es ist der Einstiegspunkt der Katalogressource.
+Der Katalogindex ist ein Dokument in einen bekannten Speicherort mit einer Liste von Katalogelementen, chronologisch sortiert. Es ist der Einstiegspunkt der Katalogressource.
 
 Der Index besteht aus Katalogseiten. Jede Seite "Katalog" enthält Katalogelemente. Jedes Katalogelement stellt ein Ereignis, das über ein einzelnes Paket zu einem Zeitpunkt zeitlich dar. Ein Katalogelement kann ein Paket darstellen, die, nicht aufgeführte, wiedereingestellte oder gelöschten aus der Paketquelle erstellt wurde. Durch die Verarbeitung der Katalogelemente in chronologischer Reihenfolge an, kann der Client keine auf dem neuesten Stand Ansicht der jedes Paket, das vorhanden ist, auf die Paketquelle V3 erstellen.
 
@@ -76,7 +76,7 @@ Die folgende Anforderung Ruft den Index des ab.
 
 Der Katalogindex ist ein JSON-Dokument, das ein Objekt mit den folgenden Eigenschaften enthält:
 
-name            | Typ             | Erforderlich | Hinweise
+Name            | Typ             | Erforderlich | Notizen
 --------------- | ---------------- | -------- | -----
 commitId        | Zeichenfolge           | ja      | Eine eindeutige ID des letzten Commits zugeordnet
 commitTimeStamp | Zeichenfolge           | ja      | Einen Zeitstempel des letzten Commits
@@ -93,7 +93,7 @@ Hinzufügen von Elementen im Katalog, der Index des `commitId` ändert sich und 
 
 Die Seite Catalog-Objekten in des Katalog Indexes gefunden `items` Eigenschaft weist die folgenden Eigenschaften:
 
-name            | Typ    | Erforderlich | Hinweise
+Name            | Typ    | Erforderlich | Notizen
 --------------- | ------- | -------- | -----
 @id             | Zeichenfolge  | ja      | Die URL zu der Seite "Katalog" Abrufen von Daten
 commitId        | Zeichenfolge  | ja      | Eine eindeutige ID der letzten Commit auf dieser Seite zugeordnet
@@ -118,7 +118,7 @@ Neue Katalogelemente werden auf der Seite im Katalogindex nur mit der höchsten 
 
 Das Katalogdokument-Seite ist ein JSON-Objekt mit den folgenden Eigenschaften:
 
-name            | Typ             | Erforderlich | Hinweise
+Name            | Typ             | Erforderlich | Notizen
 --------------- | ---------------- | -------- | -----
 commitId        | Zeichenfolge           | ja      | Eine eindeutige ID der letzten Commit auf dieser Seite zugeordnet
 commitTimeStamp | Zeichenfolge           | ja      | Einen Zeitstempel des letzten Commits auf dieser Seite
@@ -128,7 +128,7 @@ parent          | Zeichenfolge           | ja      | Eine URL für den Index des
 
 Jedes Element in der `items` Array ist ein Objekt mit einigen minimale Details über das Element des Katalogs. Diese Objekte enthalten nicht alle Daten für das Katalogelement. Die Reihenfolge der Elemente auf der Seite `items` Array ist nicht definiert. Elemente können sortiert werden, vom Client im Arbeitsspeicher mit ihren `commitTimeStamp` Eigenschaft.
 
-Die Anzahl von Katalogelementen auf einer Seite wird durch die Implementierung definiert. Nuget.org sind höchstens 550 Elemente auf den einzelnen Seiten, obwohl die tatsächliche Anzahl zeitlich für einige Seiten Dependong auf die Größe des Batches an dem Punkt weiter Commit kleiner sein kann.
+Die Anzahl von Katalogelementen auf einer Seite wird durch die Implementierung definiert. Nuget.org sind höchstens 550 Elemente auf den einzelnen Seiten, auch wenn die tatsächliche Anzahl zeitlich kleinere für einige Seiten je nach Größe der nächste Batch von Commit an die Stelle sein kann.
 
 Als neue Elemente eingefügt werden, die `count` wird erhöht und der neue Katalogobjekte angezeigt werden, der `items` Array.
 
@@ -138,7 +138,7 @@ Hinzufügen von Elementen auf der Seite der `commitId` Änderungen und die `comm
 
 Die Elementobjekte Katalog gefunden werden, in der Katalogseite `items` Eigenschaft weist die folgenden Eigenschaften:
 
-name            | Typ    | Erforderlich | Hinweise
+Name            | Typ    | Erforderlich | Notizen
 --------------- | ------- | -------- | -----
 @id             | Zeichenfolge  | ja      | Die URL für das Katalogelement abrufen
 @type           | Zeichenfolge  | ja      | Der Typ des Katalogelements
@@ -164,11 +164,11 @@ Weitere Informationen zu jeder Art bedeutet finden Sie unter der [Typ entspreche
 
 ## <a name="catalog-leaf"></a>Katalog Blattebene
 
-Der Katalog Blattebene enthält Metadaten über ein bestimmtes Paket-ID und eine Version irgendwann zeitlich. Es ist ein Dokument abgerufen, mit der `@id` Wert in eine Seite "Katalog" gefunden. Die URL zu einem Blattknoten Katalog sollte nicht predictedable sein und muss mit nur einer Seite "Katalog" erkannt werden.
+Der Katalog Blattebene enthält Metadaten über ein bestimmtes Paket-ID und eine Version irgendwann zeitlich. Es ist ein Dokument abgerufen, mit der `@id` Wert in eine Seite "Katalog" gefunden. Die URL zu einem Blattknoten Katalog sollte nicht vorhersagbar sein und muss mit nur einer Seite "Katalog" erkannt werden.
 
 Das Blatt Katalogdokument ist ein JSON-Objekt mit den folgenden Eigenschaften:
 
-name                    | Typ                       | Erforderlich | Hinweise
+Name                    | Typ                       | Erforderlich | Notizen
 ----------------------- | -------------------------- | -------- | -----
 @type                   | Zeichenfolge oder ein Array von Zeichenfolgen | ja      | Der/die Typ(en) des Katalogelements
 catalog:commitId        | Zeichenfolge                     | ja      | Eine Commit-ID, die diese Katalogelement zugeordnet
@@ -199,39 +199,39 @@ Clients nutzen die Katalogelemente sollten nicht versuchen, um zu bestimmen, wel
 
 Paket Details Katalogelemente haben die folgenden Eigenschaften zusätzlich zu den [auf bewirkt, dass alle Katalog enthalten](#catalog-leaf).
 
-name                    | Typ                       | Erforderlich | Hinweise
+Name                    | Typ                       | Erforderlich | Notizen
 ----------------------- | -------------------------- | -------- | -----
-authors                 | Zeichenfolge                     | Nein       |
+authors                 | Zeichenfolge                     | nein       |
 created                 | Zeichenfolge                     | ja      | Einen Zeitstempel mit der ersten des Pakets Erstellung
-dependencyGroups        | Array von Objekten           | Nein       | Gleiche format wie die [Metadatenressource "package"](registration-base-url-resource.md#package-dependency-group)
-Beschreibung             | Zeichenfolge                     | Nein       |
-iconUrl                 | Zeichenfolge                     | Nein       |
+dependencyGroups        | Array von Objekten           | nein       | Gleiche format wie die [Metadatenressource "package"](registration-base-url-resource.md#package-dependency-group)
+Beschreibung             | Zeichenfolge                     | nein       |
+iconUrl                 | Zeichenfolge                     | nein       |
 isPrerelease            | boolean                    | ja      | Davon, ob die Paketversion Vorabversion ist.
-language                | Zeichenfolge                     | Nein       |
-licenseUrl              | Zeichenfolge                     | Nein       |
-Liste                  | boolean                    | Nein       | Und zwar unabhängig davon, ob das Paket aufgeführt ist
-minClientVersion        | Zeichenfolge                     | Nein       |
+language                | Zeichenfolge                     | nein       |
+licenseUrl              | Zeichenfolge                     | nein       |
+Liste                  | boolean                    | nein       | Und zwar unabhängig davon, ob das Paket aufgeführt ist
+minClientVersion        | Zeichenfolge                     | nein       |
 packageHash             | Zeichenfolge                     | ja      | Der Hashwert des Pakets, mit Codierung [base-64 standard](https://tools.ietf.org/html/rfc4648#section-4)
 packageHashAlgorithm    | Zeichenfolge                     | ja      |
 packageSize             | Ganze Zahl                    | ja      | Die Größe der dem Paket NUPKG in bytes
-projectUrl              | Zeichenfolge                     | Nein       |
-releaseNotes            | Zeichenfolge                     | Nein       |
-requireLicenseAgreement | boolean                    | Nein       | Angenommen `false` ausgeschlossen
-Zusammenfassung                 | Zeichenfolge                     | Nein       |
-Tags                    | Array von Zeichenfolgen           | Nein       |
-Titel                   | Zeichenfolge                     | Nein       |
-verbatimVersion         | Zeichenfolge                     | Nein       | Die Versionszeichenfolge, wie er wurde ursprünglich in der .nuspec gefunden.
+projectUrl              | Zeichenfolge                     | nein       |
+releaseNotes            | Zeichenfolge                     | nein       |
+requireLicenseAgreement | boolean                    | nein       | Angenommen `false` ausgeschlossen
+Zusammenfassung                 | Zeichenfolge                     | nein       |
+Tags                    | Array von Zeichenfolgen           | nein       |
+Titel                   | Zeichenfolge                     | nein       |
+verbatimVersion         | Zeichenfolge                     | nein       | Die Versionszeichenfolge, wie er wurde ursprünglich in der .nuspec gefunden.
 
 Das Paket `version` Eigenschaft ist für die vollständige, normalisierte Versionszeichenfolge. Dies bedeutet, dass SemVer 2.0.0 Builddaten hier aufgenommen werden können.
 
 Die `created` Zeitstempel ist, wenn das Paket zuerst von der Paketquelle empfangen wurde, in der Regel kurz bevor das Katalogelement commitzeitstempel.
 
-Die `packageHashAlgorithm` ist eine Zeichenfolge, die durch den Server-Implementierung Represeting Hashalgorithmus verwendet, um zu erzeugen, definiert die `packageHash`. NuGet.org verwendet immer die `packageHashAlgorithm` Wert `SHA512`.
+Die `packageHashAlgorithm` ist eine Zeichenfolge, die durch die serverimplementierung, die den Hashalgorithmus zum Erzeugen darstellt definiert die `packageHash`. NuGet.org verwendet immer die `packageHashAlgorithm` Wert `SHA512`.
 
 Die `published` Zeitstempel ist die Uhrzeit, wann das Paket zuletzt aufgelistet.
 
 > [!Note]
-> Auf nuget.org die `published` auf Jahr 1900, wenn das Paket nicht aufgeführte wird, Wert festgelegt ist.
+> Auf nuget.org die `published` auf das Jahr 1900, wenn das Paket nicht aufgeführte wird, Wert festgelegt ist.
 
 #### <a name="sample-request"></a>Beispielanforderung
 
@@ -307,7 +307,7 @@ Die Clientimplementierung kann mit diesen grundlegenden Algorithmus einen vollst
 
 ### <a name="dependent-cursors"></a>Abhängige Cursor
 
-Angenommen Sie, es gibt zwei Katalog-Clients, die eine inherant Abhängigkeit aufweisen, in denen Ausgabe des Clients ein Client-Ausgabe hängt. 
+Angenommen Sie, es gibt zwei Katalog Clients mit einer inhärenten Abhängigkeit Ausgabe des Clients, auf dem ein Client-Ausgabe hängt. 
 
 #### <a name="example"></a>Beispiel
 
@@ -317,7 +317,7 @@ Da beide Ressourcen außerhalb des Katalogs und der Cursor des Clients Katalog e
 
 #### <a name="algorithm"></a>Algorithmus
 
-Um diese Einschränkung zu implementieren, einfache, ändern Sie den Algorithmus, der oben genannten sein:
+Um diese Einschränkung zu implementieren, ändern Sie einfach den Algorithmus, der oben genannten sein:
 
 1. Rufen Sie die aufgezeichneten Cursor-Wert aus einem lokalen Speicher ab.
 1. Herunterladen und den Index des zu deserialisieren.

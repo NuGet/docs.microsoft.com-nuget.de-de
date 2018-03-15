@@ -12,11 +12,11 @@ keywords: NuGet-Update-Verweis, Update-Paket-Befehl
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6a788244d23354b980e8fa86fa170740c18f17b2
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 6acf3a74e5c26bc4e2cef9b0db4a72442d311449
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="update-command-nuget-cli"></a>Update-Befehl (NuGet CLI)
 
@@ -42,11 +42,11 @@ auf dem `<configPath>` identifiziert, entweder eine `packages.config` oder die P
 
 | Option | Beschreibung |
 | --- | --- |
-| ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, *%AppData%\NuGet\NuGet.Config* verwendet wird. |
+| ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) verwendet wird.|
 | FileConflictAction | Gibt die Aktion an, wenn Sie gefragt werden, überschreiben oder vorhandene Dateien, die vom Projekt referenzierte ignoriert werden. Werte sind *überschreiben, ignorieren möchten, keine*. |
 | ForceEnglishOutput | *(3.5 +)*  Erzwingt nuget.exe über eine invariante Kultur Englisch-basierte ausgeführt werden. |
 | Hilfe | Zeigt die Hilfe Informationen für den Befehl. |
-| Id | Gibt eine Liste der Paket-IDs zu aktualisieren. |
+| ID | Gibt eine Liste der Paket-IDs zu aktualisieren. |
 | MSBuildPath | *(4.0 und höher)*  Gibt den Pfad des MSBuild für die Verwendung mit dem Befehl, Vorrang vor `-MSBuildVersion`. |
 | MSBuildVersion | *(3.2 +)*  Gibt die Version von MSBuild mit diesem Befehl verwendet werden soll. Unterstützte Werte sind 4, 12, 14, 15. Standardmäßig werden die MSBuild-Datei in Ihrem Pfad abgerufen wird, wird standardmäßig andernfalls die neueste installierte Version von MSBuild. |
 | NonInteractive | Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an. |

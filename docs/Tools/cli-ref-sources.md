@@ -12,18 +12,17 @@ keywords: NuGet Verweis Datenquellen, Datenquellen-Befehl
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 1e8204f5e1bf712f65d8efb14ca2a4bd802e3f90
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 139a9494e1ea898c90ce79d5990530fbe08642bd
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="sources-command-nuget-cli"></a>Quellen-Befehl (NuGet CLI)
 
 **Gilt für:** Paket Verbrauchs, Veröffentlichung &bullet; **unterstützte Versionen:** alle
 
-Verwaltet die Liste der Datenquellen, die in den Bereich Benutzerkonfigurationsdatei oder einer bestimmten Konfigurationsdatei befindet. Die Benutzerkonfigurationsdatei Bereich befindet sich unter `%APPDATA%\NuGet\NuGet.Config` in Windows und `~/.nuget/NuGet.Config` in Mac/Linux.
-
+Verwaltet die Liste der Datenquellen, die in den Bereich Benutzerkonfigurationsdatei oder einer bestimmten Konfigurationsdatei befindet. Die Benutzerkonfigurationsdatei Bereich befindet sich unter `%APPDATA%\NuGet\NuGet.Config` (Windows) und `~/.nuget/NuGet/NuGet.Config` (Mac/Linux).
 
 Beachten Sie, dass die Quell-URL für nuget.org `https://api.nuget.org/v3/index.json` ist.
 
@@ -39,7 +38,7 @@ auf dem `<operation>` ist einer der *auflisten, hinzufügen, entfernen, aktivier
 
 | Option | Beschreibung |
 | --- | --- |
-| ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, *%AppData%\NuGet\NuGet.Config* verwendet wird. |
+| ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) verwendet wird.|
 | ForceEnglishOutput | *(3.5 +)*  Erzwingt nuget.exe über eine invariante Kultur Englisch-basierte ausgeführt werden. |
 | Format | Gilt für die `list` Aktion und kann `Detailed` (Standard) oder `Short`. |
 | Hilfe | Zeigt die Hilfe Informationen für den Befehl. |

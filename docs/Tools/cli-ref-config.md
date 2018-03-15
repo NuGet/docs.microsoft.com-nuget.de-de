@@ -12,11 +12,11 @@ keywords: NuGet-Config-Verweis, Befehl "Config"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 34d156a29207122bac3c21c3307cbe7373b5f031
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 7cf7c06000904a617752567ed7612c0c48042db9
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="config-command-nuget-cli"></a>Befehl "Config" (NuGet CLI)
 
@@ -42,7 +42,7 @@ Im NuGet 3.4 + `<value>` können [Umgebungsvariablen](cli-ref-environment-variab
 | Option | Beschreibung |
 | --- | --- |
 | AsPath | Config-Datei der Wert als ein Pfad Gibt ignoriert, wenn `-Set` verwendet wird. |
-| ConfigFile | Die NuGet-Konfigurationsdatei zu ändern. Wenn nicht angegeben, *%AppData%\NuGet\NuGet.Config* verwendet wird. |
+| ConfigFile | Die NuGet-Konfigurationsdatei zu ändern. Wenn nicht angegeben, `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) verwendet wird.|
 | ForceEnglishOutput | *(3.5 +)*  Erzwingt nuget.exe über eine invariante Kultur Englisch-basierte ausgeführt werden. |
 | Hilfe | Zeigt die Hilfe Informationen für den Befehl. |
 | NonInteractive | Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an. |

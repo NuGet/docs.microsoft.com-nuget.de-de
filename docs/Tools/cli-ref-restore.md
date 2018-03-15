@@ -12,11 +12,11 @@ keywords: NuGet restore Verweis, der Synchronisierungsbefehl der Pakete
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0ad5156a065e20dfced99da6b2e2860dbd748ad5
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 2416ad652244e0ea60651147ad74a1513cdb75ff
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="restore-command-nuget-cli"></a>RESTORE-Befehl (NuGet CLI)
 
@@ -38,7 +38,7 @@ wobei `<projectPath>` gibt den Speicherort einer Projektmappe oder ein `packages
 
 | Option | Beschreibung |
 | --- | --- |
-| ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, *%AppData%\NuGet\NuGet.Config* verwendet wird. |
+| ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) verwendet wird.|
 | DirectDownload | *(4.0 und höher)*  Werden Pakete direkt ohne das Auffüllen des Caches mit Binärdateien oder Metadaten heruntergeladen. |
 | DisableParallelProcessing | Deaktiviert, die mehrere Pakete gleichzeitig wiederhergestellt werden. |
 | FallbackSource | *(3.2 +)*  Eine Liste der Paketquellen überein, die als Zugriffe verwendet werden soll, für den Fall, dass das Paket nicht, in der primären gefunden wird oder Standardquelle. |

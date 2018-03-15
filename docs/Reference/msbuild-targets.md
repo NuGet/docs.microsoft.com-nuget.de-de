@@ -3,7 +3,7 @@ title: "NuGet pack and restore as MSBuild targets (NuGet-Befehle „pack“ und 
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 04/03/2017
+ms.date: 03/13/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
@@ -11,11 +11,11 @@ description: "Die NuGet-Befehle „pack“ und „restore“ können direkt als 
 keywords: "NuGet und MSBuild, NuGet-Ziel „pack“, NuGet-Wiederherstellungsziel"
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: 798b3550718294072d86b6e4827ec5017178d2cc
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.openlocfilehash: bb0ade1b0f5f81d7c8822d3c2b2f9dd45745fb8d
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet pack and restore as MSBuild targets (NuGet-Befehle „pack“ und „restore“ MSBuild-Ziele)
 
@@ -42,31 +42,33 @@ Gleichermaßen können Sie eine MSBuild-Task schreiben, Ihr eigenes Ziel schreib
 
 ## <a name="pack-target"></a>Pack-Ziel
 
-Wenn Sie das Pack-Ziel verwenden, d.h. `msbuild /t:pack`, bezieht MSBuild die Eingaben aus der Projektdatei. In der folgenden Tabelle werden die MSBuild-Eigenschaften beschrieben, die im ersten `<PropertyGroup>`-Knoten zu einer Projektdatei hinzugefügt werden können. Sie können diese Änderungen problemlos in Visual Studio 2017 und höheren Versionen vornehmen, indem Sie mit der rechten Maustaste auf das Projekt klicken und **{Project_name} bearbeiten** im Kontextmenü auswählen. Der Einfachheit halber ist die Tabelle nach der entsprechenden Eigenschaft in einer [`.nuspec`-Datei](../reference/nuspec.md) organisiert.
+Für .NET Standardprojekten mittels PackageReference Format `msbuild /t:pack` zeichnet Eingaben aus der Projektdatei zu verwenden, erstellen Sie ein NuGet-Paket.
+
+In der folgenden Tabelle werden die MSBuild-Eigenschaften beschrieben, die im ersten `<PropertyGroup>`-Knoten zu einer Projektdatei hinzugefügt werden können. Sie können diese Änderungen problemlos in Visual Studio 2017 und höheren Versionen vornehmen, indem Sie mit der rechten Maustaste auf das Projekt klicken und **{Project_name} bearbeiten** im Kontextmenü auswählen. Der Einfachheit halber ist die Tabelle nach der entsprechenden Eigenschaft in einer [`.nuspec`-Datei](../reference/nuspec.md) organisiert.
 
 Beachten Sie, dass die Eigenschaften `Owners` und `Summary` aus einer `.nuspec`-Datei in MSBuild nicht unterstützt werden.
 
-| Attribut/NuSpec-Wert | MSBuild-Eigenschaft | Standard | Hinweise |
+| Attribut/NuSpec-Wert | MSBuild-Eigenschaft | Standard | Notizen |
 |--------|--------|--------|--------|
-| Id | PackageId | AssemblyName | $(AssemblyName) aus MSBuild |
+| ID | PackageId | AssemblyName | $(AssemblyName) aus MSBuild |
 | Version | PackageVersion | Version | Diese Eigenschaft ist mit „semver“ kompatibel, z.B. „1.0.0“, „1.0.0-beta“ oder „1.0.0-beta-00345“ |
-| VersionPrefix | PackageVersionPrefix | Leer | Durch das Festlegen von PackageVersion wird PackageVersionPrefix überschrieben |
-| VersionSuffix | PackageVersionSuffix | Leer | $(VersionSuffix) aus MSBuild. Durch das Festlegen von PackageVersion wird PackageVersionSuffix überschrieben |
+| VersionPrefix | PackageVersionPrefix | empty | Durch das Festlegen von PackageVersion wird PackageVersionPrefix überschrieben |
+| VersionSuffix | PackageVersionSuffix | empty | $(VersionSuffix) aus MSBuild. Durch das Festlegen von PackageVersion wird PackageVersionSuffix überschrieben |
 | Authors | Authors | Name des aktuellen Benutzers | |
-| Besitzer | Nicht zutreffend | In NuSpec nicht vorhanden | |
+| Besitzer | N/V | In NuSpec nicht vorhanden | |
 | Titel | Titel | Die PackageId| |
 | Beschreibung | PackageDescription | „Paketbeschreibung“ | |
-| Copyright | Copyright | Leer | |
-| RequireLicenseAcceptance | PackageRequireLicenseAcceptance | False | |
-| LicenseUrl | PackageLicenseUrl | Leer | |
-| ProjectUrl | PackageProjectUrl | Leer | |
-| IconUrl | PackageIconUrl | Leer | |
-| Tags | PackageTags | Leer | Ziele werden durch Semikolons (;) getrennt. |
-| ReleaseNotes | PackageReleaseNotes | Leer | |
-| Repository-Url | RepositoryUrl | Leer | Repository-URL zum Klonen oder Abrufen von Quellcode. Beispiel: *https://github.com/NuGet/NuGet.Client.git* |
-| Repository-Typ | RepositoryType | Leer | Repository-Typ. Beispiele: *Git*, *Tfs*. |
-| Repository-Zweig | RepositoryBranch | Leer | Optionale Verzweigung Repositoryinformationen. *RepositoryUrl* muss auch angegeben werden, für diese Eigenschaft eingeschlossen werden sollen. Beispiel: *master* (NuGet 4.7.0+) |
-| Repository/Commit | RepositoryCommit | Leer | Optionale Repository Commit oder ein Changeset, um anzugeben, die das Paket Datenquelle wurde gegen erstellt. *RepositoryUrl* muss auch angegeben werden, für diese Eigenschaft eingeschlossen werden sollen. Beispiel: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0+) |
+| Copyright | Copyright | empty | |
+| RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
+| LicenseUrl | PackageLicenseUrl | empty | |
+| ProjectUrl | PackageProjectUrl | empty | |
+| IconUrl | PackageIconUrl | empty | |
+| Tags | PackageTags | empty | Ziele werden durch Semikolons (;) getrennt. |
+| ReleaseNotes | PackageReleaseNotes | empty | |
+| Repository-Url | RepositoryUrl | empty | Repository-URL zum Klonen oder Abrufen von Quellcode. Beispiel: *https://github.com/NuGet/NuGet.Client.git* |
+| Repository-Typ | RepositoryType | empty | Repository-Typ. Beispiele: *Git*, *Tfs*. |
+| Repository-Zweig | RepositoryBranch | empty | Optionale Verzweigung Repositoryinformationen. *RepositoryUrl* muss auch angegeben werden, für diese Eigenschaft eingeschlossen werden sollen. Beispiel: *master* (NuGet 4.7.0+) |
+| Repository/Commit | RepositoryCommit | empty | Optionale Repository Commit oder ein Changeset, um anzugeben, die das Paket Datenquelle wurde gegen erstellt. *RepositoryUrl* muss auch angegeben werden, für diese Eigenschaft eingeschlossen werden sollen. Beispiel: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0+) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
 | Zusammenfassung | Nicht unterstützt | | |
 
@@ -194,7 +196,7 @@ Bei Verwendung von `MSBuild /t:pack /p:IsTool=true` werden alle Ausgabedateien e
 
 ### <a name="packing-using-a-nuspec"></a>Packen mit einer .nuspec-Datei
 
-Sie können Ihr Projekt mit einer `.nuspec`-Datei packen. Voraussetzung hierfür ist, dass Sie über eine Projektdatei für den Import von `NuGet.Build.Tasks.Pack.targets` verfügen, damit die Pack-Task ausgeführt werden kann. Die folgenden drei MSBuild-Eigenschaften sind für das Packen mit einer `.nuspec`-Datei relevant:
+Können Sie eine `.nuspec` Datei, um das Projekt zu packen, vorausgesetzt, dass Sie eine SDK-Projektdatei importieren verfügen `NuGet.Build.Tasks.Pack.targets` , damit der Pack-Task ausgeführt werden kann. Weiterhin müssen Sie das Projekt wiederherstellen, bevor Sie die Nuspec-Datei packen können. Das Zielframework der Projektdatei nicht relevant ist und nicht verwendet werden, wenn ein Nuspec packen. Die folgenden drei MSBuild-Eigenschaften sind für das Packen mit einer `.nuspec`-Datei relevant:
 
 1. `NuspecFile`: Relativer oder absoluter Pfad zur `.nuspec`-Datei, der für das Packen verwendet wird.
 1. `NuspecProperties`: Durch Semikolons (;) getrennte Liste der Schlüssel/Wert-Paare. Aufgrund der Funktionsweise der MSBuild-Befehlszeilenanalyse müssen mehrere Eigenschaften wie folgt angegeben werden: `/p:NuspecProperties=\"key1=value1;key2=value2\"`.  
@@ -212,6 +214,23 @@ Wenn Sie Ihr Projekt mithilfe von MSBuild packen, verwenden Sie einen Befehl wie
 msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:NuspecProperties=<> /p:NuspecBasePath=<Base path> 
 ```
 
+Beachten Sie, dass Packen einer Nuspec mit dotnet.exe oder Msbuild führt Sie außerdem zum Erstellen des Projekts in der Standardeinstellung. Dies kann vermieden werden, indem Sie übergeben ```--no-build``` Eigenschaft dotnet.exe, dies die Entsprechung der Einstellung ist ```<NoBuild>true</NoBuild> ``` in der Projektdatei, zusammen mit der Einstellung ```<IncludeBuildOutput>false</IncludeBuildOutput> ``` in der Projektdatei
+
+Ein Beispiel einer Csproj-Datei packen Sie die Nuspec-Datei ist:
+
+```
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <NoBuild>true</NoBuild>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <NuspecFile>PATH_TO_NUSPEC_FILE</NuspecFile>
+    <NuspecProperties>add nuspec properties here</NuspecProperties>
+    <NuspecBasePath>optional to provide</NuspecBasePath>
+  </PropertyGroup>
+</Project>
+```
+
 ## <a name="restore-target"></a>Wiederherstellungsziel
 
 Das Ziel `MSBuild /t:restore` (das von `nuget restore` und `dotnet restore` in .NET Core-Projekten verwendet wird), stellt wie folgt Pakete wieder her, auf die in der Projektdatei verwiesen wird:
@@ -223,8 +242,7 @@ Das Ziel `MSBuild /t:restore` (das von `nuget restore` und `dotnet restore` in .
 1. Herunterladen von Paketen
 1. Schreiben von Assetdatei, Zielen und Eigenschaften
 
-> [!Note]
-> Die `restore` MSBuild-Ziel funktioniert nur für Projekte mit `PackageReference` Elemente und wird nicht wiederhergestellt, Pakete, die einen Verweis auf eine `packages.config` Datei.
+Die `restore` Ziel Works **nur** für Projekte, die mit dem PackageReference-Format. Dies der Fall ist **nicht** für Projekte mit der `packages.config` formatieren; verwenden Sie [Nuget Restore](../tools/cli-ref-restore.md) stattdessen.
 
 ### <a name="restore-properties"></a>Wiederherstellen von Eigenschaften
 

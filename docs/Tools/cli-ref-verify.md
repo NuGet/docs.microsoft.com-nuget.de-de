@@ -12,11 +12,11 @@ keywords: NuGet sicher Verweis und Befehl
 ms.reviewer:
 - karann
 - rmpablos
-ms.openlocfilehash: 2747491eb35d8685a44e86fcc1b572013982c754
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.openlocfilehash: 096c79670267d9b602dd6ad30640e832441c31c5
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="verify-command-nuget-cli"></a>Vergewissern Sie sich Befehl (NuGet CLI)
 
@@ -38,7 +38,7 @@ wobei `<package(s)>` enthält eine oder mehrere `.nupkg` Dateien.
 | --- | --- |
 | Alle | Gibt an, dass alle möglichen Überprüfungen auf die Pakete ausgeführt werden dürfen. |
 | CertificateFingerprint | Gibt einen oder mehrere SHA-256-Zertifikat Fingerabdrücke von Zertifikaten (s), mit denen signierte Pakete signiert werden müssen. Ein SHA-256 zertifikatsfingerabdruck ist ein SHA-256-Hash des Zertifikats. Mehrere Eingaben sollten durch Semikolons getrennt werden. |
-| ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, *%AppData%\NuGet\NuGet.Config* verwendet wird. |
+| ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) verwendet wird.|
 | ForceEnglishOutput | Erzwingt, dass nuget.exe über eine invariante Kultur Englisch-basierte ausgeführt werden. |
 | Hilfe | Zeigt die Hilfe Informationen für den Befehl. |
 | NonInteractive | Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an. |

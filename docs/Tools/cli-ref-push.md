@@ -12,11 +12,11 @@ keywords: Befehl "Push"-NuGet-Push Verweis
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: df8ef42f650a20b92a281fff3e597ac8d484544e
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 095e81406df3db5fbfc6c5202362894b2c6d7cf8
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="push-command-nuget-cli"></a>Push-Befehl (NuGet CLI)
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/14/2018
 
 Es wird ein Paket an eine Paketquelle und veröffentlicht sie.
 
-NuGet Standardkonfiguration erhalten, indem Sie das Laden `%AppData%\NuGet\NuGet.Config`, und klicken Sie dann alle laden `Nuget.Config` oder `.nuget\Nuget.Config` Dateien ausgehend vom Stamm des Laufwerks und endet im aktuellen Verzeichnis (finden Sie unter [Konfigurieren von NuGet-Verhalten](../consume-packages/configuring-nuget-behavior.md))
+NuGet Standardkonfiguration erhalten, indem Sie das Laden `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux), laden Sie dann alle `Nuget.Config` oder `.nuget\Nuget.Config` Dateien ausgehend vom Stamm des Laufwerks und endet im aktuellen Verzeichnis (finden Sie unter [konfigurieren NuGet-Verhalten](../consume-packages/configuring-nuget-behavior.md))
 
 ## <a name="usage"></a>Verwendung
 
@@ -41,8 +41,8 @@ wobei `<packagePath>` identifiziert das Paket mithilfe von Push an den Server ü
 
 | Option | Beschreibung |
 | --- | --- |
-| ApiKey | Die API-Schlüssel für das Zielrepository. Wenn Sie nicht vorhanden ist, der im angegebenen *%AppData%\NuGet\NuGet.Config* verwendet wird. |
-| ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, *%AppData%\NuGet\NuGet.Config* verwendet wird. |
+| ApiKey | Die API-Schlüssel für das Zielrepository. Wenn Sie nicht vorhanden ist, wird in der Datei "App.config" angegebenen verwendet. |
+| ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) verwendet wird.|
 | DisableBuffering | Deaktiviert die Pufferung, wenn an einem HTTP-/HTTPS-Server per Push übertragen, um Arbeitsspeicher Verwendungen zu verringern. Vorsicht: Wenn diese Option verwendet wird, integrierte Windows-Authentifizierung funktionieren möglicherweise nicht. |
 | ForceEnglishOutput | *(3.5 +)*  Erzwingt nuget.exe über eine invariante Kultur Englisch-basierte ausgeführt werden. |
 | Hilfe | Zeigt die Hilfe Informationen für den Befehl. |

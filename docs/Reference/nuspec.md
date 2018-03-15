@@ -13,11 +13,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c52d0a7c0da507cb9688c8a7b2c4eaf54a8ca5c2
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 90693b09fce966e3bc28ca24360a3fb4e1f73386
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="nuspec-reference"></a>NUSPEC-Referenz
 
@@ -79,7 +79,7 @@ Diese Elemente müssen in einem `<metadata>`-Element angezeigt werden.
 | --- | --- |
 | **ID** | Der Paketbezeichner, der die Groß- und Kleinschreibung nicht berücksichtigt und auf nuget.org oder im für das Paket verwendeten Katalog eindeutig sein muss. IDs dürfen keine Leerzeichen oder für eine URL unzulässige Zeichen enthalten. Sie müssen den Regeln für .NET-Namespaces entsprechen. Informationen finden Sie unter [Choosing a unique package identifier (Auswählen eines eindeutigen Paketbezeichners)](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number). |
 | **version** | Die Version des Pakets, die dem Muster *Hauptversion.Nebenversion.Patch* folgt. Versionsnummern enthalten möglicherweise, wie unter [Paketversionsverwaltung](../reference/package-versioning.md#pre-release-versions) beschrieben, ein Suffix der Vorabversion. |
-| **Beschreibung** | Eine ausführliche Beschreibung des Pakets für die Anzeige der Benutzeroberfläche. |
+| **description** | Eine ausführliche Beschreibung des Pakets für die Anzeige der Benutzeroberfläche. |
 | **authors** | Eine durch Kommas getrennte Liste der Paketautoren, die mit Profilnamen unter nuget.org übereinstimmen. Diese werden im NuGet-Katalog unter nuget.org angezeigt und werden verwendet, um Querverweise auf Pakete von den gleichen Autoren zu geben. |
 
 ### <a name="optional-metadata-elements"></a>Optionale Metadatenelemente
@@ -94,7 +94,7 @@ Diese Elemente auftreten in einem `<metadata>`-Element angezeigt werden.
 | **owners** | Eine durch Kommas getrennte Liste der Paketersteller, die auf nuget.org Profilnamen verwenden. Dabei handelt es sich häufig um dieselbe Liste wie in `authors`. Sie wird beim Hochladen der Pakete auf nuget.org ignoriert. Informationen dazu finden Sie unter [Managing package owners on nuget.org (Verwalten von Paketbesitzern auf nuget.org)](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). |
 | **projectUrl** | Eine URL für die Paket-Homepage, häufig auf der Benutzeroberfläche sowie auf nuget.org angezeigt. |
 | **licenseUrl** | Eine URL für die Paketlizenz, häufig auf der Benutzeroberfläche sowie auf nuget.org angezeigt. |
-| **iconUrl** | Eine URL für ein 64x64-Bild mit transparentem Hintergrund, das als Symbol für das Paket in der Benutzeroberfläche verwendet wird. Stellen Sie sicher, dass dieses Element die *direkte Bild-URL* und nicht nur die URL einer Webseite enthält, die das Bild enthält. Z. B. um ein Bild von GitHub verwenden zu können, verwenden die Rohdatendatei URL wie *https://github.com/\<Benutzername\>/\<Repository\>/raw/\<Verzweigung\> / \<"Logo.png"\>*. |
+| **iconUrl** | Eine URL für ein 64x64-Bild mit transparentem Hintergrund, das als Symbol für das Paket in der Benutzeroberfläche verwendet wird. Stellen Sie sicher, dass dieses Element die *direkte Bild-URL* und nicht nur die URL einer Webseite enthält, die das Bild enthält. Z. B. um ein Bild von GitHub verwenden zu können, verwenden die Rohdatendatei URL wie  *https://github.com/ \<Benutzername\>/\<Repository\>/raw/\<Verzweigung\> / \<"Logo.png"\>*. |
 | **requireLicenseAcceptance** | Ein boolescher Wert, der angibt, ob der Client den Benutzer dazu auffordern muss, die Paketlizenz vor der Installation des Pakets zu akzeptieren. |
 | **developmentDependency** | *(2.8 und höher)* Ein boolescher Wert, der angibt, ob das Paket mit einer Abhängigkeit markiert werden soll, die nur für die Entwicklung gilt, wodurch vermieden wird, dass das Paket als Abhängigkeit in andere Pakete eingefügt wird. |
 | **summary** | Eine kurze Beschreibung des Pakets für die Anzeige der Benutzeroberfläche. Wenn diese nicht angegeben wird, wird eine gekürzte Version von `description` verwendet. |
@@ -143,9 +143,10 @@ Mit Ausnahme von `$configuration$` werden Werte in dem Projekt gegenüber Werten
 
 | Token | Wertquelle | Wert
 | --- | --- | ---
-| **$id$** | Projektdatei | „AssemblyName“ aus der Projektdatei |
+| **$id$** | Projektdatei | AssemblyName (Titel) aus der Projektdatei |
 | **$version$** | AssemblyInfo | „AssemblyInformationalVersion“, falls vorhanden, andernfalls „AssemblyVersion“ |
 | **$author$** | AssemblyInfo | AssemblyCompany |
+| **$title$** | AssemblyInfo | AssemblyTitle |
 | **$description$** | AssemblyInfo | AssemblyDescription |
 | **$copyright$** | AssemblyInfo | AssemblyCopyright |
 | **$configuration$** | Assembly-DLL | Konfiguration, die zur Erstellung der Assembly verwendet wird und standardmäßig auf „Debuggen“ festgelegt ist. Achten Sie darauf, dass Sie stets `-properties Configuration=Release` in der Befehlszeile verwenden, um mithilfe einer Releasekonfiguration ein Paket zu erstellen. |
@@ -185,7 +186,7 @@ Das `<dependencies>`-Element in `<metadata>` enthält eine beliebige Anzahl von 
 | Build | Build (MSBuild-Eigenschaften und -Ziele) |
 | Systemeigen | Systemeigen |
 | Keine | Keine Ordner |
-| alle | Alle Ordner |
+| all | Alle Ordner |
 
 Beispielsweise verweisen die folgenden Zeilen auf Abhängigkeiten auf `PackageA` Version 1.1.0 und höher und `PackageB` Version 1.x.
 
@@ -543,7 +544,7 @@ Diese Dateien werden zusammen mit mehreren Attributen angegeben, die beschreiben
 | **include** | (Erforderlich) Der Speicherort der Dateien, die eingefügt werden sollen, unterliegt Ausnahmen, die von dem `exclude`-Attribut angegeben werden. Der Pfad ist relativ zur `.nuspec`-Datei, wenn kein absoluter Pfad angegeben ist. Das Platzhalterzeichen `*` ist zulässig, und das zweifache Platzhalterzeichen `**` impliziert eine rekursive Ordnersuche. |
 | **exclude** | Eine durch Semikolons abgetrennte Datei oder Dateimuster, die sich nicht im `src`-Speicherort befinden dürfen. Das Platzhalterzeichen `*` ist zulässig, und das zweifache Platzhalterzeichen `**` impliziert eine rekursive Ordnersuche. |
 | **buildAction** | Die Buildaktion, die dem Inhaltselement für MSBuild zugewiesen werden soll. Z.B. `Content`, `None`, `Embedded Resource` oder `Compile`. Die Standardeinstellung ist `Compile`. |
-| **copyToOutput** | Ein boolescher Wert, der angibt, ob Inhaltselemente in den Ausgabeordner des Builds kopiert werden sollen. Der Standardwert ist false. |
+| **copyToOutput** | Ein boolescher Wert, der angibt, ob Ausgabeordner Inhaltselemente in das Buildausgabeverzeichnis zu kopieren (oder veröffentlichen). Der Standardwert ist false. |
 | **flatten** | Ein boolescher Wert, der angibt, ob Inhaltselemente in einen Ordner in der Buildausgabe kopiert werden sollen (TRUE) oder ob die Ordnerstruktur in den Paketen beibehalten werden soll (FALSE). Diese Flag funktioniert nur, wenn das copyToOutput-Flag auf TRUE festgelegt ist. Der Standardwert ist false. |
 
 NuGet wendet die untergeordneten Elemente von `<contentFiles>` bei der Installation eines Pakets von unten nach oben an. Wenn mehrere Einträge in einer Datei vorhanden sind, werden sie alle angewendet. Der höher geordnete Eintrag setzt die untergeordneten Einträge außer Kraft, wenn ein Konflikt für ein Attribut entsteht.

@@ -12,11 +12,11 @@ keywords: NuGet-Anmelde-Verweis, Anmelde-Befehl
 ms.reviewer:
 - karann
 - rmpablos
-ms.openlocfilehash: 109b0f6aca0ebaae2ea56fbb45226bc1b14f2ea1
-ms.sourcegitcommit: df7158169e84900d135416cd5e52f937df0beb52
+ms.openlocfilehash: f600a0830472703f40ef62f1b1538c53671703a9
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="sign-command-nuget-cli"></a>Anmelde-Befehl (NuGet CLI)
 
@@ -44,7 +44,7 @@ wobei `<package(s)>` enthält eine oder mehrere `.nupkg` Dateien.
 | CertificateStoreLocation | Gibt den Namen der dem x. 509-Zertifikat Store verwenden, für das Zertifikat gesucht werden soll. Der Standardwert ist "CurrentUser", die vom aktuellen Benutzer verwendete x. 509-Zertifikatspeicher. Diese Option sollte verwendet werden, wenn Sie das Zertifikat über - %certificatesubjectname oder CertificateFingerprint - Optionen angeben. |
 | CertificateStoreName | Gibt den Namen des x. 509-Zertifikatspeichers zu verwenden, um für das Zertifikat zu suchen. Der Standardwert ist "My", dem x. 509-Zertifikatspeicher für persönliche Zertifikate. Diese Option sollte verwendet werden, wenn Sie das Zertifikat über - %certificatesubjectname oder CertificateFingerprint - Optionen angeben. |
 | CertificateSubjectName | Gibt den Antragstellernamen des Zertifikats verwendet, um einen lokalen Zertifikatspeicher für das Zertifikat zu suchen.  Die Suche wird ein Zeichenfolgenvergleich mit dem bereitgestellten Wert, der alle Zertifikate mit dem Antragstellernamen, enthält die Zeichenfolge, unabhängig von der anderen Werte für den Antragsteller findet.  Der Zertifikatspeicher kann durch - Zertifikatspeichername und CertificateStoreLocation - Optionen angegeben werden. |
-| ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, *%AppData%\NuGet\NuGet.Config* verwendet wird. |
+| ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) verwendet wird.|
 | ForceEnglishOutput | Erzwingt, dass nuget.exe über eine invariante Kultur Englisch-basierte ausgeführt werden. |
 | HashAlgorithm | Der Hashalgorithmus zum Signieren des Pakets verwendet werden. Der Standardwert ist SHA256. |
 | Hilfe | Zeigt die Hilfe Informationen für den Befehl. |

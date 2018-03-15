@@ -12,11 +12,11 @@ keywords: "NuGet Verweis löschen, löschen Sie die Paket-Befehl"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3412d38edbdb011d050b9b61c7c144568edd4cca
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: b5d53b83cdccaa8e284b844786b0ec27e7afb63a
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="delete-command-nuget-cli"></a>Delete-Befehl (NuGet CLI)
 
@@ -36,8 +36,8 @@ wobei `<packageID>` und `<packageVersion>` das genaue Paket zu löschen oder die
 
 | Option | Beschreibung |
 | --- | --- |
-| ApiKey | Die API-Schlüssel für das Zielrepository. Wenn Sie nicht vorhanden ist, der im angegebenen *%AppData%\NuGet\NuGet.Config* verwendet wird. |
-| ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, *%AppData%\NuGet\NuGet.Config* verwendet wird. |
+| ApiKey | Die API-Schlüssel für das Zielrepository. Wenn Sie nicht vorhanden ist, wird in der Datei "App.config" angegebenen verwendet. |
+| ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) verwendet wird.|
 | ForceEnglishOutput | *(3.5 +)*  Erzwingt nuget.exe über eine invariante Kultur Englisch-basierte ausgeführt werden. |
 | Hilfe | Zeigt die Hilfe Informationen für den Befehl. |
 | NonInteractive | Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an. |

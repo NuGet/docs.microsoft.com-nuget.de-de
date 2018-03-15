@@ -12,11 +12,11 @@ keywords: NuGet-Spiegel-Verweis, Mirror-Befehl
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 80b8f9a3b74030ffd3f1c7b784204d98be67d684
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 0c1969cc04b2e2cead5e9dadf9739fdabdf65f6c
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="mirror-command-nuget-cli"></a>Mirror-Befehl (NuGet CLI)
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/14/2018
 Spiegelt ein Paket und seine Abhängigkeiten aus dem angegebenen quellrepositorys im Ziel-Repository.
 
 > [!NOTE]
-> Um diesen Befehl für NuGet-Versionen vor 3.2 zu aktivieren, wechseln Sie zu [https://nuget.codeplex.com/releases](https://nuget.codeplex.com/releases), wählen Sie die neueste stabile Version, zum Downloadpfad `NuGet.ServerExtensions.dll` und `Nuget-Signed.exe` auf Ihre lokale Festplatte und Rename `Nuget-Signed.exe` an `nuget.exe`.
+> Um diesen Befehl für NuGet-Versionen vor 3.2 zu aktivieren, wechseln Sie zu [ https://nuget.codeplex.com/releases ](https://nuget.codeplex.com/releases), wählen Sie die neueste stabile Version, zum Downloadpfad `NuGet.ServerExtensions.dll` und `Nuget-Signed.exe` auf Ihre lokale Festplatte und Rename `Nuget-Signed.exe` auf `nuget.exe`.
 
 ## <a name="usage"></a>Verwendung
 
@@ -43,12 +43,12 @@ Wenn Ihr Zielrepository auf ist `https://machine/repo` , die ausgeführt wird [N
 
 | Option | Beschreibung |
 | --- | --- |
-| ApiKey | Die API-Schlüssel für das Zielrepository. Wenn Sie nicht vorhanden ist, der im angegebenen *%AppData%\NuGet\NuGet.Config* verwendet wird. |
+| ApiKey | Die API-Schlüssel für das Zielrepository. Wenn Sie nicht vorhanden ist, in der Datei "App.config" angegebenen verwendet wird (`%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux)). |
 | Hilfe | Zeigt die Hilfe Informationen für den Befehl. |
 | NoCache | Verhindert, dass NuGet Pakete aus lokalen Caches. |
 | NOOP | Protokolliert, was erfolgt, führt jedoch die Aktionen; geht davon aus Erfolg für Push-Vorgänge. |
 | PreRelease | Schließt Vorabversionen von Paketen, in dem Spiegelungsvorgang. |
-| Quelle | Eine Liste der Paketquellen zu spiegeln. Wenn keine Datenquellen angegeben sind, die in definierten *%AppData%\NuGet\NuGet.Config* dienen, direktionales nuget.org keine Parameter angegeben. |
+| Quelle | Eine Liste der Paketquellen zu spiegeln. Wenn keine Datenquellen angegeben sind, definiert die der Datei "App.config" (siehe "apikey" oben) verwendet werden, direktionales nuget.org keine Parameter angegeben. |
 | Timeout | Gibt das Timeout in Sekunden für die auf einem Server übertragen. Der Standardwert ist 300 Sekunden (5 Minuten). |
 | Version | Die Version des zu installierenden Pakets an. Wenn nicht angegeben, wird die neueste Version gespiegelt. |
 
