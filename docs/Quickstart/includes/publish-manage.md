@@ -1,6 +1,6 @@
 Wählen Sie in Ihrem Profil auf nuget.org **Pakete verwalten** aus, um das gerade veröffentlichte Paket anzuzeigen. Sie erhalten auch eine Bestätigungs-E-Mail. Beachten Sie, dass es möglicherweise etwas dauert, bis Ihr Paket indiziert wurde und anderen Benutzern in den Suchergebnissen angezeigt wird. In diesem Zeitraum wird auf Ihrer Paketseite folgende Nachricht angezeigt:
 
-    ![This package has not been indexed yet. It will appear in search results and will be available for install/restore after indexing is complete.](../media/QS_Create-03-NotIndexed.png)
+![Dieses Paket wurde noch nicht indiziert. Es wird in den Suchergebnissen angezeigt und steht für die Installation/Wiederherstellung zur Verfügung, nachdem die Indizierung abgeschlossen wurde.](../media/QS_Create-03-NotIndexed.png)
 
 Und das ist schon alles! Sie haben gerade Ihr erstes NuGet-Paket auf nuget.org veröffentlicht, das andere Entwickler nun in ihren eigenen Projekten verwenden können.
 
