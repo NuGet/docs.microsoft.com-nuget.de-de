@@ -12,11 +12,11 @@ keywords: "Erstellen eines Pakets, Pakete für UWP, Komponenten für Windows-Run
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6d35b484ff708d7174c19791ab1ad7904bea0d2f
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: af650b6cd67855a67d0f49cdbd9f510bf90a60f6
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-uwp-packages"></a>Erstellen von UWP-Paketen
 
@@ -24,7 +24,7 @@ Die [universelle Windows-Plattform (UWP)](https://developer.microsoft.com/window
 
 In dieser exemplarischen Vorgehensweise erstellen Sie ein NuGet-Paket mit einer nativen UWP-Komponente (einschließlich eines XAML-Steuerelements), das für verwaltete und native Projekte verwendet werden kann.
 
-## <a name="pre-requisites"></a>Voraussetzungen
+## <a name="prerequisites"></a>Erforderliche Komponenten
 
 1. Visual Studio 2017 oder Visual Studio 2015. Sie können die 2017 Community Edition kostenlos über [visualstudio.com](https://www.visualstudio.com/) installieren oder die Professional bzw. Enterprise-Edition verwenden.
 
@@ -156,7 +156,7 @@ Innerhalb Ihrer Komponente ist die Kernlogik des ImageEnhancer-Typs in nativem C
 
 ### <a name="adding-targets"></a>Hinzufügen von TARGETS-Dateien
 
-Als nächstes benötigen die C++- und JavaScript-Projekte, die Ihr NuGet-Paket möglicherweise verwenden, eine TARGETS-Datei, um die notwendigen Assembly- und WINMD-Dateien zu identifizieren. (In C#- und Visual Basic-Projekten wird dies automatisch erledigt.) Erstellen Sie diese Datei, indem Sie den unten stehenden Text in `ImageEnhancer.targets` kopieren und diese im gleichen Ordner wie die `.nuspec`-Datei speichern:
+Als nächstes benötigen die C++- und JavaScript-Projekte, die Ihr NuGet-Paket möglicherweise verwenden, eine TARGETS-Datei, um die notwendigen Assembly- und WINMD-Dateien zu identifizieren. (In C#- und Visual Basic-Projekten wird dies automatisch erledigt.) Erstellen Sie diese Datei, indem Sie den unten stehenden Text in `ImageEnhancer.targets` kopieren und diese im gleichen Ordner wie die `.nuspec`-Datei speichern. _Hinweis:_ Der Name der `.targets`-Datei muss die Paket-ID enthalten (also z.B. das `<Id>`-Element in der `.nupspec`-Datei):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

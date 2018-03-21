@@ -3,7 +3,7 @@ title: 'Vorgehensweise: Verpacken von UWP-Steuerelementen mit NuGet | Microsoft-
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 03/21/2017
+ms.date: 03/14/2018
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
@@ -12,17 +12,17 @@ keywords: UWP-Steuerelemente von NuGet, Visual Studio XAML-Designer, Blend-Desig
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3af17121f73b878decd5f0c933696fc1b0c786d7
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 1af5118eb71836d8b8bcfa8ff713d9fef3c86374
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="creating-uwp-controls-as-nuget-packages"></a>Erstellen von UWP-Steuerelementen als NuGet-Pakete
 
 Mit Visual Studio 2017 können Sie zusätzliche Funktionen für UWP-Steuerelemente nutzen, die Sie in NuGet-Pakete übermitteln. Dieser Leitfaden führt Sie anhand des [ExtensionSDKasNuGetPackage-Beispiels](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage) durch diese Funktionen. 
 
-## <a name="pre-requisites"></a>Voraussetzungen
+## <a name="prerequisites"></a>Erforderliche Komponenten
 
 1. Visual Studio 2017
 1. Kenntnisse hinsichtlich der [Erstellung von UWP-Paketen](create-uwp-packages.md)
@@ -100,13 +100,7 @@ Angenommen beispielsweise, Sie haben die TPMinV für Ihr Steuerelementpaket auf 
     \lib\uap10.0\*
     \ref\uap10.0\*
 
-Erstellen Sie zur Durchsetzung einer entsprechenden Überprüfung der TPMinV eine [MSBuild-Zieldatei](/visualstudio/msbuild/msbuild-targets) und verpacken diese unter dem Buildordner (indem Sie „your_assembly_name“ durch den Namen Ihrer spezifischen Assembly ersetzen):
-
-    \build
-      \uap10.0
-        your_assembly_name.targets
-    \lib
-    \tools
+Erstellen Sie zur Durchsetzung einer entsprechenden Überprüfung von TPMinV eine [MSBuild-Zieldatei](/visualstudio/msbuild/msbuild-targets), und packen Sie diese unter `build\uap10.0" folder as `<your_assembly_name>.targets`, replacing `<your_assembly_name> mit dem Namen Ihrer spezifischen Assembly.
 
 Im Folgenden wird ein Beispiel dafür aufgeführt, wie die Zieldatei aussehen sollte:
 
@@ -114,7 +108,7 @@ Im Folgenden wird ein Beispiel dafür aufgeführt, wie die Zieldatei aussehen so
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-  <Target Name="TPMinVCheck" BeforeTargets="Build;ReBuild" Condition="'$(TargetPlatformMinVersion)' != ''">
+  <Target Name="TPMinVCheck" BeforeTargets="ResolveAssemblyReferences" Condition="'$(TargetPlatformMinVersion)' != ''">
     <PropertyGroup>
       <RequiredTPMinV>10.0.14393</RequiredTPMinV>
       <ActualTPMinV>$(TargetPlatformMinVersion)</ActualTPMinV>
@@ -126,17 +120,15 @@ Im Folgenden wird ein Beispiel dafür aufgeführt, wie die Zieldatei aussehen so
 
 ## <a name="add-design-time-support"></a>Hinzufügen von Entwurfszeitunterstützung
 
-Wenn Sie konfigurieren möchten, wo die Steuerelementeigenschaften in der Eigenschaftenanalyse erscheinen sollen, wo benutzerdefinierte Adorner hinzugefügt werden können usw., müssen Sie Ihre Datei entsprechend der Zielplattform `design.dll` im Ordner `lib\<platform>\Design` anordnen. Zudem sollten Sie `Generic.xaml` und alle Ressourcenverzeichnisse einschließen, die im Ordner `<AssemblyName>\Themes` zusammengeführt werden, um sicherzustellen, dass das Feature **[Vorlage bearbeiten > Kopie bearbeiten](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** funktioniert. (Diese Datei hat keine Auswirkungen auf das Laufzeitverhalten eines Steuerelements.)
+Wenn Sie konfigurieren möchten, wo die Steuerelementeigenschaften in der Eigenschaftenanalyse erscheinen sollen, wo benutzerdefinierte Adorner hinzugefügt werden können usw., müssen Sie Ihre Datei entsprechend der Zielplattform `design.dll` im Ordner `lib\uap10.0\Design` anordnen. Zudem sollten Sie `Generic.xaml` und alle Ressourcenwörterbücher einschließen, die im Ordner `<your_assembly_name>\Themes` zusammengeführt werden, um sicherzustellen, dass das Feature **[Vorlage bearbeiten > Kopie bearbeiten](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** funktioniert. (Verwenden Sie dafür erneut Ihren Assemblynamen). (Diese Datei hat keine Auswirkungen auf das Laufzeitverhalten eines Steuerelements.) Die Ordnerstruktur sollte dann wie folgt angezeigt werden:
 
-    \build
     \lib
-      \uap10.0.14393.0
+      \uap10.0
         \Design
           \MyControl.design.dll
         \your_assembly_name
           \Themes
             Generic.xaml
-    \tools
 
 > [!Note]
 > Steuerelementeigenschaften werden in der Eigenschaftenanalyse standardmäßig in der Kategorie „Sonstiges“ angezeigt.
@@ -149,15 +141,7 @@ Ein entsprechendes Beispiel finden Sie unter [MyCustomControl.cs](https://github
 
 ## <a name="package-content-such-as-images"></a>Paketinhalte wie Images
 
-Zum Packen von Inhalten wie Images, die von Ihrem Steuerelement oder dem verwendeten UWP-Projekt verwendet werden können. Fügen Sie diese Dateien wie folgt zum Ordner `lib\uap10.0.14393.0` hinzu (dabei sollte „your_assembly_name“ wieder Ihrem spezifischen Steuerelement entsprechen):
-
-    \build
-    \lib
-      \uap10.0.14393.0
-        \Design
-          \your_assembly_name
-    \contosoSampleImage.jpg
-    \tools
+Platzieren Sie zum Packen von Inhalten wie Images, die von Ihrem Steuerelement oder dem verwendeten UWP-Projekt verwendet werden können, diese Dateien in dem `lib\uap10.0`-Ordner.
 
 Sie können auch eine [MSBuild-Zieldatei](/visualstudio/msbuild/msbuild-targets) erstellen, um sicherzustellen, dass das Objekt in den Ausgabeordner des verwendeten Projekts kopiert wird:
 
@@ -165,7 +149,7 @@ Sie können auch eine [MSBuild-Zieldatei](/visualstudio/msbuild/msbuild-targets)
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <ItemGroup Condition="'$(TargetPlatformIdentifier)' == 'UAP'">
-        <Content Include="$(MSBuildThisFileDirectory)..\..\lib\uap10.0.14393.0\contosoSampleImage.jpg">
+        <Content Include="$(MSBuildThisFileDirectory)..\..\lib\uap10.0\contosoSampleImage.jpg">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
     </ItemGroup>

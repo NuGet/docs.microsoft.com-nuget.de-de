@@ -12,11 +12,11 @@ keywords: "Versionsverwaltung, NuGet-Paketversionsverwaltung, NuGet-Vorabversion
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f07b4a0428685b036640a7153190fd8454885608
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 03f744a96841a8c49d9f1dde89620b85de968d6f
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="building-pre-release-packages"></a>Erstellen von Vorabversionen von Paketen
 
@@ -79,7 +79,7 @@ In Anbetracht dieser Tatsache empfiehlt es sich meistens, sich an anerkannte Nam
 - `-rc`: Release Candidate (RC); in der Regel ein stabiles Release, das veröffentlicht werden könnte, sofern keine erheblichen Fehler mehr auftreten
 
 > [!Note]
-> Vorabversionsnummern mit Punktnotation, z.B. `1.0.1-build.23`, die [mit SemVer (Version 2.0.0) kompatibel sind](http://semver.org/spec/v2.0.0.html), werden von NuGet jedoch nicht unterstützt. Sie können eine Versionsnummer des Formats `1.0.1-build23` verwenden, aber NuGet wird das so benannte Release immer als eine Vorabversion ansehen.
+> NuGet 4.3.0 und höher unterstützt die [semantische Versionierung V2.0.0](http://semver.org/spec/v2.0.0.html), die die Nummer einer Vorabversion mit eine Punktnotation unterstützt (z.B. `1.0.1-build.23`). Die Punktnotation wird für NuGet-Versionen vor Version 4.3.0 nicht unterstützt. In früheren NuGet-Versionen konnten Sie eine Formulierung wie `1.0.1-build23` verwenden. Dies wurde allerdings stets als Vorabversion angesehen.
 
 NuGet gewährt den Suffixen jedoch in umgekehrter alphabetischer Reihenfolge Vorrang, unabhängig davon, welche Suffixe Sie verwenden:
 

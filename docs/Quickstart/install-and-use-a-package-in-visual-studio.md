@@ -12,11 +12,11 @@ keywords: NuGet installieren, NuGet-Paketverbrauch, Installieren von NuGet-Paket
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c0030877803ac7403f26e27ac3c5a0303d69c489
-ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
+ms.openlocfilehash: ff905fec6d6af4fa40fd4331cb970121b6eb0879
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="install-and-use-a-package-in-visual-studio"></a>Installieren und Verwenden eines Pakets in Visual Studio
 
@@ -27,7 +27,7 @@ Beziehen Sie sich nach der Installation mit `using <namespace>` auf das Paket im
 > [!Tip]
 > **Einstieg in nuget.org**: .NET-Entwickler finden Komponenten für die Verwendung in ihren eigenen Anwendungen üblicherweise durch das Durchsuchen von nuget.org. Sie können nuget.org direkt durchsuchen oder in Visual Studio nach Paketen suchen und diese installieren, wie in diesem Artikel dargestellt wird.
 
-## <a name="pre-requisites"></a>Voraussetzungen
+## <a name="prerequisites"></a>Erforderliche Komponenten
 
 - Visual Studio 2017 mit der Entwicklungsworkload für die Universelle Windows-Plattform, oder
 - Visual Studio 2015 Update 3 mit Tools für universelle Windows-Apps.
@@ -40,7 +40,7 @@ NuGet-Pakete können in beliebigen .NET-Projekten installiert werden. In dieser 
 
 ## <a name="add-the-newtonsoftjson-nuget-package"></a>Hinzufügen des NuGet-Pakets „Newtonsoft.Json“
 
-Sie können entweder die Benutzeroberfläche oder die Konsole von Paket-Manager verwenden, um das Paket zu installieren.
+Sie können entweder die Benutzeroberfläche oder die Konsole von Paket-Manager verwenden, um das Paket zu installieren. Beim Installieren eines Pakets zeichnet NuGet die Abhängigkeit entweder in Ihrer Projektdatei oder in einer `packages.config`-Datei auf. Weitere Informationen finden Sie unter [Übersicht und Workflow für die Paketerstellung](../consume-packages/Overview-and-Workflow.md).
 
 ### <a name="package-manager-ui"></a>Benutzeroberfläche des Paket-Managers
 

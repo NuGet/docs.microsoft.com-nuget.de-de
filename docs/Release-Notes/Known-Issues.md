@@ -12,11 +12,11 @@ keywords: Bekannte Probleme mit NuGet, Probleme mit NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2b9190c058215d9e63894de45c0c55c8ddae0e0f
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: ac00e3f11c54290a31319e7f2946fd965a0a9288
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="known-issues-with-nuget"></a>Bekannte Probleme mit NuGet
 
@@ -45,7 +45,7 @@ In NuGet 3.4 und 3.4.1 werden keine Quellen als verfügbar gemeldet, wenn das Nu
 
 ![NuGet-Konfigurationsfenster ohne Quellen](./media/knownIssue-34-NoSources.PNG)
 
-Die `NuGet.Config`-Datei in Ihrem `%AppData%\NuGet\`-Ordner wurde versehentlich geleert. Behebung des Problems: Schließen Sie Visual Studio 2015, löschen Sie die `NuGet.Config`-Datei im `%AppData%\NuGet\`-Ordner, und starten Sie Visual Studio neu.  Eine neue `NuGet.Config`-Datei wird generiert, und Sie können den Vorgang fortsetzen.
+Die `NuGet.Config`-Datei in Ihrem `%AppData%\NuGet\`-Ordner (Windows) oder `~/.nuget/`-Ordner (Mac oder Linux) wurde versehentlich geleert. Schließen Sie Visual Studio (unter Windows), löschen Sie die `NuGet.Config`-Datei, und wiederholen Sie den Vorgang, um dieses Problem zu beheben. NuGet erstellt eine neue `NuGet.Config`-Datei, und Sie können nun weitermachen.
 
 ## <a name="error-installing-packages-with-nuget-27"></a>Fehler beim Installieren von Paketen mit NuGet 2.7
 
@@ -165,7 +165,7 @@ Wenn Sie versuchen, NuGet über den Erweiterungs-Manager in Visual Studio zu dei
 
 ## <a name="the-package-manager-console-crashes-when-i-open-it-in-windows-xp-whats-wrong"></a>Die Konsole des Paket-Managers stürzt ab, wenn sie in Windows XP geöffnet wird. Wo liegt der Fehler?
 
-NuGet erfordert die Runtime von PowerShell 2.0. Windows XP verfügt standardmäßig nicht über PowerShell 2.0. Sie können die Runtime von PowerShell 2.0 unter [http://support.microsoft.com/kb/968929](http://support.microsoft.com/kb/968929) herunterladen. Starten Sie Visual Studio nach der Installation neu. Es sollte dann möglich sein, die Konsole des Paket-Managers zu öffnen.
+NuGet erfordert die Runtime von PowerShell 2.0. Windows XP verfügt standardmäßig nicht über PowerShell 2.0. Sie können die PowerShell 2.0-Runtime unter [http://support.microsoft.com/kb/968929](http://support.microsoft.com/kb/968929) herunterladen. Starten Sie Visual Studio nach der Installation neu. Es sollte dann möglich sein, die Konsole des Paket-Managers zu öffnen.
 
 ## <a name="visual-studio-2010-sp1-beta-crashes-on-exit-if-the-package-manager-console-is-open"></a>Die Betaversion von Visual Studio 2010 SP1 stürzt beim Beenden ab, wenn die Konsole des Paket-Managers geöffnet ist.
 
@@ -231,4 +231,4 @@ Wie in diesem [GitHub-Problem](https://github.com/Particular/NServiceBus/issues/
 
 ## <a name="reporting-issues"></a>Melden von Problemen
 
-Melden Sie Probleme mit NuGet unter [https://github.com/nuget/home/issues](https://github.com/nuget/home/issues).
+Unter [https://github.com/nuget/home/issues](https://github.com/nuget/home/issues) können Sie Probleme mit NuGet melden.

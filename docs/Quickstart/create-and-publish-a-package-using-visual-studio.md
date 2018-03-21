@@ -1,28 +1,28 @@
 ---
-title: "Einführender Leitfaden zur Erstellung und Veröffentlichung eines NuGet-Pakets mithilfe von Visual Studio | Microsoft-Dokumentation"
+title: "Einführender Leitfaden zum Erstellen und Veröffentlichen eines .NET Standard NuGet-Pakets mithilfe von Visual Studio | Microsoft-Dokumentation"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 02/02/2018
+ms.date: 03/18/2018
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
-description: "Eine exemplarische Vorgehensweise zur Erstellung und Veröffentlichung eines NuGet-Pakets mit Visual Studio 2017."
+description: "Exemplarische Vorgehensweise zum Erstellen und Veröffentlichen eines .NET Standard NuGet-Pakets mit Visual Studio 2017."
 keywords: "NuGet-Paketerstellung, NuGet-Paketveröffentlichung, NuGet-Tutorial, NuGet-Paket in Visual Studio erstellen, MSBuild-Pack"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: a4d60fdc0f27f9c4080266e212ac1cfe470ba925
-ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
+ms.openlocfilehash: 733fee616601e1d15d8fb5814b5bfb7905ff4a33
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="create-and-publish-a-package-using-visual-studio"></a>Erstellen und Veröffentlichen eines Pakets mithilfe von Visual Studio
+# <a name="create-and-publish-a-package-using-visual-studio-net-standard"></a>Erstellen und Veröffentlichen eines Pakets mithilfe von Visual Studio (.NET Standard)
 
-Ein NuGet-Paket kann problemlos über eine .NET-Klassenbibliothek in Visual Studio erstellt und dann, durch Verwendung eines CLI-Tools, auf nuget.org veröffentlicht werden.
+Ein NuGet-Paket kann problemlos über eine .NET Standard-Klassenbibliothek in Visual Studio erstellt und dann, durch Verwendung eines CLI-Tools, auf nuget.org veröffentlicht werden.
 
-## <a name="pre-requisites"></a>Voraussetzungen
+## <a name="prerequisites"></a>Erforderliche Komponenten
 
 1. Installieren Sie über [visualstudio.com](https://www.visualstudio.com/) eine beliebige Edition von Visual Studio 2017 mit einer beliebigen .NET-bezogenen Workload. Visual Studio 2017 enthält automatisch NuGet-Funktionen, wenn eine .NET-Workload installiert ist.
 
@@ -34,7 +34,7 @@ Ein NuGet-Paket kann problemlos über eine .NET-Klassenbibliothek in Visual Stud
 
 ## <a name="create-a-class-library-project"></a>Erstellen eines Klassenbibliotheksprojekts
 
-Sie können ein vorhandenes Projekt in der .NET-Klassenbibliothek für Code verwenden, den Sie packen wollen, oder ein einfaches Projekt wie folgt erstellen:
+Sie können ein vorhandenes Projekt in der .NET Standard-Klassenbibliothek für Code verwenden, den Sie packen wollen, oder wie folgt ein einfaches Projekt erstellen:
 
 1. Wählen Sie in Visual Studio **Datei > Neu > Projekt** aus, erweitern Sie den Knoten **Visual C#-> .NET Standard**, wählen Sie die Vorlage „Klassenbibliothek (.NET Standard)“ aus, geben Sie dem Projekt den Namen „AppLogger“, und klicken Sie auf **OK**.
 
@@ -60,7 +60,7 @@ namespace AppLogger
 
 ## <a name="configure-package-properties"></a>Konfigurieren von Paketeigenschaften
 
-1. Wählen Sie den Menübefehl **Projekt > Eigenschaften** und dann die Registerkarte **Paket** aus:
+1. Wählen Sie den Menübefehl **Projekt > Eigenschaften** und dann die Registerkarte **Paket** aus. (Die Registerkarte **Paket** wird nur in Projekten für die .NET Standard-Klassenbibliothek angezeigt. Wenn Sie ein Projekt für .NET Framework konzipieren, erhalten Sie Informationen unter [Create and publish a .NET Framework package (Erstellen und Veröffentlichen eines .NET Framework-Pakets)](create-and-publish-a-package-using-visual-studio-net-framework.md).)
 
     ![NuGet-Paketeigenschaften in einem Visual Studio-Projekt](media/qs_create-vs-01-package-properties.png)
 
@@ -95,7 +95,7 @@ namespace AppLogger
 
 ### <a name="alternate-option-pack-with-msbuild"></a>Alternative Option: „pack“ mit MSBuild
 
-Als Alternative zur Verwendung des Menübefehls **Pack** (Packen) unterstützen NuGet 4.x und höher und MSBuild 15.1 und höher ein `pack`-Ziel, sobald das Projekt die nötigen Paketdaten enthält:
+Als Alternative zur Verwendung des Menübefehls **Packen** unterstützen NuGet 4.x und höher und MSBuild 15.1 und höher ein `pack`-Ziel, wenn das Projekt die nötigen Paketdaten enthält. Öffnen Sie eine Eingabeaufforderung, navigieren Sie zum Projektordner, und führen Sie den folgenden Befehl aus. (In der Regel sollten Sie die „Developer-Eingabeaufforderung für Visual Studio“ über das Startmenü starten, da dieses mit allen nötigen Pfaden für MSBuild konfiguriert ist.)
 
 ```cli
 msbuild /t:pack /p:Configuration=Release
@@ -119,7 +119,7 @@ Sobald Sie eine `.nupkg`-Datei haben, können Sie diese gemeinsam mit einem API-
 
 Dieser Schritt ist eine Alternative zur Verwendung von `dotnet.exe`.
 
-1. Navigieren Sie zu dem Ordner, der die `.nupkg`-Datei enthält.
+1. Navigieren Sie zum Ordner, der die `.nupkg`-Datei enthält.
 
 1. Führen Sie den folgenden Befehl aus, geben Sie dabei Ihren Paketnamen an, und ersetzen Sie den Schlüsselwert durch Ihren API-Schlüssel:
 

@@ -12,11 +12,11 @@ keywords: "NuGet-Abhängigkeiten, NuGet und UWP, UWP und „project.json“, NuG
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f1ec086d6404c441ca5ad53028af2265a2344905
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 3ef3703b2be92f84d37866bce9934ebcfed3a9f7
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="projectjson-and-uwp"></a>„project.json“ und UWP
 
@@ -121,7 +121,7 @@ In diesem Beispiel sind die Assemblys in den `ref`-Verzeichnissen identisch.
 
 Der Ordner „runtimes“ enthält Assemblys und native Bibliotheken, die für bestimmte Runtimes ausgeführt werden müssen und üblicherweise durch das Betriebssystem und die CPU-Architektur definiert werden. Diese Runtimes werden mithilfe von [Runtime-IDs (RIDs)](/dotnet/core/rid-catalog) (z.B. `win`, `win-x86`, `win7-x86`, `win8-64` usw.) identifiziert.
 
-## <a name="native-light-up"></a>Erläuterung nativer Komponenten
+## <a name="native-helpers-to-use-platform-specific-apis"></a>Native Hilfsprogramme für die Verwendung von plattformspezifischen APIs
 
 Im folgenden Beispiel wird ein Paket dargestellt, das über rein verwaltete Implementierungen für verschiedene Plattformen verfügt, aber native Hilfsprogramme unter Windows 8 verwendet, in denen für Windows 8 spezifische native APIs aufgerufen werden können.
 

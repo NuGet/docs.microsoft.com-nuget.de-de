@@ -1,5 +1,5 @@
 ---
-title: "Einführender Leitfaden zur Erstellung und Veröffentlichung eines NuGet-Pakets mithilfe der dotnet-CLI | Microsoft-Dokumentation"
+title: "Erstellen und Veröffentlichen eines NuGet-Pakets mithilfe der Dotnet-CLI | Microsoft-Dokumentation"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
@@ -12,17 +12,17 @@ keywords: "NuGet-Paketerstellung, NuGet-Paketveröffentlichung, NuGet-Tutorial, 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c9f46cafafcdc238e43979d6f05521e19bf3d7f6
-ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
+ms.openlocfilehash: 086de5378fe4ae928e6bd00cd3a87afd7c366a01
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-and-publish-a-package"></a>Erstellen und Veröffentlichen eines Pakets
 
 Ein NuGet-Paket kann, mithilfe der `dotnet`-Befehlszeilenschnittstelle (CLI), problemlos über eine .NET-Klassenbibliothek erstellt und auf nuget.org veröffentlicht werden.
 
-## <a name="pre-requisites"></a>Voraussetzungen
+## <a name="prerequisites"></a>Erforderliche Komponenten
 
 1. Installieren Sie das [.NET Core SDK](https://www.microsoft.com/net/download/), das die `dotnet`-CLI enthält.
 
@@ -95,7 +95,6 @@ Sobald Sie eine `.nupkg`-Datei haben, können Sie diese, gemeinsam mit einem API
 
 [!INCLUDE[publish-errors](includes/publish-errors.md)]
 
-
 ### <a name="manage-the-published-package"></a>Verwalten des veröffentlichten Pakets
 
 [!INCLUDE[publish-manage](includes/publish-manage.md)]
@@ -107,3 +106,4 @@ Sobald Sie eine `.nupkg`-Datei haben, können Sie diese, gemeinsam mit einem API
 - [Unterstützung mehrerer Zielframeworks](../create-packages/supporting-multiple-target-frameworks.md)
 - [Paketversionsverwaltung](../reference/package-versioning.md)
 - [Erstellen von lokalisierten Paketen](../create-packages/creating-localized-packages.md)
+- [Signieren von Paketen](../create-packages/Sign-a-package.md)
