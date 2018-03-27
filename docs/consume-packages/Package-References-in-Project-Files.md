@@ -3,20 +3,20 @@ title: NuGet PackageReference-Format (Paketverweise in Projektdateien) | Microso
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 07/17/2017
+ms.date: 03/16/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Details zu NuGet-PackageReference in Projektdateien unterstützt durch NuGet 4.0 und höher und VS2017 sowie .NET Core 2.0"
-keywords: "Abhängigkeiten von NuGet-Paketen, Paketverweise, Projektdateien, PackageReference, „packages.config“, VS2017, Visual Studio 2017, NuGet 4, .NET Core 2.0"
+ms.technology: ''
+description: Details zu NuGet-PackageReference in Projektdateien unterstützt durch NuGet 4.0 und höher und VS2017 sowie .NET Core 2.0
+keywords: Abhängigkeiten von NuGet-Paketen, Paketverweise, Projektdateien, PackageReference, „packages.config“, VS2017, Visual Studio 2017, NuGet 4, .NET Core 2.0
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 679871a280c158c863e0daf790af1b7cef509943
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: e1880c9b294e19ef1b71c7b17b02df8ff1cf1b73
+ms.sourcegitcommit: 718e6cb88e45fa07c85d653f216bf92eaaf81625
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Paketverweise (PackageReference) in Projektdateien
 
@@ -24,7 +24,7 @@ Paketverweise über den `PackageReference`-Knoten verwalten NuGet-Abhängigkeite
 
 Mit PackageReference können Sie auch MSBuild-Bedingungen für die Auswahl von Paketverweisen pro Zielframework, Konfiguration, Plattform oder anderen Gruppierungen verwenden. Zudem lässt er eine präzise Steuerung der Abhängigkeiten und des Inhaltsflusses zu. (Informationen dazu finden Sie unter [NuGet pack and restore as MSBuild targets – restore target (Packen und Wiederherstellen von NuGet als MSBuild-Ziele: Paketwiederherstellung)](../reference/msbuild-targets.md).)
 
-Standardmäßig wird PackageReference nur in .NET Core-, .NET Standard- und UWP-Projekten für Windows 10 Build 15063 (Creators Update) und höher unterstützt. Vollständige .NET Framework-Projekte unterstützen PackageReference. Standardmäßig wird jedoch `packages.config` verwendet. Migrieren Sie zur Verwendung von PackageReference die Abhängigkeiten von `packages.config` zu Ihrer Projektdatei. Entfernen Sie anschließend packages.config.
+Außer für C++ UWP-Projekte wird PackageReference standardmäßig nur in .NET Core-, .NET Standard- und UWP-Projekten für Windows 10 Build 15063 (Creators Update) und höher unterstützt. Vollständige .NET Framework-Projekte unterstützen PackageReference. Standardmäßig wird jedoch `packages.config` verwendet. Migrieren Sie zur Verwendung von PackageReference die Abhängigkeiten von `packages.config` zu Ihrer Projektdatei. Entfernen Sie anschließend packages.config.
 
 ## <a name="adding-a-packagereference"></a>Hinzufügen einer PackageReference
 
@@ -94,7 +94,7 @@ Folgende Werte sind für diese Tags zulässig, wobei mehrere Werte durch ein Sem
 | Wert | description |
 | --- | ---
 | compile | Inhalte des Ordners `lib` |
-| Laufzeit | Inhalte des Ordners `runtime` |
+| Laufzeit | Inhalte des Ordners `runtimes` |
 | contentFiles | Inhalte des Ordners `contentfiles` |
 | Build | Eigenschaften und Ziele im Ordner `build` |
 | Analysetools | .NET-Analystetools |
