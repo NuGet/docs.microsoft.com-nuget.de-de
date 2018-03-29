@@ -1,27 +1,30 @@
 ---
-title: "Benutzeroberflächenreferenz für NuGet-Paket-Manager | Microsoft Docs"
+title: Benutzeroberflächenreferenz für NuGet-Paket-Manager | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/08/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-description: "Anweisungen für die Verwendung der NuGet-Paket-Manager-UI in Visual Studio für die Arbeit mit NuGet-Pakete."
-keywords: "NuGet UI, NuGet-Paket-Manager NuGet in Visual Studio, Verwalten von NuGet-Pakete, die NuGet-Benutzeroberfläche, die Paket-Manager in Visual Studio-Benutzeroberfläche"
+description: Anweisungen für die Verwendung der NuGet-Paket-Manager-UI in Visual Studio für die Arbeit mit NuGet-Pakete.
+keywords: NuGet UI, NuGet-Paket-Manager NuGet in Visual Studio, Verwalten von NuGet-Pakete, die NuGet-Benutzeroberfläche, die Paket-Manager in Visual Studio-Benutzeroberfläche
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 35bb856ccff43c77af7eac67da4614d83dcdc533
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: ad36c2ab0c6e62c7fe624b35d92e852303ecfdfb
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-package-manager-ui"></a>NuGet-Paket-Manager-Benutzeroberfläche
 
@@ -37,7 +40,7 @@ In diesem Thema:
 - [Paket-Manager-Optionen steuern](#package-manager-options-control)
 
 > [!Note]
-> Wenn Sie das NuGet-Paket-Manager in Visual Studio 2015 nicht vorhanden sind, überprüfen Sie **Tools > Erweiterungen und Updates...**  , suchen Sie nach der *NuGet Package Manager* Erweiterung. Wenn Sie nicht das Installationsprogramm für Erweiterungen in Visual Studio verwenden möchten, laden Sie die Erweiterung direkt aus [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
+> Wenn Sie das NuGet-Paket-Manager in Visual Studio 2015 nicht vorhanden sind, überprüfen Sie **Tools > Erweiterungen und Updates...**  , suchen Sie nach der *NuGet Package Manager* Erweiterung. Wenn Sie nicht das Installationsprogramm für Erweiterungen in Visual Studio verwenden möchten, laden Sie die Erweiterung direkt aus [ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html).
 >
 > In Visual Studio 2017 werden NuGet und NuGet-Paket-Manager automatisch mit installiert. NET-bezogenen Arbeitslasten. Dazu einzeln Installieren der **Einzelkomponenten > Code Extras > NuGet-Paket-Manager** -Option in Visual Studio 2017 Installationsprogramm.
 
@@ -125,7 +128,7 @@ So verwalten Sie die Paketquellen überein:
 
     ![Quellen Paketoptionen](media/options.png)
 
-1. Wählen Sie zum Hinzufügen einer Quelle  **+** , bearbeiten Sie den Namen, geben Sie die URL oder Pfad in der **Quelle** Steuerelement, und wählen Sie **Update**. Die Quelle wird jetzt in der Dropdownliste angezeigt.
+1. Wählen Sie zum Hinzufügen einer Quelle **+**, bearbeiten Sie den Namen, geben Sie die URL oder Pfad in der **Quelle** Steuerelement, und wählen Sie **Update**. Die Quelle wird jetzt in der Dropdownliste angezeigt.
 1. Um eine Paketquelle zu ändern, wählen Sie ihn, nehmen Sie Änderungen vor, in der **Namen** und **Quelle** ein, und wählen Sie **Update**.
 1. Um eine Paketquelle zu deaktivieren, deaktivieren Sie das Kontrollkästchen links neben dem Namen in der Liste aus.
 1. Um eine Paketquelle zu entfernen, wählen Sie ihn, und wählen Sie dann die **X** Schaltfläche.

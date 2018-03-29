@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Referenz für den nuget.exe-Pack-Befehl"
+ms.technology: ''
+description: Referenz für den nuget.exe-Pack-Befehl
 keywords: NuGet-Pack-Verweis, Pack-Befehl
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9ee5dc87ea33b4419bcd9a09751c41b53ae2f70e
-ms.sourcegitcommit: a40a6ce6897b2d9411397b2e29b1be234eb6e50c
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 14ecf724477f652275eb68a090bb57b8640d4a8a
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="pack-command-nuget-cli"></a>Pack-Befehl (NuGet CLI)
 

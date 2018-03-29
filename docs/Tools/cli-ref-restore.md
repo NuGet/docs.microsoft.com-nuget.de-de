@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Referenz für die nuget.exe Restore-Befehl"
+ms.technology: ''
+description: Referenz für die nuget.exe Restore-Befehl
 keywords: NuGet restore Verweis, der Synchronisierungsbefehl der Pakete
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2416ad652244e0ea60651147ad74a1513cdb75ff
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 64f12fdedc8fbfcee15c1dcddc445148f458c030
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="restore-command-nuget-cli"></a>RESTORE-Befehl (NuGet CLI)
 
@@ -46,15 +49,15 @@ wobei `<projectPath>` gibt den Speicherort einer Projektmappe oder ein `packages
 | Hilfe | Zeigt die Hilfe Informationen für den Befehl. |
 | MSBuildPath | *(4.0 und höher)*  Gibt den Pfad des MSBuild für die Verwendung mit dem Befehl, Vorrang vor `-MSBuildVersion`. |
 | MSBuildVersion | *(3.2 +)*  Gibt die Version von MSBuild mit diesem Befehl verwendet werden soll. Unterstützte Werte sind 4, 12, 14, 15. Standardmäßig werden die MSBuild-Datei in Ihrem Pfad abgerufen wird, wird standardmäßig andernfalls die neueste installierte Version von MSBuild. |
-| NoCache | Verhindert, dass NuGet Pakete aus lokalen Caches. |
+| NoCache | Verhindert, dass NuGet zwischengespeicherten Pakete verwenden. Finden Sie unter [Verwaltung der globalen Pakete und der Cacheordner](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | NonInteractive | Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an. |
-| OutputDirectory | Gibt den Ordner, in dem Pakete installiert sind. Wenn kein Ordner angegeben wird, wird der aktuelle Ordner verwendet. |
+| OutputDirectory | Gibt den Ordner, in dem Pakete installiert sind. Wenn kein Ordner angegeben wird, wird der aktuelle Ordner verwendet. Erforderlich, wenn die Wiederherstellung mit einem `packages.config` Datei, es sei denn, `PackagesDirectory` oder `SolutionDirectory` verwendet wird.|
 | PackageSaveMode | Gibt die Typen von Dateien nach der Paketinstallation speichern: einer der `nuspec`, `nupkg`, oder `nuspec;nupkg`. |
-| PackagesDirectory | Wie in `OutputDirectory`. |
+| PackagesDirectory | Wie in `OutputDirectory`. Erforderlich, wenn die Wiederherstellung mit einem `packages.config` Datei, es sei denn, `OutputDirectory` oder `SolutionDirectory` verwendet wird. |
 | Project2ProjectTimeOut | Timeout in Sekunden für das Auflösen von Verweisen zwischen Projekten. |
 | Rekursive | *(4.0 und höher)*  Stellt alle Verweise-Projekte für universelle Windows-Plattform und .NET Core-Projekte wieder her. Gilt nicht für Projekte mit `packages.config`. |
 | RequireConsent | Überprüft, ob Pakete werden wiederhergestellt aktiviert wird vor dem Herunterladen und Installieren der Pakete. Weitere Informationen finden Sie unter [Paketwiederherstellung](../consume-packages/package-restore.md). |
-| SolutionDirectory | Gibt den Projektmappenordner. Gilt nicht beim Wiederherstellen von Paketen für eine Projektmappe. |
+| SolutionDirectory | Gibt den Projektmappenordner. Gilt nicht beim Wiederherstellen von Paketen für eine Projektmappe. Erforderlich, wenn die Wiederherstellung mit einem `packages.config` Datei, es sei denn, `PackagesDirectory` oder `OutputDirectory` verwendet wird. |
 | Quelle | Gibt die Liste der Paketquellen (wie URLs) für die Verwendung für die Wiederherstellung an. Wenn nicht angegeben, wird der Befehl verwendet die Quellen in Konfigurationsdateien bereitgestellt, finden Sie unter [NuGet Konfigurieren von Verhalten](../consume-packages/configuring-nuget-behavior.md). |
 | Ausführlichkeit |> Gibt die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *stillen*, *ausführliche*. |
 

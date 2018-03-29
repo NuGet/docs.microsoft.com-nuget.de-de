@@ -3,23 +3,26 @@ title: NuGet-Paket-Version-Referenz | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 12/08/2017
+ms.date: 03/23/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Genaue Informationen zu den Versionsnummern und die Bereiche für andere Pakete bei der NuGet-Paket abhängt und die Installationsart von Abhängigkeiten angeben."
-keywords: "versionsverwaltung Abhängigkeiten von NuGet-Pakets NuGet-Abhängigkeit Versionen Versionsnummern NuGet-Version des NuGet-Pakets Versionsbereiche Versionsspezifikationen, normalisierte Versionsnummern"
+ms.technology: ''
+description: Genaue Informationen zu den Versionsnummern und die Bereiche für andere Pakete bei der NuGet-Paket abhängt und die Installationsart von Abhängigkeiten angeben.
+keywords: versionsverwaltung Abhängigkeiten von NuGet-Pakets NuGet-Abhängigkeit Versionen Versionsnummern NuGet-Version des NuGet-Pakets Versionsbereiche Versionsspezifikationen, normalisierte Versionsnummern
 ms.reviewer:
 - anandr
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 70472d7d97d073009237a047e0fdf528b221dfd0
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 678ad79d9106a9f592ae4f47bc93cc117496e2c9
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="package-versioning"></a>Paket-versionsverwaltung
+# <a name="package-versioning"></a>Paketversionsverwaltung
 
 Ein bestimmtes Paket wird immer für die Verwendung der Paket-ID und eine genaue Versionsnummer bezeichnet. Beispielsweise [Entity Framework](https://www.nuget.org/packages/EntityFramework/) nuget.org abhängt mehrere Dutzend bestimmte Pakete verfügbar ist, wird im Bereich von Version *4.1.10311* auf Version *6.1.3 erhält folgenden* (die neueste stabile Version) und eine Vielzahl von Vorabversionen wie *6.2.0-beta1*.
 
@@ -61,7 +64,7 @@ Dies bedeutet, dass paketentwicklern allgemein anerkannte Namenskonventionen ent
 - `-rc`: Release Candidate (RC); in der Regel ein stabiles Release, das veröffentlicht werden könnte, sofern keine erheblichen Fehler mehr auftreten
 
 > [!Note]
-> NuGet-4.3.0+ unterstützt [SemVer 2.0.0](http://semver.org/spec/v2.0.0.html), die Vorabversion von Zahlen mit der Punktnotation, wie in unterstützt *1.0.1-build.23*. Punktnotation wird mit NuGet-Versionen vor 4.3.0 nicht unterstützt. Können Sie ein Formular wie *1.0.1-build23*.
+> NuGet-4.3.0+ unterstützt [SemVer 2.0.0](http://semver.org/spec/v2.0.0.html), die Vorabversion von Zahlen mit der Punktnotation, wie in unterstützt *1.0.1-build.23*. Die Punktnotation wird für NuGet-Versionen vor Version 4.3.0 nicht unterstützt. Können Sie ein Formular wie *1.0.1-build23*.
 
 Beim Auflösen von paketverweisen und Paketversionen nur durch Suffix variieren, ob NuGet eine Version ohne Suffix zuerst auswählt und wendet dann Vorrang vor, um die Vorabversion von Versionen in umgekehrter alphabetischer Reihenfolge. Beispielsweise würde die folgenden Versionen in der angegebenen Reihenfolge ausgewählt werden:
 
@@ -109,8 +112,8 @@ Beim Verweisen auf paketabhängigkeiten unterstützt NuGet mit Intervall Notatio
 
 | Notation | Angewendeten Regel | Beschreibung |
 |----------|--------------|-------------|
-| 1,0 | 1.0 ≤ x | Mindestversion, inklusive |
-| (1.0,) | 1.0 < x | Mindestversion, exklusiv |
+| 1,0 | X ≥ 1.0 | Mindestversion, inklusive |
+| (1.0,) | x > 1.0 | Mindestversion, exklusiv |
 | [1.0] | X == 1.0 | Genaue Version übereinstimmen |
 | (,1.0] | x ≤ 1.0 | Maximale Version, inklusive |
 | (,1.0) | x < 1.0 | Exklusive Maximalversion |

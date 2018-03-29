@@ -10,17 +10,20 @@ manager: skofman
 ms.date: 10/30/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Der Katalog ist einen Index aller Pakete erstellt und auf nuget.org gelöscht."
-keywords: "NuGet-V3-API-Katalog nuget.org Transaktionsprotokoll replizieren nuget.org, Klon nuget.org, nur Anhängen-Datensatz der nuget.org"
+ms.technology: ''
+description: Der Katalog ist einen Index aller Pakete erstellt und auf nuget.org gelöscht.
+keywords: NuGet-V3-API-Katalog nuget.org Transaktionsprotokoll replizieren nuget.org, Klon nuget.org, nur Anhängen-Datensatz der nuget.org
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: be30b21d488c323c439a59fff290a95adaefd902
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 61ed502eee498f5ad0a014e3338503f2855396a5
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="catalog"></a>Catalog
 
@@ -36,7 +39,7 @@ Die **Katalog** ist eine Ressource, die auf eine Paketquelle, wie, wann alle Pak
 
 Die folgenden `@type` Wert wird verwendet:
 
-@type-Wert   | Notizen
+@type-Wert   | Hinweise
 ------------- | -----
 Catalog/3.0.0 | Die erste Version
 
@@ -76,7 +79,7 @@ Die folgende Anforderung Ruft den Index des ab.
 
 Der Katalogindex ist ein JSON-Dokument, das ein Objekt mit den folgenden Eigenschaften enthält:
 
-Name            | Typ             | Erforderlich | Notizen
+name            | Typ             | Erforderlich | Hinweise
 --------------- | ---------------- | -------- | -----
 commitId        | Zeichenfolge           | ja      | Eine eindeutige ID des letzten Commits zugeordnet
 commitTimeStamp | Zeichenfolge           | ja      | Einen Zeitstempel des letzten Commits
@@ -93,7 +96,7 @@ Hinzufügen von Elementen im Katalog, der Index des `commitId` ändert sich und 
 
 Die Seite Catalog-Objekten in des Katalog Indexes gefunden `items` Eigenschaft weist die folgenden Eigenschaften:
 
-Name            | Typ    | Erforderlich | Notizen
+name            | Typ    | Erforderlich | Hinweise
 --------------- | ------- | -------- | -----
 @id             | Zeichenfolge  | ja      | Die URL zu der Seite "Katalog" Abrufen von Daten
 commitId        | Zeichenfolge  | ja      | Eine eindeutige ID der letzten Commit auf dieser Seite zugeordnet
@@ -118,7 +121,7 @@ Neue Katalogelemente werden auf der Seite im Katalogindex nur mit der höchsten 
 
 Das Katalogdokument-Seite ist ein JSON-Objekt mit den folgenden Eigenschaften:
 
-Name            | Typ             | Erforderlich | Notizen
+name            | Typ             | Erforderlich | Hinweise
 --------------- | ---------------- | -------- | -----
 commitId        | Zeichenfolge           | ja      | Eine eindeutige ID der letzten Commit auf dieser Seite zugeordnet
 commitTimeStamp | Zeichenfolge           | ja      | Einen Zeitstempel des letzten Commits auf dieser Seite
@@ -138,7 +141,7 @@ Hinzufügen von Elementen auf der Seite der `commitId` Änderungen und die `comm
 
 Die Elementobjekte Katalog gefunden werden, in der Katalogseite `items` Eigenschaft weist die folgenden Eigenschaften:
 
-Name            | Typ    | Erforderlich | Notizen
+name            | Typ    | Erforderlich | Hinweise
 --------------- | ------- | -------- | -----
 @id             | Zeichenfolge  | ja      | Die URL für das Katalogelement abrufen
 @type           | Zeichenfolge  | ja      | Der Typ des Katalogelements
@@ -168,7 +171,7 @@ Der Katalog Blattebene enthält Metadaten über ein bestimmtes Paket-ID und eine
 
 Das Blatt Katalogdokument ist ein JSON-Objekt mit den folgenden Eigenschaften:
 
-Name                    | Typ                       | Erforderlich | Notizen
+name                    | Typ                       | Erforderlich | Hinweise
 ----------------------- | -------------------------- | -------- | -----
 @type                   | Zeichenfolge oder ein Array von Zeichenfolgen | ja      | Der/die Typ(en) des Katalogelements
 catalog:commitId        | Zeichenfolge                     | ja      | Eine Commit-ID, die diese Katalogelement zugeordnet
@@ -199,28 +202,28 @@ Clients nutzen die Katalogelemente sollten nicht versuchen, um zu bestimmen, wel
 
 Paket Details Katalogelemente haben die folgenden Eigenschaften zusätzlich zu den [auf bewirkt, dass alle Katalog enthalten](#catalog-leaf).
 
-Name                    | Typ                       | Erforderlich | Notizen
+name                    | Typ                       | Erforderlich | Hinweise
 ----------------------- | -------------------------- | -------- | -----
-authors                 | Zeichenfolge                     | nein       |
+authors                 | Zeichenfolge                     | Nein       |
 created                 | Zeichenfolge                     | ja      | Einen Zeitstempel mit der ersten des Pakets Erstellung
-dependencyGroups        | Array von Objekten           | nein       | Gleiche format wie die [Metadatenressource "package"](registration-base-url-resource.md#package-dependency-group)
-Beschreibung             | Zeichenfolge                     | nein       |
-iconUrl                 | Zeichenfolge                     | nein       |
+dependencyGroups        | Array von Objekten           | Nein       | Gleiche format wie die [Metadatenressource "package"](registration-base-url-resource.md#package-dependency-group)
+Beschreibung             | Zeichenfolge                     | Nein       |
+iconUrl                 | Zeichenfolge                     | Nein       |
 isPrerelease            | boolean                    | ja      | Davon, ob die Paketversion Vorabversion ist.
-language                | Zeichenfolge                     | nein       |
-licenseUrl              | Zeichenfolge                     | nein       |
-Liste                  | boolean                    | nein       | Und zwar unabhängig davon, ob das Paket aufgeführt ist
-minClientVersion        | Zeichenfolge                     | nein       |
+language                | Zeichenfolge                     | Nein       |
+licenseUrl              | Zeichenfolge                     | Nein       |
+Liste                  | boolean                    | Nein       | Und zwar unabhängig davon, ob das Paket aufgeführt ist
+minClientVersion        | Zeichenfolge                     | Nein       |
 packageHash             | Zeichenfolge                     | ja      | Der Hashwert des Pakets, mit Codierung [base-64 standard](https://tools.ietf.org/html/rfc4648#section-4)
 packageHashAlgorithm    | Zeichenfolge                     | ja      |
 packageSize             | Ganze Zahl                    | ja      | Die Größe der dem Paket NUPKG in bytes
-projectUrl              | Zeichenfolge                     | nein       |
-releaseNotes            | Zeichenfolge                     | nein       |
-requireLicenseAgreement | boolean                    | nein       | Angenommen `false` ausgeschlossen
-Zusammenfassung                 | Zeichenfolge                     | nein       |
-Tags                    | Array von Zeichenfolgen           | nein       |
-Titel                   | Zeichenfolge                     | nein       |
-verbatimVersion         | Zeichenfolge                     | nein       | Die Versionszeichenfolge, wie er wurde ursprünglich in der .nuspec gefunden.
+projectUrl              | Zeichenfolge                     | Nein       |
+releaseNotes            | Zeichenfolge                     | Nein       |
+requireLicenseAgreement | boolean                    | Nein       | Angenommen `false` ausgeschlossen
+Zusammenfassung                 | Zeichenfolge                     | Nein       |
+Tags                    | Array von Zeichenfolgen           | Nein       |
+Titel                   | Zeichenfolge                     | Nein       |
+verbatimVersion         | Zeichenfolge                     | Nein       | Die Versionszeichenfolge, wie er wurde ursprünglich in der .nuspec gefunden.
 
 Das Paket `version` Eigenschaft ist für die vollständige, normalisierte Versionszeichenfolge. Dies bedeutet, dass SemVer 2.0.0 Builddaten hier aufgenommen werden können.
 

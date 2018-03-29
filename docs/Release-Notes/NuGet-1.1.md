@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Versionshinweise für NuGet 1.1 einschließlich bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design."
-keywords: "NuGet-1.1 Anmerkungen zu dieser Version, aufgrund von Fehlerbehebungen, bekannte Probleme, zusätzliche Funktionen, Archivierung von dcrs Design"
+ms.technology: ''
+description: Versionshinweise für NuGet 1.1 einschließlich bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design.
+keywords: NuGet-1.1 Anmerkungen zu dieser Version, aufgrund von Fehlerbehebungen, bekannte Probleme, zusätzliche Funktionen, Archivierung von dcrs Design
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6a596e61f144e7269f703f2dba3dddb4fd338e6a
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: dd320df2d725e58182cd908ce621571ea018b350
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-10-and-11-release-notes"></a>Anmerkungen zur Version von NuGet 1.0 und 1.1
 
@@ -49,7 +52,7 @@ Dieses [neueste Release](http://nuget.codeplex.com/releases/view/52018):
 
 * Deinstallieren Sie zunächst den älteren Build. Sie müssen Visual Studio als Administrator dazu ausführen.
 * Entfernen Sie alle vorhandenen Feeds, die Sie haben.
-* Hinzufügen ein neues Feeds auf [http://go.microsoft.com/fwlink/?LinkId=206669](http://go.microsoft.com/fwlink/?LinkId=206669).
+* Hinzufügen ein neues Feeds auf [ http://go.microsoft.com/fwlink/?LinkId=206669 ](http://go.microsoft.com/fwlink/?LinkId=206669).
 
 ## <a name="nuget-11"></a>NuGet 1.1
 
@@ -135,7 +138,7 @@ Im folgenden sind die Änderungen, die in diesem Release Candidate seit CTP 2. B
 
 Es folgen die wichtigsten Änderungen in CTP 2:
 
-* Das Paket zu einem OData-Dienst-Endpunkt aus ATOM-feed gewechselt: Wenn Sie ein auf die CTP2-Version von NuGet Upgrade, sicher, dass die folgende URL als Paketquelle hinzugefügt werden: https://feed.nuget.org/ctp2/odata/v1/.
+* Das Paket zu einem OData-Dienst-Endpunkt aus ATOM-feed gewechselt: Wenn Sie ein auf die CTP2-Version von NuGet Upgrade, sicher, dass die folgende URL als Paketquelle hinzugefügt werden: `https://feed.nuget.org/ctp2/odata/v1/`.
 * Den Befehl Add-Package umbenannt *Install-Package*.
 * Aktualisiert die `.nuspec` Format. Die `.nuspec` Format enthält jetzt die *"iconUrl"* Feld zum Angeben einer 32 x 32 Png Symbol in der Paket-Dialogfeld angezeigt wird. Achten Sie daher darauf fest, um das Paket zu unterscheiden. Die `.nuspec` Format schließt außerdem die neuen *ProjectUrl* Feld, das Sie verwenden können, um zu einer Webseite zu verweisen, die Weitere Informationen zu Ihrem Paket bereitstellt.
 

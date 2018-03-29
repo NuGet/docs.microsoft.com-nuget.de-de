@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Versionshinweise für NuGet 1.8 einschließlich bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design."
-keywords: "NuGet-1.8 Anmerkungen zu dieser Version, aufgrund von Fehlerbehebungen, bekannte Probleme, zusätzliche Funktionen, Archivierung von dcrs Design"
+ms.technology: ''
+description: Versionshinweise für NuGet 1.8 einschließlich bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design.
+keywords: NuGet-1.8 Anmerkungen zu dieser Version, aufgrund von Fehlerbehebungen, bekannte Probleme, zusätzliche Funktionen, Archivierung von dcrs Design
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 139c30e29d8148eab7298329a07d8e412259e595
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: b94382f79143cac6bd5deccb5e5253ba8c6f60ec
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-18-release-notes"></a>1.8 NuGet-Versionshinweise
 
@@ -27,7 +30,7 @@ NuGet 1.8 wurde 23 Mai 2012 veröffentlicht.
 ## <a name="known-installation-issue"></a>Bekannte Problem
 Wenn Sie Visual Studio 2010 SP1 ausführen, kann ein Installationsfehler auftreten beim Upgrade von NuGet ausführen, wenn Sie eine ältere Version installiert haben.
 
-Die problemumgehung besteht darin, einfach NuGet deinstallieren und installieren Sie es aus dem Katalog der VS-Erweiterung.  Finden Sie unter [http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019) für Weitere Informationen oder [fahren Sie direkt mit den VS-Hotfix](http://bit.ly/vsixcertfix).
+Die problemumgehung besteht darin, einfach NuGet deinstallieren und installieren Sie es aus dem Katalog der VS-Erweiterung.  Finden Sie unter [ http://support.microsoft.com/kb/2581019 ](http://support.microsoft.com/kb/2581019) für Weitere Informationen oder [fahren Sie direkt mit den VS-Hotfix](http://bit.ly/vsixcertfix).
 
 Hinweis: Wenn Visual Studio lässt Sie beim Deinstallieren der Erweiterung (die Schaltfläche "Deinstallieren" deaktiviert ist), müssen Sie wahrscheinlich zum Neustart von Visual Studio, die mit "Als Administrator ausführen".
 
@@ -60,7 +63,7 @@ Darüber hinaus wird beim Installieren der Satelliten-Paket, ein NuGet erkennt a
 
 Einem vorhandenen Fehler mit Satelliten-Paketen beachten ist, dass NuGet nicht lokalisierte Ressourcen kopiert die `bin` Ordner für Websiteprojekte.  Dieses Problem wird in der nächsten Version von NuGet behoben werden.
 
-Ein vollständiges Beispiel demonstriert, zum Erstellen und Verwenden von Satelliten-Paketen finden Sie unter [https://github.com/NuGet/SatellitePackageSample](https://github.com/NuGet/SatellitePackageSample).
+Ein vollständiges Beispiel demonstriert, zum Erstellen und Verwenden von Satelliten-Paketen finden Sie unter [ https://github.com/NuGet/SatellitePackageSample ](https://github.com/NuGet/SatellitePackageSample).
 
 ### <a name="package-restore-consent"></a>Paket-Restore-Zustimmung
 NuGet-1.8 gemäß wir die Grundlagen für eine wichtige Einschränkung auf paketwiederherstellung zum Schutz der Privatsphäre der Benutzer zu unterstützen. Diese Einschränkung ist erforderlich, dass Entwickler Erstellen von Projekten und Projektmappen, die paketwiederherstellung explizit zu Restore-Paket Zustimmung verwenden zum Herunterladen von Paketen von konfigurierten Paketquellen online geschaltet des.

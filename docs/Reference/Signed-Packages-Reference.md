@@ -6,18 +6,21 @@ manager: unniravindranathan
 ms.date: 03/06/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 description: Signierte Pakete funktionsbeschreibung.
 keywords: NuGet-Paket-Anmeldung, Signatur, Zertifikat
 ms.reviewer:
 - ananguar
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9bf9885aaf42bedb681a5d916202fa8b26749a0c
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: a2a338596f7d98ded11da6fb02bafba3521249ab
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="signed-packages"></a>Signierte Pakete
 
@@ -34,7 +37,7 @@ Darüber hinaus bieten Autor signierte Pakete einen zusätzlichen Authentifizier
 Weitere Informationen zum Erstellen eines signierten Pakets, finden Sie unter [Signieren von Paketen](../create-packages/Sign-a-package.md) und [NuGet-Anmelde-Befehls](../tools/cli-ref-sign.md).
 
 > [!Important]
-> NuGet.org akzeptiert gegenwärtig nicht signierte Pakete. Sie können Pakete für das Veröffentlichen von benutzerdefinierten Feeds signieren.
+> NuGet.org akzeptiert gegenwärtig nicht signierte Pakete. Sie können Pakete signieren, die auf benutzerdefinierten Feeds veröffentlicht werden sollen.
 
 ## <a name="certificate-requirements"></a>Zertifikatanforderungen
 

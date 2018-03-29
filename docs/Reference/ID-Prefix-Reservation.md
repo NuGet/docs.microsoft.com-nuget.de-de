@@ -1,23 +1,26 @@
 ---
-title: "ID-Präfix Reservierung Verweis | Microsoft Docs"
+title: ID-Präfix Reservierung Verweis | Microsoft Docs
 author: diverdan92
 ms.author: diverdan92
 manager: unniravindranathan
 ms.date: 10/09/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Paket-ID-Präfix Reservierung featurebeschreibung und Autor-Handbuch."
-keywords: "NuGet-Paket-ID-Präfix, Reservierung"
+ms.technology: ''
+description: Paket-ID-Präfix Reservierung featurebeschreibung und Autor-Handbuch.
+keywords: NuGet-Paket-ID-Präfix, Reservierung
 ms.reviewer:
 - ananguar
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f74ea3c772a129f4b9cd286a77cf3e88eba2d33b
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 7b1956612bd48a1c59503418f1a4d7d9dee900f5
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="package-id-prefix-reservation"></a>Paket-ID-Präfix-Reservierung
 

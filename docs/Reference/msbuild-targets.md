@@ -1,21 +1,25 @@
 ---
-title: "NuGet pack and restore as MSBuild targets (NuGet-Befehle „pack“ und „restore“ als MSBuild-Ziele) | Microsoft-Dokumentation"
+title: NuGet pack and restore as MSBuild targets (NuGet-Befehle „pack“ und „restore“ als MSBuild-Ziele) | Microsoft-Dokumentation
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 03/13/2018
+ms.date: 03/23/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Die NuGet-Befehle „pack“ und „restore“ können direkt als MSBuild-Ziele mit NuGet 4.0 und höher arbeiten."
-keywords: "NuGet und MSBuild, NuGet-Ziel „pack“, NuGet-Wiederherstellungsziel"
+ms.technology: ''
+description: Die NuGet-Befehle „pack“ und „restore“ können direkt als MSBuild-Ziele mit NuGet 4.0 und höher arbeiten.
+keywords: NuGet und MSBuild, NuGet-Ziel „pack“, NuGet-Wiederherstellungsziel
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: bb0ade1b0f5f81d7c8822d3c2b2f9dd45745fb8d
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+- unniravindranathan
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: a9c2c2229d717dff8472dce0ba568e4a21900b19
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet pack and restore as MSBuild targets (NuGet-Befehle „pack“ und „restore“ MSBuild-Ziele)
 
@@ -48,27 +52,27 @@ In der folgenden Tabelle werden die MSBuild-Eigenschaften beschrieben, die im er
 
 Beachten Sie, dass die Eigenschaften `Owners` und `Summary` aus einer `.nuspec`-Datei in MSBuild nicht unterstützt werden.
 
-| Attribut/NuSpec-Wert | MSBuild-Eigenschaft | Standard | Notizen |
+| Attribut/NuSpec-Wert | MSBuild-Eigenschaft | Standard | Hinweise |
 |--------|--------|--------|--------|
-| ID | PackageId | AssemblyName | $(AssemblyName) aus MSBuild |
+| Id | PackageId | AssemblyName | $(AssemblyName) aus MSBuild |
 | Version | PackageVersion | Version | Diese Eigenschaft ist mit „semver“ kompatibel, z.B. „1.0.0“, „1.0.0-beta“ oder „1.0.0-beta-00345“ |
-| VersionPrefix | PackageVersionPrefix | empty | Durch das Festlegen von PackageVersion wird PackageVersionPrefix überschrieben |
-| VersionSuffix | PackageVersionSuffix | empty | $(VersionSuffix) aus MSBuild. Durch das Festlegen von PackageVersion wird PackageVersionSuffix überschrieben |
+| VersionPrefix | PackageVersionPrefix | Leer | Durch das Festlegen von PackageVersion wird PackageVersionPrefix überschrieben |
+| VersionSuffix | PackageVersionSuffix | Leer | $(VersionSuffix) aus MSBuild. Durch das Festlegen von PackageVersion wird PackageVersionSuffix überschrieben |
 | Authors | Authors | Name des aktuellen Benutzers | |
-| Besitzer | N/V | In NuSpec nicht vorhanden | |
+| Besitzer | Nicht zutreffend | In NuSpec nicht vorhanden | |
 | Titel | Titel | Die PackageId| |
 | Beschreibung | PackageDescription | „Paketbeschreibung“ | |
-| Copyright | Copyright | empty | |
-| RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
-| LicenseUrl | PackageLicenseUrl | empty | |
-| ProjectUrl | PackageProjectUrl | empty | |
-| IconUrl | PackageIconUrl | empty | |
-| Tags | PackageTags | empty | Ziele werden durch Semikolons (;) getrennt. |
-| ReleaseNotes | PackageReleaseNotes | empty | |
-| Repository-Url | RepositoryUrl | empty | Repository-URL zum Klonen oder Abrufen von Quellcode. Beispiel: *https://github.com/NuGet/NuGet.Client.git* |
-| Repository-Typ | RepositoryType | empty | Repository-Typ. Beispiele: *Git*, *Tfs*. |
-| Repository-Zweig | RepositoryBranch | empty | Optionale Verzweigung Repositoryinformationen. *RepositoryUrl* muss auch angegeben werden, für diese Eigenschaft eingeschlossen werden sollen. Beispiel: *master* (NuGet 4.7.0+) |
-| Repository/Commit | RepositoryCommit | empty | Optionale Repository Commit oder ein Changeset, um anzugeben, die das Paket Datenquelle wurde gegen erstellt. *RepositoryUrl* muss auch angegeben werden, für diese Eigenschaft eingeschlossen werden sollen. Beispiel: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0+) |
+| Copyright | Copyright | Leer | |
+| RequireLicenseAcceptance | PackageRequireLicenseAcceptance | False | |
+| LicenseUrl | PackageLicenseUrl | Leer | |
+| ProjectUrl | PackageProjectUrl | Leer | |
+| IconUrl | PackageIconUrl | Leer | |
+| Tags | PackageTags | Leer | Ziele werden durch Semikolons (;) getrennt. |
+| ReleaseNotes | PackageReleaseNotes | Leer | |
+| Repository-Url | RepositoryUrl | Leer | Repository-URL zum Klonen oder Abrufen von Quellcode. Beispiel: *https://github.com/NuGet/NuGet.Client.git* |
+| Repository-Typ | RepositoryType | Leer | Repository-Typ. Beispiele: *Git*, *Tfs*. |
+| Repository-Zweig | RepositoryBranch | Leer | Optionale Verzweigung Repositoryinformationen. *RepositoryUrl* muss auch angegeben werden, für diese Eigenschaft eingeschlossen werden sollen. Beispiel: *master* (NuGet 4.7.0+) |
+| Repository/Commit | RepositoryCommit | Leer | Optionale Repository Commit oder ein Changeset, um anzugeben, die das Paket Datenquelle wurde gegen erstellt. *RepositoryUrl* muss auch angegeben werden, für diese Eigenschaft eingeschlossen werden sollen. Beispiel: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0+) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
 | Zusammenfassung | Nicht unterstützt | | |
 
@@ -110,7 +114,7 @@ Beachten Sie, dass die Eigenschaften `Owners` und `Summary` aus einer `.nuspec`-
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
-Als Teil der Änderung für [NuGet-Problem 2582](https://github.com/NuGet/Home/issues/2582), wird `PackageIconUrl` schließlich in `PackageIconUri` geändert und kann ein relativer Pfad zu einer Symboldatei sein, die in das Stammverzeichnis des resultierenden Pakets eingeschlossen wird.
+Als Teil der Änderung für [NuGet Problem 352](https://github.com/NuGet/Home/issues/352), `PackageIconUrl` wird schließlich geändert werden, um `PackageIconUri` und relativer Pfad zu einem Symbol an, der auf der Stammebene des das resultierende Paket eingeschlossen werden kann.
 
 ### <a name="output-assemblies"></a>Ausgabeassemblys
 
@@ -231,6 +235,61 @@ Ein Beispiel einer Csproj-Datei packen Sie die Nuspec-Datei ist:
 </Project>
 ```
 
+### <a name="advanced-extension-points-to-create-customized-package"></a>Erweiterte Erweiterungspunkte angepasstes Paket erstellen
+
+Die `pack` Ziel bietet zwei Erweiterungspunkte, die in der inneren, Framework bestimmten zielbuild ausgeführt. Die Erweiterungspunkte einschließlich Ziel Framework bestimmte Inhaltstypen und Assemblys in ein Paket unterstützen:
+
+- `TargetsForTfmSpecificBuildOutput` Ziel: Verwendung für die Dateien innerhalb der `lib` Ordner oder ein Ordner mit `BuildOutputTargetFolder`.
+- `TargetsForTfmSpecificContentInPackage` Ziel: Verwendung für die Dateien außerhalb der `BuildOutputTargetFolder`.
+
+#### <a name="targetsfortfmspecificbuildoutput"></a>TargetsForTfmSpecificBuildOutput
+
+Schreiben Sie ein benutzerdefiniertes Ziel und geben Sie ihn als Wert für die `$(TargetsForTfmSpecificBuildOutput)` Eigenschaft. Für alle Dateien, die in wechseln müssen die `BuildOutputTargetFolder` (Lib standardmäßig), das Ziel sollten diese Dateien schreiben, in der ItemGroup `BuildOutputInPackage` und legen Sie die folgenden zwei Metadatenwerte:
+
+- `FinalOutputPath`: Der absolute Pfad der Datei; Wenn nicht angegeben ist, wird die Identität auszuwertende Quellpfad verwendet.
+- `TargetPath`: (Optional) festgelegt, wenn die Datei in einen Unterordner innerhalb losgehen muss `lib\<TargetFramework>` , wie z. B. Satellitenassemblys, wechseln Sie in ihren jeweiligen Kultur Ordnern. Der Standardwert ist der Name der Datei.
+
+Beispiel:
+
+```
+<PropertyGroup>
+  <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);GetMyPackageFiles</TargetsForTfmSpecificBuildOutput>
+</PropertyGroup>
+
+<Target Name="GetMyPackageFiles">
+  <ItemGroup>
+    <BuildOutputInPackage Include="$(OutputPath)cs\$(AssemblyName).resources.dll">
+        <TargetPath>cs</TargetPath>
+    </BuildOutputInPackage>
+  </ItemGroup>
+</Target>
+```
+
+#### <a name="targetsfortfmspecificcontentinpackage"></a>TargetsForTfmSpecificContentInPackage
+
+Schreiben Sie ein benutzerdefiniertes Ziel und geben Sie ihn als Wert für die `$(TargetsForTfmSpecificContentInPackage)` Eigenschaft. Für alle Dateien in das Paket eingeschlossen werden sollen, sollten das Ziel dieser Dateien schreiben, in der ItemGroup `TfmSpecificPackageFile` und legen Sie die folgende optionale Metadaten:
+
+- `PackagePath`: Pfad, in dem die Datei in das Paket ausgegeben werden soll. NuGet gibt eine Warnung aus, wenn der Pfad des gleichen Pakets mehr als eine Datei hinzugefügt wird.
+- `BuildAction`: Der Buildvorgang zuweisen, die Datei nur erforderlich, wenn in der Paketpfad ist die `contentFiles` Ordner. Der Standardwert ist "None".
+
+Ein Beispiel:
+```
+<PropertyGroup>
+    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CustomContentTarget</TargetsForTfmSpecificContentInPackage>
+</PropertyGroup>
+
+<Target Name=""CustomContentTarget"">
+    <ItemGroup>
+      <TfmSpecificPackageFile Include=""abc.txt"">
+        <PackagePath>mycontent/$(TargetFramework)</PackagePath>
+      </TfmSpecificPackageFile>
+      <TfmSpecificPackageFile Include=""Extensions/ext.txt"" Condition=""'$(TargetFramework)' == 'net46'"">
+        <PackagePath>net46content</PackagePath>
+      </TfmSpecificPackageFile>  
+    </ItemGroup>
+  </Target>  
+```
+
 ## <a name="restore-target"></a>Wiederherstellungsziel
 
 Das Ziel `MSBuild /t:restore` (das von `nuget restore` und `dotnet restore` in .NET Core-Projekten verwendet wird), stellt wie folgt Pakete wieder her, auf die in der Projektdatei verwiesen wird:
@@ -254,7 +313,7 @@ Weitere Wiederherstellungseigenschaften können aus MSBuild-Eigenschaften in der
 | RestorePackagesPath | Ordnerpfad der Pakete für Benutzer. |
 | RestoreDisableParallel | Begrenzt Downloads auf jeweils einen Download. |
 | RestoreConfigFile | Der Pfad zu einer anzuwendenden `Nuget.Config`-Datei. |
-| RestoreNoCache | Wenn „TRUE“ festgelegt ist, wird die Verwendung des Webcaches verhindert. |
+| RestoreNoCache | Bei "true", verzichtet auf die Verwendung von zwischengespeicherten Pakete. Finden Sie unter [Verwaltung der globalen Pakete und der Cacheordner](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | RestoreIgnoreFailedSources | Wenn „TRUE“ festgelegt ist, werden fehlerhafte oder fehlende Paketquellen ignoriert. |
 | RestoreTaskAssemblyFile | Pfad zu `NuGet.Build.Tasks.dll`. |
 | RestoreGraphProjectInput | Durch Semikolons (;) getrennte Liste mit wiederherzustellenden Projekten, die absolute Pfade enthalten sollten. |
@@ -282,7 +341,7 @@ Bei der Wiederherstellung werden die folgenden Dateien im `obj`-Buildordner erst
 
 | Datei | Beschreibung |
 |--------|--------|
-| `project.assets.json` | Zuvor `project.lock.json` |
+| `project.assets.json` | Enthält das Abhängigkeitsdiagramm aller Paket Verweise. |
 | `{projectName}.projectFileExtension.nuget.g.props` | Verweist auf in Paketen enthaltene MSBuild-Eigenschaften |
 | `{projectName}.projectFileExtension.nuget.g.targets` | Verweist auf in Paketen enthaltene MSBuild-Ziele |
 

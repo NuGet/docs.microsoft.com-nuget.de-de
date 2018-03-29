@@ -6,19 +6,22 @@ manager: ghogen
 ms.date: 01/23/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 f1_keywords:
 - vs.nuget.packagemanager.console
-description: "Anweisungen für die Verwendung der NuGet-Paket-Manager-Konsole in Visual Studio zum Arbeiten mit Paketen."
+description: Anweisungen für die Verwendung der NuGet-Paket-Manager-Konsole in Visual Studio zum Arbeiten mit Paketen.
 keywords: NuGet-Paket-Manager-Konsole, NuGet Powershell NuGet-Pakete verwalten
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 60c7edd0497e162cc511424e9acfbbfd6f53fd46
-ms.sourcegitcommit: a40a6ce6897b2d9411397b2e29b1be234eb6e50c
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: af22a524f6b4a41a4c24077fe396846da6fb1ff8
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="package-manager-console"></a>Paket-Manager-Konsole
 
@@ -80,19 +83,10 @@ Install-Package Elmah -ProjectName UtilitiesLib
 
 Finden Sie unter [Install-Package](../tools/ps-ref-install-package.md).
 
-Installieren eines Pakets werden die folgenden Aktionen ausgeführt:
+Installation eines Pakets in der Konsole führt die gleichen Schritte aus, wie beschrieben in [was geschieht, wenn ein Paket installiert ist](../consume-packages/ways-to-install-a-package.md#what-happens-when-a-package-is-installed), mit der folgenden Erweiterungen:
 
-- Zeigt geltenden Lizenzbedingungen in das Konsolenfenster mit impliziten Vereinbarung an. Wenn Sie nicht den Bedingungen zustimmen, sollten Sie das Paket sofort deinstallieren.
-- Fügt einen Verweis auf das Projekt in dem Verweis-Format verwendet wird. Verweise werden anschließend im Projektmappen-Explorer und die entsprechenden Verweis Formatdatei angezeigt. Beachten Sie jedoch, dass mit PackageReference, Sie zum Speichern des Projekts, um die Änderungen in der Projektdatei direkt anzuzeigen müssen.
-- Speichert das Paket an:
-  - PackageReference: Paket in zwischengespeichert `%USERPROFILE%\.nuget\packages` und die Sperre Datei, d. h. `project.assets.json` wird aktualisiert.
-  - `packages.config`: erstellt eine `packages` Ordner am Stamm-Lösung und kopiert das Paket in einen Unterordner darin enthaltenen Dateien. Die `package.config` Datei aktualisiert wird.
-- Updates `app.config` und/oder `web.config` Wenn vom Paket verwendete [Source "und" Config-Datei Transformationen](../create-packages/source-and-config-file-transformations.md).
-- Alle Abhängigkeiten installiert, sofern nicht bereits im Projekt vorhanden. Dies kann die Paketversionen im Prozess aktualisieren, wie in beschrieben [Abhängigkeit Auflösung](../consume-packages/dependency-resolution.md).
-- Infodatei für das Paket, falls verfügbar, in einem Visual Studio-Fenster angezeigt.
-
-> [!Tip]
-> Einer der Hauptvorteile der Installation von Paketen mit dem `Install-Package` Befehl in der Konsole ist, einen Verweis auf das Projekt addiert wird, als ob Sie die Paket-Manager-UI verwendet. Im Gegensatz dazu die `nuget install` CLI-Befehl nur das Paket wird heruntergeladen und nicht automatisch einen Verweis hinzu.
+- Die Konsole zeigt geltenden Lizenzbedingungen in einem Fenster mit impliziten Vereinbarung. Wenn Sie nicht den Bedingungen zustimmen, sollten Sie das Paket sofort deinstallieren.
+- Auch ein Verweis auf das Paket wird die Projektdatei hinzugefügt und wird im **Projektmappen-Explorer** unter der **Verweise** Knoten müssen Sie zum Speichern des Projekts, um die Änderungen in der Projektdatei direkt anzuzeigen.
 
 ## <a name="uninstalling-a-package"></a>Deinstallieren eines Pakets
 
@@ -111,12 +105,9 @@ Finden Sie unter [Uninstall-Package](../tools/ps-ref-uninstall-package.md). Verw
 
 Deinstallieren ein Paket führt die folgenden Aktionen aus:
 
-- Entfernt Verweise auf das Paket aus dem Projekt (und dem Verweis-Format verwendet wird). Verweise werden nicht mehr im Projektmappen-Explorer angezeigt. (Zum Neuerstellen des Projekts, um es daraus sehen müssen möglicherweise die **"bin"** Ordner.)
+- Entfernt Verweise auf das Paket aus dem Projekt (und dem Managementobjektformat verwendet wird). Verweise nicht mehr in **Projektmappen-Explorer**. (Zum Neuerstellen des Projekts, um es daraus sehen müssen möglicherweise die **"bin"** Ordner.)
 - Kehrt alle Änderungen an `app.config` oder `web.config` wann das Paket wurde installiert.
 - Entfernt einen zuvor installierten Abhängigkeiten, wenn keine verbleibenden Pakete solcher Abhängigkeiten verwenden.
-
-> [!Tip]
-> Wie `Install-Package`, `Uninstall-Package` Befehl hat den Vorteil der Verwaltung von Verweise im Projekt, im Gegensatz zu den `nuget uninstall` CLI-Befehl.
 
 ## <a name="updating-a-package"></a>Aktualisieren eines Pakets
 
@@ -159,7 +150,7 @@ Finden Sie unter [Find-Package](../tools/ps-ref-find-package.md). Verwenden Sie 
 
 In Visual Studio 2017 werden NuGet und NuGet-Paket-Manager automatisch installiert, wenn Sie auswählen. NET-bezogenen Arbeitslasten; Sie können auch installieren sie einzeln durch Überprüfen der **Einzelkomponenten > Tools Code > NuGet-Paket-Manager** -Option in der 2017 von Visual Studio-Installer.
 
-Überprüfen Sie auch, wenn Sie den NuGet-Paket-Manager in Visual Studio 2015 und früheren Versionen nicht vorhanden sind, **Tools > Erweiterungen und Updates...**  und suchen Sie nach der Erweiterung von NuGet-Paket-Manager. Wenn Sie nicht das Installationsprogramm für Erweiterungen in Visual Studio verwenden möchten, können Sie die Erweiterung direkt von herunterladen [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
+Überprüfen Sie auch, wenn Sie den NuGet-Paket-Manager in Visual Studio 2015 und früheren Versionen nicht vorhanden sind, **Tools > Erweiterungen und Updates...**  und suchen Sie nach der Erweiterung von NuGet-Paket-Manager. Wenn Sie nicht das Installationsprogramm für Erweiterungen in Visual Studio verwenden möchten, können Sie die Erweiterung direkt von herunterladen [ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html).
 
 Der Paket-Manager-Konsole ist zurzeit nicht verfügbar in Visual Studio für Mac. Allerdings stehen die entsprechenden Befehle zur Verfügung, über die [NuGet CLI](nuget-exe-CLI-reference.md). Visual Studio für Mac besitzt eine Benutzeroberfläche zum Verwalten von NuGet-Paketen. Finden Sie unter [einschließlich eines NuGet-Paket im Projekt](/visualstudio/mac/nuget-walkthrough).
 

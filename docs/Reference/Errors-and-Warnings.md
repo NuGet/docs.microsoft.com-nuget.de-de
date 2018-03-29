@@ -6,13 +6,16 @@ manager: ghogen
 ms.date: 03/06/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Vollständige Referenz für Warnungen und Fehler von NuGet während verschiedener NuGet Vorgänge ausgegeben."
+ms.technology: ''
+description: Vollständige Referenz für Warnungen und Fehler von NuGet während verschiedener NuGet Vorgänge ausgegeben.
 keywords: NuGet-Fehler, Warnungen NuGet-Diagnose
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
+ms.workload:
+- dotnet
+- aspnet
 f1_keywords:
 - NU1000
 - NU1001
@@ -50,11 +53,11 @@ f1_keywords:
 - NU3008
 - NU3018
 - NU3028
-ms.openlocfilehash: 59bbe37d1a965e5167800148603869645fc5e0b2
-ms.sourcegitcommit: df21fe770900644d476d51622a999597a6f20ef8
+ms.openlocfilehash: 020e31dc8646c43b86bcee555f1772e8b1db7761
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="errors-and-warnings"></a>Fehler und Warnungen
 
@@ -136,7 +139,7 @@ Die Fehler und Warnungen, die hier aufgeführten stehen nur mit [PackageReferenc
 | --- | --- |
 | **Problem** | Die Paket-ID wurde gefunden, aber eine Version innerhalb des Bereichs für die angegebene Abhängigkeit kann auf der Quellen nicht gefunden werden. Der Bereich kann durch ein Paket und nicht für den Benutzer angegeben werden. |
 | **Beispiel-Nachricht** | *Nicht Paket NuGet.Versioning Version gefunden (> = 9.0.1)<br/> -30 gefunden Version(en) in nuget.org [nächste Version: 4.0.0]<br/> -gefunden-10-Versionen in Dotnet-Buildtools [am nächsten Version: 4.0.0-rc-2129]<br/> -9 gefunden Versionen in NuGetVolatile [nächste Version: 3.0.0-beta-00032]<br/> -0 Version(en) in Dotnet Kernen gefunden<br/> -0 Version(en) in Dotnet Roslyn gefunden* |
-| **Projektmappen** | Bearbeiten die Projektdatei oder `packages.config` korrigieren Sie die Paketversion. Außerdem überprüfen, die die [NuGet-Konfiguration](../consume-packages/Configuring-NuGet-Behavior.md) identifiziert die Paketquellen Ihrer voraussichtlich verwenden werden. Sie müssen möglicherweise die Requeted-Version ändern, wenn dieses Paket direkt vom Projekt verwiesen wird. |
+| **Projektmappen** | Bearbeiten Sie die Projektdatei, um die Version des Pakets zu beheben. Außerdem überprüfen, die die [NuGet-Konfiguration](../consume-packages/Configuring-NuGet-Behavior.md) identifiziert die Paketquellen Ihrer voraussichtlich verwenden werden. Sie müssen möglicherweise die Requeted-Version ändern, wenn dieses Paket direkt vom Projekt verwiesen wird. |
 
 ### <a name="nu1103"></a>NU1103
 
@@ -144,7 +147,7 @@ Die Fehler und Warnungen, die hier aufgeführten stehen nur mit [PackageReferenc
 | --- | --- |
 | **Problem** | Das Projekt angegeben, eine stabile Version für den Bereich der Abhängigkeit, aber keine stabilen Versionen wurden in diesem Bereich gefunden. Vorabversionen wurden gefunden, aber es sind nicht zulässig. |
 | **Beispiel-Nachricht** | *Nicht stabiles Paket NuGet.Versioning mit Version gefunden (> = 3.0.0)<br/> -gefunden-10-Versionen in Dotnet-Buildtools [nächste Version: 4.0.0-rc-2129]<br/> -gefunden 9 Version(en) in NuGetVolatile [nächste Version: 3.0.0-beta-00032] <br/> -0 Version(en) in Dotnet Kernen gefunden<br/> -0-Versionen in Dotnet Roslyn gefunden* |
-| **Projektmappen** |  Bearbeiten der Versionsbereich in der Projektdatei oder `packages.config` Vorabversionen einschließen. Finden Sie unter [Paket versionsverwaltung](../reference/Package-Versioning.md). |
+| **Projektmappen** |  Bearbeiten der Versionsbereich in der Projektdatei, um Vorabversionen einzuschließen. Finden Sie unter [Paket versionsverwaltung](../reference/Package-Versioning.md). |
 
 ### <a name="nu1104"></a>NU1104
 
@@ -167,8 +170,8 @@ Die Fehler und Warnungen, die hier aufgeführten stehen nur mit [PackageReferenc
 | | |
 | --- | --- |
 | **Problem** | Abhängigkeit Einschränkungen können nicht aufgelöst werden. |
-| **Beispiel-Nachricht** | *Können nicht erfüllt einen Konflikt verursachenden Anforderungen für {Id}: {Konflikt Path} Framework: {Zieldiagramm}* 
-| **Projektmappen** | Bearbeiten die Projektdatei oder `packages.config` mehr offene Bereichen für die genaue Version, anstatt die Abhängigkeit angeben. |
+| **Beispiel-Nachricht** | *Können nicht erfüllt einen Konflikt verursachenden Anforderungen für {Id}: {Konflikt Path} Framework: {Zieldiagramm}* |
+| **Projektmappen** | Bearbeiten Sie die Projektdatei, um mehr offene Bereiche für eine genaue Version, anstatt die Abhängigkeit angeben. |
 |
 
 <a name="nu1107"></a>
@@ -179,7 +182,7 @@ Die Fehler und Warnungen, die hier aufgeführten stehen nur mit [PackageReferenc
 | --- | --- |
 | **Problem** | Kann nicht auf Einschränkungen der Abhängigkeit zwischen Paketen zu beheben. |
 | **Beispiel-Nachricht** | *Versionskonflikt für NuGet.Versioning erkannt. Verweisen auf das Paket direkt aus dem Projekt aus, um dieses Problem zu beheben.<br/>  NuGet.Packaging 3.5.0 -> NuGet.Versioning (= 3.5.0)<br/>  NuGet.Configuration 4.0.0 -> NuGet.Versioning (= 4.0.0)* |
-| **Projektmappen** | Pakete mit Abhängigkeit Beschränkungen exakte Version lassen nicht anderen Paketen für die Version bei Bedarf zu erhöhen. Fügen Sie einen Verweis auf das Projekt direkt (in der Projektdatei oder `packages.config`) die genaue Version, die erforderlich sind. |
+| **Projektmappen** | Pakete mit Abhängigkeit Beschränkungen exakte Version lassen nicht anderen Paketen für die Version bei Bedarf zu erhöhen. Fügen Sie einen Verweis auf das Projekt direkt (in der Projektdatei), die genaue Version, die erforderlich sind. |
 
 <a name="nu1108"></a>
 

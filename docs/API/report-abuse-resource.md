@@ -10,17 +10,20 @@ manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Der Bericht Missbrauch URL-Vorlage kann Clients einen Missbrauch Berichtslink in ihre Benutzeroberfläche anzeigen."
+ms.technology: ''
+description: Der Bericht Missbrauch URL-Vorlage kann Clients einen Missbrauch Berichtslink in ihre Benutzeroberfläche anzeigen.
 keywords: NuGet-API Melden des Missbrauchs, NuGet-API-Datei kompatibel, nuget.org-Berichts-URL-Vorlage
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: efbe5704e6e6028f9382fea3fe5ec453f573a2e9
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: ded861e3eaf73e45b8d4bd80b96d54bfeb38e9d6
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="report-abuse-url-template"></a>Berichtsvorlage Missbrauch-URL
 
@@ -32,7 +35,7 @@ Die Ressource für das Abrufen von Paketinhalt verwendet die `ReportAbuseUriTemp
 
 Die folgenden `@type` Werte werden verwendet:
 
-@type-Wert                       | Notizen
+@type-Wert                       | Hinweise
 --------------------------------- | -----
 ReportAbuseUriTemplate/3.0.0-beta | Die erste Version
 ReportAbuseUriTemplate/3.0.0-rc   | Alias der `ReportAbuseUriTemplate/3.0.0-beta`
@@ -53,10 +56,10 @@ Der Wert, der die `@id` ist eine URL-Zeichenfolge, die keines der folgenden Plat
 
 ### <a name="url-placeholders"></a>URL-Platzhalter
 
-Name        | Typ    | Erforderlich | Notizen
+name        | Typ    | Erforderlich | Hinweise
 ----------- | ------- | -------- | -----
-`{id}`      | Zeichenfolge  | nein       | Die Paket-ID zum Melden des Missbrauchs für
-`{version}` | Zeichenfolge  | nein       | Die Paketversion zum Melden des Missbrauchs für
+`{id}`      | Zeichenfolge  | Nein       | Die Paket-ID zum Melden des Missbrauchs für
+`{version}` | Zeichenfolge  | Nein       | Die Paketversion zum Melden des Missbrauchs für
 
 Die `{id}` und `{version}` Werte interpretiert werden, durch die Implementierung der Server muss Groß-/Kleinschreibung beachtet und nicht vertraulich, gibt an, ob die Version normalisiert wird.
 

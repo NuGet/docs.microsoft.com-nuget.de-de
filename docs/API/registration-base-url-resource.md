@@ -10,17 +10,20 @@ manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Die Basis-URL des Pakets Registrierung ermöglicht das Abrufen von Metadaten zu Paketen."
+ms.technology: ''
+description: Die Basis-URL des Pakets Registrierung ermöglicht das Abrufen von Metadaten zu Paketen.
 keywords: NuGet-API-Metadaten von Paketen, die NuGet-API-Registrierung NuGet-API nicht aufgelistete Pakete
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: c098d70d58011bad7f9829f0c95c87c1339dd362
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: c7b32e1d2bb9250de1e0b707405a75184b2bd8b4
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="package-metadata"></a>Metadaten von Paketen
 
@@ -35,8 +38,8 @@ Die folgenden `@type` Werte werden verwendet:
 @type-Wert                     | Hinweise
 ------------------------------- | -----
 RegistrationsBaseUrl            | Die erste Version
-RegistrationsBaseUrl/3.0.0-beta | Alias der`RegistrationsBaseUrl`
-RegistrationsBaseUrl/3.0.0-rc   | Alias der`RegistrationsBaseUrl`
+RegistrationsBaseUrl/3.0.0-beta | Alias der `RegistrationsBaseUrl`
+RegistrationsBaseUrl/3.0.0-rc   | Alias der `RegistrationsBaseUrl`
 RegistrationsBaseUrl/3.4.0      | GZIP-Antworten
 RegistrationsBaseUrl/3.6.0      | Umfasst SemVer 2.0.0 Pakete
 
@@ -146,7 +149,7 @@ name                     | Typ                       | Erforderlich | Hinweise
 ------------------------ | -------------------------- | -------- | -----
 @id                      | Zeichenfolge                     | ja      | Die URL zum Dokument verwendet, um dieses Objekt zu erzeugen.
 authors                  | Zeichenfolge oder ein Array von Zeichenfolgen | Nein       | 
-dependencyGroups         | Array von Objekten           | Nein       | Die URL für den Inhalt des Pakets (.nupkg)
+dependencyGroups         | Array von Objekten           | Nein       | Die Abhängigkeiten des Pakets, gruppiert nach Zielframework
 Beschreibung              | Zeichenfolge                     | Nein       | 
 iconUrl                  | Zeichenfolge                     | Nein       | 
 ID                       | Zeichenfolge                     | ja      | Die ID des Pakets

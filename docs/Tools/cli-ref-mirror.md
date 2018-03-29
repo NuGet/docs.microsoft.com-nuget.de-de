@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Referenz für den nuget.exe Mirror-Befehl"
+ms.technology: ''
+description: Referenz für den nuget.exe Mirror-Befehl
 keywords: NuGet-Spiegel-Verweis, Mirror-Befehl
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0c1969cc04b2e2cead5e9dadf9739fdabdf65f6c
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 512bd72d568cda81eb7c6a1555c36ead66b5c438
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="mirror-command-nuget-cli"></a>Mirror-Befehl (NuGet CLI)
 
@@ -45,7 +48,7 @@ Wenn Ihr Zielrepository auf ist `https://machine/repo` , die ausgeführt wird [N
 | --- | --- |
 | ApiKey | Die API-Schlüssel für das Zielrepository. Wenn Sie nicht vorhanden ist, in der Datei "App.config" angegebenen verwendet wird (`%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux)). |
 | Hilfe | Zeigt die Hilfe Informationen für den Befehl. |
-| NoCache | Verhindert, dass NuGet Pakete aus lokalen Caches. |
+| NoCache | Verhindert, dass NuGet zwischengespeicherten Pakete verwenden. Finden Sie unter [Verwaltung der globalen Pakete und der Cacheordner](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | NOOP | Protokolliert, was erfolgt, führt jedoch die Aktionen; geht davon aus Erfolg für Push-Vorgänge. |
 | PreRelease | Schließt Vorabversionen von Paketen, in dem Spiegelungsvorgang. |
 | Quelle | Eine Liste der Paketquellen zu spiegeln. Wenn keine Datenquellen angegeben sind, definiert die der Datei "App.config" (siehe "apikey" oben) verwendet werden, direktionales nuget.org keine Parameter angegeben. |

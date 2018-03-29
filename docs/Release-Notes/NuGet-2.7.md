@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Versionshinweise für NuGet 2.7 einschließlich bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design."
-keywords: "NuGet-2.7 Anmerkungen zu dieser Version, aufgrund von Fehlerbehebungen, bekannte Probleme, zusätzliche Funktionen, Archivierung von dcrs Design"
+ms.technology: ''
+description: Versionshinweise für NuGet 2.7 einschließlich bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design.
+keywords: NuGet-2.7 Anmerkungen zu dieser Version, aufgrund von Fehlerbehebungen, bekannte Probleme, zusätzliche Funktionen, Archivierung von dcrs Design
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 43638626661ae034bb0a1cc28958a2e2929f047f
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 71ced70af127c8219001069739a6cec59d7d1684
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-27-release-notes"></a>NuGet-Version 2.7 Hinweise
 
@@ -158,7 +161,7 @@ Finden Sie unter [NuGet-Standardeinstellungen für die Konfiguration](../consume
 
 ### <a name="renaming-the-default-package-source"></a>Die Paketquelle an Standardeinstellung umbenennen
 
-NuGet ist immer eine Standard-Paketquelle namens "NuGet-offizielle Paketquelle", die auf nuget.org verweist registriert. Dieses Namens wurde ausführliche und auch nicht angeben, der tatsächlich verweist. Um diese beiden Probleme zu beheben, haben wir diese Paketquelle, um einfach "nuget.org" in der Benutzeroberfläche umbenannt. Die URL für die Paketquelle wurde ebenfalls geändert, um den "Www" enthalten Gruppenpräfix („group.“) zusammensetzt. Nachdem Sie mit NuGet 2.7, wird Ihre vorhandenen "NuGet-offizielle Paketquelle" automatisch "nuget.org" als Namen und "https://www.nuget.org/api/v2/" der URL aktualisiert werden.
+NuGet ist immer eine Standard-Paketquelle namens "NuGet-offizielle Paketquelle", die auf nuget.org verweist registriert. Dieses Namens wurde ausführliche und auch nicht angeben, der tatsächlich verweist. Um diese beiden Probleme zu beheben, haben wir diese Paketquelle, um einfach "nuget.org" in der Benutzeroberfläche umbenannt. Die URL für die Paketquelle wurde ebenfalls geändert, um den "Www" enthalten Gruppenpräfix („group.“) zusammensetzt. Nachdem Sie mit NuGet 2.7, Ihre vorhandenen "NuGet-offizielle Paketquelle" automatisch aktualisiert, um "nuget.org" als Namen und "https://www.nuget.org/api/v2/" der URL.
 
 ### <a name="performance-improvements"></a>Leistungsverbesserungen
 

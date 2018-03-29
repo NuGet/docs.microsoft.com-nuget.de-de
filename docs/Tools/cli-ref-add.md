@@ -1,22 +1,25 @@
 ---
-title: "NuGet CLI hinzufügen (Befehl) | Microsoft Docs"
+title: NuGet CLI hinzufügen (Befehl) | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Referenz für die nuget.exe Befehl hinzufügen."
-keywords: "NuGet Verweis hinzufügen, fügen Sie Paket-Befehl"
+ms.technology: ''
+description: Referenz für die nuget.exe Befehl hinzufügen.
+keywords: NuGet Verweis hinzufügen, fügen Sie Paket-Befehl
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 70c86f8d240bd308224f6b7887b630cc1e953bf8
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 48e093cbae2cecb1652e17a9b26920107aa8aef7
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="add-command-nuget-cli"></a>Fügen Sie hinzu (Befehl) (NuGet CLI)
 
@@ -47,7 +50,7 @@ wobei `<packagePath>` der Pfadname für das Paket zum Hinzufügen, und `<sourceP
 
 | Option | Beschreibung |
 | --- | --- |
-| ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, *%AppData%\NuGet\NuGet.Config* verwendet wird.| 
+| ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) verwendet wird.|
 | Expand | Fügt alle Dateien im Paket für die Paketquelle. |
 | ForceEnglishOutput | *(3.5 +)*  Erzwingt nuget.exe über eine invariante Kultur Englisch-basierte ausgeführt werden. |
 | Hilfe | Zeigt die Hilfe Informationen für den Befehl. |

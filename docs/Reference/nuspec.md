@@ -1,23 +1,26 @@
 ---
-title: "NUSPEC-Dateireferenz für NuGet | Microsoft-Dokumentation"
+title: NUSPEC-Dateireferenz für NuGet | Microsoft-Dokumentation
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 08/29/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Die NUSPEC-Datei enthält Paketmetadaten, die bei der Erstellung eines Pakets verwendet werden, um für die Paketbenutzer Informationen bereitzustellen."
+ms.technology: ''
+description: Die NUSPEC-Datei enthält Paketmetadaten, die bei der Erstellung eines Pakets verwendet werden, um für die Paketbenutzer Informationen bereitzustellen.
 keywords: NUSPEC-Referenz, NuGet-Paketmetadaten, NuGet-Paketmanifest, NUSPEC-Schema
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 90693b09fce966e3bc28ca24360a3fb4e1f73386
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 3cc9ab4e352de9b3fabbfd92303f0d528d804c20
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuspec-reference"></a>NUSPEC-Referenz
 
@@ -79,7 +82,7 @@ Diese Elemente müssen in einem `<metadata>`-Element angezeigt werden.
 | --- | --- |
 | **ID** | Der Paketbezeichner, der die Groß- und Kleinschreibung nicht berücksichtigt und auf nuget.org oder im für das Paket verwendeten Katalog eindeutig sein muss. IDs dürfen keine Leerzeichen oder für eine URL unzulässige Zeichen enthalten. Sie müssen den Regeln für .NET-Namespaces entsprechen. Informationen finden Sie unter [Choosing a unique package identifier (Auswählen eines eindeutigen Paketbezeichners)](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number). |
 | **version** | Die Version des Pakets, die dem Muster *Hauptversion.Nebenversion.Patch* folgt. Versionsnummern enthalten möglicherweise, wie unter [Paketversionsverwaltung](../reference/package-versioning.md#pre-release-versions) beschrieben, ein Suffix der Vorabversion. |
-| **description** | Eine ausführliche Beschreibung des Pakets für die Anzeige der Benutzeroberfläche. |
+| **Beschreibung** | Eine ausführliche Beschreibung des Pakets für die Anzeige der Benutzeroberfläche. |
 | **authors** | Eine durch Kommas getrennte Liste der Paketautoren, die mit Profilnamen unter nuget.org übereinstimmen. Diese werden im NuGet-Katalog unter nuget.org angezeigt und werden verwendet, um Querverweise auf Pakete von den gleichen Autoren zu geben. |
 
 ### <a name="optional-metadata-elements"></a>Optionale Metadatenelemente
@@ -186,7 +189,7 @@ Das `<dependencies>`-Element in `<metadata>` enthält eine beliebige Anzahl von 
 | Build | Build (MSBuild-Eigenschaften und -Ziele) |
 | Systemeigen | Systemeigen |
 | Keine | Keine Ordner |
-| all | Alle Ordner |
+| alle | Alle Ordner |
 
 Beispielsweise verweisen die folgenden Zeilen auf Abhängigkeiten auf `PackageA` Version 1.1.0 und höher und `PackageB` Version 1.x.
 
