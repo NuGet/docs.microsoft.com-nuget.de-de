@@ -6,17 +6,20 @@ manager: unniravindranathan
 ms.date: 03/06/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Informationen zur Verwendung von signierten Paketen zur Aktivierung der Integritätsüberprüfung des Inhalts."
+ms.technology: ''
+description: Informationen zur Verwendung von signierten Paketen zur Aktivierung der Integritätsüberprüfung des Inhalts.
 keywords: Signieren von NuGet-Paketen, NuGet-Sicherheit, Erstellen von signierten Paketen
 ms.reviewer:
 - karann-msft
 - anangaur
-ms.openlocfilehash: aaf6ab7d7a9e66d4d9519d8aa79f0d0fac646d3a
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 61d90066e8cf75c8f49c7cc9390d45e1cd8afd0d
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="signing-nuget-packages"></a>Signieren von NuGet-Paketen
 

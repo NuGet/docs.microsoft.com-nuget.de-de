@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 01/09/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Eine exemplarische Vorgehensweise, in der erklärt wird, wie Sie NuGet-Pakete mit Team Foundation Build wiederherstellen können (sowohl Team Foundation Server als auch Visual Studio Team Services)."
+ms.technology: ''
+description: Eine exemplarische Vorgehensweise, in der erklärt wird, wie Sie NuGet-Pakete mit Team Foundation Build wiederherstellen können (sowohl Team Foundation Server als auch Visual Studio Team Services).
 keywords: NuGet-Paketwiederherstellung, NuGet und TFS, NuGet und VSTS, NuGet-Buildsysteme, Team Foundation Build, benutzerdefinierte MSBuild-Projekte, Cloudbuild, Continuous Integration
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9e3ef6e3bcc55705315fcb6ccf3e917963c62250
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: f46a7402214bf965918a5195605027913a8c60c2
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>Einrichten der Paketwiederherstellung mit Team Foundation Build
 
@@ -110,6 +113,9 @@ Die `.gitignore`-Datei sieht folgendermaßen aus:
     bin
     obj
     packages
+    *.nupkg
+    project.lock.json
+    project.assets.json
 
 Die `.gitignore`-Datei ist [leistungsstark](https://www.kernel.org/pub/software/scm/git/docs/gitignore.html). Wenn Sie z.B. prinzipiell keine Inhalte des `packages`-Ordners einchecken, aber das vorherige Eincheckverhalten von `.targets`-Dateien beibehalten möchten, können Sie stattdessen folgende Regel verwenden:
 
@@ -125,6 +131,9 @@ Team Foundation-Versionskontrolle unterstützt mit der [TFIGNORE](/vsts/tfvc/add
     bin
     obj
     packages
+    *.nupkg
+    project.lock.json
+    project.assets.json
 
 ## <a name="buildproj"></a>build.proj
 

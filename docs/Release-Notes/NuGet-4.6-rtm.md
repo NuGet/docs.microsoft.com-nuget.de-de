@@ -6,18 +6,21 @@ manager: unnir
 ms.date: 3/7/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Anmerkungen zu NuGet 4.6.0, einschließlich bekannter Fehler, Fehlerkorrekturen, hinzugefügter Features und DCRs."
-keywords: "Anmerkungen zu NuGet 4.6.0, Fehlerkorrekturen, bekannte Fehler, hinzugefügte Features, DCRs"
+ms.technology: ''
+description: Anmerkungen zu NuGet 4.6.0, einschließlich bekannter Fehler, Fehlerkorrekturen, hinzugefügter Features und DCRs.
+keywords: Anmerkungen zu NuGet 4.6.0, Fehlerkorrekturen, bekannte Fehler, hinzugefügte Features, DCRs
 ms.reviewer:
 - karann-msft
 - unniravindranathan
 - anangaur
-ms.openlocfilehash: 32bfe8a7d5d60a0ad24444749beff64edcaab305
-ms.sourcegitcommit: fa31ae10b5a5add7184bf7420554aade8adce6ed
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 004ad16018443292840b00fa88aa78350e371414
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-46-rtm-release-notes"></a>Anmerkungen zu Version 4.6 RTM von NuGet
 

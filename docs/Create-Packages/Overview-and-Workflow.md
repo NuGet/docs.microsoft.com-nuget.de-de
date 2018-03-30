@@ -1,22 +1,25 @@
 ---
-title: "Erstellen von NuGet-Paketen: Übersicht und Workflow | Microsoft-Dokumentation"
+title: 'Erstellen von NuGet-Paketen: Übersicht und Workflow | Microsoft-Dokumentation'
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 07/26/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Eine Übersicht über das Erstellen und Veröffentlichen von NuGet-Paketen, die Links zu anderen spezifischen Teilen des Prozesses enthält."
-keywords: "Erstellung von NuGet-Paketen, Übersicht über die Erstellung von NuGet-Paketen, Workflow der Erstellung von NuGet-Paketen, Workflow der Erstellung von Paketen, Übersicht über die Erstellung von Paketen"
+ms.technology: ''
+description: Eine Übersicht über das Erstellen und Veröffentlichen von NuGet-Paketen, die Links zu anderen spezifischen Teilen des Prozesses enthält.
+keywords: Erstellung von NuGet-Paketen, Übersicht über die Erstellung von NuGet-Paketen, Workflow der Erstellung von NuGet-Paketen, Workflow der Erstellung von Paketen, Übersicht über die Erstellung von Paketen
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 84587ad1f511416cc03b6fee153d1df44d0e7aa7
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: df08e15c2632a88ea7cc3333d64f4844c78c278d
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="package-creation-workflow"></a>Workflow für die Paketerstellung
 
