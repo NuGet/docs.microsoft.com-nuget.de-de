@@ -6,17 +6,20 @@ manager: unniravindranathan
 ms.date: 03/03/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Anmerkungen zu Version 4.0 RTM von NuGet, einschließlich bekannter Fehler, Fehlerkorrekturen, hinzugefügter Features und DCRs."
-keywords: "Anmerkungen zu Version 4.0 RTM von NuGet, Fehlerkorrekturen, bekannte Fehler, hinzugefügte Features, DCRs"
+ms.technology: ''
+description: Anmerkungen zu Version 4.0 RTM von NuGet, einschließlich bekannter Fehler, Fehlerkorrekturen, hinzugefügter Features und DCRs.
+keywords: Anmerkungen zu Version 4.0 RTM von NuGet, Fehlerkorrekturen, bekannte Fehler, hinzugefügte Features, DCRs
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d1ab89f0decb64a64d04dc293e5273b577e8398b
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 75ce757c209afd74f8d4f45d58d4e13a23b3b743
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-40-rtm-release-notes"></a>Anmerkungen zu Version 4.0 RTM von NuGet
 
@@ -134,7 +137,7 @@ In den [Anmerkungen zu Version 4.0 RC von NuGet](../release-notes/nuget-4.0-RC.m
 
 - Unterstützung für das Hinzufügen von Verweisen in der `.csproj`-Datei über die Befehlszeile ([#3751](https://github.com/NuGet/Home/issues/3751))
 
-- Unterstützung der NuGet-Wiederherstellung für den Lightweight-Ladevorgang für Projektmappen für `packages.config` oder `project.json` ([#3711](https://github.com/NuGet/Home/issues/3711))
+- Unterstützung der NuGet-Wiederherstellung für den Lightweight-Ladevorgang für Projektmappen für `packages.config` oder `project.json` - ([#3711](https://github.com/NuGet/Home/issues/3711))
 
 - Unterstützung für „contentFiles“ in durch NuGet generierten Zieldateien ([#3683](https://github.com/NuGet/Home/issues/3683))
 
@@ -218,7 +221,7 @@ In den [Anmerkungen zu Version 4.0 RC von NuGet](../release-notes/nuget-4.0-RC.m
 
 - Bei Visual Studio tritt ein Deadlock auf, wenn Sie versuchen, ein Projekt zu schließen, bevor die Wiederherstellung von NuGet abgeschlossen ist ([#4257](https://github.com/NuGet/Home/issues/4257))
 
-- Probleme mit „PackTask“ und dem Packen von `.nuspec` ([#4250](https://github.com/NuGet/Home/issues/4250))
+- Probleme mit „PackTask“ und dem Packen von `.nuspec` -  ([#4250](https://github.com/NuGet/Home/issues/4250))
 
 - [vsfeedback] NuGet-Pakete können für neue Projekte nicht aufgelöst werden (Visual Studio muss neu gestartet werden) ([#4217](https://github.com/NuGet/Home/issues/4217))
 
@@ -228,11 +231,11 @@ In den [Anmerkungen zu Version 4.0 RC von NuGet](../release-notes/nuget-4.0-RC.m
 
 - NuGet 3.5.0 entpackt `.targets` nicht aus dem Paket ([#4171](https://github.com/NuGet/Home/issues/4171))
 
-- „dotnet pack“ unterstützt in `.csproj` keine Titel ([#4150](https://github.com/NuGet/Home/issues/4150))
+- „dotnet pack“ unterstützt in `.csproj` -  keine Titel ([#4150](https://github.com/NuGet/Home/issues/4150))
 
 - „Install-Package“ führt zu einer Fehlermeldung in Visual Studio 2017 RC ([#4127](https://github.com/NuGet/Home/issues/4127))
 
-- Das Aktualisieren eines Pakets für .NET Core-Projekte scheint nicht zu funktionieren, da die Benutzeroberfläche das CPS-Update nicht erhält ([#4035](https://github.com/NuGet/Home/issues/4035))
+- Das Aktualisieren eines Pakets für .NET Core-Projekte scheint nicht zu funktionieren, da die Benutzeroberfläche das CPS-Update nicht erhält - ([#4035](https://github.com/NuGet/Home/issues/4035))
 
 - Verbesserung der Warnung für nicht aufgelöste Verweise ([#3955](https://github.com/NuGet/Home/issues/3955))
 
@@ -240,7 +243,7 @@ In den [Anmerkungen zu Version 4.0 RC von NuGet](../release-notes/nuget-4.0-RC.m
 
 - Regression der insgesamt verstrichenen Zeit von „Erstellen einer UWP-App“, „Erstellen eines Projekts“ und „Neuerstellen“ ([#3873](https://github.com/NuGet/Home/issues/3873))
 
-- Die Meldung für die erfolgreiche Wiederherstellung wird auch angezeigt, wenn während der Wiederherstellung ein Fehler auftritt ([#3799](https://github.com/NuGet/Home/issues/3799))
+- Die Meldung für die erfolgreiche Wiederherstellung wird auch angezeigt, wenn während der Wiederherstellung ein Fehler auftritt  - ([#3799](https://github.com/NuGet/Home/issues/3799))
 
 - Erneutes Veröffentlichen von Nuget.CommandLine 3.4.4 auf nuget.org ([#2931](https://github.com/NuGet/Home/issues/2931))
 
@@ -254,7 +257,7 @@ In den [Anmerkungen zu Version 4.0 RC von NuGet](../release-notes/nuget-4.0-RC.m
 
 - Die Fehlerliste enthält einen Fehler nach dem Erstellen der Projektmappe, der das Projekt entlädt, auf das verwiesen wird ([#4208](https://github.com/NuGet/Home/issues/4208))
 
-- MSB4057: „Das Ziel ‚_GenerateRestoreGraphProjectEntry‘ ist im Projekt nicht vorhanden.“ ([#4194](https://github.com/NuGet/Home/issues/4194))
+- MSB4057: „Das Ziel ‚_GenerateRestoreGraphProjectEntry‘ ist im Projekt nicht vorhanden.“ -  ([#4194](https://github.com/NuGet/Home/issues/4194))
 
 - vsfeedback: Die Benutzeroberfläche des NuGet-Managers für Projektmappen stürzt ab, wenn alle Projekte ausgewählt werden ([#4191](https://github.com/NuGet/Home/issues/4191))
 
@@ -270,7 +273,7 @@ In den [Anmerkungen zu Version 4.0 RC von NuGet](../release-notes/nuget-4.0-RC.m
 
 - VSFeedback: Fehler bei der Wiederherstellung können die umfangreicheren Fehlermeldungen des Builds verdecken ([#4113](https://github.com/NuGet/Home/issues/4113))
 
-- [VSFeedback] Fehler beim Wiederherstellen von NuGet-Paketen für das Websiteprojekt: „Der Wert darf nicht NULL sein.“ ([#4092](https://github.com/NuGet/Home/issues/4092))
+- [VSFeedback] Fehler beim Wiederherstellen von NuGet-Paketen für das Websiteprojekt: „Der Wert darf nicht NULL sein.“ -  ([#4092](https://github.com/NuGet/Home/issues/4092))
 
 - Bei der Migration wird eine Ausnahme beim Objektverweis in „NuGet.PackageManagement.VisualStudio.SolutionRestoreWorker“ ausgelöst ([#4067](https://github.com/NuGet/Home/issues/4067))
 
@@ -306,7 +309,7 @@ In den [Anmerkungen zu Version 4.0 RC von NuGet](../release-notes/nuget-4.0-RC.m
 
 - Der lokale Hilfetexte in NuGet erwähnt weiterhin den Paketcache ([#3592](https://github.com/NuGet/Home/issues/3592))
 
-- „Restore3“ koppelt „PackageReferences“ mit „TargetFrameworks“ ([#3504](https://github.com/NuGet/Home/issues/3504))
+- „Restore3“ koppelt „PackageReferences“ mit „TargetFrameworks“ -  ([#3504](https://github.com/NuGet/Home/issues/3504))
 
 - NuGet wählt in der Eingabeaufforderung von VS „15“ Developer (Vorschauversion 4) eine unerwartete Version von MSBuild aus ([#3408](https://github.com/NuGet/Home/issues/3408))
 
@@ -332,7 +335,7 @@ In den [Anmerkungen zu Version 4.0 RC von NuGet](../release-notes/nuget-4.0-RC.m
 
 - „dotnet pack“ scheint die Version von „ProjectReference“ immer auf 1.0.0 festzulegen ([#3874](https://github.com/NuGet/Home/issues/3874))
 
-- „dotnet pack“ schlägt trotz Projektverweisen und <TargetFramework> fehl ([#3865](https://github.com/NuGet/Home/issues/3865))
+- „dotnet pack“ schlägt trotz Projektverweisen und <TargetFramework> -  fehl ([#3865](https://github.com/NuGet/Home/issues/3865))
 
 - „LockRecursionException“ in „ProjectSystemCache.TryGetProjectNameByShortName“ ([#3861](https://github.com/NuGet/Home/issues/3861))
 

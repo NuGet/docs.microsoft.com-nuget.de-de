@@ -6,18 +6,21 @@ manager: unniravindranathan
 ms.date: 08/14/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Anmerkungen zu Version 4.3 RTM von NuGet, einschließlich bekannter Fehler, Fehlerkorrekturen, hinzugefügter Funktionen und DCRs."
-keywords: "Anmerkungen zu Version 4.3 RTM von NuGet, Fehlerkorrekturen, bekannte Fehler, hinzugefügte Funktionen, DCRs"
+ms.technology: ''
+description: Anmerkungen zu Version 4.3 RTM von NuGet, einschließlich bekannter Fehler, Fehlerkorrekturen, hinzugefügter Funktionen und DCRs.
+keywords: Anmerkungen zu Version 4.3 RTM von NuGet, Fehlerkorrekturen, bekannte Fehler, hinzugefügte Funktionen, DCRs
 ms.reviewer:
 - karann-msft
 - unniravindranathan
 - anangaur
-ms.openlocfilehash: 25f41649807b29d39900aa86e2c26f05463e91eb
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 6c122dc3d9b576a2ea5f094746a830e5fab5637e
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-44-rtm-release-notes"></a>Anmerkungen zu Version 4.4 RTM von NuGet
 
@@ -121,11 +124,11 @@ In den [Anmerkungen zu der Version 4.3 RTM von NuGet](../release-notes/nuget-4.3
 
 - Die Funktion „GeneratePackageOnBuild“ wurde aktiviert, und dadurch wurde der gesamte Paketverlauf gelöscht ([#5676](https://github.com/NuGet/Home/issues/5676))
 
-- Bei der Wiederherstellung werden alle Pakete bis auf „mono.cecil“- oder SemVer-Pakete wiederhergestellt.([#5649](https://github.com/NuGet/Home/issues/5649))
+- Bei der Wiederherstellung werden alle Pakete bis auf „mono.cecil“- oder SemVer-Pakete wiederhergestellt.( - [#5649](https://github.com/NuGet/Home/issues/5649))
 
-- Fehler und Warnungen: ungültiger Fehler, wenn eine Quelle nicht verfügbar ist([#5644](https://github.com/NuGet/Home/issues/5644))
+- Fehler und Warnungen: ungültiger Fehler, wenn eine Quelle nicht verfügbar ist(  - [#5644](https://github.com/NuGet/Home/issues/5644))
 
-- [DesignConsistency] Der Statustext für die NuGet-Installation wird in dunklen Designs nicht korrekt dargestellt.([#5642](https://github.com/NuGet/Home/issues/5642))
+- [DesignConsistency] Der Statustext für die NuGet-Installation wird in dunklen Designs nicht korrekt dargestellt.( - [#5642](https://github.com/NuGet/Home/issues/5642))
 
 - Updates werden in der Projektmappe für alle Projekte installiert ([#5508](https://github.com/NuGet/Home/issues/5508))
 
