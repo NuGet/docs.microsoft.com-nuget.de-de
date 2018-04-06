@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 description: Bekannte Probleme mit NuGet, z.B. mit der Authentifizierung, der Installation von Paketen und mit Tools.
 keywords: Bekannte Probleme mit NuGet, Probleme mit NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ac00e3f11c54290a31319e7f2946fd965a0a9288
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: c36da5dc73dddbd540a36d171583cbf542e0678f
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="known-issues-with-nuget"></a>Bekannte Probleme mit NuGet
 
@@ -227,7 +230,7 @@ Windows Phone-Tools unterstützen den Erweiterungs-Manager für Visual Studio ni
 
 ## <a name="changing-the-capitalization-of-nuget-package-ids-breaks-package-restore"></a>Das Ändern der Groß-/Kleinschreibung von NuGet-Paket-IDs unterbricht die Paketwiederherstellung
 
-Wie in diesem [GitHub-Problem](https://github.com/Particular/NServiceBus/issues/1271#issuecomment-20865932) ausführlich erläutert wird, kann eine Änderung der Groß-/Kleinschreibung von NuGet-Paketen vom NuGet-Support durchgeführt werden. Dies führt jedoch zu Komplikationen während der Paketwiederherstellung für Benutzer mit vorhandenen Paketen mit unterschiedlicher Groß-/Kleinschreibung im lokalen Paketcache. Es wird empfohlen, nur eine Änderung der Groß-/Kleinschreibung anzufordern, wenn Sie mit den Benutzern Ihrer Pakete kommunizieren können, um diese über die Unterbrechung zu informieren, die bei der Paketwiederherstellung zur Buildzeit auftreten kann.
+Wie in diesem [GitHub-Problem](https://github.com/Particular/NServiceBus/issues/1271#issuecomment-20865932) ausführlich erläutert wird, kann eine Änderung der Groß-/Kleinschreibung von NuGet-Paketen vom NuGet-Support durchgeführt werden. Dies führt jedoch zu Komplikationen während der Paketwiederherstellung für Benutzer mit vorhandenen Paketen mit unterschiedlicher Groß-/Kleinschreibung im Ordner *global-packages*. Es wird empfohlen, nur eine Änderung der Groß-/Kleinschreibung anzufordern, wenn Sie mit den Benutzern Ihrer Pakete kommunizieren können, um diese über die Unterbrechung zu informieren, die bei der Paketwiederherstellung zur Buildzeit auftreten kann.
 
 ## <a name="reporting-issues"></a>Melden von Problemen
 

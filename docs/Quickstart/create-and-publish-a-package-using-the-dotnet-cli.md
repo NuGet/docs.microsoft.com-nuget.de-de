@@ -1,22 +1,25 @@
 ---
-title: "Erstellen und Veröffentlichen eines NuGet-Pakets mithilfe der Dotnet-CLI | Microsoft-Dokumentation"
+title: Erstellen und Veröffentlichen eines NuGet-Pakets mithilfe der Dotnet-CLI | Microsoft-Dokumentation
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/24/2018
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.prod: nuget
-ms.technology: 
-description: "Eine exemplarische Vorgehensweise zur Erstellung und Veröffentlichung eines NuGet-Pakets mit der .NET Core-CLI „dotnet“."
-keywords: "NuGet-Paketerstellung, NuGet-Paketveröffentlichung, NuGet-Tutorial, „dotnet publish“-NuGet-Paket"
+ms.technology: ''
+description: Eine exemplarische Vorgehensweise zur Erstellung und Veröffentlichung eines NuGet-Pakets mit der .NET Core-CLI „dotnet“.
+keywords: NuGet-Paketerstellung, NuGet-Paketveröffentlichung, NuGet-Tutorial, „dotnet publish“-NuGet-Paket
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 086de5378fe4ae928e6bd00cd3a87afd7c366a01
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 536e39ae64649ca1c11afa95c20872515e9e4c83
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-and-publish-a-package"></a>Erstellen und Veröffentlichen eines Pakets
 
@@ -59,14 +62,14 @@ Jedes NuGet-Paket benötigt ein Manifest, das die Inhalte und Abhängigkeiten de
 
 ## <a name="run-the-pack-command"></a>Ausführen des Befehls pack
 
-Führen Sie den Befehl `dotnet pack` aus, um ein NuGet-Paket (eine `.nupkg`-Datei) aus dem Projekt zu erstellen:
+Um ein NuGet-Paket (eine `.nupkg`-Datei) aus dem Projekt zu erstellen, führen Sie den `dotnet pack`-Befehl aus, der auch das Projekt automatisch erstellt:
 
 ```cli
 # Uses the project file in the current folder by default
 dotnet pack
 ```
 
-Die Ausgabe zeigt den Pfad zu der `.nupkg`-Datei an:
+Die Ausgabe zeigt den Pfad zu der `.nupkg`-Datei:
 
 ```output
 Microsoft (R) Build Engine version 15.5.180.51428 for .NET Core
@@ -75,6 +78,14 @@ Copyright (C) Microsoft Corporation. All rights reserved.
   Restore completed in 29.91 ms for D:\proj\AppLoggerNet\AppLogger\AppLogger.csproj.
   AppLogger -> D:\proj\AppLoggerNet\AppLogger\bin\Debug\netstandard2.0\AppLogger.dll
   Successfully created package 'D:\proj\AppLoggerNet\AppLogger\bin\Debug\AppLogger.1.0.0.nupkg'.
+```
+
+### <a name="automatically-generate-package-on-build"></a>Automatisches Generieren des Pakets bei der Erstellung
+
+Um automatisch `dotnet pack` auszuführen, wenn Sie `dotnet build` ausführen, fügen Sie folgende Zeile zu Ihrer Projektdatei in `<PropertyGroup>` hinzu:
+
+```xml
+<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 ```
 
 ## <a name="publish-the-package"></a>Veröffentlichen des Pakets

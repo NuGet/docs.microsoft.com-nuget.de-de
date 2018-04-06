@@ -6,18 +6,20 @@ manager: ghogen
 ms.date: 12/07/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-ms.assetid: 2785879b-97f0-4a85-b3cc-bf4eaa5c39bf
-description: "Hier finden Sie Informationen dazu, wann es nötig ist, Pakete neu zu installieren und zu aktualisieren (z.B. bei fehlerhaften Paketverweisen in Visual Studio)."
+ms.technology: ''
+description: Hier finden Sie Informationen dazu, wann es nötig ist, Pakete neu zu installieren und zu aktualisieren (z.B. bei fehlerhaften Paketverweisen in Visual Studio).
 keywords: NuGet-Paketinstallation, erneute Installation eines NuGet-Pakets, NuGet-Paketwiederherstellung, Aktualisieren eines Pakets, Paketwiederherstellung, Beheben fehlerhafter Verweise
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e2875630b24fbe04fc7bcab52335d849e54160de
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 9da385f51abf5877589c29ebdeffefc9a1a20a2e
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Neuinstallieren und Aktualisieren von Paketen
 
@@ -48,7 +50,7 @@ In diesem Artikel:
 
 Standardmäßig wird durch die Neuinstallation oder das Update eines Pakets *immer* die neueste verfügbare Version aus der Paketquelle installiert.
 
-In Projekten, die das `packages.config`-Verweisformat verwenden, können Sie jedoch den Versionsbereich explizit einschränken. Wenn Sie z.B. wissen, dass Ihre Anwendung nur mit Version 1.x eines Pakets funktioniert, jedoch nicht mit 2.0 oder höher (vielleicht aufgrund einer größeren Änderung in der Paket-API), sollten Sie die Upgrades auf 1.x-Versionen beschränken. Dadurch werden versehentliche Updates verhindert, die die Anwendung zerstören würden.
+In Projekten, die das `packages.config`-Verwaltungsformat verwenden, können Sie jedoch den Versionsbereich explizit einschränken. Wenn Sie z.B. wissen, dass Ihre Anwendung nur mit Version 1.x eines Pakets funktioniert, jedoch nicht mit 2.0 oder höher (vielleicht aufgrund einer größeren Änderung in der Paket-API), sollten Sie die Upgrades auf 1.x-Versionen beschränken. Dadurch werden versehentliche Updates verhindert, die die Anwendung zerstören würden.
 
 Um eine Einschränkung festzulegen, öffnen Sie `packages.config` in einem Text-Editor, suchen Sie nach der betreffenden Abhängigkeit, und fügen Sie das Attribut `allowedVersions` mit einem Versionsbereich hinzu. Wenn Sie z.B. Updates auf Version 1.x beschränken möchten, legen Sie `allowedVersions` auf `[1,2)` fest:
 

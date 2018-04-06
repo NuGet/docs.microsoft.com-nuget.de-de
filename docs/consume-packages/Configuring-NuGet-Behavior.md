@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 10/25/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "NuGet.Config-Dateien steuern das Verhalten von NuGet global und auf Projektebene und werden mit dem Befehl „nuget config“ bearbeitet."
-keywords: "NuGet-Konfigurationsdateien, NuGet-Konfiguration, Einstellungen für das NuGet-Verhalten, NuGet-Einstellungen, NuGet.Config, NuGetDefaults.Config, Standardeinstellungen"
+ms.technology: ''
+description: NuGet.Config-Dateien steuern das Verhalten von NuGet global und auf Projektebene und werden mit dem Befehl „nuget config“ bearbeitet.
+keywords: NuGet-Konfigurationsdateien, NuGet-Konfiguration, Einstellungen für das NuGet-Verhalten, NuGet-Einstellungen, NuGet.Config, NuGetDefaults.Config, Standardeinstellungen
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c46f23fcbec5dfcb6122434d43097212f6230fb0
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: a575868894d5ca9992b1c9984cf4920bd2858209
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configuring-nuget-behavior"></a>Konfigurieren des NuGet-Verhaltens
 
@@ -27,7 +30,7 @@ Das Verhalten von NuGet wird durch die Eigenschaften gesteuert, die in einer ode
 | Bereich | Speicherort der NuGet.Config-Datei | description |
 | --- | --- | --- |
 | Projekt | Aktueller Ordner (bzw. Projektordner) oder ein beliebiger anderer Ordner im Stammlaufwerk.| Die Einstellungen in einem Projektordner gelten nur für dieses Projekt. Die Einstellungen in einem übergeordneten Ordner, der mehrere Unterordner mit Projekten enthält, gelten für alle Projekte in diesen Unterordnern. |
-| Benutzer | Windows: `%APPDATA%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.nuget/NuGet/NuGet.Config` | Die Einstellungen gelten für alle Vorgänge, werden jedoch durch sämtliche Einstellungen auf Projektebene überschrieben. |
+| Benutzer | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.nuget/NuGet/NuGet.Config` | Die Einstellungen gelten für alle Vorgänge, werden jedoch durch sämtliche Einstellungen auf Projektebene überschrieben. |
 | Computer | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME` (in der Regel `~/.local/share`) | Die Einstellungen gelten für alle Vorgänge auf dem Computer, werden jedoch durch sämtliche Einstellungen auf Benutzer- oder Projektebene überschrieben. |
 
 Hinweise für frühere Versionen von NuGet:
@@ -94,7 +97,7 @@ nuget config -set repositoryPath= -configfile /home/my.Config
 
 ### <a name="creating-a-new-config-file"></a>Erstellen einer neuen Konfigurationsdatei
 
-Kopieren Sie die unten aufgeführte Vorlage in die neue Datei, und verwenden Sie dann `nuget config --configFile <filename>`, um Werte festzulegen:
+Kopieren Sie die unten aufgeführte Vorlage in die neue Datei, und verwenden Sie dann `nuget config -configFile <filename>`, um Werte festzulegen:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -137,7 +140,7 @@ Nehmen wir an, dass Sie über folgende Ordnerstruktur auf zwei separaten Laufwer
 
 Sie verfügen dann über vier `NuGet.Config`-Dateien an folgenden Speicherorten mit dem angegebenen Inhalt. (Die Datei auf Computerebene ist in diesem Beispiel nicht enthalten. Diese würde sich jedoch ähnlich wie die Datei auf Benutzerebene verhalten.)
 
-Datei A auf Benutzerebene (`%APPDATA%\NuGet\NuGet.Config` unter Windows, `~/.nuget/NuGet/NuGet.Config` unter Mac/Linux):
+Datei A auf Benutzerebene (`%appdata%\NuGet\NuGet.Config` unter Windows, `~/.nuget/NuGet/NuGet.Config` unter Mac/Linux):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -220,7 +223,7 @@ In der folgenden Tabelle wird beschrieben, wo die `NuGetDefaults.Config`-Datei g
 
 ### <a name="nugetdefaultsconfig-settings"></a>Einstellungen von NuGetDefaults.Config
 
-- `packageSources`: Diese Auflistung hat in regulären Konfigurationsdateien die gleiche Bedeutung wie `packageSources` und gibt die Standardquellen an. NuGet verwendet die Quellen in der chronologischen Reihenfolge der Installation oder Aktualisierung von Paketen in Projekten unter Verwendung der Referenzformate von `packages.config`. Für Pakete, die das PackageReference-Format verwenden, verwendet NuGet unabhängig von der Reihenfolge der Konfigurationsdateien zuerst die lokalen Quellen, dann die Quellen auf Netzwerkfreigaben und anschließend HTTP-Quellen. NuGet ignoriert immer die Reihenfolge von Quellen mit Wiederherstellungsvorgängen.
+- `packageSources`: Diese Auflistung hat in regulären Konfigurationsdateien die gleiche Bedeutung wie `packageSources` und gibt die Standardquellen an. NuGet verwendet die Quellen in der chronologischen Reihenfolge der Installation oder Aktualisierung von Paketen in Projekten unter Verwendung der Verwaltungsformate von `packages.config`. Für Pakete, die das PackageReference-Format verwenden, verwendet NuGet unabhängig von der Reihenfolge der Konfigurationsdateien zuerst die lokalen Quellen, dann die Quellen auf Netzwerkfreigaben und anschließend HTTP-Quellen. NuGet ignoriert immer die Reihenfolge von Quellen mit Wiederherstellungsvorgängen.
 
 - `disabledPackageSources`: Diese Auflistung hat ebenfalls die gleiche Bedeutung wie in `NuGet.Config`-Dateien, bei denen jede betroffene Quelle mit ihrem Namen und einem TRUE- oder FALSE-Wert aufgeführt wird, der angibt, ob diese deaktiviert ist oder nicht. Dadurch wird ermöglicht, dass der Quellname und die URL in `packageSources` verbleiben, ohne dass diese standardmäßig aktiviert sein muss. Einzelne Entwickler können die Quelle erneut aktivieren, indem sie den Wert der Quelle in anderen `NuGet.Config`-Dateien auf FALSE festlegen. Die richtige URL muss somit nicht erneut gesucht werden. Dies ist nützlich, um Entwicklern eine vollständige Liste der internen Quell-URLs für eine Organisation bereitzustellen und gleichzeitig nur eine einzige Quelle für das Team standardmäßig zu aktivieren.
 

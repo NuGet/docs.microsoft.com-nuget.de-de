@@ -1,22 +1,25 @@
 ---
-title: "Abhängigkeitsauflösungen für NuGet-Pakete | Microsoft-Dokumentation"
+title: Abhängigkeitsauflösungen für NuGet-Pakete | Microsoft-Dokumentation
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 08/14/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Details zum Vorgang, bei dem die Abhängigkeiten eines NuGet-Pakets aufgelöst und in NuGet 2.x und NuGet 3.x und höher installiert werden."
-keywords: "NuGet-Paketabhängigkeiten, NuGet-Versionsverwaltung, Abhängigkeitsversionen, Versionsdiagramm, Versionsauflösung, transitive Wiederherstellung"
+ms.technology: ''
+description: Details zum Vorgang, bei dem die Abhängigkeiten eines NuGet-Pakets aufgelöst und in NuGet 2.x und NuGet 3.x und höher installiert werden.
+keywords: NuGet-Paketabhängigkeiten, NuGet-Versionsverwaltung, Abhängigkeitsversionen, Versionsdiagramm, Versionsauflösung, transitive Wiederherstellung
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: aa2537a2538d0ea665944784ef183dc12faa9b38
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: d387acd369c88a64abaa2cb94a913fe211df8da1
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Auflösung von Paketabhängigkeiten durch NuGet
 
@@ -24,7 +27,7 @@ Bei jeder Installation oder Neuinstallation eines Pakets, was auch die Installat
 
 Diese unmittelbaren Abhängigkeiten verfügen möglicherweise ebenfalls über Abhängigkeiten, die über weitere Abhängigkeiten verfügen, usw. Dadurch entsteht ein sogenanntes *Abhängigkeitsdiagramm*, das die Beziehungen zwischen den Paketen auf sämtlichen Ebenen darstellt.
 
-Wenn mehrere Pakete über dieselbe Abhängigkeit verfügen, kann in dem Diagramm auch mehrmals dieselbe Paket-ID angezeigt werden, möglicherweise mit verschiedenen Versionseinschränkungen. Trotzdem kann nur eine Version eines vorhandenen Pakets in einem Projekt verwendet werden, sodass NuGet auswählen muss, welche Version verwendet wird. Der genaue Prozess ist abhängig vom verwendeten Paketreferenzformat.
+Wenn mehrere Pakete über dieselbe Abhängigkeit verfügen, kann in dem Diagramm auch mehrmals dieselbe Paket-ID angezeigt werden, möglicherweise mit verschiedenen Versionseinschränkungen. Trotzdem kann nur eine Version eines vorhandenen Pakets in einem Projekt verwendet werden, sodass NuGet auswählen muss, welche Version verwendet wird. Der genaue Prozess ist abhängig vom verwendeten Paketverwaltungsformat.
 
 ## <a name="dependency-resolution-with-packagereference"></a>Abhängigkeitsauflösung mit PackageReference
 
@@ -109,7 +112,7 @@ Im Hinblick auf die `packages.config`-Datei versucht NuGet, Abhängigkeitskonfli
 
 NuGet 2.8 sucht standardgemäß nach der niedrigsten Patchversion (siehe [NuGet 2.8 release notes (Anmerkungen zu NuGet Version 2.8)](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies)). Diese Einstellung können Sie über das `DependencyVersion`-Attribut in der `Nuget.Config`-Datei und den `-DependencyVersion`-Schalter in der Befehlszeile ändern.  
 
-Der `packages.config`-Vorgang zum Auflösen von Abhängigkeiten gestaltet sich bei größeren Abhängigkeitsdiagrammen als schwierig. Bei jeder neuen Paketinstallation ist ein Durchlauf des gesamten Diagramms erforderlich, wobei Versionskonflikte entstehen können. Wenn ein Konflikt entsteht, wird die Installation angehalten. Dann befindet sich das Projekt in einem unbestimmten Zustand, insbesondere, wenn Änderungen an der Projektdatei vorgenommen werden. Dieses Problem tritt nicht auf, wenn andere Formate für Paketverweise verwendet werden.
+Der `packages.config`-Vorgang zum Auflösen von Abhängigkeiten gestaltet sich bei größeren Abhängigkeitsdiagrammen als schwierig. Bei jeder neuen Paketinstallation ist ein Durchlauf des gesamten Diagramms erforderlich, wobei Versionskonflikte entstehen können. Wenn ein Konflikt entsteht, wird die Installation angehalten. Dann befindet sich das Projekt in einem unbestimmten Zustand, insbesondere, wenn Änderungen an der Projektdatei vorgenommen werden. Dieses Problem tritt nicht auf, wenn andere Formate für die Paketverwaltung verwendet werden.
 
 ## <a name="managing-dependency-assets"></a>Verwalten von Abhängigkeitsobjekten
 
@@ -121,7 +124,7 @@ Wenn es sich bei dem Projekt auf oberster Ebene bereits um ein Paket handelt, k�
 
 In einigen Szenarios wird möglicherweise mehrmals in einem Projekt auf Assemblys verwiesen, die denselben Namen haben, wodurch Fehler ausgelöst werden, die die Entwurfszeit und die Buildzeit betreffen. Nehmen wir z.B. ein Projekt mit einer benutzerdefinierten Version von `C.dll`, das auf Paket C verweist, das ebenfalls `C.dll` enthält. Gleichzeitig ist das Projekt von Paket B abhängig, das ebenfalls von Paket C und `C.dll` abhängig ist. Aus diesem Grund kann NuGet nicht bestimmen, welche `C.dll`-Version es verwenden soll. Sie können dabei aber nicht die Abhängigkeit des Projekts von Paket C entfernen, da auch Paket B davon abhängig ist.
 
-Wenn Sie dieses Problem lösen möchten, müssen Sie direkt auf die Version von `C.dll` verweisen, die verwendet werden soll, oder ein anderes Paket verwenden, dass auf die richtige Version verweist. Fügen Sie anschließend eine Abhängigkeit von Paket C hinzu, die alle Objekte dieses Pakets ausschließt. Abhängig von dem verwendeten Format für Paketverweise, führen Sie dafür folgende Schritte aus:
+Wenn Sie dieses Problem lösen möchten, müssen Sie direkt auf die Version von `C.dll` verweisen, die verwendet werden soll, oder ein anderes Paket verwenden, dass auf die richtige Version verweist. Fügen Sie anschließend eine Abhängigkeit von Paket C hinzu, die alle Objekte dieses Pakets ausschließt. Abhängig von dem verwendeten Format für die Paketverwaltung, führen Sie dafür folgende Schritte aus:
 
 - [PackageReference](../consume-packages/package-references-in-project-files.md): Fügen Sie der Abhängigkeit `Exclude="All"` hinzu:
 

@@ -1,23 +1,25 @@
 ---
-title: "Suchen und Auswählen von NuGet-Paketen | Microsoft-Dokumentation"
+title: Suchen und Auswählen von NuGet-Paketen | Microsoft-Dokumentation
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 12/07/2017
+ms.date: 03/16/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-ms.assetid: 8886f899-797b-4704-9d16-820b55b71186
-description: "Eine Übersicht darüber, wie Sie die besten NuGet-Pakete für ein Projekt suchen und auswählen sowie Details zur Syntax der NuGet-Suche."
-keywords: "Nutzung und Ermittlung von NuGet-Paketen, die besten NuGet-Pakete, Auswählen, Nutzen und Auswerten von Paketen, Syntax der NuGet-Suche"
+ms.technology: ''
+description: Eine Übersicht darüber, wie Sie die besten NuGet-Pakete für ein Projekt suchen und auswählen sowie Details zur Syntax der NuGet-Suche.
+keywords: Nutzung und Ermittlung von NuGet-Paketen, die besten NuGet-Pakete, Auswählen, Nutzen und Auswerten von Paketen, Syntax der NuGet-Suche
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0c52fa237a663fcf227e8336534d344e432523b4
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 319361623e60b8bdfe3c2dbc9bdcae65783a17e3
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Suchen und Auswerten von NuGet-Paketen für Ihr Projekt
 
@@ -31,7 +33,7 @@ Wenn Sie nuget.org besuchen oder die Benutzeroberfläche des Paket-Managers in V
 
 Beachten Sie die Option **Vorabversion einbeziehen** in der oberen rechten Ecke der Seite. Wenn diese ausgewählt ist, zeigt nuget.org alle Version von Paketen an, einschließlich Betaversionen und anderen frühen Releases. Deaktivieren Sie diese Option, um nur stabile Releases anzuzeigen.
 
-Bei besonderen Anforderungen ist das Suchen mithilfe von Tags (im Paket-Manager von Visual Studio oder auf einem Portal wie nuget.org) die am häufigsten verwendete Vorgehensweise, um geeignete Pakete zu ermitteln. Wenn Sie beispielsweise nach „json“ suchen, werden alle NuGet-Pakete aufgelistet, die mit diesem Schlüsselwort kategorisiert sind und daher einen Bezug zum JSON-Datenformat aufweisen.
+Bei besonderen Anforderungen ist das Suchen mithilfe von Tags (im Paket-Manager von Visual Studio oder in einem Portal wie nuget.org) die am häufigsten verwendete Vorgehensweise, um geeignete Pakete zu ermitteln. Wenn Sie beispielsweise nach „json“ suchen, werden alle NuGet-Pakete aufgelistet, die mit diesem Schlüsselwort kategorisiert sind und daher einen Bezug zum JSON-Datenformat aufweisen.
 
 ![Suchergebnisse für „json“ auf nuget.org](media/Finding-02-SearchResults.png)
 
@@ -41,7 +43,7 @@ Derzeit sind die Suchergebnisse nur nach Relevanz sortiert, sodass Sie die erste
 
 ### <a name="does-the-package-support-my-projects-target-framework"></a>Unterstützt das Paket das Zielframework des Projekts?
 
-NuGet installiert ein Paket nur in ein Projekt, wenn die vom Paket unterstützten Frameworks das Zielframework des Projekts enthalten. (Weitere Informationen zu diesem Vorgang während der Paketerstellung finden Sie unter [Supporting multiple target frameworks (Unterstützen von mehreren Zielframeworks)](../create-packages/supporting-multiple-target-frameworks.md).) Wenn das Paket nicht kompatibel ist, gibt NuGet einen Fehler aus.
+NuGet installiert ein Paket nur in ein Projekt, wenn die vom Paket unterstützten Frameworks das Zielframework des Projekts enthalten. Wenn das Paket nicht kompatibel ist, gibt NuGet einen Fehler aus.
 
 Einige Pakete führen die unterstützten Frameworks direkt im Katalog von nuget.org auf, viele Pakete enthalten diese Auflistung jedoch nicht, da solche Daten nicht erforderlich sind. Derzeit gibt es keine Möglichkeit, nuget.org nach Paketen zu durchsuchen, die ein bestimmtes Zielframework unterstützen, dieses Feature befindet sich jedoch in der Diskussion. Weitere Informationen dazu finden Sie unter [NuGet Issue 2936 (NuGet-Problem 2936)](https://github.com/NuGet/NuGetGallery/issues/2936).
 
@@ -59,7 +61,7 @@ Standardmäßig zeigt nuget.org auch Vorabversionen von Paketen in den Suchergeb
 
 ![Kontrollkästchen „Vorabversion einbeziehen“ auf nuget.org](media/Finding-06-include-prerelease.png)
 
-Wenn Sie Visual Studio oder die NuGet-CLI verwenden, enthält NuGet standardmäßig keine Vorabversionen. Führen Sie folgende Schritte aus, um dieses Verhalten zu ändern:
+Wenn Sie Visual Studio und die NuGet- und dotnet-CLI-Tools verwenden, enthält NuGet standardmäßig keine Vorabversionen. Führen Sie folgende Schritte aus, um dieses Verhalten zu ändern:
 
 - **Benutzeroberfläche des Paket-Managers in Visual Studio:** Aktivieren Sie in der Benutzeroberfläche **NuGet-Pakete verwalten** das Kontrollkästchen **Vorabversion einbeziehen**. Wenn Sie dieses Kontrollkästchen aktivieren oder deaktivieren, wird die Benutzeroberfläche des Paket-Managers sowie die Liste der verfügbaren Versionen aktualisiert, die Sie installieren können.
 
@@ -67,7 +69,9 @@ Wenn Sie Visual Studio oder die NuGet-CLI verwenden, enthält NuGet standardmä�
 
 - **Paket-Manager-Konsole**: Verwenden Sie den Parameter `-IncludePrerelease` zusammen mit den Befehlen `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` und `Update-Package`. Lesen Sie hierzu die [PowerShell-Referenz](../tools/powershell-reference.md).
 
-- **NuGet-Befehlszeilenschnittstelle**: Verwenden Sie den Parameter `-prerelease` zusammen mit den Befehlen `install`, `update`, `delete` und `mirror`. Weitere Informationen finden Sie in der [NuGet CLI reference (Referenz für die NuGet-CLI)](../tools/nuget-exe-cli-reference.md).
+- **nuget.exe-CLI**: Verwenden Sie den Parameter `-prerelease` zusammen mit den Befehlen `install`, `update`, `delete` und `mirror`. Weitere Informationen finden Sie in der [NuGet CLI reference (Referenz für die NuGet-CLI)](../tools/nuget-exe-cli-reference.md).
+
+- **dotnet.exe-CLI**: Geben Sie die genaue Vorabversion mit dem Argument `-v` an. Informationen finden Sie in der [Referenz zu „dotnet add package“](/dotnet/core/tools/dotnet-add-package).
 
 <a name="native-cpp-packages"></a>
 
@@ -79,7 +83,7 @@ Suchen Sie mit `tag:native`, um native Pakete auf [nuget.org](https://www.nuget.
 
 ## <a name="evaluating-packages"></a>Auswerten von Paketen
 
-Die beste Methode zum Auswerten der Eignung eines Pakets ist, dieses herunterzuladen und in Ihrem Code auszuprobieren. Jedes beliebte Paket wurde schließlich zuerst nur von wenigen Entwicklern verwendet. Sie könnten somit zu den Erstanwendern gehören. (Beachten Sie, dass alle Pakete auf nuget.org routinemäßig nach Viren gescannt werden.)
+Am besten bewerten Sie, ob ein Paket nützlich ist, indem Sie es herunterladen und in Ihrem Code ausprobieren (alle Pakete auf nuget.org werden übrigens routinemäßig auf Viren überprüft). Jedes beliebte Paket wurde schließlich zuerst nur von wenigen Entwicklern verwendet. Sie könnten somit zu den Erstanwendern gehören.
 
 Allerdings bedeutet das Verwenden eines NuGet-Pakets auch, dass eine Abhängigkeit davon entsteht. Darum sollten Sie sicherstellen, dass das Paket robust und zuverlässig ist. Da es sehr zeitaufwändig ist, ein Paket zu installieren und direkt zu testen, können Sie ebenfalls die Informationen auf der Angebotsseite eines Pakets verwenden, um mehr über die Qualität des Pakets zu erfahren.
 
@@ -93,7 +97,7 @@ Allerdings bedeutet das Verwenden eines NuGet-Pakets auch, dass eine Abhängigke
 
 - *Aktuelle Installationen:* Klicken Sie auf der Seite für Pakete unter **Statistiken** auf **View full stats** (Vollständige Statistiken anzeigen). Die Seite „Vollständige Statistiken“ zeigt die Installationen des Pakets in den letzten sechs Wochen nach Versionsnummer geordnet an. Ein Paket, das aktiv von anderen Entwicklern verwendet wird, ist häufig eine bessere Wahl als eines, das nicht aktiv verwendet wird.
 
-- *Support:* Klicken Sie auf der Seite für Pakete unter **Info** auf **Projektwebsite** (falls vorhanden), um die verfügbaren Supportoptionen anzuzeigen. Ein Projekt mit einer dedizierten Website wird üblicherweise besser unterstützt.
+- *Support:* Klicken Sie auf der Seite für Pakete unter **Info** auf **Projektwebsite** (falls vorhanden), um die vom Autor angegebenen Supportoptionen anzuzeigen. Ein Projekt mit einer dedizierten Website wird üblicherweise besser unterstützt.
 
 - *Entwicklerverlauf:* Wählen Sie auf der Seite für Pakete unter **Besitzer** einen Besitzer aus, um anzuzeigen, welche anderen Pakete dieser veröffentlicht hat. Bei Entwicklern, die mehrere Pakete veröffentlicht haben, ist es wahrscheinlicher, dass diese ihre Arbeit auch zukünftig fortsetzen.
 
@@ -108,29 +112,19 @@ Allerdings bedeutet das Verwenden eines NuGet-Pakets auch, dass eine Abhängigke
 
 Die NuGet-Paketsuche auf nuget.org, über die NuGet-CLI und mit der Erweiterung des NuGet-Paket-Managers in Visual Studio funktionieren auf die gleiche Weise. Im Allgemeinen wird die Suche auf Schlüsselwörter und auf die Paketbeschreibungen angewendet.
 
-- **Schlüsselwörter:** Die Suche ermittelt relevante Pakete, die alle bereitgestellten Schlüsselwörter enthalten. Beispiel:
-
-    ```
-    modern UI javascript
-    ```
-
-- **Ausdrücke:** Wenn Sie Begriffe in Anführungszeichen eingeben, ermittelt die Suche Übereinstimmungen mit diesen Begriffen, bei denen die Groß-/Kleinschreibung nicht berücksichtigt wird. Beispiel:
-
-    ```
-    "modern UI" package
-    ```
-
+- **Schlüsselwörter:** Die Suche ermittelt relevante Pakete, die alle bereitgestellten Schlüsselwörter enthalten. Ein Beispiel: `modern UI javascript`
+- **Ausdrücke:** Wenn Sie Begriffe in Anführungszeichen eingeben, ermittelt die Suche Übereinstimmungen mit diesen Begriffen, bei denen die Groß-/Kleinschreibung nicht berücksichtigt wird. Ein Beispiel: `"modern UI" package`
 - **Filtern:** Sie können einen Suchbegriff auf eine bestimmte Eigenschaft anwenden, indem Sie die Syntax `<property>:<term>` verwenden. Hierbei kann `<property>` (Groß-/Kleinschreibung wird nicht berücksichtigt) `id`, `packageid`, `version`, `title`, `tags`, `author`, `description`, `summary` oder `owner` entsprechen. Bei Bedarf können diese Begriffe in Anführungszeichen eingegeben werden, außerdem können Sie nach mehreren Eigenschaften gleichzeitig suchen. Darüber hinaus handelt es sich bei Suchen mit der `id`-Eigenschaft um Übereinstimmungen von Teilzeichenfolgen, während mit `packageid` nach einer genauen Übereinstimmung gesucht wird. Beispiele:
 
     ```
-    id:NuGet.Core                //Match any part of the id property
+    id:NuGet.Core                # Match any part of the id property
     Id:"Nuget.Core"
     ID:jQuery
-    title:jquery                 //Searches title as shown on the package listing
-    PackageId:jquery             //Match the package id exactly
-    id:jquery id:ui              //Search for multiple terms in the id
-    id:jquery tags:validation    //Search multiple properties
-    id:"jquery.ui"               //Phrase search
-    invalid:jquery ui            //Unsupported properties are ignored, so this
-                                 //is the same as searching on jquery ui
+    title:jquery                 # Searches title as shown on the package listing
+    PackageId:jquery             # Match the package id exactly
+    id:jquery id:ui              # Search for multiple terms in the id
+    id:jquery tags:validation    # Search multiple properties
+    id:"jquery.ui"               # Phrase search
+    invalid:jquery ui            # Unsupported properties are ignored, so this
+                                 # is the same as searching on jquery ui
     ```

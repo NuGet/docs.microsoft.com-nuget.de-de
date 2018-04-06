@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 01/03/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Anweisungen zum Einschließen von NuGet-Paketen als Teil von Visual Studio Projekt- und Elementvorlagen."
-keywords: "NuGet in Visual Studio, Visual Studio-Projektvorlagen, Elementvorlagen für Visual Studio, Pakete in Projektvorlagen, Pakete in Elementvorlagen"
+ms.technology: ''
+description: Anweisungen zum Einschließen von NuGet-Paketen als Teil von Visual Studio Projekt- und Elementvorlagen.
+keywords: NuGet in Visual Studio, Visual Studio-Projektvorlagen, Elementvorlagen für Visual Studio, Pakete in Projektvorlagen, Pakete in Elementvorlagen
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 65b914e1fa59c28615f195b470880a12bf80efbb
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 8c1751ba9caf5e71ace7a81575e4e5448b1e4185
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="packages-in-visual-studio-templates"></a>Pakete in Visual Studio-Vorlagen
 
@@ -62,7 +65,7 @@ Schritte zum Einschließen von Paketen in eine Vorlage:
     </WizardData>
     ```
 
-    *(NuGet 2.2.1+)*  Der Assistent unterstützt mehrere `<package>`-Elemente zur Unterstützung mehrerer Paketquellen. Sowohl die `id`- als auch die `version`-Attribute werden benötigt. Dies bedeutet, dass die jeweilige Version eines Pakets selbst dann installiert wird, wenn eine neuere Version verfügbar ist. Dadurch wird verhindert, dass Paketupdates die Vorlage unterbrechen und die Wahl, das Paket zu aktualisieren, dem Entwickler überlassen wird, der die Vorlage verwendet.
+    Der Assistent unterstützt mehrere `<package>`-Elemente zur Unterstützung mehrerer Paketquellen. Sowohl die `id`- als auch die `version`-Attribute werden benötigt. Dies bedeutet, dass die jeweilige Version eines Pakets selbst dann installiert wird, wenn eine neuere Version verfügbar ist. Dadurch wird verhindert, dass Paketupdates die Vorlage unterbrechen und die Wahl, das Paket zu aktualisieren, dem Entwickler überlassen wird, der die Vorlage verwendet.
 
 1. Geben Sie das Repository an, in dem NuGet die Pakete, wie in den folgenden Abschnitten beschrieben, finden kann.
 

@@ -1,28 +1,31 @@
 ---
-title: "project.json-Dateireferenz für NuGet | Microsoft-Dokumentation"
+title: project.json-Dateireferenz für NuGet | Microsoft-Dokumentation
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 07/27/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Bei einigen Projekttypen wird in der Datei „project.json“ die Liste der im Projekt verwendeten Pakete verwaltet."
-keywords: "NuGet-Datei „project.json“, NuGet-Paketverweise, NuGet-Abhängigkeiten, „project.lock.json“"
+ms.technology: ''
+description: Bei einigen Projekttypen wird in der Datei „project.json“ die Liste der im Projekt verwendeten Pakete verwaltet.
+keywords: NuGet-Datei „project.json“, NuGet-Paketverweise, NuGet-Abhängigkeiten, „project.lock.json“
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2e2c521b18dd67e49942cc20eafef0be7f91573a
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 21542a219faa3d1fa0c32a838645d4471c5aa935
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="projectjson-reference"></a>project.json-Verweis
 
 *NuGet 3.x+*
 
-Die Datei `project.json` verwaltet eine Liste der in einem Projekt verwendeten Pakete im so genannten Paketverweisformat. Sie löst „`packages.config`“ ab, wird jedoch wiederum durch [PackageReference](../consume-packages/package-references-in-project-files.md) mit NuGet 4.0 und höher abgelöst.
+Die Datei `project.json` verwaltet eine Liste der in einem Projekt verwendeten Pakete im so genannten Paketverwaltungsformat. Sie löst „`packages.config`“ ab, wird jedoch wiederum durch [PackageReference](../consume-packages/package-references-in-project-files.md) mit NuGet 4.0 und höher abgelöst.
 
 Die Datei [`project.lock.json`](#projectlockjson) (nachfolgend beschrieben) wird auch in Projekten verwendet, die `project.json` verwenden.
 

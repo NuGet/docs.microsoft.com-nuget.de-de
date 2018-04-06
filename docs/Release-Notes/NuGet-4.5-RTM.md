@@ -6,18 +6,21 @@ manager: unniravindranathan
 ms.date: 12/4/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Anmerkungen zu NuGet 4.5 RTM, einschließlich bekannter Fehler, Fehlerkorrekturen, hinzugefügter Features und DCRs."
-keywords: "Anmerkungen zu NuGet 4.5 RTM, Fehlerkorrekturen, bekannte Fehler, hinzugefügte Features, DCRs"
+ms.technology: ''
+description: Anmerkungen zu NuGet 4.5 RTM, einschließlich bekannter Fehler, Fehlerkorrekturen, hinzugefügter Features und DCRs.
+keywords: Anmerkungen zu NuGet 4.5 RTM, Fehlerkorrekturen, bekannte Fehler, hinzugefügte Features, DCRs
 ms.reviewer:
 - karann-msft
 - unniravindranathan
 - anangaur
-ms.openlocfilehash: e4727d46812cbfeb2e7094ddf28bf4e738e8aeea
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: dbde7256ed5526761107272792d7c7cdc324a3ef
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-45-rtm-release-notes"></a>Anmerkungen zu Version 4.5 RTM von NuGet
 

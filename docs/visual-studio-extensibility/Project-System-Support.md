@@ -1,22 +1,25 @@
 ---
-title: "NuGet-Unterstützung für das Visual Studio-Projektsystem | Microsoft-Dokumentation"
+title: NuGet-Unterstützung für das Visual Studio-Projektsystem | Microsoft-Dokumentation
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/09/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Integration von NuGet in das Visual Studio-Projektsystem für Projekttypen von Drittanbietern."
+ms.technology: ''
+description: Integration von NuGet in das Visual Studio-Projektsystem für Projekttypen von Drittanbietern.
 keywords: NuGet in Visual Studio, benutzerdefinierte Projekttypen, Visual Studio-Projekte
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e2f7c4a32f80b96360f08d04efb8af639af2ddd3
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 0ffebfc9e403315482d3781a00a0a6896fd04f0c
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-support-for-the-visual-studio-project-system"></a>NuGet-Unterstützung für das Visual Studio-Projektsystem
 

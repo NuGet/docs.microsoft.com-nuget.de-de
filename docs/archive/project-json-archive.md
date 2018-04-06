@@ -1,26 +1,29 @@
 ---
-title: "Archivinhalte zu „project.json“ in NuGet | Microsoft-Dokumentation"
+title: Archivinhalte zu „project.json“ in NuGet | Microsoft-Dokumentation
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/17/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Sonstige Bestandteile von Inhalten zu „project.json“, die aus anderen Bereichen der NuGet-Dokumentation entfernt wurden."
-keywords: "Die Datei „project.json“ in NuGet"
+ms.technology: ''
+description: Sonstige Bestandteile von Inhalten zu „project.json“, die aus anderen Bereichen der NuGet-Dokumentation entfernt wurden.
+keywords: Die Datei „project.json“ in NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 42a40c6c637839c13effc9e476ac5702a92cfd2a
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 16361fe16d8ecc7064af4b6d636435a31a5663dc
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="projectjson-archive"></a>project.json-Archiv
 
-Das Verweisformat `project.json` wurde mit NuGet 3.x eingeführt und wird für bestimmte Projekttypen verwendet. Mit der Einführung des PackageReference-Formats, in dem Abhängigkeiten direkt in einer Projektdatei aufgelistet werden, ist es veraltet.
+Das Verwaltungsformat `project.json` wurde mit NuGet 3.x eingeführt und wird für bestimmte Projekttypen verwendet. Mit der Einführung des PackageReference-Formats, in dem Abhängigkeiten direkt in einer Projektdatei aufgelistet werden, ist es veraltet.
 
 Siehe auch:
 
@@ -28,11 +31,11 @@ Siehe auch:
 - [project.json impact on package authors (Auswirkungen von project.json auf Paketersteller)](project-json-impact.md)
 - [„project.json“ und UWP](project-json-and-uwp.md)
 
-## <a name="projectjson-reference-format"></a>project.json-Verweisformat
+## <a name="projectjson-management-format"></a>project.json-Verwaltungsformat
 
 *Ursprünglich unter [Paketwiederherstellung](../what-is-nuget.md).*
 
-In der Liste der Formate von Verweisen:
+In der Liste der Verwaltungsformate:
 
 - [`project.json`](project-json.md): *(veraltet)* Eine JSON-Datei, die eine Liste der Projektabhängigkeiten mit einem allgemeinen Paketdiagramm in einer verknüpften Datei `project.lock.json` verwaltet. Dieses Format ist veraltet und wurde durch PackageReference ersetzt.
 
@@ -138,7 +141,7 @@ Wenn das Format `project.json` verwendet wird, unterstützt NuGet auch die Verwe
 
 *Ursprünglich unter [Verweis auf „NuGet.Config“](../reference/nuget-config-file.md).*
 
-`globalPackagesFolder` gilt nur für `project.json`.
+`globalPackagesFolder` gilt nur für `project.json`. (Zusätzlicher Hinweis: Gilt auch für PackageReference.)
 
 ### <a name="nuspec-file-reference"></a>NUSPEC-Dateiverweis
 
@@ -150,7 +153,7 @@ Anstelle von `<files>` wird das Element `<contentFiles>` mit `project.json` verw
 
 *Ursprünglich unter [Referenz zur Benutzeroberfläche des Paket-Managers](../tools/package-manager-ui.md).*
 
-Projekte, die das Verweisformat `project.json` verwenden zeigen nur die Option **Vorschaufenster anzeigen** an.
+Projekte, die das Verwaltungsformat `project.json` verwenden, zeigen nur die Option **Vorschaufenster anzeigen** an.
 
 ### <a name="visual-studio-templates"></a>Visual Studio-Vorlagen
 

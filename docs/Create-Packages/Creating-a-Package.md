@@ -6,18 +6,20 @@ manager: ghogen
 ms.date: 12/12/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-ms.assetid: 456797cb-e3e4-4b88-9b01-8b5153cee802
-description: "Eine ausführliche Anleitung zum Entwerfen und Erstellen eines NuGet-Pakets, einschließlich der wichtigsten Entscheidungspunkte wie Dateien und Versionsverwaltung"
+ms.technology: ''
+description: Eine ausführliche Anleitung zum Entwerfen und Erstellen eines NuGet-Pakets, einschließlich der wichtigsten Entscheidungspunkte wie Dateien und Versionsverwaltung
 keywords: Erstellen von NuGet-Paketen, Erstellen eines Pakets, NUSPEC-Manifest, NuGet-Paketkonventionen, Version des NuGet-Pakets
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 613e3eb9d08a0da96340f32b13c486508fa32439
-ms.sourcegitcommit: df21fe770900644d476d51622a999597a6f20ef8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 7bb7e16a317aff908effe0b6c603ea53c9e8a563
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="creating-nuget-packages"></a>Erstellen von NuGet-Paketen
 
@@ -131,7 +133,7 @@ Im folgenden Beispiel sehen Sie eine typische, aber fiktive `.nuspec`-Datei mit 
 
 Weitere Informationen zum Deklarieren von Abhängigkeiten und zum Angeben von Versionsnummern finden Sie unter [Package versioning (Paketversionsverwaltung)](../reference/package-versioning.md). Es ist auch möglich, Ressourcen aus Abhängigkeiten mithilfe der Attribute `include` und `exclude` des Elements `dependency` direkt im Paket verfügbar zu machen. Informationen dazu finden Sie unter [.nuspec Reference – Dependencies (NUSPEC-Referenz: Abhängigkeiten)](../reference/nuspec.md#dependencies).
 
-Da das Manifest im Paket enthalten ist, aus dem es erstellt wurde, finden Sie viele weitere Beispiele in den vorhandenen Paketen. Eine gute Quelle ist z.B. der globale Paketcache auf Ihrem Computer, der sich mithilfe des folgenden Befehls öffnen lässt:
+Da das Manifest im Paket enthalten ist, aus dem es erstellt wurde, finden Sie viele weitere Beispiele in den vorhandenen Paketen. Eine gute Quelle ist z.B. der Ordner *global-packages* auf Ihrem Computer, der sich mithilfe des folgenden Befehls öffnen lässt:
 
 ```cli
 nuget locals -list global-packages
@@ -351,7 +353,9 @@ Verweisen Sie dann in der `.nuspec`-Datei im `<files>`-Knoten auf diese Dateien:
 
 Das Einfügen von MSBuild-Eigenschaften und -Zielen in ein Paket wurde [mit NuGet 2.5 eingeführt](../release-notes/NuGet-2.5.md#automatic-import-of-msbuild-targets-and-props-files). Daher wird empfohlen, dem Element `metadata` das `minClientVersion="2.5"`-Attribut hinzuzufügen, damit die für das Paket erforderliche Mindestversion des NuGet-Clients angegeben wird.
 
-Wenn NuGet ein Paket mit `\build`-Dateien erstellt, wird der Projektdatei ein MSBuild-`<Import>`-Element hinzufügt, das auf die `.targets`- und `.props`-Dateien zeigt. `.props` wird oben in der Projektdatei hinzugefügt und `.targets` ganz unten.
+Wenn NuGet ein Paket mit `\build`-Dateien erstellt, werden der Projektdatei MSBuild-`<Import>`-Elemente hinzufügt, die auf die `.targets`- und `.props`-Dateien zeigen. `.props` wird oben in der Projektdatei hinzugefügt und `.targets` ganz unten. Für jedes Zielframework wird ein eigenes bedingtes MSBuild-`<Import>`-Element hinzugefügt.
+
+MSBuild-`.props`- und -`.targets`-Dateien für frameworkübergreifende Ziele können im Ordner `\buildCrossTargeting` abgelegt werden. Bei der Paketinstallation fügt NuGet die entsprechenden `<Import>`-Elemente in die Projektdatei mit der Bedingung ein, dass das Zielframework nicht festgelegt ist (die MSBuild-Eigenschaft `$(TargetFramework)` muss leer sein).
 
 In NuGet 3.x werden Ziele nicht zum Projekt hinzugefügt, sondern über `project.lock.json` zur Verfügung gestellt.
 
@@ -372,7 +376,7 @@ Pakete, die COM-Interop-Assemblys enthalten, müssen eine entsprechende [Zieleda
 </Target>
 ```
 
-Hinweis: Wenn Sie das `packages.config`-Verweisformat verwenden, prüfen NuGet und Visual Studio beim Hinzufügen von Verweisen zu den Assemblys aus Paketen auf COM-Interop-Assemblys und legen `EmbedInteropTypes` in der Projektdatei auf TRUE fest. In diesem Fall werden die Ziele überschrieben.
+Hinweis: Wenn Sie das `packages.config`-Verwaltungsformat verwenden, prüfen NuGet und Visual Studio beim Hinzufügen von Verweisen zu den Assemblys aus Paketen auf COM-Interop-Assemblys und legen `EmbedInteropTypes` in der Projektdatei auf TRUE fest. In diesem Fall werden die Ziele überschrieben.
 
 Darüber hinaus werden die [Buildressourcen standardmäßig nicht transitiv weitergeben](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets). Pakete, die dieser Beschreibung nach erstellt werden, funktionieren anders, wenn sie als transitive Abhängigkeit aus einem Projekt in einen Projektverweis gezogen werden. Der Paketbenutzer kann die Weiterleitung zulassen, indem er den Standardwert „PrivateAssets“ so ändert, dass „build“ nicht enthalten ist.
 

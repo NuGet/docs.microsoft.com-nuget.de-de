@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 01/18/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Das Governancemodell für NuGet mit Rollen und Zuständigkeiten von Committern, Mitwirkenden und Benutzern."
-keywords: "NuGet-Governance, wohlmeinender Diktator (NuGet), Zuständigkeiten von Committern, Zuständigkeiten von Mitwirkenden, Zuständigkeiten von Benutzern"
+ms.technology: ''
+description: Das Governancemodell für NuGet mit Rollen und Zuständigkeiten von Committern, Mitwirkenden und Benutzern.
+keywords: NuGet-Governance, wohlmeinender Diktator (NuGet), Zuständigkeiten von Committern, Zuständigkeiten von Mitwirkenden, Zuständigkeiten von Benutzern
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ea1ddcc3e145afe3b905b23db37e1e61500200bb
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: aa48b95482c65de47d54daff142402dd2ff6558a
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-governance"></a>NuGet-Governance
 
