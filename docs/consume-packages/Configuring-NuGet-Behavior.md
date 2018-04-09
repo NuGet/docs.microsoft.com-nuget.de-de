@@ -15,11 +15,11 @@ ms.reviewer:
 ms.workload:
 - dotnet
 - aspnet
-ms.openlocfilehash: a575868894d5ca9992b1c9984cf4920bd2858209
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 88f10cf15e16013ac99f315e572f932fd3948f73
+ms.sourcegitcommit: ecb598c790d4154366bc92757ec7db1a51c34faf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="configuring-nuget-behavior"></a>Konfigurieren des NuGet-Verhaltens
 
@@ -30,8 +30,8 @@ Das Verhalten von NuGet wird durch die Eigenschaften gesteuert, die in einer ode
 | Bereich | Speicherort der NuGet.Config-Datei | description |
 | --- | --- | --- |
 | Projekt | Aktueller Ordner (bzw. Projektordner) oder ein beliebiger anderer Ordner im Stammlaufwerk.| Die Einstellungen in einem Projektordner gelten nur für dieses Projekt. Die Einstellungen in einem übergeordneten Ordner, der mehrere Unterordner mit Projekten enthält, gelten für alle Projekte in diesen Unterordnern. |
-| Benutzer | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.nuget/NuGet/NuGet.Config` | Die Einstellungen gelten für alle Vorgänge, werden jedoch durch sämtliche Einstellungen auf Projektebene überschrieben. |
-| Computer | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME` (in der Regel `~/.local/share`) | Die Einstellungen gelten für alle Vorgänge auf dem Computer, werden jedoch durch sämtliche Einstellungen auf Benutzer- oder Projektebene überschrieben. |
+| Benutzer | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.config/NuGet/NuGet.Config` oder `~/.nuget/NuGet/NuGet.Config` (je nach Betriebssystemverteilung) | Die Einstellungen gelten für alle Vorgänge, werden jedoch durch sämtliche Einstellungen auf Projektebene überschrieben. |
+| Computer | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME`. Wenn `$XDG_DATA_HOME` NULL oder leer ist, wird `~/.local/share` oder `/usr/local/share` verwendet (je nach Betriebssystemverteilung)  | Die Einstellungen gelten für alle Vorgänge auf dem Computer, werden jedoch von allen Einstellungen auf Benutzer- oder Projektebene überschrieben. |
 
 Hinweise für frühere Versionen von NuGet:
 - In NuGet 3.3 und früher wurde ein `.nuget`-Ordner für projektmappenweite Einstellungen verwendet. Diese Datei wird nicht in NuGet 3.4 oder höher verwendet.
@@ -140,7 +140,7 @@ Nehmen wir an, dass Sie über folgende Ordnerstruktur auf zwei separaten Laufwer
 
 Sie verfügen dann über vier `NuGet.Config`-Dateien an folgenden Speicherorten mit dem angegebenen Inhalt. (Die Datei auf Computerebene ist in diesem Beispiel nicht enthalten. Diese würde sich jedoch ähnlich wie die Datei auf Benutzerebene verhalten.)
 
-Datei A auf Benutzerebene (`%appdata%\NuGet\NuGet.Config` unter Windows, `~/.nuget/NuGet/NuGet.Config` unter Mac/Linux):
+Datei A auf Benutzerebene (`%appdata%\NuGet\NuGet.Config` unter Windows, `~/.config/NuGet/NuGet.Config` unter Mac/Linux):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -218,8 +218,8 @@ In der folgenden Tabelle wird beschrieben, wo die `NuGetDefaults.Config`-Datei g
 
 | Betriebssystemplattform  | Speicherort von NuGetDefaults.Config |
 | --- | --- |
-| Windows      | **Visual Studio 2017 oder NuGet 4.x und höher:** %ProgramFiles(x86)%\NuGet\Config <br />**Visual Studio 2015 und früher oder NuGet 3.x und früher:** %PROGRAMDATA%\NuGet |
-| Mac/Linux    | $XDG_DATA_HOME (in der Regel ~/.local/share)|
+| Windows      | **Visual Studio 2017 oder NuGet 4.x und höher:** `%ProgramFiles(x86)%\NuGet\Config` <br />**Visual Studio 2015 und niedriger oder NuGet 3.x und niedriger:** `%PROGRAMDATA%\NuGet` |
+| Mac/Linux    | `$XDG_DATA_HOME` (in der Regel `~/.local/share` oder `/usr/local/share`, abhängig von der Betriebssystemverteilung)|
 
 ### <a name="nugetdefaultsconfig-settings"></a>Einstellungen von NuGetDefaults.Config
 
