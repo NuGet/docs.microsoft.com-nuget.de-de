@@ -15,11 +15,11 @@ ms.reviewer:
 ms.workload:
 - dotnet
 - aspnet
-ms.openlocfilehash: 99caf371ca1bd85e6af4e879741e3e2caab6e860
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 7844ace0565b2e70f8f68e6e61548f0f28171689
+ms.sourcegitcommit: 5b223c5814799caa6309e95792a2d338df692778
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/04/2018
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Paketverweise (PackageReference) in Projektdateien
 
@@ -96,8 +96,8 @@ Folgende Werte sind für diese Tags zulässig, wobei mehrere Werte durch ein Sem
 
 | Wert | description |
 | --- | ---
-| compile | Inhalte des Ordners `lib` |
-| Laufzeit | Inhalte des Ordners `runtimes` |
+| compile | Inhalt des Ordners `lib` und steuert, ob Ihr Projekt anhand der Assemblys im Ordner kompiliert werden kann |
+| Laufzeit | Inhalt der Ordner `lib` und `runtimes` und steuert, ob diese Assemblys in das Buildausgabeverzeichnis kopiert werden |
 | contentFiles | Inhalte des Ordners `contentfiles` |
 | Build | Eigenschaften und Ziele im Ordner `build` |
 | Analysetools | .NET-Analystetools |
