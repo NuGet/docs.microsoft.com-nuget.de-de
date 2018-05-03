@@ -1,22 +1,16 @@
 ---
-title: NuGet-Befehlszeilenschnittstelle (CLI)-Referenz | Microsoft Docs
+title: NuGet-Befehlszeilenschnittstelle (CLI)-Referenz
+description: Befehlszeilenreferenz Index für die nuget.exe CLI
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/23/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: "Befehlszeilenreferenz Index für die nuget.exe CLI"
-keywords: NuGet.exe Verweisindex, nuget.exe-Befehlszeilenschnittstelle, nuget.exe CLI, NuGet-Befehls
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 8b1ee17702f5a54a77dc2cd663e13729a9b4a39f
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: ed91a31505ab1de9447cdbeb87c8ad08f7ba56d8
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-cli-reference"></a>NuGet-CLI-Referenz
 
@@ -26,9 +20,9 @@ Um einen Befehl zu verwenden, öffnen Sie ein Eingabeaufforderungsfenster oder b
 
 In dieser Dokumentation gibt die neueste Version des NuGet-CLI wieder. Führen Sie genaue Angaben für eine bestimmte Version, die Sie verwenden `nuget help` für den gewünschten Befehl.
 
-## <a name="installing-nugetexe"></a>Installing nuget.exe
+## <a name="installing-nugetexe"></a>Installieren von nuget.exe
 
-[!INCLUDE[install-cli](../includes/install-cli.md)]
+[!INCLUDE [install-cli](../includes/install-cli.md)]
 
 > [!Tip]
 > Um die CLI NuGet in Visual Studio in der Paket-Manager-Konsole verfügbar zu machen, finden Sie unter [mithilfe der CLI nuget.exe in der Konsole](package-manager-console.md#using-the-nugetexe-cli-in-the-console).
@@ -51,8 +45,8 @@ Verfügbaren Befehle und Anwendbarkeit auf die Erstellung des Pakets, Paket Verb
 | [push](cli-ref-push.md) | Veröffentlichen | Alle | Ein Paket veröffentlicht eine Paketquelle. |
 | [config](cli-ref-config.md) | Alle | Alle | Ruft ab, oder legt ihn fest NuGet Konfigurationswerte. |
 | [help oder ?](cli-ref-help.md) | Alle | Alle | Zeigt die Informationen oder Hilfe für einen Befehl Hilfe. |
-| [locals](cli-ref-locals.md) | Verbrauch | 3.3+ | Löscht listet Pakete in verschiedenen Caches oder der Ordner "globale Pakete" oder die Ordner identifiziert. |
-| [restore](cli-ref-restore.md) | Verbrauch | 2.7+ | Stellt alle Pakete verweist auf das Paketformat-Verweis verwendet. Bei Ausführung auf Mono wird das Wiederherstellen von Paketen, die mit dem PackageReference-Format nicht unterstützt. |
+| [locals](cli-ref-locals.md) | Verbrauch | 3.3+ | Listet die Speicherorte von der *globalen Pakete*, *http-Cache*, und *Temp* Ordner und löscht den Inhalt dieser Ordner. |
+| [restore](cli-ref-restore.md) | Verbrauch | 2.7+ | Stellt alle Pakete, die auf die verwiesen wird, die Paket-Management-Format verwendet. Bei Ausführung auf Mono wird das Wiederherstellen von Paketen, die mit dem PackageReference-Format nicht unterstützt. |
 | [setapikey](cli-ref-setapikey.md) | Veröffentlichen, wählen Sie Verbrauch | Alle | Speichert einen API-Schlüssel für eine bestimmte Paketquelle an, wenn diese Paketquelle einen Schlüssel für den Zugriff erforderlich ist. |
 | [spec](cli-ref-spec.md) | Erstellung | Alle | Generiert eine `.nuspec` Datei Token verwenden, wenn die Datei aus einem Visual Studio-Projekt generiert wird. |
 

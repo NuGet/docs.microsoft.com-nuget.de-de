@@ -1,28 +1,20 @@
 ---
-title: Begrenzung der Datenübertragungsrate | Microsoft Docs
-author:
-- cmanu
-- anangaur
-ms.author:
-- cmanu
+title: Begrenzung der Datenübertragungsrate NuGet-API
+description: Die NuGet-APIs werden erzwungen, um Missbrauch zu verhindern, dass die Begrenzung der Datenübertragungsrate haben.
+author: cmanu
+ms.author: cmanu
 manager: skofman
 ms.date: 03/20/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Die NuGet-APIs werden erzwungen, um Missbrauch zu verhindern, dass die Begrenzung der Datenübertragungsrate haben.
-keywords: NuGet-API, bewerten beschränken
 ms.reviewer:
 - skofman
 - anangaur
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: f7891d5e4c008219d9f4808f223f3e5e7ae06ced
-ms.sourcegitcommit: fa40be739d093a37d5f7072b62ebdb4f595f4110
+- kraigb
+ms.openlocfilehash: 3aaebef8fff670759c6484a5a8f90a2f4dd58c66
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="rate-limits"></a>Begrenzung der Bandbreite
 
@@ -45,14 +37,14 @@ Die folgenden Tabellen enthalten die Begrenzung der Datenübertragungsrate für 
 
 | API | Limittyp | Grenzwert | API-Anwendungsfall |
 |:---|:---|:---|:---|
-**GET** `/api/v1/Packages` | IP | 1000 / Minute | Abfragen von Metadaten von NuGet-Paketen über OData v1 `Packages` Auflistung |
-**GET** `/api/v1/Search()` | IP | 3000 / Minute | Suchen Sie nach NuGet-Pakete über einen Endpunkt für v1-Suche | 
-**GET** `/api/v2/Packages` | IP | 20000 / Minute | Abfragen von Metadaten von NuGet-Paketen über OData v2 `Packages` Auflistung | 
-**GET** `/api/v2/Packages/$count` | IP | 100 / Minute | Anzahl von NuGet-Paket über v2 OData-Abfrage `Packages` Auflistung | 
+**ERHALTEN** `/api/v1/Packages` | IP | 1000 / Minute | Abfragen von Metadaten von NuGet-Paketen über OData v1 `Packages` Auflistung |
+**ERHALTEN** `/api/v1/Search()` | IP | 3000 / Minute | Suchen Sie nach NuGet-Pakete über einen Endpunkt für v1-Suche | 
+**ERHALTEN** `/api/v2/Packages` | IP | 20000 / Minute | Abfragen von Metadaten von NuGet-Paketen über OData v2 `Packages` Auflistung | 
+**ERHALTEN** `/api/v2/Packages/$count` | IP | 100 / Minute | Anzahl von NuGet-Paket über v2 OData-Abfrage `Packages` Auflistung | 
 
 ## <a name="package-push-and-unlist"></a>Paket Push-als auch Benutzerauswahl
 
 | API | Limittyp | Grenzwert | Hilfskraftturbine Anwendungsfall | 
 |:---|:---|:---|:--- |
 **PUT** `/api/v2/package` | API-Schlüssel | 100 / Minute | Hochladen Sie über v2-Push-Endpunkt ein neues NuGet-Paket (Version) 
-**DELETE** `/api/v2/package/{id}/{version}` | API-Schlüssel | 100 / Minute | NuGet-Paket (Version) über einen Endpunkt v2 Benutzerauswahl 
+**LÖSCHEN** `/api/v2/package/{id}/{version}` | API-Schlüssel | 100 / Minute | NuGet-Paket (Version) über einen Endpunkt v2 Benutzerauswahl 
