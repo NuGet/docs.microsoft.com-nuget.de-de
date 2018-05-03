@@ -1,22 +1,16 @@
 ---
-title: Anmerkungen zur Version des NuGet-3.1 | Microsoft Docs
+title: NuGet-Version 3.1 Hinweise
+description: Versionshinweise für NuGet 3.1 einschließlich bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Versionshinweise für NuGet 3.1 einschließlich bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design."
-keywords: "NuGet-3.1 Anmerkungen zu dieser Version, aufgrund von Fehlerbehebungen, bekannte Probleme, zusätzliche Funktionen, Archivierung von dcrs Design"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: a7aa43b8701b3bbef8f6ebce9a5d636ee1bc6abe
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: d14455da6f8af4db92f7105ea1b0e88eb9e71600
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-31-release-notes"></a>NuGet-Version 3.1 Hinweise
 
@@ -32,7 +26,7 @@ Probleme und Funktionen in dieser Version sind auf GitHub markiert die ["3.1 tra
 
 ### <a name="new-features"></a>Neue Funktionen
 
-* `project.json`Unterstützung für Windows-UWP und ASP.NET 5 Unterstützung
+* `project.json` Unterstützung für Windows-UWP und ASP.NET 5 Unterstützung
 * Transitiv Paketinstallation
 
 Beschreibung "und" Definition dieser Funktionen können an anderer Stelle in der Dokumentation gefunden werden.
@@ -45,10 +39,10 @@ Die folgenden Funktionen sind nicht mehr für Visual Studio 2015 verfügbar:
 
 Die folgenden Funktionen sind nicht mehr verfügbar, für die Visual Studio 2015 und Projekte, mit denen die `project.json` Spezifikation
 
-* `install.ps1`und `uninstall.ps1` -diese Skripts während der Paketinstallation ignoriert werden, stellen Sie wieder her, aktualisieren und deinstallieren
+* `install.ps1` und `uninstall.ps1` -diese Skripts während der Paketinstallation ignoriert werden, stellen Sie wieder her, aktualisieren und deinstallieren
 * Konfiguration Transformationen werden ignoriert
 * Inhalt wird ausgeführt, aber nicht in ein Projekt kopiert werden.
-    * Das Team arbeitet daran, diese Funktion erneut implementieren, führen die Diskussion und aktueller Fortschritt: [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627)
+    * Um dieses Feature erneut implementieren, führen die Diskussion und aktueller Fortschritt funktioniert das Team: [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627)
 
 
 ### <a name="known-issues"></a>Bekannte Probleme
@@ -68,7 +62,7 @@ Die neue Position des verteilbare befindet sich auf dem Host dist.nuget.org mit 
 ### <a name="new-features"></a>Neue Funktionen
 
 * NuGet.exe können wiederherstellen und Installieren von Paketen in-Projekte, mit denen eine `project.json` Datei.
-* NuGet.exe können Herstellen einer Verbindung mit und nutzen Sie das NuGet-v3-Protokolls an: [https://api.nuget.org/v3/index.json](https://api.nuget.org/v3/index.json)
+* NuGet.exe können Herstellen einer Verbindung mit und nutzen das NuGet-v3-Protokolls an: [https://api.nuget.org/v3/index.json](https://api.nuget.org/v3/index.json)
 
 ## <a name="known-issues"></a>Bekannte Probleme ##
 

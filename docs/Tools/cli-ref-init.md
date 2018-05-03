@@ -1,25 +1,16 @@
 ---
-title: NuGet-CLI-Init-Befehl | Microsoft Docs
+title: NuGet-CLI-Init-Befehl
+description: Referenz für den nuget.exe Init-Befehl
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Referenz für den nuget.exe Init-Befehl
-keywords: NuGet-Init-Verweis, Init-Befehl
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 01a3553622020b5868e33ece09cd7555cb712fd3
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: f5e819d014637d1ebb0403d9d838f9362efb20f0
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="init-command-nuget-cli"></a>Init-Befehl (NuGet CLI)
 

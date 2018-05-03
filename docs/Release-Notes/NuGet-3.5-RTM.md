@@ -1,22 +1,16 @@
 ---
-title: NuGet-3.5 Beta-Versionshinweise | Microsoft Docs
+title: NuGet-3.5 Beta-Anmerkungen zu dieser Version
+description: Versionshinweise für NuGet 3.5 einschließlich bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Versionshinweise für NuGet 3.5 einschließlich bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design."
-keywords: "NuGet-3.5 Anmerkungen zu dieser Version, aufgrund von Fehlerbehebungen, bekannte Probleme, zusätzliche Funktionen, Archivierung von dcrs Design"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: ee78ceb2ff032c05c0f8ef9a6623b94cc56ee0a9
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: cdb540229cae0e6e952ac2a0c00c8801ccbbb28d
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-35-release-notes"></a>3.5 NuGet-Versionshinweise
 
@@ -80,7 +74,7 @@ ms.lasthandoff: 02/02/2018
 
 * Es werden keine Informationen wurde beim Aufrufen von nuget.exe Update *.csproj, während das Projekt keinen angegeben ein `packages.config`  -  [#1496](https://github.com/NuGet/Home/issues/1496)
 
-* `packages.config`Wiederherstellung wird nicht erneut versucht, auf 5xx-Statuscodes aus Quellen für V2 - [#1217](https://github.com/NuGet/Home/issues/1217)
+* `packages.config` Wiederherstellung wird nicht erneut versucht, auf 5xx-Statuscodes aus Quellen für V2 - [#1217](https://github.com/NuGet/Home/issues/1217)
 
 * Doppelte Punkte in der Datei Src in `.nuspec` funktioniert nicht – [#2947](https://github.com/NuGet/Home/issues/2947)
 
@@ -148,7 +142,7 @@ ms.lasthandoff: 02/02/2018
 
 * Blöcke zu installieren, schlägt eine einzelne Datenquelle Autorisierung - [#2034](https://github.com/NuGet/Home/issues/2034)
 
-* `.nuspec`Version Bereich sollten IncludeReferencedProjects - Version - überschreiben [#1983](https://github.com/NuGet/Home/issues/1983)
+* `.nuspec` Version Bereich sollten IncludeReferencedProjects - Version - überschreiben [#1983](https://github.com/NuGet/Home/issues/1983)
 
 * Updatepaket super langsam - "versucht, Abhängigkeiten Informationen sammeln" - [#1909](https://github.com/NuGet/Home/issues/1909)
 
@@ -184,7 +178,7 @@ ms.lasthandoff: 02/02/2018
 
 * NuGet-Pack für `project.json` ignoriert PackOptions Tags wie Zusammenfassung, Autoren und Besitzer usw. - [#3161](https://github.com/NuGet/Home/issues/3161)
 
-* NullReferenceException via NuGet.Packaging.PhysicalPackageFile.GetStream - [#3160](https://github.com/NuGet/Home/issues/3160)
+* NullReferenceException über NuGet.Packaging.PhysicalPackageFile.GetStream - [#3160](https://github.com/NuGet/Home/issues/3160)
 
 * NuGet-Pack ignoriert Abhängigkeiten in der Ausgabe `.nuspec` für `project.json`  -  [#3145](https://github.com/NuGet/Home/issues/3145)
 
@@ -226,7 +220,7 @@ ms.lasthandoff: 02/02/2018
 
 * Anmeldeinformationen-Plug-in wurde mit dem Fehlercode:-1 / Fehler herunterladen bei Verwendung von mehreren Quellen - Anmeldeinformationsanbieter mit package [#2885](https://github.com/NuGet/Home/issues/2885)
 
-* `project.json`NuGet Restore bewirkt, dass neu kompiliert, wenn nichts geändert - [#2817](https://github.com/NuGet/Home/issues/2817)
+* `project.json` NuGet Restore bewirkt, dass neu kompiliert, wenn nichts geändert - [#2817](https://github.com/NuGet/Home/issues/2817)
 
 * Symbole Pakete sollte jemals nicht verwendet werden, in der Installations- oder Update - [#2807](https://github.com/NuGet/Home/issues/2807)
 

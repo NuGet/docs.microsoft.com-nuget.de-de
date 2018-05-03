@@ -1,25 +1,16 @@
 ---
-title: NuGet CLI hinzufügen (Befehl) | Microsoft Docs
+title: NuGet CLI hinzufügen (Befehl)
+description: Referenz für die nuget.exe Befehl hinzufügen.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Referenz für die nuget.exe Befehl hinzufügen.
-keywords: NuGet Verweis hinzufügen, fügen Sie Paket-Befehl
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 48e093cbae2cecb1652e17a9b26920107aa8aef7
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 4a4201a321ffe0f7fb61f4e98012a1a2d7d8fda4
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="add-command-nuget-cli"></a>Fügen Sie hinzu (Befehl) (NuGet CLI)
 

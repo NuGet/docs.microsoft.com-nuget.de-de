@@ -1,26 +1,17 @@
 ---
-title: "AutoVervollständigen-Funktion, die NuGet-API | Microsoft Docs"
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: AutoVervollständigen NuGet-API
+description: Die AutoVervollständigen-Suchdienst unterstützt interaktive Ermittlung von Paket-IDs und Versionen.
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: "Die AutoVervollständigen-Suchdienst unterstützt interaktive Ermittlung von Paket-IDs und Versionen."
-keywords: "Suchen NuGet AutoVervollständigen-API, die NuGet-Paket-ID, Substring-Paket-ID"
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.openlocfilehash: 7c984ca61799293d7832851b80cf3fefc4734288
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.reviewer: kraigb
+ms.openlocfilehash: d5e1936c6c5406a1a376c16b2bad5351320dfb4f
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="autocomplete"></a>AutoVervollständigen
 
@@ -33,8 +24,8 @@ Die folgenden `@type` Werte werden verwendet:
 @type-Wert                          | Hinweise
 ------------------------------------ | -----
 SearchAutocompleteService            | Die erste Version
-SearchAutocompleteService/3.0.0-beta | Alias der`SearchAutocompleteService`
-SearchAutocompleteService/3.0.0-rc   | Alias der`SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-beta | Alias der `SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-rc   | Alias der `SearchAutocompleteService`
 
 ## <a name="base-url"></a>Basis-URL
 
@@ -59,8 +50,8 @@ name        | In     | Typ    | Erforderlich | Hinweise
 q           | URL    | Zeichenfolge  | Nein       | Die Zeichenfolge zum Vergleich von Paket-IDs
 überspringen        | URL    | Ganze Zahl | Nein       | Die Anzahl der Ergebnisse für die Paginierung überspringen
 Take        | URL    | Ganze Zahl | Nein       | Die Anzahl der zurückzugebenden Ergebnisseite, für die Paginierung
-Vorabversion  | URL    | boolean | Nein       | `true`oder `false` bestimmen, ob enthalten [Vorabversion Pakete](../create-packages/prerelease-packages.md)
-semVerLevel | URL    | Zeichenfolge  | Nein       | A SemVer 1.0.0 version string 
+Vorabversion  | URL    | boolean | Nein       | `true` oder `false` bestimmen, ob enthalten [Vorabversion Pakete](../create-packages/prerelease-packages.md)
+semVerLevel | URL    | Zeichenfolge  | Nein       | Eine Versionszeichenfolge SemVer 1.0.0 
 
 Die AutoVervollständigen-Abfrage `q` wird analysiert, die in einer Weise, die durch die Implementierung definiert ist. NuGet.org unterstützt das Abfragen für das Präfix des Paket-ID-Token, die Teile der von Spliting erzeugte ID werden der ursprünglichen Kamel Groß-/Kleinschreibung und das Symbol für Zeichen.
 
@@ -82,12 +73,12 @@ Der Stamm-JSON-Objekt hat die folgenden Eigenschaften:
 
 name      | Typ             | Erforderlich | Hinweise
 --------- | ---------------- | -------- | -----
-totalHits | Ganze Zahl          | ja      | Die Gesamtzahl der Übereinstimmungen, Basiseigenschaft `skip` und`take`
+totalHits | Ganze Zahl          | ja      | Die Gesamtzahl der Übereinstimmungen, Basiseigenschaft `skip` und `take`
 Daten      | Array von Zeichenfolgen | ja      | Die Paket-IDs übereinstimmen, die von der Anforderung
 
 ### <a name="sample-request"></a>Beispielanforderung
 
-GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
+ERHALTEN https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
 
 ### <a name="sample-response"></a>Beispielantwort
 
@@ -106,7 +97,7 @@ Eine Paketversion, die nicht aufgeführte ist, werden nicht in den Ergebnissen a
 name        | In     | Typ    | Erforderlich | Hinweise
 ----------- | ------ | ------- | -------- | -----
 ID          | URL    | Zeichenfolge  | ja      | Die Paket-ID für Versionen abgerufen
-Vorabversion  | URL    | boolean | Nein       | `true`oder `false` bestimmen, ob enthalten [Vorabversion Pakete](../create-packages/prerelease-packages.md)
+Vorabversion  | URL    | boolean | Nein       | `true` oder `false` bestimmen, ob enthalten [Vorabversion Pakete](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | Zeichenfolge  | Nein       | Eine Versionszeichenfolge SemVer 2.0.0 
 
 Wenn `prerelease` nicht angegeben wird, Vorabversion Paketen ausgeschlossen werden.

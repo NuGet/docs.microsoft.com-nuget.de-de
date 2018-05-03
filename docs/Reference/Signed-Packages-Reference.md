@@ -1,26 +1,17 @@
 ---
-title: Signierte Pakete-Referenz | Microsoft Docs
+title: NuGet-Pakete Verweis signiert
+description: Anforderungen für die Signierung von NuGet-Paket.
 author: rido-min
 ms.author: rido-min
-manager: unniravindranathan
-ms.date: 03/06/2018
+manager: unnir
+ms.date: 04/24/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Signierte Pakete funktionsbeschreibung.
-keywords: NuGet-Paket-Anmeldung, Signatur, Zertifikat
-ms.reviewer:
-- ananguar
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: a2a338596f7d98ded11da6fb02bafba3521249ab
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: ananguar
+ms.openlocfilehash: 751a8ff14bdc3a647985da4f908ad1a0fd0def9a
+ms.sourcegitcommit: 5fcd6d664749aa720359104ef7a66d38aeecadc2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/27/2018
 ---
 # <a name="signed-packages"></a>Signierte Pakete
 
@@ -38,6 +29,9 @@ Weitere Informationen zum Erstellen eines signierten Pakets, finden Sie unter [S
 
 > [!Important]
 > NuGet.org akzeptiert gegenwärtig nicht signierte Pakete. Sie können Pakete signieren, die auf benutzerdefinierten Feeds veröffentlicht werden sollen.
+
+> [!Important]
+> Paketsignierung wird derzeit nur bei Verwendung von nuget.exe unter Windows unterstützt. Überprüfung von signierten Paketen ist derzeit nur unterstützt, wenn nuget.exe oder Visual Studio unter Windows verwenden.
 
 ## <a name="certificate-requirements"></a>Zertifikatanforderungen
 

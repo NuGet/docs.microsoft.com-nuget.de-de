@@ -1,29 +1,17 @@
 ---
-title: Übersicht über die, die NuGet-API | Microsoft Docs
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: Übersicht über die NuGet-API
+description: Die NuGet-API ist eine Sammlung von HTTP-Endpunkten, die zum Herunterladen von Paketen, Metadaten abzurufen, veröffentlichen neue Pakete usw. verwendet werden kann.
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Die NuGet-API ist eine Sammlung von HTTP-Endpunkten, die zum Herunterladen von Paketen, Metadaten abzurufen, veröffentlichen neue Pakete usw. verwendet werden kann.
-keywords: NuGet-V3-API, NuGet V2-API, NuGet JSON, NuGet-Registrierung API NuGet-API-Flatfile-Container, NuGet Nupkg API, NuGet-Metadaten-API, NuGet-Such-API, NuGet-Push-API, NuGe veröffentlichen API NuGet API löschen, NuGet Benutzerauswahl-API das NuGet Protokoll
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 7053a971c80a94cf035e8f149c332b36e66a9ea9
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: kraigb
+ms.openlocfilehash: a638dba005c14bff4b2e668e2d6ca527a67b94a9
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-api"></a>NuGet-API
 
@@ -114,9 +102,9 @@ Im Fall einer auf 500-Statuscode kann der Client einen angemessene Wiederholungs
 name                     | Beschreibung
 ------------------------ | -----------
 X-NuGet-ApiKey           | Erforderlich für Push-als auch löschen, siehe [ `PackagePublish` Ressource](package-publish-resource.md)
-X-NuGet-Client-Version   | **Als veraltet markiert** und ersetzt durch `X-NuGet-Protocol-Version`
+X-NuGet-Clientversion   | **Als veraltet markiert** und ersetzt durch `X-NuGet-Protocol-Version`
 X-NuGet-Protocol-Version | In bestimmten Fällen auf nuget.org nur erforderlich, siehe [nuget.org-Protokolle](NuGet-Protocols.md)
-X-NuGet-Session-Id       | *Optionale*. NuGet-Clients Version 4.7 + identifizieren HTTP-Anforderungen, die Bestandteil derselben Clientsitzung NuGet sind. Für `PackageReference` Wiederherstellungsvorgänge vorhanden ist, eine einzelne Sitzungs-Id, für andere Szenarien, z. B. automatische Vervollständigung, und `packages.config` Wiederherstellung möglicherweise gibt es mehrere unterschiedliche Sitzungs-Id des aufgrund wie der Code berücksichtigt wird.
+X-NuGet-Sitzungs-Id       | *Optionale*. NuGet-Clients Version 4.7 + identifizieren HTTP-Anforderungen, die Bestandteil derselben Clientsitzung NuGet sind. Für `PackageReference` Wiederherstellungsvorgänge vorhanden ist, eine einzelne Sitzungs-Id, für andere Szenarien, z. B. automatische Vervollständigung, und `packages.config` Wiederherstellung möglicherweise gibt es mehrere unterschiedliche Sitzungs-Id des aufgrund wie der Code berücksichtigt wird.
 
 ## <a name="authentication"></a>Authentifizierung
 

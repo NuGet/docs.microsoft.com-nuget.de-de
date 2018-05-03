@@ -1,25 +1,16 @@
 ---
-title: NuGet-Find-Package-PowerShell-Referenz | Microsoft Docs
+title: NuGet-Find-Package-PowerShell-Referenz
+description: Referenz für Find-Package-PowerShell-Befehl in der NuGet-Paket-Manager-Konsole in Visual Studio.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 6/1/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Referenz für Find-Package-PowerShell-Befehl in der NuGet-Paket-Manager-Konsole in Visual Studio.
-keywords: NuGet-Paket-Manager-Konsole NuGet Powershell-Befehle, NuGet Powershell-Referenz, Find-Package
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 32b15ff415e77c3e063ded637a614fc8a04d5a0c
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 0faf5c5cf9ae99105e3d76a4f5e37f164c4f4ff3
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="find-package-package-manager-console-in-visual-studio"></a>Find-Package (Paket-Manager-Konsole in Visual Studio)
 
@@ -44,7 +35,7 @@ Find-Package [-Id] <keywords> -Source <string> [-AllVersions] [-First [<int>]]
 | First | Die Anzahl der Pakete an, ab dem Anfang der Liste zurückgegeben werden soll; Der Standardwert ist 20. |
 | Skip | Lässt die erste &lt;Int&gt; Pakete aus der angezeigten Liste.  |
 | IncludePrerelease | Enthält Vorabversionen von Paketen in den Ergebnissen an. |
-| ExactMatch | Mit angegebenen &lt;Schlüsselwörter&gt; als Groß-/Kleinschreibung Paket-ID |
+| "ExactMatch" | Mit angegebenen &lt;Schlüsselwörter&gt; als Groß-/Kleinschreibung Paket-ID |
 | StartWith | Gibt Pakete, deren ID beginnt mit Paket &lt;Schlüsselwörter&gt;. |
 
 Keines dieser Parameter akzeptieren Pipeline Eingabe- oder Platzhalter-Zeichen.

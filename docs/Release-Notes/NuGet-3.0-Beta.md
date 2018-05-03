@@ -1,25 +1,16 @@
 ---
-title: NuGet-3.0 Beta-Versionshinweise | Microsoft Docs
-author: karann-msft
-ms.author: karann-msft
-manager: ghogen
-ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+title: NuGet-3,0 Beta-Anmerkungen zu dieser Version
 description: Versionshinweise für NuGet 3.0 Beta, einschließlich der bekannten Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design.
-keywords: NuGet-3.0 Beta Anmerkungen zu dieser Version, aufgrund von Fehlerbehebungen, bekannte Probleme, zusätzliche Funktionen, Archivierung von dcrs Design
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: bb64cbce4f26d84e1ba12930578382f887bb85f8
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 11/11/2016
+ms.topic: conceptual
+ms.openlocfilehash: 4608b196d19f95410f9fe20f6a22e31c15955b89
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-30-beta-release-notes"></a>NuGet-3,0 Beta-Anmerkungen zu dieser Version
 
@@ -29,7 +20,7 @@ NuGet-3.0 Beta wurde für die Version von Visual Studio 2015 CTP-Version 6 auf 2
 
 Es wird dringend empfohlen, dass eine frühere Version der Erweiterung NuGet Visual Studio 2015 deinstallieren, bevor Sie diese neue Version installieren.  Wenn Sie Probleme mit dieser Version der Erweiterung auftreten, sollten Sie Sie wiederherstellen, um die [Vorgängerversionen](http://nuget.codeplex.com/downloads/get/909582) für die Verwendung mit Visual Studio 2015 Preview.
 
-## <a name="visual-studio-2012"></a>Visual Studio 2012+
+## <a name="visual-studio-2012"></a>Visual Studio 2012 +
 
 Dieses NuGet-3.0 Beta ist für die Installation in der Visual Studio 2015 CTP-Version 6 Erweiterung Gallery verfügbar. Wir arbeiten daran, löscht der Preview für Visual Studio 2012 und Visual Studio 2013 sehr schnell abzurufen. Wir haben unsere versucht, eine zuvor freigegeben [Updates für Visual Studio 2010 eingestellt](http://blog.nuget.org/20141002/visual-studio-2010.html), und wir haben diese schwierige Entscheidung vorgenommen.
 

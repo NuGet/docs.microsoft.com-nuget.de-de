@@ -1,22 +1,16 @@
 ---
-title: Anmeldeinformationsanbieter NuGet.exe | Microsoft Docs
+title: NuGet.exe Anmeldeinformationsanbieter
+description: Anmeldeinformationsanbieter NuGet.exe authentifizieren sich mit einem Feed und werden als ausführbare Befehlszeilendateien, die bestimmte Konventionen implementiert.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/12/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Anmeldeinformationsanbieter NuGet.exe authentifizieren sich mit einem Feed und werden als ausführbare Befehlszeilendateien, die bestimmte Konventionen implementiert."
-keywords: NuGet.exe Anmeldeinformationsanbieter, Anmeldeinformationsanbieter-API authentifizieren sich mit dem Feed, authentifizieren sich mit der Galerie
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 88ce0106ad4e628ba8120f94b7951c7746ab67f3
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 494ea83007895e973585395e0cfe05b7226c4c3e
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>Authentifizieren von Feeds mit nuget.exe Anmeldeinformationsanbieter
 
@@ -62,7 +56,7 @@ Ein Anbieter muss folgende Anforderungen erfüllen:
 | IsRetry | Falls vorhanden, gibt an, dass dieser Versuch eine Wiederholung für einen zuvor fehlgeschlagenen Versuch ist. Anbieter verwenden Sie dieses Flag in der Regel um sicherzustellen, dass sie alle vorhandenen Caches zu umgehen und nach Möglichkeit zum Eingeben neuer Anmeldeinformationen aufgefordert.|
 | Ausführlichkeit {Value} | Falls vorhanden, einen der folgenden Werte: "normale", "quiet" oder "detailliert". Wenn kein Wert angegeben wird, wird standardmäßig in "Normal". Anbieter sollten diese ein Hinweis auf die Ebene der optionalen Protokollierung verwenden, um den Standardfehlerstream auszugeben. |
 
-### <a name="exit-codes"></a>Exit-codes
+### <a name="exit-codes"></a>Exitcodes
 
 | Code |Ergebnis | Beschreibung |
 |----------------|-----------|-----------|

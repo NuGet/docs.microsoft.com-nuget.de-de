@@ -1,25 +1,16 @@
 ---
-title: Anmerkungen zur Version des NuGet-2.7 | Microsoft Docs
-author: karann-msft
-ms.author: karann-msft
-manager: ghogen
-ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+title: NuGet-Version 2.7 Hinweise
 description: Versionshinweise für NuGet 2.7 einschließlich bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design.
-keywords: NuGet-2.7 Anmerkungen zu dieser Version, aufgrund von Fehlerbehebungen, bekannte Probleme, zusätzliche Funktionen, Archivierung von dcrs Design
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 71ced70af127c8219001069739a6cec59d7d1684
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 11/11/2016
+ms.topic: conceptual
+ms.openlocfilehash: 4b7cea360764e1b069afacabadd9b94d87e21ecc
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-27-release-notes"></a>NuGet-Version 2.7 Hinweise
 
@@ -33,36 +24,36 @@ Wir möchten, vielen Dank, dass die folgenden externen Contributors für ihre be
 
 1. [Mike Roth](http://www.codeplex.com/site/users/view/mxrss) ([@mxrss](https://twitter.com/mxrss))
     - Zeigen Sie Lizenz-Url beim Auflisten von Paketen und Ausführlichkeit detailliert erläutert wird.
-1. [Adam Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
+2. [ADAM Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
     - [#1956](http://nuget.codeplex.com/workitem/1956) -attributhinzufügen DevelopmentDependency auf `packages.config` und zum im Befehl Pack nur Runtime Pakete enthalten
-1. [Rafael Nicoletti](http://www.codeplex.com/site/users/view/tkrafael) ([@tkrafael](https://twitter.com/tkrafael))
+3. [Rafael Nicoletti](http://www.codeplex.com/site/users/view/tkrafael) ([@tkrafael](https://twitter.com/tkrafael))
     - Vermeiden Sie die doppelten Schlüssel von Eigenschaften in nuget.exe-Pack-Befehl.
-1. [Ben Phegan](http://www.codeplex.com/site/users/view/benphegan) ([@BenPhegan](https://twitter.com/benphegan))
+4. [Ben Phegan](http://www.codeplex.com/site/users/view/benphegan) ([@BenPhegan](https://twitter.com/benphegan))
     - [#2610](http://nuget.codeplex.com/workitem/2610) -Cachegröße auf 200 Computer erweitern.
-1. [Slava Trenogin](http://www.codeplex.com/site/users/view/derigel) ([@derigel](https://twitter.com/derigel))
+5. [Slava Trenogin](http://www.codeplex.com/site/users/view/derigel) ([@derigel](https://twitter.com/derigel))
     - [#3217](http://nuget.codeplex.com/workitem/3217) -beheben NuGet-Dialogfeld auf der Registerkarte "falsch" anzeigen
     - Korrektur Project.TargetFramework kann in Projektmanager null sein.
     - [#3248](http://nuget.codeplex.com/workitem/3248) -beheben SharedPackageRepository FindPackage/FindPackagesById auf nicht existierende PackageId fehl
-1. [Kevin Boyle](http://www.codeplex.com/site/users/view/KevinBoyleRG) ([@kevfromireland](https://twitter.com/kevfromireland))
+6. [Kevin Boyle](http://www.codeplex.com/site/users/view/KevinBoyleRG) ([@kevfromireland](https://twitter.com/kevfromireland))
     - [#3234](http://nuget.codeplex.com/workitem/3234) -Unterstützung für Nomad Projekt aktivieren
-1. [Corin Blaikie](http://www.codeplex.com/site/users/view/corinblaikie) ([@corinblaikie](https://twitter.com/corinblaikie))
+7. [Corin Blaikie](http://www.codeplex.com/site/users/view/corinblaikie) ([@corinblaikie](https://twitter.com/corinblaikie))
     - [#3252](http://nuget.codeplex.com/workitem/3252) -Fix Push-Befehl schlägt fehl mit Exitcode 0 code, wenn die Datei nicht vorhanden ist.
-1. [Martin Veselý](http://www.codeplex.com/site/users/view/veselkamartin)
+8. [Martin Veselý](http://www.codeplex.com/site/users/view/veselkamartin)
     - [#3226](http://nuget.codeplex.com/workitem/3226) -Update ein Problem mit Add BindingRedirect-Befehl, wenn ein Projekt auf ein Datenbankprojekt verweist.
-1. [Miroslav Bajtos](http://www.codeplex.com/site/users/view/miroslavbajtos) ([@bajtos](https://twitter.com/bajtos))
+9. [Miroslav Bajtos](http://www.codeplex.com/site/users/view/miroslavbajtos) ([@bajtos](https://twitter.com/bajtos))
     - [#2891](http://nuget.codeplex.com/workitem/2891) -Fix-Fehler des nuget.pack analysieren Sie Platzhalter im Attribut "Exclude" nicht ordnungsgemäß.
-1. [Justin Dearing](http://www.codeplex.com/site/users/view/zippy1981) ([@zippy1981](https://twitter.com/zippy1981))
-    - [#3307](http://nuget.codeplex.com/workitem/3307) -Fix-Bug `NuGet.targets` übergibt keine $(Platform) an nuget.exe beim Wiederherstellen von Paketen.
-1. [Brian Federici](http://www.codeplex.com/site/users/view/benerdin)
-    - [#3294](http://nuget.codeplex.com/workitem/3294) -Fix Fehler im nuget.exe Paket Befehl das Hinzufügen von Dateien mit demselben Namen, aber unterschiedliche Groß-/Kleinschreibung, schließlich "Element ist bereits vorhanden" Ausnahme verursacht zulassen würde.
-1. [Daniel Cazzulino](http://www.codeplex.com/site/users/view/dcazzulino) ([@kzu](https://twitter.com/kzu))
-    - [#2990](http://nuget.codeplex.com/workitem/2990) -Version hinzufügen Eigenschaft NetPortableProfile-Klasse.
-1. [David Simner](https://www.codeplex.com/site/users/view/DavidSimner)
-    - [#3460](https://nuget.codeplex.com/workitem/3460) -NullReferenceException-Fehler zu beheben, wenn RequireApiKey = "true", aber der Header "X-NUGET-apikey" nicht vorhanden ist.
-1. [Michael Friis](https://www.codeplex.com/site/users/view/friism) ([@friism](https://twitter.com/friism))
-    - [#3278](https://nuget.codeplex.com/workitem/3278) -behebt NuGet.Build Ziele Datei an, damit er auf MonoDevelop richtig funktioniert
-1. [Pranav Krishnamoorthy](https://www.codeplex.com/site/users/view/pranavkm) ([@pranav_km](https://twitter.com/pranav_km))
-    - Verbessern Sie Restore-Befehl-Leistung, indem die Parallelisierung zu erhöhen
+10. [Justin Dearing](http://www.codeplex.com/site/users/view/zippy1981) ([@zippy1981](https://twitter.com/zippy1981))
+     - [#3307](http://nuget.codeplex.com/workitem/3307) -Fix-Bug `NuGet.targets` übergibt keine $(Platform) an nuget.exe beim Wiederherstellen von Paketen.
+11. [Brian Federici](http://www.codeplex.com/site/users/view/benerdin)
+     - [#3294](http://nuget.codeplex.com/workitem/3294) -Fix Fehler im nuget.exe Paket Befehl das Hinzufügen von Dateien mit demselben Namen, aber unterschiedliche Groß-/Kleinschreibung, schließlich "Element ist bereits vorhanden" Ausnahme verursacht zulassen würde.
+12. [Daniel Cazzulino](http://www.codeplex.com/site/users/view/dcazzulino) ([@kzu](https://twitter.com/kzu))
+     - [#2990](http://nuget.codeplex.com/workitem/2990) -Version hinzufügen Eigenschaft NetPortableProfile-Klasse.
+13. [David Simner](https://www.codeplex.com/site/users/view/DavidSimner)
+     - [#3460](https://nuget.codeplex.com/workitem/3460) -NullReferenceException-Fehler zu beheben, wenn RequireApiKey = "true", aber der Header "X-NUGET-apikey" nicht vorhanden ist.
+14. [Michael Friis](https://www.codeplex.com/site/users/view/friism) ([@friism](https://twitter.com/friism))
+     - [#3278](https://nuget.codeplex.com/workitem/3278) -behebt NuGet.Build Ziele Datei an, damit er auf MonoDevelop richtig funktioniert
+15. [Pranav Krishnamoorthy](https://www.codeplex.com/site/users/view/pranavkm) ([@pranav_km](https://twitter.com/pranav_km))
+     - Verbessern Sie Restore-Befehl-Leistung, indem die Parallelisierung zu erhöhen
 
 ## <a name="notable-features-in-the-release"></a>Wichtige Funktionen in der Version
 
@@ -105,9 +96,9 @@ NuGet-2.7 führt ein neues Feature für nuget.exe: `nuget.exe restore`
 
 Diese neue Restore-Befehl können Sie alle Pakete für eine Projektmappe mit einem einzigen Befehl problemlos wiederherstellen, indem eine Projektmappendatei oder einen Ordner als Argument akzeptiert. Darüber hinaus wird dieses Argument impliziert, wenn im aktuellen Ordner nur eine einzige Lösung besteht. Das bedeutet, dass alle folgenden aus einem Ordner geeignet sein, die eine einzelne Projektmappendatei (MySolution.sln) enthält:
 
-1. nuget.exe restore MySolution.sln
-1. nuget.exe restore .
-1. nuget.exe restore
+1. NuGet.exe Wiederherstellung MySolution.sln
+1. NuGet.exe wiederherstellen.
+1. NuGet.exe wiederherstellen
 
 Der Restore-Befehl wird die Projektmappendatei öffnen, und suchen alle Projekte innerhalb der Projektmappe. Dort finden sie die `packages.config` für die einzelnen Projekte und Wiederherstellen aller Pakete gefunden. Auch wird wiederhergestellt, Lösung auf Dokumentebene-Paketen, die aus der `.nuget\packages.config` Datei. Weitere Informationen zu den neuen Restore-Befehl finden Sie der [Command-Line Reference](../tools/cli-ref-restore.md).
 
@@ -161,7 +152,7 @@ Finden Sie unter [NuGet-Standardeinstellungen für die Konfiguration](../consume
 
 ### <a name="renaming-the-default-package-source"></a>Die Paketquelle an Standardeinstellung umbenennen
 
-NuGet ist immer eine Standard-Paketquelle namens "NuGet-offizielle Paketquelle", die auf nuget.org verweist registriert. Dieses Namens wurde ausführliche und auch nicht angeben, der tatsächlich verweist. Um diese beiden Probleme zu beheben, haben wir diese Paketquelle, um einfach "nuget.org" in der Benutzeroberfläche umbenannt. Die URL für die Paketquelle wurde ebenfalls geändert, um den "Www" enthalten Gruppenpräfix („group.“) zusammensetzt. Nachdem Sie mit NuGet 2.7, Ihre vorhandenen "NuGet-offizielle Paketquelle" automatisch aktualisiert, um "nuget.org" als Namen und "https://www.nuget.org/api/v2/" der URL.
+NuGet ist immer eine Standard-Paketquelle namens "NuGet-offizielle Paketquelle", die auf nuget.org verweist registriert. Dieses Namens wurde ausführliche und auch nicht angeben, der tatsächlich verweist. Um diese beiden Probleme zu beheben, haben wir diese Paketquelle, um einfach "nuget.org" in der Benutzeroberfläche umbenannt. Die URL für die Paketquelle wurde ebenfalls geändert, um den "Www" enthalten Gruppenpräfix („group.“) zusammensetzt. Nachdem Sie mit NuGet 2.7, Ihre vorhandenen "NuGet-offizielle Paketquelle" automatisch aktualisiert, um "nuget.org" als Namen und "<https://www.nuget.org/api/v2/>" der URL.
 
 ### <a name="performance-improvements"></a>Leistungsverbesserungen
 

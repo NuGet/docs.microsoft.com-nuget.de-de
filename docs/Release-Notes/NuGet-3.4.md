@@ -1,22 +1,16 @@
 ---
-title: NuGet 3.4-Versionshinweise | Microsoft Docs
+title: NuGet 3.4-Versionshinweise
+description: Versionshinweise für NuGet 3.4, einschließlich der bekannten Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Versionshinweise für NuGet 3.4, einschließlich der bekannten Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design."
-keywords: "NuGet 3.4 Anmerkungen zu dieser Version, aufgrund von Fehlerbehebungen, bekannte Probleme, zusätzliche Funktionen, Archivierung von dcrs Design"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 515fb888aca2a8eb138c8fea1fb5b3f5a8f4e275
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 3f2a945b628022bdcc6e69a7a4b1be6c53b65626
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-34-release-notes"></a>NuGet 3.4-Versionshinweise
 
@@ -24,9 +18,9 @@ ms.lasthandoff: 02/02/2018
 
 NuGet 3.4 30. März 2016 freigegeben wurde, als Teil der Visual Studio 2015 Update 2 und Visual Studio 15 Preview-Version und einige Grundsätze in Köpfen erstellt wurde:
 
-*  Plattformübergreifende Unterstützung
-*  Leistungsverbesserungen
-*  Kleinere Verbesserungen der Benutzeroberfläche
+* Plattformübergreifende Unterstützung
+* Leistungsverbesserungen
+* Kleinere Verbesserungen der Benutzeroberfläche
 
 Die folgenden Funktionen wurden wurden zuvor in RC hinzugefügt und aktualisiert oder für die Version 3.4 abgeschlossen:
 

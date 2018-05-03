@@ -1,25 +1,16 @@
 ---
-title: NuGet CLI Wiederherstellungsbefehl | Microsoft Docs
+title: NuGet-CLI-Restore-Befehl
+description: Referenz für die nuget.exe Restore-Befehl
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Referenz für die nuget.exe Restore-Befehl
-keywords: NuGet restore Verweis, der Synchronisierungsbefehl der Pakete
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 64f12fdedc8fbfcee15c1dcddc445148f458c030
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: dd0a74c9ed9b879643ed24cbddacff87310dfd6b
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="restore-command-nuget-cli"></a>RESTORE-Befehl (NuGet CLI)
 
@@ -68,24 +59,23 @@ Siehe auch [Umgebungsvariablen](cli-ref-environment-variables.md)
 Der Restore-Befehl führt die folgenden Schritte aus:
 
 1. Bestimmen Sie den Betriebsmodus des Restore-Befehl.
-    ProjectPath-Dateityp | Verhalten
-    | --- | --- |
-    Lösung (Ordner) | NuGet sucht nach einem `.sln` Datei und verwendet, die andernfalls einen Fehler enthält. `(SolutionDir)\.nuget` Dient als Ordner ab.
-    `.sln` Datei | Wiederherstellen von Paketen, die von der Lösung identifiziert; generiert einen Fehler, wenn `-SolutionDirectory` verwendet wird. `$(SolutionDir)\.nuget` Dient als Ordner ab.
-    `packages.config` oder der Projektdatei | Stellen Sie Pakete, die in der Datei, die zu beheben, und Installieren von Abhängigkeiten aufgelisteten wieder her.
-    Andere Dateityp | Datei wird angenommen, ein `.sln` Datei wie oben beschrieben; Wenn es sich nicht um eine Lösung, die NuGet-gibt einen Fehler handelt.
-    (ProjectPath nicht angegeben) | -NuGet sucht nach berichtsprojektmappen-Dateien im aktuellen Ordner. Wenn eine einzelne Datei gefunden wird, verwendet wird, dass eine, Pakete wiederherzustellen. Wenn mehrere Lösungen gefunden werden, wird von NuGet ein Fehler generiert.
-    |– Wenn keine Lösungsdateien vorhanden sind, sucht NuGet nach einem `packages.config` dann verwendet, um das Wiederherstellen von Paketen.
-    |– Wenn keine Lösung oder `packages.config` Datei gefunden wird, NuGet generiert einen Fehler.
 
-1. Bestimmen Sie den Ordner "Pakete" mithilfe der folgenden Prioritätsreihenfolge (NuGet generiert einen Fehler, wenn keiner dieser Ordner gefunden werden):
+   | ProjectPath-Dateityp | Verhalten |
+   | --- | --- |
+   | Lösung (Ordner) | NuGet sucht nach einem `.sln` Datei und verwendet, die andernfalls einen Fehler enthält. `(SolutionDir)\.nuget` Dient als Ordner ab. |
+   | `.sln` Datei | Wiederherstellen von Paketen, die von der Lösung identifiziert; generiert einen Fehler, wenn `-SolutionDirectory` verwendet wird. `$(SolutionDir)\.nuget` Dient als Ordner ab. |
+   | `packages.config` oder der Projektdatei | Stellen Sie Pakete, die in der Datei, die zu beheben, und Installieren von Abhängigkeiten aufgelisteten wieder her. |
+   | Andere Dateityp | Datei wird angenommen, ein `.sln` Datei wie oben beschrieben; Wenn es sich nicht um eine Lösung, die NuGet-gibt einen Fehler handelt. |
+   | (ProjectPath nicht angegeben) | <ul><li>NuGet sucht nach berichtsprojektmappen-Dateien im aktuellen Ordner. Wenn eine einzelne Datei gefunden wird, verwendet wird, dass eine, Pakete wiederherzustellen. Wenn mehrere Lösungen gefunden werden, wird von NuGet ein Fehler generiert.</li><li>Wenn keine Lösungsdateien vorhanden sind, NuGet sucht eine `packages.config` dann verwendet, um das Wiederherstellen von Paketen.</li><li>Wenn keine Lösung oder `packages.config` Datei gefunden wird, NuGet generiert einen Fehler.</ul> |
+
+2. Bestimmen Sie den Ordner "Pakete" mithilfe der folgenden Prioritätsreihenfolge (NuGet generiert einen Fehler, wenn keiner dieser Ordner gefunden werden):
 
     - Mit angegebenen Ordner `-PackagesDirectory`.
     - Die `repositoryPath` Wert in `Nuget.Config`
     - Den Ordner mit angegeben wird. `-SolutionDirectory`
     - `$(SolutionDir)\packages`
 
-1. Beim Wiederherstellen von Paketen für eine Projektmappe führt NuGet Folgendes aus:
+3. Beim Wiederherstellen von Paketen für eine Projektmappe führt NuGet Folgendes aus:
     - Lädt die Projektmappendatei.
     - Level-Lösungspakete abgelesen wiederhergestellt `$(SolutionDir)\.nuget\packages.config` in den `packages` Ordner.
     - Wiederherstellen aufgelisteten Pakete `$(ProjectDir)\packages.config` in den `packages` Ordner. Für jedes Paket angegeben wird, Wiederherstellen das Paket gleichzeitig, es sei denn, `-DisableParallelProcessing` angegeben ist.

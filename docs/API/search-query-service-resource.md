@@ -1,26 +1,17 @@
 ---
-title: Suchen, die NuGet-API | Microsoft Docs
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: NuGet-API-Suche
+description: Der Search-Dienst ermöglicht Clients zum Abfragen von Paketen von Schlüsselwort und Filterergebnisse auf bestimmte paketfelder.
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: "Der Search-Dienst ermöglicht Clients zum Abfragen von Paketen von Schlüsselwort und Filterergebnisse auf bestimmte paketfelder."
-keywords: "NuGet-Suchdienst-API, NuGet-Pakete, für Abfrage NuGet-Pakete, API-API zum Durchsuchen von NuGet-Pakete zu ermitteln"
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.openlocfilehash: 612ce0f46b654335a29bb36a64b27525994162ed
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.reviewer: kraigb
+ms.openlocfilehash: 76600ee916305ee01ddfb675c83c184e980c5a42
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="search"></a>Suchen
 
@@ -33,8 +24,8 @@ Die folgenden `@type` Werte werden verwendet:
 @type-Wert                   | Hinweise
 ----------------------------- | -----
 SearchQueryService            | Die erste Version
-SearchQueryService/3.0.0-beta | Alias der`SearchQueryService`
-SearchQueryService/3.0.0-rc   | Alias der`SearchQueryService`
+SearchQueryService/3.0.0-beta | Alias der `SearchQueryService`
+SearchQueryService/3.0.0-rc   | Alias der `SearchQueryService`
 
 ## <a name="base-url"></a>Basis-URL
 
@@ -59,8 +50,8 @@ name        | In     | Typ    | Erforderlich | Hinweise
 q           | URL    | Zeichenfolge  | Nein       | Suchbegriffe zur Filter-Pakete
 überspringen        | URL    | Ganze Zahl | Nein       | Die Anzahl der Ergebnisse für die Paginierung überspringen
 Take        | URL    | Ganze Zahl | Nein       | Die Anzahl der zurückzugebenden Ergebnisseite, für die Paginierung
-Vorabversion  | URL    | boolean | Nein       | `true`oder `false` bestimmen, ob enthalten [Vorabversion Pakete](../create-packages/prerelease-packages.md)
-semVerLevel | URL    | Zeichenfolge  | Nein       | A SemVer 1.0.0 version string 
+Vorabversion  | URL    | boolean | Nein       | `true` oder `false` bestimmen, ob enthalten [Vorabversion Pakete](../create-packages/prerelease-packages.md)
+semVerLevel | URL    | Zeichenfolge  | Nein       | Eine Versionszeichenfolge SemVer 1.0.0 
 
 Die Suchabfrage `q` wird analysiert, die in einer Weise, die durch die Implementierung definiert ist. NuGet.org unterstützt Standardfilter auf eine [Vielzahl von Feldern](../consume-packages/finding-and-choosing-packages.md#search-syntax). Wenn kein `q` angegeben wird, alle Pakete, innerhalb der Grenzen, die durch überspringen, und ergreifen Sie auferlegt, zurückgegeben werden sollen. Dadurch wird die Registerkarte "Durchsuchen" in der NuGet-Visual Studio-Umgebung.
 
@@ -82,7 +73,7 @@ Der Stamm-JSON-Objekt hat die folgenden Eigenschaften:
 
 name      | Typ             | Erforderlich | Hinweise
 --------- | ---------------- | -------- | -----
-totalHits | Ganze Zahl          | ja      | Die Gesamtzahl der Übereinstimmungen, Basiseigenschaft `skip` und`take`
+totalHits | Ganze Zahl          | ja      | Die Gesamtzahl der Übereinstimmungen, Basiseigenschaft `skip` und `take`
 Daten      | Array von Objekten | ja      | Die Suchergebnisse abgeglichen, die von der Anforderung
 
 ### <a name="search-result"></a>Suchergebnis

@@ -1,22 +1,16 @@
 ---
-title: Anmerkungen zu dieser Version von NuGet 3.2 RC | Microsoft Docs
+title: Anmerkungen dieser Version von NuGet 3.2 RC
+description: Versionshinweise für NuGet 3.2 RC einschließlich bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Versionshinweise für NuGet 3.2 RC einschließlich bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design."
-keywords: "NuGet-3.2 RC-versionsanmerkungen, aufgrund von Fehlerbehebungen, bekannte Probleme, zusätzliche Funktionen, Archivierung von dcrs Design"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: b19f62217ed79689ce067107dd64dfffe2c59291
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 0310bac6fdb3ef92176f9224ace1620a230664af
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-32-rc-release-notes"></a>Anmerkungen dieser Version von NuGet 3.2 RC
 
@@ -27,7 +21,7 @@ NuGet-3.2 Release Candidate-Version wurde veröffentlicht am 2. September 2015 a
 ## <a name="new-features"></a>Neue Funktionen
 
 * Projekte, die in demselben Ordner befinden, können jetzt weisen unterschiedliche `project.json` Dateien in diesem Ordner, die spezifisch für jedes Projekt.  Jedes Projekt ein, und die `project.json` Datei `{ProjectName}.project.json` und NuGet ordnungsgemäß verweisen und entsprechend, dass der Inhalt für jedes Projekt verwenden.  Dies unterstützt ein neues Feature [1102](https://github.com/NuGet/Home/issues/1102)
-* `NuGet.Config`unterstützt jetzt einen GlobalPackagesFolder als relativer Pfad - [1062](https://github.com/NuGet/Home/issues/1062)
+* `NuGet.Config` unterstützt jetzt einen GlobalPackagesFolder als relativer Pfad - [1062](https://github.com/NuGet/Home/issues/1062)
 
 ## <a name="command-line-updates"></a>Befehlszeilen-updates
 
@@ -45,7 +39,7 @@ Dies ist die erste Version des Clients nuget.exe, die NuGet-v3-Server unterstüt
 * NuGet Restore-Befehl ordnungsgemäß 1 zurückgeben, wenn ein Fehlerzustand auftritt - korrigiert [1186](https://github.com/NuGet/Home/issues/1186)
 * Netzwerkverbindungen jetzt und wiederholen Sie dann jede 200 ms für maximal 5 Versuche eines HTTP-5xx - [1120](https://github.com/NuGet/Home/issues/1120)
 * Verbesserte Behandlung von Umleitung Serverantworten während eines Befehls Push - [1051](https://github.com/NuGet/Home/issues/1051)
-* `nuget install -source`unterstützt nun die URL oder Repository namens "NuGet.config" als Argument - [1046](https://github.com/NuGet/Home/issues/1046)
+* `nuget install -source` unterstützt nun die URL oder Repository namens "NuGet.config" als Argument - [1046](https://github.com/NuGet/Home/issues/1046)
 * Fehlender Pakete, die während einer Wiederherstellung auf einem Repository nicht gefunden wurden, werden jetzt als Fehler anstatt Warnungen gemeldet [1038](https://github.com/NuGet/Home/issues/1038)
 * Korrigiert Multipartwebrequest Behandlung von \r\n für Unix/Linux-Szenarien – [776](https://github.com/NuGet/Home/issues/776)
 

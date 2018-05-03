@@ -1,25 +1,16 @@
 ---
-title: NuGet 1.0 und 1.1-Versionshinweise | Microsoft Docs
-author: karann-msft
-ms.author: karann-msft
-manager: ghogen
-ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+title: Anmerkungen zur Version von NuGet 1.0 und 1.1
 description: Versionshinweise für NuGet 1.1 einschließlich bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design.
-keywords: NuGet-1.1 Anmerkungen zu dieser Version, aufgrund von Fehlerbehebungen, bekannte Probleme, zusätzliche Funktionen, Archivierung von dcrs Design
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: dd320df2d725e58182cd908ce621571ea018b350
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 11/11/2016
+ms.topic: conceptual
+ms.openlocfilehash: a11248a96109c879946e7e28a50e7753b644f042
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-10-and-11-release-notes"></a>Anmerkungen zur Version von NuGet 1.0 und 1.1
 
@@ -54,7 +45,7 @@ Dieses [neueste Release](http://nuget.codeplex.com/releases/view/52018):
 * Entfernen Sie alle vorhandenen Feeds, die Sie haben.
 * Hinzufügen ein neues Feeds auf [ http://go.microsoft.com/fwlink/?LinkId=206669 ](http://go.microsoft.com/fwlink/?LinkId=206669).
 
-## <a name="nuget-11"></a>NuGet 1.1
+## <a name="nuget-11"></a>NuGet-1.1
 
 Die Liste der in dieser Version behobene Probleme [finden Sie hier](http://nuget.codeplex.com/workitem/list/advanced?keyword=&amp;status=All&amp;type=All&amp;priority=All&amp;release=NuGet%201.1&amp;assignedTo=All&amp;component=All&amp;sortField=LastUpdatedDate&amp;sortDirection=Descending&amp;page=0)
 

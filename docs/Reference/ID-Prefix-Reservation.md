@@ -1,26 +1,17 @@
 ---
-title: ID-Präfix Reservierung Verweis | Microsoft Docs
+title: Die Reservierung Verweis-ID-Präfix
+description: Paket-ID-Präfix Reservierung featurebeschreibung und Autor-Handbuch.
 author: diverdan92
 ms.author: diverdan92
-manager: unniravindranathan
+manager: unnir
 ms.date: 10/09/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Paket-ID-Präfix Reservierung featurebeschreibung und Autor-Handbuch.
-keywords: NuGet-Paket-ID-Präfix, Reservierung
-ms.reviewer:
-- ananguar
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 7b1956612bd48a1c59503418f1a4d7d9dee900f5
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: ananguar
+ms.openlocfilehash: 63f442ae25b92aacbbf5af7d9b3ea1a5dafe5fc9
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="package-id-prefix-reservation"></a>Paket-ID-Präfix-Reservierung
 
@@ -64,8 +55,8 @@ Es gibt mehrere erweiterte Präfix Reservierung Szenarien einschließlich Subpre
 
 Wenn ein Paket ein reserviertes Präfix stammen, sehen Sie die unten von visuellen Indikatoren auf der [nuget.org](https://www.nuget.org/) Katalog und in Visual Studio 2017 15.4 oder höher:
 
-**nuget.org Gallery**
-![nuget.org Gallery](media/nuget-gallery-reserved-prefix.png)
+**NuGet.org Katalog**
+![nuget.org-Katalog](media/nuget-gallery-reserved-prefix.png)
 
 **Visual Studio**
 ![Visual Studio](media/visual-studio-reserved-prefix.png)
@@ -74,9 +65,9 @@ Wenn ein Paket ein reserviertes Präfix stammen, sehen Sie die unten von visuell
 
 1. Überprüfen Sie die Annahme [Kriterien für die Präfix-ID Reservierung](#id-prefix-reservation-criteria).
 
-1. Bestimmen Sie die Namespaces, die Sie reservieren sowie jegliche, möchten [erweiterte Szenarien der Präfix-Reservierung](#advanced-prefix-reservation-scenarios) möglicherweise benötigt.
+2. Bestimmen Sie die Namespaces, die Sie reservieren sowie jegliche, möchten [erweiterte Szenarien der Präfix-Reservierung](#advanced-prefix-reservation-scenarios) möglicherweise benötigt.
 
-1. Senden Sie eine e-Mail an [ account@nuget.org ](mailto:account@nuget.org) mit dem Besitzer Anzeigename auf [nuget.org](https://www.nuget.org/), sowie alle reservierte Präfixe, die Sie anfordern. Wenn Sie die Präfix-Teilmengen zu mehreren Besitzern delegieren, stellen Sie sicher, nennen Sie die Anzeigenamen für alle Besitzer und Teilmengen Präfix.
+3. Senden Sie eine e-Mail an [ account@nuget.org ](mailto:account@nuget.org) mit dem Besitzer Anzeigename auf [nuget.org](https://www.nuget.org/), sowie alle reservierte Präfixe, die Sie anfordern. Wenn Sie die Präfix-Teilmengen zu mehreren Besitzern delegieren, stellen Sie sicher, nennen Sie die Anzeigenamen für alle Besitzer und Teilmengen Präfix.
 
 Nachdem die Anwendung gesendet wird, werden Sie benachrichtigt der Annahme oder Ablehnung (mit den Kriterien, die Ablehnung verursacht hat). Wir müssen möglicherweise weitere identifizierende Besitzer Identität bestätigen Fragen.
 
