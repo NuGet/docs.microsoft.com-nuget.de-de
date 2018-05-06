@@ -1,25 +1,16 @@
 ---
-title: Was ist NuGet, und welche Funktion hat es? | Microsoft-Dokumentation
+title: Was ist NuGet, und welche Funktion hat es?
+description: Eine umfassende Einführung in NuGet und seine Funktionsweise
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/10/2018
 ms.topic: overview
-ms.prod: nuget
-ms.technology: ''
-description: Eine umfassende Einführung in NuGet und seine Funktionsweise
-keywords: NuGet-Paket-Manager, Nutzung, Paketerstellung, Pakethosting, .NET-Pakete, .NET Core-Pakete
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 0d2094177f919d27b9a8320e60c8d1d75ec18fb6
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 7237db8f3be3d9a1d46b9e6be41bff5c06593a20
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="an-introduction-to-nuget"></a>Eine Einführung in NuGet
 
