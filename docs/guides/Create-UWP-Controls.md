@@ -1,25 +1,16 @@
 ---
-title: 'Vorgehensweise: Verpacken von UWP-Steuerelementen mit NuGet | Microsoft-Dokumentation'
+title: 'Gewusst wie: Packen von UWP-Steuerelementen mit NuGet'
+description: Vorgehensweise beim Erstellen von NuGet-Paketen mit UWP-Steuerelementen einschließlich der erforderlichen Metadaten und der unterstützenden Dateien für die Visual Studio- und Blend-Designer.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/14/2018
 ms.topic: tutorial
-ms.prod: nuget
-ms.technology: ''
-description: Vorgehensweise beim Erstellen von NuGet-Paketen mit UWP-Steuerelementen einschließlich der erforderlichen Metadaten und der unterstützenden Dateien für die Visual Studio- und Blend-Designer.
-keywords: UWP-Steuerelemente von NuGet, Visual Studio XAML-Designer, Blend-Designer, benutzerdefinierte Steuerelemente
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: f024fd1823c77d57d30c4f841bf03494194c8339
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 963846e857c8757176e4fbe1cd60c92a7397ba01
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="creating-uwp-controls-as-nuget-packages"></a>Erstellen von UWP-Steuerelementen als NuGet-Pakete
 

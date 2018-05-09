@@ -1,25 +1,16 @@
 ---
-title: 'Verwenden von NuGet-Paketen: Übersicht und Workflow | Microsoft-Dokumentation'
+title: 'Verwenden von NuGet-Paketen: Übersicht und Workflow'
+description: Eine Übersicht über das Nutzen von NuGet-Paketen in einem Projekt, die Links zu anderen spezifischen Teilen des Prozesses enthält.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/22/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Eine Übersicht über das Nutzen von NuGet-Paketen in einem Projekt, die Links zu anderen spezifischen Teilen des Prozesses enthält.
-keywords: Nutzung von NuGet-Paketen, Übersicht über die Nutzung von NuGet-Paketen, Workflow der Nutzung von NuGet-Paketen, Workflow der Nutzung von Paketen, Übersicht über die Nutzung von Paketen
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: e79b09fe8131f25c6bbed650e1927425dcc5d409
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 765b48b474aee17415f53491514bf6e9d50af010
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="package-consumption-workflow"></a>Workflow der Nutzung von Paketen
 

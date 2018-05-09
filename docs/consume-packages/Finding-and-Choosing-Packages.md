@@ -1,25 +1,16 @@
 ---
-title: Suchen und Auswählen von NuGet-Paketen | Microsoft-Dokumentation
+title: Suchen und Wählen von NuGet-Paketen
+description: Eine Übersicht darüber, wie Sie die besten NuGet-Pakete für ein Projekt suchen und auswählen sowie Details zur Syntax der NuGet-Suche.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/16/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Eine Übersicht darüber, wie Sie die besten NuGet-Pakete für ein Projekt suchen und auswählen sowie Details zur Syntax der NuGet-Suche.
-keywords: Nutzung und Ermittlung von NuGet-Paketen, die besten NuGet-Pakete, Auswählen, Nutzen und Auswerten von Paketen, Syntax der NuGet-Suche
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 319361623e60b8bdfe3c2dbc9bdcae65783a17e3
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 94d851cfbc860e50b02ca99595ca41bbf4ce21ef
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Suchen und Auswerten von NuGet-Paketen für Ihr Projekt
 
@@ -104,6 +95,8 @@ Allerdings bedeutet das Verwenden eines NuGet-Pakets auch, dass eine Abhängigke
 - *Open Source-Beiträge:* Manche Pakete befinden sich in Open Source-Repositorys. Dadurch wird es Entwicklern ermöglicht, die von diesen abhängig sind, Problembehebungen und Verbesserungen von Features direkt beizutragen. Der Beitragsverlauf eines Pakets zeigt ebenfalls an, wie viele Entwickler sich aktiv am Paket beteiligen.
 
 - *Kontaktieren der Besitzer:* Neue Entwickler können gleichermaßen dazu fähig sein, für Sie nützliche Pakete zu erstellen. Es ist daher ratsam, diesen eine Chance zu geben, NuGet mit neuen Inhalten zu bereichern. Nutzen Sie deshalb die Option **Contact Owners** (Besitzer kontaktieren), die sich auf der Angebotsseite unter **Info** befindet, um Paketentwickler direkt zu kontaktieren. Diese arbeiten sicherlich gerne mit Ihnen zusammen, um Ihre Vorstellungen umzusetzen.
+
+- *Reservierte Paket-ID-Präfixe*: Viele Paketbesitzer haben ein [reserviertes Paket-ID-Präfix](../reference/id-prefix-reservation.md) beantragt und erhalten. Wenn Sie auf [nuget.org](https://www.nuget.org/) oder in Visual Studio das Häkchen neben einer Paket-ID sehen, bedeutet dies, dass der Paketbesitzer unsere [Kriterien](../reference/id-prefix-reservation.md#id-prefix-reservation-criteria) für die ID-Präfixreservierung erfüllt hat. Dies bedeutet, dass der Paketbesitzer sich und sein Paket eindeutig identifizieren kann.
 
 > [!Note]
 > Sie sollten stets die Lizenzbedingungen eines Pakets beachten. Diese können Sie anzeigen, indem Sie auf der Angebotsseite eines Pakets auf nuget.org auf **License Info** (Lizenzinformationen) klicken. Wenn ein Paket keine Lizenzbedingungen angibt, kontaktieren Sie den Paketbesitzer direkt, indem Sie den Link **Contact owners** (Besitzer kontaktieren) auf der Seite für Pakete verwenden. Microsoft lizenziert kein geistiges Eigentum von Drittanbietern für Pakete und ist nicht verantwortlich für die durch Drittanbieter bereitgestellten Inhalte.

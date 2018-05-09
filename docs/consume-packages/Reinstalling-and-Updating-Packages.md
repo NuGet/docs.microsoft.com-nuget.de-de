@@ -1,25 +1,16 @@
 ---
-title: Erneutes Installieren und Aktualisieren von NuGet-Paketen | Microsoft-Dokumentation
+title: Erneutes Installieren und Aktualisieren von NuGet-Paketen
+description: Hier finden Sie Informationen dazu, wann es nötig ist, Pakete neu zu installieren und zu aktualisieren (z.B. bei fehlerhaften Paketverweisen in Visual Studio).
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/07/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Hier finden Sie Informationen dazu, wann es nötig ist, Pakete neu zu installieren und zu aktualisieren (z.B. bei fehlerhaften Paketverweisen in Visual Studio).
-keywords: NuGet-Paketinstallation, erneute Installation eines NuGet-Pakets, NuGet-Paketwiederherstellung, Aktualisieren eines Pakets, Paketwiederherstellung, Beheben fehlerhafter Verweise
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 9da385f51abf5877589c29ebdeffefc9a1a20a2e
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: fc2c1a58f787da61041c644085058355de4f12ea
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Neuinstallieren und Aktualisieren von Paketen
 
@@ -81,7 +72,7 @@ Wenn Sie den gleichen Befehl ohne `-reinstall` verwenden, wird ein Paket auf die
 Update-Package <package_name>
 ```
 
-Standardmäßig wirkt sich `Update-Package` auf alle Pakete in einer Projektmappe aus. Verwenden Sie den Parameter `-ProjectName` mithilfe des Namens des Projekts, wie es im Projektmappen-Explorer dargestellt wird, um die Aktion auf ein bestimmtes Projekt zu beschränken:
+Standardmäßig wirkt sich `Update-Package` auf alle Projekte in einer Projektmappe aus. Verwenden Sie den Parameter `-ProjectName` mithilfe des Namens des Projekts, wie es im Projektmappen-Explorer dargestellt wird, um die Aktion auf ein bestimmtes Projekt zu beschränken:
 
 ```ps
 # Reinstall the package in just MyProject

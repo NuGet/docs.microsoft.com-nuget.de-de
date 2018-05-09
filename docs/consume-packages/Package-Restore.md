@@ -1,25 +1,16 @@
 ---
-title: NuGet-Paketwiederherstellung | Microsoft-Dokumentation
+title: NuGet-Paketwiederherstellung
+description: Übersicht über die Wiederherstellung von Paketen mit NuGet, von denen ein Projekt abhängig ist, die auch die Deaktivierung von Wiederherstellungsversionen sowie von eingeschränkten Versionen umfasst.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/16/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Übersicht über die Wiederherstellung von Paketen mit NuGet, von denen ein Projekt abhängig ist, die auch die Deaktivierung von Wiederherstellungsversionen sowie von eingeschränkten Versionen umfasst.
-keywords: NuGet-Paketwiederherstellung, NuGet-Paketinstallation, Installieren eines Pakets, Wiederherstellen von Paketen, Abhängigkeitsversionen, Deaktivieren von automatischen Wiederherstellungen, einschränkende Paketversionen
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: d5c9c9f571ea25f8877f78c3fba114562d31fcd8
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 6a8a2f1c5ced956f18b623f112756cdd2fab22f5
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="package-restore"></a>Paketwiederherstellung
 

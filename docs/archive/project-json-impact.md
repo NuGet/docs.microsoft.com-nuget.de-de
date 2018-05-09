@@ -1,25 +1,16 @@
 ---
-title: Auswirkungen von „project.json“ auf das Erstellen von NuGet-Paketen | Microsoft-Dokumentation
+title: Auswirkungen von project.json auf Ersteller von NuGet-Paketen
+description: Informationen darüber, was die Implementierung von „project.json“ in NuGet 3.x für Paketersteller bedeutet, z.B. nicht unterstützte Features und Paketformate sowie nicht unterstützter Inhalt.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Informationen darüber, was die Implementierung von „project.json“ in NuGet 3.x für Paketersteller bedeutet, z.B. nicht unterstützte Features und Paketformate sowie nicht unterstützter Inhalt.
-keywords: NuGet und „project.json“, Auswirkungen von „project.json“, Überlegungen zur Paketerstellung, Features von „project.json“
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 6e8af98504a2866106e84943989aeb91f2e9c1fb
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 6163297075f741a4132afd748974498fa1600fbb
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>Auswirkungen von „project.json“ auf das Erstellen von Paketen
 
