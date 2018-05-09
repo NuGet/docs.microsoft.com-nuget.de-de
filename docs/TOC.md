@@ -42,7 +42,7 @@
 ### [add](tools/cli-ref-add.md)
 ### [config](tools/cli-ref-config.md)
 ### [delete](tools/cli-ref-delete.md)
-### [help oder ?](tools/cli-ref-help.md)
+### [help or ?](tools/cli-ref-help.md)
 ### [init](tools/cli-ref-init.md)
 ### [install](tools/cli-ref-install.md)
 ### [list](tools/cli-ref-list.md)
@@ -114,6 +114,7 @@
 ## [NuGet: häufig gestellte Fragen](policies/nuget-faq.md)
 ## [Governance](policies/governance.md)
 ## [Ökosystem](policies/ecosystem.md)
+## [Datenanforderungen](policies/Data-requests.md)
 ## [Konfliktlösung](policies/dispute-resolution.md)
 ## [Löschen von Paketen](policies/deleting-packages.md)
 # Anmerkungen zu diesem Release
