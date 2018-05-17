@@ -6,15 +6,17 @@ ms.author: kraigb
 manager: douge
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 403717158cb9b3d1e0038bf31033bbf7c1fcdb8c
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 8534074f22b58f8ed4b22c19fe2ea38d68113434
+ms.sourcegitcommit: 00c4c809c69c16fcf4d81012eb53ea22f0691d0b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="release-notes"></a>Anmerkungen zu dieser Version
 
 [Bekannte Probleme](../release-notes/known-issues.md)
+
+[NuGet 4.7 RTM](../release-notes/nuget-4.7-rtm.md)
 
 [NuGet 4.6 RTM](../release-notes/nuget-4.6-rtm.md)
 

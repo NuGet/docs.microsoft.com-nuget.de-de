@@ -11,11 +11,11 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 99bd51798460a56cb8515d46791a9e75d9e630cc
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: 1d8cb8186b9cedb29918d48539bdf45b130030c0
+ms.sourcegitcommit: 00c4c809c69c16fcf4d81012eb53ea22f0691d0b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="nuget-package-manager-ui"></a>NuGet-Paket-Manager-Benutzeroberfläche
 
@@ -70,7 +70,7 @@ In diesem Thema:
 
     ![Aktualisieren eines Pakets](media/UpdatePackages.png)
 
-1. <a name="implicit_reference"></a>Für einige Pakete die **Update** Schaltfläche ist deaktiviert, und eine Meldung angezeigt, die besagt, dass "implizit ein SDK verweist" (oder "AutoReferenced"). Die Meldung gibt an, dass das Paket, z. B. Microsoft.NETCore.App oder Microsoft.NETStandard.Library, Teil eines größeren Framework oder SDK ist und nicht unabhängig voneinander aktualisiert werden sollten. (Solche Pakete sind intern mit markierten `<IsImplicitlyDefined>True</IsImplicitlyDefined>`.) Um das Paket zu aktualisieren, aktualisieren Sie das SDK zu dem er gehört.
+1. <a name="implicit_reference"></a>Für einige Pakete die **Update** Schaltfläche ist deaktiviert, und eine Meldung angezeigt, die besagt, dass "implizit ein SDK verweist" (oder "AutoReferenced"). Die Meldung gibt an, dass das Paket, z. B. Microsoft.NETCore.App oder Microsoft.NETStandard.Library, Teil eines größeren Framework oder SDK ist und nicht unabhängig voneinander aktualisiert werden sollten. (Solche Pakete sind intern mit markierten `<IsImplicitlyDefined>True</IsImplicitlyDefined>`.) Um das Paket zu aktualisieren, aktualisieren Sie das SDK zu dem er gehört, ableiten von der enthaltenden SDK von der Paketname. Z. B. ein Paket wie Microsoft.NETCore.App ist Bestandteil von .NET Core SDK, daher müssen Sie die .NET Core SDK-Installation zu aktualisieren.
 
     ![Beispielpaket als implizit gekennzeichnet sein, Verweise oder AutoReferenced](media/PackageManagerUIAutoReferenced.png)
 

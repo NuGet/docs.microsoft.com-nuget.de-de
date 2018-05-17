@@ -6,11 +6,11 @@ ms.author: kraigb
 manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 615f2beca1eb288417f2345fcdf25e323942d300
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
-ms.translationtype: HT
+ms.openlocfilehash: 1c6ec1181f2f619eb8a4f2d87f7910f25b98e0f4
+ms.sourcegitcommit: 00c4c809c69c16fcf4d81012eb53ea22f0691d0b
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="install-command-nuget-cli"></a>Der Befehl „install“ (NuGet CLI)
 
@@ -27,7 +27,7 @@ Wenn keine bestimmte Pakete angegeben werden, `install` installiert alle Pakete 
 
 Die `install` Befehl ändert sich nicht auf eine Projektdatei oder `packages.config`; auf diese Weise ähnelt `restore` nur Pakete auf den Datenträger fügt jedoch ändert sich nicht auf ein Projekt Abhängigkeiten.
 
-Zum Hinzufügen einer Abhängigkeit ein Projekts durch die Paketmanager-Benutzeroberfläche oder die Konsole in Visual Studio hinzufügen oder ändern `packages.config` und führen Sie einen `install` oder `restore`.
+Zum Hinzufügen einer Abhängigkeit ein Pakets durch die Paketmanager-Benutzeroberfläche oder die Konsole in Visual Studio hinzufügen oder ändern Sie `packages.config` und führen Sie einen `install` oder `restore`.
 
 ## <a name="usage"></a>Verwendung
 
@@ -53,7 +53,7 @@ auf dem `<packageID>` benennt das Paket zu installieren (verwenden die neueste V
 | NonInteractive | Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an. |
 | OutputDirectory | Gibt den Ordner, in dem Pakete installiert sind. Wenn kein Ordner angegeben wird, wird der aktuelle Ordner verwendet. |
 | PackageSaveMode | Gibt die Typen von Dateien nach der Paketinstallation speichern: einer der `nuspec`, `nupkg`, oder `nuspec;nupkg`. |
-| Vorabversion | Mit der Vorabversion Pakete installiert werden. Dieses Flag ist nicht erforderlich, beim Wiederherstellen von Paketen mit `packages.config`. |
+| PreRelease | Mit der Vorabversion Pakete installiert werden. Dieses Flag ist nicht erforderlich, beim Wiederherstellen von Paketen mit `packages.config`. |
 | RequireConsent | Überprüft, ob Pakete werden wiederhergestellt aktiviert wird vor dem Herunterladen und Installieren der Pakete. Weitere Informationen finden Sie unter [Paketwiederherstellung](../consume-packages/package-restore.md). |
 | SolutionDirectory | Gibt die Stammordner der Lösung für das Wiederherstellen von Paketen. |
 | Quelle | Gibt die Liste der Paketquellen (wie URLs) Verwendung an. Wenn nicht angegeben, wird der Befehl verwendet die Quellen in Konfigurationsdateien bereitgestellt, finden Sie unter [NuGet Konfigurieren von Verhalten](../consume-packages/configuring-nuget-behavior.md). |

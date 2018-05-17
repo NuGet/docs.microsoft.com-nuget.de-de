@@ -71,7 +71,7 @@
 ### [Uninstall-Package](tools/ps-ref-uninstall-package.md)
 ### [Update-Package](tools/ps-ref-update-package.md)
 ## [dotnet-Befehle](tools/dotnet-Commands.md)
-# Referenz
+# Verweis
 ## [.nuspec](reference/nuspec.md)
 ## [Paketverweise in Projektdateien](consume-packages/package-references-in-project-files.md)
 ## [Migrieren von „packages.config“ zu „PackageReference“](reference/migrate-packages-config-to-package-reference.md)
@@ -119,6 +119,7 @@
 ## [Löschen von Paketen](policies/deleting-packages.md)
 # Anmerkungen zu diesem Release
 ## [Bekannte Probleme](release-notes/known-issues.md)
+## [NuGet 4.7 RTM](release-notes/NuGet-4.7-RTM.md)
 ## [NuGet 4.6 RTM](release-notes/NuGet-4.6-RTM.md)
 ## [NuGet 4.5 RTM](release-notes/NuGet-4.5-RTM.md)
 ## [NuGet 4.4 RTM](release-notes/NuGet-4.4-RTM.md)
