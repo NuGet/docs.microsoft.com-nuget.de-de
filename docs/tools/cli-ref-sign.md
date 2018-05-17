@@ -13,7 +13,7 @@ ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="sign-command-nuget-cli"></a>Anmelde-Befehl (NuGet CLI)
+# <a name="sign-command-nuget-cli"></a>Der Befehl „sign“ (NuGet CLI)
 
 **Gilt für:** Erstellen von Paketen &bullet; **unterstützte Versionen:** 4.6 +
 

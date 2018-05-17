@@ -8,11 +8,11 @@ ms.date: 01/18/2018
 ms.topic: reference
 ms.openlocfilehash: 615f2beca1eb288417f2345fcdf25e323942d300
 ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="install-command-nuget-cli"></a>Installationsbefehl (NuGet CLI)
+# <a name="install-command-nuget-cli"></a>Der Befehl „install“ (NuGet CLI)
 
 **Gilt für:** Verpacken Sie Verbrauch &bullet; **unterstützte Versionen:** alle
 

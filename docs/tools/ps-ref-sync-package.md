@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="sync-package-package-manager-console-in-visual-studio"></a>Sync-Paket (Paket-Manager-Konsole in Visual Studio)
+# <a name="sync-package-package-manager-console-in-visual-studio"></a>Sync-Package (Paket-Manager-Konsole in Visual Studio)
 
 *Version 3.0 +; verfügbar nur innerhalb der [NuGet Package Manager Console](package-manager-console.md) in Visual Studio unter Windows.*
 

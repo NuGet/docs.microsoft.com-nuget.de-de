@@ -7,11 +7,11 @@ manager: skofman
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 464b252ca318a5bd3487c723dbf4c7062e4698a3
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 8554f9515b671dbececd94a025ec7e56037c2bd9
+ms.sourcegitcommit: 055248d790051774c892b220eca12015babbd668
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="catalog"></a>Catalog
 
@@ -193,11 +193,11 @@ Paket Details Katalogelemente haben die folgenden Eigenschaften zusätzlich zu d
 name                    | Typ                       | Erforderlich | Hinweise
 ----------------------- | -------------------------- | -------- | -----
 authors                 | Zeichenfolge                     | Nein       |
-created                 | Zeichenfolge                     | ja      | Einen Zeitstempel mit der ersten des Pakets Erstellung
+created                 | Zeichenfolge                     | Nein       | Ein Zeitstempel, wann das Paket zuerst erstellt wurde. Fallback-Eigenschaft: `published`.
 dependencyGroups        | Array von Objekten           | Nein       | Gleiche format wie die [Metadatenressource "package"](registration-base-url-resource.md#package-dependency-group)
 Beschreibung             | Zeichenfolge                     | Nein       |
 iconUrl                 | Zeichenfolge                     | Nein       |
-isPrerelease            | boolean                    | ja      | Davon, ob die Paketversion Vorabversion ist.
+isPrerelease            | boolean                    | Nein       | Davon, ob die Version des Pakets eine Vorabversion ist. Können von erkannt werden `version`.
 language                | Zeichenfolge                     | Nein       |
 licenseUrl              | Zeichenfolge                     | Nein       |
 Liste                  | boolean                    | Nein       | Und zwar unabhängig davon, ob das Paket aufgeführt ist

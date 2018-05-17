@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="mirror-command-nuget-cli"></a>Mirror-Befehl (NuGet CLI)
+# <a name="mirror-command-nuget-cli"></a>Der Befehl „mirror“ (NuGet-CLI)
 
 **Gilt für:** Verpacken Sie die Publishing &bullet; **unterstützte Versionen:** in 3.2 + veraltet
 

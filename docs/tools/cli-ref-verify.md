@@ -13,7 +13,7 @@ ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/27/2018
 ---
-# <a name="verify-command-nuget-cli"></a>Vergewissern Sie sich Befehl (NuGet CLI)
+# <a name="verify-command-nuget-cli"></a>Der Befehl „verify“ (NuGet-CLI)
 
 **Gilt für:** Verpacken Sie Verbrauch &bullet; **unterstützte Versionen:** 4.6 +
 

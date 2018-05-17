@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="pack-command-nuget-cli"></a>Pack-Befehl (NuGet CLI)
+# <a name="pack-command-nuget-cli"></a>Der Befehl „pack“ (NuGet-CLI)
 
 **Gilt für:** Erstellen von Paketen &bullet; **unterstützte Versionen:** 2.7 +
 

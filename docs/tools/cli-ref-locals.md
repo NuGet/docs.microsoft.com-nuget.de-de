@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="locals-command-nuget-cli"></a>"lokal"-Befehl (NuGet CLI)
+# <a name="locals-command-nuget-cli"></a>Der Befehl „locals“ (NuGet-CLI)
 
 **Gilt für:** Verpacken Sie Verbrauch &bullet; **unterstützte Versionen:** 3.3 +
 

@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="update-command-nuget-cli"></a>Update-Befehl (NuGet CLI)
+# <a name="update-command-nuget-cli"></a>Der Befehl „commnad“ (NuGet CLI)
 
 **Gilt für:** Verpacken Sie Verbrauch &bullet; **unterstützte Versionen:** alle
 

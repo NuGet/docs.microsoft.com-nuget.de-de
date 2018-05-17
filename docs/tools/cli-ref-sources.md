@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="sources-command-nuget-cli"></a>Quellen-Befehl (NuGet CLI)
+# <a name="sources-command-nuget-cli"></a>Der Befehl „sources“ (NuGet-CLI)
 
 **Gilt für:** Paket Verbrauchs, Veröffentlichung &bullet; **unterstützte Versionen:** alle
 

@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="add-command-nuget-cli"></a>Fügen Sie hinzu (Befehl) (NuGet CLI)
+# <a name="add-command-nuget-cli"></a>Der Befehl „add““ (NuGet-CLI)
 
 **Gilt für**: Verpacken Sie die Publishing &bullet; **unterstützten Versionen**: 3.3 +
 
