@@ -10,11 +10,11 @@ ms.reviewer:
 - skofman
 - anangaur
 - kraigb
-ms.openlocfilehash: e236d685a700d0f47480336cece8edfd44c28863
-ms.sourcegitcommit: 68c8a494a11c892ac671fec3170ba7be97fb044d
+ms.openlocfilehash: c5d3cf68ac6a96a6c14eb5e652bcf72698b6a8e8
+ms.sourcegitcommit: 8f0bb8bb9cb91d27d660963ed9b0f32642f420fe
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="rate-limits"></a>Begrenzung der Bandbreite
 
@@ -46,5 +46,5 @@ Die folgenden Tabellen enthalten die Begrenzung der Datenübertragungsrate für 
 
 | API | Limittyp | Grenzwert | API-Anwendungsfall | 
 |:---|:---|:---|:--- |
-**PUT** `/api/v2/package` | API-Schlüssel | 100 / Minute | Hochladen Sie über v2-Push-Endpunkt ein neues NuGet-Paket (Version) 
-**LÖSCHEN** `/api/v2/package/{id}/{version}` | API-Schlüssel | 100 / Minute | NuGet-Paket (Version) über einen Endpunkt v2 Benutzerauswahl 
+**PUT** `/api/v2/package` | API-Schlüssel | 250 / Stunde | Hochladen Sie über v2-Push-Endpunkt ein neues NuGet-Paket (Version) 
+**LÖSCHEN** `/api/v2/package/{id}/{version}` | API-Schlüssel | 250 / Stunde | NuGet-Paket (Version) über einen Endpunkt v2 Benutzerauswahl 

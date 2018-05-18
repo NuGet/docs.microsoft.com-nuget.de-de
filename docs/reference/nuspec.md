@@ -7,11 +7,11 @@ manager: douge
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: c11b50aa1637c00f0f0e71a6e20ce5d435db402b
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: c0717418e1efcdcaf407bec6ab50f43e5396421e
+ms.sourcegitcommit: 8f0bb8bb9cb91d27d660963ed9b0f32642f420fe
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="nuspec-reference"></a>NUSPEC-Referenz
 
@@ -88,7 +88,7 @@ Diese Elemente auftreten in einem `<metadata>`-Element angezeigt werden.
 | **owners** | Eine durch Kommas getrennte Liste der Paketersteller, die auf nuget.org Profilnamen verwenden. Dabei handelt es sich häufig um dieselbe Liste wie in `authors`. Sie wird beim Hochladen der Pakete auf nuget.org ignoriert. Informationen dazu finden Sie unter [Managing package owners on nuget.org (Verwalten von Paketbesitzern auf nuget.org)](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). |
 | **projectUrl** | Eine URL für die Paket-Homepage, häufig auf der Benutzeroberfläche sowie auf nuget.org angezeigt. |
 | **licenseUrl** | Eine URL für die Paketlizenz, häufig auf der Benutzeroberfläche sowie auf nuget.org angezeigt. |
-| **iconUrl** | Eine URL für ein 64x64-Bild mit transparentem Hintergrund, das als Symbol für das Paket in der Benutzeroberfläche verwendet wird. Stellen Sie sicher, dass dieses Element die *direkte Bild-URL* und nicht nur die URL einer Webseite enthält, die das Bild enthält. Z. B. um ein Bild von GitHub verwenden zu können, verwenden die Rohdatendatei URL wie  <em>https://github.com/ \<Benutzername\>/\<Repository\>/raw/\<Verzweigung\> / \<"Logo.png"\></em>. |
+| **iconUrl** | Eine URL für ein 64x64-Bild mit transparentem Hintergrund, das als Symbol für das Paket in der Benutzeroberfläche verwendet wird. Stellen Sie sicher, dass dieses Element die *direkte Bild-URL* und nicht nur die URL einer Webseite enthält, die das Bild enthält. Z. B. um ein Bild von GitHub verwenden zu können, verwenden die Rohdatendatei URL wie <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>. |
 | **requireLicenseAcceptance** | Ein boolescher Wert, der angibt, ob der Client den Benutzer dazu auffordern muss, die Paketlizenz vor der Installation des Pakets zu akzeptieren. |
 | **developmentDependency** | *(2.8 und höher)* Ein boolescher Wert, der angibt, ob das Paket mit einer Abhängigkeit markiert werden soll, die nur für die Entwicklung gilt, wodurch vermieden wird, dass das Paket als Abhängigkeit in andere Pakete eingefügt wird. |
 | **summary** | Eine kurze Beschreibung des Pakets für die Anzeige der Benutzeroberfläche. Wenn diese nicht angegeben wird, wird eine gekürzte Version von `description` verwendet. |
@@ -388,9 +388,10 @@ Jedes `<file>`-Element gibt die folgenden Attribute an:
 **Ausschließen von Dateien**
 
     Source files:
-        \tools\*.bak
-        \tools\*.log
-        \tools\build\*.log
+        \tools\fileA.bak
+        \tools\fileB.bak
+        \tools\fileA.log
+        \tools\build\fileB.log
 
     .nuspec entries:
         <file src="tools\*.*" target="tools" exclude="tools\*.bak" />
