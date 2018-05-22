@@ -7,11 +7,11 @@ manager: douge
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: d17d964ac73075f05678b9727e90d481a30da62e
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: d1da26b55c2c273c15c9c16891bf44abffd160a5
+ms.sourcegitcommit: f0b31af805183cf3a98eabb504e16d9b05223cfe
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="package-versioning"></a>Paketversionsverwaltung
 
@@ -144,9 +144,6 @@ Geben Sie immer eine Version oder ein Versionsbereich für paketabhängigkeiten 
 
 <!-- Accepts any 1.x or 2.x version, but not 0.x or 3.x and higher. -->
 <PackageReference Include="ExamplePackage" Version="[1,3)" />
-
-<!-- Accepts 1.3.2 up to 1.4.x, but not 1.5 and higher. -->
-<PackageReference Include="ExamplePackage" Version="[1.3.2,1.5)" />
 
 <!-- Accepts 1.3.2 up to 1.4.x, but not 1.5 and higher. -->
 <PackageReference Include="ExamplePackage" Version="[1.3.2,1.5)" />
