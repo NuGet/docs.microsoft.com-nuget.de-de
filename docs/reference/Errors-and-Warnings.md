@@ -4,7 +4,7 @@ description: Vollständige Referenz für Warnungen und Fehler von NuGet während
 author: kraigb
 ms.author: kraigb
 manager: douge
-ms.date: 03/06/2018
+ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: anangaur
 f1_keywords:
@@ -44,11 +44,11 @@ f1_keywords:
 - NU3008
 - NU3018
 - NU3028
-ms.openlocfilehash: dcff20e35adc0a3dbcc7bef482f81a937cf059c5
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 748c2746a61886617e2eefe3e6c4a2e2a5b9d4d3
+ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="errors-and-warnings"></a>Fehler und Warnungen
 
@@ -122,7 +122,7 @@ Die Fehler und Warnungen, die hier aufgeführten stehen nur mit [PackageReferenc
 | --- | --- |
 | **Problem** | Das Paket kann auf alle Quellen nicht gefunden werden. |
 | **Beispiel-Nachricht** | *Nicht Paket System.Missing gefunden. Mit dieser Id in Quellen keine keine Pakete vorhanden: ein Dotnet-Core, Dotnet Roslyn, nuget.org* |
-| **Projektmappen** | Untersuchen Sie das Projekt Abhängigkeiten in Visual Studio, um sicherzustellen, dass Sie das richtige Paket Bezeichner und die Versionsnummer Anzahl verwenden. Außerdem überprüfen, die die [NuGet-Konfiguration](../consume-packages/Configuring-NuGet-Behavior.md) identifiziert die Paketquellen Ihrer voraussichtlich verwenden werden. Wenn Sie Pakete mit verwendet werden [Semantischer Versionsverwaltung 2.0.0](https://docs.microsoft.com/en-us/nuget/reference/package-versioning#semantic-versioning-200), stellen Sie sicher, dass Sie verwenden die [V3 feed](https://api.nuget.org/v3/index.json) in der [NuGet-Konfiguration](../consume-packages/Configuring-NuGet-Behavior.md). |
+| **Projektmappen** | Untersuchen Sie das Projekt Abhängigkeiten in Visual Studio, um sicherzustellen, dass Sie das richtige Paket Bezeichner und die Versionsnummer Anzahl verwenden. Außerdem überprüfen, die die [NuGet-Konfiguration](../consume-packages/Configuring-NuGet-Behavior.md) identifiziert die Paketquellen Ihrer voraussichtlich verwenden werden. Wenn Sie Pakete mit verwendet werden [Semantischer Versionsverwaltung 2.0.0](../reference/package-versioning.md#semantic-versioning-200), stellen Sie sicher, dass Sie dem feed, V3 verwenden `https://api.nuget.org/v3/index.json`in der [NuGet-Konfiguration](../consume-packages/Configuring-NuGet-Behavior.md). |
 
 ### <a name="nu1102"></a>NU1102
 

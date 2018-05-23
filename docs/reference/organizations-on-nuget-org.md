@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.reviewer:
 - kraigb
 - camsoper
-ms.openlocfilehash: 0e836f5f39620f0b83212c9510735481119ddda2
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 7f40654a08ac221c5ec3a90c86387b6760b28994
+ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="organization-on-nugetorg"></a>Organisation in nuget.org
 
@@ -86,7 +86,7 @@ Wenn Sie direkt Hochladen ein neues Pakets auf die [nuget.org hochladen](https:/
 
 ### <a name="using-api-keys"></a>Mithilfe der API-Schlüssel
 
-Ein Paket durch Betätigen der `nuget push` oder `dotnet nuget push` CLI-Befehle, Sie benötigen einen API-Schlüssel, die von dieser Befehle benötigt werden. Weitere Informationen finden Sie unter [veröffentlichen Sie ein Paket](https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package-using-visual-studio#publish-the-package).
+Ein Paket durch Betätigen der `nuget push` oder `dotnet nuget push` CLI-Befehle, Sie benötigen einen API-Schlüssel, die von dieser Befehle benötigt werden. Weitere Informationen finden Sie unter [veröffentlichen Sie ein Paket](../quickstart/create-and-publish-a-package-using-visual-studio.md#publish-the-package).
 
 Wenn Sie einen neue API-Schlüssel zu erstellen, wählen Sie die entsprechenden Organisation in der **Paketbesitzer** Dropdown-Liste. Alle API-Schlüssel, die Sie erstellen gilt nur für die ausgewählte Organisation zur Verfügung:
 
