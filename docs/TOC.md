@@ -71,7 +71,7 @@
 ### [Uninstall-Package](tools/ps-ref-uninstall-package.md)
 ### [Update-Package](tools/ps-ref-update-package.md)
 ## [dotnet-Befehle](tools/dotnet-Commands.md)
-# Verweis
+# Referenz
 ## [.nuspec](reference/nuspec.md)
 ## [Paketverweise in Projektdateien](consume-packages/package-references-in-project-files.md)
 ## [Migrieren von „packages.config“ zu „PackageReference“](reference/migrate-packages-config-to-package-reference.md)
@@ -84,7 +84,7 @@
 ## [Fehler und Warnungen](reference/errors-and-warnings.md)
 ## [ID-Präfixreservierung](reference/id-prefix-reservation.md)
 ## [NuGet-Client SDK](reference/nuget-client-sdk.md)
-## [Referenz für signierte Pakete](reference/signed-packages-reference.md)
+## [Signierte Pakete](reference/signed-packages-reference.md)
 ## [Organisationen auf „nuget.org“](reference/organizations-on-nuget-org.md)
 ## Erweiterungen
 ### [NuGet-Anmeldeinformationsanbieter für Visual Studio](reference/extensibility/nuget-credential-providers-for-visual-studio.md)
