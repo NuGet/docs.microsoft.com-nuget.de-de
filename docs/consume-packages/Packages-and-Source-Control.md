@@ -6,11 +6,11 @@ ms.author: kraigb
 manager: douge
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5a36b886c3de1943b99b10faff63f4e244166ceb
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: bc2c6d5e9933f2f6103363a2e69fbb9b47f80ecf
+ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="omitting-nuget-packages-in-source-control-systems"></a>Überspringen von NuGet-Paketen in Quellcodeverwaltungssystemen
 
@@ -80,7 +80,7 @@ So deaktivieren Sie mit TFVC die Integration der Quellcodeverwaltung für ausgew
 
 1. Falls Sie TFS 2010 oder niedriger verwenden, müssen Sie den Ordner `packages` in Ihren Arbeitsbereichszuordnungen verdecken.
 
-1. Falls Sie TFS 2012 oder höher bzw. Visual Studio Team Services verwenden, müssen Sie eine Datei des Typs `.tfignore` erstellen, wie im Artikel zum Thema [Hinzufügen von Dateien zum Server](https://www.visualstudio.com/en-us/docs/tfvc/add-files-server#tfignore) beschrieben. Kopieren Sie in diese Datei unten stehenden Text, damit Änderungen am Ordner `\packages` auf Repositoryebene sowie einige Zwischendateien explizit ignoriert werden. (Sie können die Datei in Windows Explorer unter dem Namen `.tfignore.` mit dem nachgestellten Punkt erstellen, müssen aber möglicherweise zuerst die Option „Hide known file extensions“ (Bekannte Erweiterungen ausblenden) deaktivieren.):
+1. Falls Sie TFS 2012 oder höher bzw. Visual Studio Team Services verwenden, müssen Sie eine Datei des Typs `.tfignore` erstellen, wie im Artikel zum Thema [Hinzufügen von Dateien zum Server](/vsts/tfvc/add-files-server.md?view=vsts#tfignore) beschrieben. Kopieren Sie in diese Datei unten stehenden Text, damit Änderungen am Ordner `\packages` auf Repositoryebene sowie einige Zwischendateien explizit ignoriert werden. (Sie können die Datei in Windows Explorer unter dem Namen `.tfignore.` mit dem nachgestellten Punkt erstellen, müssen aber möglicherweise zuerst die Option „Hide known file extensions“ (Bekannte Erweiterungen ausblenden) deaktivieren.):
 
    ```cli
    # Ignore NuGet Packages
