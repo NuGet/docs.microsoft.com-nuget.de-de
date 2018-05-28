@@ -1,20 +1,23 @@
 ---
-title: Einführender Leitfaden zum Erstellen und Veröffentlichen eines .NET Standard-NuGet-Pakets mithilfe von Visual Studio
-description: Exemplarische Vorgehensweise zum Erstellen und Veröffentlichen eines .NET Standard NuGet-Pakets mit Visual Studio 2017.
+title: Erstellen und Veröffentlichen eines .NET Standard-Pakets mithilfe von Visual Studio auf Windows
+description: Exemplarische Vorgehensweise zum Erstellen und Veröffentlichen eines .NET Standard-NuGet-Pakets mit Visual Studio 2017 auf Windows.
 author: kraigb
 ms.author: kraigb
 manager: douge
-ms.date: 03/18/2018
+ms.date: 05/18/2018
 ms.topic: quickstart
-ms.openlocfilehash: c5d58aa6312eae801607ca44a81bc092a7a7c15f
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: f4e6473d307f2f71016f6926abbcdb1295abc7b5
+ms.sourcegitcommit: f0b31af805183cf3a98eabb504e16d9b05223cfe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/22/2018
 ---
-# <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard"></a>Schnellstart: Erstellen und Veröffentlichen eines NuGet-Pakets mithilfe von Visual Studio (.NET Standard)
+# <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Schnellstart: Erstellen und Veröffentlichen eines NuGet-Pakets mithilfe von Visual Studio (.NET Standard, nur Windows)
 
-Ein NuGet-Paket kann problemlos über eine .NET Standard-Klassenbibliothek in Visual Studio erstellt und dann, durch Verwendung eines CLI-Tools, auf nuget.org veröffentlicht werden.
+Ein NuGet-Paket kann problemlos über eine .NET Standard-Klassenbibliothek in Visual Studio unter Windows erstellt und dann durch Verwendung eines CLI-Tools auf nuget.org veröffentlicht werden.
+
+> [!Note]
+> Dieser Schnellstart gilt ausschließlich für Visual Studio 2017 für Windows. Visual Studio für Mac enthält nicht die hier beschriebenen Funktionen. Verwenden Sie stattdessen die [dotnet-CLI-Tools](create-and-publish-a-package-using-the-dotnet-cli.md).
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 

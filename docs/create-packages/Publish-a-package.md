@@ -4,18 +4,18 @@ description: Ausführliche Anleitung zum Veröffentlichen eines NuGet-Pakets auf
 author: kraigb
 ms.author: kraigb
 manager: douge
-ms.date: 03/19/2018
+ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 539ac9485e6062a0bdc3bb86dac0f028a2de7821
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: 806a64d2d7654e4c1bca89a13d70fd9983c12703
+ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="publishing-packages"></a>Veröffentlichen von Paketen
 
-Sobald Sie ein Paket erstellt haben und Ihre `.nukpg`-Datei zur Hand haben, ist es einfach, dieses für andere Entwickler verfügbar zu machen, sowohl als öffentliche also auch als private Bereitstellung:
+Sobald Sie ein Paket erstellt haben und Ihre `.nupkg`-Datei zur Hand haben, ist es einfach, dieses für andere Entwickler verfügbar zu machen, sowohl als öffentliche also auch als private Bereitstellung:
 
 - Öffentliche Pakete werden wie in diesem Artikel beschrieben global für alle Entwickler auf [nuget.org](https://www.nuget.org/packages/manage/upload) zur Verfügung gestellt (hierfür ist NuGet 4.1.0 oder höher erforderlich).
 - Private Pakete werden lediglich einem Team oder einer Organisation zur Verfügung gestellt, indem entweder eine Dateifreigabe, ein privater NuGet-Server, [Visual Studio Team Services-Paketverwaltung](https://www.visualstudio.com/docs/package/nuget/publish) oder ein Drittanbieterrepository wie MyGet, ProGet, Nexus Repository und Artifactory gehostet wird. Weitere Informationen finden Sie in der [Übersicht zum Hosten von Paketen](../hosting-packages/overview.md).
@@ -71,6 +71,13 @@ Sie müssen [nuget.exe v4.1.0 oder höher](https://www.nuget.org/downloads) verw
     ```cli
     nuget push YourPackage.nupkg -Source https://api.nuget.org/v3/index.json
     ```
+
+#### <a name="publish-signed-packages"></a>Veröffentlichen signierter Pakete
+
+Um signierte Pakete zu übermitteln, müssen Sie zunächst [das Zertifikat registrieren](../reference/Signed-Packages-Reference.md#register-certificate-on-nugetorg), das zum Signieren der Pakete verwendet wird. 
+
+> [!Warning]
+> Auf nuget.org werden Pakete abgelehnt, die den [Anforderungen für signierte Pakete](../reference/Signed-Packages-Reference.md#signature-requirements-on-nugetorg) nicht entsprechen.
 
 ### <a name="package-validation-and-indexing"></a>Paketvalidierung und -indizierung
 

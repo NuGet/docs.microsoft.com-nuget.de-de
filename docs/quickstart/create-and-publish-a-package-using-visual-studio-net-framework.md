@@ -1,20 +1,23 @@
 ---
-title: Einführender Leitfaden für das Erstellen und Veröffentlichen eines .NET Framework NuGet-Pakets mithilfe von Visual Studio
-description: Eine exemplarische Vorgehensweise zum Erstellen und Veröffentlichen eines .NET Framework NuGet-Pakets mit Visual Studio 2017.
+title: Erstellen und Veröffentlichen eines .NET Framework-Pakets mithilfe von Visual Studio auf Windows
+description: Eine exemplarische Vorgehensweise zum Erstellen und Veröffentlichen eines .NET Framework NuGet-Pakets mit Visual Studio 2017 unter Windows.
 author: kraigb
 ms.author: kraigb
 manager: douge
-ms.date: 03/13/2018
+ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: 01760034a121b1ff6f227e006415779898c4cf6d
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: ba02b53c6ac0b4172b8611958775980ce401bf9b
+ms.sourcegitcommit: f0b31af805183cf3a98eabb504e16d9b05223cfe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/22/2018
 ---
-# <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework"></a>Schnellstart: Erstellen und Veröffentlichen eines Pakets mithilfe von Visual Studio (.NET Framework)
+# <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Schnellstart: Erstellen und Veröffentlichen eines Pakets mithilfe von Visual Studio (.NET Framework, Windows)
 
-Das Erstellen eines NuGet-Pakets aus einer .NET Framework-Klassenbibliothek umfasst das Erstellen der DLL in Visual Studio, gefolgt von der Verwendung des Befehlszeilentools „nuget.exe“ zum Erstellen und Veröffentlichen des Pakets.
+Das Erstellen eines NuGet-Pakets aus einer .NET Framework-Klassenbibliothek umfasst das Erstellen der DLL in Visual Studio unter Windows, gefolgt von der Verwendung des Befehlszeilentools „nuget.exe“ zum Erstellen und Veröffentlichen des Pakets.
+
+> [!Note]
+> Dieser Schnellstart gilt ausschließlich für Visual Studio 2017 für Windows. Visual Studio für Mac enthält nicht die hier beschriebenen Funktionen. Verwenden Sie stattdessen die [dotnet-CLI-Tools](create-and-publish-a-package-using-the-dotnet-cli.md).
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
