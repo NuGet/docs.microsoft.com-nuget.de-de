@@ -10,13 +10,11 @@ Das Verhalten kann je nach Betriebssystemdistribution leicht variieren.
 
 1. Installieren Sie [Mono 4.4.2 oder höher](http://www.mono-project.com/docs/getting-started/install/).
 
-1. Führen Sie an einer Shelleingabeaufforderung folgende Befehle aus:
+1. Führen Sie an einer Shelleingabeaufforderung folgenden Befehl aus:
 
     ```bash
     # Download the latest stable `nuget.exe` to `/usr/local/bin`
     sudo curl -o /usr/local/bin/nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
-    # Give the file permissions to execute
-    sudo chmod 755 /usr/local/bin/nuget.exe
     ```
 
 1. Erstellen Sie einen Alias, indem Sie das folgende Skript der entsprechenden Datei für Ihr Betriebssystem hinzufügen (in der Regel `~/.bash_aliases` oder `~/.bash_profile`):
