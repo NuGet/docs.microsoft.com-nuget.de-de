@@ -1,16 +1,17 @@
 ---
 title: NuGet-CLI-Umgebungsvariablen
 description: Referenz für die Umgebungsvariablen für die nuget.exe
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: adeacd917fd775c6eed431df9c0f74e591ad793e
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: 50bf8b469eda423db7665323823a2daf3f3aa41d
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817072"
 ---
 # <a name="nuget-cli-environment-variables"></a>NuGet-CLI-Umgebungsvariablen
 

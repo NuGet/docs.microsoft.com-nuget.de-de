@@ -1,16 +1,17 @@
 ---
 title: NuGet-CLI-Restore-Befehl
 description: Referenz für die nuget.exe Restore-Befehl
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: dd0a74c9ed9b879643ed24cbddacff87310dfd6b
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: 4df7685883fea78428c6744bdbf4c66d83e469bc
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817917"
 ---
 # <a name="restore-command-nuget-cli"></a>RESTORE-Befehl (NuGet CLI)
 

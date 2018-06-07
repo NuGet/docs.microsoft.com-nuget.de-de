@@ -1,16 +1,17 @@
 ---
 title: NuGet-CLI-Delete-Befehl
 description: Referenz für den Löschbefehl nuget.exe
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 1db00a32d777f1c0247f855bf57a0dcf1c6734ae
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: c0f33dd5475521da47972a6f032ac6ea86d98c83
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817177"
 ---
 # <a name="delete-command-nuget-cli"></a>Delete-Befehl (NuGet CLI)
 

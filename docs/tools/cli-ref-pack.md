@@ -1,16 +1,17 @@
 ---
 title: NuGet-CLI-Pack-Befehl
 description: Referenz für den nuget.exe-Pack-Befehl
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: a2468b099a822e69298ea78c80cfd1d5d5c09938
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 3140d56ac827d932c2323182ad040b8a4d14da5c
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818034"
 ---
 # <a name="pack-command-nuget-cli"></a>Der Befehl „pack“ (NuGet-CLI)
 

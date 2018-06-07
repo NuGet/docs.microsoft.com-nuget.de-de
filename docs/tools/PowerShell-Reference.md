@@ -1,16 +1,17 @@
 ---
 title: NuGet-PowerShell-Referenz
 description: Die vollständige Referenz zu PowerShell-Befehle in der NuGet-Paket-Manager-Konsole in Visual Studio verfügbar.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 10/02/2017
 ms.topic: reference
-ms.openlocfilehash: 455787d3c8701f5275ace4ed0dcb605213bfbf29
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: ba9f5dc2b570298d9011f62a081631ec31623701
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34816989"
 ---
 # <a name="powershell-reference"></a>PowerShell-Referenz
 

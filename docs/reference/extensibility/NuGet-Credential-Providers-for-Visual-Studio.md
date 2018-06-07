@@ -1,16 +1,17 @@
 ---
 title: NuGet-Anmeldeinformationsanbieter für Visual Studio
 description: NuGet-Anmeldeinformationsanbieter authentifizieren, mit Feeds durch Implementieren der IVsCredentialProvider-Schnittstelle in einer Visual Studio-Erweiterung.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: 740df87b0d663aac482d888e916662528ce27030
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: d4dbcab7c4005efcdc7efe96df3a70e666c558cc
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817836"
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>Authentifizieren von Datenfeeds in Visual Studio mit NuGet-Anmeldeinformationsanbieter
 

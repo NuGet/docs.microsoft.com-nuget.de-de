@@ -1,16 +1,17 @@
 ---
 title: .NET Compiler Platform Analyzer Formate für NuGet
 description: Konventionen für .NET-Analysetools, die als Bestandteil von NuGet-Paketen verpackt und verteilt werden, die eine API oder Bibliothek implementieren.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: 57ab485c8062b0515c292b68ecb5a3628b6e3e9d
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: dc5896631fa3b15dcc1b84b054cb532d56193f36
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818385"
 ---
 # <a name="analyzer-nuget-formats"></a>Formate von Analysetools für NuGet
 

@@ -1,16 +1,17 @@
 ---
 title: Dotnet NuGet-Befehle
 description: Eine kurze Referenz für NuGet-bezogenen Befehlen, die über die Befehlszeilenschnittstelle Dotnet.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: fe49274af339c987d5e090c99edd78f62f59ce47
-ms.sourcegitcommit: 5fcd6d664749aa720359104ef7a66d38aeecadc2
+ms.openlocfilehash: dd30c5d5e29ff7ef7c6622a9b93c32b908198d52
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/27/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817013"
 ---
 # <a name="dotnet-commands"></a>dotnet-Befehle
 

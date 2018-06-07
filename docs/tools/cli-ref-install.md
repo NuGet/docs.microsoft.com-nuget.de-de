@@ -1,16 +1,17 @@
 ---
 title: NuGet-CLI installieren-Befehl
 description: Referenz für die nuget.exe Installationsbefehl
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 1c6ec1181f2f619eb8a4f2d87f7910f25b98e0f4
-ms.sourcegitcommit: 00c4c809c69c16fcf4d81012eb53ea22f0691d0b
+ms.openlocfilehash: 8aaf4c2563aa802900a102848fc33fc8708a135d
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817888"
 ---
 # <a name="install-command-nuget-cli"></a>Der Befehl „install“ (NuGet CLI)
 
@@ -53,7 +54,7 @@ auf dem `<packageID>` benennt das Paket zu installieren (verwenden die neueste V
 | NonInteractive | Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an. |
 | OutputDirectory | Gibt den Ordner, in dem Pakete installiert sind. Wenn kein Ordner angegeben wird, wird der aktuelle Ordner verwendet. |
 | PackageSaveMode | Gibt die Typen von Dateien nach der Paketinstallation speichern: einer der `nuspec`, `nupkg`, oder `nuspec;nupkg`. |
-| PreRelease | Mit der Vorabversion Pakete installiert werden. Dieses Flag ist nicht erforderlich, beim Wiederherstellen von Paketen mit `packages.config`. |
+| Vorabversion | Mit der Vorabversion Pakete installiert werden. Dieses Flag ist nicht erforderlich, beim Wiederherstellen von Paketen mit `packages.config`. |
 | RequireConsent | Überprüft, ob Pakete werden wiederhergestellt aktiviert wird vor dem Herunterladen und Installieren der Pakete. Weitere Informationen finden Sie unter [Paketwiederherstellung](../consume-packages/package-restore.md). |
 | SolutionDirectory | Gibt die Stammordner der Lösung für das Wiederherstellen von Paketen. |
 | Quelle | Gibt die Liste der Paketquellen (wie URLs) Verwendung an. Wenn nicht angegeben, wird der Befehl verwendet die Quellen in Konfigurationsdateien bereitgestellt, finden Sie unter [NuGet Konfigurieren von Verhalten](../consume-packages/configuring-nuget-behavior.md). |

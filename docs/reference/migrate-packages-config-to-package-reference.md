@@ -6,11 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 03/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2b15d60d4f71fb2777e36c6a948ad72b4e2bc594
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: e0a4363a2807874ec8e2693c5b1c1a0eb2e8af0e
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818785"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>Migrieren von "Packages.config" zu PackageReference
 
@@ -29,6 +30,24 @@ Visual Studio 2017 Version 15.7 Preview 3 und höher unterstützt, die Migration
 * NuGet PackageReference ist nicht verfügbar in Visual Studio 2015 und früher. Migrierte Projekte können nur in Visual Studio 2017 geöffnet werden.
 * Migration ist zurzeit nicht verfügbar für C++- und ASP.NET Projekt.
 * Einige Pakete möglicherweise nicht vollständig kompatibel mit PackageReference. Weitere Informationen finden Sie unter [Paket Kompatibilitätsprobleme](#package-compatibility-issues).
+
+### <a name="known-issues"></a>Bekannte Probleme
+
+1. Die Option `Migrate packages.config to PackageReference...` ist nicht im Kontextmenü (Rechtsklick) verfügbar. 
+
+#### <a name="issue"></a>Problem 
+ 
+Wenn ein Projekt zum ersten Mal geöffnet wird, kann es sein, dass NuGet erst mit dem ersten NuGet-Vorgang gestartet wird. Deshalb wird die Option zur Migration nicht im Kontextmenü (Rechtsklick) von `packages.config` oder `References` angezeigt. 
+
+#### <a name="workaround"></a>Problemumgehung 
+
+Führen Sie eine der folgenden NuGet-Aktionen durch: 
+* Öffnen Sie die Benutzeroberfläche des Paket-Managers. Klicken Sie mit der rechten Maustaste auf `References`, und wählen Sie `Manage NuGet Packages...`. 
+* Öffnen Sie die Paket-Manager-Konsole. Klicken Sie unter `Tools > NuGet Package Manager` auf `Package Manager Console`. 
+* Stellen Sie NuGet-Pakete wieder her. Klicken Sie dazu im Projektmappen-Explorer mit der rechten Maustaste auf den Projektmappenknoten, und wählen Sie `Restore NuGet Packages` aus. 
+* Erstellen Sie ein Projekt. Dadurch wird die Wiederherstellung von NuGet auch ausgelöst. 
+
+Jetzt sollten Sie die Option zur Migration sehen. Beachten Sie, dass diese Option für ASP.NET- und C++-Projekte nicht unterstützt und auch nach dem Durchführen dieser Schritte nicht angezeigt wird. 
 
 ## <a name="migration-steps"></a>Migrationsschritte
 
@@ -58,7 +77,7 @@ Visual Studio 2017 Version 15.7 Preview 3 und höher unterstützt, die Migration
 
 1. Schließen Sie die migrierte Projekt.
 
-1. Kopieren Sie die Projektdatei und `packages.config` aus der Sicherung (in der Regel `<solution_root>\MigrationBackup\<unique_guid>\<project_name>\`) in den Projektordner.
+1. Kopieren Sie die Projektdatei und `packages.config` aus der Sicherung (in der Regel `<solution_root>\MigrationBackup\<unique_guid>\<project_name>\`) in den Projektordner. Löschen Sie den Ordner "Obj" aus, wenn es im Stammverzeichnis Projekts vorhanden ist.
 
 1. Öffnen Sie das Projekt.
 
