@@ -11,6 +11,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31819883"
 ---
 # <a name="nuget-30-rc2-release-notes"></a>NuGet-3.0 RC2-Anmerkungen zu dieser Version
 
