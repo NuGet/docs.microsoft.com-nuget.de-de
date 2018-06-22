@@ -12,6 +12,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31822577"
 ---
 # <a name="nugetorg-protocols"></a><span data-ttu-id="8e990-103">NuGet.org-Protokolle</span><span class="sxs-lookup"><span data-stu-id="8e990-103">nuget.org protocols</span></span>
 

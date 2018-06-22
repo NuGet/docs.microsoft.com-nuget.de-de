@@ -11,6 +11,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31819597"
 ---
 # <a name="nuget-30-rc-release-notes"></a><span data-ttu-id="c58c0-103">Anmerkungen dieser Version von NuGet 3.0 RC</span><span class="sxs-lookup"><span data-stu-id="c58c0-103">NuGet 3.0 RC Release Notes</span></span>
 

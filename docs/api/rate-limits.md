@@ -15,6 +15,7 @@ ms.sourcegitcommit: 8f0bb8bb9cb91d27d660963ed9b0f32642f420fe
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34225943"
 ---
 # <a name="rate-limits"></a><span data-ttu-id="ff4cc-103">Begrenzung der Bandbreite</span><span class="sxs-lookup"><span data-stu-id="ff4cc-103">Rate Limits</span></span>
 

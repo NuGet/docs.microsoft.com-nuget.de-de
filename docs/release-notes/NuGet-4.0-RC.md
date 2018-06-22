@@ -12,6 +12,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31821885"
 ---
 # <a name="nuget-40-rc-release-notes"></a><span data-ttu-id="585c8-103">Anmerkungen zu Version 4.0 RC von NuGet</span><span class="sxs-lookup"><span data-stu-id="585c8-103">NuGet 4.0 RC Release Notes</span></span>
 

@@ -12,6 +12,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31818466"
 ---
 # <a name="report-abuse-url-template"></a><span data-ttu-id="18892-103">Berichtsvorlage Missbrauch-URL</span><span class="sxs-lookup"><span data-stu-id="18892-103">Report abuse URL template</span></span>
 

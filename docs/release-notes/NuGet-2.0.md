@@ -11,6 +11,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31820796"
 ---
 # <a name="nuget-20-release-notes"></a><span data-ttu-id="2a694-103">NuGet 2.0-Versionshinweise</span><span class="sxs-lookup"><span data-stu-id="2a694-103">NuGet 2.0 Release Notes</span></span>
 

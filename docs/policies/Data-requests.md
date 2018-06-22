@@ -11,6 +11,7 @@ ms.sourcegitcommit: 68c8a494a11c892ac671fec3170ba7be97fb044d
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33086203"
 ---
 # <a name="user-data-requests"></a><span data-ttu-id="9e0e3-103">Benutzerdatenanforderungen</span><span class="sxs-lookup"><span data-stu-id="9e0e3-103">User Data Requests</span></span>
 

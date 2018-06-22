@@ -11,6 +11,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31819665"
 ---
 # <a name="nuget-342-release-notes"></a><span data-ttu-id="a59b1-103">Anmerkungen zur Version von NuGet 3.4.2</span><span class="sxs-lookup"><span data-stu-id="a59b1-103">NuGet 3.4.2 Release Notes</span></span>
 

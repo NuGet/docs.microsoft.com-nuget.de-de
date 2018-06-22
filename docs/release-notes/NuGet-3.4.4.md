@@ -11,6 +11,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31820860"
 ---
 # <a name="nuget-344-release-notes"></a><span data-ttu-id="e8525-103">Anmerkungen zur Version von NuGet 3.4.4</span><span class="sxs-lookup"><span data-stu-id="e8525-103">NuGet 3.4.4 Release Notes</span></span>
 
