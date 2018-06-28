@@ -1,16 +1,17 @@
 ---
 title: Suchen und Wählen von NuGet-Paketen
 description: Eine Übersicht darüber, wie Sie die besten NuGet-Pakete für ein Projekt suchen und auswählen sowie Details zur Syntax der NuGet-Suche.
-author: kraigb
-ms.author: kraigb
-manager: douge
-ms.date: 03/16/2018
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 94d851cfbc860e50b02ca99595ca41bbf4ce21ef
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: f1bb145229b0db0e8fdb7fdb31a59aa50bd1d57b
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817901"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Suchen und Auswerten von NuGet-Paketen für Ihr Projekt
 
@@ -105,7 +106,7 @@ Allerdings bedeutet das Verwenden eines NuGet-Pakets auch, dass eine Abhängigke
 
 Die NuGet-Paketsuche auf nuget.org, über die NuGet-CLI und mit der Erweiterung des NuGet-Paket-Managers in Visual Studio funktionieren auf die gleiche Weise. Im Allgemeinen wird die Suche auf Schlüsselwörter und auf die Paketbeschreibungen angewendet.
 
-- **Schlüsselwörter:** Die Suche ermittelt relevante Pakete, die alle bereitgestellten Schlüsselwörter enthalten. Ein Beispiel: `modern UI javascript`
+- **Schlüsselwörter:** Die Suche ermittelt relevante Pakete, die eines der bereitgestellten Schlüsselwörter enthalten. Beispiel: `modern UI` Verwenden Sie„+“ zwischen Begriffen wie `modern+UI`, um nach Paketen zu suchen, die alle der angegebenen Schlüsselwörter enthalten.
 - **Ausdrücke:** Wenn Sie Begriffe in Anführungszeichen eingeben, ermittelt die Suche Übereinstimmungen mit diesen Begriffen, bei denen die Groß-/Kleinschreibung nicht berücksichtigt wird. Ein Beispiel: `"modern UI" package`
 - **Filtern:** Sie können einen Suchbegriff auf eine bestimmte Eigenschaft anwenden, indem Sie die Syntax `<property>:<term>` verwenden. Hierbei kann `<property>` (Groß-/Kleinschreibung wird nicht berücksichtigt) `id`, `packageid`, `version`, `title`, `tags`, `author`, `description`, `summary` oder `owner` entsprechen. Bei Bedarf können diese Begriffe in Anführungszeichen eingegeben werden, außerdem können Sie nach mehreren Eigenschaften gleichzeitig suchen. Darüber hinaus handelt es sich bei Suchen mit der `id`-Eigenschaft um Übereinstimmungen von Teilzeichenfolgen, während mit `packageid` nach einer genauen Übereinstimmung gesucht wird. Beispiele:
 

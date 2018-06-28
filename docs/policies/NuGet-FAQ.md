@@ -1,16 +1,17 @@
 ---
 title: Häufig gestellte Fragen zu NuGet
 description: Häufig gestellte Fragen und entsprechende Antworten zur Verwendung von NuGet über die Befehlszeile und in Visual Studio sowie zum Arbeiten mit dem NuGet-Katalog.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/11/2018
 ms.topic: conceptual
-ms.openlocfilehash: bcdb4e8971ee4e742e6cf37f8b662e50a77604f0
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: e3c52f1e49a53b89d7e5c0728c02a7915db2aeb9
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817979"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Häufig gestellte Fragen zu NuGet
 
@@ -160,9 +161,9 @@ Wenn ein Paket keine Lizenzbedingungen angibt, kontaktieren Sie den Paketbesitze
 
 ## <a name="managing-packages-on-nugetorg"></a>Verwalten von Paketen auf nuget.org
 
-**Können Paketmetadaten nach dem Upload bearbeitet werden? Warum ist das Bearbeiten der NUSPEC-Datei und das Hochladen eines neuen Pakets für das Ändern der Paketmetadaten erforderlich?**
+**Können Paketmetadaten nach dem Upload bearbeitet werden?**
 
-Für NuGet müssen alle Pakete signiert sein. Ein Entwurfsprinzip der Paketsignierung besteht darin, dass signierte Paketinhalte unveränderlich sein müssen. Dies schließt die NUSPEC-Datei ein. Durch das Bearbeiten der Paketmetadaten wird die NUSPEC-Datei geändert, wodurch bestehende Signaturen ungültig werden. Es wird empfohlen, vorhandene Workflows zu ändern, damit das Bearbeiten der Paketmetadaten nach dem Erstellen des Pakets nicht erforderlich ist.
+Es wird empfohlen, dass Sie alle Pakete für NuGet signieren. Ein Entwurfsprinzip der Paketsignierung besteht darin, dass signierte Paketinhalte unveränderlich sein müssen. Dies schließt die NUSPEC-Datei ein. Durch das Bearbeiten der Paketmetadaten wird die NUSPEC-Datei geändert, wodurch bestehende Signaturen ungültig werden. Es wird empfohlen, vorhandene Workflows zu ändern, damit das Bearbeiten der Paketmetadaten nach dem Erstellen des Pakets nicht erforderlich ist.
 
 Beachten Sie, dass die für Ihr Paket aufgeführten Abhängigkeiten automatisch vom Paket generiert werden und nicht bearbeitet werden können.
 
