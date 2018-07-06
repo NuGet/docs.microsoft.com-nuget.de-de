@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 02/12/2018
 ms.topic: overview
-ms.openlocfilehash: 5f71ce6217071efc3d483cde4cf36c5585808167
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 0f59c3b7f1e32ae34889921c13d15074ef5c1260
+ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34816923"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37843380"
 ---
 # <a name="different-ways-to-install-a-nuget-package"></a>Verschiedene Möglichkeiten zum Installieren von NuGet-Paketen
 
@@ -39,7 +39,7 @@ Im Allgemeinen läuft der Prozess wie folgt ab:
 
    - Wenn sich das Paket nicht im Cache befindet, versuchen Sie, es aus den in der Konfiguration aufgeführten Quellen herunterzuladen. Wird ein Paket heruntergeladen, erscheinen „GET“ und „OK“ in der Ausgabe.
 
-   - Wenn das Paket nicht erfolgreich aus einer Quelle bezogen werden kann, tritt bei der Installation an dieser Stelle ein Fehler auf, z.B. [NU1103](../reference/errors-and-warnings.md#nu1103). Beachten Sie, dass Fehler von `nuget.exe`-Befehlen nur die zuletzt geprüfte Quelle anzeigen, aber implizieren, dass das Paket aus keiner Quelle abgerufen werden konnte.
+   - Wenn das Paket nicht erfolgreich aus einer Quelle bezogen werden kann, tritt bei der Installation an dieser Stelle ein Fehler auf, z.B. [NU1103](../reference/errors-and-warnings/NU1103.md). Beachten Sie, dass Fehler von `nuget.exe`-Befehlen nur die zuletzt geprüfte Quelle anzeigen, aber implizieren, dass das Paket aus keiner Quelle abgerufen werden konnte.
 
    Beim Beziehen des Pakets gilt möglicherweise die Reihenfolge der Quellen in der NuGet-Konfiguration:
 

@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 8d2ff4d414e496d4a57755637cbbe05f4a8408e3
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: e917895d0fa6ed6dc4bc24b72afc7fa0770f2dd0
+ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34816890"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37843367"
 ---
 # <a name="creating-symbol-packages"></a>Erstellen von Symbolpaketen
 
@@ -111,9 +111,6 @@ Ein Symbolpaket kann, wie im vorherigen Abschnitt beschrieben, nach Konventionen
     nuget push MyPackage.symbols.nupkg
     ```
 
-   > [!Note]
-   > Bei nuget.exe 4.5.0 oder höher werden die Symbolpakete nicht automatisch mithilfe von Push auf symbolsource.org übertragen. Sie müssten die Symbolpakete separat mithilfe von Push übertragen, wie im nächsten Schritt beschrieben wird.
-
 3. Verwenden Sie die Option `-Source`, um ein anderes Symbolrepository zu veröffentlichen oder um ein Symbolpaket per Push zu übertragen, das nicht den Namenskonventionen folgt:
 
     ```cli
@@ -126,6 +123,9 @@ Ein Symbolpaket kann, wie im vorherigen Abschnitt beschrieben, nach Konventionen
     nuget push MyPackage.nupkg
     ```
 
+   > [!Note]
+   > Bei nuget.exe 4.5.0 oder höher werden die Symbolpakete nicht automatisch mithilfe von Push auf symbolsource.org übertragen. Sie müssten die Symbolpakete separat mithilfe von Push übertragen, wie im nächsten Schritt beschrieben wird.
+   
 In diesem Fall veröffentlicht NuGet `MyPackage.symbols.nupkg`, falls vorhanden, auf https://nuget.smbsrc.net/ (die Push-URL für symbolsource.org), nachdem das primäre Paket auf nuget.org veröffentlicht wurde.
 
 ## <a name="see-also"></a>Siehe auch

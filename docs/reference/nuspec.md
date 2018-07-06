@@ -1,5 +1,5 @@
 ---
-title: .NuSpec-Dateiverweis für NuGet
+title: NuSpec-Dateireferenz für NuGet
 description: Die NUSPEC-Datei enthält Paketmetadaten, die bei der Erstellung eines Pakets verwendet werden, um für die Paketbenutzer Informationen bereitzustellen.
 author: karann-msft
 ms.author: karann
@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 2ff83538f9f1cf3bd4ed616ec8f5f1aef3ffd9d6
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 142f82386395b8ab2ed1d57218db9bc1d2e98638
+ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818541"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37843445"
 ---
 # <a name="nuspec-reference"></a>NUSPEC-Referenz
 
@@ -89,7 +89,7 @@ Diese Elemente auftreten in einem `<metadata>`-Element angezeigt werden.
 | **owners** | Eine durch Kommas getrennte Liste der Paketersteller, die auf nuget.org Profilnamen verwenden. Dabei handelt es sich häufig um dieselbe Liste wie in `authors`. Sie wird beim Hochladen der Pakete auf nuget.org ignoriert. Informationen dazu finden Sie unter [Managing package owners on nuget.org (Verwalten von Paketbesitzern auf nuget.org)](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). |
 | **projectUrl** | Eine URL für die Paket-Homepage, häufig auf der Benutzeroberfläche sowie auf nuget.org angezeigt. |
 | **licenseUrl** | Eine URL für die Paketlizenz, häufig auf der Benutzeroberfläche sowie auf nuget.org angezeigt. |
-| **iconUrl** | Eine URL für ein 64x64-Bild mit transparentem Hintergrund, das als Symbol für das Paket in der Benutzeroberfläche verwendet wird. Stellen Sie sicher, dass dieses Element die *direkte Bild-URL* und nicht nur die URL einer Webseite enthält, die das Bild enthält. Z. B. um ein Bild von GitHub verwenden zu können, verwenden die Rohdatendatei URL wie <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>. |
+| **iconUrl** | Eine URL für ein 64x64-Bild mit transparentem Hintergrund, das als Symbol für das Paket in der Benutzeroberfläche verwendet wird. Stellen Sie sicher, dass dieses Element die *direkte Bild-URL* und nicht nur die URL einer Webseite enthält, die das Bild enthält. Beispielsweise um ein Bild von GitHub verwenden möchten, verwenden die URL wie Rohdatendatei <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>. |
 | **requireLicenseAcceptance** | Ein boolescher Wert, der angibt, ob der Client den Benutzer dazu auffordern muss, die Paketlizenz vor der Installation des Pakets zu akzeptieren. |
 | **developmentDependency** | *(2.8 und höher)* Ein boolescher Wert, der angibt, ob das Paket mit einer Abhängigkeit markiert werden soll, die nur für die Entwicklung gilt, wodurch vermieden wird, dass das Paket als Abhängigkeit in andere Pakete eingefügt wird. |
 | **summary** | Eine kurze Beschreibung des Pakets für die Anzeige der Benutzeroberfläche. Wenn diese nicht angegeben wird, wird eine gekürzte Version von `description` verwendet. |
@@ -98,6 +98,7 @@ Diese Elemente auftreten in einem `<metadata>`-Element angezeigt werden.
 | **language** | Die Gebietsschema-ID des Pakets. Informationen dazu finden Sie unter [Creating localized packages (Erstellen von lokalisierten Paketen)](../create-packages/creating-localized-packages.md). |
 | **tags**  | Eine durch Leerzeichen getrennte Liste mit Tags und Schlüsselwörtern, die das Paket beschreiben und zum Ermitteln von Paketen über Suchvorgänge und Filter beitragen. |
 | **serviceable** | *(3.3 und höher)* Nur für die interne Verwendung von NuGet. |
+| **Repository** | Repository-Metadaten, bestehend aus vier optionale Attribute: *Typ* und *Url* *(4.0 und höher)*, und *Branch* und  *Commit* *(4.6 und höher)*. Diese Attribute ermöglichen es Ihnen, der NUPKG-Datei in das Repository zuzuordnen, die sie mit der abzurufenden erstellt entsprechend den Details als einzelne Verzweigung oder Commit, das das Paket erstellt hat. |
 
 #### <a name="collection-elements"></a>Auflistungselemente
 
@@ -138,7 +139,7 @@ Mit Ausnahme von `$configuration$` werden Werte in dem Projekt gegenüber Werten
 
 | Token | Wertquelle | Wert
 | --- | --- | ---
-| **$id$** | Projektdatei | AssemblyName (Titel) aus der Projektdatei |
+| **$id$** | Projektdatei | "AssemblyName" (Titel) aus der Projektdatei |
 | **$version$** | AssemblyInfo | „AssemblyInformationalVersion“, falls vorhanden, andernfalls „AssemblyVersion“ |
 | **$author$** | AssemblyInfo | AssemblyCompany |
 | **$title$** | AssemblyInfo | AssemblyTitle |
@@ -540,7 +541,7 @@ Diese Dateien werden zusammen mit mehreren Attributen angegeben, die beschreiben
 | **include** | (Erforderlich) Der Speicherort der Dateien, die eingefügt werden sollen, unterliegt Ausnahmen, die von dem `exclude`-Attribut angegeben werden. Der Pfad ist relativ zur `.nuspec`-Datei, wenn kein absoluter Pfad angegeben ist. Das Platzhalterzeichen `*` ist zulässig, und das zweifache Platzhalterzeichen `**` impliziert eine rekursive Ordnersuche. |
 | **exclude** | Eine durch Semikolons abgetrennte Datei oder Dateimuster, die sich nicht im `src`-Speicherort befinden dürfen. Das Platzhalterzeichen `*` ist zulässig, und das zweifache Platzhalterzeichen `**` impliziert eine rekursive Ordnersuche. |
 | **buildAction** | Die Buildaktion, die dem Inhaltselement für MSBuild zugewiesen werden soll. Z.B. `Content`, `None`, `Embedded Resource` oder `Compile`. Die Standardeinstellung ist `Compile`. |
-| **copyToOutput** | Ein boolescher Wert, der angibt, ob Ausgabeordner Inhaltselemente in das Buildausgabeverzeichnis zu kopieren (oder veröffentlichen). Der Standardwert ist false. |
+| **copyToOutput** | Ein boolescher Wert, der angibt, ob der Ordner "Output" Inhaltselemente auf den Build zu kopieren (oder veröffentlichen). Der Standardwert ist false. |
 | **flatten** | Ein boolescher Wert, der angibt, ob Inhaltselemente in einen Ordner in der Buildausgabe kopiert werden sollen (TRUE) oder ob die Ordnerstruktur in den Paketen beibehalten werden soll (FALSE). Diese Flag funktioniert nur, wenn das copyToOutput-Flag auf TRUE festgelegt ist. Der Standardwert ist false. |
 
 NuGet wendet die untergeordneten Elemente von `<contentFiles>` bei der Installation eines Pakets von unten nach oben an. Wenn mehrere Einträge in einer Datei vorhanden sind, werden sie alle angewendet. Der höher geordnete Eintrag setzt die untergeordneten Einträge außer Kraft, wenn ein Konflikt für ein Attribut entsteht.
