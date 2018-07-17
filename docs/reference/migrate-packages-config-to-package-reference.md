@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 03/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1ca97e1c2dfba876aefe6b06eab10def67b8d848
-ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
+ms.openlocfilehash: 4f42403abbf07c2c48ce13c70c49f7f3c15c40e4
+ms.sourcegitcommit: a76ecc58f41c2c5b3536ff4a3f3fcbdf5258177c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37843393"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072365"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>Migrieren von "Packages.config" zu "packagereference"
 
@@ -41,7 +41,7 @@ Wenn ein Projekt zum ersten Mal geöffnet wird, kann es sein, dass NuGet erst mi
 
 #### <a name="workaround"></a>Problemumgehung 
 
-Führen Sie eine der folgenden NuGet-Aktionen durch: 
+Führen Sie die folgenden NuGet-Aktionen: 
 * Öffnen Sie die Benutzeroberfläche des Paket-Managers. Klicken Sie mit der rechten Maustaste auf `References`, und wählen Sie `Manage NuGet Packages...`. 
 * Öffnen Sie die Paket-Manager-Konsole. Klicken Sie unter `Tools > NuGet Package Manager` auf `Package Manager Console`. 
 * Stellen Sie NuGet-Pakete wieder her. Klicken Sie dazu im Projektmappen-Explorer mit der rechten Maustaste auf den Projektmappenknoten, und wählen Sie `Restore NuGet Packages` aus. 
@@ -58,7 +58,7 @@ Jetzt sollten Sie die Option zur Migration sehen. Beachten Sie, dass diese Optio
 
 1. In **Projektmappen-Explorer**, mit der rechten Maustaste auf die **Verweise** Knoten oder die `packages.config` und wählen Sie **Migrovat packages.config NA PackageReference...** .
 
-1. Die Migrator, analysiert Sie NuGet-Verweise des Projekts, und versucht, kategorisieren Sie sie in **Abhängigkeiten auf oberster Ebene** (NuGet-Pakete dieses Verzeichnis Sie installiert) und **Transitive Abhängigkeiten**(Pakete, die als Abhängigkeiten auf oberster Ebene Pakete installiert wurden).
+1. Die Migrator, analysiert Sie NuGet-Verweise des Projekts, und versucht, kategorisieren Sie sie in **Abhängigkeiten auf oberster Ebene** (NuGet-Pakete, die Sie direkt installiert) und **Transitive Abhängigkeiten** (Pakete, die als Abhängigkeiten auf oberster Ebene Pakete installiert wurden).
 
    > [!Note]
    > "Packagereference" transitiven paketwiederherstellung unterstützt und löst Abhängigkeiten dynamisch, was bedeutet, dass die transitive Abhängigkeiten nicht explizit installiert werden müssen.
