@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 142f82386395b8ab2ed1d57218db9bc1d2e98638
-ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
+ms.openlocfilehash: 6d190d9fdb26d76fa8e46b7d283c1857cfab26e9
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37843445"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508035"
 ---
 # <a name="nuspec-reference"></a>NUSPEC-Referenz
 
@@ -27,7 +27,7 @@ In diesem Thema:
 - [Verweise auf Frameworkassemblys](#framework-assembly-references)
 - [Einfügen von Assemblydateien](#including-assembly-files)
 - [Einfügen von Inhaltsdateien](#including-content-files)
-- [Beispiele](#examples)
+- [Beispiel: Nuspec-Dateien](#example-nuspec-files)
 
 ## <a name="general-form-and-schema"></a>Allgemeine Form und Schema
 
@@ -58,12 +58,6 @@ Für eine übersichtliche Darstellung des Schemas öffnen Sie die Schemadatei im
 
 ### <a name="metadata-attributes"></a>Metadatenattribute
 
-Das `<metadata>`-Element unterstützt die in der folgenden Tabelle beschriebenen Attribute.
-
-| Attribut | Erforderlich | Beschreibung |
-| --- | --- | --- | 
-| **minClientVersion** | Nein | Gibt die minimale Version des NuGet-Clients an, der dieses Paket installieren kann. Dies wird von nuget.exe und dem Paket-Manager von Visual Studio erzwungen. Dieses Attribut wird verwendet, wenn das Paket von bestimmten Funktionen der `.nuspec`-Datei abhängig ist, die in einer bestimmten Version des NuGet-Clients hinzugefügt wurden. Beispielsweise sollte ein Paket, das das `developmentDependency`-Attribut verwendet, „2.8“ für `minClientVersion` angeben. Genauso sollte ein Paket, das das `contentFiles`-Element verwendet (vgl. nächster Abschnitt), `minClientVersion` auf „3.3“ festlegen. Beachten Sie außerdem, dass NuGet-Clients vor Version 2.5 diese Kennzeichnung nicht erkennen und daher die Installation des Pakets, unabhängig vom Inhalt von `minClientVersion`, *immer* verweigern. |
-
 ### <a name="required-metadata-elements"></a>Erforderliche Metadatenelemente
 
 Obwohl es sich bei den folgenden Elementen um die Mindestanforderungen für ein Paket handelt, sollten Sie in Erwägung ziehen, die [optionalen Metadatenelemente](#optional-metadata-elements) hinzuzufügen, damit Entwicklern die Arbeit mit Ihren Paketen erleichtert wird.
@@ -79,39 +73,51 @@ Diese Elemente müssen in einem `<metadata>`-Element angezeigt werden.
 
 ### <a name="optional-metadata-elements"></a>Optionale Metadatenelemente
 
-Diese Elemente auftreten in einem `<metadata>`-Element angezeigt werden.
+#### <a name="title"></a>Titel
+Ein benutzerfreundlicher Titel des Pakets, der in der Regel in der Benutzeroberfläche wie auf nuget.org angezeigt wird und der Paket-Manager in Visual Studio. Wenn nicht angegeben, wird die Paket-ID verwendet. 
+#### <a name="owners"></a>owners
+Eine durch Kommas getrennte Liste der Paketersteller, die auf nuget.org Profilnamen verwenden. Dabei handelt es sich häufig um dieselbe Liste wie in `authors`. Sie wird beim Hochladen der Pakete auf nuget.org ignoriert. Informationen dazu finden Sie unter [Managing package owners on nuget.org (Verwalten von Paketbesitzern auf nuget.org)](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). 
+#### <a name="projecturl"></a>projectUrl
+Eine URL für die Paket-Homepage, häufig auf der Benutzeroberfläche sowie auf nuget.org angezeigt. 
+#### <a name="licenseurl"></a>licenseUrl
+Eine URL für die Paketlizenz, häufig auf der Benutzeroberfläche sowie auf nuget.org angezeigt.
+#### <a name="iconurl"></a>iconUrl
+Eine URL für ein 64x64-Bild mit transparentem Hintergrund, das als Symbol für das Paket in der Benutzeroberfläche verwendet wird. Stellen Sie sicher, dass dieses Element die *direkte Bild-URL* und nicht nur die URL einer Webseite enthält, die das Bild enthält. Beispielsweise um ein Bild von GitHub verwenden möchten, verwenden die URL wie Rohdatendatei <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>. 
 
-#### <a name="single-elements"></a>Einzelne Elemente
-
-| Element | Beschreibung |
-| --- | --- |
-| **title** | Ein benutzerfreundlicher Titel des Pakets, der in der Regel in der Benutzeroberfläche wie auf nuget.org angezeigt wird und der Paket-Manager in Visual Studio. Wenn nicht angegeben, wird die Paket-ID verwendet. |
-| **owners** | Eine durch Kommas getrennte Liste der Paketersteller, die auf nuget.org Profilnamen verwenden. Dabei handelt es sich häufig um dieselbe Liste wie in `authors`. Sie wird beim Hochladen der Pakete auf nuget.org ignoriert. Informationen dazu finden Sie unter [Managing package owners on nuget.org (Verwalten von Paketbesitzern auf nuget.org)](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). |
-| **projectUrl** | Eine URL für die Paket-Homepage, häufig auf der Benutzeroberfläche sowie auf nuget.org angezeigt. |
-| **licenseUrl** | Eine URL für die Paketlizenz, häufig auf der Benutzeroberfläche sowie auf nuget.org angezeigt. |
-| **iconUrl** | Eine URL für ein 64x64-Bild mit transparentem Hintergrund, das als Symbol für das Paket in der Benutzeroberfläche verwendet wird. Stellen Sie sicher, dass dieses Element die *direkte Bild-URL* und nicht nur die URL einer Webseite enthält, die das Bild enthält. Beispielsweise um ein Bild von GitHub verwenden möchten, verwenden die URL wie Rohdatendatei <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>. |
-| **requireLicenseAcceptance** | Ein boolescher Wert, der angibt, ob der Client den Benutzer dazu auffordern muss, die Paketlizenz vor der Installation des Pakets zu akzeptieren. |
-| **developmentDependency** | *(2.8 und höher)* Ein boolescher Wert, der angibt, ob das Paket mit einer Abhängigkeit markiert werden soll, die nur für die Entwicklung gilt, wodurch vermieden wird, dass das Paket als Abhängigkeit in andere Pakete eingefügt wird. |
-| **summary** | Eine kurze Beschreibung des Pakets für die Anzeige der Benutzeroberfläche. Wenn diese nicht angegeben wird, wird eine gekürzte Version von `description` verwendet. |
-| **releaseNotes** | *(1.5 und höher)* Eine Beschreibung der in diesem Release des Pakets enthaltenen Änderungen, die häufig in Benutzeroberflächen wie der Registerkarte **Updates** des Visual Studio-Paket-Managers anstelle von Paketbeschreibungen verwendet wird. |
-| **copyright** | *(1.5 und höher)* Copyright-Informationen zum Paket. |
-| **language** | Die Gebietsschema-ID des Pakets. Informationen dazu finden Sie unter [Creating localized packages (Erstellen von lokalisierten Paketen)](../create-packages/creating-localized-packages.md). |
-| **tags**  | Eine durch Leerzeichen getrennte Liste mit Tags und Schlüsselwörtern, die das Paket beschreiben und zum Ermitteln von Paketen über Suchvorgänge und Filter beitragen. |
-| **serviceable** | *(3.3 und höher)* Nur für die interne Verwendung von NuGet. |
-| **Repository** | Repository-Metadaten, bestehend aus vier optionale Attribute: *Typ* und *Url* *(4.0 und höher)*, und *Branch* und  *Commit* *(4.6 und höher)*. Diese Attribute ermöglichen es Ihnen, der NUPKG-Datei in das Repository zuzuordnen, die sie mit der abzurufenden erstellt entsprechend den Details als einzelne Verzweigung oder Commit, das das Paket erstellt hat. |
+#### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
+Ein boolescher Wert, der angibt, ob der Client den Benutzer dazu auffordern muss, die Paketlizenz vor der Installation des Pakets zu akzeptieren.
+#### <a name="developmentdependency"></a>developmentDependency
+*(2.8 und höher)* Ein boolescher Wert, der angibt, ob das Paket mit einer Abhängigkeit markiert werden soll, die nur für die Entwicklung gilt, wodurch vermieden wird, dass das Paket als Abhängigkeit in andere Pakete eingefügt wird.
+#### <a name="summary"></a>Zusammenfassung
+Eine kurze Beschreibung des Pakets für die Anzeige der Benutzeroberfläche. Wenn diese nicht angegeben wird, wird eine gekürzte Version von `description` verwendet.
+#### <a name="releasenotes"></a>releaseNotes
+*(1.5 und höher)* Eine Beschreibung der in diesem Release des Pakets enthaltenen Änderungen, die häufig in Benutzeroberflächen wie der Registerkarte **Updates** des Visual Studio-Paket-Managers anstelle von Paketbeschreibungen verwendet wird.
+#### <a name="copyright"></a>Copyright
+*(1.5 und höher)* Copyright-Informationen zum Paket.
+#### <a name="language"></a>language
+Die Gebietsschema-ID des Pakets. Informationen dazu finden Sie unter [Creating localized packages (Erstellen von lokalisierten Paketen)](../create-packages/creating-localized-packages.md).
+#### <a name="tags"></a>Tags
+Eine durch Leerzeichen getrennte Liste mit Tags und Schlüsselwörtern, die das Paket beschreiben und zum Ermitteln von Paketen über Suchvorgänge und Filter beitragen. 
+#### <a name="serviceable"></a>gewartet werden müssen 
+*(3.3 und höher)* Nur für die interne Verwendung von NuGet.
+#### <a name="repository"></a>Repository
+Repository-Metadaten, bestehend aus vier optionale Attribute: *Typ* und *Url* *(4.0 und höher)*, und *Branch* und  *Commit* *(4.6 und höher)*. Diese Attribute ermöglichen es Ihnen, der NUPKG-Datei in das Repository zuzuordnen, die sie mit der abzurufenden erstellt entsprechend den Details als einzelne Verzweigung oder Commit, das das Paket erstellt hat. Dies sollte einer öffentlich zugänglichen Url sein, die direkt von einer Software zur Versionskontrolle aufgerufen werden kann. Es sollte nicht auf eine html-Seite sein, wie dies für den Computer vorgesehen ist. Verwenden Sie für das Projekt – Seite verknüpfen, die `projectUrl` Feld stattdessen. |
+#### <a name="minclientversion"></a>minClientVersion
+Gibt die minimale Version des NuGet-Clients an, der dieses Paket installieren kann. Dies wird von nuget.exe und dem Paket-Manager von Visual Studio erzwungen. Dieses Attribut wird verwendet, wenn das Paket von bestimmten Funktionen der `.nuspec`-Datei abhängig ist, die in einer bestimmten Version des NuGet-Clients hinzugefügt wurden. Beispielsweise sollte ein Paket, das das `developmentDependency`-Attribut verwendet, „2.8“ für `minClientVersion` angeben. Genauso sollte ein Paket, das das `contentFiles`-Element verwendet (vgl. nächster Abschnitt), `minClientVersion` auf „3.3“ festlegen. Beachten Sie außerdem, dass NuGet-Clients vor Version 2.5 diese Kennzeichnung nicht erkennen und daher die Installation des Pakets, unabhängig vom Inhalt von `minClientVersion`, *immer* verweigern.
 
 #### <a name="collection-elements"></a>Auflistungselemente
 
-| Element | Beschreibung |
-| --- | --- |
-**packageTypes** | *(3.5 und höher)* Eine Auflistung, die kein `<packageType>`-Element oder mindestens eins enthält und den Pakettyp angibt, wenn es sich nicht um ein gewöhnliches Abhängigkeitspaket handelt. Jeder „packageType“ verfügt über Attribute von *name* und *version*. Informationen dazu finden Sie unter [Setting a package type (Festlegen eines Pakettypen)](../create-packages/creating-a-package.md#setting-a-package-type). |
-| **dependencies** | Eine Auflistung, die kein `<dependency>`-Element oder mindestens eins enthält und Abhängigkeiten für das Paket angibt. Jede Abhängigkeit verfügt über Attribute von *id*, *version*, *include* und *exclude* (3.x und höher). Informationen dazu finden Sie im Abschnitt [Abhängigkeiten](#dependencies). |
-| **frameworkAssemblies** | *(1.2 und höher)* Eine Auflistung, die kein `<frameworkAssembly>`-Element oder mindestens eins enthält und die für das Paket erforderlichen Verweise auf .NET Framework-Assemblys erkennt und sicherstellt, dass Verweise zu Projekten hinzugefügt werden, die das Paket verarbeiten. Jedes frameworkAssembly-Element verfügt über die Attribute *assemblyName* und *targetFramework*. Informationen dazu finden Sie unter [Specifying framework assembly references GAC (Angeben von GAC-Verweisen auf Frameworkassemblys)](#specifying-framework-assembly-references-gac). |
-| **references** | *(1.5 und höher)* Eine Auflistung, die kein `<reference>`-Element oder mindestens eins enthält, das Assemblys in dem `lib`-Ordner des Pakets benennt, die als Projektverweise hinzugefügt werden. Jeder Verweis verfügt über ein *file*-Attribut. `<references>` kann außerdem ein `<group>`-Element mit einem *targetFramework*-Attribut enthalten, das anschließend `<reference>`-Elemente enthält. Wenn das Element nicht angegeben ist, werden alle Verweise in `lib` eingefügt. Informationen dazu finden Sie unter [Specifying explicit assembly references (Angeben von expliziten Assemblyverweisen)](#specifying-explicit-assembly-references). |
-| **contentFiles** | *(3.3 und höher)* Eine Auflistung von `<files>`-Elementen, die Inhaltsdateien ermitteln, die in das verarbeitende Projekt eingefügt werden sollen. Diese Dateien werden zusammen mit mehreren Attributen angegeben, die beschreiben, wie sie in dem Projektsystem verwendet werden sollen. Informationen dazu finden Sie unter [Specifying files to include in the package (Angeben von Dateien, die in das Paket eingefügt werden sollen)](#specifying-files-to-include-in-the-package). |
-
-### <a name="files-element"></a>Files-Element
-
+#### <a name="packagetypes"></a>PackageTypes
+*(3.5 und höher)* Eine Auflistung, die kein `<packageType>`-Element oder mindestens eins enthält und den Pakettyp angibt, wenn es sich nicht um ein gewöhnliches Abhängigkeitspaket handelt. Jeder „packageType“ verfügt über Attribute von *name* und *version*. Informationen dazu finden Sie unter [Setting a package type (Festlegen eines Pakettypen)](../create-packages/creating-a-package.md#setting-a-package-type).
+#### <a name="dependencies"></a>Abhängigkeiten
+Eine Auflistung, die kein `<dependency>`-Element oder mindestens eins enthält und Abhängigkeiten für das Paket angibt. Jede Abhängigkeit verfügt über Attribute von *id*, *version*, *include* und *exclude* (3.x und höher). Informationen dazu finden Sie im Abschnitt [Abhängigkeiten](#dependencies-element).
+#### <a name="frameworkassemblies"></a>frameworkAssemblies
+*(1.2 und höher)* Eine Auflistung, die kein `<frameworkAssembly>`-Element oder mindestens eins enthält und die für das Paket erforderlichen Verweise auf .NET Framework-Assemblys erkennt und sicherstellt, dass Verweise zu Projekten hinzugefügt werden, die das Paket verarbeiten. Jedes frameworkAssembly-Element verfügt über die Attribute *assemblyName* und *targetFramework*. Informationen dazu finden Sie unter [Specifying framework assembly references GAC (Angeben von GAC-Verweisen auf Frameworkassemblys)](#specifying-framework-assembly-references-gac). |
+#### <a name="references"></a>Referenzen
+*(1.5 und höher)* Eine Auflistung, die kein `<reference>`-Element oder mindestens eins enthält, das Assemblys in dem `lib`-Ordner des Pakets benennt, die als Projektverweise hinzugefügt werden. Jeder Verweis verfügt über ein *file*-Attribut. `<references>` kann außerdem ein `<group>`-Element mit einem *targetFramework*-Attribut enthalten, das anschließend `<reference>`-Elemente enthält. Wenn das Element nicht angegeben ist, werden alle Verweise in `lib` eingefügt. Informationen dazu finden Sie unter [Specifying explicit assembly references (Angeben von expliziten Assemblyverweisen)](#specifying-explicit-assembly-references).
+#### <a name="contentfiles"></a>contentFiles
+*(3.3 und höher)* Eine Auflistung von `<files>`-Elementen, die Inhaltsdateien ermitteln, die in das verarbeitende Projekt eingefügt werden sollen. Diese Dateien werden zusammen mit mehreren Attributen angegeben, die beschreiben, wie sie in dem Projektsystem verwendet werden sollen. Informationen dazu finden Sie unter [Specifying files to include in the package (Angeben von Dateien, die in das Paket eingefügt werden sollen)](#specifying-files-to-include-in-the-package).
+#### <a name="files"></a>Dateien 
 Der `<package>`-Knoten enthält möglicherweise einen `<files>`-Knoten, der `<metadata>` gleichgeordnet ist, und bzw. oder eine untergeordnete `<contentFiles>`-Datei unter `<metadata>`, um anzugeben, welche Assembly- und Inhaltsdateien in das Paket eingefügt werden sollen. Details dazu finden Sie im Folgenden in den Abschnitten [Einfügen von Assemblydateien](#including-assembly-files) und [Einfügen von Inhaltsdateien](#including-content-files).
 
 ## <a name="replacement-tokens"></a>Ersetzungstokens
@@ -163,7 +169,7 @@ und Sie eine Assembly mit der `Release`-Konfiguration in MSBuild erstellen, dere
 </files>
 ```
 
-## <a name="dependencies"></a>Abhängigkeiten
+## <a name="dependencies-element"></a>Abhängigkeitselement
 
 Das `<dependencies>`-Element in `<metadata>` enthält eine beliebige Anzahl von `<dependency>`-Elementen, die andere Pakete finden, von denen die Pakete auf der obersten Ebene abhängig sind. Im Folgenden werden die Attribute für jede `<dependency>` dargestellt:
 
@@ -594,7 +600,7 @@ Für leere Ordner kann `.` eingefügt werden, wenn diese keine Inhalte mehr für
 </contentFiles>
 ```
 
-## <a name="example-nuspec-files"></a>Beispiel: NUSPEC-Dateien
+## <a name="example-nuspec-files"></a>Beispiel: Nuspec-Dateien
 
 **Eine einfache `.nuspec`-Datei, die weder Abhängigkeiten noch Dateien enthält**
 
