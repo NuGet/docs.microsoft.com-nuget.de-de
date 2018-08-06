@@ -1,6 +1,6 @@
 ---
-title: Begrenzung der Datenübertragungsrate NuGet-API
-description: Die NuGet-APIs werden erzwungen, um Missbrauch zu verhindern, dass die Begrenzung der Datenübertragungsrate haben.
+title: Begrenzung der Datenübertragungsrate, NuGet-API
+description: Die NuGet-APIs werden Begrenzung der Datenübertragungsrate Missbrauch zu verhindern, dass erzwungen haben.
 author: cmanu
 ms.author: cmanu
 manager: skofman
@@ -10,16 +10,16 @@ ms.reviewer:
 - skofman
 - anangaur
 - kraigb
-ms.openlocfilehash: c5d3cf68ac6a96a6c14eb5e652bcf72698b6a8e8
-ms.sourcegitcommit: 8f0bb8bb9cb91d27d660963ed9b0f32642f420fe
+ms.openlocfilehash: a55eb49318b766028d1579a4d33618617bbd8801
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34225943"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508126"
 ---
 # <a name="rate-limits"></a>Begrenzung der Bandbreite
 
-Der NuGet.org-API erzwingt die Begrenzung der Übertragungsrate um Missbrauch zu verhindern. Anforderungen, die die Begrenzung überschreiten zurückgegeben der folgende Fehler: 
+Der NuGet.org-API erzwingt, um Missbrauch zu verhindern, dass die Begrenzung der Übertragungsrate. Anforderungen, die die ratenbegrenzung überschreiten zurückgegeben der folgende Fehler: 
 
   ~~~
     {
@@ -28,24 +28,33 @@ Der NuGet.org-API erzwingt die Begrenzung der Übertragungsrate um Missbrauch zu
     }
   ~~~
 
-Die folgenden Tabellen enthalten die Begrenzung der Datenübertragungsrate für die NuGet.org-API.
+Erzwingen Sie zusätzlich zu den für die anforderungsbegrenzung mit Begrenzung der Datenübertragungsrate, einige APIs ebenfalls Kontingent aus. Anforderungen, die das Kontingent überschreiten. zurück folgende Fehlermeldung:
 
-## <a name="package-search"></a>Paket-Suche
+  ~~~
+    {
+      "statusCode": 403,
+      "message": "Quota exceeded."
+    }
+  ~~~
+
+Die folgenden Tabellen enthalten die Begrenzung der Datenübertragungsrate für die API "NuGet.org".
+
+## <a name="package-search"></a>Paket suchen
 
 > [!Note]
-> Es wird empfohlen, sich der NuGet.org [V3-APIs](https://docs.microsoft.com/nuget/api/search-query-service-resource) derzeit für die Suche, die leistungsstarke und verfügen über keine beschränken. Suchen Sie nach V1 und V2 APIs, die Grenzwerte Followins gelten:
+> Es wird empfohlen, NuGet.org [V3-APIs](https://docs.microsoft.com/nuget/api/search-query-service-resource) derzeit für die Suche, die leistungsstarke und verfügen über keine beschränken. APIs für V1 und V2-Suche, die Followins Grenzwerte gelten:
 
 
-| API | Limittyp | Grenzwert | API-Anwendungsfall |
+| API | -Typ | Grenzwert | API-Anwendungsfall |
 |:---|:---|:---|:---|
-**ERHALTEN** `/api/v1/Packages` | IP | 1000 / Minute | Abfragen von Metadaten von NuGet-Paketen über OData v1 `Packages` Auflistung |
-**ERHALTEN** `/api/v1/Search()` | IP | 3000 / Minute | Suchen Sie nach NuGet-Pakete über einen Endpunkt für v1-Suche | 
-**ERHALTEN** `/api/v2/Packages` | IP | 20000 / Minute | Abfragen von Metadaten von NuGet-Paketen über OData v2 `Packages` Auflistung | 
-**ERHALTEN** `/api/v2/Packages/$count` | IP | 100 / Minute | Anzahl von NuGet-Paket über v2 OData-Abfrage `Packages` Auflistung | 
+**ERHALTEN** `/api/v1/Packages` | IP | 1000 / Minute | Abfragen von NuGet-Paketmetadaten über v1 OData `Packages` Auflistung |
+**ERHALTEN** `/api/v1/Search()` | IP | 3000 / Minute | Suchen Sie nach NuGet-Pakete über die v1-Suche-Endpunkt | 
+**ERHALTEN** `/api/v2/Packages` | IP | 20000 / Minute | Abfragen von NuGet-Paketmetadaten über v2 OData `Packages` Auflistung | 
+**ERHALTEN** `/api/v2/Packages/$count` | IP | 100 / Minute | Anzahl der NuGet-Pakete über v2 OData Abfragen `Packages` Auflistung | 
 
-## <a name="package-push-and-unlist"></a>Paket Push-als auch Benutzerauswahl
+## <a name="package-push-and-unlist"></a>Paket mithilfe von Push übertragen und aus der Liste entfernen
 
-| API | Limittyp | Grenzwert | API-Anwendungsfall | 
+| API | -Typ | Grenzwert | API-Anwendungsfall | 
 |:---|:---|:---|:--- |
-**PUT** `/api/v2/package` | API-Schlüssel | 250 / Stunde | Hochladen Sie über v2-Push-Endpunkt ein neues NuGet-Paket (Version) 
-**LÖSCHEN** `/api/v2/package/{id}/{version}` | API-Schlüssel | 250 / Stunde | NuGet-Paket (Version) über einen Endpunkt v2 Benutzerauswahl 
+**PUT** `/api/v2/package` | API-Schlüssel | 250 / Stunde | Hochladen eines neuen NuGet-Pakets (Version) per Push-v2-Endpunkt 
+**LÖSCHEN** `/api/v2/package/{id}/{version}` | API-Schlüssel | 250 / Stunde | Entfernen Sie ein NuGet-Paket (Version) über die v2-Endpunkt aus der Liste 
