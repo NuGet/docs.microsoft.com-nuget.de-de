@@ -30,7 +30,7 @@ Sie können sowohl VSIX-als auch nuget.exe herunterladen [hier](https://dist.nug
 ### <a name="changes"></a>Änderungen
 
 - Pack-Verbesserungen: Verbesserungen zum Packen von Symbolen mit Packen `project.json` und weitere [ \#606](https://github.com/NuGet/NuGet.Client/pull/606)
-- Ausnahme angezeigt wird, wenn Fehler beim Suchen von Projekten in der Update-Befehl [\#605] ()https://github.com/NuGet/NuGet.Client/pull/605
+- Ausnahme angezeigt wird, wenn Fehler beim Suchen von Projekten in der Update-Befehl [\#605](https://github.com/NuGet/NuGet.Client/pull/605)
 - Eingabe Pakettyp auslesen `.nuspec` und `project.json` beim Packen [ \#603](https://github.com/NuGet/NuGet.Client/pull/603)
 - Stellen Sie NuGet.Shared nicht in einem Projekt. [\#602](https://github.com/NuGet/NuGet.Client/pull/602)
 - Verwenden Sie das Push-Timeout als das HTTP-Antwort-Timeout [ \#599](https://github.com/NuGet/NuGet.Client/pull/599)
