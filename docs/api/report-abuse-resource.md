@@ -1,24 +1,24 @@
 ---
-title: Missbrauch URL Berichtsvorlage, NuGet-API
-description: Der Bericht Missbrauch URL-Vorlage kann Clients einen Missbrauch Berichtslink in ihre Benutzeroberfläche anzeigen.
+title: Melden von Missbrauch URL-Vorlage, NuGet-API
+description: Die Bericht Missbrauch URL-Vorlage kann Clients einen Missbrauch Berichtslink in ihrer Benutzeroberfläche angezeigt.
 author: joelverhagen
 ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 15cf0953391489d9dd9b5d609c3f4c8f66748f19
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: b1fd65b12590a6c5eeb23d946eec6ca4a1c661bc
+ms.sourcegitcommit: e9c58dbfc1af2876337dcc37b1b070e8ddec0388
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31818466"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40020439"
 ---
-# <a name="report-abuse-url-template"></a>Berichtsvorlage Missbrauch-URL
+# <a name="report-abuse-url-template"></a>Bericht-Missbrauch-URL-Vorlage
 
-Es ist möglich, dass ein Client eine URL zu erstellen, die vom Benutzer zum Melden des Missbrauchs zu einem bestimmten Paket verwendet werden kann. Dies ist hilfreich, wenn eine Paketquelle möchte, um alle Clients Erfahrungen (auch 3rd Party) Missbrauch Berichte für die Paketquelle delegieren zu erzielen.
+Es ist möglich, dass ein Client eine URL zu erstellen, die vom Benutzer zum Angeben des Missbrauchs zu einem bestimmten Paket verwendet werden können. Dies ist nützlich, wenn möchte, dass eine Paketquelle alle Clientumgebungen, Missbrauch Berichte für die Paketquelle zu delegieren (sogar 3rd Party) zu aktivieren.
 
-Die Ressource für das Abrufen von Paketinhalt verwendet die `ReportAbuseUriTemplate` Ressource gefunden, der [Dienst Index](service-index.md).
+Die Ressource, die zum Erstellen von dieser URL ist die `ReportAbuseUriTemplate` Ressource finden Sie in der [dienstindex](service-index.md).
 
 ## <a name="versioning"></a>Versionskontrolle
 
@@ -31,31 +31,31 @@ ReportAbuseUriTemplate/3.0.0-rc   | Alias der `ReportAbuseUriTemplate/3.0.0-beta
 
 ## <a name="url-template"></a>URL-Vorlage
 
-Die URL für die folgende API wird der Wert von der `@id` mit einem der oben genannten Ressource verknüpfte Eigenschaft `@type` Werte.
+Die URL für die folgende API wird der Wert des der `@id` Eigenschaft, die einer der oben genannten Ressource zugeordneten `@type` Werte.
 
 ## <a name="http-methods"></a>HTTP-Methoden
 
-Obwohl der Client nicht vorgesehen ist, damit Anforderungen an die URL des Berichts Missbrauch im Namen des Benutzers zu senden, sollte die Webseite unterstützen die `GET` Methode, um eine URL geklickt wurde, problemlos in einem Webbrowser geöffnet werden zuzulassen.
+Der Client nicht gedacht ist, um Anforderungen an die URL des Berichts Missbrauch im Auftrag des Benutzers zu senden, sollte die Webseite unterstützen die `GET` Methode, um eine geklickte URL ganz einfach in einem Webbrowser geöffnet werden können.
 
-## <a name="construct-the-url"></a>Die URL zu erstellen
+## <a name="construct-the-url"></a>Erstellen Sie die URL
 
-Erteilt ein bekannter Paket-ID und eine Version, kann die Clientimplementierung eine URL verwendet, um eine Weboberfläche zugreifen zu erstellen. Die Clientimplementierung sollte diese erstellte URL (oder einen klickbaren Link) für den Benutzer, die sie zulassen, dass auf einen Webbrowser an die URL öffnen, und stellen alle erforderlichen Missbrauch Bericht anzeigen. Die Implementierung des Formulars Bericht Missbrauch richtet sich nach der Server-Implementierung.
+Wenn eine bekannte Paket-ID und Version, kann die Client-Implementierung eine URL für den Zugriff auf eine Weboberfläche erstellen. Die Clientimplementierung sollte diese erstellte URL (oder einen klickbaren Link) anzeigen, um dem Benutzer, öffnen einen Webbrowser an die URL, und nehmen alle erforderlichen Missbrauch-Bericht. Die Implementierung den Missbrauch Berichtsformular wird durch die Implementierung der Server bestimmt.
 
-Der Wert, der die `@id` ist eine URL-Zeichenfolge, die keines der folgenden Platzhalter-Token enthält:
+Der Wert des der `@id` ist eine URL-Zeichenfolge, die mit der eines der folgenden Platzhalter-Token:
 
 ### <a name="url-placeholders"></a>URL-Platzhalter
 
 name        | Typ    | Erforderlich | Hinweise
 ----------- | ------- | -------- | -----
-`{id}`      | Zeichenfolge  | Nein       | Die Paket-ID zum Melden des Missbrauchs für
-`{version}` | Zeichenfolge  | Nein       | Die Paketversion zum Melden des Missbrauchs für
+`{id}`      | Zeichenfolge  | Nein       | Die Paket-ID zum Angeben des Missbrauchs für
+`{version}` | Zeichenfolge  | Nein       | Die Paketversion zum Angeben des Missbrauchs für
 
-Die `{id}` und `{version}` Werte interpretiert werden, durch die Implementierung der Server muss Groß-/Kleinschreibung beachtet und nicht vertraulich, gibt an, ob die Version normalisiert wird.
+Die `{id}` und `{version}` Werte interpretiert werden, durch die Implementierung der Server muss Groß-/Kleinschreibung und nicht vertrauliche gibt an, ob die Version normalisiert ist.
 
-Beispielsweise sieht sich der Nuget.org Missbrauch Berichtsvorlage wie folgt:
+Beispielsweise sieht die Nuget.org Missbrauch Berichtsvorlage folgendermaßen aus:
 
     https://www.nuget.org/packages/{id}/{version}/ReportAbuse
 
-Wenn die Clientimplementierung einen Link zum Bericht Missbrauch Formular für NuGet.Versioning 4.3.0 anzuzeigen muss, würde es erzeugt die folgende URL und für den Benutzer bereitstellen:
+Wenn die Clientimplementierung eine Verknüpfung zum Missbrauch Berichts angezeigt wird, für die NuGet.Versioning 4.3.0 muss, würde er erzeugt die folgende URL, und geben Sie sie für den Benutzer:
 
     https://www.nuget.org/packages/NuGet.Versioning/4.3.0/ReportAbuse
