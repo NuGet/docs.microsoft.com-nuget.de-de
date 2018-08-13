@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: ffa2128b577673e980f4115f37f8685858c36250
-ms.sourcegitcommit: 6cffa6ef59b922df2d87aa9c24034d00542983cd
+ms.openlocfilehash: c537ee97b79648428df2c1b52894f536f5626a9e
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37963157"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508256"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Schnellstart: Erstellen und Veröffentlichen eines Pakets mithilfe von Visual Studio (.NET Framework, Windows)
 
@@ -114,7 +114,7 @@ Führen Sie `nuget spec` nur einmal aus, um das Startmanifest zu generieren. Bei
 
 ## <a name="edit-the-manifest"></a>Bearbeiten des Manifests
 
-1. NuGet löst einen Fehler aus, wenn Sie versuchen, ein Paket mit Standardwerten in Ihrer `.nuspec`-Datei zu erstellen. Bevor Sie fortfahren können, müssen Sie deshalb die folgenden Felder bearbeiten. Eine Beschreibung dazu, wie diese verwendet werden, finden Sie unter [.nuspec file reference - single elements (NUSPEC-Referenz: Einzelne Elemente)](../reference/nuspec.md#single-elements).
+1. NuGet löst einen Fehler aus, wenn Sie versuchen, ein Paket mit Standardwerten in Ihrer `.nuspec`-Datei zu erstellen. Bevor Sie fortfahren können, müssen Sie deshalb die folgenden Felder bearbeiten. Eine Beschreibung dazu, wie diese verwendet werden, finden Sie unter [.nuspec file reference - optional metadata elements (NUSPEC-Referenz: Optionale Metadatenelemente)](../reference/nuspec.md#optional-metadata-elements).
 
     - licenseUrl
     - projectUrl
