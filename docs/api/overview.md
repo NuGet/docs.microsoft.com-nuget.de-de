@@ -7,12 +7,12 @@ manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: fe843a121e2f1aae376f3e30a7b911792057688f
-ms.sourcegitcommit: e9c58dbfc1af2876337dcc37b1b070e8ddec0388
+ms.openlocfilehash: 0cb40a640a0bab63a63b3b690a34f1f8cbf7fcb8
+ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40020530"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42793310"
 ---
 # <a name="nuget-api"></a>NuGet-API
 
@@ -21,6 +21,8 @@ Der NuGet-API ist eine Reihe von HTTP-Endpunkten, die verwendet werden kann, um 
 Diese API wird vom NuGet-Client in Visual Studio, nuget.exe und der .NET CLI verwendet, um NuGet-Vorgänge auszuführen, z. B. [ `dotnet restore` ](/dotnet/articles/core/preview3/tools/dotnet-restore), suchen Sie in der Visual Studio-Benutzeroberfläche und [ `nuget.exe push` ](../tools/cli-ref-push.md).
 
 Beachten Sie in einigen Fällen "NuGet.org" verfügt über zusätzliche Anforderungen, die nicht von anderen Paketquellen erzwungen werden. Diese Unterschiede werden durch die ["nuget.org"-Protokolle](nuget-protocols.md).
+
+Eine einfache Enumeration und Herunterladen der verfügbaren nuget.exe-Versionen finden Sie in der [tools.json](tools-json.md) Endpunkt.
 
 ## <a name="service-index"></a>Dienstindex
 

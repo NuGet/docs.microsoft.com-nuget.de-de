@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 87000ce95ffeef36d9f792e9e8fdad6878488773
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: c9267945b8055b536cf35911c36a066981ef67b6
+ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818320"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42793225"
 ---
 # <a name="target-frameworks"></a>Zielframeworks
 
@@ -46,6 +46,9 @@ Die NuGet-Clients unterstützen die in der folgenden Tabelle aufgelisteten Frame
 | | | net46 |
 | | | net461 |
 | | | net462 |
+| | | net47 |
+| | | net471 |
+| | | net472 |
 |Microsoft Store (Windows Store) | netcore | netcore [netcore45] |
 | | | netcore45 [win, win8] |
 | | | netcore451 [win81] |
@@ -76,6 +79,7 @@ Universelle Windows-Plattform | uap | uap [uap10.0] |
 .NET Core-App | netcoreapp | netcoreapp1.0 |
 | | | netcoreapp1.1 |
 | | | netcoreapp2.0 |
+| | | netcoreapp2.1 |
 Tizen | tizen | tizen3 |
 | | | tizen4 |
 
@@ -125,7 +129,7 @@ Die `dotnet`-Reihe von Monikern sollte in NuGet 3.3 und früher verwendet werden
 ## <a name="portable-class-libraries"></a>Portable Klassenbibliotheken
 
 > [!Warning]
-> **Portable Klassenbibliotheken werden nicht empfohlen.** Obwohl portable Klassenbibliotheken unterstützt werden, sollten Paketersteller stattdessen netstandard unterstützen. Der .NET Plattform-Standard ist eine Weiterentwicklung der PCLs und stellt binäre Portabilität plattformübergreifend mit einem einzelnen Moniker, der an eine statische Bibliothek wie gebunden ist nicht *tragbaren-a + b + c* Moniker.
+> **Portable Klassenbibliotheken werden nicht empfohlen.** Obwohl portable Klassenbibliotheken unterstützt werden, sollten Paketersteller stattdessen netstandard unterstützen. .NET Plattform Standard wird eine Weiterentwicklung von PCLs und stellt binäre Portabilität mithilfe eines einzelnen Monikers an, die mit einer statischen Bibliothek wie verknüpft ist nicht plattformübergreifend *portable-a + b + c* Moniker.
 
 Verwenden Sie zum Definieren eines Zielframeworks, das auf mehrere untergeordnete Zielframeworks verweist, das `portable`-Schlüsselwort, um der Liste der Frameworks, auf die verwiesen wird, ein Präfix hinzuzufügen. Vermeiden Sie das künstliche Hinzufügen von zusätzlichen Frameworks, die nicht direkt kompiliert werden, da dies zu unbeabsichtigten Nebeneffekten bei diesen Frameworks führen kann.
 

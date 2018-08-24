@@ -1,23 +1,23 @@
 ---
-title: NuGet-CLI-Spec-Befehl
-description: Referenz für den nuget.exe Spec-Befehl
+title: Befehl "Spec" NuGet-CLI
+description: Referenz für die nuget.exe-Befehl "Spec"
 author: karann-msft
 ms.author: karann
 manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 17d3c5fc083f52fd9ab4a854ad358995bc55293b
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: cd1dc66676898e2be1c64698886a5ba29a07f88f
+ms.sourcegitcommit: 8d5121af528e68789485405e24e2100fda2868d6
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817085"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42794150"
 ---
-# <a name="spec-command-nuget-cli"></a>gemäß der Spezifikation Befehl (NuGet CLI)
+# <a name="spec-command-nuget-cli"></a>Befehl "Spec" (NuGet-CLI)
 
-**Gilt für:** Erstellen von Paketen &bullet; **unterstützte Versionen:** alle
+**Gilt für:** paketerstellung &bullet; **unterstützte Versionen:** alle
 
-Generiert eine `.nuspec` -Datei für ein neues Paket. Beim Ausführen im gleichen Ordner wie eine Projektdatei (`.csproj`, `.vbproj`, `.fsproj`), `spec` erstellt ein Token dargestellten `.nuspec` Datei. Weitere Informationen finden Sie unter [Erstellen eines Pakets](../create-packages/creating-a-package.md).
+Generiert eine `.nuspec` -Datei für ein neues Paket. Wenn im gleichen Ordner wie eine Projektdatei (`.csproj`, `.vbproj`, `.fsproj`), `spec` erstellt einen mit Token versehene `.nuspec` Datei. Weitere Informationen finden Sie unter [Erstellen eines Pakets](../create-packages/creating-a-package.md).
 
 ## <a name="usage"></a>Verwendung
 
@@ -25,18 +25,18 @@ Generiert eine `.nuspec` -Datei für ein neues Paket. Beim Ausführen im gleiche
 nuget spec [<packageID>] [options]
 ```
 
-wobei `<packageID>` ist ein optionales paketbezeichner zum Speichern in der `.nuspec` Datei.
+wo `<packageID>` ist ein optionales paketbezeichner im Speichern der `.nuspec` Datei.
 
 ## <a name="options"></a>Optionen
 
 | Option | Beschreibung |
 | --- | --- |
-| AssemblyPath | Gibt den Pfad zur Assembly, die für Metadaten verwendet. |
-| Force | Überschreibt alle vorhandenen `.nuspec` Datei. |
-| ForceEnglishOutput | *(3.5 +)*  Erzwingt nuget.exe über eine invariante Kultur Englisch-basierte ausgeführt werden. |
-| Hilfe | Zeigt die Hilfe Informationen für den Befehl. |
+| AssemblyPath | Gibt den Pfad zu der Assembly, die für Metadaten verwendet. |
+| Force | Überschreibt vorhandene `.nuspec` Datei. |
+| ForceEnglishOutput | *(3.5 und höher)*  Erzwingt nuget.exe über eine invariante Kultur auf Englisch basierenden ausgeführt werden. |
+| Hilfe | Zeigt die Informationen für den Befehl Hilfe. |
 | NonInteractive | Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an. |
-| Ausführlichkeit | Gibt die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *stillen*, *ausführliche*. |
+| Ausführlichkeit | Gibt an, die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *quiet*, *ausführliche*. |
 
 Siehe auch [Umgebungsvariablen](cli-ref-environment-variables.md)
 
@@ -47,5 +47,5 @@ nuget spec
 
 nuget spec MyPackage
 
-nuget spec -a MyAssembly.dll
+nuget spec -AssemblyPath MyAssembly.dll
 ```

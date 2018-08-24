@@ -1,23 +1,23 @@
 ---
-title: NuGet-CLI "lokal"-Befehl
-description: Referenz für den nuget.exe "lokal"-Befehl
+title: NuGet-CLI-Locals-Befehl
+description: Referenz für den Befehl "nuget.exe" Locals "
 author: karann-msft
 ms.author: karann
 manager: unnir
 ms.date: 03/19/2018
 ms.topic: reference
-ms.openlocfilehash: 90e8c85e7a3e0e9520933e2ddd6dd84447475f2b
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 38d8b9366fb2749b77c987c950da3aa9e7f029fc
+ms.sourcegitcommit: 8d5121af528e68789485405e24e2100fda2868d6
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818200"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42794134"
 ---
 # <a name="locals-command-nuget-cli"></a>Der Befehl „locals“ (NuGet-CLI)
 
-**Gilt für:** Verpacken Sie Verbrauch &bullet; **unterstützte Versionen:** 3.3 +
+**Gilt für:** Paket Verbrauch &bullet; **unterstützte Versionen:** 3.3 und höher
 
-Löscht oder lokale NuGet-Ressourcen wie z. B. Listet die *http-Cache*, *globalen Pakete* Ordner und den temporären Ordner. Die `locals` -Befehl kann außerdem verwendet werden, um eine Liste der beiden Speicherorte anzuzeigen. Weitere Informationen finden Sie unter [Verwaltung der globalen Pakete und der Cacheordner](../consume-packages/managing-the-global-packages-and-cache-folders.md).
+Löscht bzw. listet diese lokale NuGet-Ressourcen wie z. B. die *http-Cache*, *global-Packages* Ordner und den temporären Ordner. Die `locals` Befehl kann auch verwendet werden, um eine Liste dieser Orte anzuzeigen. Weitere Informationen finden Sie unter [Verwalten der globalen Paketordner und Cacheordner](../consume-packages/managing-the-global-packages-and-cache-folders.md).
 
 ## <a name="usage"></a>Verwendung
 
@@ -25,7 +25,7 @@ Löscht oder lokale NuGet-Ressourcen wie z. B. Listet die *http-Cache*, *globale
 nuget locals <folder> [options]
 ```
 
-wobei `<folder>` ist einer der `all`, `http-cache`, `packages-cache` *(3.5 und früher)*, `global-packages`, und `temp` *(3.4 +)*.
+wo `<folder>` ist einer der `all`, `http-cache`, `packages-cache` *(3.5 und früher)*, `global-packages`, `temp` *(3.4 und höher)*, und `plugins-cache` *(4.8 und höher)*.
 
 ## <a name="options"></a>Optionen
 
@@ -33,11 +33,11 @@ wobei `<folder>` ist einer der `all`, `http-cache`, `packages-cache` *(3.5 und f
 | --- | --- |
 | Clear | Löscht den angegebenen Ordner. |
 | ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) verwendet wird.|
-| ForceEnglishOutput | *(3.5 +)*  Erzwingt nuget.exe über eine invariante Kultur Englisch-basierte ausgeführt werden. |
-| Hilfe | Zeigt die Hilfe Informationen für den Befehl. |
-| Liste | Listet den Speicherort des angegebenen Ordners oder der Speicherorte von allen Ordnern bei Verwendung mit *alle*. |
+| ForceEnglishOutput | *(3.5 und höher)*  Erzwingt nuget.exe über eine invariante Kultur auf Englisch basierenden ausgeführt werden. |
+| Hilfe | Zeigt die Informationen für den Befehl Hilfe. |
+| Liste | Listet den Speicherort des angegebenen Ordners oder auf die Speicherorte aller Ordner bei der Verwendung mit *alle*. |
 | NonInteractive | Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an. |
-| Ausführlichkeit | Gibt die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *stillen*, *ausführliche*. |
+| Ausführlichkeit | Gibt an, die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *quiet*, *ausführliche*. |
 
 Siehe auch [Umgebungsvariablen](cli-ref-environment-variables.md)
 
@@ -48,4 +48,4 @@ nuget locals all -list
 nuget locals http-cache -clear
 ```
 
-Weitere Beispiele finden Sie unter [Verwaltung der globalen Pakete und der Cacheordner](../consume-packages/managing-the-global-packages-and-cache-folders.md).
+Weitere Beispiele finden Sie unter [Verwalten der globalen Paketordner und Cacheordner](../consume-packages/managing-the-global-packages-and-cache-folders.md).

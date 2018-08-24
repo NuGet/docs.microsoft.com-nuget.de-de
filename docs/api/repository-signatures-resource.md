@@ -16,12 +16,12 @@ keywords: NuGet-API-Repository-Signaturen, Signieren von Zertifikaten, nuget.org
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 27c572a482fef791f19b3d32e816a41d8dc40b53
-ms.sourcegitcommit: e9c58dbfc1af2876337dcc37b1b070e8ddec0388
+ms.openlocfilehash: 32dd2ee19261488a2b1b92724095a11ced69ae68
+ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40020557"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42793234"
 ---
 # <a name="repository-signatures"></a>Repository-Signaturen
 
@@ -59,7 +59,7 @@ Der Index der Repository-Signaturen enthält zwei Angaben:
 
 In den meisten Fällen wird die Liste der Zertifikate nur angefügt werden. Neue Zertifikate würde zur Liste hinzugefügt werden, wenn das vorherige Signaturzertifikat abgelaufen ist und die Paketquelle beim Einstieg in ein neues Signaturzertifikat muss. Wenn ein Zertifikat aus der Liste entfernt wird, bedeutet, dass an, dass Signaturen für alle Pakete erstellt, mit dem entfernten Signaturzertifikat nicht mehr gültigen vom Client berücksichtigt werden soll. In diesem Fall ist der Paketsignatur (aber nicht unbedingt das Paket) ungültig. Eine Clientrichtlinie können die Installation des Pakets als ohne Vorzeichen.
 
-Im Fall von zertifikatsperrung (z. B. schlüsselgefährdung) wird die Paketquelle erwartet aufgeben aller Pakete, die durch das betroffene Zertifikat signiert. Darüber hinaus sollten die Paketquelle das betroffene Zertifikat aus der Liste der Signierung entfernen.
+Im Fall von zertifikatsperrung (z. B. schlüsselgefährdung) wird die Paketquelle erwartet, zum erneuten Signieren der alle Pakete, die durch das betroffene Zertifikat signiert. Darüber hinaus sollten die Paketquelle das betroffene Zertifikat aus der Liste der Signierung entfernen.
 
 Die folgende Anforderung Ruft den Index der Repository-Signaturen ab.
 

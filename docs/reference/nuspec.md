@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 110d1aa29fc7238f1a82c1a81ec6431dfe437420
-ms.sourcegitcommit: e9c58dbfc1af2876337dcc37b1b070e8ddec0388
+ms.openlocfilehash: 922243050dd32a960d5348f9bb3125d0f6a226fb
+ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40020452"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42793331"
 ---
 # <a name="nuspec-reference"></a>NUSPEC-Referenz
 
@@ -63,7 +63,9 @@ Obwohl es sich bei den folgenden Elementen um die Mindestanforderungen für ein 
 Diese Elemente müssen in einem `<metadata>`-Element angezeigt werden.
 
 #### <a name="id"></a>ID 
-Der Paketbezeichner, der die Groß- und Kleinschreibung nicht berücksichtigt und auf nuget.org oder im für das Paket verwendeten Katalog eindeutig sein muss. IDs dürfen keine Leerzeichen oder für eine URL unzulässige Zeichen enthalten. Sie müssen den Regeln für .NET-Namespaces entsprechen. Informationen finden Sie unter [Choosing a unique package identifier (Auswählen eines eindeutigen Paketbezeichners)](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number). ### Version die Version des Pakets nach dem *major.minor.patch* Muster. Versionsnummern enthalten möglicherweise, wie unter [Paketversionsverwaltung](../reference/package-versioning.md#pre-release-versions) beschrieben, ein Suffix der Vorabversion. 
+Der Paketbezeichner, der die Groß- und Kleinschreibung nicht berücksichtigt und auf nuget.org oder im für das Paket verwendeten Katalog eindeutig sein muss. IDs dürfen keine Leerzeichen oder für eine URL unzulässige Zeichen enthalten. Sie müssen den Regeln für .NET-Namespaces entsprechen. Informationen finden Sie unter [Choosing a unique package identifier (Auswählen eines eindeutigen Paketbezeichners)](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number).
+#### <a name="version"></a>Version
+Die Version des Pakets, die dem Muster *Hauptversion.Nebenversion.Patch* folgt. Versionsnummern enthalten möglicherweise, wie unter [Paketversionsverwaltung](../reference/package-versioning.md#pre-release-versions) beschrieben, ein Suffix der Vorabversion. 
 #### <a name="description"></a>Beschreibung
 Eine ausführliche Beschreibung des Pakets für die Anzeige der Benutzeroberfläche. 
 #### <a name="authors"></a>authors
@@ -99,7 +101,7 @@ Eine durch Leerzeichen getrennte Liste mit Tags und Schlüsselwörtern, die das 
 #### <a name="serviceable"></a>gewartet werden müssen 
 *(3.3 und höher)* Nur für die interne Verwendung von NuGet.
 #### <a name="repository"></a>Repository
-Repository-Metadaten, bestehend aus vier optionale Attribute: *Typ* und *Url* *(4.0 und höher)*, und *Branch* und *Commit* *(4.6 und höher)*. Diese Attribute ermöglichen es Ihnen, der NUPKG-Datei in das Repository zuzuordnen, die sie mit der abzurufenden erstellt entsprechend den Details als einzelne Verzweigung oder Commit, das das Paket erstellt hat. Dies sollte einer öffentlich zugänglichen Url sein, die direkt von einer Software zur Versionskontrolle aufgerufen werden kann. Es sollte nicht auf eine html-Seite sein, wie dies für den Computer vorgesehen ist. Verwenden Sie für das Projekt – Seite verknüpfen, die `projectUrl` Feld stattdessen. |
+Repository-Metadaten, bestehend aus vier optionale Attribute: *Typ* und *Url* *(4.0 und höher)*, und *Branch* und  *Commit* *(4.6 und höher)*. Diese Attribute ermöglichen es Ihnen, der NUPKG-Datei in das Repository zuzuordnen, die sie mit der abzurufenden erstellt entsprechend den Details als einzelne Verzweigung oder Commit, das das Paket erstellt hat. Dies sollte einer öffentlich zugänglichen Url sein, die direkt von einer Software zur Versionskontrolle aufgerufen werden kann. Es sollte nicht auf eine html-Seite sein, wie dies für den Computer vorgesehen ist. Verwenden Sie für das Projekt – Seite verknüpfen, die `projectUrl` Feld stattdessen.
 
 #### <a name="minclientversion"></a>minClientVersion
 Gibt die minimale Version des NuGet-Clients an, der dieses Paket installieren kann. Dies wird von nuget.exe und dem Paket-Manager von Visual Studio erzwungen. Dieses Attribut wird verwendet, wenn das Paket von bestimmten Funktionen der `.nuspec`-Datei abhängig ist, die in einer bestimmten Version des NuGet-Clients hinzugefügt wurden. Beispielsweise sollte ein Paket, das das `developmentDependency`-Attribut verwendet, „2.8“ für `minClientVersion` angeben. Genauso sollte ein Paket, das das `contentFiles`-Element verwendet (vgl. nächster Abschnitt), `minClientVersion` auf „3.3“ festlegen. Beachten Sie außerdem, dass NuGet-Clients vor Version 2.5 diese Kennzeichnung nicht erkennen und daher die Installation des Pakets, unabhängig vom Inhalt von `minClientVersion`, *immer* verweigern.
@@ -176,8 +178,8 @@ Das `<dependencies>`-Element in `<metadata>` enthält eine beliebige Anzahl von 
 | --- | --- |
 | `id` | (Erforderlich) Die Paket-ID der Abhängigkeit, z.B. „EntityFramework“ und „NUnit“, die der Name des Pakets „nuget.org“ ist, wird auf einer Paketseite angezeigt. |
 | `version` | (Erforderlich) Der Bereich an Versionen, die als Abhängigkeiten akzeptiert werden. Die genaue Syntax finden Sie unter [Paketversionsverwaltung](../reference/package-versioning.md#version-ranges-and-wildcards). |
-| include | Eine durch Kommas abgetrennte Liste mit Include/Exclude-Tags (s. Tabelle unten), in der auf die Abhängigkeit verwiesen wird, die in das endgültige Paket eingefügt werden soll. Der Standardwert ist `none`. |
-| exclude | Eine durch Kommas abgetrennte Liste mit Include/Exclude-Tags (s. Tabelle unten), in der auf die Abhängigkeit verwiesen wird, die nicht in das endgültige Paket eingefügt werden soll. Der Standardwert ist `all`. `exclude`-Tags haben Vorrang gegenüber `include`-Tags. Beispielsweise entspricht `include="runtime, compile" exclude="compile"` `include="runtime"`. |
+| include | Eine durch Kommas abgetrennte Liste mit Include/Exclude-Tags (s. Tabelle unten), in der auf die Abhängigkeit verwiesen wird, die in das endgültige Paket eingefügt werden soll. Der Standardwert ist `all`. |
+| exclude | Eine durch Kommas abgetrennte Liste mit Include/Exclude-Tags (s. Tabelle unten), in der auf die Abhängigkeit verwiesen wird, die nicht in das endgültige Paket eingefügt werden soll. Der Standardwert ist `build,analyzers` stehen überschrieben. Aber `content/ ContentFiles` auch implizit in das endgültige Paket die überschrieben werden, kann nicht ausgeschlossen werden. `exclude`-Tags haben Vorrang gegenüber `include`-Tags. Beispielsweise entspricht `include="runtime, compile" exclude="compile"` `include="runtime"`. |
 
 | Include/Exclude-Tag | Betroffene Ordner im Ziel |
 | --- | --- |
@@ -601,7 +603,7 @@ Für leere Ordner kann `.` eingefügt werden, wenn diese keine Inhalte mehr für
 
 ## <a name="example-nuspec-files"></a>Beispiel: Nuspec-Dateien
 
-** Eine einfache `.nuspec`-Datei, die weder Abhängigkeiten noch Dateien enthält**
+**Eine einfache `.nuspec`-Datei, die weder Abhängigkeiten noch Dateien enthält**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -618,7 +620,7 @@ Für leere Ordner kann `.` eingefügt werden, wenn diese keine Inhalte mehr für
 </package>
 ```
 
-** Eine `.nuspec`-Datei mit Abhängigkeiten**
+**Eine `.nuspec`-Datei mit Abhängigkeiten**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
