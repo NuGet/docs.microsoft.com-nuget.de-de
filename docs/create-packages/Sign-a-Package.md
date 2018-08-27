@@ -7,60 +7,60 @@ manager: unnir
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 8bbbc785a50e49530bbbd4e88bbd71a8a7bfe911
-ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
+ms.openlocfilehash: 0679b60179760d6626e7ce42bfdbdfa266677ce6
+ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39508178"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42792948"
 ---
-# <a name="signing-nuget-packages"></a><span data-ttu-id="6a54e-103">Signieren von NuGet-Paketen</span><span class="sxs-lookup"><span data-stu-id="6a54e-103">Signing NuGet Packages</span></span>
+# <a name="signing-nuget-packages"></a><span data-ttu-id="6e4ba-103">Signieren von NuGet-Paketen</span><span class="sxs-lookup"><span data-stu-id="6e4ba-103">Signing NuGet Packages</span></span>
 
-<span data-ttu-id="6a54e-104">Durch die Signierung eines Pakets wird sichergestellt, dass dieses nicht mehr verändert wurde, nachdem es erstellt wurde.</span><span class="sxs-lookup"><span data-stu-id="6a54e-104">Signing a package is a process that makes sure the package has not been modified since its creation.</span></span>
+<span data-ttu-id="6e4ba-104">Durch die Signierung eines Pakets wird sichergestellt, dass dieses nicht mehr verändert wurde, nachdem es erstellt wurde.</span><span class="sxs-lookup"><span data-stu-id="6e4ba-104">Signing a package is a process that makes sure the package has not been modified since its creation.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="6a54e-105">Erforderliche Komponenten</span><span class="sxs-lookup"><span data-stu-id="6a54e-105">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="6e4ba-105">Erforderliche Komponenten</span><span class="sxs-lookup"><span data-stu-id="6e4ba-105">Prerequisites</span></span>
 
-1. <span data-ttu-id="6a54e-106">Das zu signierende Paket (eine `.nupkg`-Datei).</span><span class="sxs-lookup"><span data-stu-id="6a54e-106">The package (a `.nupkg` file) to sign.</span></span> <span data-ttu-id="6a54e-107">Weitere Informationen finden Sie unter [Erstellen von NuGet-Paketen](creating-a-package.md).</span><span class="sxs-lookup"><span data-stu-id="6a54e-107">See [Creating a package](creating-a-package.md).</span></span>
+1. <span data-ttu-id="6e4ba-106">Das zu signierende Paket (eine `.nupkg`-Datei).</span><span class="sxs-lookup"><span data-stu-id="6e4ba-106">The package (a `.nupkg` file) to sign.</span></span> <span data-ttu-id="6e4ba-107">Weitere Informationen finden Sie unter [Erstellen von NuGet-Paketen](creating-a-package.md).</span><span class="sxs-lookup"><span data-stu-id="6e4ba-107">See [Creating a package](creating-a-package.md).</span></span>
 
-1. <span data-ttu-id="6a54e-108">nuget.exe 4.6.0 oder höher.</span><span class="sxs-lookup"><span data-stu-id="6a54e-108">nuget.exe 4.6.0 or later.</span></span> <span data-ttu-id="6a54e-109">Weitere Informationen finden Sie unter [Installieren von NuGet-Clienttools](../install-nuget-client-tools.md#nugetexe-cli).</span><span class="sxs-lookup"><span data-stu-id="6a54e-109">See how to [Install NuGet CLI](../install-nuget-client-tools.md#nugetexe-cli).</span></span>
+1. <span data-ttu-id="6e4ba-108">nuget.exe 4.6.0 oder höher.</span><span class="sxs-lookup"><span data-stu-id="6e4ba-108">nuget.exe 4.6.0 or later.</span></span> <span data-ttu-id="6e4ba-109">Weitere Informationen finden Sie unter [Installieren von NuGet-Clienttools](../install-nuget-client-tools.md#nugetexe-cli).</span><span class="sxs-lookup"><span data-stu-id="6e4ba-109">See how to [Install NuGet CLI](../install-nuget-client-tools.md#nugetexe-cli).</span></span>
 
-1. <span data-ttu-id="6a54e-110">[Signierte Pakete](../reference/signed-packages-reference.md#get-a-code-signing-certificate).</span><span class="sxs-lookup"><span data-stu-id="6a54e-110">[A code signing certificate](../reference/signed-packages-reference.md#get-a-code-signing-certificate).</span></span>
+1. <span data-ttu-id="6e4ba-110">[Signierte Pakete](../reference/signed-packages-reference.md#get-a-code-signing-certificate).</span><span class="sxs-lookup"><span data-stu-id="6e4ba-110">[A code signing certificate](../reference/signed-packages-reference.md#get-a-code-signing-certificate).</span></span>
 
-## <a name="sign-a-package"></a><span data-ttu-id="6a54e-111">Signieren eines Pakets</span><span class="sxs-lookup"><span data-stu-id="6a54e-111">Sign a package</span></span>
+## <a name="sign-a-package"></a><span data-ttu-id="6e4ba-111">Signieren eines Pakets</span><span class="sxs-lookup"><span data-stu-id="6e4ba-111">Sign a package</span></span>
 
-<span data-ttu-id="6a54e-112">Verwenden Sie den NuGet-Befehl [sign](../tools/cli-ref-sign.md), um ein Paket zu signieren:</span><span class="sxs-lookup"><span data-stu-id="6a54e-112">To sign a package, use [nuget sign](../tools/cli-ref-sign.md):</span></span>
+<span data-ttu-id="6e4ba-112">Verwenden Sie den NuGet-Befehl [sign](../tools/cli-ref-sign.md), um ein Paket zu signieren:</span><span class="sxs-lookup"><span data-stu-id="6e4ba-112">To sign a package, use [nuget sign](../tools/cli-ref-sign.md):</span></span>
 
 ```cli
 nuget sign MyPackage.nupkg -CertificateSubjectName <MyCertSubjectName> -Timestamper <TimestampServiceURL>
 ```
 
-<span data-ttu-id="6a54e-113">Sie können, wie in der Referenz zu dem Befehl beschrieben, ein Zertifikat, das im Zertifikatspeicher verfügbar ist, oder ein Zertifikat aus einer Datei verwenden.</span><span class="sxs-lookup"><span data-stu-id="6a54e-113">As described in the command reference, you can use a certificate available in the certificate store or use a certificate from a file.</span></span>
+<span data-ttu-id="6e4ba-113">Sie können, wie in der Referenz zu dem Befehl beschrieben, ein Zertifikat, das im Zertifikatspeicher verfügbar ist, oder ein Zertifikat aus einer Datei verwenden.</span><span class="sxs-lookup"><span data-stu-id="6e4ba-113">As described in the command reference, you can use a certificate available in the certificate store or use a certificate from a file.</span></span>
 
-### <a name="common-problems-when-signing-a-package"></a><span data-ttu-id="6a54e-114">Häufig auftretende Probleme beim Signieren eines Pakets</span><span class="sxs-lookup"><span data-stu-id="6a54e-114">Common problems when signing a package</span></span>
+### <a name="common-problems-when-signing-a-package"></a><span data-ttu-id="6e4ba-114">Häufig auftretende Probleme beim Signieren eines Pakets</span><span class="sxs-lookup"><span data-stu-id="6e4ba-114">Common problems when signing a package</span></span>
 
-- <span data-ttu-id="6a54e-115">Das Zertifikat ist nicht gültig für das Codesignieren.</span><span class="sxs-lookup"><span data-stu-id="6a54e-115">The certificate is not valid for code signing.</span></span> <span data-ttu-id="6a54e-116">Sie müssen sicherstellen, dass das angegebene Zertifikat über die entsprechende erweiterte Schlüsselverwendung verfügt (EKU 1.3.6.1.5.5.7.3.3).</span><span class="sxs-lookup"><span data-stu-id="6a54e-116">You must ensure the certificate specified has the appropriate extended key usage (EKU 1.3.6.1.5.5.7.3.3).</span></span>
-- <span data-ttu-id="6a54e-117">Das Zertifikat entspricht nicht den grundlegenden Anforderungen wie dem RSA SHA-256-Signaturalgorithmus oder einem öffentlicher Schlüssel mit einer Größe von mindestens 2048 Bit.</span><span class="sxs-lookup"><span data-stu-id="6a54e-117">The certificate does not satisfy the basic requirements such as the RSA SHA-256 signature algorithm or a public key 2048 bits or greater.</span></span>
-- <span data-ttu-id="6a54e-118">Das Zertifikat ist abgelaufen oder wurde widerrufen.</span><span class="sxs-lookup"><span data-stu-id="6a54e-118">The certificate has expired or has been revoked.</span></span>
-- <span data-ttu-id="6a54e-119">Der Zeitstempelserver entspricht nicht den Zertifikatanforderungen.</span><span class="sxs-lookup"><span data-stu-id="6a54e-119">The timestamp server does not satisfy the certificate requirements.</span></span>
+- <span data-ttu-id="6e4ba-115">Das Zertifikat ist nicht gültig für das Codesignieren.</span><span class="sxs-lookup"><span data-stu-id="6e4ba-115">The certificate is not valid for code signing.</span></span> <span data-ttu-id="6e4ba-116">Sie müssen sicherstellen, dass das angegebene Zertifikat über die entsprechende erweiterte Schlüsselverwendung verfügt (EKU 1.3.6.1.5.5.7.3.3).</span><span class="sxs-lookup"><span data-stu-id="6e4ba-116">You must ensure the certificate specified has the appropriate extended key usage (EKU 1.3.6.1.5.5.7.3.3).</span></span>
+- <span data-ttu-id="6e4ba-117">Das Zertifikat entspricht nicht den grundlegenden Anforderungen wie dem RSA SHA-256-Signaturalgorithmus oder einem öffentlicher Schlüssel mit einer Größe von mindestens 2048 Bit.</span><span class="sxs-lookup"><span data-stu-id="6e4ba-117">The certificate does not satisfy the basic requirements such as the RSA SHA-256 signature algorithm or a public key 2048 bits or greater.</span></span>
+- <span data-ttu-id="6e4ba-118">Das Zertifikat ist abgelaufen oder wurde widerrufen.</span><span class="sxs-lookup"><span data-stu-id="6e4ba-118">The certificate has expired or has been revoked.</span></span>
+- <span data-ttu-id="6e4ba-119">Der Zeitstempelserver entspricht nicht den Zertifikatanforderungen.</span><span class="sxs-lookup"><span data-stu-id="6e4ba-119">The timestamp server does not satisfy the certificate requirements.</span></span>
 
 > [!Note]
-> <span data-ttu-id="6a54e-120">Signierte Pakete sollten einen Zeitstempel enthalten, um sicherzustellen, dass die Signatur gültig bleibt, wenn das Signaturzertifikat abläuft.</span><span class="sxs-lookup"><span data-stu-id="6a54e-120">Signed packages should include a timestamp to make sure the signature remains valid when the signing certificate has expired.</span></span> <span data-ttu-id="6a54e-121">Beim Signiervorgang wird die [Warnung NU3002](../reference/errors-and-warnings/NU3002.md) ausgelöst, wenn kein Zeitstempel verwendet wird.</span><span class="sxs-lookup"><span data-stu-id="6a54e-121">The sign operation produce a [warning NU3002](../reference/errors-and-warnings/NU3002.md) when signing without a timestamp.</span></span>
+> <span data-ttu-id="6e4ba-120">Signierte Pakete sollten einen Zeitstempel enthalten, um sicherzustellen, dass die Signatur gültig bleibt, wenn das Signaturzertifikat abläuft.</span><span class="sxs-lookup"><span data-stu-id="6e4ba-120">Signed packages should include a timestamp to make sure the signature remains valid when the signing certificate has expired.</span></span> <span data-ttu-id="6e4ba-121">Beim Signiervorgang wird die [Warnung NU3002](../reference/errors-and-warnings/NU3002.md) ausgelöst, wenn kein Zeitstempel verwendet wird.</span><span class="sxs-lookup"><span data-stu-id="6e4ba-121">The sign operation produce a [warning NU3002](../reference/errors-and-warnings/NU3002.md) when signing without a timestamp.</span></span>
 
-## <a name="verify-a-signed-package"></a><span data-ttu-id="6a54e-122">Überprüfen eines signierten Pakets</span><span class="sxs-lookup"><span data-stu-id="6a54e-122">Verify a signed package</span></span>
+## <a name="verify-a-signed-package"></a><span data-ttu-id="6e4ba-122">Überprüfen eines signierten Pakets</span><span class="sxs-lookup"><span data-stu-id="6e4ba-122">Verify a signed package</span></span>
 
-<span data-ttu-id="6a54e-123">Verwenden Sie den NuGet-Befehl [verify](../tools/cli-ref-verify.md), um die Details der Signatur eines bestimmten Pakets anzuzeigen:</span><span class="sxs-lookup"><span data-stu-id="6a54e-123">Use [nuget verify](../tools/cli-ref-verify.md) to see the signature details of a given package:</span></span>
+<span data-ttu-id="6e4ba-123">Verwenden Sie den NuGet-Befehl [verify](../tools/cli-ref-verify.md), um die Details der Signatur eines bestimmten Pakets anzuzeigen:</span><span class="sxs-lookup"><span data-stu-id="6e4ba-123">Use [nuget verify](../tools/cli-ref-verify.md) to see the signature details of a given package:</span></span>
 
 ```cli
 nuget verify -signature MyPackage.nupkg
 ```
 
-## <a name="install-a-signed-package"></a><span data-ttu-id="6a54e-124">Installieren eines signierten Pakets</span><span class="sxs-lookup"><span data-stu-id="6a54e-124">Install a signed package</span></span>
+## <a name="install-a-signed-package"></a><span data-ttu-id="6e4ba-124">Installieren eines signierten Pakets</span><span class="sxs-lookup"><span data-stu-id="6e4ba-124">Install a signed package</span></span>
 
-<span data-ttu-id="6a54e-125">Es erfordert keine bestimmten Aktionen, um signierte Pakete zu installieren. Wenn jedoch nach der Signierung Veränderungen am Inhalt vorgenommen wurden, wird die Installation blockiert und der [Fehler NU3008](../reference/errors-and-warnings/NU3008.md) ausgelöst.</span><span class="sxs-lookup"><span data-stu-id="6a54e-125">Signed packages don't require any specific action to be installed; however, if the content has been modified since it was signed, the installation be blocked and produces a [error NU3008](../reference/errors-and-warnings/NU3008.md).</span></span>
+<span data-ttu-id="6e4ba-125">Es erfordert keine bestimmten Aktionen, um signierte Pakete zu installieren. Wenn jedoch nach der Signierung Veränderungen am Inhalt vorgenommen wurden, wird die Installation blockiert und [Fehler NU3008](../reference/errors-and-warnings/NU3008.md) ausgelöst.</span><span class="sxs-lookup"><span data-stu-id="6e4ba-125">Signed packages don't require any specific action to be installed; however, if the content has been modified since it was signed, the installation is blocked and produces an [error NU3008](../reference/errors-and-warnings/NU3008.md).</span></span>
 
 > [!Warning]
-> <span data-ttu-id="6a54e-126">Pakete, die mit nicht vertrauenswürdigen Zertifikaten signiert wurden, werden als „nicht signiert“ angesehen und lösen wie alle anderen nicht signierten Pakete bei der Installation weder Warnungen noch Fehler aus.</span><span class="sxs-lookup"><span data-stu-id="6a54e-126">Packages signed with untrusted certificates are considered as unsigned and are installed without any warnings or errors like any other unsigned package.</span></span>
+> <span data-ttu-id="6e4ba-126">Pakete, die mit nicht vertrauenswürdigen Zertifikaten signiert wurden, werden als „nicht signiert“ angesehen und lösen wie alle anderen nicht signierten Pakete bei der Installation weder Warnungen noch Fehler aus.</span><span class="sxs-lookup"><span data-stu-id="6e4ba-126">Packages signed with untrusted certificates are considered as unsigned and are installed without any warnings or errors like any other unsigned package.</span></span>
 
-## <a name="see-also"></a><span data-ttu-id="6a54e-127">Siehe auch</span><span class="sxs-lookup"><span data-stu-id="6a54e-127">See also</span></span>
+## <a name="see-also"></a><span data-ttu-id="6e4ba-127">Siehe auch</span><span class="sxs-lookup"><span data-stu-id="6e4ba-127">See also</span></span>
 
-[<span data-ttu-id="6a54e-128">Referenz für signierte Pakete</span><span class="sxs-lookup"><span data-stu-id="6a54e-128">Signed Packages Reference</span></span>](../reference/Signed-Packages-Reference.md)
+[<span data-ttu-id="6e4ba-128">Referenz für signierte Pakete</span><span class="sxs-lookup"><span data-stu-id="6e4ba-128">Signed Packages Reference</span></span>](../reference/Signed-Packages-Reference.md)
