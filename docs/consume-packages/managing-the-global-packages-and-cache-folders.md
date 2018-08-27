@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 03/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 89f70c8d22f5a6409bc3db751646a253f6ad034a
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 545e658d26b557f27d6534bf677f467e65a315b4
+ms.sourcegitcommit: 8d5121af528e68789485405e24e2100fda2868d6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817483"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42793617"
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>Verwalten von globalen Pakete-, Cache- und temporären Ordnern
 
@@ -22,6 +22,7 @@ Wann immer Sie ein Paket installieren, aktualisieren oder wiederherstellen, verw
 | global&#8209;packages | Im Ordner *global-packages* installiert NuGet alle heruntergeladenen Pakete. Jedes Paket wird vollständig in einen Unterordner erweitert, der mit dem Paketbezeichner und der Versionsnummer übereinstimmt. Projekte, die das PackageReference-Format verwenden, verwenden immer Pakete direkt aus diesem Ordner. Bei Verwendung der `packages.config` werden Pakete in den Ordner *global-packages* installiert und dann in den Ordner `packages` des Projekts kopiert.<br/><ul><li>Windows: `%userprofile%\.nuget\packages`</li><li>Mac/Linux: `~/.nuget/packages`</li><li>Überschreiben mit der Umgebungsvariable NUGET_PACKAGES, den [Konfigurationseinstellungen](../reference/nuget-config-file.md#config-section) `globalPackagesFolder`oder `repositoryPath` (bei Verwendung von PackageReference bzw. `packages.config`) oder der MSBuild-Eigenschaft `RestorePackagesPath` (nur MSBuild). Die Umgebungsvariable hat Vorrang vor der Konfigurationseinstellung.</li></ul> |
 | http&#8209;cache | Der Visual Studio-Paket-Manager (NuGet 3.x und höher) und das `dotnet`-Tool speichern Kopien heruntergeladener Pakete in diesem Cache (gespeichert als `.dat`-Dateien), die in Unterordnern für jede Paketquelle organisiert sind. Pakete werden nicht aufgelöst, und der Cache hat eine Ablaufzeit von 30 Minuten.<br/><ul><li>Windows: `%localappdata%\NuGet\v3-cache`</li><li>Mac/Linux: `~/.local/share/NuGet/v3-cache`</li><li>Überschreiben mit der Umgebungsvariable NUGET_HTTP_CACHE_PATH.</li></ul> |
 | temp | Ein Ordner, in dem NuGet während der verschiedenen Vorgänge temporäre Dateien speichert.<br/><li>Windows: `%temp%\NuGetScratch`</li><li>Mac/Linux: `/tmp/NuGetScratch`</li></ul> |
+| plugins-cache **4.8 und höher** | Ein Ordner, in den NuGet die Ergebnisse aus der Vorgangsanspruchsanforderung speichert.<br/><ul><li>Windows: `%localappdata%\NuGet\plugins-cache`</li><li>Mac/Linux: `~/.local/share/NuGet/plugins-cache`</li><li>Überschreiben mit der Umgebungsvariable NUGET_PLUGINS_CACHE_PATH.</li></ul> |
 
 > [!Note]
 > NuGet 3.5 und Vorgängerversionen verwenden *packages-cache* anstelle von *http-cache*, der sich unter `%localappdata%\NuGet\Cache` befindet.
@@ -34,7 +35,25 @@ Weitere Informationen finden Sie unter [Allgemeiner Installationsvorgang](ways-t
 
 ## <a name="viewing-folder-locations"></a>Anzeigen der Speicherorte von Ordnern
 
-Mit dem Befehl [dotnet nuget locals](/dotnet/core/tools/dotnet-nuget-locals) können Sie die Speicherorte von Ordnern anzeigen:
+Speicherorte lassen sich auch über den Befehl [nuget locals](../tools/cli-ref-locals.md) anzeigen:
+
+```cli
+# Display locals for all folders: global-packages, http cache, temp and plugins cache
+nuget locals all -list
+```
+
+Typische Ausgabe (Windows; „user1“ ist der aktuelle Benutzername):
+
+```output
+http-cache: C:\Users\user1\AppData\Local\NuGet\v3-cache
+global-packages: C:\Users\user1\.nuget\packages\
+temp: C:\Users\user1\AppData\Local\Temp\NuGetScratch
+plugins-cache: C:\Users\user1\AppData\Local\NuGet\plugins-cache
+```
+
+(`package-cache` wird in NuGet 2.x verwendet und mit NuGet 3.5 und Vorgängerversionen angezeigt.)
+
+Mit dem Befehl [dotnet nuget locals](/dotnet/core/tools/dotnet-nuget-locals) können Sie auch die Speicherorte von Ordnern anzeigen:
 
 ```cli
 dotnet nuget locals all --list
@@ -46,26 +65,10 @@ Typische Ausgabe (Mac/Linux; „user1“ ist der aktuelle Benutzername):
 info : http-cache: /home/user1/.local/share/NuGet/v3-cache
 info : global-packages: /home/user1/.nuget/packages/
 info : temp: /tmp/NuGetScratch
+info : plugins-cache: /home/user1/.local/share/NuGet/plugins-cache
 ```
 
-Zur Anzeige des Speicherorts eines einzigen Ordners verwenden Sie `http-cache`, `global-packages` oder `temp` anstelle von `all`. 
-
-Speicherorte lassen sich auch über den Befehl [nuget locals](../tools/cli-ref-locals.md) anzeigen:
-
-```cli
-# Display locals for all folders: global-packages, cache, and temp
-nuget locals all -list
-```
-
-Typische Ausgabe (Windows; „user1“ ist der aktuelle Benutzername):
-
-```output
-http-cache: C:\Users\user1\AppData\Local\NuGet\v3-cache
-global-packages: C:\Users\user1\.nuget\packages\
-temp: C:\Users\user1\AppData\Local\Temp\NuGetScratch
-```
-
-(`package-cache` wird in NuGet 2.x verwendet und mit NuGet 3.5 und Vorgängerversionen angezeigt.)
+Verwenden Sie `http-cache`, `global-packages`, `temp` oder `plugins-cache` anstelle von `all`, um den Speicherort eines einzelnen Ordners anzuzeigen.
 
 ## <a name="clearing-local-folders"></a>Löschen von lokalen Ordnern
 
@@ -86,6 +89,10 @@ nuget locals global-packages -clear
 # Clear the temporary cache (use either command)
 dotnet nuget locals temp --clear
 nuget locals temp -clear
+
+# Clear the plugins cache (use either command)
+dotnet nuget locals plugins-cache --clear
+nuget locals plugins-cache -clear
 
 # Clear all caches (use either command)
 dotnet nuget locals all --clear
