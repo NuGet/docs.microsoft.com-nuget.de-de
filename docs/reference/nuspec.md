@@ -87,7 +87,7 @@ Eine URL für ein 64x64-Bild mit transparentem Hintergrund, das als Symbol für 
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 Ein boolescher Wert, der angibt, ob der Client den Benutzer dazu auffordern muss, die Paketlizenz vor der Installation des Pakets zu akzeptieren.
 #### <a name="developmentdependency"></a>developmentDependency
-*(2.8 und höher)* Ein boolescher Wert, der angibt, ob das Paket mit einer Abhängigkeit markiert werden soll, die nur für die Entwicklung gilt, wodurch vermieden wird, dass das Paket als Abhängigkeit in andere Pakete eingefügt wird.
+*(2.8+)* Ein boolescher Wert, der angibt, ob das Paket mit einer Abhängigkeit markiert werden soll, die nur für die Entwicklung gilt, wodurch vermieden wird, dass das Paket als Abhängigkeit in andere Pakete eingefügt wird.
 #### <a name="summary"></a>Zusammenfassung
 Eine kurze Beschreibung des Pakets für die Anzeige der Benutzeroberfläche. Wenn diese nicht angegeben wird, wird eine gekürzte Version von `description` verwendet.
 #### <a name="releasenotes"></a>releaseNotes

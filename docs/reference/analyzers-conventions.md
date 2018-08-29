@@ -1,21 +1,21 @@
 ---
-title: .NET Compiler Platform Analyzer Formate für NuGet
+title: .NET Compiler Platform-Analyzer-Formate für NuGet
 description: Konventionen für .NET-Analysetools, die als Bestandteil von NuGet-Paketen verpackt und verteilt werden, die eine API oder Bibliothek implementieren.
 author: karann-msft
 ms.author: karann
 manager: unnir
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: dc5896631fa3b15dcc1b84b054cb532d56193f36
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 9e833447820c0fb13cf558a45921554e82e2b2df
+ms.sourcegitcommit: ddc2b07a788d4a92b9df193c9bbd43db945b14d9
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818385"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43119161"
 ---
 # <a name="analyzer-nuget-formats"></a>Formate von Analysetools für NuGet
 
-Die .NET Compiler Platform (auch bekannt als "Roslyn") ermöglichen Entwicklern das Erstellen von [Analysen](https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix) , die die Syntaxstruktur und die Semantik des Codes untersuchen, wie es geschrieben wird. Dies bietet Entwicklern die Möglichkeit, domänenspezifische Analysetools zu erstellen, die beispielsweise bei der Verwendung einer bestimmten API oder Bibliothek als Unterstützung dienen. Weitere Informationen hierzu finden Sie im GitHub-Wiki zu [.NET/Roslyn](https://github.com/dotnet/roslyn/wiki). Weitere Informationen finden Sie außerdem in dem Artikel [Verwenden von Roslyn zum Schreiben eines Live-Code-Analysemoduls für Ihre API](https://msdn.microsoft.com/magazine/dn879356.aspx) im MSDN Magazine.
+Das .NET Compiler Platform (auch bekannt als "Roslyn") ermöglichen Entwicklern das Erstellen von [Analysen](https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix) , die die Syntaxstruktur und die Semantik des Codes untersuchen, wie es geschrieben wird. Dies bietet Entwicklern die Möglichkeit, domänenspezifische Analysetools zu erstellen, die beispielsweise bei der Verwendung einer bestimmten API oder Bibliothek als Unterstützung dienen. Weitere Informationen hierzu finden Sie im GitHub-Wiki zu [.NET/Roslyn](https://github.com/dotnet/roslyn/wiki). Weitere Informationen finden Sie außerdem in dem Artikel [Verwenden von Roslyn zum Schreiben eines Live-Code-Analysemoduls für Ihre API](https://msdn.microsoft.com/magazine/dn879356.aspx) im MSDN Magazine.
 
 Analysetools selbst werden in der Regel als Bestandteil der NuGet-Pakete verpackt und verteilt, die die betreffende API oder Bibliothek implementieren.
 
@@ -44,7 +44,7 @@ Beachten Sie auch, dass der Ordner `platform` ausgelassen wird, da dieses Paket 
 
 Die Verwendung des Ordners `analyzers` ist vergleichbar mit der des Ordners für [Zielframeworks](../create-packages/supporting-multiple-target-frameworks.md), mit Ausnahme der Spezifizierer, die im Pfad anstelle der Buildzeit die Abhängigkeiten des Entwicklungshosts beschreiben. Das allgemeine Format lautet wie folgt:
 
-    $/analyzers/{framework_name}{version}/{supported_architecture}/{supported_language}}/{analyzer_name}.dll
+    $/analyzers/{framework_name}{version}/{supported_architecture}/{supported_language}/{analyzer_name}.dll
 
 - **framework_name**: Die *optionale* API-Oberfläche des .NET Framework, auf der die enthaltenen DLLs ausgeführt werden müssen. `dotnet` ist zurzeit der einzige gültige Wert, da Roslyn der einzige Host ist, der Analysetools ausführen kann. Bei fehlender Zielangabe wird davon ausgegangen, dass die DLLs auf *alle* Ziele angewendet werden.
 - **supported_language**: eine der folgenden Sprachen, für die die DLL angewendet wird: `cs` (C#), `vb` (Visual Basic) und `fs` (F#). Die Sprache gibt an, dass das Analysetool nur für ein Projekt geladen werden sollte, das diese Sprache verwendet. Bei fehlender Angabe einer Sprache wird davon ausgegangen, dass die DLL auf *alle* Sprachen angewendet wird, die Analysetools unterstützen.
