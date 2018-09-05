@@ -1,23 +1,22 @@
 ---
-title: NuGet-CLI Setapikey-Befehl
-description: Referenz für den nuget.exe Setapikey-Befehl
+title: NuGet-CLI-Befehl "Setapikey"
+description: Referenz für die nuget.exe-Befehl "Setapikey"
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 66fc62074b4e7c39ff2ed6b515eee9f821530536
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: b00e8b1f7a6fda9c1a0c079069fa8ee08a45b419
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817683"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549219"
 ---
-# <a name="setapikey-command-nuget-cli"></a>Setapikey-Befehl (NuGet CLI)
+# <a name="setapikey-command-nuget-cli"></a>Befehl "Setapikey" (NuGet-CLI)
 
-**Gilt für:** Paket Verbrauchs, Veröffentlichung &bullet; **unterstützte Versionen:** alle
+**Gilt für:** -paketverbrauch, Veröffentlichung &bullet; **unterstützte Versionen:** alle
 
-Speichert einen API-Schlüssel für einen bestimmten Server-URL in `NuGet.Config` , damit sie nicht benötigt, für nachfolgende Befehle eingegeben werden.
+Speichert einen API-Schlüssel für einen bestimmten Server-URL in `NuGet.Config` so, dass er nicht für nachfolgende Befehle eingegeben werden.
 
 ## <a name="usage"></a>Verwendung
 
@@ -25,17 +24,17 @@ Speichert einen API-Schlüssel für einen bestimmten Server-URL in `NuGet.Config
 nuget setapikey <key> -Source <url> [options]
 ```
 
-wobei `<source>` identifiziert den Server und `<key>` ist der Schlüssel oder das Kennwort zu speichern. Wenn `<source>` wird weggelassen, nuget.org wird angenommen.
+wo `<source>` identifiziert den Server und `<key>` ist der Schlüssel oder das Kennwort zu speichern. Wenn `<source>` wird ausgelassen, wird "NuGet.org" begonnen.
 
 ## <a name="options"></a>Optionen
 
 | Option | Beschreibung |
 | --- | --- |
 | ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) verwendet wird.|
-| ForceEnglishOutput | *(3.5 +)*  Erzwingt nuget.exe über eine invariante Kultur Englisch-basierte ausgeführt werden. |
-| Hilfe | Zeigt die Hilfe Informationen für den Befehl. |
+| ForceEnglishOutput | *(3.5 und höher)*  Erzwingt nuget.exe über eine invariante Kultur auf Englisch basierenden ausgeführt werden. |
+| Hilfe | Zeigt die Informationen für den Befehl Hilfe. |
 | NonInteractive | Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an. |
-| Ausführlichkeit | Gibt die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *stillen*, *ausführliche*. |
+| Ausführlichkeit | Gibt an, die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *quiet*, *ausführliche*. |
 
 Siehe auch [Umgebungsvariablen](cli-ref-environment-variables.md)
 

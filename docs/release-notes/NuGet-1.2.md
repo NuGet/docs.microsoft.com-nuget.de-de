@@ -1,21 +1,20 @@
 ---
-title: NuGet 1.2-Versionshinweise
-description: Versionshinweise für NuGet 1.2 einschließlich bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design.
+title: Anmerkungen zu NuGet Version 1.2
+description: Anmerkungen zu NuGet 1.2, einschließlich der bekannten Probleme, Fehlerkorrekturen, hinzugefügter Features und DCRs.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 9267374775887889b063c844063988504a541a38
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: b47f73c1c225540226d3780e17053427b8ea4a8a
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31819984"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43545686"
 ---
-# <a name="nuget-12-release-notes"></a>NuGet 1.2-Versionshinweise
+# <a name="nuget-12-release-notes"></a>Anmerkungen zu NuGet Version 1.2
 
-[NuGet-Hinweise mit dem Version 1.0 und 1.1](../release-notes/nuget-1.1.md) | [NuGet 1.3-Versionshinweise](../release-notes/nuget-1.3.md)
+[Anmerkungen zu NuGet 1.0 und 1.1](../release-notes/nuget-1.1.md) | [Anmerkungen zu NuGet 1.3](../release-notes/nuget-1.3.md)
 
 NuGet 1.2 wurde am 30. März 2011 veröffentlicht.
 
@@ -23,28 +22,28 @@ NuGet 1.2 wurde am 30. März 2011 veröffentlicht.
 
 ### <a name="framework-profile-support"></a>Framework-Profil-Unterstützung
 
-Vom Start und NuGet unterstützt mit verschiedenen Frameworks als Ziel Bibliotheken. Aber jetzt Pakete Assemblys, die bestimmte Profile z. B. das Profil für Windows Phone abzielen enthalten können. Um ein bestimmtes Profil von einem Framework als Ziel festzulegen, fügen Sie einen Bindestrich gefolgt von der Abkürzung Profil. Zum Ausführen auf einem Windows Phone (aka Windows Phone 7) SilverLight als Zielversion festlegen, können Sie z. B. eine Assembly im Ordner "3 wp" wie im folgenden Screenshot gezeigt einfügen.
+Von Anfang NuGet unterstützt mit Bibliotheken verschiedene Zielframeworks. Aber jetzt Pakete Assemblys, die spezifischen Profil, z. B. das Windows Phone-Profil als Ziel enthalten können. Um ein bestimmtes Profil eines Frameworks als Ziel festzulegen, fügen Sie einen Gedankenstrich, gefolgt von der Abkürzung Profil ein. Um eine Windows Phone (auch bekannt als Windows Phone 7) unter SilverLight als Zielversion festlegen, können Sie z. B. eine Assembly im Ordner "3-wp" wie im folgenden Screenshot gezeigt einfügen.
 
-![Framework-Profil-Ordnerstruktur](./media/framework-profile-support.png)
+![Ordnerlayout für Framework-Profil](./media/framework-profile-support.png)
 
-Sie Fragen sich vielleicht warum wir einfach aus gewählt haben, verwenden Sie "wp7" als Moniker. Wir sind teilweise vorhersehen, dass Windows Phone 7 möglicherweise in Zukunft eine neuere Version von Silverlight ausgeführt werden, in diesem Fall müssen Sie möglicherweise finden Sie spezifischere Informationen zu der Framework erstellen ein Profil werden Anwendung sind.
+Sie Fragen sich vielleicht warum wir einfach nicht "wp7" als Moniker verwenden möchten. Teilweise sind wir erwarten, dass Windows Phone 7 möglicherweise eine neuere Version von Silverlight in der Zukunft ausgeführt, die in diesem Fall müssen Sie möglicherweise spezifischer über welches Framework Sie erstellen ein Profil sind abzielt.
 
 ### <a name="automatically-add-binding-redirects"></a>Fügen Sie Bindungsumleitungen automatisch hinzu.
 
-Beim Installieren eines Pakets mit Assemblys mit starkem Namen kann NuGet jetzt Fälle erkennen, in denen das Projekt bindungsumleitungen erfordert hinzugefügt werden, in die Konfigurationsdatei in der Reihenfolge für das Projekt kompiliert und automatisch hinzugefügt. Teil 3 von David Ebbos blogreihe auf NuGet-Versioning Anspruch "[Vereinheitlichung über binden leitet](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)" werden den Zweck dieser Funktion ausführlicher behandelt.
+Wenn ein Paket mit Assemblys mit starkem Namen installieren möchten, kann NuGet nun Fälle zu erkennen, in dem das Projekt erfordert bindungsumleitungen in die Konfigurationsdatei in der Reihenfolge für das Projekt zu kompilieren, und fügen sie automatisch hinzugefügt werden. Teil 3 von David Ebbos blogreihe zur NuGet-Versionsverwaltung berechtigt "[Vereinheitlichung über Datenbindung leitet](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)" den Zweck dieser Funktion ausführlicher behandelt.
 
 <a name="framework-assembly-refs"></a>
 
-### <a name="specifying-framework-assembly-references-gac"></a>Framework-Assemblyverweise (GAC) angeben
+### <a name="specifying-framework-assembly-references-gac"></a>Verweise auf Frameworkassemblys (GAC) angeben
 
-In einigen Fällen kann ein Paket von einer Assembly abhängen, die in .NET Framework enthalten ist. Streng genommen ist es nicht immer notwendig, dass der Consumer des Pakets die Framework-Assembly verweisen. Aber in einigen Fällen ist es wichtig, z. B. wenn der Entwickler für die Typen in dieser Assembly codiert werden, um das Paket zu verwenden muss. Die neue `frameworkAssemblies` Element, ein untergeordnetes Element des Elements Metadaten können Sie an einen Satz von `frameworkAssembly` Elemente, die auf ein Framework-Assembly im globalen Assemblycache verweist. Beachten Sie, liegt den Schwerpunkt auf Framework-Assembly.
-Diese Assemblys sind nicht im Paket enthalten, da sie davon sind auf jedem Computer als Teil von .NET Framework verwendet werden soll. Die folgende Tabelle enthält die Attribute der `frameworkAssembly` Element.
+In einigen Fällen kann ein Paket von einer Assembly abhängen, die in .NET Framework ist. Genau genommen ist es nicht immer erforderlich, dass der Consumer des Pakets die Framework-Assembly verweisen. Aber in einigen Fällen ist es wichtig, wie z. B. wenn der Entwickler für Typen in dieser Assembly programmieren können, um das Paket zu verwenden muss. Die neue `frameworkAssemblies` Element ein untergeordnetes Element des Elements Metadaten können Sie eine Reihe von angeben `frameworkAssembly` Elemente, die auf einer Framework-Assembly im globalen Assemblycache verweist. Beachten Sie den Schwerpunkt auf Framework-Assembly.
+Diese Assemblys sind nicht im Paket enthalten, da davon ausgegangen wird auf jedem Computer als Teil von .NET Framework verwendet werden soll. Die folgende Tabelle enthält die Attribute der `frameworkAssembly` Element.
 
 
 |Attribut |Beschreibung|
 |----------------|-----------|
 |**assemblyName**|*Erforderliche*. Name der Assembly, z. B. `System.Net`.|
-|**targetFramework**|*Optionale*. Ermöglicht die Angabe ein Framework und Profile-Name (oder Alias), die diese Frameworkassembly betrifft, z. B. "net40" oder "sl4". Verwendet das gleiche Format, die in beschriebenen [unterstützen mehrere Zielframeworks](../create-packages/supporting-multiple-target-frameworks.md).|
+|**targetFramework**|*Optionale*. Ermöglicht es Ihnen, ein Framework und Profile-Name (oder Alias), die dieses Framework-Assembly, z. B. "net40" oder "sl4" gilt. Verwendet das gleiche Format, die in beschriebenen [unterstützen mehrerer Zielframeworks](../create-packages/supporting-multiple-target-frameworks.md).|
 
 ```xml
   <frameworkAssemblies>
@@ -53,19 +52,19 @@ Diese Assemblys sind nicht im Paket enthalten, da sie davon sind auf jedem Compu
   </frameworkAssemblies>
 ```
 
-### <a name="nugetexe-now-is-able-to-store-api-key-credentials"></a>NuGet.exe kann nun um API-Schlüssel-Anmeldeinformationen zu speichern
+### <a name="nugetexe-now-is-able-to-store-api-key-credentials"></a>NuGet.exe kann jetzt zum Speichern von Anmeldeinformationen von API-Schlüssel
 
-Wenn Sie das Befehlszeilentool nuget.exe verwenden, können Sie jetzt die SetApiKey-Befehl verwenden, um Ihren API-Schlüssel zu speichern. Auf diese Weise wird nicht müssen Sie ihn jedes Mal, wenn Sie ein Paket push angeben. Weitere Informationen zum Speichern von Ihren API-Schlüssels mit nuget.exe [lesen Sie die Dokumentation zum Veröffentlichen eines Pakets](../create-packages/publish-a-package.md).
+Wenn Sie das Befehlszeilentool nuget.exe verwenden zu können, jetzt können den Befehl "SetApiKey" Sie um Ihren API-Schlüssel zu speichern. Auf diese Weise müssen Sie nicht jedes Mal, wenn Sie ein Paket per Push übertragen angegeben. Weitere Informationen zum Speichern von Ihren API-Schlüssels bei nuget.exe [finden Sie in der Dokumentation zum Veröffentlichen eines Pakets](../create-packages/publish-a-package.md).
 
 ### <a name="package-explorer"></a>Paket-Explorer
-Paket-Explorer wurde zur Unterstützung von NuGet 1.2 aktualisiert. Weitere Informationen finden Sie die [Anmerkungen zur Version des Paket-Explorer](http://nuget.codeplex.com/wikipage?title=New%20features%20in%20NuGet%20Package%20Explorer%201.0).
+Paket-Explorer wurde zur Unterstützung von NuGet 1.2 aktualisiert. Weitere Informationen finden Sie in der [Paket-Explorer – Anmerkungen zu dieser](http://nuget.codeplex.com/wikipage?title=New%20features%20in%20NuGet%20Package%20Explorer%201.0).
 
-## <a name="other-featuresfixes"></a>Andere Features/Updates
+## <a name="other-featuresfixes"></a>Weitere Features/Updates
 
-Die vorherige Liste unter wurden am deutlichsten viele Funktionen, die wir implementiert und Fehlern, die wir behoben. Alles in allem wir implementiert/fixed [59 Typen von Arbeitsaufgaben](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.2&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0) in dieser Version.
+Die vorherige Liste wurden die wichtigsten von den zahlreichen Features, die wir implementiert haben und Fehler, die wir behoben. Alles in allem ist es implementiert/fixed [59 Arbeitsaufgaben](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.2&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0) in dieser Version.
 
 ## <a name="known-issues"></a>Bekannte Probleme
 
-* **1.2 Paket Inkompatibilität**: Pakete, erstellt wurden, mit der neuesten Version des des-Befehlszeilentools, nuget.exe (> 1.2) funktioniert nicht mit älteren Versionen des NuGet-VS-Add-Ins (z. B. 1.1). Wenn Sie eine Fehlermeldung zu inkompatible Schema auftreten, werden Sie in dieser Fehler ausgeführt. Aktualisieren Sie NuGet, auf die neueste Version.
-* **NuGet.Server in Inkompatibilität**: Wenn Sie eine interne NuGet feed mithilfe des Projekts NuGet.Server in hosten, müssen Sie mit der neuesten Version des NuGet.Server in diesem Projekt zu aktualisieren.
-* **Es besteht ein Konflikt Signaturfehler**: Wenn ein Fehler während eines Upgrades mit einer Meldung über eine Signatur besteht ein Konflikt auftreten, müssen Sie NuGet zunächst deinstallieren und installieren Sie es. Diese wird aufgelistet, unserem [Seite "Bekannte Probleme"](../release-notes/known-issues.md) stellt weitere Details. Das Problem nur wirkt sich auf die Visual Studio 2010 SP1 ausführen und haben Version 1.0 von NuGet installiert, die nicht ordnungsgemäß signiert wurde. Diese Version wurde nur zur Verfügung gestellt von der CodePlex-Website für einen kurzen Zeitraum so viele Benutzer sollten nicht von diesem Problem betroffen.
+* **1.2 Paket Inkompatibilität**: Pakete, die mit der neuesten Version des Tools über die Befehlszeile erstellt, nuget.exe (> 1.2) funktioniert nicht mit älteren Versionen des NuGet-VS-Add-Ins (z. B. 1.1). Wenn Sie eine Fehlermeldung etwas nicht kompatibles Schema wird feststellen, führen Sie diesen Fehler. Aktualisieren Sie NuGet, auf die neueste Version.
+* **"NuGet.Server" Inkompatibilität**: Wenn Sie einen internen NuGet-Feeds, mit dem Projekt "NuGet.Server" hosten, müssen Sie das Projekt mit der neuesten Version von "NuGet.Server" aktualisieren.
+* **Signatur stimmt nicht überein. Fehler**: Wenn ein Fehler während eines Upgrades mit einer Meldung über eine Signatur Konflikt auftreten, müssen Sie NuGet zuerst deinstallieren und installieren Sie es. Dieser wird aufgeführt, unserem [bekannte Probleme Seite](../release-notes/known-issues.md) die finden Sie weitere Details. Das Problem nur wirkt sich auf jene, die Visual Studio 2010 SP1 ausführen und eine Version von NuGet 1.0 installiert, die nicht ordnungsgemäß signiert wurde. Diese Version wurde von der CodePlex-Website nur verfügbar gemacht für einen kurzen Zeitraum damit dieses Problem zu viele Entwickler nicht beeinträchtigen sollte.

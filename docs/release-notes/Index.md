@@ -3,15 +3,14 @@ title: Anmerkungen zu dieser Version
 description: Index der Anmerkungen zu dieser Version von NuGet und zu bekannten Problemen in allen Versionen.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: e960218d4594599d017ffbe1ec262fda43ba0283
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: d91890e1cebfa527dac63a06989dbfd9b3f32dbe
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818489"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43550885"
 ---
 # <a name="release-notes"></a>Anmerkungen zu dieser Version
 

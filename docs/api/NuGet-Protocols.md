@@ -1,51 +1,50 @@
 ---
-title: NuGet.org-Protokolle
-description: Die Interaktion mit NuGet-Clients sich entwickelnden nuget.org-Protokolle.
+title: "\"NuGet.org\"-Protokolle"
+description: Der sich entwickelnden "nuget.org"-Protokolle für die Interaktion mit NuGet-Clients.
 author: anangaur
 ms.author: anangaur
-manager: unnir
 ms.date: 10/30/2017
 ms.topic: conceptual
 ms.reviewer: kraigb
-ms.openlocfilehash: cc6d52617ea8b69d5b18b831ddf8a1a85dd6798f
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: d0add777040dbb8bcde6d8e385a4feab568e5cdd
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31822577"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547272"
 ---
-# <a name="nugetorg-protocols"></a>NuGet.org-Protokolle
+# <a name="nugetorg-protocols"></a>"NuGet.org"-Protokolle
 
-Um mit nuget.org interagieren, müssen Clients bestimmte Protokolle zu befolgen. Da diese Protokolle weiterentwickelt beizubehalten, müssen Clients die Protokollversion identifizieren nutzen, wenn bestimmte nuget.org-APIs aufrufen. Dadurch können nuget.org einführen von Änderungen auf eine nicht unterbrechende Weise für die alten Clients.
+Zum interagieren mit nuget.org müssen Sie bestimmte Protokolle zu folgen. Da diese Protokolle Weiterentwicklung zu halten, müssen Clients die Version des Protokolls identifizieren nutzen, wenn bestimmte nuget.org APIs aufrufen. Dadurch wird ein "NuGet.org", um die Änderungen auf eine nicht unterbrechende Weise eingeführt werden, für die alten Clients.
 
 > [!Note]
-> Auf dieser Seite dokumentierten APIs für nuget.org spezifisch sind, und es ist nicht davon ausgehen, bei anderen Implementierungen des NuGet-Server diese APIs einzuführen. 
+> Auf dieser Seite dokumentierten APIs beziehen sich auf nuget.org aus, und es gibt keine Erwartungen an andere NuGet-Server-Implementierungen diese APIs einführen. 
 
-Weitere Informationen über die NuGet-API, die allgemein für den NuGet-Ökosystem implementiert, finden Sie unter der [Übersicht über die API](overview.md).
+Weitere Informationen über die NuGet-API, die allgemein für die NuGet-Ökosystem implementiert, finden Sie unter den [-API – Übersicht](overview.md).
 
-Dieses Thema enthält verschiedene Protokolle wie und wann sie auf Vorhandensein eintreffen.
+Dieses Thema enthält verschiedene Protokolle wie und wann sie zu Vorhandensein stammen.
 
-## <a name="nuget-protocol-version-410"></a>NuGet-Protokollversion 4.1.0
+## <a name="nuget-protocol-version-410"></a>NuGet Protocol, Version 4.1.0
 
-Die 4.1.0 Protokoll gibt die Verwendung der überprüfen Bereich Schlüssel für die Interaktion mit Dienste als nuget.org, um ein Paket mit einem nuget.org-Konto zu überprüfen. Beachten Sie, dass die `4.1.0` Version ist eine nicht transparente Zeichenfolge jedoch geschieht mit den in der Regel mit der ersten Version des offiziellen NuGet-Clients, die dieses Protokoll unterstützt.
+Die 4.1.0 Protokoll gibt an, die Nutzung der überprüfen-Scope-Schlüssel für die Interaktion mit anderen Diensten als "NuGet.org", um ein Paket mit einem nuget.org-Konto zu überprüfen. Beachten Sie, dass die `4.1.0` Version ist eine nicht transparente Zeichenfolge wurden jedoch zufällig mit der ersten Version des offiziellen NuGet-Clients übereinstimmen, die dieses Protokoll unterstützt.
 
-Überprüfung wird sichergestellt, dass die benutzerdefinierte API-Schlüssel werden nur mit nuget.org verwendet, und dieser anderen Überprüfung oder Validierung von einem Drittanbieter-Dienst über einen einmaligen Verwendung überprüfen Bereich Schlüssel behandelt wird. Diese Schlüssel überprüfen Bereich können verwendet werden, um sicherzustellen, dass das Paket nach einem bestimmten Benutzer (Konto) auf nuget.org gehört.
+Überprüfung wird sichergestellt, dass der Benutzer erstellte API-Schlüssel werden nur mit nuget.org verwendet, und diese anderen der Überprüfung oder der Überprüfung von einem Drittanbieter-Dienst über eine einmalige Verwendung überprüfen-Scope-Schlüssel erfolgt. Diese überprüfen-Scope-Schlüssel können verwendet werden, um sicherzustellen, dass das Paket an einen bestimmten Benutzer (Konto), die auf nuget.org gehört.
 
 ### <a name="client-requirement"></a>Client-Anforderung
 
-Clients müssen die folgenden Header übergeben werden soll, wenn sie API-Aufrufe an Stellen **Push** zu nuget.org Pakete:
+Clients müssen die folgenden Header übergeben werden soll, wenn sie API-Aufrufen **Push** Pakete auf nuget.org:
 
     X-NuGet-Protocol-Version: 4.1.0
 
-Beachten Sie, dass die `X-NuGet-Client-Version` Header weist eine ähnliche Semantik jedoch reserviert nur durch den offiziellen NuGet-Client verwendet werden. Clients von Drittanbietern verwenden sollten die `X-NuGet-Protocol-Version` Header und Wert.
+Beachten Sie, dass die `X-NuGet-Client-Version` Header weist eine ähnliche Semantik, sondern wird reserviert, um nur von der offiziellen NuGet-Client verwendet werden. Clients von Drittanbietern verwenden, sollten die `X-NuGet-Protocol-Version` Header und Wert.
 
 Die **Push** Protokoll selbst wird beschrieben, in der Dokumentation für die [ `PackagePublish` Ressource](package-publish-resource.md).
 
-Wenn ein Client mit externen Diensten und Anforderungen interagiert zu prüfen, ob ein Paket zu einem bestimmten Benutzer (Konto) gehört, sollte Schlüssel überprüfen-Bereich und nicht der API-Schlüssel nuget.org verwenden das folgende Protokoll und verwendet werden.
+Wenn ein Client mit externen Diensten und Anforderungen interagiert zu prüfen, ob ein Paket zu einem bestimmten Benutzer (Konto) gehört, muss das folgende Protokoll verwenden und überprüfen-Scope-Schlüssel und nicht die API-Schlüssel von nuget.org verwenden.
 
-### <a name="api-to-request-a-verify-scope-key"></a>API zum Anfordern eines Schlüssels überprüfen-Bereich
+### <a name="api-to-request-a-verify-scope-key"></a>-API, um einen Bereich überprüfen Schlüssel anfordern
 
-Diese API wird verwendet, um einen Schlüssel überprüfen-Bereich für einen nuget.org-Autor zum Überprüfen von Paketen im Besitz von ihn abzurufen.
+Abrufen eines Schlüssels überprüfen-Bereich für den Autor eines "NuGet.org", um ein Paket, das im Besitz von eines Gastbenutzers zu überprüfen, wird diese API verwendet.
 
     POST api/v2/package/create-verification-key/{ID}/{VERSION}
 
@@ -53,7 +52,7 @@ Diese API wird verwendet, um einen Schlüssel überprüfen-Bereich für einen nu
 
 name           | In     | Typ   | Erforderlich | Hinweise
 -------------- | ------ | ------ | -------- | -----
-Id             | URL    | Zeichenfolge | ja      | Die Paket-Identidier für die der überprüfen Bereich Schlüssel angefordert wird
+Id             | URL    | Zeichenfolge | ja      | Die Paket-Identidier für die der Schlüssel des überprüfen Bereich angefordert wird
 VERSION        | URL    | Zeichenfolge | Nein       | Die Paketversion
 X-NuGet-ApiKey | Header | Zeichenfolge | ja      | Beispiel: `X-NuGet-ApiKey: {USER_API_KEY}`
 
@@ -66,9 +65,9 @@ X-NuGet-ApiKey | Header | Zeichenfolge | ja      | Beispiel: `X-NuGet-ApiKey: {U
 }
 ```
 
-### <a name="api-to-verify-the-verify-scope-key"></a>-API, um den Bereich-Schlüssel überprüfen Überprüfen
+### <a name="api-to-verify-the-verify-scope-key"></a>API, um zu überprüfen, ob den Schlüssel der überprüfen-Bereich
 
-Diese API dient zum Überprüfen Bereich Schlüssel für den Autor nuget.org gehörige Paket zu überprüfen.
+Diese API wird verwendet, um überprüfen-Scope-Schlüssel für der Autor von "NuGet.org" gehörige Paket zu überprüfen.
 
     GET api/v2/verifykey/{ID}/{VERSION}
 
@@ -76,17 +75,17 @@ Diese API dient zum Überprüfen Bereich Schlüssel für den Autor nuget.org geh
 
 name           | In     | Typ   | Erforderlich | Hinweise
 -------------  | ------ | ------ | -------- | -----
-Id             | URL    | Zeichenfolge | ja      | Die Paket-ID für die der überprüfen Bereich Schlüssel angefordert wird
+Id             | URL    | Zeichenfolge | ja      | Die Paket-ID für die der Schlüssel des überprüfen Bereich angefordert wird
 VERSION        | URL    | Zeichenfolge | Nein       | Die Paketversion
 X-NuGet-ApiKey | Header | Zeichenfolge | ja      | Beispiel: `X-NuGet-ApiKey: {VERIFY_SCOPE_KEY}`
 
 > [!Note]
-> Diese überprüfen Bereich API-Schlüssel läuft ab, in einem Tag oder bei der ersten Verwendung, welcher Fall zuerst eintritt.
+> Dieser Bereich API-Schlüssel stellen Sie sicher, die in einen ganzen Tag läuft ab, oder bei der ersten Verwendung, welcher Fall zuerst eintritt.
 
 #### <a name="response"></a>Antwort
 
 Statuscode | Bedeutung
 ----------- | -------
-300         | Die API-Schlüssel ist ungültig
-403         | API-Schlüssel ist ungültig oder nicht autorisierte für das Paket mithilfe von Push übertragen
-404         | Das Paket verweist auf `ID` und `VERSION` (optional) ist nicht vorhanden
+300         | Der API-Schlüssel ist gültig.
+403         | Die API-Schlüssel ist ungültig oder nicht autorisiert, für das Paket mithilfe von Push übertragen
+404         | Das Paket verweist `ID` und `VERSION` (optional) ist nicht vorhanden

@@ -1,60 +1,59 @@
 ---
-title: NuGet-3,0 Beta-Anmerkungen zu dieser Version
-description: Versionshinweise für NuGet 3.0 Beta, einschließlich der bekannten Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design.
+title: Anmerkungen zu NuGet 3.0 Beta
+description: Anmerkungen zu NuGet 3.0 Beta, einschließlich der bekannten Probleme, Fehlerkorrekturen, hinzugefügter Features und DCRs.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 4608b196d19f95410f9fe20f6a22e31c15955b89
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 9f9fec6a1af8dfbcfdcfa05a301ff52409521228
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31819626"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43550912"
 ---
-# <a name="nuget-30-beta-release-notes"></a>NuGet-3,0 Beta-Anmerkungen zu dieser Version
+# <a name="nuget-30-beta-release-notes"></a>Anmerkungen zu NuGet 3.0 Beta
 
-[Anmerkungen zur Version von NuGet-3.0-Vorschau](../release-notes/nuget-3.0-preview.md) | [NuGet 3.0 RC-Versionsanmerkungen](../release-notes/nuget-3.0-rc.md)
+[Anmerkungen zu NuGet 3.0 Preview](../release-notes/nuget-3.0-preview.md) | [NuGet 3.0 RC-Versionsanmerkungen](../release-notes/nuget-3.0-rc.md)
 
-NuGet-3.0 Beta wurde für die Version von Visual Studio 2015 CTP-Version 6 auf 23 Februar 2015 veröffentlicht. Diese Version bedeutet, dass viel unseres Teams wie wir eine Reihe von Architektur und Performance zur Freigabe haben, und wir freuen uns zum Starten der Optimierung der Leistungseinstellungen auf unseren nuget.org-Dienst.
+NuGet 3.0 Beta wurde am 23. Februar 2015 für die Visual Studio 2015 CTP 6-Version veröffentlicht. Diese Version bedeutet, dass viel unser Team, wir haben eine Reihe von Verbesserungen von Architektur und Leistung freigeben, und wir freuen uns zum Starten der Optimierung der Leistungseinstellungen auf der nuget.org-Dienst.
 
-Es wird dringend empfohlen, dass eine frühere Version der Erweiterung NuGet Visual Studio 2015 deinstallieren, bevor Sie diese neue Version installieren.  Wenn Sie Probleme mit dieser Version der Erweiterung auftreten, sollten Sie Sie wiederherstellen, um die [Vorgängerversionen](http://nuget.codeplex.com/downloads/get/909582) für die Verwendung mit Visual Studio 2015 Preview.
+Es wird dringend empfohlen, dass Sie frühere Version der Erweiterung NuGet Visual Studio 2015 deinstallieren, bevor Sie diese neue Version installieren.  Wenn Sie Probleme mit dieser Version der Erweiterung auftreten, sollten Sie Sie zum Wiederherstellen der [frühere Version](http://nuget.codeplex.com/downloads/get/909582) für die Verwendung mit Visual Studio 2015 Preview.
 
-## <a name="visual-studio-2012"></a>Visual Studio 2012 +
+## <a name="visual-studio-2012"></a>Visual Studio 2012 und höher
 
-Dieses NuGet-3.0 Beta ist für die Installation in der Visual Studio 2015 CTP-Version 6 Erweiterung Gallery verfügbar. Wir arbeiten daran, löscht der Preview für Visual Studio 2012 und Visual Studio 2013 sehr schnell abzurufen. Wir haben unsere versucht, eine zuvor freigegeben [Updates für Visual Studio 2010 eingestellt](http://blog.nuget.org/20141002/visual-studio-2010.html), und wir haben diese schwierige Entscheidung vorgenommen.
+Dieses NuGet 3.0 Beta steht in Visual Studio 2015 CTP 6-Erweiterungskatalog zu installieren. Wir arbeiten daran, Vorschau löscht sehr bald für Visual Studio 2012 und Visual Studio 2013 machen. Wir haben unsere Absicht, zuvor freigegeben [Updates für Visual Studio 2010 eingestellt](http://blog.nuget.org/20141002/visual-studio-2010.html), und wir, schwierige Entscheidung treffen.
 
 ## <a name="new-clientserver-api"></a>Neue Client/Server-API
 
-Wir haben einige Implementierungsdetails für NuGet Client/Server-Protokoll gearbeitet. Unsere Arbeit ist die Erstellung von "API v3" für NuGet, das entworfen wurde, um hohe Verfügbarkeit für kritische Szenarien wie paketwiederherstellung und Installieren von Paketen. Die neue API basiert auf REST und Hypermedia und wir ausgewählt haben [JSON-LD](http://json-ld.org) als Ressourcenformat.
+Wir haben einige Implementierungsdetails für NuGets-Client/Server-Protokoll gearbeitet. Die Arbeit habe ist die Erstellung von "-API v3" für NuGet, das entworfen wurde, um hochverfügbarkeit für kritische Szenarien wie z. B. das Wiederherstellen von Paketen und Installieren von Paketen. Die neue API basiert auf REST und Hypermedia, und wir ausgewählt haben [JSON-LD](http://json-ld.org) als unsere Ressourcenformat.
 
-Die Bits NuGet 3.0 Beta finden Sie unter neue Paketquelle "api.nuget.org" in der Dropdownliste der Paket-Quelle aufgerufen.   Bei Auswahl dieser Paketquelle verwenden wir unserer neuen API zur Verbindung mit nuget.org. In NuGet 3.0 RC ersetzt dieser neuen API v3-basierte Paketquelle die Paketquelle v2-basierte "nuget.org".  Deaktivieren alle anderen öffentlichen Paketquellen sollten und behalten Sie Ihr nur öffentliche paketrepository nur api.nuget.org.
+In den NuGet 3.0 Beta-Bits sehen Sie eine neue Paketquelle, die Namen "api.nuget.org" in der Dropdownliste der Paket-Quelle.   Wenn Sie diese Paketquelle auswählen, verwenden wir unsere neue API, sondern für die Verbindung "NuGet.org". In NuGet 3.0 RC wird diese neue API-v3-basierte Paketquelle Paketquelle von v2-basierte "nuget.org" ersetzt.  Wir empfehlen, Deaktivieren aller anderen öffentlichen Paketquellen und behalten Sie Ihre einzige öffentliche paketrepository nur api.nuget.org.
 
-Wir haben viel Zeit in die Erstellung unserer API v3 abgelegt und weiterhin die standard-v2-API für die alten Clients zum Zugriff auf die öffentlichen Repositorys Suchvorgänge zu pflegen.
+Wir haben viel Zeit mit dem Erstellen von unserer API v3 sollen und weiterhin die standard-v2-API für die alten Clients, die auf öffentlichen Repository suchen zu verwalten.
 
 ## <a name="updated-ui"></a>Aktualisierte Benutzeroberfläche
 
-Wir haben die Benutzeroberfläche in dieser Version ein Kombinationsfeld-Steuerelement einfügen können Sie zum Auswählen einer Aktion für das Paket ausführen und die Schaltfläche "Vorschau" eines Spiegels noch ein Kontrollkästchen im Bereich des Bildschirms verbessert.  Bereich "Optionen" ist nicht mehr reduzierbare und bietet nun einen Hilfelink klicken, beschreibt die verfügbaren Optionen.
+Wir haben erweitert, dass die Benutzeroberfläche in dieser Version ein Kombinationsfeld zu enthalten, können Sie wählen Sie eine auszuführende Aktion, mit dem Paket und ein Kontrollkästchen im Bereich des Bildschirms die Schaltfläche "Vorschau" übernommen.  Bereich "Optionen" ist nicht mehr reduzierbare und bietet jetzt einen Hilfelink klicken, beschreibt die verfügbaren Optionen.
 
 ![Die neue NuGet UI](./media/NuGet-3.0-Beta/updated-ui.png)
 
 
 ### <a name="operation-logging"></a>Protokollierung
 
-Es entfernt das modale Fenster mit Protokollieren von Informationen, die schnell angezeigt werden würden, und während der Installation oder Deinstallation ausblenden.  In diesem Fenster hinzugefügt kein Wert aus, wenn tatsächlich finden die Informationen, oder in der Lage, kopieren und Einfügen von ihm werden soll.  Stattdessen werden wir jetzt alle der Protokollierung in den Paket-Manager-Bereich des Ausgabefensters Ausgabe umleiten.  Wir glauben, dass dies mehr vertraut und ähnelt einer typischen buildberichtsspeicherort, die Sie untersuchen möchten.
+Es entfernt die modale Fenster mit Protokollieren von Informationen, die schnell angezeigt werden und während der Installation oder Deinstallation ausblenden.  Dieses Fenster hinzugefügt kein Wert aus, wenn Sie wirklich finden Informationen oder in der Lage zu kopieren und einzufügen, daraus möchten.  Stattdessen werden wir jetzt die gesamte Protokollierung in den Paket-Manager-Bereich des Ausgabefensters Ausgabe umleiten.  Wir denken, dass dies ist besser vertraut und ähnlich wie eine typische Buildbericht an, dem Sie untersuchen möchten.
 
 
 ### <a name="focus-on-performance"></a>Konzentrieren Sie sich auf die Leistung
 
-Wir haben viele Änderungen im Namen Verbessern der Leistung von NuGet-Suchfunktionen und Abrufvorgänge vorgenommen.  Dies wurde von unseren Kunden unsere höchste relevant, und wir möchten sicher sein, dass wir sie in dieser Version behoben.  Wir haben unsere Server, erstellt einen neuen CDN optimiert und verbessert die Logik zum Übermitteln von hoffentlich treten bei Ihnen relevanter übereinstimmende Abfrage und schnellere Paket Suchergebnisse.
+Wir haben viele Änderungen, die Namen der Verbesserung der Leistung des NuGet-suchen und abrufen.  Das war unsere Nummer eins Problem von unseren Kunden, und wir wollten Sie sicher, dass wir es in dieser Version behoben.  Wir haben unsere Server, erstellt ein neues CDN, optimiert und verbessert die Logik, um hoffentlich liefern Ihnen weitere wichtige übereinstimmende Abfrage und schneller Suchergebnisse zur Paket.
 
-Wie wir über diese Phase der Entwicklung von NuGet 3.0 fortfahren, werden wir optimieren und Überwachung den nuget.org-Dienst, um sicherzustellen, dass wir eine verbesserte benutzererfahrung bereitzustellen.  Wir keine Einbindung in die Ausfallzeiten, möchten jedoch wird werden hinzufügen und Ressourcen im Dienst ändern.  Achten Sie auf unserer [twitter-Feed](http://twitter.com/nuget) Details auf, wenn es die Dienstkonfiguration ändern.
+Wenn wir über diese Phase der Entwicklung von NuGet 3.0 fortfahren, werden wir optimieren und Überwachung des Diensts "NuGet.org", um sicherzustellen, dass wir eine größere benutzerfreundlichkeit bereitzustellen.  Wir nicht möchten, die Einbindung in die Ausfallzeiten, jedoch wird werden hinzufügen und Ändern von Ressourcen im Dienst.  Achten Sie auf unserer [twitter-Feed](http://twitter.com/nuget) Einzelheiten, wenn wir die Dienstkonfiguration ändern.
 
 ## <a name="building-nuget-with-nuget"></a>Erstellen von NuGet mit NuGet
 
-Wir haben unsere NuGet-Clients in mehreren Komponenten neu entworfen, die selbst wird in NuGet-Pakete erstellt werden. Dieser erneuten Verwendung eines eigenen Bibliotheken erzwingt uns um Komponenten zu erstellen, die wiederholt verwendbare sind und ordnungsgemäß verpackt werden können.  Es wurden doppelte Code eliminiert und haben gelernt, wie Sie unsere Entwicklungsprozesses zur Unterstützung der Notwendigkeit zum Erstellen von Paketen in der gesamten unseren Lösungen für eine bessere Leistung konfigurieren können.  Suchen Sie nach bald einen Blogbeitrag, in denen beschäftigen wir uns wie die Codeprojekte strukturiert sind und zur Funktionsweise von unseren Build-Prozesses.
+Wir haben unsere NuGet-Clients in mehreren Komponenten neu entworfen, die selbst wird in NuGet-Pakete erstellt werden. Diese erneute Verwendung unserer eigenen Bibliotheken erzwingt, dass wir zum Erstellen von Komponenten, die wieder verwendbare sind und ordnungsgemäß gepackt werden können.  Wir konnten zu eliminieren von doppelten Code haben gelernt, wie so konfigurieren Sie besser auf unserem Entwicklungsprozess, um die Notwendigkeit zum Erstellen von Paketen in der gesamten unsere Lösungen zu unterstützen.  Suchen Sie nach in Kürze einen Blogbeitrag, in denen beschäftigen wir uns wie die Codeprojekten strukturiert sind und wie unsere Buildprozess funktioniert.
 
 ## <a name="stay-tuned"></a>Bleiben Sie dran
 
-Bitte achten Sie auf [unserem Blog](http://blog.nuget.org) weitere Bearbeitung und Ankündigungen für NuGet 3.0!
+Bitte achten Sie auf [unseren Blog](http://blog.nuget.org) für die weitere Bearbeitung sowie Ankündigungen von NuGet 3.0!

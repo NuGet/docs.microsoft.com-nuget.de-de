@@ -1,21 +1,20 @@
 ---
-title: 1.3 NuGet-Versionshinweise
-description: Versionshinweise für NuGet 1.3 einschließlich bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design.
+title: Anmerkungen zu NuGet 1.3
+description: Anmerkungen zu NuGet 1.3, einschließlich der bekannten Probleme, Fehlerkorrekturen, hinzugefügter Features und DCRs.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: c0284fe0afb11bf6465897132cccd160674ea3e1
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: fa89af100096356c2ffb4d6c501c4a34296ad0ea
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31821147"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551350"
 ---
-# <a name="nuget-13-release-notes"></a>1.3 NuGet-Versionshinweise
+# <a name="nuget-13-release-notes"></a>Anmerkungen zu NuGet 1.3
 
-[Anmerkungen zur Version von NuGet 1.2](../release-notes/nuget-1.2.md) | [NuGet 1.4-Versionshinweise](../release-notes/nuget-1.4.md)
+[Anmerkungen zu NuGet 1.2](../release-notes/nuget-1.2.md) | [Anmerkungen zu NuGet 1.4](../release-notes/nuget-1.4.md)
 
 NuGet 1.3 wurde 25 April 2011 veröffentlicht.
 
@@ -23,11 +22,11 @@ NuGet 1.3 wurde 25 April 2011 veröffentlicht.
 
 ### <a name="streamlined-package-creation-with-symbol-server-integration"></a>Optimierte Paketerstellung mit Symbol-Server-integration
 
-Das NuGet-Team uns, mit der Mitarbeiter bei [SymbolSource.org](http://www.symbolsource.org/) eine sehr einfache Art veröffentlichen Ihre Datenquellen und die PDB-Datei zusammen mit dem Paket anbieten. Dieser Funktion können Consumer des Pakets die Quelle für das Paket im Debugger schrittweise. Weitere Informationen finden Sie unter [erstellen und veröffentlichen ein Symbolpaket](../create-packages/symbol-packages.md) die einfache Methode zum Veröffentlichen von NuGet-Pakete mit Datenquellen. Sie können auch eine live-Demonstration dieses Features im Rahmen des NuGet-ausführlich auf Mix11 wenden Sie sich ansehen. Diese Funktion wird vollständig veranschaulicht beginnend mit der Markierung 20-minütige des Videos.
+Das NuGet-Team eine Partnerschaft eingegangen, mit den Leuten bei [SymbolSource.org](http://www.symbolsource.org/) bieten eine ganz einfache Möglichkeit der Veröffentlichung von Ihren Quellen und der PDB Datei zusammen mit Ihrem Paket. Dieser Funktion können Consumer des Pakets die Quelle für das Paket im Debugger schrittweise. Weitere Informationen finden Sie in [erstellen und Veröffentlichen eines Symbolpakets](../create-packages/symbol-packages.md) eine einfache Methode zum Veröffentlichen von NuGet-Pakete mit Datenquellen. Sie können auch eine live-Demonstration dieser Funktion als Teil des NuGet-Pakets im Detail sprechen MIX11 ansehen. Dieses Feature wird vollständig veranschaulicht. an der Marke 20-minütige des Videos ab.
 
 ### <a name="open-packagepage-command"></a>`Open-PackagePage` Befehl
 
-Dieser Befehl vereinfacht, um die Seite "Projekt" für ein Paket aus, in der Paket-Manager-Konsole zu erhalten. Darüber hinaus Optionen, um die Lizenz-URL und den Missbrauch Berichtsseite für das Paket zu öffnen.
+Mit diesem Befehl erleichtert es, um das Projekt – Seite für ein Paket aus, in der Paket-Manager-Konsole zu erhalten. Darüber hinaus Optionen, um die Lizenz-URL und den Missbrauch Berichtsseite für das Paket zu öffnen.
 Die Syntax für den Befehl lautet:
 
     Open-PackagePage -Id <string> [-Version] [-Source] [-License] [-ReportAbuse] [-PassThru]
@@ -46,30 +45,30 @@ Beispiele:
 
     PM> Open-PackagePage Ninject -ReportAbuse
 
-Öffnet einen Browser für die URL auf der aktuellen Paketquelle zum Melden des Missbrauchs des angegebenen Pakets verwendet.
+Öffnet einen Browser für die URL auf der aktuellen Paketquelle, die zum Melden von Missbrauch für das angegebene Paket.
 
     PM> $url = Open-PackagePage Ninject -License -WhatIf -PassThru
 
-Weist die Lizenz-URL der Variablen, $url, ohne die URL in einem Browser öffnen.
+Die URL der Variablen zugewiesen, $url, ohne die URL in einem Browser öffnen.
 
 ### <a name="performance-improvements"></a>Leistungsverbesserungen
 
-NuGet-1.3 führt viele leistungsverbesserungen. NuGet-1.3 wird vermieden, Herunterladen von mehrmals von einschließlich eines pro Benutzer lokaler Caches für die gleiche Version eines Pakets. Der Cache zugegriffen, und über das Dialogfeld mit Paket-Manager deaktiviert werden kann:
+NuGet 1.3 werden viele der leistungsverbesserungen eingeführt. NuGet 1.3 verhindert das Herunterladen von mehrere Male mit einem pro Benutzer lokalen Cache für der gleichen Version eines Pakets. Der Cache zugegriffen, und über das Dialogfeld "Paket-Manager-Einstellungen" deaktiviert werden kann:
 
-![NuGet-Dialogfeld "Optionen" mit Paket-Cache-Einstellungen](./media/nuget-options.png)
+![NuGet-Dialogfeld "Optionen" mit Cache-Paketeinstellungen](./media/nuget-options.png)
 
-Andere leistungsverbesserungen gehören Hinzufügen der Unterstützung für HTTP-Komprimierung und Verbessern der Geschwindigkeit der Paket-Installation in Visual Studio.
+Andere leistungsoptimierungen gehören das Hinzufügen von Unterstützung für HTTP-Komprimierung, und Verbessern der Geschwindigkeit der Paket-Installation in Visual Studio.
 
-### <a name="visual-studio-and-nugetexe-uses-the-same-list-of-package-sources"></a>Visual Studio und nuget.exe verwendet dieselbe Liste der Paketquellen überein
+### <a name="visual-studio-and-nugetexe-uses-the-same-list-of-package-sources"></a>Visual Studio und nuget.exe verwendet die gleiche Liste von Paketquellen
 
-Vor dem NuGet-1.3 die Liste der Paketquellen von nuget.exe und die NuGet-Visual Studio-Add-In verwendet wurden nicht gespeichert am gleichen Ort. NuGet-1.3 verwendet jetzt die gleiche Liste an beiden Orten. Die Liste wird gespeichert, `NuGet.Config` und im Ordner "Anwendungsdaten" gespeichert.
+Vor dem NuGet-1.3 die Liste der Paketquellen von nuget.exe und dem NuGet Visual Studio-Add-In verwendet wurden nicht gespeichert am selben Ort. NuGet 1.3 verwendet jetzt die gleiche Liste an beiden Orten. Die Liste wird gespeichert, `NuGet.Config` und im Ordner "AppData" gespeichert.
 
-### <a name="nugetexe-ignores-files-and-folders-that-start-with--by-default"></a>NuGet.exe ignoriert Dateien und Ordnern, die beginnen mit "." standardmäßig
+### <a name="nugetexe-ignores-files-and-folders-that-start-with--by-default"></a>NuGet.exe ignoriert Dateien und Ordnern, die mit '.' in der Standardeinstellung
 
-Um solche Subversion und Mercurial Arbeit mit Quellcode-Verwaltungssysteme NuGet zu machen, nuget.exe ignoriert, Ordner und Dateien, die mit beginnt die '.' Zeichen beim Erstellen von Paketen. Dies kann mit zwei neuen Flags überschrieben werden:
+Um NuGet mit Quellcodeverwaltungssystemen wie Subversion und Mercurial arbeiten zu können, nuget.exe ignoriert, Ordner und Dateien, die mit der '.' Zeichen beim Erstellen von Paketen. Dies kann mit zwei neuen Flags überschrieben werden:
 
 * __-NoDefaultExcludes__ wird verwendet, um diese Einstellung überschreiben, und schließen Sie alle Dateien.
-* __-Ausschließen von__ wird verwendet, um weitere Dateien/Ordner ausschließen, die Verwendung eines Musters hinzufügen. Um beispielsweise alle Dateien mit der Erweiterung ". bak" ausschließen
+* __-Ausschließen__ wird verwendet, um andere Dateien bzw. Ordner ausschließen, unter Verwendung eines Musters hinzufügen. Um beispielsweise alle Dateien mit der Dateierweiterung '. bak' ausschließen
 
 ```
 nuget Pack MyPackage.nuspec -Exclude **\*.bak
@@ -77,15 +76,15 @@ nuget Pack MyPackage.nuspec -Exclude **\*.bak
 
 _Hinweis: das Muster ist nicht standardmäßig rekursiv._
 
-### <a name="support-for-wix-projects-and-the-net-micro-framework"></a>Unterstützung für WiX-Projekte und Micro .NET Framework
+### <a name="support-for-wix-projects-and-the-net-micro-framework"></a>Unterstützung für WiX-Projekten und .NET Micro Framework
 
-Dank Beiträge aus der Community enthält NuGet-Unterstützung für WiX-Projekttypen sowie Micro .NET Framework.
+Unser Dank gilt den Community-Beiträge unterstützt NuGet WiX-Projekttypen als auch das .NET Micro Framework.
 
 ## <a name="bug-fixes"></a>Fehlerkorrekturen
 
-Eine vollständige Liste von Fehlerbehebungen, besuchen Sie die [NuGet Issue Tracker für diese Version](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.3&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
+Eine vollständige Liste der Fehlerbehebungen, lesen Sie die [NuGet Issue Tracker für diese Version](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.3&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
 
-## <a name="bug-fixes-worth-noting"></a>Fehlerkorrekturen erwähnenswerte
+## <a name="bug-fixes-worth-noting"></a>Fehlerkorrekturen Beachten
 
-* Pakete mit Quelldateien arbeiten beide Websites und Webanwendungsprojekte.
+* Pakete mit den Quelldateien funktioniert in beide Websites und Web Application Projects.
 Für Websites, Quelldateien kopiert werden, in der `App_Code` Ordner

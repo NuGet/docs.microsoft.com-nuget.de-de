@@ -3,15 +3,14 @@ title: Migrieren von Datei "Package.config" zu PackageReference-Format
 description: Informationen zum Migrieren eines Projekts aus dem Format für die Datei "Package.config" zu "packagereference" von NuGet 4.0 und höher und VS2017 sowie .NET Core 2.0 unterstützt
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 03/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: b05192038bff071ca7a5b8f2e0f735696d09bef6
-ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
+ms.openlocfilehash: 05a82e48c7083a19c50a05fa1df74ebfff8030d1
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39508269"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546685"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>Migrieren von "Packages.config" zu "packagereference"
 
@@ -41,7 +40,7 @@ Wenn ein Projekt zum ersten Mal geöffnet wird, kann es sein, dass NuGet erst mi
 
 #### <a name="workaround"></a>Problemumgehung 
 
-Führen Sie die folgenden NuGet-Aktionen: 
+Führen Sie eine der folgenden NuGet-Aktionen durch: 
 * Öffnen Sie die Benutzeroberfläche des Paket-Managers. Klicken Sie mit der rechten Maustaste auf `References`, und wählen Sie `Manage NuGet Packages...`. 
 * Öffnen Sie die Paket-Manager-Konsole. Klicken Sie unter `Tools > NuGet Package Manager` auf `Package Manager Console`. 
 * Stellen Sie NuGet-Pakete wieder her. Klicken Sie dazu im Projektmappen-Explorer mit der rechten Maustaste auf den Projektmappenknoten, und wählen Sie `Restore NuGet Packages` aus. 

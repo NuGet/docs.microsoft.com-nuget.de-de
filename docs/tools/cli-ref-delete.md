@@ -1,23 +1,22 @@
 ---
-title: NuGet-CLI-Delete-Befehl
-description: Referenz für den Löschbefehl nuget.exe
+title: NuGet-CLI-Befehl "löschen"
+description: Referenz für die nuget.exe-Delete-Befehl
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: c0f33dd5475521da47972a6f032ac6ea86d98c83
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 11eea6e806d7bfe364587db9c7ef8374da1819f9
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817177"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548509"
 ---
-# <a name="delete-command-nuget-cli"></a>Delete-Befehl (NuGet CLI)
+# <a name="delete-command-nuget-cli"></a>Delete-Befehl (NuGet-CLI)
 
-**Gilt für:** Verpacken Sie die Publishing &bullet; **unterstützte Versionen:** alle
+**Gilt für:** Paket veröffentlichen &bullet; **unterstützte Versionen:** alle
 
-Löscht oder unlists ein Pakets aus der Paketquelle. Für nuget.org, den Löschbefehl [unlists das Paket](../policies/deleting-packages.md).
+Löscht oder hebt dessen Auflistung auf ein Paket aus der Paketquelle. Für "nuget.org" der Delete-Befehl [hebt dessen Auflistung auf das Paket](../policies/deleting-packages.md).
 
 ## <a name="usage"></a>Verwendung
 
@@ -25,19 +24,19 @@ Löscht oder unlists ein Pakets aus der Paketquelle. Für nuget.org, den Löschb
 nuget delete <packageID> <packageVersion> [options]
 ```
 
-wobei `<packageID>` und `<packageVersion>` das genaue Paket zu löschen oder die Benutzerauswahl zu identifizieren. Das genaue Verhalten hängt von der Quelle ab. Für lokale Ordner ist z. B. das Paket gelöscht. für nuget.org ist das Paket nicht aufgeführte.
+wo `<packageID>` und `<packageVersion>` identifizieren Sie das genaue Paket löschen oder aus der Liste entfernen. Das genaue Verhalten hängt von der Quelle ab. Für lokale Ordner ist wird z. B. das Paket gelöscht. für "NuGet.org" für das Paket nicht aufgelistet ist.
 
 ## <a name="options"></a>Optionen
 
 | Option | Beschreibung |
 | --- | --- |
-| "apikey" | Die API-Schlüssel für das Zielrepository. Wenn Sie nicht vorhanden ist, wird in der Datei "App.config" angegebenen verwendet. |
+| "Apikey" | Die API-Schlüssel für die Ziel-Repository. Wenn nicht vorhanden ist, wird angegeben, in der Konfigurationsdatei verwendet. |
 | ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) verwendet wird.|
-| ForceEnglishOutput | *(3.5 +)*  Erzwingt nuget.exe über eine invariante Kultur Englisch-basierte ausgeführt werden. |
-| Hilfe | Zeigt die Hilfe Informationen für den Befehl. |
+| ForceEnglishOutput | *(3.5 und höher)*  Erzwingt nuget.exe über eine invariante Kultur auf Englisch basierenden ausgeführt werden. |
+| Hilfe | Zeigt die Informationen für den Befehl Hilfe. |
 | NonInteractive | Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an. |
-| Quelle | Gibt die Server-URL an. Die URL für nuget.org lautet `https://api.nuget.org/v3/index.json`. Private-Feeds als Ersatz für den Hostnamen, z. B. *%hostname%/api/v3*. |
-| Ausführlichkeit | Gibt die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *stillen*, *ausführliche*. |
+| Quelle | Gibt die Server-URL an. Die URL für nuget.org `https://api.nuget.org/v3/index.json`. Ersetzen Sie für private Feeds den Hostnamen ein, z. B. *%hostname%/api/v3*. |
+| Ausführlichkeit | Gibt an, die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *quiet*, *ausführliche*. |
 
 Siehe auch [Umgebungsvariablen](cli-ref-environment-variables.md)
 

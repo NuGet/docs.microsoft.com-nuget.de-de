@@ -3,16 +3,15 @@ title: Melden von Missbrauch URL-Vorlage, NuGet-API
 description: Die Bericht Missbrauch URL-Vorlage kann Clients einen Missbrauch Berichtslink in ihrer Benutzeroberfläche angezeigt.
 author: joelverhagen
 ms.author: jver
-manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: b1fd65b12590a6c5eeb23d946eec6ca4a1c661bc
-ms.sourcegitcommit: e9c58dbfc1af2876337dcc37b1b070e8ddec0388
+ms.openlocfilehash: d0ff41b08eeba5a6e4bc7c44722b6bc57f502047
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40020439"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549338"
 ---
 # <a name="report-abuse-url-template"></a>Bericht-Missbrauch-URL-Vorlage
 

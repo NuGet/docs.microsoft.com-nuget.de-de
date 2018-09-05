@@ -3,16 +3,15 @@ title: NuGet-Fehler und Warnungen-Referenz
 description: Vollständige Referenz für Warnungen und Fehler, die aus NuGet während der verschiedenen NuGet-Vorgänge ausgegeben.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: df6ed51e182829ecef441f3a0b467f034e92415b
-ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
+ms.openlocfilehash: 54ab55a4751dead7fc0a3413cc78b435b2815b94
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42793241"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43550739"
 ---
 # <a name="errors-and-warnings"></a>Fehler und Warnungen
 

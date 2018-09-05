@@ -1,77 +1,76 @@
 ---
-title: NuGet.exe Anmeldeinformationsanbieter
-description: Anmeldeinformationsanbieter NuGet.exe authentifizieren sich mit einem Feed und werden als ausführbare Befehlszeilendateien, die bestimmte Konventionen implementiert.
+title: NuGet.exe-Anmeldeinformationsanbieter
+description: NuGet.exe-Anmeldeinformationsanbieter mit einem Feed zu authentifizieren, und werden als ausführbare Befehlszeilendateien, die bestimmte Konventionen implementiert.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: ebd3354c298eae8bc8158a987327374ac4a8d4f0
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 97a44c6d561f426fa50fa068a9bbf793f77a3111
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818759"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43550188"
 ---
-# <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>Authentifizieren von Feeds mit nuget.exe Anmeldeinformationsanbieter
+# <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>Authentifizieren von Feeds mit nuget.exe-Anmeldeinformationsanbieter
 
 *NuGet 3.3+*
 
-Wenn `nuget.exe` benötigt Anmeldeinformationen für die Authentifizierung bei einem Feed, sucht es nach ihnen auf folgende Weise:
+Wenn `nuget.exe` benötigt Anmeldeinformationen für die Authentifizierung mit einen Feed, gesucht, der diese auf folgende Weise:
 
-1. NuGet sucht zuerst nach Anmeldeinformationen in `Nuget.Config` Dateien.
-1. NuGet verwendet-Plug-In für anmeldeinformationenanbieter, unterliegen der unten angegebenen Reihenfolge. (Und Beispiel ist die [Visual Studio Team Services-Anmeldeinformationsanbieter](https://www.visualstudio.com/docs/package/get-started/nuget/auth#vsts-credential-provider).)
-1. NuGet fordert dann den Benutzer zum Eingeben von Anmeldeinformationen in der Befehlszeile angegeben.
+1. Sucht NuGet zuerst zur Eingabe von Anmeldeinformationen in `Nuget.Config` Dateien.
+1. Klicken Sie dann mithilfe von NuGet-Plug-in-Anmeldeinformationsanbieter, gemäß der unten angegebenen Reihenfolge. (Beispiel ist die [Visual Studio Team Services-Anmeldeinformationsanbieter](https://www.visualstudio.com/docs/package/get-started/nuget/auth#vsts-credential-provider).)
+1. NuGet fordert dann den Benutzer zur Eingabe von Anmeldeinformationen in der Befehlszeile.
 
-Beachten Sie, die nur in der hier beschriebenen Anmeldeinformationsanbieter funktionieren `nuget.exe` und nicht in "Dotnet wiederherstellen" oder im Visual Studio. Der Anmeldeinformationsanbieter mit Visual Studio, finden Sie unter [nuget.exe Anmeldeinformationsanbieter für Visual Studio](nuget-credential-providers-for-visual-studio.md)
+Beachten Sie, die nur in den hier beschriebenen Anmeldeinformationsanbieter zu arbeiten `nuget.exe` und nicht in "Dotnet Restore" oder Visual Studio. Der Anmeldeinformationsanbieter mit Visual Studio, finden Sie unter [nuget.exe-Anmeldeinformationsanbieter für Visual Studio](nuget-credential-providers-for-visual-studio.md)
 
-Anmeldeinformationsanbieter NuGet.exe können auf 3 Arten verwendet werden:
+NuGet.exe-Anmeldeinformationsanbieter können auf 3 Arten verwendet werden:
 
-- **Global**: einen Anmeldeinformationsanbieter für alle Instanzen von verfügbar machen können `nuget.exe` unter Profil des aktuellen Benutzers ausgeführt werden, fügen Sie diese `%LocalAppData%\NuGet\CredentialProviders`. Möglicherweise müssen Sie erstellen die `CredentialProviders` Ordner. Anmeldeinformationsanbieter können installiert werden, im Stammverzeichnis der `CredentialProviders` Ordner oder in einem Unterordner. Verfügt ein Anmeldeinformationsanbieter mehrere Dateien/Assemblys, können Sie die Unterordner organisiert Anbieter zu verwenden.
+- **Global**: einen Anbieter für Anmeldeinformationen für alle Instanzen zur Verfügung stellen `nuget.exe` Profil des aktuellen Benutzers ausgeführt, hinzufügen zu `%LocalAppData%\NuGet\CredentialProviders`. Sie müssen zum Erstellen der `CredentialProviders` Ordner. Anmeldeinformationsanbieter können installiert werden, am Stamm der `CredentialProviders` Ordner oder in einem Unterordner. Wenn ein Anmeldeinformationsanbieter mehrere Dateien/Assemblys verfügt, können Unterordner Sie um die Anbieter, organisiert zu bleiben.
 
-- **Von einer Umgebungsvariablen**: Anmeldeinformationsanbieter an einer beliebigen Stelle gespeichert und verfügbar gemacht werden `nuget.exe` durch Festlegen der `%NUGET_CREDENTIALPROVIDERS_PATH%` -Umgebungsvariable für den Speicherort eines Anbieters. Diese Variable kann eine durch Semikolons getrennte Liste (z. B. `path1;path2`) Wenn Sie über mehrere Standorte verfügen.
+- **Von einer Umgebungsvariablen**: Anmeldeinformationsanbieter gespeichert und verfügbar gemacht werden können, `nuget.exe` durch Festlegen der `%NUGET_CREDENTIALPROVIDERS_PATH%` -Umgebungsvariable auf den Speicherort eines Anbieters. Diese Variable kann eine durch Semikolons getrennte Liste sein (z. B. `path1;path2`) Wenn Sie über mehrere Standorte verfügen.
 
-- **Neben nuget.exe**: nuget.exe Anmeldeinformationsanbieter platziert werden können, im gleichen Ordner wie `nuget.exe`.
+- **Zusammen mit nuget.exe**: nuget.exe-Anmeldeinformationsanbieter platziert werden können, im gleichen Ordner wie `nuget.exe`.
 
-Beim Laden der Anmeldeinformationsanbieter, `nuget.exe` sucht die oben genannten Speicherorten nacheinander für jede Datei mit dem Namen `credentialprovider*.exe`, lädt dann die Dateien in der Reihenfolge, die sie aufgeführt sind. Wenn mehrere Anmeldeinformationsanbieter im selben Ordner vorhanden sind, sind in alphabetischer Reihenfolge geladen.
+Beim Laden der Anmeldeinformationsanbieter, `nuget.exe` durchsucht die obigen Speicherorten nacheinander für jede Datei, die mit dem Namen `credentialprovider*.exe`, lädt dann die Dateien in der Reihenfolge, die diese finden. Wenn mehrere Anmeldeinformationsanbieter im selben Ordner vorhanden ist, sind in alphabetischer Reihenfolge geladen.
 
-## <a name="creating-a-nugetexe-credential-provider"></a>Einen Anmeldeinformationsanbieter nuget.exe erstellen
+## <a name="creating-a-nugetexe-credential-provider"></a>Erstellen einen nuget.exe-Anmeldeinformationsanbieter
 
-Ein Anmeldeinformationsanbieter ist eine ausführbare Befehlszeilendatei Namens in der Form `CredentialProvider*.exe`, sammelt die Eingaben, erhält die Anmeldeinformationen nach Bedarf und gibt dann den entsprechenden Exit-Statuscode und die Standardausgabe zurück.
+Ein Anmeldeinformationsanbieter ist eine ausführbare Befehlszeilendatei Namens in das Formular `CredentialProvider*.exe`, die Eingaben erfasst, erhält Sie die Anmeldeinformationen nach Bedarf und gibt dann den entsprechenden Exit-Statuscode und die Standardausgabe zurück.
 
-Ein Anbieter muss folgende Anforderungen erfüllen:
+Ein Anbieter muss die folgenden Schritte ausführen:
 
-- Bestimmen Sie, ob sie Anmeldeinformationen für den Ziel-URI bereitstellen kann, vor dem Initiieren der Übernahme von Anmeldeinformationen. Wenn dies nicht der Fall ist, sollte der Statuscode 1 ohne Anmeldeinformationen zurückgegeben.
+- Bestimmen Sie, ob sie Anmeldeinformationen für den Ziel-URI angeben kann, vor dem Abrufen von Anmeldeinformationen zu initiieren. Wenn dies nicht der Fall ist, sollte der Statuscode 1 ohne Anmeldeinformationen zurückgegeben.
 - Ändern Sie nicht `Nuget.Config` (z. B. das Festlegen von Anmeldeinformationen vorhanden).
-- Handle HTTP-Proxykonfiguration auf eine eigene, als NuGet-bietet keine Proxyinformationen des Plug-Ins.
-- Zurückgeben von Anmeldeinformationen oder die Fehlerdetails, um `nuget.exe` durch Schreiben von JSON-Antwort-Objekt (siehe unten) in "stdout" mit UTF-8-Codierung.
-- Optional Geben Sie zusätzliche ablaufverfolgungsprotokollierung an Stderr. Keine geheimen Schlüssel sollten in "stderr", jemals geschrieben werden, da am ausführlichkeitsebenen "normal" oder "detailliert" solchen ablaufverfolgungen von NuGet auf der Konsole ausgegeben werden.
-- Unerwarteter Parameter sollten bereitstellen Aufwärtskompatibilität mit zukünftigen Versionen von NuGet ignoriert werden.
+- Handle HTTP-Proxykonfiguration auf ihren eigenen als NuGet bietet keine Informationen zum Proxy des Plug-Ins.
+- Zurückgeben von Anmeldeinformationen oder Fehlerdetails an `nuget.exe` durch Schreiben ein JSON-Antwort-Objekt (siehe unten) in "stdout" mit UTF-8-Codierung.
+- Geben Sie optional zusätzliche ablaufverfolgungsprotokollierung an Stderr. Keine Geheimnisse sollte jemals an Stderr, geschrieben werden, da am Ausführlichkeitsgrade "normal" oder "detailliert" ablaufverfolgungen von NuGet in die Konsole ausgegeben werden.
+- Unerwarteter Parameter sollte ignoriert werden Aufwärtskompatibilität mit zukünftigen Versionen von NuGet bereitgestellt werden.
 
 ### <a name="input-parameters"></a>Eingabeparameter
 
-| Parameter-Switch |Beschreibung|
+| Parameter oder einen |Beschreibung|
 |----------------|-----------|
 | URI {Value} | Die Paket-URI erfordert Anmeldeinformationen für die Datenquelle.|
-| NonInteractive | Falls vorhanden, gibt Anbieter keine interaktive eingabeaufforderungen aus. |
-| IsRetry | Falls vorhanden, gibt an, dass dieser Versuch eine Wiederholung für einen zuvor fehlgeschlagenen Versuch ist. Anbieter verwenden Sie dieses Flag in der Regel um sicherzustellen, dass sie alle vorhandenen Caches zu umgehen und nach Möglichkeit zum Eingeben neuer Anmeldeinformationen aufgefordert.|
-| Ausführlichkeit {Value} | Falls vorhanden, einen der folgenden Werte: "normale", "quiet" oder "detailliert". Wenn kein Wert angegeben wird, wird standardmäßig in "Normal". Anbieter sollten diese ein Hinweis auf die Ebene der optionalen Protokollierung verwenden, um den Standardfehlerstream auszugeben. |
+| NonInteractive | Falls vorhanden, Anbieter keine interaktive eingabeaufforderungen ausgegeben. |
+| isRetry | Falls vorhanden, gibt Sie an, dass dieser Versuch einen Wiederholungsversuch für einen zuvor fehlgeschlagenen Versuch ist. Anbieter verwenden Sie dieses Flag in der Regel um sicherzustellen, dass sie einen vorhandenen Cache umgehen und möglichst neuer Anmeldeinformationen aufgefordert.|
+| Ausführlichkeit {Value} | Falls vorhanden, einen der folgenden Werte: "normal", "quiet" oder "detaillierte". Wenn kein Wert angegeben wird, wird standardmäßig auf "Normal". Anbieter sollten dies als Hinweis auf die Ebene der optionalen Protokollierung verwenden, um in den Standardfehlerstream auszugeben. |
 
 ### <a name="exit-codes"></a>Exitcodes
 
 | Code |Ergebnis | Beschreibung |
 |----------------|-----------|-----------|
-| 0 | Erfolgreich | Die Anmeldeinformationen wurden erfolgreich abgerufen und in "stdout" geschrieben wurden.|
+| 0 | Erfolgreich | Anmeldeinformationen wurden erfolgreich abgerufen und an "stdout" geschrieben wurden.|
 | 1 | ProviderNotApplicable | Der aktuelle Anbieter bietet keine Anmeldeinformationen für den angegebenen URI.|
-| 2 | Fehler | Der Anbieter ist der richtige Anbieter für den angegebenen URI, jedoch kann keine Anmeldeinformationen bereitstellen. In diesem Fall nuget.exe unternimmt keine Authentifizierung und schlägt fehl. Ein typisches Beispiel ist, wenn ein Benutzer eine interaktive Anmeldung abgebrochen wird. |
+| 2 | Fehler | Der Anbieter ist der richtige-Anbieter für den angegebenen URI, aber es kann keine Anmeldeinformationen bereitstellen. In diesem Fall wird nuget.exe Authentifizierung wird nicht erneut ausführen und schlägt fehl. Ein typisches Beispiel ist, wenn ein Benutzer eine interaktive Anmeldung abbricht. |
 
 ### <a name="standard-output"></a>Standardausgabe
 
 | Eigenschaft |Hinweise|
 |----------------|-----------|
-| Benutzername | Der Benutzername für authentifizierte Anforderungen.|
-| Kennwort | Kennwort für authentifizierte Anforderungen.|
-| Meldung | Optionale Details der Antwort, die nur verwendet, um weitere Details in möglichen Schwachstellen angezeigt. |
+| Benutzername | Benutzername für authentifizierte Anforderungen.|
+| Kennwort | Das Kennwort für authentifizierte Anforderungen.|
+| Meldung | Optionale Details der Antwort nur verwendet, um weitere Details angezeigt, bei Ausfällen. |
 
 Beispiel für "stdout":
 
@@ -79,16 +78,16 @@ Beispiel für "stdout":
       "Password" : "bwm3bcx6txhprzmxhl2x63mdsul6grctazoomtdb6kfbof7m3a3z",
       "Message"  : "" }
 
-## <a name="troubleshooting-a-credential-provider"></a>Problembehandlung bei einer Anmeldeinformationsanbieter
+## <a name="troubleshooting-a-credential-provider"></a>Problembehandlung bei einem Anmeldeinformationsanbieter
 
-Zu diesem Zeitpunkt angeben nicht NuGet viel direkte Unterstützung, für das Debuggen von benutzerdefinierten Anmeldeinformationsanbieter; [ausstellen 4598](https://github.com/NuGet/Home/issues/4598) diese Arbeit nachverfolgt.
+Derzeit enthalten keine NuGet-Pakete viele direkte Unterstützung für das Debuggen von benutzerdefinierten Anmeldeinformationsanbieter; [ausgeben 4598](https://github.com/NuGet/Home/issues/4598) ist diese Arbeit nachverfolgen.
 
-Sie können auch die folgenden Aktionen ausführen:
+Sie können auch die folgenden Schritte ausführen:
 
-- Führen Sie nuget.exe mit der `-verbosity` Switch, ausführliche Ausgabe zu überprüfen.
-- Hinzufügen von Debugmeldungen an `stdout` in den entsprechenden Stellen.
+- Führen Sie nuget.exe mit der `-verbosity` wechseln, um ausführliche Ausgabe zu überprüfen.
+- Hinzufügen von Debugmeldungen an `stdout` an geeigneten Stellen.
 - Achten Sie darauf, dass Sie nuget.exe 3.3 oder höher verwenden.
-- Fügen Sie die Debugger beim Start durch diesen Codeausschnitt:
+- Fügen Sie der Debugger beim Start durch diesen Codeausschnitt:
 
     ```cs
     while (!Debugger.IsAttached)
@@ -98,4 +97,4 @@ Sie können auch die folgenden Aktionen ausführen:
     Debugger.Break();
     ```
 
-Weitere Hilfe benötigen [senden Sie eine Supportanfrage ein nuget.org](https://www.nuget.org/policies/Contact).
+Weitere Hilfe [senden Sie eine Supportanfrage ein nuget.org](https://www.nuget.org/policies/Contact).

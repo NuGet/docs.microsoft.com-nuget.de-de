@@ -1,29 +1,28 @@
 ---
-title: NuGet-CLI-Update-Befehl
-description: Referenz für den nuget.exe Update-Befehl
+title: NuGet-CLI-Befehl "Update"
+description: Referenz für die nuget.exe-Update-Befehl
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 39e269b10a0cf144d5971d2af9f82a606e0b6904
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: fc34550b3669d83466318645987cfd3078bc3c18
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817706"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43545099"
 ---
 # <a name="update-command-nuget-cli"></a>Der Befehl „commnad“ (NuGet CLI)
 
-**Gilt für:** Verpacken Sie Verbrauch &bullet; **unterstützte Versionen:** alle
+**Gilt für:** Paket Verbrauch &bullet; **unterstützte Versionen:** alle
 
-Aktualisiert alle Pakete in einem Projekt (mit `packages.config`) auf die neueste Version. Es wird empfohlen, führen Sie ["restore"](cli-ref-restore.md) vor dem Ausführen der `update`. (Verwenden Sie zum Aktualisieren eines einzelnen Pakets [ `nuget install` ](cli-ref-install.md) ohne Angabe eine Versionsnummer, die in der Groß-/Kleinschreibung NuGet die neueste Version installiert.)
+Alle Pakete in einem Projekt aktualisiert (mit `packages.config`) auf ihren aktuellen verfügbaren Versionen. Es wird empfohlen, führen Sie ['Wiederherstellen'](cli-ref-restore.md) vor dem Ausführen der `update`. (Verwenden Sie zum Aktualisieren eines einzelnen Pakets [ `nuget install` ](cli-ref-install.md) ohne Angabe einer Versionsnummer, die in der Groß-/Kleinschreibung von NuGet die neueste Version installiert.)
 
-Hinweis: `update` funktioniert nicht mit der CLI unter Mono (Mac OS x oder Linux) oder ausgeführt, wenn das PackageReference-Format verwendet.
+Hinweis: `update` funktioniert nicht mit der Befehlszeilenschnittstelle, die unter Mono (Mac OS x oder Linux) oder wenn das PackageReference-Format verwenden.
 
-Die `update` Befehl aktualisiert auch Assemblyverweise in der Projektdatei, vorausgesetzt die verweist bereits vorhanden. Wenn Sie ein aktualisiertes Paket eine hinzugefügte Assembly hat, wird ein neuer Verweis *nicht* hinzugefügt. Ferner müssen neue paketabhängigkeiten nicht ihre Assemblyverweise hinzugefügt. Um diese Vorgänge im Rahmen des ein Update einzuschließen, das Paket in Visual Studio mit der Paket-Manager-UI oder der Paket-Manager-Konsole zu aktualisieren.
+Die `update` Befehl aktualisiert auch die Verweise der Assembly in der Projektdatei, vorausgesetzt die verweist bereits vorhanden. Wenn ein aktualisiertes Paket eine hinzugefügte Assembly hat, ist ein neuer Verweis *nicht* hinzugefügt. Ferner müssen neue paketabhängigkeiten nicht ihre Assemblyverweise hinzugefügt. Aktualisieren Sie das Paket in Visual Studio mithilfe der Paket-Manager-UI oder der Paket-Manager-Konsole, um diese Vorgänge im Rahmen eines Updates einzuschließen.
 
-Mit diesem Befehl kann auch zum Aktualisieren von nuget.exe selbst verwendet werden mithilfe der *-Self-Service* Flag.
+Mit diesem Befehl kann auch verwendet werden, um nuget.exe selbst aktualisieren mit der *-Self-Service* Flag.
 
 ## <a name="usage"></a>Verwendung
 
@@ -31,26 +30,26 @@ Mit diesem Befehl kann auch zum Aktualisieren von nuget.exe selbst verwendet wer
 nuget update <configPath> [options]
 ```
 
-auf dem `<configPath>` identifiziert, entweder eine `packages.config` oder die Projektmappendatei, die das Projekt Abhängigkeiten aufgeführt.
+in denen `<configPath>` identifiziert entweder eine `packages.config` oder Projektmappendatei, die die Abhängigkeiten des Projekts aufgeführt.
 
 ## <a name="options"></a>Optionen
 
 | Option | Beschreibung |
 | --- | --- |
 | ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) verwendet wird.|
-| FileConflictAction | Gibt die Aktion an, wenn Sie gefragt werden, überschreiben oder vorhandene Dateien, die vom Projekt referenzierte ignoriert werden. Werte sind *überschreiben, ignorieren möchten, keine*. |
-| ForceEnglishOutput | *(3.5 +)*  Erzwingt nuget.exe über eine invariante Kultur Englisch-basierte ausgeführt werden. |
-| Hilfe | Zeigt die Hilfe Informationen für den Befehl. |
+| FileConflictAction | Gibt die Aktion an, wenn Sie gefragt werden, überschrieben werden soll, oder ignorieren die vorhandene Dateien, die vom Projekt verwiesen wird. Werte sind *überschrieben werden soll, zu ignorieren, keine*. |
+| ForceEnglishOutput | *(3.5 und höher)*  Erzwingt nuget.exe über eine invariante Kultur auf Englisch basierenden ausgeführt werden. |
+| Hilfe | Zeigt die Informationen für den Befehl Hilfe. |
 | Id | Gibt eine Liste der Paket-IDs zu aktualisieren. |
-| MSBuildPath | *(4.0 und höher)*  Gibt den Pfad des MSBuild für die Verwendung mit dem Befehl, Vorrang vor `-MSBuildVersion`. |
-| MSBuildVersion | *(3.2 +)*  Gibt die Version von MSBuild mit diesem Befehl verwendet werden soll. Unterstützte Werte sind 4, 12, 14, 15. Standardmäßig werden die MSBuild-Datei in Ihrem Pfad abgerufen wird, wird standardmäßig andernfalls die neueste installierte Version von MSBuild. |
+| MSBuildPath | *(4.0 und höher)*  Gibt den Pfad des MSBuild für die Verwendung mit dem Befehl vor `-MSBuildVersion`. |
+| MSBuildVersion | *(3.2 und höher)*  Gibt die Version von MSBuild mit dem folgenden Befehl verwendet werden. Unterstützte Werte sind 4, 12, 14, 15. Standardmäßig die MSBuild in Ihrem Pfad ausgewählt wird, wird standardmäßig andernfalls die neueste installierte Version von MSBuild. |
 | NonInteractive | Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an. |
-| Vorabversion | Ermöglicht es, auf Vorabversionen aktualisiert. Dieses Flag ist nicht erforderlich, beim Aktualisieren von Vorabversionen von Paketen, die bereits installiert sind. |
+| Vorabversion | Ermöglicht das Aktualisieren auf Vorabversionen. Dieses Flag ist nicht erforderlich, beim Aktualisieren von Vorabversionen von Paketen, die bereits installiert sind. |
 | RepositoryPath | Gibt den lokalen Ordner, in dem Pakete installiert sind. |
-| Safe | Gibt an, dass nur mit der höchsten Version in die gleiche Haupt- und Nebenversionsnummern Version verfügbaren updates wie das installierte Paket installiert werden soll. |
-| Self-Service | Wird nuget.exe auf die neueste Version aktualisiert. Alle anderen Argumente werden ignoriert. |
-| Quelle | Gibt die Liste der Paketquellen (wie URLs), um nach Updates verwenden. Wenn nicht angegeben, wird der Befehl verwendet die Quellen in Konfigurationsdateien bereitgestellt, finden Sie unter [NuGet Konfigurieren von Verhalten](../consume-packages/configuring-nuget-behavior.md). |
-| Ausführlichkeit | Gibt die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *stillen*, *ausführliche*. |
+| Safe | Gibt an, dass nur mit der höchsten Version innerhalb der gleichen Haupt- und Nebenversionsnummern Version verfügbaren updates wie das installierte Paket installiert wird. |
+| Self-Service | Nuget.exe auf die neueste Version aktualisiert wird; Alle anderen Argumente werden ignoriert. |
+| Quelle | Gibt die Liste der Paketquellen (wie URLs), um nach Updates verwenden. Wenn nicht angegeben, wird der Befehl verwendet die Quellen in Konfigurationsdateien, finden Sie unter [Konfigurieren des NuGet-Verhaltens](../consume-packages/configuring-nuget-behavior.md). |
+| Ausführlichkeit | Gibt an, die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *quiet*, *ausführliche*. |
 | Version | Bei Verwendung mit einem Paket-ID gibt die Version des Pakets aktualisieren. |
 
 Siehe auch [Umgebungsvariablen](cli-ref-environment-variables.md)

@@ -1,60 +1,59 @@
 ---
-title: NuGet 2.6.1 WebMatrix-Versionshinweise
-description: Versionshinweise für NuGet 2.6.1 für WebMatrix, einschließlich der bekannten Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design.
+title: NuGet 2.6.1 für WebMatrix-Versionshinweise
+description: Anmerkungen zu NuGet 2.6.1 für WebMatrix, einschließlich der bekannten Probleme, Fehlerkorrekturen, hinzugefügter Features und DCRs.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 3d767788d348553cbb5cb82c6f70aac1894628c3
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 10d80a921cbc34b537f91644da97efc44530fa75
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31818404"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43550316"
 ---
-# <a name="nuget-261-for-webmatrix-release-notes"></a>NuGet 2.6.1 WebMatrix-Versionshinweise
+# <a name="nuget-261-for-webmatrix-release-notes"></a>NuGet 2.6.1 für WebMatrix-Versionshinweise
 
-[Anmerkungen zur Version des NuGet-2.6](../release-notes/nuget-2.6.md) | [NuGet 2.7-Versionshinweise](../release-notes/nuget-2.7.md)
+[Anmerkungen zu NuGet 2.6](../release-notes/nuget-2.6.md) | [Anmerkungen zu NuGet 2.7](../release-notes/nuget-2.7.md)
 
-Das NuGet-Team hat eine aktualisierte NuGet-Paket-Manager-Erweiterung für WebMatrix 26 März 2014 veröffentlicht.  Dieses Update installiert werden kann, aus der [WebMatrix Erweiterungskatalog](https://blogs.iis.net/webmatrix/retiring-the-webmatrix-extensions-gallery) mithilfe der folgenden Schritte:
+Das NuGet-Team hat eine aktualisierte NuGet-Paket-Manager-Erweiterung für WebMatrix 26 März 2014 veröffentlicht.  Dieses Update installiert werden kann, aus der [WebMatrix-Erweiterungskatalog](https://blogs.iis.net/webmatrix/retiring-the-webmatrix-extensions-gallery) verwenden die folgenden Schritte aus:
 
 1. Öffnen Sie WebMatrix 3
-1. Klicken Sie auf das Symbol "Erweiterungen" im Menüband Home
-1. Wählen Sie die Registerkarte "Softwareupdates"
+1. Klicken Sie auf das Symbol "Erweiterungen" im Menüband "Start"
+1. Wählen Sie die Registerkarte "Updates"
 1. Klicken Sie auf, um NuGet-Paket-Manager auf 2.6.1 zu aktualisieren.
-1. Schließen Sie, und starten Sie die WebMatrix-3
+1. Schließen Sie und starten Sie WebMatrix 3
 
 ## <a name="notable-changes"></a>Wichtige Änderungen
 
-Diese Erweiterung behebt zwei der größten Probleme Benutzer haben verbrauchende NuGet-Pakete in WebMatrix Datenwachstums.  Das erste ist ein NuGet-Schema-Version-Fehler und die zweite wurde ein Fehler auf 0 Byte-DLLs in führenden der `bin` Ordner.
+Diese Erweiterung Update behandelt zwei der größten Probleme Benutzer haben verwendeten NuGet-Pakete in WebMatrix konfrontiert.  Die erste war ein NuGet-Schemafehler Version und das zweite ein Fehler auf 0 (null)-Byte-DLLs in führenden der `bin` Ordner.
 
-### <a name="nuget-schema-version-error"></a>NuGet-Version Schemafehler
+### <a name="nuget-schema-version-error"></a>Fehler beim Version des NuGet-Schemas
 
-Seit der Freigabe von WebMatrix 3 wurden neue Funktionen eingeführt in NuGet, die eine neue Version des Datenbankschemas für die NuGet-Pakete erfordern.  Beim Versuch, die NuGet-Pakete auf der Website zu verwalten, können diese neue Pakete zu Fehlern führen, die Sie in WebMatrix zu sehen.
+Da WebMatrix 3 veröffentlicht wurde, wurden neue Features in NuGet, die eine neue Schemaversion für die NuGet-Pakete erfordern eingeführt.  Beim Versuch, Ihr NuGet-Pakete in Ihre Website zu verwalten, können diese neue Pakete zu Fehlern führen, die Sie in WebMatrix zu sehen.
 
-![Es ist ein Fehler aufgetreten. Die Schemaversion ist nicht kompatibel. Sie ein upgrade von NuGet auf die neueste Version.](./media/NuGet-2.8/webmatrix-schema-version.png)
+![Es ist ein Fehler aufgetreten. Die Schemaversion ist nicht kompatibel. Führen Sie ein upgrade NuGet, auf die neueste Version zu erhalten.](./media/NuGet-2.8/webmatrix-schema-version.png)
 
-Diese neueste Version bietet Kompatibilität mit den neuesten NuGet-Pakete verhindern, dass dieser Fehler auftritt. Neue Versionen der Pakete, einschließlich Microsoft.AspNet.WebPages können jetzt in WebMatrix installiert werden.  Einige dieser Pakete wurden mithilfe von NuGet-Funktionen wie [XDT Config transformiert](../release-notes/nuget-2.6.md#xdt), dies wurde nicht in WebMatrix unterstützt, die bisher.
+Dieses neueste Release bietet Kompatibilität mit den neuesten NuGet-Pakete, die verhindert, dass dieser Fehler auftritt. Neue Versionen der Pakete einschließlich Microsoft.AspNet.WebPages können jetzt in WebMatrix installiert werden.  Einige dieser Pakete wurden mithilfe von NuGet-Features wie [XDT Konfigurationstransformationen](../release-notes/nuget-2.6.md#xdt), dies war nicht in WebMatrix unterstützt, bis jetzt.
 
-### <a name="zero-byte-dlls-in-bin-folder"></a>0 Byte-DLLs im Ordner "bin" "
+### <a name="zero-byte-dlls-in-bin-folder"></a>0-Byte-DLLs im Ordner "bin" "
 
-Einige Benutzer haben gemeldet, dass nach dem Installieren von NuGet Pakete einrichten in WebMatrix mit DLLs, die kopiert werden, um zu klassifizieren, die DLLs zum Anzeigen der `bin` Ordner als 0-Byte-Dateien.  Dieser Vorgang ist die Anwendung zur Laufzeit.
+Einige Benutzer haben gemeldet, dass nach dem Installieren von NuGet Pakete Sie in WebMatrix, die DLLs enthalten, die kopiert werden, in den Papierkorb, die die DLLs zeigen die `bin` Ordner Dateien mit 0 Byte.  Dies unterbricht die Anwendung zur Laufzeit.
 
-[Dieses Problem](https://nuget.codeplex.com/workitem/4060) wurde jetzt behoben.
+[Dieses Problem](https://nuget.codeplex.com/workitem/4060) hat sich geändert.
 
 ## <a name="other-recent-improvements"></a>Weitere Verbesserungen
 
-NuGet-Paket-Manager 2.8 für Visual Studio veröffentlicht wurde, veröffentlicht haben wir auch NuGet Package Manager 2.5.0 für WebMatrix.  Während dies, in erwähnt wurde der [NuGet 2.8-Anmerkungen zu dieser Version](../release-notes/nuget-2.8.md#webmatrix-nuget-client-updates), haben nicht wir erwähnt, die spezifische neue Funktionen, die Updates eingeführt.
+Als NuGet-Paket-Manager 2.8 für Visual Studio veröffentlicht wurde, veröffentlicht haben wir auch NuGet Package Manager 2.5.0 für WebMatrix.  Während dies im erwähnt wurde die [NuGet 2.8 Release Notes](../release-notes/nuget-2.8.md#webmatrix-nuget-client-updates), wir jedoch nicht erwähnt die spezifischen neue Funktionen, die Updates eingeführt wurden.
 
 ### <a name="update-all"></a>Alle aktualisieren
 
-Sie können alle Ihre Website-Pakete in einem Schritt jetzt aktualisieren!  Wenn Sie das NuGet-Erweiterung in WebMatrix öffnen, sehen Sie die Liste aller Pakete in der Galerie, installiert und die Beziehungen und Updates verfügbar.  Zuvor jedes Paket müssten einzeln aktualisiert werden, aber jetzt besteht eine nützliche "Alle aktualisieren"-Schaltfläche, die auf der Registerkarte "Updates" wird angezeigt.
+Sie können alle Pakete von der Website in einem Schritt jetzt aktualisieren!  Wenn Sie die NuGet-Erweiterung in WebMatrix öffnen, sehen Sie die Liste aller Pakete auf den Katalog, die installiert und diejenigen mit verfügbaren Updates.  Früher jedes Paket einzeln aktualisiert werden müsste, aber jetzt befindet sich eine nützliche "Alle aktualisieren"-Schaltfläche, die auf der Registerkarte "Updates" wird angezeigt.
 
-![Klicken Sie auf "Alle aktualisieren", um alle Pakete mit verfügbaren Updates aktualisieren](./media/NuGet-2.8/webmatrix-update-all.png)
+![Klicken Sie auf "Alle aktualisieren", um alle Pakete mit verfügbaren Updates zu aktualisieren.](./media/NuGet-2.8/webmatrix-update-all.png)
 
 ### <a name="overwrite-existing-files"></a>Vorhandene Dateien überschreiben
 
-Installieren von Paketen, die Dateien enthalten, die auf der Website bereits vorhanden sind, verfügt über NuGet immer nur im Hintergrund (vorhandenen Dateien allein verlassen) Dateien ignoriert.  Dies kann auf den Eindruck führen, dass ein Paket installiert wurde oder wenn tatsächlich war nicht ordnungsgemäß aktualisiert.  NuGet fordert nun Dateien überschrieben werden sollen.
+Beim Installieren von Paketen, die Dateien enthalten, die auf der Website bereits vorhanden sind, hat NuGet immer nur diese Dateien (vorhandenen Dateien allein verlassen) ignoriert.  Dies kann auf den Eindruck führen, dass ein Paket installiert wurde oder wenn in der Tat es war nicht korrekt aktualisiert.  NuGet fordert nun Dateien überschrieben werden sollen.
 
-![Auflösung des Konflikts zwischen Datei](./media/NuGet-2.8/webmatrix-overwrite-file.png)
+![Lösung von Konflikten](./media/NuGet-2.8/webmatrix-overwrite-file.png)

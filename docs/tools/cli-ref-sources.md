@@ -3,21 +3,20 @@ title: NuGet-CLI-Befehl Quellen
 description: Referenz für die nuget.exe Datenquellen-Befehl
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 7c416d92c11328ecb020154981b0ddcc5ba9c5e8
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 7ef856f783c8e11cdb40edb0d1c1458730d87262
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818346"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548107"
 ---
 # <a name="sources-command-nuget-cli"></a>Der Befehl „sources“ (NuGet-CLI)
 
-**Gilt für:** Paket Verbrauchs, Veröffentlichung &bullet; **unterstützte Versionen:** alle
+**Gilt für:** -paketverbrauch, Veröffentlichung &bullet; **unterstützte Versionen:** alle
 
-Verwaltet die Liste der Datenquellen, die in den Bereich Benutzerkonfigurationsdatei oder einer bestimmten Konfigurationsdatei befindet. Die Benutzerkonfigurationsdatei Bereich befindet sich unter `%appdata%\NuGet\NuGet.Config` (Windows) und `~/.nuget/NuGet/NuGet.Config` (Mac/Linux).
+Verwaltet die Liste der Datenquellen, die sich in der Benutzerkonfigurationsdatei für den Bereich oder einer bestimmten Konfigurationsdatei befinden. Die Benutzerkonfigurationsdatei für den Bereich befindet sich unter `%appdata%\NuGet\NuGet.Config` (Windows) und `~/.nuget/NuGet/NuGet.Config` (Mac/Linux).
 
 Beachten Sie, dass die Quell-URL für nuget.org `https://api.nuget.org/v3/index.json` ist.
 
@@ -27,24 +26,24 @@ Beachten Sie, dass die Quell-URL für nuget.org `https://api.nuget.org/v3/index.
 nuget sources <operation> -Name <name> -Source <source>
 ```
 
-auf dem `<operation>` ist einer der *auflisten, hinzufügen, entfernen, aktivieren, deaktivieren,* oder *Update*, `<name>` ist der Name der Quelle, und `<source>` ist die Quell-URL.
+in denen `<operation>` ist einer der *auflisten, hinzufügen, entfernen und Aktivierung, Deaktivierung* oder *Update*, `<name>` ist der Name der Quelle, und `<source>` ist die Quelle der URL.
 
 ## <a name="options"></a>Optionen
 
 | Option | Beschreibung |
 | --- | --- |
 | ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) verwendet wird.|
-| ForceEnglishOutput | *(3.5 +)*  Erzwingt nuget.exe über eine invariante Kultur Englisch-basierte ausgeführt werden. |
+| ForceEnglishOutput | *(3.5 und höher)*  Erzwingt nuget.exe über eine invariante Kultur auf Englisch basierenden ausgeführt werden. |
 | Format | Gilt für die `list` Aktion und kann `Detailed` (Standard) oder `Short`. |
-| Hilfe | Zeigt die Hilfe Informationen für den Befehl. |
+| Hilfe | Zeigt die Informationen für den Befehl Hilfe. |
 | NonInteractive | Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an. |
 | Kennwort | Gibt das Kennwort für die Authentifizierung mit der Quelle. |
-| StorePasswordInClearText | Gibt an, um das Kennwort in unverschlüsselter Text statt das Standardverhalten des Speicherns von verschlüsselter Form speichern. |
+| StorePasswordInClearText | Gibt an, um das Kennwort in unverschlüsselter Text anstelle des Standardverhaltens speichern verschlüsselten Form speichern. |
 | UserName | Gibt den Benutzernamen für die Authentifizierung mit der Quelle an. |
-| Ausführlichkeit | Gibt die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *stillen*, *ausführliche*. |
+| Ausführlichkeit | Gibt an, die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *quiet*, *ausführliche*. |
 
 > [!Note]
-> Stellen Sie sicher, dass die Quellen Kennwort unter demselben Benutzerkontext hinzugefügt, wie die nuget.exe später verwendet wird, auf die Paketquelle zugreifen. Das Kennwort in der Config-Datei verschlüsselt gespeichert und kann nur in demselben Benutzerkontext entschlüsselt werden, da er verschlüsselt wurde. Z. B. Wenn Sie einen Build-Server verwenden wiederherzustellenden NuGet-Pakete, die das Kennwort verschlüsselt werden muss mit dem gleichen Windows-Benutzer unter dem der Build-Server-Aufgabe ausgeführt wird.
+> Stellen Sie sicher, dass die Quellen das Kennwort unter dem gleichen Benutzerkontext hinzufügen, wie die nuget.exe später verwendet wird, auf die Paketquelle. Das Kennwort in der Config-Datei verschlüsselt gespeichert und kann nur in demselben Benutzerkontext entschlüsselt werden, da er verschlüsselt wurde. Zum Beispiel wenn Sie einen Buildserver verwenden zum Wiederherstellen von NuGet-Pakete, die das Kennwort verschlüsselt sein muss mit dem gleichen Windows-Benutzer, unter dem der Build-Server-Task ausgeführt wird.
 
 Siehe auch [Umgebungsvariablen](cli-ref-environment-variables.md)
 

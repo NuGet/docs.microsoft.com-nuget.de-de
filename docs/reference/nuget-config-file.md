@@ -1,19 +1,18 @@
 ---
-title: Dateiverweis "NuGet.config".
+title: Dateiverweis "NuGet.config"
 description: Verweis auf Datei „NuGet.Config“ einschließlich der Abschnitte „config“, „bindingRedirects“, „packageRestore“, „solution“ und „packageSource“.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 10/25/2017
 ms.topic: reference
-ms.openlocfilehash: 3d6741b2d724b967e76ba65547e84adcd461a521
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 504a48224051265164f9ab183e63fa5e7f5867e6
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818398"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546914"
 ---
-# <a name="nugetconfig-reference"></a>Referenz "NuGet.config".
+# <a name="nugetconfig-reference"></a>NuGet.config-Referenzthema
 
 Das NuGet-Verhalten wird durch Einstellungen in verschiedenen `NuGet.Config`-Dateien gesteuert, wie unter [Konfigurieren des NuGet-Verhaltens](../consume-packages/configuring-nuget-behavior.md) beschrieben.
 
@@ -43,13 +42,13 @@ In diesem Thema:
 
 Enthält verschiedene Konfigurationseinstellungen, die mit dem [`nuget config`-Befehl](../tools/cli-ref-config.md) festgelegt werden können.
 
-`dependencyVersion` und `repositoryPath` gelten nur für Projekte mit `packages.config`. `globalPackagesFolder` gilt nur für Projekte, die mit dem PackageReference-Format.
+`dependencyVersion` und `repositoryPath` gelten nur für Projekte mit `packages.config`. `globalPackagesFolder` gilt nur für Projekte, die das PackageReference-Format verwenden.
 
 | Key | Wert |
 | --- | --- |
 | dependencyVersion (nur `packages.config`) | Der `DependencyVersion`-Standardwert für „package install“, „restore“ und „update“, wenn der `-DependencyVersion`-Switch nicht direkt angegeben ist. Dieser Wert wird auch von der Benutzeroberfläche des NuGet-Paket-Managers verwendet. Die Werte lauten `Lowest`, `HighestPatch`, `HighestMinor`, `Highest`. |
-| GlobalPackagesFolder (Projekte, die nur über PackageReference) | Der Speicherort des Standardordners für globale Pakete. Der Standardwert lautet `%userprofile%\.nuget\packages` (Windows) oder `~/.nuget/packages` (Mac/Linux). Ein relativer Pfad kann in projektspezifischen `nuget.config`-Dateien verwendet werden. Diese Einstellung wird durch die Umgebungsvariable NUGET_PACKAGES überschrieben, die Vorrang hat. |
-| repositoryPath (nur `packages.config`) | Die Position anstelle des Standardordners `$(Solutiondir)/packages`, an der NuGet-Pakete installiert werden sollen. Ein relativer Pfad kann in projektspezifischen `nuget.config`-Dateien verwendet werden. Diese Einstellung wird durch die Umgebungsvariable NUGET_PACKAGES überschrieben, die Vorrang hat. |
+| GlobalPackagesFolder (Projekte, die nur mit "packagereference") | Der Speicherort des Standardordners für globale Pakete. Der Standardwert lautet `%userprofile%\.nuget\packages` (Windows) oder `~/.nuget/packages` (Mac/Linux). Ein relativer Pfad kann in projektspezifischen `nuget.config`-Dateien verwendet werden. Diese Einstellung wird von der Umgebungsvariable nuget_packages, überschrieben, die Vorrang. |
+| repositoryPath (nur `packages.config`) | Die Position anstelle des Standardordners `$(Solutiondir)/packages`, an der NuGet-Pakete installiert werden sollen. Ein relativer Pfad kann in projektspezifischen `nuget.config`-Dateien verwendet werden. Diese Einstellung wird von der Umgebungsvariable nuget_packages, überschrieben, die Vorrang. |
 | defaultPushSource | Gibt die URL oder den Pfad der Paketquelle an, die bzw. der als Standard verwendet werden sollte, wenn für einen Vorgang keine anderen Paketquellen gefunden werden können. |
 | http_proxy http_proxy.user http_proxy.password no_proxy | Proxyeinstellungen, die beim Herstellen einer Verbindung zu Paketquellen verwendet werden sollen; `http_proxy` sollte das Format `http://<username>:<password>@<domain>` aufweisen. Kennwörter sind verschlüsselt und können nicht manuell hinzugefügt werden. Bei `no_proxy` ist der Wert eine durch Kommas getrennte Liste mit Domänen, die den Proxy-Server umgehen. Alternativ können Sie für diese Werte die Umgebungsvariablen „http_proxy“ und „no_proxy“ verwenden. Weitere Informationen finden Sie unter [NuGet proxy settings (NuGet-Proxyeinstellungen)](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
 
@@ -124,7 +123,7 @@ Beachten Sie, dass die Quell-URL für nuget.org `https://api.nuget.org/v3/index.
 
 ### <a name="packagesources"></a>packageSources
 
-Listet alle bekannte Paketquellen auf. Die Reihenfolge wird bei Wiederherstellungsvorgängen und mit einem bestimmten Projekt unter Verwendung des Formats PackageReference ignoriert. NuGet respektiert die Reihenfolge der Datenquellen für die Installation und update-Vorgänge mit Projekten, die mit `packages.config`.
+Listet alle bekannte Paketquellen auf. Die Reihenfolge wird ignoriert, während der Wiederherstellungsvorgänge und mit jedem Projekt das PackageReference-Format verwenden. NuGet berücksichtigt die Reihenfolge der Quellen für die Installation und Aktualisierungsvorgängen mit Projekten, die mit `packages.config`.
 
 | Key | Wert |
 | --- | --- |

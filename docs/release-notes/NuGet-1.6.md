@@ -1,54 +1,53 @@
 ---
-title: 1.6 NuGet-Versionshinweise
-description: Versionshinweise für NuGet 1.6 einschließlich bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design.
+title: Anmerkungen zu NuGet-Version 1.6
+description: Anmerkungen zu NuGet-1.6, einschließlich der bekannten Probleme, Fehlerkorrekturen, hinzugefügter Features und DCRs.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 0345e180893a56302385d27792c4e15ba5d96989
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 351303ca3ae27a37c19e59d84dfc9b4629fe0ca5
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31820598"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549011"
 ---
- # <a name="nuget-16-release-notes"></a>1.6 NuGet-Versionshinweise
+ # <a name="nuget-16-release-notes"></a>Anmerkungen zu NuGet-Version 1.6
 
-[Anmerkungen zur Version des NuGet-1.5](../release-notes/nuget-1.5.md) | [NuGet 1.7-Versionshinweise](../release-notes/nuget-1.7.md)
+[Anmerkungen zu NuGet 1.5](../release-notes/nuget-1.5.md) | [Anmerkungen zu NuGet 1.7](../release-notes/nuget-1.7.md)
 
-NuGet-1.6 wurde 13 Dezember 2011 veröffentlicht.
+NuGet-1.6 wurde am 13 Dezember 2011 veröffentlicht.
 
-## <a name="known-installation-issue"></a>Bekannte Problem
-Wenn Sie Visual Studio 2010 SP1 ausführen, kann ein Installationsfehler auftreten beim Upgrade von NuGet ausführen, wenn Sie eine ältere Version installiert haben.
+## <a name="known-installation-issue"></a>Problem für bekannte Installationsprobleme
+Wenn Sie Visual Studio 2010 SP1 ausführen, können Sie ein Installationsfehler auftreten, beim Versuch, NuGet aktualisieren, wenn Sie eine ältere Version installiert haben.
 
-Die problemumgehung besteht darin, einfach NuGet deinstallieren und installieren Sie es aus dem Katalog der VS-Erweiterung.  Weitere Informationen finden Sie unter [http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019).
+Die problemumgehung besteht darin, einfach NuGet zuerst deinstallieren und installieren Sie es aus dem Katalog der VS-Erweiterung.  Weitere Informationen finden Sie unter [http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019).
 
-Hinweis: Wenn Visual Studio lässt Sie beim Deinstallieren der Erweiterung (die Schaltfläche "Deinstallieren" deaktiviert ist), müssen Sie wahrscheinlich zum Neustart von Visual Studio, die mit "Als Administrator ausführen".
+Hinweis: Wenn Visual Studio ist es nicht zulässig, die die Erweiterung deinstallieren (die Schaltfläche "Deinstallieren" deaktiviert ist), müssen Sie wahrscheinlich zum Neustart von Visual Studio mithilfe von "Ausführen als Administrator."
 
 ## <a name="features"></a>Features
 
-### <a name="support-for-semantic-versioning-and-prerelease-packages"></a>Unterstützung für semantische Versionsverwaltung und Vorabversionen von Paketen
-NuGet-1.6 wird Unterstützung für semantische Versionsverwaltung (SemVer) eingeführt. Weitere Informationen dazu, wie sie SemVer verwendet, finden Sie unter der [Versionsverwaltung Dokumentation](../create-packages/prerelease-packages.md).
+### <a name="support-for-semantic-versioning-and-prerelease-packages"></a>Unterstützung für semantische Versionierung und Vorabversionen von Paketen
+NuGet-1.6 führt die Unterstützung für semantische Versionskontrolle (SemVer). Lesen Sie weitere Informationen dazu, wie sie SemVer verwendet die [Versionsverwaltung Dokumentation](../create-packages/prerelease-packages.md).
 
-### <a name="using-nuget-without-checking-in-packages-package-restore"></a>Mithilfe von NuGet ohne Überprüfung der In Paketen (Paketwiederherstellung)
-NuGet-1.6 hat jetzt erstklassige Unterstützung für den Workflow, in welche, den, den NuGet Pakete werden nicht zur quellcodeverwaltung hinzugefügt, stattdessen werden jedoch wiederhergestellt zur Buildzeit sofern noch nicht vorhanden. Weitere Informationen finden Sie unter der [NuGet verwenden, ohne dass Pakete, Datenquellen-Steuerelements](../consume-packages/packages-and-source-control.md) Thema.
+### <a name="using-nuget-without-checking-in-packages-package-restore"></a>Verwenden von NuGet ohne das Einchecken von Paketen (Paketwiederherstellung)
+NuGet-1.6 verfügt jetzt über erstklassige Unterstützung für den Workflow, in welche, den, den NuGet Pakete werden in die quellcodeverwaltung nicht hinzugefügt, jedoch stattdessen werden wiederhergestellt zum Zeitpunkt der Erstellung bei fehlen. Weitere Informationen finden Sie in der [mithilfe von NuGet ohne das Übernehmen von Paketen in der quellcodeverwaltung](../consume-packages/packages-and-source-control.md) Thema.
 
-### <a name="item-templates-that-install-nuget-packages"></a>Elementvorlagen, die NuGet-Pakete installieren
-Erstellen auf der Arbeit vorinstallierte NuGet-Paket zu Visual Studio-Projektvorlagen unterstützen, fügt 1.6 NuGet-Unterstützung für Visual Studio-Elementvorlagen. Elementvorlagen können NuGet-Pakete zugeordnet, die installiert werden, wenn die Vorlage in aufgerufen.
+### <a name="item-templates-that-install-nuget-packages"></a>Vorlagen, die NuGet-Pakete installieren
+Auf der Arbeit zur Unterstützung von Visual Studio-Projektvorlagen vorinstallierte NuGet-Paket erstellen, fügt NuGet 1.6 auch Unterstützung für Visual Studio-Projektelementvorlagen. Elementvorlagen können NuGet-Paketen zugeordnet, die installiert werden, wenn die Vorlage in aufgerufen.
 
-Details dazu, wie ein Projektelement/Vorlage zum Installieren von NuGet-Pakete zu ändern, finden Sie unter der [Pakete in Visual Studio-Vorlagen](../visual-studio-extensibility/visual-studio-templates.md) Thema.
+Weitere Informationen zum Ändern einer Projekt-/Elementvorlage zum Installieren von NuGet-Pakete finden Sie in der [Pakete in Visual Studio-Vorlagen](../visual-studio-extensibility/visual-studio-templates.md) Thema.
 
-### <a name="support-for-disabling-package-sources"></a>Unterstützung für Paketquellen deaktivieren
-Wenn mehrere Paketquellen konfiguriert sind, sieht NuGet während der Installation eines Paketes und seiner Abhängigkeiten in jeder Kategorie für Pakete. Eine Paketquelle, die für Sie aus irgendeinem Grund eine schwerwiegende Beschädigung NuGet verlangsamt kann nicht ausgeführt wird.
+### <a name="support-for-disabling-package-sources"></a>Unterstützung zur Deaktivierung von Paketquellen
+Wenn mehrerer Paketquellen konfiguriert sind, sucht NuGet jeweils für Pakete während der Installation von einem Paket und seine Abhängigkeiten. Eine Paketquelle, das Sie für aus irgendeinem Grund stark NuGet verlangsamen kann.
 
-Vor dem NuGet-1.6 könnten Sie die Paketquelle entfernen, müssen dann aber zu merken, wieder die Details für, wenn Sie ihn hinzufügen möchten.
+Vor dem NuGet-1.6 könnten Sie die Paketquelle entfernen, aber anschließend müssen Sie denken Sie daran, dass die Details für, wenn Sie sie hinzufügen möchten in back.
 
-NuGet-1.6 ermöglicht eine Paketquelle zum deaktivieren, halten Sie es aber deaktivieren.
+NuGet-1.6 ermöglicht es, wenn Sie eine Paketquelle zum Halten Sie es aber deaktivieren, deaktivieren.
 
 ![Deaktivieren ein Paket](./media/package-source-with-disabled-source.png)
 
 ## <a name="bug-fixes"></a>Fehlerkorrekturen
-NuGet-1.6 mussten insgesamt 106 Arbeitsaufgaben behoben. 95 dieser wurden als Fehler eingestuft, und 10 dieser Waren Funktionen.
+NuGet-1.6 mussten insgesamt 106 Arbeitsaufgaben behoben. 95 davon wurden als Fehler eingestuft, und 10 dieser wurden die Funktionen.
 
-Eine vollständige Liste der Arbeit Elemente in behoben NuGet 1.6, bitte Ansicht der [NuGet Issue Tracker für diese Version](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%201.6&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0).
+Eine vollständige Liste der Arbeit Elemente eine feste in NuGet-1.6, bitte Ansicht der [NuGet Issue Tracker für diese Version](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%201.6&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0).

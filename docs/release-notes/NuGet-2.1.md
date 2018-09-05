@@ -1,38 +1,37 @@
 ---
-title: NuGet-Version 2.1 Hinweise
-description: Versionshinweise für NuGet 2.1 einschließlich bekannte Probleme, Fehlerbehebungen, Funktionen und Archivierung von dcrs Design.
+title: Anmerkungen zu NuGet-Version 2.1
+description: Anmerkungen zu NuGet 2.1, einschließlich der bekannten Probleme, Fehlerkorrekturen, hinzugefügter Features und DCRs.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 3b7a000098a7362f4b1c2c4072c6cd1468baf9b5
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: fd6dadc7968991c77c1b06a6a261415355b2fd73
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32044807"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548596"
 ---
-# <a name="nuget-21-release-notes"></a>NuGet-Version 2.1 Hinweise
+# <a name="nuget-21-release-notes"></a>Anmerkungen zu NuGet-Version 2.1
 
-[Anmerkungen zur Version von NuGet 2.0](../release-notes/nuget-2.0.md) | [NuGet-2.2-Versionshinweise](../release-notes/nuget-2.2.md)
+[Anmerkungen zu NuGet 2.0](../release-notes/nuget-2.0.md) | [Anmerkungen zu NuGet 2.2](../release-notes/nuget-2.2.md)
 
-NuGet-2.1 wurde am 4. Oktober 2012 veröffentlicht.
+NuGet 2.1 wurde am 4. Oktober 2012 veröffentlicht.
 
-## <a name="hierarchical-nugetconfig"></a>Hierarchische "NuGet.config".
+## <a name="hierarchical-nugetconfig"></a>Hierarchische "NuGet.config"
 
-NuGet-2.1 bietet Ihnen mehr Flexibilität beim Steuern des NuGet-Einstellungen über die Ordnerstruktur für die Suche am rekursiv `NuGet.Config` Dateien, und klicken Sie dann die Konfiguration aus dem Satz aller gefundenen Dateien erstellen.  Beispielsweise sollten Sie das Szenario, in dem ein Team eine interne paketrepository für CI-Builds von anderen internen Abhängigkeiten verfügt. Die Ordnerstruktur für ein einzelnes Projekt könnte folgendermaßen aussehen:
+NuGet 2.1 bietet Ihnen mehr Flexibilität bei der Steuerung von NuGet-Einstellungen über das Durchlaufen der Ordnerstruktur, die für die Suche rekursiv `NuGet.Config` Dateien und anschließend die Konfiguration aus dem Satz aller gefundenen Dateien erstellen.  Beispielsweise sollten Sie das Szenario, in denen ein Team eine interne paketrepository für CI-Builds von anderen internen Abhängigkeiten verfügt. Die Ordnerstruktur für ein einzelnes Projekt könnte folgendermaßen aussehen:
 
     C:\
     C:\myteam\
     C:\myteam\solution1
     C:\myteam\solution1\project1
 
-Wenn paketwiederherstellung für die Projektmappe aktiviert ist, wird darüber hinaus auch die folgende Ordner vorhanden:
+Wenn die paketwiederherstellung für die Lösung aktiviert ist, sind darüber hinaus auch der folgende Ordner vorhanden:
 
     C:\myteam\solution1\.nuget
 
-Um das Team interne paketrepository für alle Projekte zur Verfügung zu haben, die auf das Team arbeitet, während Sie nicht auf dem Computer für jedes Projekt verfügbar gemacht, können wir erstellen eine neue Datei mit "Nuget.Config" und platzieren Sie es im Ordner "c:\myteam". Es gibt keine Möglichkeit zu geben einen Ordner "Pakete" pro Projekt.
+Wir können erstellen Sie eine neue Datei "NuGet.config"-Datei und platzieren Sie es im Ordner "c:\myteam", um das Repository des Teams interner Paket für alle Projekte verfügbar, die auf das Team arbeitet, und nicht auf dem Computer für jedes Projekt verfügbar gemacht. Es gibt keine Möglichkeit zu angeben einer Paketordner pro Projekt.
 
 ```xml
 <configuration>
@@ -46,23 +45,23 @@ Um das Team interne paketrepository für alle Projekte zur Verfügung zu haben, 
 </configuration>
 ```
 
-Jetzt sehen, dass die Quelle hinzugefügt wurde, durch Ausführen des Befehls "nuget.exe Quellen" aus einem beliebigen Ordner unterhalb c:\myteam wie unten dargestellt:
+Wir können sehen, dass die Quelle hinzugefügt wurde, mithilfe des "Quellen" nuget.exe "-Befehls aus einem beliebigen Ordner unter c:\myteam wie unten dargestellt:
 
-![Paketquellen aus der übergeordneten NuGet-Konfiguration](./media/releasenotes-21-cfg-hierarchy.png)
+![Paketquellen aus der übergeordneten Nuget-Konfiguration](./media/releasenotes-21-cfg-hierarchy.png)
 
 `NuGet.Config` Dateien werden in der folgenden Reihenfolge gesucht:
 
 1. `.nuget\Nuget.Config`
-2. Rekursives durchlaufen aus dem Projektordner zum Stamm
+2. Rekursive Durchlaufen von Projektordner zum Stamm
 3. Globale `Nuget.Config` (`%appdata%\NuGet\Nuget.Config`)
 
-Konfigurationen handelt es sich in angewendet der *Reihenfolge umkehren,*, d. h., die auf die oben genannten Reihenfolge basieren, die globale "NuGet.config" würde werden zuerst angewendet, gefolgt von den ermittelten "NuGet.config"-Dateien vom Stamm zum Projektordner, gefolgt durch `.nuget\Nuget.Config`.  Dies ist besonders wichtig, wenn Sie verwenden die `<clear/>` zu eine Gruppe von Elementen aus der Konfiguration zu entfernenden Elements.
+Die Konfigurationen sind in angewendet der *Reihenfolge umkehren*, d. h., die auf die oben genannten Reihenfolge basieren, der globalen Datei "NuGet.config" würde werden zuerst angewendet, gefolgt von den ermittelten Nuget.Config-Dateien vom Stamm zum Projektordner, gefolgt durch `.nuget\Nuget.Config`.  Dies ist besonders wichtig, wenn Sie verwenden die `<clear/>` Elements, das einen Satz von Elementen aus der Konfiguration entfernt.
 
-## <a name="specify-packages-folder-location"></a>Geben Sie "Packages" Speicherort des Ordners
+## <a name="specify-packages-folder-location"></a>Geben Sie "Pakete" Speicherort des Ordners
 
-In der Vergangenheit wurde eine Lösung Pakete NuGet aus einem bekannten "Pakete" Ordner unterhalb des Ordners des Lösung Stamm gefunden verwaltet werden.  Entwicklungsteams, die viele verschiedene Lösungen auf die NuGet-Pakete installiert haben, kann dies im selben Paket wird in vielen verschiedenen Quellen im Dateisystem installiert führen.
+In der Vergangenheit hat NuGet Pakete mit einer Lösung aus einem bekannten "Pakete" Ordner finden Sie unter den Stammordner der Lösung verwaltet.  Für Entwicklungsteams mit vielen verschiedenen Lösungen, die NuGet-Pakete installiert haben, kann dies im selben Paket installiert wird, an vielen verschiedenen Speicherorten im Dateisystem führen.
 
-NuGet-2.1 bietet eine detailliertere Kontrolle über den Speicherort des Ordners Pakete über die `repositoryPath` Element in der `NuGet.Config` Datei.  Baut auf dem vorherigen Beispiel der hierarchischen "NuGet.config" Unterstützung und wird davon ausgegangen Sie, dass wir alle Projekte unter C:\myteam\ Freigabe der gleichen Paketordner haben möchten.  Um dies zu erreichen, fügen Sie einfach den folgenden Eintrag zum `c:\myteam\Nuget.Config`.
+NuGet 2.1 verfügt über eine feiner abgestufte Kontrolle über den Speicherort des Paketordners "über die `repositoryPath` Element in der `NuGet.Config` Datei.  Erstellen von auf dem vorherigen Beispiel hierarchische "NuGet.config" nicht unterstützt, wird davon ausgegangen, dass wir alle Projekte unter C:\myteam\ Freigabe der gleichen Paketordner enthalten sein sollen.  Zu diesem Zweck fügen Sie einfach den folgenden Eintrag zum `c:\myteam\Nuget.Config`.
 
 ```xml
 <configuration>
@@ -73,60 +72,60 @@ NuGet-2.1 bietet eine detailliertere Kontrolle über den Speicherort des Ordners
 </configuration>
 ```
 
-In diesem Beispiel wird die freigegebene `Nuget.Config` Datei gibt einen freigegebenen Paketordner für jedes Projekt, das unter C:\myteam, unabhängig von der Tiefe erstellt wird. Beachten Sie, wenn Sie einen vorhandenen Ordner "Pakete" unterhalb der Lösung haben, müssen Sie es löschen, bevor NuGet Pakete am neuen Speicherort abgelegt werden.
+In diesem Beispiel ist der gemeinsam verwendeten `Nuget.Config` Datei gibt einen freigegebenen Paketordner für jedes Projekt, das unter C:\myteam, unabhängig von der Tiefe erstellt wird. Beachten Sie, dass wenn Sie einen vorhandenen Ordner "Pakete" unter Ihrem Projektmappenstamms haben, müssen Sie gelöscht werden, bevor Sie NuGet Pakete am neuen Speicherort abgelegt werden.
 
 ## <a name="support-for-portable-libraries"></a>Unterstützung für Portable Bibliotheken
 
-[Portable Bibliotheken](/dotnet/standard/cross-platform/cross-platform-development-with-the-portable-class-library) ist eine Funktion, die mit .NET 4, mit dem Sie zum Erstellen von Assemblys, die ohne Änderung auch in anderen Microsoft-Plattformen aus Versionen von.NET Framework für Silverlight, Windows Phone und Xbox sogar funktionieren können, eingeführt 360 (obwohl Sie zu diesem Zeitpunkt NuGet das Xbox portable Library-Ziel nicht unterstützt).  Durch das Erweitern der [Paket Konventionen](../create-packages/supporting-multiple-target-frameworks.md) für Framework-Versionen und Profile NuGet 2.1 unterstützt jetzt portable Bibliotheken aktivieren Sie zum Erstellen von Paketen, die zusammengesetzte Framework und profilziels haben `lib` Ordner.
+[Portable Bibliotheken](/dotnet/standard/cross-platform/cross-platform-development-with-the-portable-class-library) ist ein Feature eingeführt, mit .NET 4, mit der Sie zum Erstellen von Assemblys, die ohne Änderung auf andere Microsoft-Plattformen und Versionen von.NET Framework, Silverlight, Windows Phone und sogar Xbox verwenden können, 360 (auch wenn Sie zu diesem Zeitpunkt NuGet das Ziel der Xbox-portablen Bibliothek nicht unterstützt).  Durch die Erweiterung der [Paket Konventionen](../create-packages/supporting-multiple-target-frameworks.md) für Framework-Versionen und Profile NuGet 2.1 unterstützt jetzt portable Bibliotheken aktivieren Sie zum Erstellen von Paketen, die zusammengesetzte Framework und profilziels `lib` Ordner.
 
-Beispielsweise sollten Sie die folgenden portablen Bibliothek verfügbaren Zielplattformen.
+Betrachten Sie beispielsweise die folgende portablen Bibliothek verfügbar für Plattformen aus.
 
-![Dialogfeld zum Erstellen einer portablen Bibliothek](./media/releasenotes-21-plib.png)
+![Dialogfeld zur tresorerstellung Portable Bibliothek](./media/releasenotes-21-plib.png)
 
-Nach der Erstellung der Bibliotheks und der Befehl `nuget.exe pack MyPortableProject.csproj` ausgeführt wird, wird das neue Portable Bibliothek Paketordnerstruktur kann anzeigen, indem Sie den Inhalt der generierten NuGet-Pakets untersuchen.
+Nach der Erstellung der Bibliotheks und der Befehl `nuget.exe pack MyPortableProject.csproj` ausgeführt wird, wird das neue Portable Library-Paket-Ordnerstruktur finden Sie im Inhalt des generierten NuGet-Pakets.
 
-![Portable Library-Paketlayouts](./media/releasenotes-21-plib-layout.png)
+![Portable Bibliothek paketlayout](./media/releasenotes-21-plib-layout.png)
 
-Wie Sie sehen können, portable Bibliothek Ordner Namenskonvention erfolgt nach dem Muster "portable-{Framework 1} + {Framework n}" folgen, in dem die Framework-Bezeichner der vorhandenen [Framework Name und Version Konventionen](../reference/target-frameworks.md). Eine Ausnahme zu den Name und Version Konventionen in der Framework-Bezeichner verwendet, die für Windows Phone gefunden.  Diesen Moniker sollten der FrameworkName "wp" (wp7, wp71 oder wp8) verwenden. Verwendung von "Silverlight-wp7" führt z. B. zu einem Fehler.
+Wie Sie sehen können, der portablen Bibliothek Ordner Namenskonvention erfolgt nach dem Muster "portable {Framework - 1} + {Framework n}" folgen, in denen die frameworkbezeichner der vorhandenen [Framework Name und Version Konventionen](../reference/target-frameworks.md). Eine Ausnahme aus, um die Konventionen für Name und Version befindet sich in der frameworkbezeichner, die für Windows Phone verwendet.  Diesem Moniker befindet, sollten den Namen des "wp" ("wp7", "wp71" oder "wp8") verwenden. Mithilfe von "Silverlight-wp7" führt beispielsweise zu einem Fehler.
 
-Wenn das Paket installieren, das aus dieser Ordnerstruktur erstellt wird, kann NuGet jetzt ihren Regeln Framework und das Profil auf mehrere Ziele, entsprechend den Angaben in den Namen des Ordners anwenden.  Ist Sie hinter Abgleichsregeln NuGet das Prinzip, dass "spezifischere" Ziele "weniger spezifischen" Vorrang werden.  Dies bedeutet, dass Moniker, der eine bestimmte Plattform abzielt immer bevorzugte portable überlagert werden, wenn sie sowohl mit einem Projekt kompatibel sind.  Wenn mehrere portable Ziele mit einem Projekt kompatibel sind, wird NuGet darüber hinaus die bevorzugen, in dem der Satz von unterstützten Plattformen für das Projekt verweisen auf das Paket "nächstgelegenen" ist.
+Bei der Installation des Pakets, das von dieser Ordnerstruktur erstellt wird, kann NuGet nun seine Regeln Framework und das Profil auf mehrere Ziele, wie in den Namen des Ordners angegeben anwenden.  Hinter der NuGet Abgleichsregeln geht es darum, "spezielle" Ziele "weniger spezifischen" ab Vorrang hat.  Dies bedeutet, dass es sich bei Moniker, die unterschiedlichen Plattformen immer bevorzugt gegenüber portable Versionen ist, wenn sie sowohl mit einem Projekt kompatibel sind.  Wenn mehrere portable Ziele mit einem Projekt kompatibel sind, wird NuGet darüber hinaus die bevorzugen, in denen die verschiedenen unterstützten Plattformen "nächstgelegene" auf das Projekt verweisen auf das Paket ist.
 
-## <a name="targeting-windows-8-and-windows-phone-8-projects"></a>Zielgruppenadressierung für Windows 8 und Windows Phone 8-Projekte
+## <a name="targeting-windows-8-and-windows-phone-8-projects"></a>Für die Zielgruppenadressierung für Windows 8 und Windows Phone 8-Projekten
 
-Zusätzlich zum Hinzufügen von Unterstützung für portable Library-Projekte abzielen, bietet NuGet 2.1 für Windows 8-Store und Windows Phone 8-Projekte sowie einige neue allgemeine Moniker für Windows Store und Windows Phone-Projekte, die neue frameworkMoniker einfacher zu verwalten, in zukünftigen Versionen der jeweiligen Plattformen.
+Zusätzlich zum Hinzufügen von Unterstützung für die Zielgruppenadressierung von portable Library-Projekten, bietet NuGet 2.1 neue frameworkMoniker für sowohl Windows 8 Store und Windows Phone 8-Projekte als auch für Windows Store und Windows Phone-Projekte, die einige neue allgemeine-Moniker einfacher in zukünftigen Versionen der jeweiligen Plattformen zu verwalten.
 
-Suchen die Bezeichner für Windows 8 Store-Anwendungen wie folgt:
+Für Windows 8 Store-Anwendungen wird die Bezeichner wie folgt aussehen:
 
 | NuGet 2.0 und früheren Versionen | NuGet 2.1 |
 | ---------------- | ----------- |
 | winRT45, .NETCore45 | Windows, Windows8, win, win8 |
 
 <br/>
-Suchen die Bezeichner für Windows Phone-Projekte wie folgt:
+Für Windows Phone-Projekte wird die Bezeichner wie folgt aussehen:
 
 | Phone-Betriebssystem | NuGet 2.0 und früheren Versionen | NuGet 2.1 |
 | --- | --- | --- |
-| Windows Phone 7 | silverlight3 wp | wp, wp7, WindowsPhone, WindowsPhone7 |
-| Windows Phone 7.5 (Mango) | silverlight4 wp71 | wp71, WindowsPhone71 |
+| Windows Phone 7 | silverlight3-wp- | wp, wp7, WindowsPhone, WindowsPhone7 |
+| Windows Phone 7.5 (Mango) | silverlight4-wp71 | wp71, WindowsPhone71 |
 | Windows Phone 8 | (nicht unterstützt) | wp8, WindowsPhone8 |
 
 <br/>
-In allen den oben beschriebenen Änderungen weiterhin die alten Framework Namen von NuGet 2.1 vollständig unterstützt werden müssen.  Hostdaten, sollte die neuen Namen verwendet werden, wie sie stabiler und ausgereifter für zukünftige Versionen von der jeweiligen Plattformen werden. Werden von die neuen Namen *nicht* werden in den Vorgängerversionen von NuGet 2.1 unterstützt, jedoch so planen Sie entsprechend für den Fall zu wechseln.
+In allen oben beschriebenen Änderungen weiterhin die alten Frameworknamen von NuGet 2.1 vollständig unterstützt werden müssen.  Zukunft sollte die neuen Namen verwendet werden, wie sie stabilere in zukünftigen Versionen der jeweiligen Plattformen werden. Werden von die neuen Namen *nicht* werden im NuGet-Versionen vor 2.1 unterstützt, jedoch so planen Sie entsprechend für die Ausführung umstellen.
 
-## <a name="improved-search-in-package-manager-dialog"></a>Verbesserte Suchvorgänge im Dialogfeld "Paket-Manager"
+## <a name="improved-search-in-package-manager-dialog"></a>Verbesserte Suche im Dialogfeld "Paket-Manager"
 
-Über die letzten mehrere Iterationen wurden Änderungen in der NuGet Gallery eingeführt, die die Geschwindigkeit und die Relevanz der Paket-Suchvorgänge wesentlich verbessert.  Diese Verbesserungen wurden jedoch auf der Website nuget.org beschränkt.  NuGet-2.1 stellt die verbesserte Suchvorgänge, die auftreten, die über das Dialogfeld "NuGet-Paket-Manager" zur Verfügung.  Angenommen Sie, beispielsweise, dass Sie das Windows Azure Caching Preview-Paket suchen möchten.  Eine sinnvolle Suchabfrage für dieses Paket möglicherweise "Azure-Cache".  In früheren Versionen von das Dialogfeld "Paket-Manager" würde das gewünschte Paket selbst nicht auf der ersten Seite der Ergebnisse aufgelistet.  Allerdings wird in NuGet 2.1, das gewünschte Paket jetzt am Anfang der Suchergebnisse.
+Über die letzten mehrere Iterationen wurden Änderungen an den NuGet-Katalog eingeführt, die die Geschwindigkeit und die Relevanz der Paket-Suchvorgänge wesentlich verbessert.  Allerdings konnten diese Verbesserungen der nuget.org-Website.  NuGet 2.1 stellt der verbesserten Suchfunktion auftreten, die über das Dialogfeld "NuGet-Paket-Manager" zur Verfügung.  Stellen Sie sich beispielsweise vor, Sie das Paket für Windows Azure Caching (Vorschau) finden möchten.  Eine angemessene Suchabfrage für dieses Paket möglicherweise "Azure-Cache".  In früheren Versionen des Dialogfelds "Paket-Manager" wird das gewünschte Paket noch nicht auf der ersten Seite der Ergebnisse aufgelistet.  Allerdings wird in NuGet 2.1, das gewünschte Paket jetzt am oberen Rand der Ergebnisse.
 
 ![Paket-Manager-Dialogfeld Suchen](./media/releasenotes-21-vsdlg-search.png)
 
-## <a name="force-package-update"></a>Erzwingen Sie die Paketaktualisierung
+## <a name="force-package-update"></a>Paketupdate erzwingen
 
-Vor dem NuGet-2.1 würde NuGet überspringen, aktualisieren ein Paket aus, wenn es kein wurde eine hohe Versionsnummer.  Dies führte Unstimmigkeiten für bestimmte Szenarien – insbesondere im Fall von Build oder CI-Szenarien, in denen das Team nicht die Paketversion Anzahl für jeden Build zu erhöhen möchten.  Das gewünschte Verhalten wurde ein Update unabhängig erzwingen.  NuGet-2.1 wird dies mit dem Flag "installieren" behandelt.  Vorgängerversionen von NuGet würde z. B. in der folgenden führen, beim Versuch, ein Paket zu aktualisieren, die nicht über eine neuere Paketversion verfügt:
+Vor NuGet 2.1, würde NuGet überspringen, aktualisieren ein Paket aus, wenn es keine wurde hohen Versionsnummer.  Dies führte Reibung für bestimmte Szenarien – insbesondere im Fall von Build oder CI-Szenarien, in denen das Team nicht wollten die Anzahl für jeden Build Paketversion inkrementiert werden soll.  Das gewünschte Verhalten bestand darin, unabhängig davon, eine Aktualisierung zu erzwingen.  NuGet 2.1 wird dies mit dem Flag "installieren" behandelt.  Beispielsweise würde die frühere Versionen von NuGet in der folgenden führen, beim Versuch, ein Paket zu aktualisieren, die nicht mit eine neuere Paketversion verfügt:
 
     PM> Update-Package Moq
     No updates available for 'Moq' in project 'MySolution.MyConsole'.
 
-Mit dem Flag "installieren" des Pakets aktualisiert werden wird, unabhängig davon, ob eine neuere Version verfügbar ist.
+Mit dem Flag neu installieren, die das Paket aktualisiert werden, unabhängig davon, ob eine neuere Version vorhanden ist.
 
     PM> Update-Package Moq -Reinstall
     Successfully removed 'Moq 4.0.10827' from MySolution.MyConsole.
@@ -134,14 +133,14 @@ Mit dem Flag "installieren" des Pakets aktualisiert werden wird, unabhängig dav
     Successfully installed 'Moq 4.0.10827'.
     Successfully added 'Moq 4.0.10827' to MySolution.MyConsole.
 
-Ein weiteres Szenario, in denen das Flag Reinstall vorteilhaft beweist, entspricht der Framework-Zielversion. Wenn Sie ändern das Zielframework des Projekts (z. B. von .NET 4, .NET 4.5), Update-Paket-installieren können aktualisieren Sie Verweise auf die korrekten Assemblys für alle NuGet-Pakete im Projekt installiert.
+Ein weiteres Szenario, in denen das Flag für die Neuinstallation nützlich erweist sich als, entspricht der neuzuweisung der Framework. Wenn Sie das Zielframework eines Projekts (z. B. von .NET 4, .NET 4.5), Update-Package-erneut installieren können Verweise auf die richtigen Assemblys für alle im Projekt installierten NuGet-Pakete aktualisieren.
 
-## <a name="edit-package-sources-within-visual-studio"></a>Bearbeiten Sie die Paketquellen innerhalb von Visual Studio
+## <a name="edit-package-sources-within-visual-studio"></a>Bearbeiten Sie die Paketquellen in Visual Studio
 
-Aktualisieren eine Paketquelle von innerhalb der Visual Studio-Optionsdialogfeld erforderlich, löschen und erneuten Hinzufügen der Paketquelle in früheren Versionen von NuGet.  NuGet 2.1 verbessert dieses Workflows durch die Unterstützung von Update als erstklassige Funktion der Konfigurationsbenutzeroberfläche an.
+In früheren Versionen von NuGet aktualisieren eine Paketquelle von innerhalb der Visual Studio-Optionsdialogfeld erforderlich sind, löschen und erneuten Hinzufügen der Paketquelle.  NuGet 2.1 verbessert dieses Workflows durch die Unterstützung von Update als erster Klasse Funktion Teile der Benutzeroberfläche für die Konfiguration an.
 
 ![Dialogfeld "Konfiguration" der Paket-manager](./media/releasenotes-21-edit-pkg-source.png)
 
 ## <a name="bug-fixes"></a>Fehlerkorrekturen
 
-NuGet-2.1 enthält zahlreiche Programmfehlerbehebungen. Eine vollständige Liste der Arbeit Artikel feste in NuGet 2.0 Bitte Ansicht der [NuGet Issue Tracker für diese Version](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Fixed&type=All&priority=All&release=NuGet%202.1&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
+NuGet 2.1 enthält zahlreiche Programmfehlerbehebungen. Eine vollständige Liste der Arbeit Elemente eine feste in NuGet 2.0 Bitte Ansicht der [NuGet Issue Tracker für diese Version](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Fixed&type=All&priority=All&release=NuGet%202.1&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).

@@ -1,26 +1,25 @@
 ---
-title: Befehl "verify" NuGet CLI
-description: Überprüfen von Verweis für die nuget.exe-Befehl
+title: Befehl "verify" NuGet-CLI
+description: Referenz für die nuget.exe überprüfen Sie den Befehl
 author: dtivel
 ms.author: dtivel
-manager: doronm
 ms.date: 03/06/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: c80334104f7d8b2ccbf16ea2c11dc37b39408eeb
-ms.sourcegitcommit: c8485dc61469511485367d2067b97d6f74b49f6e
+ms.openlocfilehash: 127f7a549c0a213f319c8820293646b302830436
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2018
-ms.locfileid: "34462851"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43545212"
 ---
 # <a name="verify-command-nuget-cli"></a>Der Befehl „verify“ (NuGet-CLI)
 
-**Gilt für:** Verpacken Sie Verbrauch &bullet; **unterstützte Versionen:** 4.6 +
+**Gilt für:** Paket Verbrauch &bullet; **unterstützte Versionen:** 4.6 +
 
-Überprüft ein Paket an.
+Überprüft ob ein Paket aus.
 
-Überprüfung von signierten Paketen ist noch nicht im .NET-Kern, unter Mono sowie auf nicht-Windows-Plattformen unterstützt.
+Überprüfung von signierten Paketen ist noch nicht in .NET Core unter Mono oder auf nicht-Windows-Plattformen unterstützt.
 
 ## <a name="usage"></a>Verwendung
 
@@ -28,30 +27,30 @@ ms.locfileid: "34462851"
 nuget verify <-All|-Signatures> <package(s)> [options]
 ```
 
-wobei `<package(s)>` enthält eine oder mehrere `.nupkg` Dateien.
+wo `<package(s)>` enthält eine oder mehrere `.nupkg` Dateien.
 
-## <a name="nuget-verify--all"></a>NuGet überprüfen - alle
+## <a name="nuget-verify--all"></a>NuGet - alle überprüfen
 
-Gibt an, dass alle möglichen Überprüfungen auf die Pakete ausgeführt werden dürfen.
+Gibt an, dass alle Überprüfungen möglich auf die Pakete ausgeführt werden soll.
 
-## <a name="nuget-verify--signatures"></a>NuGet - Signaturen überprüfen
+## <a name="nuget-verify--signatures"></a>Überprüfen von NuGet - Signaturen
 
-Gibt an, dass die Überprüfung der Signatur Paket ausgeführt werden soll.
+Gibt an, dass die Überprüfung ausgeführt werden soll.
 
 ## <a name="options-for-verify--signatures"></a>Optionen für "verify - Signaturen"
 
 | Option | Beschreibung |
 | --- | --- |
-| CertificateFingerprint | Gibt einen oder mehrere SHA-256-Zertifikat Fingerabdrücke von Zertifikaten (s), mit denen signierte Pakete signiert werden müssen. Ein SHA-256 zertifikatsfingerabdruck ist ein SHA-256-Hash des Zertifikats. Mehrere Eingaben sollten durch Semikolons getrennt werden. |
+| CertificateFingerprint | Gibt einen oder mehrere SHA-256-Zertifikat Fingerabdrücke von Zertifikaten (s), mit denen signierte Pakete signiert sein müssen. Ein SHA-256 zertifikatsfingerabdruck ist ein SHA-256-Hash des Zertifikats. Mehrere Eingaben sollten durch Semikolon getrennt. |
 
 ## <a name="options"></a>Optionen
 
 | Option | Beschreibung |
 | --- | --- |
 | ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) verwendet wird.|
-| ForceEnglishOutput | Erzwingt, dass nuget.exe über eine invariante Kultur Englisch-basierte ausgeführt werden. |
-| Hilfe | Zeigt die Hilfe Informationen für den Befehl. |
-| Ausführlichkeit | Gibt die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *stillen*, *ausführliche*. |
+| ForceEnglishOutput | Erzwingt, dass nuget.exe über eine invariante Kultur auf Englisch basierenden ausgeführt werden. |
+| Hilfe | Zeigt die Informationen für den Befehl Hilfe. |
+| Ausführlichkeit | Gibt an, die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *quiet*, *ausführliche*. |
 
 ## <a name="examples"></a>Beispiele
 

@@ -1,25 +1,24 @@
 ---
-title: NuGet "Packages.config" Dateiverweis
+title: NuGet-Datei "Packages.config"-Dateiverweis
 description: Bei einigen Projekttypen wird in der Datei „packages.config“ die Liste der im Projekt verwendeten Pakete verwaltet.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 05/21/2018
 ms.topic: reference
-ms.openlocfilehash: 2019ce5961a8237fbda855cd7d5b42948808be3a
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 18566671b611899b28fcc8542cf53935f5ee2dfd
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817832"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551769"
 ---
 # <a name="packagesconfig-reference"></a>Verweis auf „packages.config“
 
 Die Datei `packages.config` wird bei einigen Projekttypen für die Verwaltung der Pakete verwendet, auf die vom Projekt verwiesen wird. Auf diese Weise kann NuGet die Projektabhängigkeiten problemlos wiederherstellen, wenn das Projekt ohne all diese Pakete auf ein anderes System, z.B. einen Buildserver, übertragen werden soll.
 
-Wenn verwendet, `packages.config` befindet sich in der Regel in einem Projektstamm. Es wird automatisch erstellt, wenn der erste NuGet-Vorgang wird ausgeführt, jedoch auch manuell erstellt werden kann vor dem Ausführen von Befehle wie z. B. `nuget restore`.
+Wenn verwendet, `packages.config` befindet sich in der Regel in einem Projektverzeichnis. Es wird automatisch erstellt, wenn der erste NuGet-Vorgang wird ausgeführt, jedoch auch manuell erstellt werden kann vor dem Ausführen von Befehlen wie z. B. `nuget restore`.
 
-Projekten, in denen [PackageReference](../consume-packages/Package-References-in-Project-Files.md) verwenden Sie keine `packages.config`.
+Projekte, ["packagereference"](../consume-packages/Package-References-in-Project-Files.md) verwenden Sie keine `packages.config`.
 
 ## <a name="schema"></a>Schema
 

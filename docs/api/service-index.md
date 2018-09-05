@@ -1,44 +1,43 @@
 ---
-title: -Dienst Index NuGet-API
-description: Der Dienst-Index ist der Einstiegspunkt der NuGet-HTTP-API und listet die Funktionen des Servers.
+title: -Dienst Index, NuGet-API
+description: Der dienstindex ist der Einstiegspunkt, der die NuGet-HTTP-API und listet die Funktionen des Servers.
 author: joelverhagen
 ms.author: jver
-manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 84e623e8480e4d17edad2ec3b2da6dcb6e53d21b
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 478b74f98caafdc7c6b69423b9f9d72890c8d7cb
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31822093"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43545256"
 ---
-# <a name="service-index"></a>Dienst-index
+# <a name="service-index"></a>Dienstindex
 
-Der Dienst-Index ist ein JSON-Dokument, ist der Einstiegspunkt für die Quelle ein NuGet-Paket und eine Clientimplementierung der Paketquelle Funktionen ermitteln kann. Der Dienst-Index ist ein JSON-Objekt, mit zwei erforderliche Eigenschaften: `version` (die Schemaversion des Indexes Service) und `resources` (die Endpunkte oder die Funktionen des die Paketquelle).
+Dienstindex ist ein JSON-Dokument, ist der Einstiegspunkt für eine NuGet-Paketquelle und eine Client-Implementierung der Paketquelle Funktionen ermitteln kann. Der dienstindex ist ein JSON-Objekt mit zwei erforderliche Eigenschaften: `version` (die Schemaversion des dienstindex) und `resources` (Endpunkte oder Funktionen der Paketquelle).
 
-sich der NuGet.org-Dienst Index befindet sich unter `https://api.nuget.org/v3/index.json`.
+NuGet.org dienstindex befindet sich unter `https://api.nuget.org/v3/index.json`.
 
 ## <a name="versioning"></a>Versionskontrolle
 
-Die `version` Wert ist eine Zeichenfolge der SemVer 2.0.0-Schemakontexts Version gibt die Schemaversion des Dienst-Indexes an. Die API ordnet an, dass die Versionszeichenfolge eine höhere Versionsnummer hat `3`. Das IndexSchema Service nicht maßgebliche Änderungen vorgenommen werden, wird die Versionszeichenfolge Nebenversion erhöht werden.
+Die `version` Wert ist eine analysierbare SemVer 2.0.0-Versionszeichenfolge, womit die Schemaversion der dienstindex. Die API erfordert, dass die Versionszeichenfolge eine Hauptversionsnummer des verfügt `3`. Als nicht fehlerhafte Änderungen an das Schema des Diensts Index vorgenommen werden, wird die Versionszeichenfolge Nebenversion erhöht.
 
-Jede Ressource in die Dienst-Index ist unabhängig von der Dienst Index Schemaversion versionsspezifisch.
+Jede Ressource im dienstindex ist unabhängig von der Schemaversion des Dienst-Index mit Versionsangabe.
 
-Die aktuelle Schemaversion ist `3.0.0`. Die `3.0.0` Version ist funktionell gleichwertig mit der älteren `3.0.0-beta.1` Version jedoch sollte bevorzugt werden, wie es deutlich stabile, definierte Schema kommuniziert.
+Die aktuelle Version des Datenbankschemas ist `3.0.0`. Die `3.0.0` Version ist funktionell gleichwertig mit dem älteren `3.0.0-beta.1` Version aber sollten bevorzugt werden, wie das stabile, definierte Schema deutlicher kommuniziert.
 
 ## <a name="http-methods"></a>HTTP-Methoden
 
-Der Dienst-Index ist über HTTP-Methoden möglich `GET` und `HEAD`.
+Dienstindex kann zugegriffen werden, mithilfe von HTTP-Methoden `GET` und `HEAD`.
 
 ## <a name="resources"></a>Ressourcen
 
-Die `resources` -Eigenschaft enthält ein Array von Ressourcen, die von diesem Paketquelle unterstützt.
+Die `resources` Eigenschaft enthält eine Reihe von Ressourcen, die von diesem Paketquelle unterstützt werden.
 
 ### <a name="resource"></a>Ressource
 
-Eine Ressource ist ein Objekt in der `resources` Array. Es stellt eine Möglichkeit, eine Paketquelle mit Versionsangabe. Eine Ressource hat die folgenden Eigenschaften:
+Eine Ressource ist ein Objekt in der `resources` Array. Es stellt eine Funktion mit versionsverwaltung durch das der Paketquelle dar. Eine Ressource hat die folgenden Eigenschaften:
 
 name          | Typ   | Erforderlich | Hinweise
 ------------- | ------ | -------- | -----
@@ -46,19 +45,19 @@ name          | Typ   | Erforderlich | Hinweise
 @type         | Zeichenfolge | ja      | Eine Zeichenfolgenkonstante, die den Ressourcentyp darstellt.
 Kommentar       | Zeichenfolge | Nein       | Eine lesbare Beschreibung der Ressource
 
-Die `@id` ist eine URL, die muss absolut sein und muss entweder das HTTP- oder HTTPS-Schema vorhanden sein.
+Die `@id` ist eine URL, die muss absolut sein und muss entweder das HTTP- oder HTTPS-Schema aufweisen.
 
-Die `@type` wird verwendet, um das bestimmte Protokoll verwenden, bei der Interaktion mit Ressourcen zu identifizieren. Der Typ der Ressource ist eine nicht transparente Zeichenfolge, aber im Allgemeinen weist das Format:
+Die `@type` wird verwendet, um das bestimmte Protokoll verwenden, bei der Interaktion mit Ressourcen zu identifizieren. Der Typ der Ressource ist eine nicht transparente Zeichenfolge, aber im Allgemeinen weist das Format auf:
 
     {RESOURCE_NAME}/{RESOURCE_VERSION}
 
-Clients voraussichtlich hartcodieren der `@type` Werte, die sie kennen und effizient in eine Paketquelle Dienst Index gesucht werden. Die genaue `@type` Werte heute werden aufgelistet, auf die einzelne Ressource Referenzdokumente aufgeführt, die der [Übersicht über die API](overview.md#resources-and-schema).
+Clients wird vorausgesetzt, durch hartcodierung der `@type` Werte, die diese Partner kennen, und suchen sie in eine Paketquelle dienstindex. Die genaue `@type` Werte heute werden aufgezählt, auf die einzelne Ressource Referenzdokumente aufgeführt, die der [-API – Übersicht](overview.md#resources-and-schema).
 
-In dieser Dokumentation wird die Dokumentation zu anderen Ressourcen im Wesentlichen durch gruppiert werden die `{RESOURCE_NAME}` gefunden, in die Dienst-Index, der Gruppierung nach Szenario entspricht. 
+Aus Gründen der dieser Dokumentation wird die Dokumentation zu anderen Ressourcen im Wesentlichen nach gruppiert werden die `{RESOURCE_NAME}` in dienstindex handelt es sich analog zur Gruppierung nach Szenario gefunden. 
 
-Es ist nicht erforderlich, dass jede Ressource eine eindeutige weist `@id` oder `@type`. Es ist Aufgabe der Clientimplementierung, um zu bestimmen, welche Ressourcen zu vor anderen bevorzugen. Eine mögliche Implementierung ist, die die Ressourcen der denselben oder einen kompatiblen `@type` kann in einem Roundrobin bei einem Verbindungsfehler oder verwendet werden.
+Es ist nicht erforderlich, dass jede Ressource eine eindeutige hat `@id` oder `@type`. Es ist Aufgabe der Clientimplementierung, um zu bestimmen, welche Ressourcen vor anderen bevorzugen. Eine mögliche Implementierung ist, die Ressourcen, die von der gleichen oder einen kompatiblen `@type` in eine Roundrobin-bei einem Verbindungsfehler oder verwendet werden kann.
 
-### <a name="sample-request"></a>Beispielanforderung
+### <a name="sample-request"></a>Beispiel für eine Anforderung
 
 ERHALTEN https://api.nuget.org/v3/index.json
 

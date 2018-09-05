@@ -1,23 +1,22 @@
 ---
-title: Referenz zu PowerShell-Sync-NuGet-Pakets
-description: Referenz für die Sync-Paket-PowerShell-Befehl in der NuGet-Paket-Manager-Konsole in Visual Studio.
+title: Sync-NuGet-Pakets PowerShell-Referenz
+description: Referenz für die Synchronisierung-Package-PowerShell-Befehl in der NuGet-Paket-Manager-Konsole in Visual Studio.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 92f0d7490dea57a69b5a5cb3cb7165f665f60d44
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 8119664b1bafe9238b12b1819cc46dc1ee7bdd00
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818104"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547993"
 ---
 # <a name="sync-package-package-manager-console-in-visual-studio"></a>Sync-Package (Paket-Manager-Konsole in Visual Studio)
 
-*Version 3.0 +; verfügbar nur innerhalb der [NuGet Package Manager Console](package-manager-console.md) in Visual Studio unter Windows.*
+*Version 3.0 und höher; verfügbar nur in der [NuGet-Paket-Manager-Konsole](package-manager-console.md) in Visual Studio unter Windows.*
 
-Ruft die Version des installierten Pakets aus einer angegebenen (oder Standard)-Projekt und synchronisiert die Version mit den restlichen Projekten in der Projektmappe.
+Ruft die Version des installierten Pakets vom angegebenen (oder Standard), project und synchronisiert die Version für den Rest der Projekte in der Projektmappe.
 
 ## <a name="syntax"></a>Syntax
 
@@ -31,21 +30,21 @@ Sync-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [[-Ver
 
 | Parameter | Beschreibung |
 | --- | --- |
-| Id | (Erforderlich) Der Bezeichner des Pakets zu synchronisieren. Die - Id Schalter ist optional. |
+| Id | (Erforderlich) Der Bezeichner des Pakets zu synchronisieren. Die - Id Switch selbst ist optional. |
 | IgnoreDependencies | Installieren Sie nur dieses Paket und nicht seine Abhängigkeiten. |
-| ProjektName | Das Projekt, um das Paket aus, auf das Standardprojekt direktionales zu synchronisieren. |
-| Version | Die Version des Pakets zu synchronisieren, die derzeit installierte Version auszuführen. |
-| Quelle | Die URL oder einen Ordnerpfad für die Paketquelle, gesucht werden soll. Lokale Ordnerpfaden kann absolut oder relativ zum aktuellen Ordner. Wenn nicht angegeben, `Sync-Package` die aktuell ausgewählten Paketquelle durchsucht. |
-| IncludePrerelease | Enthält vorabversionspakete in die Synchronisierung. |
-| FileConflictAction | Die zu ergreifende Maßnahme beim aufgefordert, überschreiben oder ignorieren Sie vorhandene Dateien, die vom Projekt verwiesen wird. Mögliche Werte sind *überschreiben, ignorieren, None, OverwriteAll*, und *(3.0 und höher)* *' ignoreall '*. |
-| DependencyVersion | Die Version der abhängigkeitspakete zu verwenden, die in der folgenden Werte sind möglich:<br/><ul><li>*Niedrigste* (Standard): die niedrigste Version</li><li>*HighestPatch*: die Version mit der niedrigsten wichtigen, niedrigste Nebenversion, höchste Patch</li><li>*HighestMinor*: die Version mit der niedrigsten Hauptversion, die höchste Nebenversion, höchste Patch</li><li>*Höchste* (Standard für Update-Paket ohne Parameter): die höchste Version</li></ul>Sie können festlegen, den Standard-Wert mit der [ `dependencyVersion` ](../reference/nuget-config-file.md#config-section) festlegen in der `Nuget.Config` Datei. |
-| "WhatIf" | Zeigt an, was passieren würde, wenn der Befehl ausgeführt wird, ohne die Synchronisierung ausführen. |
+| ProjektName | Das Projekt, das Paket aus, die als Standardprojekt zu synchronisieren. |
+| Version | Die Version des Pakets zu synchronisieren, als die derzeit installierte Version. |
+| Quelle | Der URL oder Ordner Pfad für die Paketquelle, um zu suchen. Lokalen Ordnerpfade können absolut oder relativ zum aktuellen Ordner sein. Wenn nicht angegeben, `Sync-Package` die aktuell ausgewählte Paketquelle durchsucht. |
+| IncludePrerelease | Enthält Vorabversionen von Paketen, bei der Synchronisierung. |
+| FileConflictAction | Die auszuführende Aktion, wenn aufgefordert, die überschrieben werden soll, oder ignorieren die vorhandene Dateien, die vom Projekt verwiesen wird. Mögliche Werte sind *überschreiben, die Sie keine "," OverwriteAll*, und *(3.0 und höher)* *' ignoreall '*. |
+| Optionen "dependencyversion" | Die Version des der abhängigkeitspakete zu verwenden, die in der folgenden Werte sind möglich:<br/><ul><li>*Niedrigste* (Standard): die niedrigste Version</li><li>*HighestPatch*: die Version mit der niedrigsten wichtigen, niedrigste kleinere, höchste Patch</li><li>*HighestMinor*: die Version mit der niedrigsten Hauptversion, die höchste kleinere, höchste-Patch</li><li>*Höchste* (Standard für Update-Package ohne Parameter): die höchste Version</li></ul>Sie können festlegen, den Standard-Wert mit der [ `dependencyVersion` ](../reference/nuget-config-file.md#config-section) festlegen in der `Nuget.Config` Datei. |
+| "WhatIf" | Zeigt an, was geschieht, wenn der Befehl ausgeführt wird, ohne die Synchronisierung ausführen. |
 
-Keines dieser Parameter akzeptieren Pipeline Eingabe- oder Platzhalter-Zeichen.
+Keine Parameter akzeptieren Pipeline Eingabe- oder Platzhalter-Zeichen.
 
 ## <a name="common-parameters"></a>Allgemeine Parameter
 
-`Sync-Package` unterstützt die folgenden [allgemeine PowerShell-Parameter](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, Fehleraktion, ErrorVariable, -OutBuffer, OutVariable, mit "pipelinevariable", ausführlich, WarningAction und WarningVariable.
+`Sync-Package` unterstützt die folgenden [allgemeine PowerShell-Parameter](http://go.microsoft.com/fwlink/?LinkID=113216): Debuggen, Fehleraktion, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction und WarningVariable.
 
 ## <a name="examples"></a>Beispiele
 

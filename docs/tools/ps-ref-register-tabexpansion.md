@@ -1,23 +1,22 @@
 ---
 title: Register "tabexpansion" NuGet-PowerShell-Referenz
-description: Referenz für die Register-"tabexpansion" PowerShell-Befehl in der NuGet-Paket-Manager-Konsole in Visual Studio.
+description: Referenz für "Register-tabexpansion" PowerShell-Befehl in der NuGet-Paket-Manager-Konsole in Visual Studio.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 8011c0e6aa951a32114d460803c493810964a7e0
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 98171c598bd4a3468bd23e2d6060e267c38021b4
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818412"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546604"
 ---
 # <a name="register-tabexpansion-package-manager-console-in-visual-studio"></a>Register-"tabexpansion" (Paket-Manager-Konsole in Visual Studio)
 
-*Verfügbar nur innerhalb der [NuGet Package Manager Console](package-manager-console.md) in Visual Studio unter Windows.*
+*Verfügbar nur in der [NuGet-Paket-Manager-Konsole](package-manager-console.md) in Visual Studio unter Windows.*
 
-Registriert eine Tab-Taste für die Parameter des angegebenen Befehls an, so, dass bei der Registerkarte "verwendet wird, wenn Sie einen Befehl eingeben, die erweiterten Werte als verfügbare Optionen für den fraglichen Parameter angezeigt werden. Es werden alle vorherigen Erweiterungen für den Befehl überschrieben.
+Registriert eine Erweiterung der Registerkarte für die Parameter des angegebenen Befehls, so, dass wenn Registerkarte verwendet wird, wenn Sie einen Befehl eingeben, die erweiterten Werte als verfügbare Optionen für den betreffenden Parameter angezeigt werden. Es werden alle vorherigen Erweiterungen für den Befehl überschrieben.
 
 ## <a name="syntax"></a>Syntax
 
@@ -30,24 +29,24 @@ Register-TabExpansion [-Name] <String> [-Definition] <Object> [<CommonParameters
 | Parameter | Beschreibung |
 | --- | --- |
 | name | (Erforderlich) Der Befehl, um Erweiterungen zu registrieren. Der - Name Switch selbst ist optional. |
-| Definition | (Erforderlich) Ein Objekt, das Argument in der Syntax beschreibt `@{'<parameter>' = {'<value1>', '<value2>', ...}}` , in denen `<parameter>` ist der Name des Parameters ändern, und jede `<value>` bietet eine bestimmte Erweiterung. Einfachen und doppelte Anführungszeichen werden akzeptiert. |
+| Definition | (Erforderlich) Ein Objekt, das das Argument in der Syntax beschreibt `@{'<parameter>' = {'<value1>', '<value2>', ...}}` , in denen `<parameter>` ist der Name des Parameters ändern, und jede `<value>` bietet eine spezielle Erweiterung. Einfacher und doppelte Anführungszeichen werden akzeptiert. |
 
-Keines dieser Parameter akzeptieren Pipeline Eingabe- oder Platzhalter-Zeichen.
+Keine Parameter akzeptieren Pipeline Eingabe- oder Platzhalter-Zeichen.
 
 ## <a name="common-parameters"></a>Allgemeine Parameter
 
-`Register-TabExpansion` unterstützt die folgenden [allgemeine PowerShell-Parameter](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, Fehleraktion, ErrorVariable, -OutBuffer, OutVariable, mit "pipelinevariable", ausführlich, WarningAction und WarningVariable.
+`Register-TabExpansion` unterstützt die folgenden [allgemeine PowerShell-Parameter](http://go.microsoft.com/fwlink/?LinkID=113216): Debuggen, Fehleraktion, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction und WarningVariable.
 
 ## <a name="examples"></a>Beispiele
 
-Erwägen Sie eine Lösung, die drei Projekte Namen EventManager, Dienstprogramme und SpecialParser enthält. Der Entwickler häufig mithilfe der `Update-Package` Befehl zu unterschiedlichen Zeiten mit jedem dieser Projekte. Sie sucht es praktisch, wenn die `Update-Package` Befehl angeben, automatische Vervollständigung von Erweiterungen für die `-ProjectName` Argument, damit Sie einen Projektnamen jeder Anmeldung eingeben nicht benötigt. 
+Erwägen Sie eine Lösung, die drei Projekte Namen EventManager, Dienstprogramme und SpecialParser enthält. Der Entwickler häufig verwendet die `Update-Package` Befehl zu unterschiedlichen Zeiten mit jedes dieser Projekte. Sie sucht es praktisch, wenn die `Update-Package` Befehl geben, automatische Vervollständigung von Erweiterungen für die `-ProjectName` Argument, damit sie nicht, einen Projektnamen ein, die jedes Mal erneut eingeben muss. 
 
-Registriert den folgende Befehl ein, dann diese drei Projektnamen als eine Erweiterung für die `-ProjectName` Parameter:
+Registriert den folgende Befehl aus, dann diese drei Projektnamen als Erweiterung für die `-ProjectName` Parameter:
 
 ```ps
 Register-TabExpansion Update-Package @{'ProjectName' = {'EventManager', 'Utilities', 'SpecialParser'}}    
 ```
 
-Der Entwickler kann dann geben `Update-Package -ProjectName `, drücken Sie Tab, und finden Sie unter der Erweiterungen als automatische Vervollständigung Optionen angeboten:
+Entwickler kann dann eingeben `Update-Package -ProjectName `, drücken Sie Tab, und finden Sie unter den Erweiterungen, die als Optionen zur automatischen Vervollständigung angeboten:
 
 ![Beispiel zur Verwendung von "Register-tabexpansion"](media/Register-TabExpansion-Example.png)
