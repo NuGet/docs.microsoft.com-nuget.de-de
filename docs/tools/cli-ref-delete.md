@@ -1,47 +1,46 @@
 ---
-title: NuGet-CLI-Delete-Befehl
-description: Referenz für den Löschbefehl nuget.exe
+title: NuGet-CLI-Befehl "löschen"
+description: Referenz für die nuget.exe-Delete-Befehl
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: c0f33dd5475521da47972a6f032ac6ea86d98c83
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 11eea6e806d7bfe364587db9c7ef8374da1819f9
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817177"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548509"
 ---
-# <a name="delete-command-nuget-cli"></a><span data-ttu-id="7d011-103">Delete-Befehl (NuGet CLI)</span><span class="sxs-lookup"><span data-stu-id="7d011-103">delete command (NuGet CLI)</span></span>
+# <a name="delete-command-nuget-cli"></a><span data-ttu-id="2e1e2-103">Delete-Befehl (NuGet-CLI)</span><span class="sxs-lookup"><span data-stu-id="2e1e2-103">delete command (NuGet CLI)</span></span>
 
-<span data-ttu-id="7d011-104">**Gilt für:** Verpacken Sie die Publishing &bullet; **unterstützte Versionen:** alle</span><span class="sxs-lookup"><span data-stu-id="7d011-104">**Applies to:** package publishing &bullet; **Supported versions:** all</span></span>
+<span data-ttu-id="2e1e2-104">**Gilt für:** Paket veröffentlichen &bullet; **unterstützte Versionen:** alle</span><span class="sxs-lookup"><span data-stu-id="2e1e2-104">**Applies to:** package publishing &bullet; **Supported versions:** all</span></span>
 
-<span data-ttu-id="7d011-105">Löscht oder unlists ein Pakets aus der Paketquelle.</span><span class="sxs-lookup"><span data-stu-id="7d011-105">Deletes or unlists a package from a package source.</span></span> <span data-ttu-id="7d011-106">Für nuget.org, den Löschbefehl [unlists das Paket](../policies/deleting-packages.md).</span><span class="sxs-lookup"><span data-stu-id="7d011-106">For nuget.org, the delete command [unlists the package](../policies/deleting-packages.md).</span></span>
+<span data-ttu-id="2e1e2-105">Löscht oder hebt dessen Auflistung auf ein Paket aus der Paketquelle.</span><span class="sxs-lookup"><span data-stu-id="2e1e2-105">Deletes or unlists a package from a package source.</span></span> <span data-ttu-id="2e1e2-106">Für "nuget.org" der Delete-Befehl [hebt dessen Auflistung auf das Paket](../policies/deleting-packages.md).</span><span class="sxs-lookup"><span data-stu-id="2e1e2-106">For nuget.org, the delete command [unlists the package](../policies/deleting-packages.md).</span></span>
 
-## <a name="usage"></a><span data-ttu-id="7d011-107">Verwendung</span><span class="sxs-lookup"><span data-stu-id="7d011-107">Usage</span></span>
+## <a name="usage"></a><span data-ttu-id="2e1e2-107">Verwendung</span><span class="sxs-lookup"><span data-stu-id="2e1e2-107">Usage</span></span>
 
 ```cli
 nuget delete <packageID> <packageVersion> [options]
 ```
 
-<span data-ttu-id="7d011-108">wobei `<packageID>` und `<packageVersion>` das genaue Paket zu löschen oder die Benutzerauswahl zu identifizieren.</span><span class="sxs-lookup"><span data-stu-id="7d011-108">where `<packageID>` and `<packageVersion>` identify the exact package to delete or unlist.</span></span> <span data-ttu-id="7d011-109">Das genaue Verhalten hängt von der Quelle ab.</span><span class="sxs-lookup"><span data-stu-id="7d011-109">The exact behavior depends on the source.</span></span> <span data-ttu-id="7d011-110">Für lokale Ordner ist z. B. das Paket gelöscht. für nuget.org ist das Paket nicht aufgeführte.</span><span class="sxs-lookup"><span data-stu-id="7d011-110">For local folders, for instance, the package is deleted; for nuget.org the package is unlisted.</span></span>
+<span data-ttu-id="2e1e2-108">wo `<packageID>` und `<packageVersion>` identifizieren Sie das genaue Paket löschen oder aus der Liste entfernen.</span><span class="sxs-lookup"><span data-stu-id="2e1e2-108">where `<packageID>` and `<packageVersion>` identify the exact package to delete or unlist.</span></span> <span data-ttu-id="2e1e2-109">Das genaue Verhalten hängt von der Quelle ab.</span><span class="sxs-lookup"><span data-stu-id="2e1e2-109">The exact behavior depends on the source.</span></span> <span data-ttu-id="2e1e2-110">Für lokale Ordner ist wird z. B. das Paket gelöscht. für "NuGet.org" für das Paket nicht aufgelistet ist.</span><span class="sxs-lookup"><span data-stu-id="2e1e2-110">For local folders, for instance, the package is deleted; for nuget.org the package is unlisted.</span></span>
 
-## <a name="options"></a><span data-ttu-id="7d011-111">Optionen</span><span class="sxs-lookup"><span data-stu-id="7d011-111">Options</span></span>
+## <a name="options"></a><span data-ttu-id="2e1e2-111">Optionen</span><span class="sxs-lookup"><span data-stu-id="2e1e2-111">Options</span></span>
 
-| <span data-ttu-id="7d011-112">Option</span><span class="sxs-lookup"><span data-stu-id="7d011-112">Option</span></span> | <span data-ttu-id="7d011-113">Beschreibung</span><span class="sxs-lookup"><span data-stu-id="7d011-113">Description</span></span> |
+| <span data-ttu-id="2e1e2-112">Option</span><span class="sxs-lookup"><span data-stu-id="2e1e2-112">Option</span></span> | <span data-ttu-id="2e1e2-113">Beschreibung</span><span class="sxs-lookup"><span data-stu-id="2e1e2-113">Description</span></span> |
 | --- | --- |
-| <span data-ttu-id="7d011-114">"apikey"</span><span class="sxs-lookup"><span data-stu-id="7d011-114">ApiKey</span></span> | <span data-ttu-id="7d011-115">Die API-Schlüssel für das Zielrepository.</span><span class="sxs-lookup"><span data-stu-id="7d011-115">The API key for the target repository.</span></span> <span data-ttu-id="7d011-116">Wenn Sie nicht vorhanden ist, wird in der Datei "App.config" angegebenen verwendet.</span><span class="sxs-lookup"><span data-stu-id="7d011-116">If not present, the one specified in the config file is used.</span></span> |
-| <span data-ttu-id="7d011-117">ConfigFile</span><span class="sxs-lookup"><span data-stu-id="7d011-117">ConfigFile</span></span> | <span data-ttu-id="7d011-118">Die NuGet-Konfigurationsdatei angewendet werden soll.</span><span class="sxs-lookup"><span data-stu-id="7d011-118">The NuGet configuration file to apply.</span></span> <span data-ttu-id="7d011-119">Wenn nicht angegeben, `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) verwendet wird.</span><span class="sxs-lookup"><span data-stu-id="7d011-119">If not specified, `%AppData%\NuGet\NuGet.Config` (Windows) or `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) is used.</span></span>|
-| <span data-ttu-id="7d011-120">ForceEnglishOutput</span><span class="sxs-lookup"><span data-stu-id="7d011-120">ForceEnglishOutput</span></span> | <span data-ttu-id="7d011-121">*(3.5 +)*  Erzwingt nuget.exe über eine invariante Kultur Englisch-basierte ausgeführt werden.</span><span class="sxs-lookup"><span data-stu-id="7d011-121">*(3.5+)* Forces nuget.exe to run using an invariant, English-based culture.</span></span> |
-| <span data-ttu-id="7d011-122">Hilfe</span><span class="sxs-lookup"><span data-stu-id="7d011-122">Help</span></span> | <span data-ttu-id="7d011-123">Zeigt die Hilfe Informationen für den Befehl.</span><span class="sxs-lookup"><span data-stu-id="7d011-123">Displays help information for the command.</span></span> |
-| <span data-ttu-id="7d011-124">NonInteractive</span><span class="sxs-lookup"><span data-stu-id="7d011-124">NonInteractive</span></span> | <span data-ttu-id="7d011-125">Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an.</span><span class="sxs-lookup"><span data-stu-id="7d011-125">Suppresses prompts for user input or confirmations.</span></span> |
-| <span data-ttu-id="7d011-126">Quelle</span><span class="sxs-lookup"><span data-stu-id="7d011-126">Source</span></span> | <span data-ttu-id="7d011-127">Gibt die Server-URL an.</span><span class="sxs-lookup"><span data-stu-id="7d011-127">Specifies the server URL.</span></span> <span data-ttu-id="7d011-128">Die URL für nuget.org lautet `https://api.nuget.org/v3/index.json`.</span><span class="sxs-lookup"><span data-stu-id="7d011-128">The URL for nuget.org is `https://api.nuget.org/v3/index.json`.</span></span> <span data-ttu-id="7d011-129">Private-Feeds als Ersatz für den Hostnamen, z. B. *%hostname%/api/v3*.</span><span class="sxs-lookup"><span data-stu-id="7d011-129">For private feeds, substitute the host name, for example, *%hostname%/api/v3*.</span></span> |
-| <span data-ttu-id="7d011-130">Ausführlichkeit</span><span class="sxs-lookup"><span data-stu-id="7d011-130">Verbosity</span></span> | <span data-ttu-id="7d011-131">Gibt die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *stillen*, *ausführliche*.</span><span class="sxs-lookup"><span data-stu-id="7d011-131">Specifies the amount of detail displayed in the output: *normal*, *quiet*, *detailed*.</span></span> |
+| <span data-ttu-id="2e1e2-114">"Apikey"</span><span class="sxs-lookup"><span data-stu-id="2e1e2-114">ApiKey</span></span> | <span data-ttu-id="2e1e2-115">Die API-Schlüssel für die Ziel-Repository.</span><span class="sxs-lookup"><span data-stu-id="2e1e2-115">The API key for the target repository.</span></span> <span data-ttu-id="2e1e2-116">Wenn nicht vorhanden ist, wird angegeben, in der Konfigurationsdatei verwendet.</span><span class="sxs-lookup"><span data-stu-id="2e1e2-116">If not present, the one specified in the config file is used.</span></span> |
+| <span data-ttu-id="2e1e2-117">ConfigFile</span><span class="sxs-lookup"><span data-stu-id="2e1e2-117">ConfigFile</span></span> | <span data-ttu-id="2e1e2-118">Die NuGet-Konfigurationsdatei angewendet werden soll.</span><span class="sxs-lookup"><span data-stu-id="2e1e2-118">The NuGet configuration file to apply.</span></span> <span data-ttu-id="2e1e2-119">Wenn nicht angegeben, `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) verwendet wird.</span><span class="sxs-lookup"><span data-stu-id="2e1e2-119">If not specified, `%AppData%\NuGet\NuGet.Config` (Windows) or `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) is used.</span></span>|
+| <span data-ttu-id="2e1e2-120">ForceEnglishOutput</span><span class="sxs-lookup"><span data-stu-id="2e1e2-120">ForceEnglishOutput</span></span> | <span data-ttu-id="2e1e2-121">*(3.5 und höher)*  Erzwingt nuget.exe über eine invariante Kultur auf Englisch basierenden ausgeführt werden.</span><span class="sxs-lookup"><span data-stu-id="2e1e2-121">*(3.5+)* Forces nuget.exe to run using an invariant, English-based culture.</span></span> |
+| <span data-ttu-id="2e1e2-122">Hilfe</span><span class="sxs-lookup"><span data-stu-id="2e1e2-122">Help</span></span> | <span data-ttu-id="2e1e2-123">Zeigt die Informationen für den Befehl Hilfe.</span><span class="sxs-lookup"><span data-stu-id="2e1e2-123">Displays help information for the command.</span></span> |
+| <span data-ttu-id="2e1e2-124">NonInteractive</span><span class="sxs-lookup"><span data-stu-id="2e1e2-124">NonInteractive</span></span> | <span data-ttu-id="2e1e2-125">Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an.</span><span class="sxs-lookup"><span data-stu-id="2e1e2-125">Suppresses prompts for user input or confirmations.</span></span> |
+| <span data-ttu-id="2e1e2-126">Quelle</span><span class="sxs-lookup"><span data-stu-id="2e1e2-126">Source</span></span> | <span data-ttu-id="2e1e2-127">Gibt die Server-URL an.</span><span class="sxs-lookup"><span data-stu-id="2e1e2-127">Specifies the server URL.</span></span> <span data-ttu-id="2e1e2-128">Die URL für nuget.org `https://api.nuget.org/v3/index.json`.</span><span class="sxs-lookup"><span data-stu-id="2e1e2-128">The URL for nuget.org is `https://api.nuget.org/v3/index.json`.</span></span> <span data-ttu-id="2e1e2-129">Ersetzen Sie für private Feeds den Hostnamen ein, z. B. *%hostname%/api/v3*.</span><span class="sxs-lookup"><span data-stu-id="2e1e2-129">For private feeds, substitute the host name, for example, *%hostname%/api/v3*.</span></span> |
+| <span data-ttu-id="2e1e2-130">Ausführlichkeit</span><span class="sxs-lookup"><span data-stu-id="2e1e2-130">Verbosity</span></span> | <span data-ttu-id="2e1e2-131">Gibt an, die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *quiet*, *ausführliche*.</span><span class="sxs-lookup"><span data-stu-id="2e1e2-131">Specifies the amount of detail displayed in the output: *normal*, *quiet*, *detailed*.</span></span> |
 
-<span data-ttu-id="7d011-132">Siehe auch [Umgebungsvariablen](cli-ref-environment-variables.md)</span><span class="sxs-lookup"><span data-stu-id="7d011-132">Also see [Environment variables](cli-ref-environment-variables.md)</span></span>
+<span data-ttu-id="2e1e2-132">Siehe auch [Umgebungsvariablen](cli-ref-environment-variables.md)</span><span class="sxs-lookup"><span data-stu-id="2e1e2-132">Also see [Environment variables](cli-ref-environment-variables.md)</span></span>
 
-## <a name="examples"></a><span data-ttu-id="7d011-133">Beispiele</span><span class="sxs-lookup"><span data-stu-id="7d011-133">Examples</span></span>
+## <a name="examples"></a><span data-ttu-id="2e1e2-133">Beispiele</span><span class="sxs-lookup"><span data-stu-id="2e1e2-133">Examples</span></span>
 
 ```cli
 nuget delete MyPackage 1.0
