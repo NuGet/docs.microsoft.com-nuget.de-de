@@ -3,15 +3,14 @@ title: Installieren von NuGet-Clienttools
 description: Anleitung zum Installieren von Clienttools, der dotnet- und nuget-Befehlszeilenschnittstellen (Command-Line Interface, CLI) und des Paket-Managers für Visual Studio.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 04/09/2018
 ms.topic: quickstart
-ms.openlocfilehash: f136295cd46dd11a153b5f9c25a685a5a8dbd45a
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: b3be75a5af85bd3048c8b0eb71d90238b9349e09
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818120"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549721"
 ---
 # <a name="installing-nuget-client-tools"></a>Installieren von NuGet-Clienttools
 
@@ -19,7 +18,7 @@ ms.locfileid: "34818120"
 
 Damit Sie als Paketverbraucher oder -ersteller mit NuGet arbeiten können, können Sie [Befehlszeilenschnittstellentools (CLI)](#cli-tools) und [NuGet-Features in Visual Studio](#visual-studio) verwenden. Dieser Artikel beschreibt kurz die Funktionen der verschiedenen Tools, wie sie installiert werden und ihre [Verfügbarkeit von Features](#feature-availability) im Vergleich. Informationen zum Einstieg in das Nutzen von Paketen mithilfe von NuGet finden Sie unter [Install and use a package (.NET CLI) [Installieren und Verwenden eines Pakets (.NET CLI)]](quickstart/install-and-use-a-package-using-the-dotnet-cli.md) und [Install and use a package (Visual Studio) [Installieren und Verwenden eines Pakets (Visual Studio)]](quickstart/install-and-use-a-package-in-visual-studio.md). Informationen zum Einstieg in das Erstellen von NuGet-Paketen finden Sie unter [Create and publish a NET Standard package (dotnet CLI) [Erstellen und Veröffentlichen eines NET Standard-Pakets (.NET CLI)]](quickstart/create-and-publish-a-package-using-the-dotnet-cli.md) und [Create and publish a NET Standard package (Visual Studio) [Erstellen und Veröffentlichen eines NET Standard-Pakets (Visual Studio)]](quickstart/create-and-publish-a-package-using-visual-studio.md).
 
-| Tool&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | description | Herunterladen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+| Tool&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Beschreibung  | Herunterladen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 |:------------- |:-------------|:-----|
 | [dotnet.exe](#dotnetexe-cli) | Im .NET Core SDK enthalten und stellt NuGet-Kernfeatures auf allen Plattformen bereit. | [.NET Core SDK](https://www.microsoft.com/net/download/) |
 | [nuget.exe](#nugetexe-cli) | Stellt alle Funktionen von NuGet unter Windows und die meisten Features für Mac und Linux unter Mono bereit. | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |

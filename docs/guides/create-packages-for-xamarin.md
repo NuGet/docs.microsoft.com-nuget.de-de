@@ -3,15 +3,14 @@ title: Erstellen von NuGet-Paketen für Xamarin (für iOS, Android und Windows) 
 description: Eine exemplarische Vorgehensweise zum Erstellen von NuGet-Paketen für Xamarin, die native APIs unter iOS, Android und Windows verwenden.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/09/2017
 ms.topic: tutorial
-ms.openlocfilehash: 5215650ee69741ee83f76cadb6c38f9a9c3e2e0c
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: c43f4e80d456214ca354e136db6419a95fc797a0
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818005"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551907"
 ---
 # <a name="create-packages-for-xamarin-with-visual-studio-2015"></a>Erstellen von Paketen für Xamarin mit Visual Studio 2015
 

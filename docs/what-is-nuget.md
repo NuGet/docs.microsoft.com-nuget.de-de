@@ -3,15 +3,14 @@ title: Was ist NuGet, und welche Funktion hat es?
 description: Eine umfassende Einführung in NuGet und seine Funktionsweise
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/10/2018
 ms.topic: overview
-ms.openlocfilehash: b8929baa9022b7c40acbeb8a4f868fa5532ec13b
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 0b7105ea5d183d139c8bac915378924ba9c0874a
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818359"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548818"
 ---
 # <a name="an-introduction-to-nuget"></a>Eine Einführung in NuGet
 
@@ -44,7 +43,7 @@ Im Gegensatz dazu erstellen Paketentwickler, die APIs außerhalb von .NET Standa
 
 Zusätzlich zur Unterstützung für das Hosting bietet NuGet außerdem eine Vielzahl von Tools, die vom Ersteller und Benutzer verwendet werden. Informationen dazu, wie Sie bestimmte Tools erhalten, finden Sie unter [Installieren von NuGet-Clienttools](install-nuget-client-tools.md).
 
-| Tool | Plattformen | Anwendbare Szenarios | description |
+| Tool | Plattformen | Anwendbare Szenarios | Beschreibung  |
 | --- | --- | --- | --- |
 | [nuget.exe-CLI](tools/nuget-exe-cli-reference.md) | Alle | Erstellung, Verbrauch | Bietet alle NuGet-Funktionen, mit einigen Befehlen, die speziell für Paketersteller bestimmt sind, anderen Befehlen, die nur für Benutzer, und wieder anderen, die für beide bestimmt sind. Beispielsweise verwenden Paketersteller den Befehl `nuget pack` zum Erstellen eines Pakets aus verschiedenen Assemblys und zugehörigen Dateien, Paketverbraucher verwenden `nuget install`, um Pakete in einen Projektordner einzubinden, und alle verwenden `nuget config`, um NuGet-Konfigurationsvariablen festzulegen. Als ein plattformunabhängiges Tool interagiert die NuGet-CLI nicht mit Visual Studio-Projekten. |
 | [dotnet-CLI](tools/dotnet-Commands.md) | Alle | Erstellung, Verbrauch | Stellt bestimmte NuGet-CLI-Funktionen direkt in der .NET Core-Toolkette bereit. Ähnlich wie NuGet-CLI interagiert die dotnet-CLI nicht mit Visual Studio-Projekten. |

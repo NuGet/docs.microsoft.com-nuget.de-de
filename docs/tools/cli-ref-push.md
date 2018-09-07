@@ -39,10 +39,10 @@ wo `<packagePath>` identifiziert das Paket an den Server mithilfe von Push über
 | ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) verwendet wird.|
 | DisableBuffering | Deaktiviert die Pufferung, wenn auf einem Server HTTP(s) übertragen werden, um Arbeitsspeicher Verwendungen zu verringern. Vorsicht: Wenn diese Option verwendet wird, integrierte Windows-Authentifizierung funktioniert möglicherweise nicht. |
 | ForceEnglishOutput | *(3.5 und höher)*  Erzwingt nuget.exe über eine invariante Kultur auf Englisch basierenden ausgeführt werden. |
-| Hilfe | Zeigt die Informationen für den Befehl Hilfe. |
+| Help | Zeigt die Informationen für den Befehl Hilfe. |
 | NonInteractive | Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an. |
 | NoSymbols | *(3.5 und höher)*  Ist ein Symbolpaket vorhanden, es wird nicht abgelegt werden auf einem Symbolserver. |
-| Quelle | Gibt die Server-URL an. NuGet identifiziert eine UNC- oder lokaler Ordner Quelle und einfach kopiert die Datei dort mithilfe von Push übertragen sie die Verwendung von HTTP.  Ab NuGet 3.4.2, dies ist auch ein obligatorischer Parameter, wenn die `NuGet.Config` -Datei gibt eine *DefaultPushSource* Wert (finden Sie unter [Konfigurieren des NuGet-Verhaltens](../consume-packages/configuring-nuget-behavior.md)). |
+| Source | Gibt die Server-URL an. NuGet identifiziert eine UNC- oder lokaler Ordner Quelle und einfach kopiert die Datei dort mithilfe von Push übertragen sie die Verwendung von HTTP.  Ab NuGet 3.4.2, dies ist auch ein obligatorischer Parameter, wenn die `NuGet.Config` -Datei gibt eine *DefaultPushSource* Wert (finden Sie unter [Konfigurieren des NuGet-Verhaltens](../consume-packages/configuring-nuget-behavior.md)). |
 | SymbolSource | *(3.5 und höher)*  Gibt an, die Symbolserver-URL; nuget.smbsrc.net wird verwendet, wenn Sie mithilfe von Push an nuget.org übertragen |
 | SymbolApiKey | *(3.5 und höher)*  Gibt den API-Schlüssel an, für die URL in angegeben `-SymbolSource`. |
 | Timeout | Gibt das Timeout in Sekunden für die Übertragung auf einen Server an. Der Standardwert ist 300 Sekunden (5 Minuten). |

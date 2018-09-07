@@ -3,21 +3,20 @@ title: Möglichkeiten zum Installieren von NuGet-Paketen
 description: Beschreibt den Prozess der Installation von NuGet-Pakete in ein Projekt, inklusive, was auf dem Datenträger und mit anwendbaren Projektdateien passiert.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 02/12/2018
 ms.topic: overview
-ms.openlocfilehash: 0f59c3b7f1e32ae34889921c13d15074ef5c1260
-ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
+ms.openlocfilehash: 3cb3d5f97e9fb7ce292ddc5a95b61c13f64a17e7
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37843380"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547665"
 ---
 # <a name="different-ways-to-install-a-nuget-package"></a>Verschiedene Möglichkeiten zum Installieren von NuGet-Paketen
 
 NuGet-Pakete werden mithilfe einer der Methoden in den folgenden Tabellen heruntergeladen und installiert (siehe [Install NuGet client tools (Installieren von NuGet-Clienttools)](../install-nuget-client-tools.md), falls Sie diese noch nicht installiert haben). Das Paket wird möglicherweise aus dem Cache abgerufen und nicht heruntergeladen.
 
-| Methode | description |
+| Methode | Beschreibung  |
 | --- | --- |
 | dotnet.exe-CLI<br/>`dotnet add package <package_name>` | (Alle Plattformen) Das anhand von \<package_name\> identifizierte Paket wird abgerufen, dessen Inhalt wird im aktuellen Verzeichnis in einen Ordner entpackt, und ein Verweis zur Projektdatei wird hinzugefügt. Ruft auch Abhängigkeiten ab und installiert sie.<ul><li>[Installieren und Verwenden eines Pakets (dotnet-CLI)](../quickstart/install-and-use-a-package-using-the-dotnet-cli.md)</li><li>[Befehl „dotnet add package“](/dotnet/core/tools/dotnet-add-package)</li></ul> |
 | Benutzeroberfläche des Paket-Managers (Visual Studio) | (Windows und Mac) Bietet eine Benutzeroberfläche, über die Sie die Liste der Pakete durchsuchen, Pakete auswählen und diese Pakete und ihre Abhängigkeiten in ein Projekt aus einer angegebenen Paketquelle installieren können. Fügt der Projektdatei Verweise auf installierte Pakete zu.<ul><li>[Installieren und Verwenden eines Pakets (Visual Studio)](../quickstart/install-and-use-a-package-in-visual-studio.md)</li><li>[Referenz zur Benutzeroberfläche des Paket-Managers (Windows)](../tools/package-manager-ui.md)</li><li>[Einschließen eines NuGet-Pakets in Ihr Projekt (Mac)](/visualstudio/mac/nuget-walkthrough)</li></ul> |

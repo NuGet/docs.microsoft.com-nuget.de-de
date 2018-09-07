@@ -3,15 +3,14 @@ title: project.json-Dateireferenz für NuGet
 description: Bei einigen Projekttypen wird in der Datei „project.json“ die Liste der im Projekt verwendeten Pakete verwaltet.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 07/27/2017
 ms.topic: reference
-ms.openlocfilehash: e558bdb969d4c70f85a3c89a426f1c7b11525402
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: e4d8b5b9ab4605516827ead8939f278d110c7a48
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817124"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547783"
 ---
 # <a name="projectjson-reference"></a>project.json-Verweis
 
