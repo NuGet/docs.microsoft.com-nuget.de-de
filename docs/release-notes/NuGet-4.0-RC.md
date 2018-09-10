@@ -3,16 +3,15 @@ title: Anmerkungen zu Version 4.0 RC von NuGet
 description: Anmerkungen zu NuGet 4.0 RC, einschließlich bekannter Fehler, Fehlerkorrekturen, hinzugefügter Features und DCRs.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 02/03/2017
 ms.topic: conceptual
 ms.reviewer: ananguar
-ms.openlocfilehash: 8124b11d0489a2c72ffcfdde28e8528c1da1f677
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 2d0bb6356c0a20843bdc884b68f5f61838b82e73
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31821885"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549245"
 ---
 # <a name="nuget-40-rc-release-notes"></a>Anmerkungen zu Version 4.0 RC von NuGet
 
