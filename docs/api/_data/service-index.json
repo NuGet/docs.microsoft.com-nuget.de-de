@@ -1,0 +1,29 @@
+{
+  "version": "3.0.0",
+  "resources": [
+    {
+      "@id": "https://API.NuGet.org/v3-flatcontainer/",
+      "@type": "PackageBaseAddress/3.0.0",
+      "comment": "Basis-URL von Azure-Speicher, in dem NuGet-Paket-Registrierungsinformationen für .NET Core, in dem Format https://api.nuget.org/v3-flatcontainer/ {unten Id gespeichert wird} / {Id unten}. {unten Version} .nupkg"
+    },
+    {
+      "@id": "https://www.NuGet.org/API/v2/Package",
+      "@type": "PackagePublish/2.0.0"
+    },
+    {
+      "@id": "https://API-v2v3search-0.NuGet.org/Query",
+      "@type": "SearchQueryService/3.0.0-rc",
+      "comment": "Abfragen von RC-Clients verwendeten Endpunkt des NuGet-Search-Diensts (primär)"
+    },
+    {
+      "@id": "https://API-v2v3search-0.NuGet.org/AutoComplete",
+      "@type": "SearchAutocompleteService/3.0.0-rc",
+      "comment": "AutoVervollständigen-Endpunkt des NuGet-Search-Dienst (primär) von RC-Clients verwendet wird"
+    },
+    {
+      "@id": "https://API.NuGet.org/v3/registration2/",
+      "@type": "RegistrationsBaseUrl/3.0.0-rc",
+      "comment": "Basis-URL des Azure-Speicher, in dem Registrierungsinformationen für NuGet-Paket gespeichert ist, die von der RC-Clients verwendet. Diese Basis-URL ist nicht mit SemVer 2.0.0-Pakete enthalten."
+    }
+  ]
+}
