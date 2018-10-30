@@ -86,6 +86,6 @@ X-NuGet-ApiKey | Header | Zeichenfolge | ja      | Beispiel: `X-NuGet-ApiKey: {V
 
 Statuscode | Bedeutung
 ----------- | -------
-300         | Der API-Schlüssel ist gültig.
-403         | Die API-Schlüssel ist ungültig oder nicht autorisiert, für das Paket mithilfe von Push übertragen
-404         | Das Paket verweist `ID` und `VERSION` (optional) ist nicht vorhanden
+200         | Der API-Schlüssel ist gültig.
+403         | Der API-Schlüssel ist ungültig oder für dieses Paket nicht autorisiert
+404         | Das Paket, das mit `ID` und (optional) `VERSION` angegeben wurde, existiert nicht

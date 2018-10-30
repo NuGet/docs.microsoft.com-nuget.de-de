@@ -44,7 +44,7 @@ Die folgenden Tabellen enthalten die Begrenzung der Datenübertragungsrate für 
 > Es wird empfohlen, NuGet.org [V3-APIs](https://docs.microsoft.com/nuget/api/search-query-service-resource) derzeit für die Suche, die leistungsstarke und verfügen über keine beschränken. APIs für V1 und V2-Suche, die Followins Grenzwerte gelten:
 
 
-| API | -Typ | Grenzwert | API-Anwendungsfall |
+| API | Limit-Typ | Grenzwert | API-Anwendungsfall |
 |:---|:---|:---|:---|
 **ERHALTEN** `/api/v1/Packages` | IP | 1000 / Minute | Abfragen von NuGet-Paketmetadaten über v1 OData `Packages` Auflistung |
 **ERHALTEN** `/api/v1/Search()` | IP | 3000 / Minute | Suchen Sie nach NuGet-Pakete über die v1-Suche-Endpunkt | 
@@ -53,7 +53,7 @@ Die folgenden Tabellen enthalten die Begrenzung der Datenübertragungsrate für 
 
 ## <a name="package-push-and-unlist"></a>Paket mithilfe von Push übertragen und aus der Liste entfernen
 
-| API | -Typ | Grenzwert | API-Anwendungsfall | 
+| API | Limit-Typ | Grenzwert | API-Anwendungsfall | 
 |:---|:---|:---|:--- |
 **PUT** `/api/v2/package` | API-Schlüssel | 250 / Stunde | Hochladen eines neuen NuGet-Pakets (Version) per Push-v2-Endpunkt 
 **LÖSCHEN** `/api/v2/package/{id}/{version}` | API-Schlüssel | 250 / Stunde | Entfernen Sie ein NuGet-Paket (Version) über die v2-Endpunkt aus der Liste 
