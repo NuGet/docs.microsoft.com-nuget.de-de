@@ -50,11 +50,11 @@ Abrufen eines Schlüssels überprüfen-Bereich für den Autor eines "NuGet.org",
 
 #### <a name="request-parameters"></a>Anforderungsparameter
 
-name           | In     | Typ   | Erforderlich | Hinweise
+Name           | In     | Typ   | Erforderlich | Hinweise
 -------------- | ------ | ------ | -------- | -----
-Id             | URL    | Zeichenfolge | ja      | Die Paket-Identidier für die der Schlüssel des überprüfen Bereich angefordert wird
-VERSION        | URL    | Zeichenfolge | Nein       | Die Paketversion
-X-NuGet-ApiKey | Header | Zeichenfolge | ja      | Beispiel: `X-NuGet-ApiKey: {USER_API_KEY}`
+ID             | URL    | String | ja      | Die Paket-ID, für die der Schlüssel angefordert wird
+VERSION        | URL    | String | nein       | Die Paketversion
+X-NuGet-ApiKey | Header | String | ja      | beispielsweise `X-NuGet-ApiKey: {USER_API_KEY}`
 
 #### <a name="response"></a>Antwort
 
