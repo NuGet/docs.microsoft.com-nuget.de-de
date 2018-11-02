@@ -17,11 +17,11 @@ ms.locfileid: "43547502"
 
 Die NuGet-API ist eine Reihe von HTTP-Endpunkten, die dazu genutzt werden kann, Pakete herunterzuladen, Metadaten abzurufen, neue Pakete zu veröffentlichen und die meisten anderen Vorgänge durchzuführen, die in den offiziellen NuGet-Clients verfügbar sind.
 
-Diese API wird vom NuGet-Client in Visual Studio, nuget.exe und der .NET CLI verwendet, um NuGet-Vorgänge auszuführen, z. B. [ `dotnet restore` ](/dotnet/articles/core/preview3/tools/dotnet-restore), Suche in der Visual Studio-UI und [ `nuget.exe push` ](../tools/cli-ref-push.md).
+Diese API wird vom NuGet-Client in Visual Studio, nuget.exe und der .NET-CLI verwendet, um NuGet-Vorgänge auszuführen, z.B. [ `dotnet restore` ](/dotnet/articles/core/preview3/tools/dotnet-restore), Suche in der Visual Studio-UI und [ `nuget.exe push` ](../tools/cli-ref-push.md).
 
-Beachte, dass "nuget.org" in einigen Fällen zusätzliche Anforderungen hat, die nicht von anderen Paketquellen erzwungen werden. Diese Unterschiede sind in den [nuget.org-Protokollen](nuget-protocols.md) dokumentiert.
+Beachten Sie, dass "nuget.org" in einigen Fällen zusätzliche Anforderungen besitzt, die nicht von anderen Paketquellen erzwungen werden. Diese Unterschiede sind in den [nuget.org-Protokollen](nuget-protocols.md) dokumentiert.
 
-Für einfache Enumeration und Herunterladen der verfügbaren nuget.exe-Versionen wird der [tools.json](tools-json.md)-Endpunkt verwendet.
+Für die einfache Enumeration und zum Herunterladen der verfügbaren nuget.exe-Versionen wird der [tools.json](tools-json.md)-Endpunkt verwendet.
 
 ## <a name="service-index"></a>Dienstindex
 
@@ -31,13 +31,13 @@ Dieses JSON-Dokument enthält eine Liste an *Ressourcen*, die verschiedene Funkt
 
 Clients, die die API unterstützen, sollten eine oder mehrere dieser Dienstindex-URLs akzeptieren. Diese URLs werden benutzt, um sich mit den verschiedenen Paketquellen zu verbinden.
 
-Weitere Informationen zum Dienstindex findest Du in [der zugehörigen API-Referenz](service-index.md).
+Weitere Informationen zum Dienstindex finden Sie in [der zugehörigen API-Referenz](service-index.md).
 
 ## <a name="versioning"></a>Versionskontrolle
 
 Die API ist Version 3 des NuGet HTTP-Protokolls. Dieses Protokoll wird manchmal als "V3-API" bezeichnet. Diese Referenzdokumentation nennt diese Version des Protokolls einfach "die API".
 
-Die Schemaversion des Dienstindex wird in der `version`-Eigenschaft im Dienstindex angegeben. Die API erfordert, dass der Version-String eine MAJOR-Versionsnummer von `3` hat. Wenn API-kompatible Änderungen am Schema des Dienstindex durchgeführt werden, wird die MINOR-Version im Version-String erhöht.
+Die Schemaversion des Dienstindex wird von der `version`-Eigenschaft im Dienstindex angegeben. Die API erfordert, dass die version-Zeichenfolge die Hautpversionsnummer `3` hat. Wenn API-kompatible Änderungen am Schema des Dienstindex durchgeführt werden, wird die Nebenversion der version-Zeichenfolge erhöht.
 
 Ältere Clients (z. B. nuget.exe 2.x) unterstützen die V3-API nicht und unterstützen nur die ältere V2-API, die hier nicht dokumentiert ist.
 
@@ -47,27 +47,27 @@ Seit dem ersten Release wurden bereits kompatible Änderungen am Protokoll der A
 
 ## <a name="resources-and-schema"></a>Ressourcen und Schema
 
-Der **Dienstindex** beschreibt eine Reihe von Ressourcen. Die aktuell unterstützten Ressourcen sind folgende:
+Die **dienstindex** beschreibt eine Reihe von Ressourcen. Der aktuelle Satz von unterstützten Ressourcen lauten wie folgt aus:
 
-Ressourcenname                                                         | Erforderlich | Beschreibung
----------------------------------------------------------------------- | ------------ | ------------
-[`PackagePublish`](package-publish-resource.md)                        | ja           | Pakete veröffentlichen, löschen oder aus der Liste entfernen.
-[`SearchQueryService`](search-query-service-resource.md)               | ja           | Pakete mittels einem Schlüsselwort durchsuchen oder filtern.
-[`RegistrationsBaseUrl`](registration-base-url-resource.md)            | ja           | Abrufen von Metadaten von Paketen.
-[`PackageBaseAddress`](package-base-address-resource.md)               | ja           | Paketinhalt (.nupkg) anfordern.
-[`SearchAutocompleteService`](search-autocomplete-service-resource.md) | nein         | Paket-IDs und -Versionen anhand eines Teilstrings entdecken.
-[`ReportAbuseUriTemplate`](report-abuse-resource.md)                   | nein         | Eine URL zum Zugriff auf eine "Missbrauch melden"-Seite konstruieren.
-[`RepositorySignatures`](repository-signatures-resource.md)            | nein         | Abrufen von Zertifikaten, die für Paketquellen-Signierung verwendet werden.
-[`Catalog`](catalog-resource.md)                                       | nein         | Vollständiges Protokoll aller Paket-Ereignisse.
+Ressourcenname | Erforderlich | Beschreibung
+---------------------------------------------------------------------- | -------- | -----------
+[`PackagePublish`](package-publish-resource.md) | ja | Mithilfe von Push übertragen und löschen (oder aus der Liste entfernen) Pakete.
+[`SearchQueryService`](search-query-service-resource.md) | ja | Filtern und Pakete nach Schlüsselwort suchen.
+[`RegistrationsBaseUrl`](registration-base-url-resource.md) | ja | Abrufen von Metadaten von Paketen.
+[`PackageBaseAddress`](package-base-address-resource.md) | ja | Paketinhalt (NUPKG) zu erhalten.
+[`SearchAutocompleteService`](search-autocomplete-service-resource.md) | Nein | Entdecken Sie die Paket-IDs und Versionen von Teilzeichenfolge.
+[`ReportAbuseUriTemplate`](report-abuse-resource.md) | Nein | Erstellen Sie eine URL für den Zugriff auf eine Webseite "Missbrauch melden".
+[`RepositorySignatures`](repository-signatures-resource.md) | Nein | Abrufen von Zertifikaten, die zum Signieren von Repository verwendet.
+[`Catalog`](catalog-resource.md) | Nein | Vollständigen Datensatz aller Ereignisse für Paket.
 
-Im Allgemeinen werden alle nicht binären Daten, die von einer API-Ressource zurückgegeben werden, mit JSON serialisiert. Das Antwortschema, das eine bestimmte Ressource zurückgibt, wird einzeln für diese Ressource definiert. Weitere Informationen zu den einzelnen Ressourcen findest Du unter den oben aufgeführten Themen.
+Im Allgemeinen werden alle nicht binären Daten zurückgegeben, die von einer API-Ressource mit JSON serialisiert. Das Antwortschema von jeder Ressource im dienstindex zurückgegeben wird einzeln für diese Ressource definiert. Weitere Informationen zu jeder Ressource finden Sie unter den oben aufgeführten Themen.
 
 > [!Note]
 > Wenn eine Datenquelle den `SearchAutocompleteService` nicht implementiert, sollte das Auto-Vervollständigungs-Verfahren kontrolliert deaktiviert werden. Wenn `ReportAbuseUriTemplate` nicht implementiert wird, fällt der offizielle NuGet-Client auf die "Missbrauch melden"-URL von nuget.org zurück (zu verfolgen in [NuGet/Home#4924](https://github.com/NuGet/Home/issues/4924)). Andere Clients können sich dazu entscheiden, einfach keine solche URL anzuzeigen.
 
 ## <a name="timestamps"></a>Timestamps
 
-Alle Timestamps, die von der API zurückgegeben werden, sind in UTC oder werden in der [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)-Repräsentation angegeben.
+Alle Zeitstempel, die von der API zurückgegeben werden, sind in UTC oder werden in der [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)-Repräsentation angegeben.
 
 ## <a name="http-methods"></a>HTTP-Methoden
 
@@ -96,7 +96,7 @@ Code | Beschreibung
 500  | Der Dienst hat einen unerwarteten Fehler festgestellt.
 503  | Der Dienst ist vorübergehend nicht verfügbar.
 
-Jede `GET`-Anforderung an einen API-Endpunkt kann eine HTTP-Umleitung (301 oder 302) zurückgeben. Clients sollten diesen Umleitungen sauber folgen, in dem sie den `Location`-Header lesen und eine entsprechende `GET`-Anforderung abgeben. Die Dokumentation der einzelnen Endpunkte gibt nicht an, wo Umleitungen benutzt werden können.
+Jede `GET`-Anforderung an einen API-Endpunkt kann eine HTTP-Umleitung (301 oder 302) zurückgeben. Clients sollten diesen Umleitungen anstandslos folgen, indem sie den `Location`-Header berücksichtigen und eine entsprechende `GET`-Anforderung ausstellen. Die Dokumentation der einzelnen Endpunkte gibt genau nicht an, wo Umleitungen benutzt werden können.
 
 Im Fall eines Statuscodes in der Region 500 kann der Client einen angemessenen Wiederholungsmechanismus implementieren. Der offizielle NuGet-Client führt drei Wiederholungen durch, wenn er einen Statuscode in der Region 500 oder einen TCP-/DNS-Fehler antrifft.
 
@@ -111,4 +111,4 @@ X-NuGet-Session-Id      | *Optional*. NuGet-Clients mit Version 4.7 oder höher 
 
 ## <a name="authentication"></a>Authentifizierung
 
-Authentifizierung wird der Implementation der Paketquelle überlassen. Bei nuget.org erfordert nur die `PackagePublish`-Ressource Authentifizierung durch einen speziellen API-Key-Header. Details sind in der [`PackagePublish`-Ressource](package-publish-resource.md) definiert.
+Die Authentifizierung wird der Implementation der Paketquelle überlassen, die definiert werden soll. Bei nuget.org erfordert nur die `PackagePublish`-Ressource Authentifizierung durch einen speziellen API-Schlüsselheader. Details sind in der [`PackagePublish`-Ressource](package-publish-resource.md) definiert.
