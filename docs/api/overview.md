@@ -44,6 +44,7 @@ Die Schemaversion des Dienstindex wird in der `version`-Eigenschaft im Dienstind
 Die NuGet-V3-API wird so genannt, weil sie der Nachfolger der V2-API ist. Die V2-API war ein OData-basiertes Protokoll, das durch die 2.x-Version des offiziellen NuGet-Clients implementiert wurde. Die V3-API wurde zuerst durch die Version 3.0 des offiziellen NuGet-Clients unterstützt und ist weiterhin die neueste MAJOR-Protokollversion, die durch den NuGet-Client unterstützt wird.
 
 Seit dem ersten Release wurden bereits kompatible Änderungen am Protokoll der API durchgeführt.
+
 ## <a name="resources-and-schema"></a>Ressourcen und Schema
 
 Der **Dienstindex** beschreibt eine Reihe von Ressourcen. Die aktuell unterstützten Ressourcen sind folgende:
