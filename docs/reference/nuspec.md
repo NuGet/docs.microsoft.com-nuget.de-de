@@ -1,6 +1,6 @@
 ---
-title: NuSpec-Dateireferenz für NuGet
-description: Die NUSPEC-Datei enthält Paketmetadaten, die bei der Erstellung eines Pakets verwendet werden, um für die Paketbenutzer Informationen bereitzustellen.
+title: NUSPEC-Dateireferenz für NuGet
+description: Die NUSPEC-Datei enthält Paketmetadaten, die bei der Erstellung eines Pakets verwendet werden, um für die Paketconsumer Informationen bereitzustellen.
 author: karann-msft
 ms.author: karann
 ms.date: 08/29/2017
@@ -15,7 +15,7 @@ ms.locfileid: "43548441"
 ---
 # <a name="nuspec-reference"></a>NUSPEC-Referenz
 
-Bei einer `.nuspec`-Datei handelt es sich um eine XML-Manifestdatei, die Paketmetadaten enthält. Diese Manifestdatei wird sowohl für die Erstellung des Pakets als auch zur Bereitstellung von Informationen für die Benutzer verwendet. Manifestdateien sind in allen Paketen enthalten.
+Bei einer `.nuspec`-Datei handelt es sich um eine XML-Manifestdatei, die Paketmetadaten enthält. Diese Manifestdatei wird sowohl für die Erstellung des Pakets als auch zur Bereitstellung von Informationen für die Consumer verwendet. Manifestdateien sind in allen Paketen enthalten.
 
 In diesem Thema:
 
@@ -24,13 +24,13 @@ In diesem Thema:
 - [Abhängigkeiten](#dependencies)
 - [Explizite Assemblyverweise](#explicit-assembly-references)
 - [Verweise auf Frameworkassemblys](#framework-assembly-references)
-- [Einfügen von Assemblydateien](#including-assembly-files)
-- [Einfügen von Inhaltsdateien](#including-content-files)
-- [Beispiel: Nuspec-Dateien](#example-nuspec-files)
+- [Einschließen von Assemblydateien](#including-assembly-files)
+- [Einschließen von Inhaltsdateien](#including-content-files)
+- [NUSPEC-Beispieldateien](#example-nuspec-files)
 
 ## <a name="general-form-and-schema"></a>Allgemeine Form und Schema
 
-Die aktuelle `nuspec.xsd`-Schemadatei finden Sie im [NuGet GitHub-Repository](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Packaging/compiler/resources/nuspec.xsd).
+Die aktuelle `nuspec.xsd`-Schemadatei finden Sie im [NuGet-GitHub-Repository](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Packaging/compiler/resources/nuspec.xsd).
 
 Für dieses Schema gilt die im Folgenden dargestellte allgemeine Form für die `.nuspec`-Datei:
 
@@ -51,7 +51,7 @@ Für dieses Schema gilt die im Folgenden dargestellte allgemeine Form für die `
 </package>
 ```
 
-Für eine übersichtliche Darstellung des Schemas öffnen Sie die Schemadatei im Entwurfsmodus in Visual Studio, und klicken Sie auf den Link **XML-Schema-Explorer**. Alternativ können Sie auch die Datei als Code öffnen, mit der rechten Maustaste in den Editor klicken und **Show XML Schema Explorer** (XML-Schema-Explorer anzeigen) auswählen. In beiden Fällen wird eine Ansicht zurückgegeben, die der in der folgenden Abbildung ähnlich ist, wenn Sie größtenteils erweitert ist:
+Um eine übersichtliche Darstellung des Schemas anzuzeigen, öffnen Sie die Schemadatei im Entwurfsmodus in Visual Studio und klicken dann auf den Link **XML-Schema-Explorer**. Alternativ können Sie die Datei auch als Code öffnen, mit der rechten Maustaste in den Editor klicken und **Show XML Schema Explorer** (XML-Schema-Explorer anzeigen) auswählen. In beiden Fällen wird eine Ansicht zurückgegeben, die der in der folgenden Abbildung gezeigten ähnlich ist (bei erweiterter Darstellung):
 
 ![Visual Studio-Schema-Explorer mit geöffneter „nuspec.xsd“-Datei](media/SchemaExplorer.png)
 
@@ -59,70 +59,70 @@ Für eine übersichtliche Darstellung des Schemas öffnen Sie die Schemadatei im
 
 Obwohl es sich bei den folgenden Elementen um die Mindestanforderungen für ein Paket handelt, sollten Sie in Erwägung ziehen, die [optionalen Metadatenelemente](#optional-metadata-elements) hinzuzufügen, damit Entwicklern die Arbeit mit Ihren Paketen erleichtert wird. 
 
-Diese Elemente müssen in einem `<metadata>`-Element angezeigt werden.
+Die folgenden Elemente müssen in einem `<metadata>`-Element vorhanden sein.
 
-#### <a name="id"></a>ID 
-Der Paketbezeichner, der die Groß- und Kleinschreibung nicht berücksichtigt und auf nuget.org oder im für das Paket verwendeten Katalog eindeutig sein muss. IDs dürfen keine Leerzeichen oder für eine URL unzulässige Zeichen enthalten. Sie müssen den Regeln für .NET-Namespaces entsprechen. Informationen finden Sie unter [Choosing a unique package identifier (Auswählen eines eindeutigen Paketbezeichners)](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number).
-#### <a name="version"></a>Version
-Die Version des Pakets, die dem Muster *Hauptversion.Nebenversion.Patch* folgt. Versionsnummern enthalten möglicherweise, wie unter [Paketversionsverwaltung](../reference/package-versioning.md#pre-release-versions) beschrieben, ein Suffix der Vorabversion. 
-#### <a name="description"></a>Beschreibung
-Eine ausführliche Beschreibung des Pakets für die Anzeige der Benutzeroberfläche. 
+#### <a name="id"></a>id 
+Paketbezeichner, der auf nuget.org oder im für das Paket verwendeten Katalog eindeutig sein muss. Die Groß-/Kleinschreibung wird nicht berücksichtigt. IDs dürfen keine Leerzeichen oder in URLs unzulässige Zeichen enthalten. Im Wesentlichen müssen sie den Regeln für .NET-Namespaces entsprechen. Informationen finden Sie unter [Auswählen eines eindeutigen Paketbezeichners und Festlegen der Versionsnummer](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number).
+#### <a name="version"></a>version
+Die Version des Pakets. Das Format lautet *Hauptversion.Nebenversion.Patch*. Versionsnummern enthalten möglicherweise, wie unter [Version Ranges and Wildcards (Versionsbereiche und Platzhalter)](../reference/package-versioning.md#pre-release-versions) beschrieben, ein Suffix der Vorabversion. 
+#### <a name="description"></a>description
+Eine ausführliche Beschreibung des Pakets zur Anzeige auf der Benutzeroberfläche. 
 #### <a name="authors"></a>authors
-Eine durch Kommas getrennte Liste der Paketautoren, die mit Profilnamen unter nuget.org übereinstimmen. Diese werden im NuGet-Katalog unter nuget.org angezeigt und werden verwendet, um Querverweise auf Pakete von den gleichen Autoren zu geben. 
+Eine durch Kommas getrennte Liste der Paketautoren entsprechend den Profilnamen unter nuget.org. Diese werden im NuGet-Katalog auf nuget.org angezeigt und verwendet, um auf Pakete derselben Autoren zu verweisen. 
 
 ### <a name="optional-metadata-elements"></a>Optionale Metadatenelemente
 
-#### <a name="title"></a>Titel
-Ein benutzerfreundlicher Titel des Pakets, der in der Regel in der Benutzeroberfläche wie auf nuget.org angezeigt wird und der Paket-Manager in Visual Studio. Wenn nicht angegeben, wird die Paket-ID verwendet. 
+#### <a name="title"></a>title
+Ein benutzerfreundlicher Titel des Pakets, der gewöhnlich auf Benutzeroberflächen wie auf nuget.org oder im Paket-Manager in Visual Studio angezeigt wird. Sofern nicht angegeben, wird die Paket-ID verwendet. 
 #### <a name="owners"></a>owners
-Eine durch Kommas getrennte Liste der Paketersteller, die auf nuget.org Profilnamen verwenden. Dabei handelt es sich häufig um dieselbe Liste wie in `authors`. Sie wird beim Hochladen der Pakete auf nuget.org ignoriert. Informationen dazu finden Sie unter [Managing package owners on nuget.org (Verwalten von Paketbesitzern auf nuget.org)](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). 
+Eine durch Kommas getrennte Liste der Paketersteller mit den auf nuget.org verwendeten Profilnamen. Dabei handelt es sich häufig um dieselbe Liste wie in `authors`. Sie wird beim Hochladen der Pakete auf nuget.org ignoriert. Informationen hierzu finden Sie unter [Verwalten von Paketbesitzern auf nuget.org](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). 
 #### <a name="projecturl"></a>projectUrl
-Eine URL für die Paket-Homepage, häufig auf der Benutzeroberfläche sowie auf nuget.org angezeigt. 
+URL der Homepage des Pakets, wird häufig auf Benutzeroberflächen und auf nuget.org angezeigt. 
 #### <a name="licenseurl"></a>licenseUrl
-Eine URL für die Paketlizenz, häufig auf der Benutzeroberfläche sowie auf nuget.org angezeigt.
+URL der Paketlizenz, wird häufig auf Benutzeroberflächen und auf nuget.org angezeigt.
 #### <a name="iconurl"></a>iconUrl
-Eine URL für ein 64x64-Bild mit transparentem Hintergrund, das als Symbol für das Paket in der Benutzeroberfläche verwendet wird. Stellen Sie sicher, dass dieses Element die *direkte Bild-URL* und nicht nur die URL einer Webseite enthält, die das Bild enthält. Beispielsweise um ein Bild von GitHub verwenden möchten, verwenden die URL wie Rohdatendatei <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>. 
+URL eines 64 × 64 Pixel großen Bilds mit transparentem Hintergrund, das als Symbol für das Paket auf der Benutzeroberfläche verwendet wird. Stellen Sie sicher, dass dieses Element die *direkte Bild-URL* und nicht die URL einer Webseite enthält, auf der das Bild zu finden ist. Wenn Sie beispielsweise ein Bild auf GitHub verwenden möchten, geben Sie die URL der Rohdatendatei an (z. B. <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>). 
 
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
-Ein boolescher Wert, der angibt, ob der Client den Benutzer dazu auffordern muss, die Paketlizenz vor der Installation des Pakets zu akzeptieren.
+Ein boolescher Wert, der angibt, ob der Client den Consumer dazu auffordern muss, die Paketlizenz vor der Installation des Pakets zu akzeptieren.
 #### <a name="developmentdependency"></a>developmentDependency
-*(2.8+)* Ein boolescher Wert, der angibt, ob das Paket mit einer Abhängigkeit markiert werden soll, die nur für die Entwicklung gilt, wodurch vermieden wird, dass das Paket als Abhängigkeit in andere Pakete eingefügt wird.
-#### <a name="summary"></a>Zusammenfassung
-Eine kurze Beschreibung des Pakets für die Anzeige der Benutzeroberfläche. Wenn diese nicht angegeben wird, wird eine gekürzte Version von `description` verwendet.
+*(ab Version 2.8)* Boolescher Wert, der angibt, ob das Paket mit einer Abhängigkeit markiert werden soll, die nur für die Entwicklung gilt. Hierdurch wird vermieden, dass das Paket als Abhängigkeit in andere Pakete eingeschlossen wird.
+#### <a name="summary"></a>summary
+Kurzbeschreibung des Pakets zur Anzeige auf der Benutzeroberfläche. Wenn diese nicht angegeben ist, wird eine gekürzte Version von `description` verwendet.
 #### <a name="releasenotes"></a>releaseNotes
-*(1.5 und höher)* Eine Beschreibung der in diesem Release des Pakets enthaltenen Änderungen, die häufig in Benutzeroberflächen wie der Registerkarte **Updates** des Visual Studio-Paket-Managers anstelle von Paketbeschreibungen verwendet wird.
-#### <a name="copyright"></a>Copyright
-*(1.5 und höher)* Copyright-Informationen zum Paket.
+*(ab Version 1.5)* Beschreibung der in diesem Release des Pakets enthaltenen Änderungen, die häufig auf Benutzeroberflächen wie der Registerkarte **Updates** des Visual Studio-Paket-Managers anstelle von Paketbeschreibungen verwendet wird.
+#### <a name="copyright"></a>copyright
+*(ab Version 1.5)* Urheberrechtliche Hinweise zum Paket.
 #### <a name="language"></a>language
-Die Gebietsschema-ID des Pakets. Informationen dazu finden Sie unter [Creating localized packages (Erstellen von lokalisierten Paketen)](../create-packages/creating-localized-packages.md).
-#### <a name="tags"></a>Tags
-Eine durch Leerzeichen getrennte Liste mit Tags und Schlüsselwörtern, die das Paket beschreiben und zum Ermitteln von Paketen über Suchvorgänge und Filter beitragen. 
-#### <a name="serviceable"></a>gewartet werden müssen 
-*(3.3 und höher)* Nur für die interne Verwendung von NuGet.
-#### <a name="repository"></a>Repository
-Repository-Metadaten, bestehend aus vier optionale Attribute: *Typ* und *Url* *(4.0 und höher)*, und *Branch* und  *Commit* *(4.6 und höher)*. Diese Attribute ermöglichen es Ihnen, der NUPKG-Datei in das Repository zuzuordnen, die sie mit der abzurufenden erstellt entsprechend den Details als einzelne Verzweigung oder Commit, das das Paket erstellt hat. Dies sollte einer öffentlich zugänglichen Url sein, die direkt von einer Software zur Versionskontrolle aufgerufen werden kann. Es sollte nicht auf eine html-Seite sein, wie dies für den Computer vorgesehen ist. Verwenden Sie für das Projekt – Seite verknüpfen, die `projectUrl` Feld stattdessen.
+Gebietsschema-ID des Pakets. Informationen hierzu finden Sie unter [Erstellen lokalisierter NuGet-Pakete](../create-packages/creating-localized-packages.md).
+#### <a name="tags"></a>tags
+Eine durch Leerzeichen getrennte Liste mit Tags und Schlüsselwörtern, die das Paket beschreiben und das Auffinden von Paketen mithilfe von Suchvorgängen und Filtern erleichtern. 
+#### <a name="serviceable"></a>serviceable 
+*(ab Version 3.3)* Nur zur internen Verwendung von NuGet.
+#### <a name="repository"></a>repository
+Repositorymetadaten. Sie umfassen vier optionale Attribute: *type* und *url* *(ab Version 4.0)* sowie *branch* und *commit* *(ab Version 4.6)*. Mit diesen Attributen können Sie die NUPKG-Datei dem Repository zuordnen, mit dem es erstellt wurde. Dabei lässt sich eine Detailtiefe bis hinab zum einzelnen Branch oder Commit erzielen, durch den das Paket erstellt wurde. Hierbei sollte es sich um eine öffentlich zugängliche URL handeln, die direkt von einer Versionskontrollsoftware aufgerufen werden kann. Dagegen sollte es keine HTML-Seite sein, da diese für den Computer vorgesehen ist. Zur Verknüpfung mit der Projektseite verwenden Sie stattdessen das Feld `projectUrl`.
 
 #### <a name="minclientversion"></a>minClientVersion
-Gibt die minimale Version des NuGet-Clients an, der dieses Paket installieren kann. Dies wird von nuget.exe und dem Paket-Manager von Visual Studio erzwungen. Dieses Attribut wird verwendet, wenn das Paket von bestimmten Funktionen der `.nuspec`-Datei abhängig ist, die in einer bestimmten Version des NuGet-Clients hinzugefügt wurden. Beispielsweise sollte ein Paket, das das `developmentDependency`-Attribut verwendet, „2.8“ für `minClientVersion` angeben. Genauso sollte ein Paket, das das `contentFiles`-Element verwendet (vgl. nächster Abschnitt), `minClientVersion` auf „3.3“ festlegen. Beachten Sie außerdem, dass NuGet-Clients vor Version 2.5 diese Kennzeichnung nicht erkennen und daher die Installation des Pakets, unabhängig vom Inhalt von `minClientVersion`, *immer* verweigern.
+Gibt die mindestens erforderliche Version des NuGet-Clients an, der dieses Paket installieren kann. Dies wird von nuget.exe und dem Paket-Manager von Visual Studio erzwungen. Das Attribut wird verwendet, wenn das Paket von bestimmten Funktionen der `.nuspec`-Datei abhängig ist, die in einer bestimmten Version des NuGet-Clients hinzugefügt wurden. Beispielsweise sollte ein Paket, das das `developmentDependency`-Attribut verwendet, „2.8“ für `minClientVersion` angeben. Genauso sollte ein Paket, das das `contentFiles`-Element verwendet (vgl. nächster Abschnitt), `minClientVersion` auf „3.3“ festlegen. Beachten Sie außerdem, dass NuGet-Clients vor Version 2.5 dieses Flag nicht erkennen und daher die Installation des Pakets unabhängig vom Inhalt von `minClientVersion` *immer* verweigern.
 
-#### <a name="collection-elements"></a>Auflistungselemente
+#### <a name="collection-elements"></a>Sammlungselemente
 
-#### <a name="packagetypes"></a>PackageTypes
-*(3.5 und höher)* Eine Auflistung, die kein `<packageType>`-Element oder mindestens eins enthält und den Pakettyp angibt, wenn es sich nicht um ein gewöhnliches Abhängigkeitspaket handelt. Jeder „packageType“ verfügt über Attribute von *name* und *version*. Informationen dazu finden Sie unter [Setting a package type (Festlegen eines Pakettypen)](../create-packages/creating-a-package.md#setting-a-package-type).
-#### <a name="dependencies"></a>Abhängigkeiten
-Eine Auflistung, die kein `<dependency>`-Element oder mindestens eins enthält und Abhängigkeiten für das Paket angibt. Jede Abhängigkeit verfügt über Attribute von *id*, *version*, *include* und *exclude* (3.x und höher). Informationen dazu finden Sie im Abschnitt [Abhängigkeiten](#dependencies-element).
+#### <a name="packagetypes"></a>packageTypes
+*(ab Version 3.5)* Eine Sammlung mit null oder mehr `<packageType>`-Elementen, die den Pakettyp angibt, sofern es sich nicht um ein gewöhnliches Abhängigkeitspaket handelt. Jedes packageType-Element verfügt über die Attribute *name* und *version*. Informationen hierzu finden Sie unter [Festlegen eines Pakettyps](../create-packages/creating-a-package.md#setting-a-package-type).
+#### <a name="dependencies"></a>dependencies
+Eine Sammlung mit null oder mehr `<dependency>`-Elementen, die die Abhängigkeiten für das Paket angibt. Jede Abhängigkeit verfügt über die Attribute *id*, *version*, *include* und *exclude* (ab Version 3.x). Informationen hierzu finden Sie im Abschnitt [Abhängigkeiten](#dependencies-element) weiter unten.
 #### <a name="frameworkassemblies"></a>frameworkAssemblies
-*(1.2 und höher)* Eine Auflistung, die kein `<frameworkAssembly>`-Element oder mindestens eins enthält und die für das Paket erforderlichen Verweise auf .NET Framework-Assemblys erkennt und sicherstellt, dass Verweise zu Projekten hinzugefügt werden, die das Paket verarbeiten. Jedes frameworkAssembly-Element verfügt über die Attribute *assemblyName* und *targetFramework*. Informationen dazu finden Sie unter [Specifying framework assembly references GAC (Angeben von GAC-Verweisen auf Frameworkassemblys)](#specifying-framework-assembly-references-gac). |
-#### <a name="references"></a>Referenzen
-*(1.5 und höher)* Eine Auflistung, die kein `<reference>`-Element oder mindestens eins enthält, das Assemblys in dem `lib`-Ordner des Pakets benennt, die als Projektverweise hinzugefügt werden. Jeder Verweis verfügt über ein *file*-Attribut. `<references>` kann außerdem ein `<group>`-Element mit einem *targetFramework*-Attribut enthalten, das anschließend `<reference>`-Elemente enthält. Wenn das Element nicht angegeben ist, werden alle Verweise in `lib` eingefügt. Informationen dazu finden Sie unter [Specifying explicit assembly references (Angeben von expliziten Assemblyverweisen)](#specifying-explicit-assembly-references).
+*(ab Version 1.2)* Eine Sammlung mit null oder mehr `<frameworkAssembly>`-Elementen, die die für das Paket erforderlichen Verweise auf .NET Framework-Assemblys benennt. Hierdurch wird sichergestellt, dass Verweise auf Projekte hinzugefügt werden, die das Paket verarbeiten. Jedes frameworkAssembly-Element verfügt über die Attribute *assemblyName* und *targetFramework*. Informationen hierzu finden Sie unter [Verweise auf Frameworkassemblys](#specifying-framework-assembly-references-gac). |
+#### <a name="references"></a>references
+*(ab Version 1.5)* Eine Sammlung mit null oder mehr `<reference>`-Elementen, die Assemblys im `lib`-Ordner des Pakets benennt, die als Projektverweise hinzugefügt werden. Jeder Verweis verfügt über ein *file*-Attribut. `<references>` kann außerdem ein `<group>`-Element mit einem *targetFramework*-Attribut enthalten, das seinerseits `<reference>`-Elemente enthält. Wenn das Element nicht angegeben ist, werden alle Verweise in `lib` eingeschlossen. Informationen hierzu finden Sie unter [Explizite Assemblyverweise](#specifying-explicit-assembly-references).
 #### <a name="contentfiles"></a>contentFiles
-*(3.3 und höher)* Eine Auflistung von `<files>`-Elementen, die Inhaltsdateien ermitteln, die in das verarbeitende Projekt eingefügt werden sollen. Diese Dateien werden zusammen mit mehreren Attributen angegeben, die beschreiben, wie sie in dem Projektsystem verwendet werden sollen. Informationen dazu finden Sie unter [Specifying files to include in the package (Angeben von Dateien, die in das Paket eingefügt werden sollen)](#specifying-files-to-include-in-the-package).
-#### <a name="files"></a>Dateien 
-Der `<package>`-Knoten enthält möglicherweise einen `<files>`-Knoten, der `<metadata>` gleichgeordnet ist, und bzw. oder eine untergeordnete `<contentFiles>`-Datei unter `<metadata>`, um anzugeben, welche Assembly- und Inhaltsdateien in das Paket eingefügt werden sollen. Details dazu finden Sie im Folgenden in den Abschnitten [Einfügen von Assemblydateien](#including-assembly-files) und [Einfügen von Inhaltsdateien](#including-content-files).
+*(ab Version 3.3)* Eine Sammlung von `<files>`-Elementen, die Inhaltsdateien angeben, die in das verarbeitende Projekt eingeschlossen werden sollen. Diese Dateien werden zusammen mit Attributen angegeben, die beschreiben, wie sie im Projektsystem verwendet werden sollen. Informationen hierzu finden Sie weiter unten unter [Einschließen von Assemblydateien](#specifying-files-to-include-in-the-package).
+#### <a name="files"></a>files 
+Der `<package>`-Knoten enthält möglicherweise einen `<files>`-Knoten, der `<metadata>` gleichgeordnet ist, und bzw. oder eine untergeordnete `<contentFiles>`-Datei unter `<metadata>`. Hiermit wird angegeben, welche Assembly- und Inhaltsdateien in das Paket eingeschlossen werden sollen. Ausführliche Informationen hierzu finden Sie weiter unten in den Abschnitten [Einschließen von Assemblydateien](#including-assembly-files) und [Einschließen von Inhaltsdateien](#including-content-files).
 
-## <a name="replacement-tokens"></a>Ersetzungstokens
+## <a name="replacement-tokens"></a>Ersetzungstoken
 
-Bei der Erstellung eines Pakets ersetzt der [`nuget pack`-Befehl](../tools/cli-ref-pack.md) durch $ getrennte Tokens im `<metadata>`-Knoten der `.nuspec`-Datei durch Werte, die entweder einer Projektdatei oder dem `-properties`-Schalter des `pack`-Befehls entstammen.
+Bei der Erstellung eines Pakets ersetzt der [`nuget pack`-Befehl](../tools/cli-ref-pack.md) durch $ getrennte Token im `<metadata>`-Knoten der `.nuspec`-Datei durch Werte, die entweder einer Projektdatei oder der `-properties`-Option des `pack`-Befehls entstammen.
 
 Geben Sie in der Befehlszeile die Tokenwerte mit `nuget pack -properties <name>=<value>;<name>=<value>` an. Beispielsweise können Sie ein Token wie `$owners$` und `$desc$` in der `.nuspec`-Datei verwenden und die Werte zur Packzeit wie im Folgenden dargestellt bereitstellen:
 
@@ -131,17 +131,17 @@ nuget pack MyProject.csproj -properties
     owners=janedoe,harikm,kimo,xiaop;desc="Awesome app logger utility"
 ```
 
-Geben Sie die in der untenstehenden Tabelle beschriebenen Tokens an, um Werte aus einem Projekt zu verwenden (AssemblyInfo verweist auf Dateien wie `AssemblyInfo.cs` oder `AssemblyInfo.vb` in `Properties`).
+Geben Sie die in der untenstehenden Tabelle beschriebenen Token an, um Werte aus einem Projekt zu verwenden (AssemblyInfo verweist auf Dateien wie `AssemblyInfo.cs` oder `AssemblyInfo.vb` in `Properties`).
 
-Führen Sie anstelle von `.nuspec` nur `nuget pack` in der Projektdatei aus, um diese Tokens zu verwenden. Beispielsweise werden bei der Verwendung des folgenden Befehls die Tokens `$id$` und `$version$` in einer `.nuspec`-Datei durch die Werte `AssemblyName` und `AssemblyVersion` des Projekts ersetzt:
+Führen Sie anstelle von `.nuspec` nur `nuget pack` in der Projektdatei aus, um diese Token zu verwenden. Beispielsweise werden bei der Verwendung des folgenden Befehls die Token `$id$` und `$version$` in einer `.nuspec`-Datei durch die Werte `AssemblyName` und `AssemblyVersion` des Projekts ersetzt:
 
 ```ps
 nuget pack MyProject.csproj
 ```
 
-In der Regel erstellen Sie `.nuspec` in einem Projekt zuerst mithilfe von `nuget spec MyProject.csproj`, wodurch automatisch einige dieser Standardtokens eingefügt werden. Wenn in einem Projekt allerdings keine Werte für erforderliche `.nuspec`-Elemente enthalten sind, schlägt `nuget pack` fehl. Stellen Sie außerdem bei der Änderung von Projektwerten sicher, dass Sie diese neu erstellen, bevor Sie das Paket erstellen. Dies können Sie ganz einfach über den `build`-Paketschalter des Befehls tun.
+In der Regel erstellen Sie die `.nuspec`-Datei in einem Projekt zuerst mithilfe von `nuget spec MyProject.csproj`, wodurch automatisch einige dieser Standardtoken eingeschlossen werden. Wenn in einem Projekt allerdings keine Werte für erforderliche `.nuspec`-Elemente enthalten sind, tritt bei `nuget pack` ein Fehler auf. Stellen Sie außerdem bei der Änderung von Projektwerten sicher, dass Sie diese neu erstellen, bevor Sie das Paket erstellen. Dies können Sie ganz einfach über die Option `build` des Packbefehls tun.
 
-Mit Ausnahme von `$configuration$` werden Werte in dem Projekt gegenüber Werten bevorzugt, die demselben Token in der Befehlszeile zugeordnet sind.
+Mit Ausnahme von `$configuration$` werden Werte im Projekt gegenüber Werten bevorzugt, die demselben Token in der Befehlszeile zugeordnet sind.
 
 | Token | Wertquelle | Wert
 | --- | --- | ---
@@ -151,9 +151,9 @@ Mit Ausnahme von `$configuration$` werden Werte in dem Projekt gegenüber Werten
 | **$title$** | AssemblyInfo | AssemblyTitle |
 | **$description$** | AssemblyInfo | AssemblyDescription |
 | **$copyright$** | AssemblyInfo | AssemblyCopyright |
-| **$configuration$** | Assembly-DLL | Konfiguration, die zur Erstellung der Assembly verwendet wird und standardmäßig auf „Debuggen“ festgelegt ist. Achten Sie darauf, dass Sie stets `-properties Configuration=Release` in der Befehlszeile verwenden, um mithilfe einer Releasekonfiguration ein Paket zu erstellen. |
+| **$configuration$** | Assembly-DLL | Konfiguration, die zur Erstellung der Assembly verwendet wird und standardmäßig auf „Debug“ festgelegt ist. Achten Sie darauf, dass Sie stets `-properties Configuration=Release` in der Befehlszeile verwenden, um mithilfe einer Releasekonfiguration ein Paket zu erstellen. |
 
-Tokens können auch zum Auflösen von Pfaden verwendet werden, wenn Sie [Assemblydateien](#including-assembly-files) und [Inhaltsdateien](#including-content-files) hinzufügen. Die Namen der Tokens und der MSBuild-Eigenschaften stimmen miteinander überein, wodurch Sie abhängig von der aktuellen Buildkonfiguration Dateien auswählen können, die eingefügt werden sollen. Wenn Sie beispielsweise die folgenden Tokens in der `.nuspec`-Datei verwenden
+Token können auch zum Auflösen von Pfaden verwendet werden, wenn Sie [Assemblydateien](#including-assembly-files) und [Inhaltsdateien](#including-content-files) hinzufügen. Die Namen der Token und der MSBuild-Eigenschaften sind identisch, wodurch Sie abhängig von der aktuellen Buildkonfiguration Dateien auswählen können, die eingeschlossen werden sollen. Wenn Sie beispielsweise die folgenden Token in der `.nuspec`-Datei verwenden
 
 ```xml
 <files>
@@ -161,7 +161,7 @@ Tokens können auch zum Auflösen von Pfaden verwendet werden, wenn Sie [Assembl
 </files>
 ```
 
-und Sie eine Assembly mit der `Release`-Konfiguration in MSBuild erstellen, deren `AssemblyName` `LoggingLibrary` ist, sehen die dadurch entstandenen Zeilen in der `.nuspec`-Datei in den Paketen wie folgt aus:
+und eine Assembly mit der `Release`-Konfiguration in MSBuild erstellen, deren `AssemblyName` den Wert `LoggingLibrary` hat, sehen die dadurch entstandenen Zeilen in der `.nuspec`-Datei in den Paketen wie folgt aus:
 
 ```xml
 <files>
@@ -171,26 +171,26 @@ und Sie eine Assembly mit der `Release`-Konfiguration in MSBuild erstellen, dere
 
 ## <a name="dependencies-element"></a>Abhängigkeitselement
 
-Das `<dependencies>`-Element in `<metadata>` enthält eine beliebige Anzahl von `<dependency>`-Elementen, die andere Pakete finden, von denen die Pakete auf der obersten Ebene abhängig sind. Im Folgenden werden die Attribute für jede `<dependency>` dargestellt:
+Das `<dependencies>`-Element in `<metadata>` enthält eine beliebige Anzahl von `<dependency>`-Elementen, die andere Pakete angeben, von denen das Paket der obersten Ebene abhängig ist. Im Folgenden werden die Attribute für jede `<dependency>` dargestellt:
 
 | Attribut | Beschreibung |
 | --- | --- |
-| `id` | (Erforderlich) Die Paket-ID der Abhängigkeit, z.B. „EntityFramework“ und „NUnit“, die der Name des Pakets „nuget.org“ ist, wird auf einer Paketseite angezeigt. |
-| `version` | (Erforderlich) Der Bereich an Versionen, die als Abhängigkeiten akzeptiert werden. Die genaue Syntax finden Sie unter [Paketversionsverwaltung](../reference/package-versioning.md#version-ranges-and-wildcards). |
-| include | Eine durch Kommas abgetrennte Liste mit Include/Exclude-Tags (s. Tabelle unten), in der auf die Abhängigkeit verwiesen wird, die in das endgültige Paket eingefügt werden soll. Der Standardwert ist `all`. |
-| exclude | Eine durch Kommas abgetrennte Liste mit Include/Exclude-Tags (s. Tabelle unten), in der auf die Abhängigkeit verwiesen wird, die nicht in das endgültige Paket eingefügt werden soll. Der Standardwert ist `build,analyzers` stehen überschrieben. Aber `content/ ContentFiles` auch implizit in das endgültige Paket die überschrieben werden, kann nicht ausgeschlossen werden. `exclude`-Tags haben Vorrang gegenüber `include`-Tags. Beispielsweise entspricht `include="runtime, compile" exclude="compile"` `include="runtime"`. |
+| `id` | (Erforderlich) Paket-ID der Abhängigkeit, z.B. „EntityFramework“ und „NUnit“. Dies ist der Name des Pakets, der auf nuget.org auf einer Paketseite angezeigt wird. |
+| `version` | (Erforderlich) Bereich an Versionen, die als Abhängigkeiten akzeptiert werden. Die genaue Syntax finden Sie unter [Version Ranges and Wildcards (Versionsbereiche und Platzhalter)](../reference/package-versioning.md#version-ranges-and-wildcards). |
+| include | Eine kommagetrennte Liste mit include- und exclude-Tags (siehe nachfolgende Tabelle), die die Abhängigkeit angibt, die in das endgültige Paket eingeschlossen werden soll. Der Standardwert ist `all`. |
+| exclude | Eine kommagetrennte Liste mit include- und exclude-Tags (siehe nachfolgende Tabelle), die die Abhängigkeit angibt, die aus dem endgültigen Paket ausgeschlossen werden soll. Der Standardwert ist `build,analyzers`. Er kann überschrieben werden. Allerdings werden implizit auch `content/ ContentFiles` aus dem endgültigen Paket ausgeschlossen, was sich nicht überschreiben lässt. `exclude`-Tags haben Vorrang vor `include`-Tags. Beispielsweise hat `include="runtime, compile" exclude="compile"` die gleiche Wirkung wie `include="runtime"`. |
 
-| Include/Exclude-Tag | Betroffene Ordner im Ziel |
+| Include-/Exclude-Tag | Betroffene Ordner auf dem Ziel |
 | --- | --- |
-| contentFiles | Inhalt |
-| Laufzeit | Runtime, Ressourcen und Frameworkassemblys |
+| contentFiles | Content |
+| runtime | Runtime, Resources und FrameworkAssemblies |
 | compile | lib |
 | Build | Build (MSBuild-Eigenschaften und -Ziele) |
-| Systemeigen | Systemeigen |
-| Keine | Keine Ordner |
-| alle | Alle Ordner |
+| native | native |
+| none | Keine Ordner |
+| all | Alle Ordner |
 
-Beispielsweise verweisen die folgenden Zeilen auf Abhängigkeiten auf `PackageA` Version 1.1.0 und höher und `PackageB` Version 1.x.
+Beispielsweise verweisen die folgenden Zeilen auf Abhängigkeiten von `PackageA` Version 1.1.0 und höher und `PackageB` Version 1.x.
 
 ```xml
 <dependencies>
@@ -199,7 +199,7 @@ Beispielsweise verweisen die folgenden Zeilen auf Abhängigkeiten auf `PackageA`
 </dependencies>
 ```
 
-In den folgenden Zeilen wird zwar auf Abhängigkeiten von denselben Paketen verwiesen, allerdings wird auch angegeben, dass die Ordner `contentFiles` und `build` von `PackageA` sowie alle anderen Ordner bis auf `native` und `compile` von `PackageB` angegeben werden sollen.
+In den folgenden Zeilen wird zwar auf Abhängigkeiten von denselben Paketen verwiesen, allerdings wird auch angegeben, dass die Ordner `contentFiles` und `build` aus `PackageA` sowie alle anderen Ordner bis auf `native` und `compile` aus `PackageB` eingeschlossen werden sollen.
 
 ```xml
 <dependencies>
@@ -208,17 +208,17 @@ In den folgenden Zeilen wird zwar auf Abhängigkeiten von denselben Paketen verw
 </dependencies>
 ```
 
-Hinweis: Bei der Erstellung von `.nuspec` mithilfe von `nuget spec` aus einem Projekt werden in diesem Projekt bestehende Abhängigkeiten automatisch in die resultierende `.nuspec`-Datei eingefügt.
+Hinweis: Bei der Erstellung einer `.nuspec`-Datei mithilfe von `nuget spec` aus einem Projekt werden in diesem Projekt bestehende Abhängigkeiten automatisch in die resultierende `.nuspec`-Datei eingeschlossen.
 
 ### <a name="dependency-groups"></a>Abhängigkeitsgruppen
 
 *Version 2.0 und höher*
 
-Als Alternative zu einer einzelnen flachen Liste können Abhängigkeiten auf der Grundlage des Frameworkprofils des Zielprojekts angegeben werden, das `<group>`-Elemente in `<dependencies>` verwendet.
+Als Alternative zu einer einzelnen flachen Liste können Abhängigkeiten auf der Grundlage des Frameworkprofils des Zielprojekts mithilfe von `<group>`-Elementen in `<dependencies>` angegeben werden.
 
-Jede Gruppe verfügt über ein Attribut mit dem Namen `targetFramework` und enthält entweder kein `<dependency>`-Element oder mindestens eins. Diese Abhängigkeiten werden zusammen installiert, wenn das Zielframework kompatibel mit dem Frameworkprofil des Projekts ist.
+Jede Gruppe verfügt über ein Attribut mit dem Namen `targetFramework` und enthält null oder mehr `<dependency>`-Elemente. Diese Abhängigkeiten werden gemeinsam installiert, wenn das Zielframework kompatibel mit dem Frameworkprofil des Projekts ist.
 
-Das `<group>`-Element ohne ein `targetFramework`-Attribut wird als Standard- oder Ausweichliste der Abhängigkeiten verwendet. Die genauen Frameworkbezeichner finden Sie unter [Zielframeworks](../reference/target-frameworks.md).
+Das `<group>`-Element ohne ein `targetFramework`-Attribut wird als Standard- oder Fallbackliste der Abhängigkeiten verwendet. Die genauen Frameworkbezeichner finden Sie unter [Zielframeworks](../reference/target-frameworks.md).
 
 > [!Important]
 > Das Gruppenformat kann nicht mit einer flachen Liste vermischt werden.
@@ -245,9 +245,9 @@ Im folgenden Beispiel werden verschiedene Variationen des `<group>`-Elements dar
 
 ## <a name="explicit-assembly-references"></a>Explizite Assemblyverweise
 
-Das `<references>`-Element gibt die genauen Assemblyverweise an, auf die das Zielprojekt bei der Verwendung des Pakets verweisen soll. Wenn dieses Element vorhanden ist, fügt NuGet nur Verweise zu den aufgelisteten Assemblys hinzu. Es werden keine Verweise auf andere Assemblys in dem `lib`-Ordner des Pakets hinzugefügt.
+Das `<references>`-Element gibt ausdrücklich die Assemblyverweise an, auf die das Zielprojekt bei der Verwendung des Pakets verweisen soll. Wenn dieses Element vorhanden ist, fügt NuGet nur Verweise auf die aufgelisteten Assemblys hinzu. Es werden keine Verweise auf andere Assemblys im `lib`-Ordner des Pakets hinzugefügt.
 
-Beispielsweise gibt das folgende `<references>`-Element NuGet die Anweisung, Verweise nur zu `xunit.dll` und `xunit.extensions.dll` hinzuzufügen, wenn zusätzliche Assemblys in dem Paket enthalten sind:
+Beispielsweise gibt das folgende `<references>`-Element NuGet die Anweisung, Verweise auch dann nur auf `xunit.dll` und `xunit.extensions.dll` hinzuzufügen, wenn zusätzliche Assemblys im Paket enthalten sind:
 
 ```xml
 <references>
@@ -256,17 +256,17 @@ Beispielsweise gibt das folgende `<references>`-Element NuGet die Anweisung, Ver
 </references>
 ```
 
-In der Regel werden Verweise nur für Assemblys zur Entwurfszeit verwendet. Beispielsweise müssen sich Vertragsassemblys bei der Verwendung von [Codeverträgen](/dotnet/framework/debug-trace-profile/code-contracts) neben den Runtimeassemblys befinden, die sie erweitern, damit Visual Studio sie finden kann. Allerdings muss das Projekt auf die Vertragsassemblys verweisen oder in den `bin`-Ordner des Projekts kopiert werden.
+In der Regel werden Verweise nur für Assemblys zur Entwurfszeit verwendet. Beispielsweise müssen sich Vertragsassemblys bei der Verwendung von [Codeverträgen](/dotnet/framework/debug-trace-profile/code-contracts) neben den Runtimeassemblys befinden, die sie erweitern, damit Visual Studio sie finden kann. Allerdings muss das Projekt auf die Vertragsassemblys verweisen, und sie dürfen auch nicht in den `bin`-Ordner des Projekts kopiert werden.
 
-Genauso können explizite Verweise für Komponententestframeworks wie XUnit verwendet werden, in denen sich zwar die Toolsassemblys neben den Runtimeassemblys befinden müssen, jedoch müssen diese nicht als Projektverweise eingefügt werden.
+Genauso können explizite Verweise für Komponententestframeworks wie XUnit verwendet werden, in denen sich zwar die Toolassemblys neben den Runtimeassemblys befinden, jedoch nicht als Projektverweise eingeschlossen werden müssen.
 
 ### <a name="reference-groups"></a>Verweisgruppen
 
-Als Alternative zu einer einzelnen flachen Liste können Verweise auf der Grundlage des Frameworkprofils des Zielprojekts angegeben werden, das `<group>`-Elemente in `<references>` verwendet.
+Als Alternative zu einer einzelnen flachen Liste können mithilfe von `<group>`-Elementen in `<references>` Verweise auf der Grundlage des Frameworkprofils des Zielprojekts angegeben werden.
 
-Jede Gruppe verfügt über ein Attribut mit dem Namen `targetFramework` und enthält entweder kein `<reference>`-Element oder mindestens eins. Diese Verweise werden einem Projekt hinzugefügt, wenn das Zielframework mit dem Frameworkprofil des Projekts kompatibel ist.
+Jede Gruppe verfügt über ein Attribut namens `targetFramework` und enthält null oder mehr `<reference>`-Elemente. Diese Verweise werden einem Projekt hinzugefügt, wenn das Zielframework mit dem Frameworkprofil des Projekts kompatibel ist.
 
-Das `<group>`-Element ohne ein `targetFramework`-Attribut wird als Standard- oder Ausweichliste der Verweise verwendet. Die genauen Frameworkbezeichner finden Sie unter [Zielframeworks](../reference/target-frameworks.md).
+Das `<group>`-Element ohne `targetFramework`-Attribut wird als Standard- oder Fallbackliste für Verweise verwendet. Die genauen Frameworkbezeichner finden Sie unter [Zielframeworks](../reference/target-frameworks.md).
 
 > [!Important]
 > Das Gruppenformat kann nicht mit einer flachen Liste vermischt werden.
@@ -293,16 +293,16 @@ Im folgenden Beispiel werden verschiedene Variationen des `<group>`-Elements dar
 
 ## <a name="framework-assembly-references"></a>Verweise auf Frameworkassemblys
 
-Frameworkassemblys gehören zum .NET Framework und sollten für jeden vorhandenen Computer bereits im globalen Assemblycache vorhanden sein. Pakete können sicherstellen, dass die erforderlichen Verweise, falls nötig, dem Projekt hinzugefügt werden, indem es diese Assemblys im `<frameworkAssemblies>`-Element erkennt. Solche Assemblys sind nicht von Anfang an in Paketen enthalten.
+Frameworkassemblys gehören zum .NET Framework und sollten für jeden vorhandenen Computer bereits im globalen Assemblycache vorhanden sein. Durch Angabe dieser Assemblys im `<frameworkAssemblies>`-Element können Pakete sicherstellen, dass erforderliche Verweise einem Projekt hinzugefügt werden, falls das Projekt noch nicht über solche Verweise verfügt. Derartige Assemblys sind natürlich nicht von Anfang an in Paketen enthalten.
 
-Das `<frameworkAssemblies>`-Element enthält entweder kein `<frameworkAssembly>`-Element oder mindestens eins, das die folgenden Attribute angibt:
+Das `<frameworkAssemblies>`-Element enthält null oder mehr `<frameworkAssembly>`-Elemente, die jeweils die folgenden Attribute angeben:
 
 | Attribut | Beschreibung |
 | --- | --- |
-| **assemblyName** | (Erforderlich) Der vollqualifizierte Assemblyname. |
-| **targetFramework** | (Optional) Gibt das Zielframework an, auf das sich dieser Verweis bezieht. Wenn dieses Attribut nicht vorhanden ist, deutet dies darauf hin, dass sich der Verweis auf alle Frameworks bezieht. Die genauen Frameworkbezeichner finden Sie unter [Zielframeworks](../reference/target-frameworks.md). |
+| **assemblyName** | (Erforderlich) Vollqualifizierter Assemblyname. |
+| **targetFramework** | (Optional) Gibt das Zielframework an, auf das sich dieser Verweis bezieht. Das Fehlen des Attributs weist darauf hin, dass der Verweis für alle Frameworks gilt. Die genauen Frameworkbezeichner finden Sie unter [Zielframeworks](../reference/target-frameworks.md). |
 
-Im folgenden Beispiel werden Verweise auf `System.Net` für alle Zielframeworks und auf `System.ServiceModel` für ausschließlich .NET Framework 4.0 dargestellt:
+Das folgende Beispiel zeigt einen Verweis auf `System.Net` für alle Zielframeworks sowie einen weiteren Verweis auf `System.ServiceModel`, der ausschließlich für .NET Framework 4.0 gilt:
 
 ```xml
 <frameworkAssemblies>
@@ -314,14 +314,14 @@ Im folgenden Beispiel werden Verweise auf `System.Net` für alle Zielframeworks 
 
 <a name="specifying-files-to-include-in-the-package"></a>
 
-## <a name="including-assembly-files"></a>Einfügen von Assemblydateien
+## <a name="including-assembly-files"></a>Einschließen von Assemblydateien
 
-Wenn Sie die unter [Creating a Package (Erstellen eines Pakets)](../create-packages/creating-a-package.md) beschriebenen Anweisungen ausführen, müssen Sie nicht explizit eine Liste mit Dateien in der `.nuspec`-Datei angeben. Der `nuget pack`-Befehl ruft die benötigten Dateien automatisch ab.
+Wenn Sie die unter [Erstellen von NuGet-Paketen](../create-packages/creating-a-package.md) beschriebenen Konventionen beachten, müssen Sie nicht explizit eine Liste mit Dateien in der `.nuspec`-Datei angeben. Der `nuget pack`-Befehl ruft die benötigten Dateien automatisch ab.
 
 > [!Important]
-> Wenn ein Paket in einem Projekt installiert wird, fügt NuGet automatisch der DLL des Pakets Assemblyverweise hinzu. Die Verweise, die mit `.resources.dll` benannt sind werden dabei allerdings *nicht* hinzugefügt, da angenommen wird, dass es sich dabei um lokalisierte Satellitenassemblys handelt. Vermeiden Sie aus diesem Grund die Verwendung von `.resources.dll` für Dateien, die darüber hinaus wichtigen Paketcode enthalten.
+> Wenn ein Paket in einem Projekt installiert wird, fügt NuGet der DLL des Pakets automatisch Assemblyverweise hinzu. Verweise namens `.resources.dll` werden dabei allerdings *nicht* hinzugefügt, da angenommen wird, dass es sich dabei um lokalisierte Satellitenassemblys handelt. Vermeiden Sie aus diesem Grund die Verwendung von `.resources.dll` für Dateien, die darüber hinaus wichtigen Paketcode enthalten.
 
-Legen Sie ein `<files>`-Element als untergeordnetes Element von `<package>` und als gleichgeordnetes Element von `<metadata>` fest, das jeder Datei ein separates `<file>`-Element zuordnet, um diese automatischen Vorgänge zu umgehen und genau zu kontrollieren, welche Dateien in einem Paket enthalten sind. Zum Beispiel:
+Wenn Sie diese automatischen Abläufe umgehen und explizit steuern möchten, welche Dateien in einem Paket enthalten sein sollen, legen Sie ein `<files>`-Element als untergeordnetes Element von `<package>` (und gleichgeordnetes Element von `<metadata>`) fest, das jede Datei mit einem separaten `<file>`-Element benennt. Zum Beispiel:
 
 ```xml
 <files>
@@ -331,7 +331,7 @@ Legen Sie ein `<files>`-Element als untergeordnetes Element von `<package>` und 
 </files>
 ```
 
-Das `<files>`-Element wird bei NuGet 2.x und früher sowie bei Projekten, die `packages.config` verwenden, außerdem verwendet, um unveränderliche Inhaltsdateien während der Paketinstallation einzufügen. Bei NuGet 3.3 und höher und Projekten, die PackageReference verwenden, wird stattdessen das `<contentFiles>`-Element verwendet. Weitere Informationen finden Sie unter [Einfügen von Inhaltsdateien](#including-content-files).
+Das `<files>`-Element wird außerdem bei NuGet 2.x und früher sowie bei Projekten, die `packages.config` verwenden, zum Einschließen unveränderlicher Inhaltsdateien während der Paketinstallation benutzt. Seit NuGet 3.3 und bei Projekten, die PackageReference verwenden, wird stattdessen das `<contentFiles>`-Element verwendet. Weitere Informationen finden Sie unter [Einschließen von Inhaltsdateien](#including-content-files).
 
 ### <a name="file-element-attributes"></a>Dateielementattribute
 
@@ -339,9 +339,9 @@ Jedes `<file>`-Element gibt die folgenden Attribute an:
 
 | Attribut | Beschreibung |
 | --- | --- |
-| **src** | Der Speicherort der Dateien, die eingefügt werden sollen, unterliegt Ausnahmen, die von dem `exclude`-Attribut angegeben werden. Der Pfad ist relativ zur `.nuspec`-Datei, wenn kein absoluter Pfad angegeben ist. Das Platzhalterzeichen `*` ist zulässig, und das zweifache Platzhalterzeichen `**` impliziert eine rekursive Ordnersuche. |
-| **target** | Der relative Pfad zu dem Ordner in dem Paket, in dem die Quelldateien platziert sind, der mit `lib`, `content`, `build` oder `tools` beginnt. Informationen dazu finden Sie unter [Creating a .nuspec from a convention-based working directory (Erstellen einer NUSPEC-Datei aus einem auf Konventionen basierenden Arbeitsverzeichnis)](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). |
-| **exclude** | Eine durch Semikolons abgetrennte Datei oder Dateimuster, die sich nicht im `src`-Speicherort befinden dürfen. Das Platzhalterzeichen `*` ist zulässig, und das zweifache Platzhalterzeichen `**` impliziert eine rekursive Ordnersuche. |
+| **src** | Speicherort der einzuschließenden Dateien. Hierbei werden die vom `exclude`-Attribut angegebenen Ausschlüsse berücksichtigt. Der Pfad ist relativ zur `.nuspec`-Datei, sofern kein absoluter Pfad angegeben ist. Das Platzhalterzeichen `*` ist zulässig, und das doppelte Platzhalterzeichen `**` impliziert eine rekursive Ordnersuche. |
+| **target** | Relativer Pfad zu dem Ordner im Paket, in dem die Quelldateien abgelegt sind. Dieser muss mit `lib`, `content`, `build` oder `tools` beginnen. Informationen hierzu finden Sie unter [Erstellen der NUSPEC-Datei > Aus einem konventionsbasierten Arbeitsverzeichnis](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). |
+| **exclude** | Eine mit Semikolons getrennte Datei oder ein Muster für Dateien, die aus dem `src`-Speicherort ausgeschlossen werden. Das Platzhalterzeichen `*` ist zulässig, und das doppelte Platzhalterzeichen `**` impliziert eine rekursive Ordnersuche. |
 
 ### <a name="examples"></a>Beispiele
 
@@ -367,7 +367,7 @@ Jedes `<file>`-Element gibt die folgenden Attribute an:
     Packaged result:
         lib\net40\library.dll
 
-**Mehrere DLLS, die Platzhalterzeichen verwenden**
+**Mehrere DLLs mit Verwendung eines Platzhalterzeichens**
 
     Source files:
         bin\release\libraryA.dll
@@ -408,22 +408,22 @@ Jedes `<file>`-Element gibt die folgenden Attribute an:
     Package result:
         (no files)
 
-## <a name="including-content-files"></a>Einfügen von Inhaltsdateien
+## <a name="including-content-files"></a>Einschließen von Inhaltsdateien
 
-Bei Inhaltsdateien handelt es sich um unveränderliche Dateien, die ein Paket in ein Projekt einfügen muss. Da sie unveränderlich sind, sollen sie auch nicht von dem verarbeitenden Projekt geändert werden. Zu den Inhaltsdateien gehören z.B.:
+Bei Inhaltsdateien handelt es sich um unveränderliche Dateien, die ein Paket in ein Projekt einschließen muss. Da sie unveränderlich sind, sollten sie auch nicht von dem verarbeitenden Projekt geändert werden. Zu den Inhaltsdateien gehören z.B.:
 
 - Bilder, die als Ressourcen eingebettet werden
-- Quelldateien, die bereits kompiliert sind
-- Skripts, die in die Buildausgabe des Projekts eingefügt werden müssen
-- Konfigurationsdateien für das Paket, die zwar in das Projekt eingefügt werden müssen, an denen jedoch keine projektspezifischen Änderungen vorgenommen werden müssen.
+- bereits kompilierte Quelldateien
+- Skripts, die in die Buildausgabe des Projekts eingeschlossen werden müssen
+- Konfigurationsdateien für das Paket, die zwar in das Projekt eingeschlossen werden müssen, an denen jedoch keine projektspezifischen Änderungen vorgenommen werden müssen
 
-Inhaltsdateien werden in ein Paket eingefügt, das das `<files>`-Element verwendet, das den `content`-Ordner im `target`-Attribut angibt. Allerdings werden diese Dateien ignoriert, wenn das Paket über PackageReference in ein Projekt installiert wird, das stattdessen das `<contentFiles>`-Element verwendet.
+Inhaltsdateien werden mithilfe eines `<files>`-Elements in ein Paket eingeschlossen. Dieses Element gibt den `content`-Ordner im `target`-Attribut an. Allerdings werden diese Dateien ignoriert, wenn das Paket per PackageReference in einem Projekt installiert wird, das stattdessen das `<contentFiles>`-Element verwendet.
 
-Im Idealfall geben Pakete die Inhaltsdateien in beiden Elementen an, um ein höchstmögliches Maß an Kompatibilität mit den verarbeitenden Projekten zu erreichen.
+Im Idealfall geben Pakete die Inhaltsdateien in beiden Elementen an, um ein Höchstmaß an Kompatibilität mit den verarbeitenden Projekten zu erreichen.
 
 ### <a name="using-the-files-element-for-content-files"></a>Verwenden des Dateielements für Inhaltsdateien
 
-Verwenden Sie für Inhaltsdateien einfach dasselbe Format wie für Assemblydateien. Geben Sie dabei allerdings `content` als Basisordner im `target`-Attribut an, wie in den folgenden Beispielen dargestellt wird.
+Verwenden Sie für Inhaltsdateien einfach dasselbe Format wie für Assemblydateien. Geben Sie dabei allerdings  wie in den folgenden Beispielen dargestellt `content` als Basisordner im `target`-Attribut an.
 
 **Grundlegende Inhaltsdateien**
 
@@ -453,7 +453,7 @@ Verwenden Sie für Inhaltsdateien einfach dasselbe Format wie für Assemblydatei
         content\css\mobile\wp7\style.css
         content\css\browser\style.css
 
-**Inhaltsdatei, die für ein Zielframework spezifisch ist**
+**Inhaltsdatei für ein bestimmtes Zielframework**
 
     Source file:
         css\cool\style.css
@@ -466,7 +466,7 @@ Verwenden Sie für Inhaltsdateien einfach dasselbe Format wie für Assemblydatei
 
 **Inhaltsdatei, die in einen Ordner mit einem Punkt im Namen kopiert wird**
 
-In diesem Fall erkennt NuGet, dass die Erweiterung in `target` nicht mit der Erweiterung in `src` übereinstimmt, und behandelt dieses Bestandteil des Namens in `target` als einen Ordner:
+In diesem Fall erkennt NuGet, dass die Erweiterung in `target` nicht mit der Erweiterung in `src` übereinstimmt, und behandelt diesen Namensbestandteil in `target` als Ordner:
 
     Source file:
         images\picture.png
@@ -479,7 +479,7 @@ In diesem Fall erkennt NuGet, dass die Erweiterung in `target` nicht mit der Erw
 
 **Inhaltsdateien ohne Erweiterungen**
 
-Verwenden Sie die Platzhalterzeichen `*` oder `**`, um Dateien ohne Erweiterungen einzufügen:
+Verwenden Sie die Platzhalterzeichen `*` oder `**`, um Dateien ohne Erweiterungen einzuschließen:
 
     Source file:
         flags\installed
@@ -490,7 +490,7 @@ Verwenden Sie die Platzhalterzeichen `*` oder `**`, um Dateien ohne Erweiterunge
     Packaged result:
         flags\installed
 
-**Inhaltsdateien mit tiefen Pfaden und tiefen Zielen**
+**Inhaltsdateien mit langen Pfaden und langen Zielen**
 
 In diesem Fall nimmt NuGet an, dass das Ziel ein Dateiname und kein Ordner ist, da die Dateierweiterungen von Quelle und Ziel übereinstimmen:
 
@@ -536,31 +536,31 @@ In diesem Fall nimmt NuGet an, dass das Ziel ein Dateiname und kein Ordner ist, 
 
 *NuGet 4.0 und höher mit PackageReference*
 
-Standardmäßig platzieren Pakete Inhalte in einem `contentFiles`-Ordner (s. unten), in den `nuget pack` alle Dateien mithilfe von Standardattributen eingefügt hat. In diesem Fall ist es nicht notwendig, einen `contentFiles`-Knoten in `.nuspec` einzufügen.
+Standardmäßig legen Pakete Inhalte in einem `contentFiles`-Ordner (siehe unten) ab, in den `nuget pack` alle Dateien mithilfe von Standardattributen eingeschlossen hat. In diesem Fall ist es gar nicht notwendig, einen `contentFiles`-Knoten in `.nuspec` einzuschließen.
 
-Das `<contentFiles>`-Element gibt eine Auflistung von `<files>`-Elementen an, die die eingefügten Dateien erkennen, um zu kontrollieren, welche Dateien eingefügt wurden.
+Um zu steuern, welche Dateien eingeschlossen werden, gibt das `<contentFiles>`-Element eine Sammlung mit `<files>`-Elementen an, die die einzuschließenden Dateien präzise angeben.
 
-Diese Dateien werden zusammen mit mehreren Attributen angegeben, die beschreiben, wie sie in dem Projektsystem verwendet werden sollen:
+Die Angabe der Dateien erfolgt mithilfe mehrerer Attribute, die beschreiben, wie sie im Projektsystem verwendet werden sollen:
 
 | Attribut | Beschreibung |
 | --- | --- |
-| **include** | (Erforderlich) Der Speicherort der Dateien, die eingefügt werden sollen, unterliegt Ausnahmen, die von dem `exclude`-Attribut angegeben werden. Der Pfad ist relativ zur `.nuspec`-Datei, wenn kein absoluter Pfad angegeben ist. Das Platzhalterzeichen `*` ist zulässig, und das zweifache Platzhalterzeichen `**` impliziert eine rekursive Ordnersuche. |
-| **exclude** | Eine durch Semikolons abgetrennte Datei oder Dateimuster, die sich nicht im `src`-Speicherort befinden dürfen. Das Platzhalterzeichen `*` ist zulässig, und das zweifache Platzhalterzeichen `**` impliziert eine rekursive Ordnersuche. |
-| **buildAction** | Die Buildaktion, die dem Inhaltselement für MSBuild zugewiesen werden soll. Z.B. `Content`, `None`, `Embedded Resource` oder `Compile`. Die Standardeinstellung ist `Compile`. |
-| **copyToOutput** | Ein boolescher Wert, der angibt, ob der Ordner "Output" Inhaltselemente auf den Build zu kopieren (oder veröffentlichen). Der Standardwert ist false. |
-| **flatten** | Ein boolescher Wert, der angibt, ob Inhaltselemente in einen Ordner in der Buildausgabe kopiert werden sollen (TRUE) oder ob die Ordnerstruktur in den Paketen beibehalten werden soll (FALSE). Diese Flag funktioniert nur, wenn das copyToOutput-Flag auf TRUE festgelegt ist. Der Standardwert ist false. |
+| **include** | (Erforderlich) Speicherort der Dateien, die eingeschlossen werden sollen. Hierbei werden die vom `exclude`-Attribut angegebenen Ausschlüsse berücksichtigt. Der Pfad ist relativ zur `.nuspec`-Datei, sofern kein absoluter Pfad angegeben ist. Das Platzhalterzeichen `*` ist zulässig, und das doppelte Platzhalterzeichen `**` impliziert eine rekursive Ordnersuche. |
+| **exclude** | Eine mit Semikolons getrennte Datei oder ein Muster für Dateien, die aus dem `src`-Speicherort ausgeschlossen werden. Das Platzhalterzeichen `*` ist zulässig, und das doppelte Platzhalterzeichen `**` impliziert eine rekursive Ordnersuche. |
+| **buildAction** | Die Buildaktion, die dem Inhaltselement für MSBuild zugewiesen werden soll, z.B. `Content`, `None`, `Embedded Resource` oder `Compile`. Die Standardeinstellung ist `Compile`. |
+| **copyToOutput** | Boolescher Wert, mit dem angegeben wird, ob Inhaltselemente in den Buildausgabeordner (oder den Veröffentlichungsausgabeordner) kopiert werden sollen. Der Standardwert ist FALSE. |
+| **flatten** | Boolescher Wert, der angibt, ob Inhaltselemente in einen Ordner in der Buildausgabe kopiert werden sollen (TRUE) oder die Ordnerstruktur in den Paketen beibehalten werden soll (FALSE). Dieses Flag funktioniert nur, wenn das copyToOutput-Flag auf TRUE festgelegt ist. Der Standardwert ist FALSE. |
 
-NuGet wendet die untergeordneten Elemente von `<contentFiles>` bei der Installation eines Pakets von unten nach oben an. Wenn mehrere Einträge in einer Datei vorhanden sind, werden sie alle angewendet. Der höher geordnete Eintrag setzt die untergeordneten Einträge außer Kraft, wenn ein Konflikt für ein Attribut entsteht.
+Beim Installieren eines Pakets wendet NuGet die untergeordneten Elemente von `<contentFiles>` von oben nach unten an. Wenn mehrere Einträge derselben Datei entsprechen, werden sie alle angewendet. Der oberste Eintrag hat im Falle eines Attributkonflikts Vorrang vor den untergeordneten Einträgen.
 
 #### <a name="package-folder-structure"></a>Paketordnerstruktur
 
-Das Paketprojekt sollte Inhalte mithilfe des folgenden Musters strukturieren:
+Das Paketprojekt sollte Inhalte anhand des folgenden Musters strukturieren:
 
     /contentFiles/{codeLanguage}/{TxM}/{any?}
 
 - `codeLanguages` kann `cs`, `vb`, `fs`, `any` oder das klein geschriebene Äquivalent einer `$(ProjectLanguage)` sein.
-- `TxM` ist ein für das Zielframework zulässiger Moniker, der NuGet unterstützt (Informationen dazu finden Sie unter [Zielframeworks](../reference/target-frameworks.md)).
-- An das Ende der Syntax kann eine beliebige Ordnerstruktur angehängt werden.
+- `TxM` ist ein für das Zielframework zulässiger Moniker, den NuGet unterstützt (Informationen hierzu finden Sie unter [Zielframeworks](../reference/target-frameworks.md)).
+- Ans Ende dieser Syntax kann eine beliebige Ordnerstruktur angehängt werden.
 
 Zum Beispiel:
 
@@ -573,12 +573,12 @@ Zum Beispiel:
     C#-specific content for net45 and up
         /contentFiles/cs/net45/sample.cs
 
-Für leere Ordner kann `.` eingefügt werden, wenn diese keine Inhalte mehr für bestimmte Sprachen und TxM bereitstellen sollen. Z.B.:
+Für leere Ordner kann `.` eingefügt werden, wenn diese keine Inhalte mehr für bestimmte Sprachen und TxM bereitstellen sollen. Zum Beispiel:
 
     /contentFiles/vb/any/code.vb
     /contentFiles/cs/any/.
 
-#### <a name="example-contentfiles-section"></a>Beispiel: Abschnitt „contentFiles“
+#### <a name="example-contentfiles-section"></a>contentFiles-Beispielabschnitt
 
 ```xml
 <contentFiles>
@@ -600,9 +600,9 @@ Für leere Ordner kann `.` eingefügt werden, wenn diese keine Inhalte mehr für
 </contentFiles>
 ```
 
-## <a name="example-nuspec-files"></a>Beispiel: Nuspec-Dateien
+## <a name="example-nuspec-files"></a>NUSPEC-Beispieldateien
 
-**Eine einfache `.nuspec`-Datei, die weder Abhängigkeiten noch Dateien enthält**
+**Einfache `.nuspec`-Datei, die weder Abhängigkeiten noch Dateien enthält**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -619,7 +619,7 @@ Für leere Ordner kann `.` eingefügt werden, wenn diese keine Inhalte mehr für
 </package>
 ```
 
-**Eine `.nuspec`-Datei mit Abhängigkeiten**
+**`.nuspec`-Datei mit Abhängigkeiten**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -636,7 +636,7 @@ Für leere Ordner kann `.` eingefügt werden, wenn diese keine Inhalte mehr für
 </package>
 ```
 
-**Eine `.nuspec`-Datei mit Dateien**
+**`.nuspec`-Datei mit Dateien**
 
 ```xml
 <?xml version="1.0"?>
@@ -654,7 +654,7 @@ Für leere Ordner kann `.` eingefügt werden, wenn diese keine Inhalte mehr für
 </package>
 ```
 
-**Eine `.nuspec`-Datei mit Frameworkassemblys**
+**`.nuspec`-Datei mit Frameworkassemblys**
 
 ```xml
 <?xml version="1.0"?>
