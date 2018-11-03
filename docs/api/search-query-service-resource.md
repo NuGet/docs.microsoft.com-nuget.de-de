@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: f04c6a62fc3b5056ad82930447b8ba46a8797fd2
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: cfcb52ba7689f1b392c782b4ad42ba820a76c8bf
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548090"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981131"
 ---
 # <a name="search"></a>Suchen
 
@@ -45,13 +45,13 @@ Ein nicht aufgelistetes Paket sollte nie in den Suchergebnissen angezeigt werden
 
 ### <a name="request-parameters"></a>Anforderungsparameter
 
-name        | In     | Typ    | Erforderlich | Hinweise
+Name        | In     | Typ    | Erforderlich | Hinweise
 ----------- | ------ | ------- | -------- | -----
-q           | URL    | Zeichenfolge  | Nein       | Suchbegriffe verwendet, um die Filter-Pakete
+q           | URL    | String  | Nein       | Suchbegriffe verwendet, um die Filter-Pakete
 überspringen        | URL    | Ganze Zahl | Nein       | Die Anzahl von Ergebnissen für die Paginierung überspringen
 Take        | URL    | Ganze Zahl | Nein       | Die Anzahl der zurückzugebenden Ergebnisse, für die Paginierung
 Vorabversion  | URL    | boolean | Nein       | `true` oder `false` bestimmen, ob enthalten [Vorabversionen von Paketen](../create-packages/prerelease-packages.md)
-semVerLevel | URL    | Zeichenfolge  | Nein       | Eine Versionszeichenfolge SemVer 1.0.0 
+semVerLevel | URL    | String  | Nein       | Eine Versionszeichenfolge SemVer 1.0.0 
 
 Die Suchabfrage `q` wird analysiert, in einer Weise, die von der serverimplementierung definiert ist. "NuGet.org" unterstützen das einfache Filtern anhand einer [Vielzahl von Feldern](../consume-packages/finding-and-choosing-packages.md#search-syntax). Wenn kein `q` bereitgestellt wird, werden alle Pakete, innerhalb der Grenzen von Skip und Take auferlegt, zurückgegeben werden sollen. Dadurch wird die Registerkarte "Durchsuchen" in NuGet Visual Studio zu erleichtern.
 
@@ -83,9 +83,9 @@ Das Objekt hat die folgenden Eigenschaften:
 
 name           | Typ                       | Erforderlich | Hinweise
 -------------- | -------------------------- | -------- | -----
-ID             | Zeichenfolge                     | ja      | Die ID des übereinstimmenden-Pakets
-Version        | Zeichenfolge                     | ja      | Die vollständige Zeichenfolge der SemVer 2.0.0-Version des Pakets (kann die Build-Metadaten enthalten)
-Beschreibung    | Zeichenfolge                     | Nein       | 
+id             | Zeichenfolge                     | ja      | Die ID des übereinstimmenden-Pakets
+version        | Zeichenfolge                     | ja      | Die vollständige Zeichenfolge der SemVer 2.0.0-Version des Pakets (kann die Build-Metadaten enthalten)
+description    | Zeichenfolge                     | Nein       | 
 Versionen       | Array von Objekten           | ja      | Alle Versionen der übereinstimmenden Paket die `prerelease` Parameter
 authors        | Zeichenfolge oder Array von Zeichenfolgen | Nein       | 
 iconUrl        | Zeichenfolge                     | Nein       | 
@@ -93,20 +93,20 @@ licenseUrl     | Zeichenfolge                     | Nein       |
 owners         | Zeichenfolge oder Array von Zeichenfolgen | Nein       | 
 projectUrl     | Zeichenfolge                     | Nein       | 
 Registrierung   | Zeichenfolge                     | Nein       | Die absolute URL an die zugeordnete [Registrierung Index](registration-base-url-resource.md#registration-index)
-Zusammenfassung        | Zeichenfolge                     | Nein       | 
-Tags           | Zeichenfolge oder Array von Zeichenfolgen | Nein       | 
-Titel          | Zeichenfolge                     | Nein       | 
+summary        | Zeichenfolge                     | Nein       | 
+tags           | Zeichenfolge oder Array von Zeichenfolgen | Nein       | 
+title          | Zeichenfolge                     | Nein       | 
 totalDownloads | Ganze Zahl                    | Nein       | Dieser Wert abgeleitet werden kann, durch die Summe der Downloads in den `versions` Array
 überprüft       | boolean                    | Nein       | Ein JSON-boolescher Wert, der angibt, ob das Paket [überprüft](../reference/id-prefix-reservation.md)
 
-Auf nuget.org ist ein überprüften Paket eine hat die Paket-ID, die ein reservierte ID-Präfix und im Besitz einer den reservierten Namespace-Besitzer. Weitere Informationen finden Sie unter den [Dokumentation zu ID-präfixreservierung](../reference/id-prefix-reservation.md).
+Auf nuget.org ist ein verifizierter Paket eine hat die Paket-ID, die ein reservierte ID-Präfix und im Besitz einer der Besitzer von dem reservierten Präfix. Weitere Informationen finden Sie unter den [Dokumentation zu ID-präfixreservierung](../reference/id-prefix-reservation.md).
 
 Die im Ergebnisobjekt Suche enthaltene Metadaten stammen aus der aktuellen Paketversion. Jedes Element in der `versions` Array ist ein JSON-Objekt mit den folgenden Eigenschaften:
 
 name      | Typ    | Erforderlich | Hinweise
 --------- | ------- | -------- | -----
 @id       | Zeichenfolge  | ja      | Die absolute URL an die zugeordnete [Registrierung Blattelemente](registration-base-url-resource.md#registration-leaf)
-Version   | Zeichenfolge  | ja      | Die vollständige Zeichenfolge der SemVer 2.0.0-Version des Pakets (kann die Build-Metadaten enthalten)
+version   | Zeichenfolge  | ja      | Die vollständige Zeichenfolge der SemVer 2.0.0-Version des Pakets (kann die Build-Metadaten enthalten)
 Downloads | Ganze Zahl | ja      | Die Anzahl der Downloads für diese spezielle Version des Pakets
 
 ### <a name="sample-request"></a>Beispiel für eine Anforderung

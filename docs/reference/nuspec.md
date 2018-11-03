@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: ddb22d819a1a4e41a2019705789a11de6cad1d79
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 5fe8b35125d9171a37afb337ed08d06445e5f890
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548441"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981157"
 ---
 # <a name="nuspec-reference"></a>NUSPEC-Referenz
 
@@ -86,7 +86,7 @@ URL eines 64 × 64 Pixel großen Bilds mit transparentem Hintergrund, das als Sy
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 Ein boolescher Wert, der angibt, ob der Client den Consumer dazu auffordern muss, die Paketlizenz vor der Installation des Pakets zu akzeptieren.
 #### <a name="developmentdependency"></a>developmentDependency
-*(ab Version 2.8)* Boolescher Wert, der angibt, ob das Paket mit einer Abhängigkeit markiert werden soll, die nur für die Entwicklung gilt. Hierdurch wird vermieden, dass das Paket als Abhängigkeit in andere Pakete eingeschlossen wird.
+*(ab Version 2.8)* Boolescher Wert, der angibt, ob das Paket mit einer Abhängigkeit markiert werden soll, die nur für die Entwicklung gilt. Hierdurch wird vermieden, dass das Paket als Abhängigkeit in andere Pakete eingeschlossen wird. Mit "packagereference" (NuGet 4.8) bedeutet dieses Flag auch, dass es während der Kompilierung von Ressourcen aus der Kompilierung ausgeschlossen werden. Finden Sie unter [DevelopmentDependency-Unterstützung für PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)
 #### <a name="summary"></a>summary
 Kurzbeschreibung des Pakets zur Anzeige auf der Benutzeroberfläche. Wenn diese nicht angegeben ist, wird eine gekürzte Version von `description` verwendet.
 #### <a name="releasenotes"></a>releaseNotes
@@ -118,7 +118,7 @@ Eine Sammlung mit null oder mehr `<dependency>`-Elementen, die die Abhängigkeit
 #### <a name="contentfiles"></a>contentFiles
 *(ab Version 3.3)* Eine Sammlung von `<files>`-Elementen, die Inhaltsdateien angeben, die in das verarbeitende Projekt eingeschlossen werden sollen. Diese Dateien werden zusammen mit Attributen angegeben, die beschreiben, wie sie im Projektsystem verwendet werden sollen. Informationen hierzu finden Sie weiter unten unter [Einschließen von Assemblydateien](#specifying-files-to-include-in-the-package).
 #### <a name="files"></a>files 
-Der `<package>`-Knoten enthält möglicherweise einen `<files>`-Knoten, der `<metadata>` gleichgeordnet ist, und bzw. oder eine untergeordnete `<contentFiles>`-Datei unter `<metadata>`. Hiermit wird angegeben, welche Assembly- und Inhaltsdateien in das Paket eingeschlossen werden sollen. Ausführliche Informationen hierzu finden Sie weiter unten in den Abschnitten [Einschließen von Assemblydateien](#including-assembly-files) und [Einschließen von Inhaltsdateien](#including-content-files).
+Die `<package>` -Knoten enthält möglicherweise eine `<files>` Knoten einen gleichgeordneten Knoten zu `<metadata>`, und ein `<contentFiles>` untergeordnetes Element unter `<metadata>`, um anzugeben, welche Dateien Assembly- und Inhaltsdateien im Paket enthalten. Ausführliche Informationen hierzu finden Sie weiter unten in den Abschnitten [Einschließen von Assemblydateien](#including-assembly-files) und [Einschließen von Inhaltsdateien](#including-content-files).
 
 ## <a name="replacement-tokens"></a>Ersetzungstoken
 
