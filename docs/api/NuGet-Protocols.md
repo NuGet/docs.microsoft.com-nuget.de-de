@@ -1,6 +1,6 @@
-﻿---
-title: "\"nuget.org\"-Protokolle"
-description: Die sich entwickelnden Protokolle bei nuget.org für die Interaktion mit NuGet-Clients.
+---
+title: nuget.org-Protokolle
+description: Der sich entwickelnden "nuget.org"-Protokolle für die Interaktion mit NuGet-Clients.
 author: anangaur
 ms.author: anangaur
 ms.date: 10/30/2017
@@ -18,7 +18,7 @@ ms.locfileid: "43547272"
 Zum Interagieren mit nuget.org müssen Clients bestimmte Protokolle nutzen. Da diese Protokolle sich immer weiterentwickeln, müssen Clients die von ihnen genutzte Protokollversion angeben, wenn sie bestimmte nuget.org-APIs aufrufen. Dadurch kann nuget.org Änderungen einführen und mit alten Clients kompatibel bleiben.
 
 > [!Note]
-> Die hier dokumentierten APIs sind spezifisch für nuget.org, und es wird von anderen NuGet-Serverimplementierungen nicht erwartet, dass sie diese APIs einführen.
+> Die hier dokumentierten APIs sind spezifisch für nuget.org, und es wird von anderen NuGet-Serverimplementierungen nicht erwartet, dass sie diese APIs einführen. 
 
 Weitere Informationen zur NuGet-API, die im NuGet-Ökosystem weitgehend implementiert ist, finden Sie in der [API-Übersicht](overview.md).
 
@@ -32,7 +32,7 @@ Die 4.1.0 Protokoll gibt an, die Nutzung der überprüfen-Scope-Schlüssel für 
 
 ### <a name="client-requirement"></a>Client-Anforderung
 
-Clients müssen die folgenden Header übergeben, wenn sie einen API-Aufruf abgeben, um Pakete auf nuget.org **hochzuladen**:
+Clients müssen die folgenden Header übergeben werden soll, wenn sie API-Aufrufen **Push** Pakete auf nuget.org:
 
     X-NuGet-Protocol-Version: 4.1.0
 
@@ -51,7 +51,7 @@ Diese API wird genutzt, um einen "Verify Scope"-Schlüssel anzufordern, damit ei
 #### <a name="request-parameters"></a>Anforderungsparameter
 
 Name           | In     | Typ   | Erforderlich | Hinweise
--------------- | ------ | ------ | ------------ | --------
+-------------- | ------ | ------ | -------- | -----
 ID             | URL    | String | ja      | Die Paket-ID, für die der Schlüssel angefordert wird
 VERSION        | URL    | String | nein       | Die Paketversion
 X-NuGet-ApiKey | Header | String | ja      | beispielsweise `X-NuGet-ApiKey: {USER_API_KEY}`
@@ -73,19 +73,19 @@ Diese API wird verwendet, um einen "Verify Scope"-Schlüssel für ein Paket zu �
 
 #### <a name="request-parameters"></a>Anforderungsparameter
 
-Name           | In     | Typ    | Erforderlich | Hinweise
--------------  | ------ | ------ | ------------ | --------
-ID             | URL    | String | ja           | Die Paket-ID, für die der "Verify Scope"-Schlüssel angefordert wird
-VERSION        | URL    | String | nein         | Die Paketversion
-X-NuGet-ApiKey | Header | String | ja           | beispielsweise `X-NuGet-ApiKey: {VERIFY_SCOPE_KEY}`
+name           | In     | Typ   | Erforderlich | Hinweise
+-------------  | ------ | ------ | -------- | -----
+Id             | URL    | Zeichenfolge | ja      | Die Paket-ID für die der Schlüssel des überprüfen Bereich angefordert wird
+VERSION        | URL    | Zeichenfolge | Nein       | Die Paketversion
+X-NuGet-ApiKey | Header | Zeichenfolge | ja      | Beispiel: `X-NuGet-ApiKey: {VERIFY_SCOPE_KEY}`
 
 > [!Note]
 > Dieser "Verify Scope"-Schlüssel läuft nach einem Tag oder der ersten Nutzung ab.
 
 #### <a name="response"></a>Antwort
 
-Statuscode  | Bedeutung
------------ | ---------
+Statuscode | Bedeutung
+----------- | -------
 200         | Der API-Schlüssel ist gültig.
 403         | Der API-Schlüssel ist ungültig oder für dieses Paket nicht autorisiert
 404         | Das Paket, das mit `ID` und (optional) `VERSION` angegeben wurde, existiert nicht
