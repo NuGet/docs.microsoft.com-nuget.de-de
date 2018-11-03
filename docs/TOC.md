@@ -31,7 +31,6 @@
 ## Führungslinien
 ### [Erstellen von UWP-Paketen](guides/create-uwp-packages.md)
 ### [Erstellen von Benutzeroberflächensteuerelementen als NuGet-Pakete](guides/create-UI-controls.md)
-### [Erstellen von .NET Standard- oder .NET Framework-Paketen mit Visual Studio 2015](guides/create-net-standard-packages-vs2015.md)
 ### [Erstellen von Paketen für Xamarin mit Visual Studio 2015](guides/create-packages-for-xamarin.md)
 # Hosten von Paketen
 ## [Übersicht](hosting-packages/overview.md)
