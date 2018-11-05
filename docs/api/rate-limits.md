@@ -27,7 +27,7 @@ Die nuget.org-API erzwingt die Begrenzung der Datenübertragungsrate, um Missbra
     }
   ~~~
 
-Erzwingen Sie zusätzlich zu den für die anforderungsbegrenzung mit Begrenzung der Datenübertragungsrate, einige APIs ebenfalls Kontingent aus. Anforderungen, die das Kontingent überschreiten. zurück folgende Fehlermeldung:
+Zusätzlich zu dem Fakt, dass Anforderungsbegrenzungen die Begrenzungen der Datenübertragungsrate verwenden, erzwingen manche APIs auch ein Kontingent. Anforderungen, die das Kontingent überschreiten, geben folgenden Fehler zurück:
 
   ~~~
     {
@@ -41,19 +41,19 @@ Die folgenden Tabellen enthalten die Begrenzungen für die nuget.org-API.
 ## <a name="package-search"></a>Paketsuche
 
 > [!Note]
-> Es wird empfohlen, NuGet.org [V3-APIs](https://docs.microsoft.com/nuget/api/search-query-service-resource) derzeit für die Suche, die leistungsstarke und verfügen über keine beschränken. APIs für V1 und V2-Suche, die Followins Grenzwerte gelten:
+> Es wird empfohlen, die [V3-APIs](https://docs.microsoft.com/nuget/api/search-query-service-resource) von nuget.org für die Suche zu verwenden. Diese sind leistungsfähig und haben momentan kein Limit. Für die V1- und V2-Such-APIs gelten die folgenden Limits:
 
 
-| API | Limit-Typ | Grenzwert | API-Anwendungsfall |
+| API | Limittyp | Grenzwert | API-Anwendungsfall |
 |:---|:---|:---|:---|
-**ERHALTEN** `/api/v1/Packages` | IP | 1000 / Minute | Abfragen von NuGet-Paketmetadaten über v1 OData `Packages` Auflistung |
-**ERHALTEN** `/api/v1/Search()` | IP | 3000 / Minute | Suchen Sie nach NuGet-Pakete über die v1-Suche-Endpunkt | 
-**ERHALTEN** `/api/v2/Packages` | IP | 20000 / Minute | Abfragen von NuGet-Paketmetadaten über v2 OData `Packages` Auflistung | 
-**ERHALTEN** `/api/v2/Packages/$count` | IP | 100 / Minute | Anzahl der NuGet-Pakete über v2 OData Abfragen `Packages` Auflistung | 
+**GET** `/api/v1/Packages` | IP | 1000 / Minute | Abfragen von NuGet-Paketmetadaten über die v1-OData-Auflistung `Packages` |
+**GET** `/api/v1/Search()` | IP | 3000 / Minute | Suche nach NuGet-Paketen über den v1-Suche-Endpunkt | 
+**GET** `/api/v2/Packages` | IP | 20000 / Minute | Abfragen von NuGet-Paketmetadaten über die v2-OData-Auflistung `Packages` | 
+**GET** `/api/v2/Packages/$count` | IP | 100 / Minute | Anzahl der NuGet-Pakete über die v2-OData-Auflistung `Packages` | 
 
 ## <a name="package-push-and-unlist"></a>Paket mithilfe von Push übertragen und aus der Liste entfernen
 
-| API | Limit-Typ | Grenzwert | API-Anwendungsfall | 
+| API | Limittyp | Grenzwert | API-Anwendungsfall | 
 |:---|:---|:---|:--- |
-**PUT** `/api/v2/package` | API-Schlüssel | 250 / Stunde | Hochladen eines neuen NuGet-Pakets (Version) per Push-v2-Endpunkt 
-**LÖSCHEN** `/api/v2/package/{id}/{version}` | API-Schlüssel | 250 / Stunde | Entfernen Sie ein NuGet-Paket (Version) über die v2-Endpunkt aus der Liste 
+**PUT** `/api/v2/package` | API-Schlüssel | 250 / Stunde | Hochladen eines neuen NuGet-Pakets (Version) per v2-Push-Endpunkt 
+**DELETE** `/api/v2/package/{id}/{version}` | API-Schlüssel | 250 / Stunde | Entfernen eines NuGet-Pakets oder einer Paketversion über den v2-Endpunkt 

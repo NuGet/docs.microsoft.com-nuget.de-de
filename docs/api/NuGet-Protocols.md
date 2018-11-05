@@ -1,6 +1,6 @@
 ---
 title: nuget.org-Protokolle
-description: Der sich entwickelnden "nuget.org"-Protokolle für die Interaktion mit NuGet-Clients.
+description: Die sich entwickelnden Protokolle bei nuget.org für die Interaktion mit NuGet-Clients.
 author: anangaur
 ms.author: anangaur
 ms.date: 10/30/2017

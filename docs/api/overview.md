@@ -1,6 +1,6 @@
 ---
 title: Übersicht über die NuGet-API
-description: Der NuGet-API ist eine Reihe von HTTP-Endpunkten, die zum Herunterladen von Paketen, Metadaten abzurufen, veröffentlichen neue Pakete usw. verwendet werden kann.
+description: Die NuGet-API ist eine Reihe von HTTP-Endpunkten, die zum Herunterladen von Paketen, Abrufen von Metadaten, Veröffentlichen von neuen Paketen usw. verwendet werden kann.
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
@@ -17,7 +17,7 @@ ms.locfileid: "43547502"
 
 Die NuGet-API ist eine Reihe von HTTP-Endpunkten, die dazu genutzt werden kann, Pakete herunterzuladen, Metadaten abzurufen, neue Pakete zu veröffentlichen und die meisten anderen Vorgänge durchzuführen, die in den offiziellen NuGet-Clients verfügbar sind.
 
-Diese API wird vom NuGet-Client in Visual Studio, nuget.exe und der .NET CLI verwendet, um NuGet-Vorgänge auszuführen, z. B. [ `dotnet restore` ](/dotnet/articles/core/preview3/tools/dotnet-restore), suchen Sie in der Visual Studio-Benutzeroberfläche und [ `nuget.exe push` ](../tools/cli-ref-push.md).
+Diese API wird vom NuGet-Client in Visual Studio, nuget.exe und der .NET-CLI verwendet, um NuGet-Vorgänge auszuführen, z.B. [`dotnet restore`](/dotnet/articles/core/preview3/tools/dotnet-restore), Suche in der Visual Studio-UI und [`nuget.exe push`](../tools/cli-ref-push.md).
 
 Beachten Sie, dass "nuget.org" in einigen Fällen zusätzliche Anforderungen besitzt, die nicht von anderen Paketquellen erzwungen werden. Diese Unterschiede sind in den [nuget.org-Protokollen](nuget-protocols.md) dokumentiert.
 
@@ -29,19 +29,19 @@ Der Einstiegspunkt für die API ist ein JSON-Dokument an einem bekannten Speiche
 
 Dieses JSON-Dokument enthält eine Liste an *Ressourcen*, die verschiedene Funktionalitäten bereitstellen und verschiedene Anwendungsfälle erfüllen.
 
-Clients, die die API zu unterstützen, sollte eine oder mehrere der folgenden Index-Dienst-URL als Mittel zum Herstellen einer Verbindung mit der entsprechenden Paketquellen akzeptieren.
+Clients, die die API unterstützen, sollten eine oder mehrere dieser Dienstindex-URLs akzeptieren. Diese URLs werden benutzt, um sich mit den verschiedenen Paketquellen zu verbinden.
 
 Weitere Informationen zum Dienstindex finden Sie in [der zugehörigen API-Referenz](service-index.md).
 
 ## <a name="versioning"></a>Versionskontrolle
 
-Die API ist Version 3 des NuGet HTTP-Protokoll. Dieses Protokoll wird manchmal als "V3-API." bezeichnet Diese Dokumente Verweis bezieht sich auf diese Version des Protokolls einfach als "die API".
+Die API ist Version 3 des NuGet HTTP-Protokolls. Dieses Protokoll wird manchmal als "V3-API" bezeichnet. Diese Referenzdokumentation nennt diese Version des Protokolls einfach "die API".
 
 Die Schemaversion des Dienstindex wird von der `version`-Eigenschaft im Dienstindex angegeben. Die API erfordert, dass die version-Zeichenfolge die Hautpversionsnummer `3` hat. Wenn API-kompatible Änderungen am Schema des Dienstindex durchgeführt werden, wird die Nebenversion der version-Zeichenfolge erhöht.
 
-Ältere Clients (z. B. nuget.exe 2.x) unterstützen nicht die V3-API und unterstützen nur die älteren V2-API, die hier nicht dokumentiert ist.
+Ältere Clients (z. B. nuget.exe 2.x) unterstützen die V3-API nicht und unterstützen nur die ältere V2-API, die hier nicht dokumentiert ist.
 
-Der NuGet-V3-API wird als solche bezeichnet werden, da der Nachfolger der V2-API ist, die das OData-basierte Protokoll, das von der offiziellen NuGet-Client 2.x-Version implementiert wurde. Die V3-API wurde zuerst die Version 3.0 des offiziellen NuGet-Clients unterstützt, und die neuesten wichtigen Protokollversion wird weiterhin unterstützt werden, vom Client NuGet 4.0 und auf. 
+Die NuGet-V3-API wird so genannt, weil sie der Nachfolger der V2-API ist. Die V2-API war ein OData-basiertes Protokoll, das durch die 2.x-Version des offiziellen NuGet-Clients implementiert wurde. Die V3-API wurde zuerst durch die Version 3.0 des offiziellen NuGet-Clients unterstützt und ist weiterhin die neueste MAJOR-Protokollversion, die durch den NuGet-Client unterstützt wird. 
 
 Geschütztes Protokoll an die API wurde geändert seit dem ersten Version.
 
@@ -73,24 +73,24 @@ Alle Zeitstempel, die von der API zurückgegeben werden, sind in UTC oder werden
 
 Verb   | Mit
 ------ | -----------
-GET    | Führt einen schreibgeschützten Vorgang, der in der Regel Abrufen von Daten an.
-HEAD-,   | Ruft die Antwortheader für den entsprechenden `GET` Anforderung.
-PUT    | Erstellt eine Ressource, die nicht vorhanden, oder, wenn es vorhanden ist, wird aktualisiert. Einige Ressourcen unterstützen möglicherweise nicht aktualisieren.
-DELETE | Löscht oder hebt dessen Auflistung auf eine Ressource.
+GET    | Führt eine Nur-Lesen-Operation aus, meistens ein Abruf von Daten.
+HEAD   | Ruft die Antwortheader für die zusammenhängende `GET`-Anfrage ab.
+PUT    | Erstellt eine Ressource, die nicht vorhanden ist, oder aktualisiert sie, wenn sie bereits existiert. Einige Ressourcen unterstützen Aktualisierungen vielleicht nicht.
+DELETE | Löscht eine Ressource oder entfernt sie aus der Liste.
 
 ## <a name="http-status-codes"></a>HTTP-Statuscodes
 
 Code | Beschreibung
 ---- | -----
-300  | Erfolg, und es gibt ein Antworttext.
-201  | Erfolg und die Ressource wurde erstellt.
-202  | Erfolg die Anforderung akzeptiert wurde, aber einige Aufgaben möglicherweise trotzdem unvollständig und abgeschlossenen asynchron.
-204  | Erfolg, aber es kein Antworttext ist.
+200  | Erfolg, es gibt einen Antworttext.
+201  | Erfolg, die Ressource wurde erstellt.
+202  | Erfolg, die Anfrage wurde akzeptiert, aber einige Arbeiten sind vielleicht noch unvollständig und werden asynchron durchgeführt.
+204  | Erfolg, es gibt aber keinen Antworttext.
 301  | Eine permanente Umleitung.
 302  | Eine temporäre Umleitung.
-400  | Die Parameter in der URL oder im Hauptteil Anforderung sind ungültig.
+400  | Die Parameter in der URL oder im Anfragetext sind ungültig.
 401  | Die angegebenen Anmeldeinformationen sind ungültig.
-403  | Die Aktion ist nicht zulässig, die bereitgestellten Anmeldeinformationen angegeben.
+403  | Die Aktion ist mit den angegebenen Anmeldeinformationen nicht zulässig.
 404  | Die angeforderte Ressource ist nicht vorhanden.
 409  | Die Anforderung steht in Konflikt mit einer vorhandenen Ressource.
 500  | Der Dienst hat einen unerwarteten Fehler festgestellt.
@@ -104,10 +104,10 @@ Im Fall eines Statuscodes in der Region 500 kann der Client einen angemessenen W
 
 name                     | Beschreibung
 ------------------------ | -----------
-X-NuGet-ApiKey           | Erforderlich für Push- und löschen, siehe [ `PackagePublish` Ressource](package-publish-resource.md)
-X-NuGet-Client-Version   | **Als veraltet markiert** und durch ersetzt `X-NuGet-Protocol-Version`
-X-NuGet-Protocol-Version | In bestimmten Fällen nur auf nuget.org erforderlich, siehe ["nuget.org"-Protokolle](NuGet-Protocols.md)
-X-NuGet-Sitzungs-Id       | *Optionale*. NuGet-Clients Version 4.7 + identifizieren HTTP-Anforderungen, die Teil der gleichen Sitzung des NuGet-Client. Für `PackageReference` Wiederherstellungsvorgänge vorhanden ist, eine einzelne Sitzungs-Id, für andere Szenarien, z. B. der automatischen Abschluss des Vorgangs und `packages.config` Wiederherstellung möglicherweise gibt es mehrere andere Sitzungs-Id des aufgrund wie der Code berücksichtigt wurden.
+X-NuGet-ApiKey           | Erforderlich für Push und Löschen, siehe [ `PackagePublish` -Ressource](package-publish-resource.md)
+X-NuGet-Client-Version   | **Veraltet** und durch `X-NuGet-Protocol-Version` ersetzt
+X-NuGet-Protocol-Version | Auf nuget.org nur in bestimmten Fällen erforderlich, siehe [Protokolle auf nuget.org](NuGet-Protocols.md)
+X-NuGet-Sitzungs-Id       | *Optional*. NuGet-Clients mit Version 4.7 oder höher identifizieren HTTP-Anfragen, die Teil der gleichen Client-Sitzung sind. Für `PackageReference`-Wiederherstellungsoperationen gibt es eine einzelne Sitzungs-ID; für andere Szenarien wie Autovervollständigung und Wiederherstellung von `packages.config` können mehrere verschiedene Sitzungs-IDs existieren. Dies hängt mit der Programmierung des Clients zusammen.
 
 ## <a name="authentication"></a>Authentifizierung
 
