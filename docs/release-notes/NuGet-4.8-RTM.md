@@ -5,16 +5,17 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: d23c4a8874d3d2e1a9ea721c66b15bb458de88a3
-ms.sourcegitcommit: 47858da1103848cc1b15bdc00ac7219c0ee4a6a0
+ms.openlocfilehash: 641304059c90e360fae4d0956d7b922e34bc6501
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44516231"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981118"
 ---
 # <a name="nuget-48-rtm-release-notes"></a>Anmerkungen zu NuGet 4.8 RTM
 
 Die NuGet 4.8-Funktionalität ist im Lieferumfang von [Visual Studio 2017 15.8 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) enthalten.
+
 
 Befehlszeilenversionen der gleichen Funktionalität sind ebenfalls verfügbar:
 * NuGet.exe 4.8: [NuGet.org/Downloads](https://nuget.org/downloads)
@@ -79,7 +80,7 @@ Hinweis: Dies wurde in VS 2017 15.9, Vorschau 3, behoben.
 * Zulassen von leeren Ersetzungstoken in NuspecProperties: [#6722](https://github.com/NuGet/Home/issues/6722)
 * PackTask löst eine NullReferenceException aus, wenn NuspecProperties angegeben ist: [#4649](https://github.com/NuGet/Home/issues/4649)
 
-#### <a name="accessibility"></a>Barrierefreiheit
+#### <a name="accessibility"></a>Zugriff
 * [Barrierefreiheit] Zeichenfolge ‚Vorabrelease‘ unter der Verpacken-Schaltfläche wird von ihrer Paketbeschreibung in der PM-Benutzeroberfläche verdeckt: [#4504](https://github.com/NuGet/Home/issues/4504)
 * [Barrierefreiheit] Die Paketquellen-Dropdownliste und die Schaltfläche „Einstellungen“ sind beim Auswählen von „Microsoft Visual Studio-Offlinepakete“ in der PM-Benutzeroberfläche abgeschnitten: [#4502](https://github.com/NuGet/Home/issues/4502)
 
