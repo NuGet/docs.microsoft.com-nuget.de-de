@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 37c2208f0942b12428dba9d664f25e7e4f3c0b72
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 1bc67927ddc463dcc3a0abe80fe20e625e188e63
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547373"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981170"
 ---
 # <a name="creating-nuget-packages"></a>Erstellen von NuGet-Paketen
 
@@ -170,8 +170,9 @@ Die Ordnerkonventionen lauten folgendermaßen:
 | Ordner | Beschreibung  | Aktion bei der Paketinstallation |
 | --- | --- | --- |
 | (Stammverzeichnis) | Speicherort für „readme.txt“ | In Visual Studio wird die Datei „readme.txt“ im Stammverzeichnis des Pakets angezeigt, wenn das Paket installiert wird. |
-| lib/{tfm} | Assembly- (`.dll`), Dokumentations- (`.xml`) und Symboldateien (`.pdb`) für den angegebenen Zielframeworkmoniker (Target Framework Moniker, TFM) | Assemblys werden als Verweise hinzugefügt, und `.xml` sowie `.pdb` werden in Projektordner kopiert. Informationen zum Erstellen von für das Zielframework spezifischen Unterordnern finden Sie unter [Supporting multiple .NET framework versions (Unterstützen mehrerer .NET Framework-Versionen)](supporting-multiple-target-frameworks.md). |
-| Laufzeiten | Architekturspezifische Assembly- (`.dll`), Symbol- (`.pdb`) und native Ressourcendateien (`.pri`) | Assemblys werden als Verweise hinzugefügt. Andere Dateien werden in Projektordner kopiert. Weitere Informationen finden Sie unter [Supporting multiple .NET framework versions (Unterstützen mehrerer .NET Framework-Versionen)](supporting-multiple-target-frameworks.md). |
+| lib/{tfm} | Assembly- (`.dll`), Dokumentations- (`.xml`) und Symboldateien (`.pdb`) für den angegebenen Zielframeworkmoniker (Target Framework Moniker, TFM) | Assemblys werden als Verweise für die Kompilierzeit ebenso wie für die Laufzeit hinzugefügt, und `.xml` sowie `.pdb` werden in Projektordner kopiert. Informationen zum Erstellen von für das Zielframework spezifischen Unterordnern finden Sie unter [Supporting multiple .NET framework versions (Unterstützen mehrerer .NET Framework-Versionen)](supporting-multiple-target-frameworks.md). |
+| ref/{tfm} | Dateien für Assembly (`.dll`) und Symbole (`.pdb`) für den angegebenen Zielframeworkmoniker (Target Framework Moniker, TFM) | Assemblys werden nur als Verweise für die Kompilierzeit hinzugefügt, daher werden keine Daten in den bin-Ordner des Projekts kopiert. |
+| Laufzeiten | Architekturspezifische Assembly- (`.dll`), Symbol- (`.pdb`) und native Ressourcendateien (`.pri`) | Assemblys werden nur als Verweise für die Laufzeit hinzugefügt. Andere Dateien werden in Projektordner kopiert. Es sollte immer eine entsprechende für `AnyCPU` spezifische TFM-Assembly im Ordner `/ref/{tfm}` vorhanden sein, um eine entsprechende Assembly für die Kompilierzeit bereitzustellen. Weitere Informationen finden Sie unter [Supporting multiple .NET framework versions (Unterstützen mehrerer .NET Framework-Versionen)](supporting-multiple-target-frameworks.md). |
 | Inhalt | Beliebige Dateien | Inhalte werden in das Projektstammverzeichnis kopiert. Der Ordner **content** (Inhalt) entspricht in etwa dem Stammverzeichnis der Zielanwendung, die das Paket letztendlich nutzt. Damit das Paket dem Ordner */images* der Anwendung ein Image hinzufügt, müssen Sie es im Ordner *content/images* ablegen. |
 | Build | MSBuild-Dateien `.targets` und `.props` | Sie werden automatisch in die Projektdatei oder in `project.lock.json` (NuGet 3.x und höher) eingefügt. |
 | Tools | PowerShell-Skripts und -Programme, auf die über die Paket-Manager-Konsole zugegriffen werden kann | Der Ordner `tools` wird nur zur Umgebungsvariable `PATH` der Paket-Manager-Konsole hinzugefügt, *niemals* jedoch zu `PATH`, so wie es für MSBuild beim Erstellen des Projekts festgelegt ist. |

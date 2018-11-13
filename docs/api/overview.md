@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 770173d6b84048cf42a5da46cbc474d8cf604a08
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 7bb5e83b29d1d7e4bf06accfccb73db3aa9ee025
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547502"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580336"
 ---
 # <a name="nuget-api"></a>NuGet-API
 
@@ -49,16 +49,17 @@ Geschütztes Protokoll an die API wurde geändert seit dem ersten Version.
 
 Die **dienstindex** beschreibt eine Reihe von Ressourcen. Der aktuelle Satz von unterstützten Ressourcen lauten wie folgt aus:
 
-Ressourcenname                                                          | Erforderlich | Beschreibung
----------------------------------------------------------------------- | -------- | -----------
+Ressourcenname                                                           | Erforderlich | Beschreibung
+----------------------------------------------------------------------  | -------- | -----------
 [`PackagePublish`](package-publish-resource.md)                        | ja      | Mithilfe von Push übertragen und löschen (oder aus der Liste entfernen) Pakete.
 [`SearchQueryService`](search-query-service-resource.md)               | ja      | Filtern und Pakete nach Schlüsselwort suchen.
 [`RegistrationsBaseUrl`](registration-base-url-resource.md)            | ja      | Abrufen von Metadaten von Paketen.
 [`PackageBaseAddress`](package-base-address-resource.md)               | ja      | Paketinhalt (NUPKG) zu erhalten.
 [`SearchAutocompleteService`](search-autocomplete-service-resource.md) | Nein       | Entdecken Sie die Paket-IDs und Versionen von Teilzeichenfolge.
 [`ReportAbuseUriTemplate`](report-abuse-resource.md)                   | Nein       | Erstellen Sie eine URL für den Zugriff auf eine Webseite "Missbrauch melden".
-[`RepositorySignatures`](repository-signatures-resource.md)            | Nein       | Abrufen von Zertifikaten, die zum Signieren von Repository verwendet.
-[`Catalog`](catalog-resource.md)                                       | Nein       | Vollständigen Datensatz aller Ereignisse für Paket.
+[`RepositorySignatures`](repository-signatures-resource.md)             | Nein      | Abrufen von Zertifikaten, die zum Signieren von Repository verwendet.
+[`Catalog`](catalog-resource.md)                                         | Nein      | Vollständigen Datensatz aller Ereignisse für Paket.
+[`SymbolPackagePublish`](symbol-package-publish-resource.md)            | Nein      | Push-Symbolpaketen an.
 
 Im Allgemeinen werden alle nicht binären Daten zurückgegeben, die von einer API-Ressource mit JSON serialisiert. Das Antwortschema von jeder Ressource im dienstindex zurückgegeben wird einzeln für diese Ressource definiert. Weitere Informationen zu jeder Ressource finden Sie unter den oben aufgeführten Themen.
 

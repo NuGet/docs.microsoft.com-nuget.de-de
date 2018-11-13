@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/27/2017
 ms.topic: conceptual
-ms.openlocfilehash: 0b22d48b9151b903a5307beafa5ccef14e5fecf3
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c59839240935e2a6c590dea3adf623313f79f02f
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551705"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981144"
 ---
 # <a name="supporting-multiple-net-framework-versions"></a>Unterstützen mehrerer .NET Framework-Versionen
 
@@ -65,7 +65,13 @@ Wenn Sie über architekturspezifische Assemblys verfügen, d.h. separate Assembl
             \native
             \lib\uap10.0
 
+Diese Assemblys sind nur zur Laufzeit verfügbar. Wenn Sie also auch die entsprechende Assembly für die Kompilierzeit bereitstellen möchten, speichern Sie die `AnyCPU`-Assembly im Ordner `/ref{tfm}`. 
+
+Beachten Sie Folgendes: NuGet wählt diese Ressourcen für die Kompilier- oder Laufzeit immer aus einem einzigen Ordner aus. Wenn also beim Hinzufügen von Assemblys für die Kompilierzeit kompatible Ressourcen aus `/ref` verfügbar sind, wird `/lib` ignoriert. Ebenso gilt: Wenn kompatible Ressourcen aus `/runtime` verfügbar sind, wird `/lib` für die Laufzeit ebenfalls ignoriert.
+
 Unter [Create UWP Packages (Erstellen von UWP-Paketen)](../guides/create-uwp-packages.md) finden Sie ein Beispiel für den Verweis auf diese Dateien im `.nuspec`-Manifest.
+
+Weitere Informationen finden Sie auch unter [Packing a Windows store app component with NuGet](https://blogs.msdn.microsoft.com/mim/2013/09/02/packaging-a-windows-store-apps-component-with-nuget-part-2) (Packen einer Windows Store-App-Komponente mit NuGet).
 
 ## <a name="matching-assembly-versions-and-the-target-framework-in-a-project"></a>Abgleichen von Assemblyversionen und dem Zielframework in einem Projekt
 

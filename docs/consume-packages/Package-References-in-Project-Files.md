@@ -5,16 +5,22 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 648b2679538e38b2451d7857beb5d070deeef7c5
-ms.sourcegitcommit: 47858da1103848cc1b15bdc00ac7219c0ee4a6a0
+ms.openlocfilehash: 71ab5bb464d1513df89ab53e119d9768e880e4e5
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44516203"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981027"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Paketverweise (PackageReference) in Projektdateien
 
-Paketverweise über den `PackageReference`-Knoten verwalten NuGet-Abhängigkeiten direkt in den Projektdateien. Es wird keine separate `packages.config`-Datei benötigt. Wenn das PackageReference-Format verwendet wird, hat dies bei dessen Aufruf keine Auswirkungen auf andere Aspekte von NuGet. Einstellungen in Dateien vom Typ `NuGet.Config` (einschließlich Paketquellen) gelten beispielsweise weiterhin wie unter [Konfigurieren des NuGet-Verhaltens](configuring-nuget-behavior.md) beschrieben.
+Paketverweise über den `PackageReference`-Knoten verwalten NuGet-Abhängigkeiten direkt in den Projektdateien. Es wird keine separate `packages.config`-Datei benötigt. Die Verwendung von PackageReference wirkt sich nicht auf andere Aspekte von NuGet aus. Beispielsweise werden Einstellungen in NuGet.
+
+
+
+
+
+fig-Dateien (einschließlich Paketquellen) weiterhin wie unter [Konfigurieren des NuGet-Verhaltens](configuring-nuget-behavior.md) beschrieben angewendet.
 
 Mit PackageReference können Sie auch MSBuild-Bedingungen für die Auswahl von Paketverweisen pro Zielframework, Konfiguration, Plattform oder anderen Gruppierungen verwenden. Zudem lässt er eine präzise Steuerung der Abhängigkeiten und des Inhaltsflusses zu. (Informationen dazu finden Sie unter [NuGet pack and restore as MSBuild targets – restore target (Packen und Wiederherstellen von NuGet als MSBuild-Ziele: Paketwiederherstellung)](../reference/msbuild-targets.md).)
 
@@ -153,3 +159,85 @@ Bedingungen können auch auf der `ItemGroup`-Ebene angewendet werden und gelten 
     <!-- ... -->
 </ItemGroup>
 ```
+
+## <a name="locking-dependencies"></a>Sperren von Abhängigkeiten
+*Dieses Feature ist mit NuGet **4.9** oder höher und mit Visual Studio 2017 **15.9 Vorschauversion 5** oder höher verfügbar.*
+
+Die Eingabe für die NuGet-Wiederherstellung ist ein Satz mit Paketverweisen aus der Projektdatei (oberste Ebene oder direkte Abhängigkeiten). Die Ausgabe ist der vollständige Abschluss aller Paketabhängigkeiten einschließlich transitiver Abhängigkeiten. NuGet versucht immer, den gleichen vollständigen Abschluss von Paketabhängigkeiten zu erzeugen, wenn sich die PackageReference-Eingabeliste nicht geändert hat. Es gibt jedoch einige Szenarien, in denen dies nicht möglich ist. Zum Beispiel:
+
+* Beim Verwenden von unverankerten Versionen wie `<PackageReference Include="My.Sample.Lib" Version="4.*"/>`. Während die Absicht hierbei darin liegt, bei jeder Wiederherstellung die neueste Version zu verwenden, gibt es Szenarien, in denen Benutzer anfordern, dass der Paketgraph auf eine bestimmte neueste Version festgelegt und zu einem späteren Zeitpunkt ggf. explizit eine höhere Version geändert werden kann.
+* Eine neuere Version des Pakets, die den Anforderungen an die PackageReference-Version entspricht, wird veröffentlicht. Beispiel: 
+
+  * Tag 1: Sie haben `<PackageReference Include="My.Sample.Lib" Version="4.0.0"/>` angegeben, aber die in den NuGet-Repositorys verfügbaren Versionen waren 4.1.0, 4.2.0 und 4.3.0. In diesem Fall verwendet NuGet die Version 4.1.0 (die nächste verfügbare Mindestversion).
+
+  * Tag 2: Version 4.0.0 wird veröffentlicht. NuGet findet jetzt die exakte Übereinstimmung und beginnt mit der Verwendung von 4.0.0.
+
+* Eine bestimmte Paketversion wird aus dem Repository entfernt. Auch wenn nuget.org das Löschen von Paketen nicht erlaubt, weisen nicht alle Paketrepositorys diese Einschränkung auf. Daher sucht NuGet nach der besten Übereinstimmung, wenn die gelöschte Version nicht verwendet werden kann.
+
+### <a name="enabling-lock-file"></a>Aktivieren einer Sperrdatei
+Um den vollständigen Abschluss von Paketabhängigkeiten beizubehalten, können Sie die Funktion einer Sperrdatei einrichten, indem Sie die MSBuild-Eigenschaft `RestorePackagesWithLockFile` für Ihr Projekt festlegen:
+
+```xml
+<PropertyGroup>
+    <!--- ... -->
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <!--- ... -->
+</PropertyGroup>    
+```
+
+Wenn diese Eigenschaft festgelegt ist, generiert NuGet eine Sperrdatei – `packages.lock.json`-Datei – im Projektstammverzeichnis, die alle Paketabhängigkeiten auflistet. 
+
+> [!Note]
+> Sobald ein Projekt eine `packages.lock.json`-Datei im Stammverzeichnis enthält, wird die Sperrdatei bei der Wiederherstellung immer verwendet, auch wenn die Eigenschaft `RestorePackagesWithLockFile` nicht festgelegt ist. Eine andere Möglichkeit zur Verwendung dieser Funktion besteht also darin, eine leere `packages.lock.json`-Dummydatei im Stammverzeichnis des Projekts zu erstellen.
+
+### <a name="restore-behavior-with-lock-file"></a>`restore`-Verhalten mit Sperrdatei
+Wenn für ein Projekt eine Sperrdatei vorhanden ist, verwendet NuGet diese Sperrdatei zum Ausführen von `restore`. NuGet überprüft, ob Änderungen an den Paketabhängigkeiten vorgenommen wurden, die in der Projektdatei (bzw. in Projektdateien von abhängigen Projekten) definiert wurden. Wenn keine Änderungen vorhanden sind, stellt NuGet einfach die in der Sperrdatei angegebenen Pakete wieder her. Es erfolgt keine erneute Auswertung der Paketabhängigkeiten.
+
+Wenn NuGet eine Änderung bei den in den Projektdateien definierten Abhängigkeiten ermittelt, wird der Paketgraph erneut ausgewertet, und die Sperrdatei wird aktualisiert, um den neuen Paketabschluss für das Projekt widerzuspiegeln.
+
+Für CI/CD und andere Szenarien, in denen Paketabhängigkeiten nicht dynamisch geändert werden dürfen, können Sie dies erreichen, indem Sie `lockedmode` auf `true` festlegen:
+
+Führen Sie für dotnet.exe folgenden Befehl aus:
+```
+> dotnet.exe restore --locked-mode
+```
+
+Führen Sie für msbuild.exe folgenden Befehl aus:
+```
+> msbuild.exe /t:restore /p:RestoreLockedMode=true
+```
+
+Sie können diese bedingte MSBuild-Eigenschaft auch in Ihrer Projektdatei festlegen:
+```xml
+<PropertyGroup>
+    <!--- ... -->
+    <RestoreLockedMode>true</RestoreLockedMode>
+    <!--- ... -->
+</PropertyGroup> 
+```
+
+Wenn der Sperrmodus `true` lautet, gilt Folgendes: Bei der Wiederherstellung werden entweder die Pakete genau so wiederhergestellt wie in der Sperrdatei aufgelistet, oder es tritt ein Fehler auf, wenn Sie die definierten Paketabhängigkeiten für das Projekt nach dem Erstellen der Sperrdatei aktualisiert haben.
+
+### <a name="make-lock-file-part-of-your-source-repository"></a>Einbinden der Sperrdatei als Teil Ihres Quellrepositorys
+Wenn Sie eine Anwendung oder eine ausführbare Datei erstellen und sich das fragliche Projekt am Ende der Abhängigkeitskette befindet, checken Sie die Sperrdatei im Quellcoderepository ein, damit NuGet diese während der Wiederherstellung verwenden kann.
+
+Wenn es sich bei Ihrem Projekt aber um ein nicht auszulieferndes Bibliotheksprojekt oder ein Projekt mit gemeinsamem Code handelt, von dem andere Projekte abhängig sind, sollten Sie die Sperrdatei **nicht** als Teil Ihres Quellcodes einchecken. Es schadet nicht, die Sperrdatei zu behalten, aber die gesperrten Paketabhängigkeiten für das Projekt mit gemeinsamem Code werden möglicherweise während der Wiederherstellung bzw. Erstellung eines Projekts, das von diesem Projekt mit gemeinsamem Code abhängig ist, nicht wie in der Sperrdatei aufgelistet verwendet.
+
+Beispiel:
+```
+ProjectA
+  |------> PackageX 2.0.0
+  |------> ProjectB
+             |------>PackageX 1.0.0
+```
+Wenn `ProjectA` eine Abhängigkeit von einer `PackageX`-Version `2.0.0` aufweist und auch auf `ProjectB` verweist, das von der `PackageX`-Version `1.0.0` abhängig ist, listet die Sperrdatei für `ProjectB` eine Abhängigkeit von der `PackageX`-Version `1.0.0` auf. Wenn `ProjectA` jedoch erstellt wird, enthält die Sperrdatei eine Abhängigkeit von der `PackageX`-Version **`2.0.0`** und **nicht** von `1.0.0`, wie in der Sperrdatei für `ProjectB` aufgelistet. Daher hat die Sperrdatei eines Projekts mit gemeinsamem Code nur wenig Aussagekraft für die verwendeten Pakete für Projekte, die von diesem Projekt abhängig sind.
+
+### <a name="lock-file-extensibility"></a>Erweiterbarkeit der Sperrdatei
+Sie können mit einer Sperrdatei verschiedene Verhaltensweisen der Wiederherstellung steuern, wie im Folgenden beschrieben:
+
+| Option | Entsprechende MSBuild-Option | 
+|:---  |:--- |
+| `--use-lock-file` | Bootstrapverwendung einer Sperrdatei für ein Projekt. Alternativ dazu können Sie die `RestorePackagesWithLockFile`-Eigenschaft in der Projektdatei festlegen. | 
+| `--locked-mode` | Ermöglicht den Sperrmodus für die Wiederherstellung. Dies ist nützlich in CI/CD-Szenarien, in denen Sie wiederholbare Builds erhalten möchten. Dieses Verhalten können Sie auch erreichen, indem Sie die MSBuild-Eigenschaft `RestoreLockedMode` auf `true` festlegen. |  
+| `--force-evaluate` | Diese Option ist nützlich bei Paketen, bei denen im Projekt unverankerte Versionen definiert sind. Standardmäßig aktualisiert die NuGet-Wiederherstellung die Paketversion nicht automatisch bei jedem Wiederherstellungsvorgang, wenn Sie diesen Vorgang nicht mit der `--force-evaluate`-Option ausführen. |
+| `--lock-file-path` | Definiert einen benutzerdefinierten Speicherort der Sperrdatei für ein Projekt. Dieses Verhalten können Sie auch erreichen, indem Sie die MSBuild-Eigenschaft `NuGetLockFilePath` festlegen. Standardmäßig unterstützt NuGet `packages.lock.json` im Stammverzeichnis. Wenn Sie über mehrere Projekte im gleichen Verzeichnis verfügen, unterstützt NuGet die projektspezifische Sperrdatei `packages.<project_name>.lock.json`. |
