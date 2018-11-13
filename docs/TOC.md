@@ -24,8 +24,8 @@
 ## [Umwandlungen von Quellcode und Konfigurationsdateien](create-packages/source-and-config-file-transformations.md)
 ## [Erstellen von lokalisierten Paketen](create-packages/creating-localized-packages.md)
 ## [Vorabversionspakete](create-packages/prerelease-packages.md)
-## [Native Pakete](create-packages/native-packages.md)
-## [Symbolpakete](create-packages/symbol-packages.md)
+## [Erstellen von nativen Paketen](create-packages/native-packages.md)
+## [Erstellen von Symbolpaketen](create-packages/symbol-packages-snupkg.md)
 ## [Signieren von Paketen](create-packages/sign-a-package.md)
 ## [Veröffentlichen eines Pakets](create-packages/publish-a-package.md)
 ## Führungslinien
@@ -198,6 +198,7 @@
 ## [Gewusst wie: Abfrage für alle Pakete mithilfe der API](guides/api/query-for-all-published-packages.md)
 ## [Dienstindex](api/service-index.md)
 ## [Per Push Übertragen und Löschen](api/package-publish-resource.md)
+## [Push-Symbolpaketen](api/symbol-package-publish-resource.md)
 ## [Suchen](api/search-query-service-resource.md)
 ## [AutoVervollständigen](api/search-autocomplete-service-resource.md)
 ## [Paketmetadaten](api/registration-base-url-resource.md)
