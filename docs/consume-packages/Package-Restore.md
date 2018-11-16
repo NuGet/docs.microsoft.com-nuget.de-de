@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: b95c4462a214a78452f9dbe35936620636c4f60b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: da69181aebe3bebcea6acd6e15fde6b77dd33452
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548771"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580297"
 ---
 # <a name="package-restore"></a>Paketwiederherstellung
 
@@ -62,9 +62,9 @@ Die Paketwiederherstellung ist standardmäßig in Visual Studio über **Tools > 
         </packageRestore>
     </configuration>
     ```
-    <br/>
-    > [!Note]
-    >  Die `packageRestore/enabled`-Einstellung kann global außer Kraft gesetzt werden, indem eine Umgebungsvariable namens **EnableNuGetPackageRestore** mit einem Wert von TRUE oder FALSE festgelegt wird, bevor Visual Studio gestartet oder mit einem Build begonnen wird.
+
+> [!Note]
+>  Die `packageRestore/enabled`-Einstellung kann global außer Kraft gesetzt werden, indem eine Umgebungsvariable namens **EnableNuGetPackageRestore** mit einem Wert von TRUE oder FALSE festgelegt wird, bevor Visual Studio gestartet oder mit einem Build begonnen wird.
 
 - **Automatically check for missing packages during build in Visual Studio** (Automatisch auf fehlende Pakete während des Builds in Visual Studio überprüfen): überwacht die automatische Wiederherstellung, indem die Einstellung `packageRestore/automatic`, wie im Folgenden dargestellt, in der Datei `NuGet.Config` geändert wird (`%AppData%\NuGet\NuGet.Config` unter Windows, `~/.nuget/NuGet/NuGet.Config` unter Mac/Linux). Wenn diese Option festgelegt ist, werden automatisch fehlende Pakete wiederhergestellt, wenn ein Build über Visual Studio ausgeführt wird. Sie hat keine Auswirkungen auf Builds, die über die Befehlszeile unter Verwendung von MSBuild ausgeführt werden.
 
