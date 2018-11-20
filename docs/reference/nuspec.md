@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 48f56ec5f042f6e78e38a202f0879c6949e7ee11
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: e8d4ed1f3fe4394d084a5847200901b23a1b7b39
+ms.sourcegitcommit: c825eb7e222d4a551431643f5b5617ae868ebe0a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580393"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51944079"
 ---
 # <a name="nuspec-reference"></a>NUSPEC-Referenz
 
@@ -79,7 +79,49 @@ Eine durch Kommas getrennte Liste der Paketersteller mit den auf nuget.org verwe
 #### <a name="projecturl"></a>projectUrl
 URL der Homepage des Pakets, wird häufig auf Benutzeroberflächen und auf nuget.org angezeigt. 
 #### <a name="licenseurl"></a>licenseUrl
+> [!Important]
+> "licenseUrl" ist veraltet. Verwenden Sie stattdessen die Lizenz.
+
 URL der Paketlizenz, wird häufig auf Benutzeroberflächen und auf nuget.org angezeigt.
+#### <a name="license"></a>Lizenz
+Ein SPDX Lizenz Ausdruck oder der Pfad zu einer Lizenzdatei innerhalb des Pakets, das häufig angezeigt, in der Benutzeroberfläche auch als nuget.org angezeigt werden soll. Wenn Sie das Paket unter einer gemeinsamen Lizenz z. B. BSD-2-Klausel oder MIT lizenzieren, verwenden Sie den zugehörigen SPDX-Lizenz-Bezeichner.<br>Beispiel: `<license type="expression">MIT</license>`
+
+Hier ist die vollständige Liste der [SPDX Lizenz Bezeichner](https://spdx.org/licenses/). "NuGet.org" akzeptiert nur OSI oder FSF genehmigten Lizenzen Verwendung Lizenz Ausdruck.
+
+Wenn Ihr Paket in mehrere allgemeine-Lizenzen lizenziert ist, können Sie angeben, eine zusammengesetzte Lizenz mithilfe der [SPDX Expression Syntaxversion 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60).<br>Beispiel: `<license type="expression">BSD-2-Clause OR MIT</license>`
+
+Wenn Sie eine Lizenz, die einen Bezeichner SPDX zugewiesen wurde, oder es eine benutzerdefinierte-Lizenz ist, können Sie eine Datei mit dem Text der Lizenz packen. Zum Beispiel:
+```xml
+<package>
+  <metadata>
+    ...
+    <license type="file">LICENSE.txt</license>
+    ...
+  </metadata>
+  <files>
+    ...
+    <file src="licenses\LICENSE.txt" target="" />
+    ...
+  </files>
+</package>
+```
+Die genaue Syntax für Ausdrücke für die NuGet-Lizenz wird im folgenden beschrieben in [ABNF](https://tools.ietf.org/html/rfc5234).
+```cli
+license-id            = <short form license identifier from https://spdx.org/spdx-specification-21-web-version#h.luq9dgcle9mo>
+
+license-exception-id  = <short form license exception identifier from https://spdx.org/spdx-specification-21-web-version#h.ruv3yl8g6czd>
+
+simple-expression = license-id / license-id”+”
+
+compound-expression =  1*1(simple-expression /
+                simple-expression "WITH" license-exception-id /
+                compound-expression "AND" compound-expression /
+                compound-expression "OR" compound-expression ) /                
+                "(" compound-expression ")" )
+
+license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
+```
+
 #### <a name="iconurl"></a>iconUrl
 URL eines 64 × 64 Pixel großen Bilds mit transparentem Hintergrund, das als Symbol für das Paket auf der Benutzeroberfläche verwendet wird. Stellen Sie sicher, dass dieses Element die *direkte Bild-URL* und nicht die URL einer Webseite enthält, auf der das Bild zu finden ist. Wenn Sie beispielsweise ein Bild auf GitHub verwenden möchten, geben Sie die URL der Rohdatendatei an (z. B. <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>). 
 
@@ -614,7 +656,7 @@ Für leere Ordner kann `.` eingefügt werden, wenn diese keine Inhalte mehr für
         <description>Sample exists only to show a sample .nuspec file.</description>
         <language>en-US</language>
         <projectUrl>http://xunit.codeplex.com/</projectUrl>
-        <licenseUrl>http://xunit.codeplex.com/license</licenseUrl>
+        <license type="expression">MIT</license>
     </metadata>
 </package>
 ```

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: a5807a6895a76a7d6660d218b29e1d3a2802ca28
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 5f52b00e0c45882fb7a4bd1c1a80022192f3be6b
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545047"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580245"
 ---
 # <a name="package-consumption-workflow"></a>Workflow der Nutzung von Paketen
 
@@ -18,7 +18,7 @@ Zwischen nuget.org und privaten Katalogen für Pakete, die Ihre Organisation mö
 
 ![Workflow: zur Quelle eines Pakets navigieren, ein Paket suchen, ein Paket in einem Projekt installiert, die using-Anweisung und Aufrufe der Paket-API hinzufügen](media/Overview-01-GeneralFlow.png)
 
-\* _Nur Visual Studio und dotnet.ex. Der nuget-Installationsbefehl ändert keine Projektdateien oder packages.config; die Einträge müssen manuell verwaltet werden._
+\* _Nur Visual Studio und `dotnet.exe`. Der `nuget install`-Installationsbefehl ändert keine Projektdateien oder `packages.config`-Dateien. Die Einträge müssen manuell verwaltet werden._
 
 Weitere Informationen finden Sie unter [Suchen und Auswerten von NuGet-Paketen für Ihr Projekt](../consume-packages/finding-and-choosing-packages.md) und [Verschiedene Möglichkeiten zum Installieren von NuGet-Paketen](ways-to-install-a-package.md).
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: dd36987e020c2daa02bb875aa9dbd69c85bba4d3
-ms.sourcegitcommit: 1bd72dca2f85b4267b9924236f1d23dd7b0ed733
+ms.openlocfilehash: dfbd6a3e6d59dfcea6394891703ea66bce5e8e92
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49951745"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580271"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>Erstellen von Benutzeroberflächensteuerelementen als NuGet-Pakete
 
@@ -89,7 +89,11 @@ Im folgenden Beispiel wird das in `ManagedPackage.winmd` angezeigte Steuerelemen
 
 Damit Sie ein benutzerdefiniertes Symbol in der Toolbox bzw. im Bereich „Objekte“ anzeigen können, müssen Sie ein Image zu Ihrem Projekt oder dem entsprechenden `design.dll`-Projekt mit dem Namen „Namespace.ControlName.extension“ hinzufügen und den Buildvorgang auf „Eingebettete Ressource“ festlegen. Sie müssen außerdem sicherstellen, dass die zugeordnete `AssemblyInfo.cs` das ProvideMetadata-Attribut angibt: `[assembly: ProvideMetadata(typeof(RegisterMetadata))]`. Sehen Sie sich dazu dieses [Beispiel](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/NativePackage.Design/Properties/AssemblyInfo.cs#L20) an.
 
-Als Formate werden `.png`, `.jpg`, `.jpeg`, `.gif` und `.bmp` unterstützt. Die empfohlene Bildgröße ist 64 x 64 Pixel.
+Als Formate werden `.png`, `.jpg`, `.jpeg`, `.gif` und `.bmp` unterstützt. Das empfohlene Format lautet BMP24 in 16×16 Pixeln.
+
+![Beispiel für das Toolbbox-Symbol](https://raw.githubusercontent.com/NuGet/docs.microsoft.com-nuget/live/docs/guides/media/ColorPicker_16x16x24.bmp)
+
+Der rosa Hintergrund wird zur Laufzeit ersetzt. Die Farbe der Symbole wird geändert, wenn das Visual Studio-Design geändert wird und diese Hintergrundfarbe erwartet wird. Weitere Informationen finden Sie unter [Bilder und Symbole für Visual Studio](https://docs.microsoft.com/en-us/visualstudio/extensibility/ux-guidelines/images-and-icons-for-visual-studio).
 
 Im nachfolgenden Beispiel enthält das Projekt eine Imagedatei mit dem Namen „ManagedPackage.MyCustomControl.png“.
 

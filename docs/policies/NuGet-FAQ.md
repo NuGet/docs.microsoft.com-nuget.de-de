@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/11/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8c63abc9971623e0732ae8d973fafcd04c5d9f48
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c136a3dffac38a68b80f730de1e4c3a3a9c8bd5d
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548803"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580356"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Häufig gestellte Fragen zu NuGet
 
@@ -166,7 +166,7 @@ Es wird empfohlen, dass Sie alle Pakete für NuGet signieren. Ein Entwurfsprinzi
 
 Beachten Sie, dass die für Ihr Paket aufgeführten Abhängigkeiten automatisch vom Paket generiert werden und nicht bearbeitet werden können.
 
-Zusätzlich stellt das Hochladen von Paketen auf [staging.nuget.org](http://staging.nuget.org) eine gute Möglichkeit zum Testen und Überprüfen des Pakets dar, ohne dieses im öffentlichen Katalog zur Verfügung zu stellen.
+Zusätzlich stellt das Hochladen von Paketen auf [int.nugettest.org](https://int.nugettest.org) eine gute Möglichkeit zum Testen und Überprüfen des Pakets dar, ohne dieses im öffentlichen Katalog zur Verfügung zu stellen.
 
 **Ist es möglich, Namen für Pakete zu reservieren, die in Zukunft veröffentlicht werden sollen?**
 
@@ -182,9 +182,9 @@ Es wird empfohlen, dass die NuGet-Community zusammenarbeitet, um Streitfälle zw
 
 **Ist es empfehlenswert, meine Testpakete auf nuget.org hochzuladen?**
 
-Für Testzwecke können Sie [staging.nuget.org](http://staging.nuget.org), öffentliche NuGet-Server wie [myget.org](https://myget.org) oder [Visual Studio Team Services](https://blogs.msdn.microsoft.com/visualstudioalm/2015/08/27/announcing-package-management-support-for-vsotfs/) verwenden.
+Für Testzwecke können Sie [int.nugettest.org](https://int.nugettest.org), öffentliche NuGet-Server wie [myget.org](https://myget.org) oder [Visual Studio Team Services](https://blogs.msdn.microsoft.com/visualstudioalm/2015/08/27/announcing-package-management-support-for-vsotfs/) verwenden.
 
-Beachten Sie, dass Pakete, die auf staging.nuget.org hochgeladen werden, nicht beibehalten werden. Weitere Informationen finden Sie im Artikel [Goodbye preview.nuget.org. Hello staging.nuget.org! (preview.nuget.org wird durch staging.nuget.org ersetzt)](http://blog.nuget.org/20130419/goodbye-preview.html).
+Beachten Sie, dass Pakete, die auf int.nugettest.org hochgeladen werden, nicht beibehalten werden.
 
 **Was ist die maximale Größe für Pakete, die auf nuget.org hochgeladen werden?**
 

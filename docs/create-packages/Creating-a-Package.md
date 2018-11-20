@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 1bc67927ddc463dcc3a0abe80fe20e625e188e63
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: 1221631b22eed7d2d8e58bd08ff120d91231d49b
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981170"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580394"
 ---
 # <a name="creating-nuget-packages"></a>Erstellen von NuGet-Paketen
 
@@ -177,7 +177,7 @@ Die Ordnerkonventionen lauten folgendermaßen:
 | Build | MSBuild-Dateien `.targets` und `.props` | Sie werden automatisch in die Projektdatei oder in `project.lock.json` (NuGet 3.x und höher) eingefügt. |
 | Tools | PowerShell-Skripts und -Programme, auf die über die Paket-Manager-Konsole zugegriffen werden kann | Der Ordner `tools` wird nur zur Umgebungsvariable `PATH` der Paket-Manager-Konsole hinzugefügt, *niemals* jedoch zu `PATH`, so wie es für MSBuild beim Erstellen des Projekts festgelegt ist. |
 
-Da die Ordnerstruktur beliebig viele Assemblys für beliebig viele Zielframeworks enthalten kann, ist diese Methode für das Erstellen von Paketen erforderlich, die mehrere Frameworks unterstützen. 
+Da die Ordnerstruktur beliebig viele Assemblys für beliebig viele Zielframeworks enthalten kann, ist diese Methode für das Erstellen von Paketen erforderlich, die mehrere Frameworks unterstützen.
 
 Sobald Sie die gewünschte Ordnerstruktur eingerichtet haben, führen Sie den folgenden Befehl in diesem Ordner aus, um die `.nuspec`-Datei zu erstellen:
 
