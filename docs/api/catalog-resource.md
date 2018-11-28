@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: d4c13200494ed3c6fa897ce0083a52c13688b44b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: fd5188c92f8154391359b8da5c8a32f4d5d6f2c0
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547392"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453584"
 ---
 # <a name="catalog"></a>Catalog
 
@@ -164,9 +164,9 @@ name                    | Typ                       | Erforderlich | Hinweise
 @type                   | Zeichenfolge oder Array von Zeichenfolgen | ja      | Die Typen des Katalogelements
 catalog:commitId        | Zeichenfolge                     | ja      | Eine Commit-ID, die diesem Katalogelement zugeordnet
 catalog:commitTimeStamp | Zeichenfolge                     | ja      | Der commitzeitstempel, der dieses Katalogelement
-ID                      | Zeichenfolge                     | ja      | Die Paket-ID des Katalogelements
+id                      | Zeichenfolge                     | ja      | Die Paket-ID des Katalogelements
 Veröffentlicht               | Zeichenfolge                     | ja      | Das Datum der Veröffentlichung des Pakets Katalogelement
-Version                 | Zeichenfolge                     | ja      | Die Paketversion des Katalogelements
+version                 | Zeichenfolge                     | ja      | Die Paketversion des Katalogelements
 
 ### <a name="item-types"></a>Elementtypen
 
@@ -195,7 +195,7 @@ name                    | Typ                       | Erforderlich | Hinweise
 authors                 | Zeichenfolge                     | Nein       |
 created                 | Zeichenfolge                     | Nein       | Ein Zeitstempel, wann das Paket zuerst erstellt wurde. Fallback-Eigenschaft: `published`.
 dependencyGroups        | Array von Objekten           | Nein       | Gleiche format wie die [paketmetadatenressource](registration-base-url-resource.md#package-dependency-group)
-Beschreibung             | Zeichenfolge                     | Nein       |
+description             | Zeichenfolge                     | Nein       |
 iconUrl                 | Zeichenfolge                     | Nein       |
 isPrerelease            | boolean                    | Nein       | Unabhängig davon, ob die Paketversion Vorabversion ist. Erkannt werden können, von `version`.
 language                | Zeichenfolge                     | Nein       |
@@ -208,12 +208,12 @@ packageSize             | Ganze Zahl                    | ja      | Die Größe 
 projectUrl              | Zeichenfolge                     | Nein       |
 releaseNotes            | Zeichenfolge                     | Nein       |
 requireLicenseAgreement | boolean                    | Nein       | Angenommen `false` ausgeschlossen
-Zusammenfassung                 | Zeichenfolge                     | Nein       |
-Tags                    | Array von Zeichenfolgen           | Nein       |
-Titel                   | Zeichenfolge                     | Nein       |
+summary                 | Zeichenfolge                     | Nein       |
+tags                    | Array von Zeichenfolgen           | Nein       |
+title                   | Zeichenfolge                     | Nein       |
 verbatimVersion         | Zeichenfolge                     | Nein       | Die Versionszeichenfolge, wie sie wurde ursprünglich in der NuSpec gefunden.
 
-Das Paket `version` Eigenschaft ist die vollständige, normalisierte Versionszeichenfolge. Dies bedeutet, dass SemVer 2.0.0-Builddaten hier aufgenommen werden können.
+Das Paket `version` Eigenschaft ist die vollständige Versionszeichenfolge nach der Normalisierung. Dies bedeutet, dass SemVer 2.0.0-Builddaten hier aufgenommen werden können.
 
 Die `created` Zeitstempel ist, wenn das Paket zuerst von der Paketquelle empfangen wurde, in der Regel eine kurze Zeit vor dem Commit-Timestamps für das Katalogelement.
 

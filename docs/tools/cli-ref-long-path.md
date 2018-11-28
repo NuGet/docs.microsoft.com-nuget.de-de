@@ -5,12 +5,12 @@ author: zhili1208
 ms.author: lzhi
 ms.date: 07/12/2018
 ms.topic: reference
-ms.openlocfilehash: 7cd387e3eb05d149da9a88cc1c76dc08588d04b5
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 42b5b7d863d22d7aad99a65700ca11bcc2861db1
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547825"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453493"
 ---
 # <a name="long-path-support-nuget-cli"></a>Unterstützung für lange Pfade (NuGet-CLI)
 
@@ -39,6 +39,6 @@ Schritte aus:
 > Aktivieren von anderen NuGet-Tools zur Unterstützung von langer Pfaden
 >
 > -   Dotnet CLI unterstützt werden lange Pfade unabhängig vom Betriebssystem oder die Version.
-> -   Visual Studio oder Msbuild/t: Restore unterstützt noch keine lange Pfaden.
+> -   Visual Studio oder Msbuild - t: Restore unterstützt noch keine lange Pfaden.
 > -   Software, die NuGet-Bibliotheken verwendet werden, zum Ausführen von Restore und andere Befehle werden unterstützt lange Pfade auf denselben Systemen, die an NuGet.exe arbeitet und wenn sie auch festlegen, dass LongPathAware in ihre Windows manifest UseLegacyPathHandling auf "false" über "App.config" Konfigurieren[ Weitere Informationen finden Sie](https://blogs.msdn.microsoft.com/jeremykuhne/2016/07/30/net-4-6-2-and-long-paths-on-windows-10/)
 

@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: a64c5844a58213415671ab0d202a75bc0ececc89
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: ba47d6fdeeaa4ee9de83ef4dd990707bd4928063
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546783"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453558"
 ---
 # <a name="package-metadata"></a>Metadaten von Paketen
 
@@ -138,19 +138,21 @@ name                     | Typ                       | Erforderlich | Hinweise
 @id                      | Zeichenfolge                     | ja      | Die URL zum Dokument verwendet, um dieses Objekt zu erstellen.
 authors                  | Zeichenfolge oder Array von Zeichenfolgen | Nein       | 
 dependencyGroups         | Array von Objekten           | Nein       | Die Abhängigkeiten des Pakets nach Zielframework gruppiert
-Beschreibung              | Zeichenfolge                     | Nein       | 
+description              | Zeichenfolge                     | Nein       | 
 iconUrl                  | Zeichenfolge                     | Nein       | 
-ID                       | Zeichenfolge                     | ja      | Die ID des Pakets
+id                       | Zeichenfolge                     | ja      | Die ID des Pakets
 licenseUrl               | Zeichenfolge                     | Nein       | 
 Liste                   | boolean                    | Nein       | Sollten als aufgelisteten Falls nicht vorhanden betrachtet werden
 minClientVersion         | Zeichenfolge                     | Nein       | 
 projectUrl               | Zeichenfolge                     | Nein       | 
 Veröffentlicht                | Zeichenfolge                     | Nein       | Eine Zeichenfolge mit einem ISO 8601-Zeitstempel, der bei das Paket veröffentlicht wurde
 requireLicenseAcceptance | boolean                    | Nein       | 
-Zusammenfassung                  | Zeichenfolge                     | Nein       | 
-Tags                     | Zeichenfolge oder Array von Zeichenfolgen  | Nein       | 
-Titel                    | Zeichenfolge                     | Nein       | 
-Version                  | Zeichenfolge                     | ja      | Die Version des Pakets
+summary                  | Zeichenfolge                     | Nein       | 
+tags                     | Zeichenfolge oder Array von Zeichenfolgen  | Nein       | 
+title                    | Zeichenfolge                     | Nein       | 
+version                  | Zeichenfolge                     | ja      | Die vollständige Versionszeichenfolge nach der Normalisierung
+
+Das Paket `version` Eigenschaft ist die vollständige Versionszeichenfolge nach der Normalisierung. Dies bedeutet, dass SemVer 2.0.0-Builddaten hier aufgenommen werden können.
 
 Die `dependencyGroups` -Eigenschaft ist ein Array von Objekten, die die Abhängigkeiten des Pakets nach Zielframework gruppiert darstellt. Wenn das Paket keine Abhängigkeiten auf, verfügt die `dependencyGroups` Eigenschaft nicht vorhanden ist, ein leeres Array, oder die `dependencies` -Eigenschaft aller Gruppen ist, leer oder nicht vorhanden.
 
@@ -161,7 +163,7 @@ Jede Gruppe Abhängigkeitsobjekt hat die folgenden Eigenschaften:
 name            | Typ             | Erforderlich | Hinweise
 --------------- | ---------------- | -------- | -----
 targetFramework | Zeichenfolge           | Nein       | Das Zielframework aus, dem diese Abhängigkeiten betreffen
-Abhängigkeiten    | Array von Objekten | Nein       |
+dependencies    | Array von Objekten | Nein       |
 
 Die `targetFramework` Zeichenfolge weist das Format von NuGet-Bibliothek für .NET implementiert [NuGet.Frameworks](https://www.nuget.org/packages/NuGet.Frameworks/). Wenn kein `targetFramework` angegeben ist, wird der Gruppe "Abhängigkeit" gilt für alle Zielframeworks.
 
@@ -173,7 +175,7 @@ Jede paketabhängigkeit weist die folgenden Eigenschaften:
 
 name         | Typ   | Erforderlich | Hinweise
 ------------ | ------ | -------- | -----
-ID           | Zeichenfolge | ja      | Die ID der Paket-Abhängigkeit
+id           | Zeichenfolge | ja      | Die ID der Paket-Abhängigkeit
 range        | object | Nein       | Die zulässigen [Versionsbereich](../reference/package-versioning.md#version-ranges-and-wildcards) der Abhängigkeit
 Registrierung | Zeichenfolge | Nein       | Die URL für den Index der Registrierung für diese Abhängigkeit
 

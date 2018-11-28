@@ -5,12 +5,12 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 07/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: d80339eb81ade1cf2c323a604cc4fac06dcb1012
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: b76fab1028ec9a4172d2390083fbf9adb4290a6c
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981053"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453506"
 ---
 # <a name="nuget-cross-platform-authentication-plugin"></a>NuGet cross Platform-Authentifizierung-Plug-in
 
@@ -32,7 +32,7 @@ Auf nicht interaktive gewechselt ist `dotnet build` und `dotnet publish`.
 ## <a name="authentication-in-msbuild"></a>Authentifizierung in MSBuild
 
 Ähnlich wie dotnet.exe MSBuild.exe ist, wird standardmäßig nicht interaktiv der MSBuild.exe-Authentifizierungsmechanismus Gerät Flow ist.
-Um die Wiederherstellung zum Anhalten und warten Sie, für die Authentifizierung zu ermöglichen, rufen Sie die Wiederherstellung mit `msbuild /t:restore /p:NuGetInteractive="true"`.
+Um die Wiederherstellung zum Anhalten und warten Sie, für die Authentifizierung zu ermöglichen, rufen Sie die Wiederherstellung mit `msbuild -t:restore -p:NuGetInteractive="true"`.
 
 ## <a name="creating-a-cross-platform-authentication-plugin"></a>Erstellen eine plattformübergreifende Authentifizierung-Plug-in
 

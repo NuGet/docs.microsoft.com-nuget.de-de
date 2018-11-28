@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 826316bdbce881836836f2a667cfa5297996d14f
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: b5bd8bd30ad134f36433b8e4721ce131425a1483
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580310"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453363"
 ---
 # <a name="pack-command-nuget-cli"></a>Der Befehl „pack“ (NuGet-CLI)
 
 **Gilt für:** paketerstellung &bullet; **unterstützte Versionen:** 2.7 und höher
 
-Erstellt ein NuGet-Paket, das auf der Grundlage der angegebenen `.nuspec` oder einer Projektdatei. Die `dotnet pack` Befehl (finden Sie unter [Dotnet-Befehle](dotnet-Commands.md)) und `msbuild /t:pack` (finden Sie unter [MSBuild-Ziele](../reference/msbuild-targets.md)) als alternativen verwendet werden kann.
+Erstellt ein NuGet-Paket, das auf der Grundlage der angegebenen `.nuspec` oder einer Projektdatei. Die `dotnet pack` Befehl (finden Sie unter [Dotnet-Befehle](dotnet-Commands.md)) und `msbuild -t:pack` (finden Sie unter [MSBuild-Ziele](../reference/msbuild-targets.md)) als alternativen verwendet werden kann.
 
 > [!Important]
 > Unter Mono wird das Erstellen eines Pakets aus einer Projektdatei nicht unterstützt. Müssen Sie auch anpassen, nicht lokale Pfade in der `.nuspec` Datei auf Unix-Format-Pfade, wie Windows-Pfadnamen selbst nuget.exe konvertiert und deswegen nicht.
@@ -49,7 +49,7 @@ wobei `<nuspecPath>` und `<projectPath>` angeben der `.nuspec` oder Projektdatei
 | OutputDirectory | Gibt den Ordner, in dem das erstellte Paket gespeichert ist. Wenn kein Ordner angegeben wird, wird der aktuelle Ordner verwendet. |
 | Eigenschaften | Zuletzt in der Befehlszeile sollten nach der anderen Optionen angezeigt werden. Gibt eine Liste der Eigenschaften, die Werte in der Projektdatei überschrieben werden; finden Sie unter [gemeinsame MSBuild-Projekteigenschaften](/visualstudio/msbuild/common-msbuild-project-properties) für Eigenschaftsnamen. Hier das Eigenschaften-Argument ist eine Liste von Token = Wert-Paaren, durch Semikolons getrennt, in denen jedes Vorkommen von `$token$` in die `.nuspec` Datei mit dem angegebenen Wert ersetzt werden. Werte können Zeichenfolgen in Anführungszeichen sein. Beachten Sie, dass für die Eigenschaft "Konfiguration" die Standardeinstellung ist "Debug". Verwenden Sie zum Ändern zu einer versionskonfiguration `-Properties Configuration=Release`. |
 | Suffix | *(3.4.4+)*  Fügt ein Suffix, die intern generierte Versionsnummer, die in der Regel zum Anfügen von Build oder andere Vorabversion-IDs verwendet. Verwenden Sie beispielsweise `-suffix nightly` erstellt ein Paket mit einer Version Anzahl Like `1.2.3-nightly`. Suffixe müssen mit einem Buchstaben, vermeiden Sie Warnungen, Fehler und mögliche Inkompatibilitäten mit verschiedenen Versionen von NuGet und den NuGet-Paket-Manager starten. |
-| Symbole | Gibt an, dass das Paket Quellen und Symbole enthält. Bei Verwendung mit einem `.nuspec` Datei dies eine normale NuGet-Paket-Datei erstellt und das entsprechende Symbolpaket. Erstellt standardmäßig eine [ältere Symbolpaket](../create-packages/Symbol-Packages.md). Neue Format für die Symbolpakete empfohlene ist .snupkg. Finden Sie unter [Erstellen von Symbolpaketen (.snupkg)](../create-packages/Symbol-Packages-snupkg.md). |
+| Symbole | Gibt an, dass das Paket Quellen und Symbole enthält. Bei Verwendung mit einem `.nuspec` Datei dies eine normale NuGet-Paket-Datei erstellt und das entsprechende Symbolpaket. Erstellt standardmäßig eine [ältere Symbolpaket](../create-packages/Symbol-Packages.md). Das neue empfohlene Format für Symbolpakete ist „.snupkg“. Weitere Informationen finden Sie unter [Erstellen von Symbolpaketen (.snupkg)](../create-packages/Symbol-Packages-snupkg.md). |
 | Tool | Gibt an, dass die Ausgabedateien des Projekts soll, in platziert werden der `tool` Ordner. |
 | Ausführlichkeit | Gibt an, die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *quiet*, *ausführliche*. |
 | Version | Überschreibt die Version aus der `.nuspec` Datei. |
