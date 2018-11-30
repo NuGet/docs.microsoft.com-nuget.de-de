@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: f911e24da76880410f8dfaa2891b609c7beb4a61
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 6b41b23df115c45e830404afcf9defa23615bd7c
+ms.sourcegitcommit: ce97dded7715f217ec44f6c8368ab0df19c38342
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547888"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52615755"
 ---
 # <a name="package-creation-workflow"></a>Workflow für die Paketerstellung
 
@@ -36,7 +36,7 @@ Danach können Sie viele weitere Optionen für Ihr Paket in Betracht ziehen:
 - Im Artikel [Creating Localized Packages (Erstellen von lokalisierten Paketen)](../create-packages/creating-localized-packages.md) wird beschrieben, wie Sie ein Paket mit mehreren Sprachressourcen strukturieren und wie Sie separate lokalisierte Satellitenpakete verwenden.
 - Im Artikel [Pre-release Packages (Vorabversionen von Paketen)](../create-packages/prerelease-packages.md) wird veranschaulicht, wie Sie Alpha-, -Beta- und rc-Pakete für interessierte Kunden bereitstellen.
 - Im Artikel [Source and Config File Transformations (Transformationen von Quell- und Konfigurationsdateien)](../create-packages/source-and-config-file-transformations.md) wird beschrieben, wie Sie unidirektionale Ersetzungen von Tokens in Dateien durchführen, die zu einem Projekt hinzugefügt wurden, und wie Sie `web.config` und `app.config` mit Einstellungen bearbeiten, die bei der Deinstallation des Pakets zurückgesetzt werden.
-- Der Artikel [Symbol Packages (Symbolpakete)](../create-packages/symbol-packages.md) enthält einen Leitfaden für das Bereitstellen von Symbolen für Ihre Bibliothek, wodurch es Nutzern ermöglicht wird, den Code während des Debuggens schrittweise auszuführen.
+- Der Artikel [Symbol Packages (Symbolpakete)](../create-packages/symbol-packages-snupkg.md) enthält einen Leitfaden für das Bereitstellen von Symbolen für Ihre Bibliothek, wodurch es Nutzern ermöglicht wird, den Code während des Debuggens schrittweise auszuführen.
 - Im Artikel [Package versioning (Paketversionsverwaltung)](../reference/package-versioning.md) wird erläutert, wie die genauen Versionen identifiziert werden, die Sie für Ihre Abhängigkeiten (andere Pakete, die Sie über Ihr Paket nutzen) zulassen.
 - Im Artikel [Native Packages (Native Pakete)](../create-packages/native-packages.md) wird beschrieben, wie Sie ein Paket für C++-Nutzer erstellen.
 - Im Artikel [Signing Packages (Signieren von Paketen)](../create-packages/sign-a-package.md) wird der Vorgang zum Hinzufügen einer digitalen Signatur zu einem Paket beschrieben.
