@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7b3fc72ddd3ad6c9185c2bd0f2563df59e77f1c8
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: a9427d87f69a2e942a9802fbdae5193eead1c724
+ms.sourcegitcommit: af58d59669674c3bc0a230d5764e37020a9a3f1e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453545"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52831019"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet pack and restore as MSBuild targets (NuGet-Befehle „pack“ und „restore“ MSBuild-Ziele)
 
@@ -192,7 +192,7 @@ Wenn sich eine Datei vom Typ „Compile“ außerhalb des Projektordners befinde
 ### <a name="packing-a-license-expression-or-a-license-file"></a>Packen eine Lizenz-Ausdruck oder eine Lizenzdatei
 
 Wenn Sie einen Ausdruck für die Lizenz zu verwenden, sollte die PackageLicenseExpression-Eigenschaft verwendet werden. 
-[Lizenz Ausdruck Beispiel](#https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample).
+[Lizenz Ausdruck Beispiel](https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample).
 
 Wenn eine Lizenzdatei packen möchten, müssen Sie PackageLicenseFile-Eigenschaft verwenden, um den Paketpfad, relativ zum Stammverzeichnis des Pakets angeben. Darüber hinaus müssen Sie sicherstellen, dass die Datei im Paket enthalten ist. Zum Beispiel:
 
@@ -205,7 +205,7 @@ Wenn eine Lizenzdatei packen möchten, müssen Sie PackageLicenseFile-Eigenschaf
     <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)"/>
 </ItemGroup>
 ```
-[Lizenz Leben Beispiel](#https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
+[Lizenz-Beispieldatei](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
 
 ### <a name="istool"></a>IsTool
 
