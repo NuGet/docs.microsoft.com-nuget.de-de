@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 81672abf0362e053da2b71c8bd39bd7f96ddf73b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c86a07c30631b7ee99526b014ac9c3b9f136aa81
+ms.sourcegitcommit: 1591bb230e106b94162a87dd1d86fe427366730a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549414"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52671187"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Suchen und Auswerten von NuGet-Paketen für Ihr Projekt
 
@@ -100,6 +100,21 @@ Allerdings bedeutet das Verwenden eines NuGet-Pakets auch, dass eine Abhängigke
 
 > [!Note]
 > Sie sollten stets die Lizenzbedingungen eines Pakets beachten. Diese können Sie anzeigen, indem Sie auf der Angebotsseite eines Pakets auf nuget.org auf **License Info** (Lizenzinformationen) klicken. Wenn ein Paket keine Lizenzbedingungen angibt, kontaktieren Sie den Paketbesitzer direkt, indem Sie den Link **Contact owners** (Besitzer kontaktieren) auf der Seite für Pakete verwenden. Microsoft lizenziert kein geistiges Eigentum von Drittanbietern für Pakete und ist nicht verantwortlich für die durch Drittanbieter bereitgestellten Inhalte.
+
+## <a name="license-url-deprecation"></a>Veralten der Lizenz-URL
+Beim Übergang von [licenseUrl](../reference/nuspec#licenseurl) zu [Lizenz](../reference/nuspec#license) haben einige NuGet-Clients und NuGet-Feeds möglicherweise in einigen Fällen noch nicht die Möglichkeit, Informationen zur Lizenzierung anzuzeigen. Um Abwärtskompatibilität zu gewährleisten, zeigt die Lizenz-URL auf dieses Dokument, das Informationen zum Abrufen der Lizenzinformationen in solchen Fällen enthält.
+
+Wenn Sie durch Klicken auf die Lizenz-URL für ein Paket auf diese Seite weitergeleitet wurden, zeigt dies, dass das Paket eine Lizenzdatei enthält, und
+* Sie sind mit einem Feed verbunden, der noch nicht weiß, wie die neuen Lizenzinformationen zu interpretieren sind und dem Client angezeigt werden müssen, **ODER**
+* Sie verwenden einen Client, der noch nicht weiß, wie die neuen Lizenzinformationen zu interpretieren und zu lesen sind, die potenziell durch den Feed bereitgestellt werden, **ODER**
+* eine Kombination aus beidem.
+
+So könnten Sie die Informationen lesen, die in der Lizenzdatei des Pakets enthalten sind:
+1. Laden Sie das NuGet-Paket herunter, und entzippen Sie seinen Inhalt in einen Ordner.
+1. Öffnen Sie die `.nuspec`-Datei, die sich im Stammverzeichnis dieses Ordners befindet.
+1. Sie sollte ein Tag wie `<license type="file">license\license.txt</license>` haben. Dies bedeutet, dass die Lizenzdatei den Namen `license.txt` hat und sich in einem Ordner namens `license` befindet, der sich auch im Stammverzeichnis dieses Ordners befindet.
+1. Navigieren Sie zum `license`-Ordner, und öffnen Sie die `license.txt`-Datei.
+
 
 ## <a name="search-syntax"></a>Suchsyntax
 

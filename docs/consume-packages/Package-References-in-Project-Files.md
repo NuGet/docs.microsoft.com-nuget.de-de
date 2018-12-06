@@ -5,22 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 71ab5bb464d1513df89ab53e119d9768e880e4e5
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: d4f0177183ee3edf595c4ce10d1f26cbaca5755d
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981027"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453571"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Paketverweise (PackageReference) in Projektdateien
 
-Paketverweise über den `PackageReference`-Knoten verwalten NuGet-Abhängigkeiten direkt in den Projektdateien. Es wird keine separate `packages.config`-Datei benötigt. Die Verwendung von PackageReference wirkt sich nicht auf andere Aspekte von NuGet aus. Beispielsweise werden Einstellungen in NuGet.
-
-
-
-
-
-fig-Dateien (einschließlich Paketquellen) weiterhin wie unter [Konfigurieren des NuGet-Verhaltens](configuring-nuget-behavior.md) beschrieben angewendet.
+Paketverweise über den `PackageReference`-Knoten verwalten NuGet-Abhängigkeiten direkt in den Projektdateien. Es wird keine separate `packages.config`-Datei benötigt. Wenn das PackageReference-Format verwendet wird, hat dies bei dessen Aufruf keine Auswirkungen auf andere Aspekte von NuGet. Einstellungen in Dateien vom Typ `NuGet.config` (einschließlich Paketquellen) gelten beispielsweise weiterhin wie unter [Konfigurieren des NuGet-Verhaltens](configuring-nuget-behavior.md) beschrieben.
 
 Mit PackageReference können Sie auch MSBuild-Bedingungen für die Auswahl von Paketverweisen pro Zielframework, Konfiguration, Plattform oder anderen Gruppierungen verwenden. Zudem lässt er eine präzise Steuerung der Abhängigkeiten und des Inhaltsflusses zu. (Informationen dazu finden Sie unter [NuGet pack and restore as MSBuild targets – restore target (Packen und Wiederherstellen von NuGet als MSBuild-Ziele: Paketwiederherstellung)](../reference/msbuild-targets.md).)
 
@@ -195,7 +189,7 @@ Wenn für ein Projekt eine Sperrdatei vorhanden ist, verwendet NuGet diese Sperr
 
 Wenn NuGet eine Änderung bei den in den Projektdateien definierten Abhängigkeiten ermittelt, wird der Paketgraph erneut ausgewertet, und die Sperrdatei wird aktualisiert, um den neuen Paketabschluss für das Projekt widerzuspiegeln.
 
-Für CI/CD und andere Szenarien, in denen Paketabhängigkeiten nicht dynamisch geändert werden dürfen, können Sie dies erreichen, indem Sie `lockedmode` auf `true` festlegen:
+Für CI/CD- und andere Szenarien, in denen Paketabhängigkeiten nicht dynamisch geändert werden dürfen, können Sie dies erreichen, indem Sie `lockedmode` auf `true` festlegen:
 
 Führen Sie für dotnet.exe folgenden Befehl aus:
 ```
@@ -204,7 +198,7 @@ Führen Sie für dotnet.exe folgenden Befehl aus:
 
 Führen Sie für msbuild.exe folgenden Befehl aus:
 ```
-> msbuild.exe /t:restore /p:RestoreLockedMode=true
+> msbuild.exe -t:restore -p:RestoreLockedMode=true
 ```
 
 Sie können diese bedingte MSBuild-Eigenschaft auch in Ihrer Projektdatei festlegen:

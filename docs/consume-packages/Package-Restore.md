@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: da69181aebe3bebcea6acd6e15fde6b77dd33452
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 9acb87a5f5731fb33c91a1ae9b106c6df492ddcd
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580297"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453532"
 ---
 # <a name="package-restore"></a>Paketwiederherstellung
 
@@ -39,7 +39,7 @@ Die Paketwiederherstellung wird auf folgenden Wegen ausgelöst:
 
 - **NuGet-CLI**: Verwenden Sie den Befehl [nuget restore](../tools/cli-ref-restore.md), der Pakete wiederherstellt, die in der Projektdatei oder in `packages.config` aufgelistet sind. Sie können auch eine Projektmappendatei angeben.
 
-- **MSBuild**: Verwenden Sie den Befehl [msbuild /t:restore](../reference/msbuild-targets.md#restore-target), der Pakete wiederherstellt, die in der Projektdatei (nur PackageReference) aufgelistet sind. Nur in NuGet 4.x und MSBuild 15.1 und deren höheren Versionen verfügbar, die in Visual Studio 2017 enthalten sind. Sowohl `nuget restore` als auch `dotnet restore` verwenden diesen Befehl für anwendbare Projekte.
+- **MSBuild**: Verwenden Sie den Befehl [msbuild -t:restore](../reference/msbuild-targets.md#restore-target), der Pakete wiederherstellt, die in der Projektdatei (nur PackageReference) aufgelistet sind. Nur in NuGet 4.x und MSBuild 15.1 und deren höheren Versionen verfügbar, die in Visual Studio 2017 enthalten sind. Sowohl `nuget restore` als auch `dotnet restore` verwenden diesen Befehl für anwendbare Projekte.
 
 - **Visual Studio Team Services**: Fügen Sie bei der Erstellung einer Builddefinition auf Team Services dieser die Aufgabe [NuGet-Wiederherstellung](/vsts/build-release/tasks/package/nuget#restore-nuget-packages) oder [.NET Core-Wiederherstellung](/vsts/build-release/tasks/build/dotnet-core#restore-nuget-packages) hinzu, bevor Sie eine Buildaufgabe ausführen. Diese Aufgabe ist standardmäßig in einer Reihe von Buildvorlagen enthalten.
 

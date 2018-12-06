@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/25/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 80f9354e149129fff043b470d833f348df15c0a7
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 4741d780afa4fbe11001aed49a9f72bf608d96d9
+ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545490"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52303562"
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>Hosten eigener NuGet-Feeds
 
@@ -32,6 +32,7 @@ Es gibt zudem verschiedene andere NuGet-Produkte zum Hosten, die remote private 
 - [NuGet Server (Open Source)](http://nuget-server.net), eine Open-Source-Implementierung, die NuGet Server von Inedo ähnelt
 - [LiGet](https://github.com/ai-traders/liget), eine Open Source-Implementierung von NuGet V2-Server, die unter Kestrel in Docker ausgeführt wird.
 - [BaGet](https://github.com/loic-sharma/BaGet), eine Open Source-Implementierung von NuGet-V3-Server, die auf ASP.NET Core basiert.
+- [Sleet](https://github.com/emgarten/sleet), ein statischer Open-Source-NuGet V3-Feedgenerator
 - [Artifactory](https://www.jfrog.com/artifactory/) von JFrog
 - [Nexus](http://www.sonatype.org/nexus/) von Sonatype
 - [TeamCity](https://www.jetbrains.com/teamcity/) von JetBrains

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 04/09/2018
 ms.topic: quickstart
-ms.openlocfilehash: b3be75a5af85bd3048c8b0eb71d90238b9349e09
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 9e8aa2250c6fc2843f74a925c56f953be5d48221
+ms.sourcegitcommit: 1591bb230e106b94162a87dd1d86fe427366730a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549721"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52671135"
 ---
 # <a name="installing-nuget-client-tools"></a>Installieren von NuGet-Clienttools
 
@@ -75,27 +75,25 @@ Installation:
 | Feature | dotnet-CLI | NuGet-CLI (Windows) | NuGet-CLI (Mono) | Visual Studio (Windows) | Visual Studio für Mac |
 | --- | --- | --- | --- | --- | --- |
 | Suchen von Paketen |  | &#10004; | &#10004; | &#10004; | &#10004; |
-| Pakete installieren oder deinstallieren | &#10004;(1) | &#10004;(2) | &#10004; | &#10004; | &#10004; |
+| Pakete installieren oder deinstallieren | &#10004; | &#10004;(1) | &#10004; | &#10004; | &#10004; |
 | Aktualisieren von Paketen | &#10004; | &#10004; | | &#10004; | &#10004; |
-| Pakete wiederherstellen | &#10004; | &#10004; | &#10004;(3) | &#10004; | &#10004; |
+| Pakete wiederherstellen | &#10004; | &#10004; | &#10004;(2) | &#10004; | &#10004; |
 | Paketfeeds verwalten (Quellen) | | &#10004; | &#10004; | &#10004; | &#10004; |
-| Pakete auf einem Feed verwalten | &#10004;(1) | &#10004; | &#10004; | | |
+| Pakete auf einem Feed verwalten | &#10004; | &#10004; | &#10004; | | |
 | API-Schlüsseln für Feeds festlegen | | &#10004; | &#10004; | | |
-| Paket erstellen(4) | &#10004; | &#10004; | &#10004;(5) | &#10004; | |
-| Veröffentlichen von Paketen | &#10004;(1) | &#10004; | &#10004; | &#10004; |  |
+| Pakete erstellen(3) | &#10004; | &#10004; | &#10004;(4) | &#10004; | |
+| Veröffentlichen von Paketen | &#10004; | &#10004; | &#10004; | &#10004; |  |
 | Pakete replizieren |  | &#10004; | &#10004; | | |
 | Verwalten des Ordners *global-packages* und des Cacheordners | &#10004; | &#10004; | &#10004; | | |
 | NuGet-Konfiguration verwalten | | &#10004; | &#10004; | | |
 
-(1) Pakete nur auf nuget.org
+(1) Hat keinen Einfluss auf Projektdateien; verwenden Sie stattdessen `dotnet.exe`.
 
-(2) Hat keinen Einfluss auf Projektdateien; verwenden Sie stattdessen `dotnet.exe`.
+(2) Funktioniert nur mit der `packages.config`-Datei und nicht mit Projektmappendateien (`.sln`).
 
-(3) Funktioniert nur mit der `packages.config`-Datei und nicht mit Projektmappendateien (`.sln`).
+(3) Verschiedene fortgeschrittene Paketfeatures sind nur über die CLI verfügbar, sie werden nicht in den Tools der Visual Studio-Benutzeroberfläche dargestellt.
 
-(4) Verschiedene fortgeschrittene Paketfeatures sind nur über die CLI verfügbar, sie werden nicht in den Tools der Visual Studio-Benutzeroberfläche dargestellt.
-
-(5) Funktioniert bei `.nuspec`-Dateien, jedoch nicht bei Projektdateien.
+(4) Funktioniert bei `.nuspec`-Dateien, jedoch nicht bei Projektdateien.
 
 ### <a name="related-topics"></a>Verwandte Themen
 
