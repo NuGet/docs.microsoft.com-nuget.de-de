@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 7bb5e83b29d1d7e4bf06accfccb73db3aa9ee025
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: bb47c72768b0698d8e712c8261321ff38bba2764
+ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580336"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53248428"
 ---
 # <a name="nuget-api"></a>NuGet-API
 
@@ -62,6 +62,8 @@ Ressourcenname                                                           | Erfor
 [`SymbolPackagePublish`](symbol-package-publish-resource.md)            | Nein      | Push-Symbolpaketen an.
 
 Im Allgemeinen werden alle nicht binären Daten zurückgegeben, die von einer API-Ressource mit JSON serialisiert. Das Antwortschema von jeder Ressource im dienstindex zurückgegeben wird einzeln für diese Ressource definiert. Weitere Informationen zu jeder Ressource finden Sie unter den oben aufgeführten Themen.
+
+Der Weiterentwicklung des Protokolls, möglicherweise in Zukunft neue Eigenschaften zu JSON-Antworten hinzugefügt werden. Der Client zukunftssicher ist sollte die Implementierung nicht ausgegangen, dass das Antwortschema endgültig ist und kann nicht die zusätzliche Daten enthalten. Alle Eigenschaften, die die Implementierung nicht interpretieren kann ignoriert werden sollen.
 
 > [!Note]
 > Wenn eine Datenquelle den `SearchAutocompleteService` nicht implementiert, sollte das Auto-Vervollständigungs-Verfahren kontrolliert deaktiviert werden. Wenn `ReportAbuseUriTemplate` nicht implementiert wird, fällt der offizielle NuGet-Client auf die "Missbrauch melden"-URL von nuget.org zurück (zu verfolgen in [NuGet/Home#4924](https://github.com/NuGet/Home/issues/4924)). Andere Clients können sich dazu entscheiden, einfach keine solche URL anzuzeigen.

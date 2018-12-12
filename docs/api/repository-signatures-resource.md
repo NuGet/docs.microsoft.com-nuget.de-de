@@ -8,21 +8,18 @@ description: Die Repository-Signaturen-Ressource ermöglicht es Clients Paketque
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 50f309b99d4bf59e14f3e29b6b0421d8c3e8aa5a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 81d32a7011268e45136e00cdb7345a95070aae06
+ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547980"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53248441"
 ---
 # <a name="repository-signatures"></a>Repository-Signaturen
 
 Wenn eine Paketquelle hinzufügen Repository Signaturen veröffentlichte Pakete unterstützt, ist es möglich, ein Client die Signaturzertifikate zu ermitteln, die von der Paketquelle verwendet werden. Diese Ressource ermöglicht Clients erkennen, ob ein Repository signiert. Paket wurde manipuliert oder ein unerwartetes Signaturzertifikat an.
 
 Die Ressource, die zum Abrufen von diesem Repository Signaturinformationen ist die `RepositorySignatures` Ressource finden Sie in der [dienstindex](service-index.md).
-
-> [!Note]
-> "NuGet.org" startet die Ankündigung der `RepositorySignatures` Ressource in der nahen Zukunft.
 
 ## <a name="versioning"></a>Versionskontrolle
 
@@ -31,6 +28,7 @@ Die folgenden `@type` Wert wird verwendet:
 @type-Wert                | Hinweise
 -------------------------- | -----
 RepositorySignatures/4.7.0 | Die erste Version
+RepositorySignatures/4.9.0 | Ermöglicht die Aktivierung `allRepositorySigned`
 
 ## <a name="base-url"></a>Basis-URL
 
@@ -59,12 +57,15 @@ Die folgende Anforderung Ruft den Index der Repository-Signaturen ab.
 
 Der Index der Repository-Signatur ist ein JSON-Dokument, das ein Objekt mit den folgenden Eigenschaften enthält:
 
-name                | Typ             | Erforderlich
-------------------- | ---------------- | --------
-allRepositorySigned | boolean          | ja
-signingCertificates | Array von Objekten | ja
+name                | Typ             | Erforderlich | Hinweise
+------------------- | ---------------- | -------- | -----
+allRepositorySigned | boolean          | ja      | Muss `false` auf 4.7.0 Ressource
+signingCertificates | Array von Objekten | ja      | 
 
 Die `allRepositorySigned` boolescher Wert auf "false" festgelegt ist, wenn die Paketquelle einige Pakete gespeichert sind, die keine Repository-Signatur verfügen. Bei Verwendung der boolesche Wert auf true festgelegt ist, alle Pakete verfügbar muss die Quelle eine Repository-Signatur, die durch eines der Signaturzertifikate in erwähnten erzeugt `signingCertificates`.
+
+> [!Warning]
+> Die `allRepositorySigned` booleschen muss "false", auf die 4.7.0 Ressource. NuGet-v4. 7 "und" v4. 8-Clients können keine Installationspakete aus Quellen, die `allRepositorySigned` auf "true" festgelegt ist.
 
 Es muss eine oder mehrere Signaturzertifikate in der `signingCertificates` array, wenn die `allRepositorySigned` booleschen Wert festgelegt ist auf "true". Wenn das Array leer ist und `allRepositorySigned` nastaven NA hodnotu True gibt an, alle Pakete aus der Quelle angesehen werden ungültig ist, obwohl eine Clientrichtlinie möglicherweise weiterhin die Nutzung von Paketen zulässt. Jedes Element im Array ist ein JSON-Objekt mit den folgenden Eigenschaften an.
 
