@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: d4f0177183ee3edf595c4ce10d1f26cbaca5755d
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: e4df15be1f29e2c611876aaa49e16ac7d1823938
+ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453571"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53248454"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Paketverweise (PackageReference) in Projektdateien
 
@@ -88,7 +88,7 @@ Sie verwenden eine Abhängigkeit möglicherweise rein als Entwicklungsumgebung u
 
 Mit den folgenden Metadatentags werden Abhängigkeitsobjekte gesteuert:
 
-| Tag | Beschreibung  | Standardwert |
+| Tag | Beschreibung | Standardwert |
 | --- | --- | --- |
 | IncludeAssets | Diese Objekte werden verbraucht | alle |
 | ExcludeAssets | Diese Objekte werden nicht verbraucht | Keine |
@@ -96,7 +96,7 @@ Mit den folgenden Metadatentags werden Abhängigkeitsobjekte gesteuert:
 
 Folgende Werte sind für diese Tags zulässig, wobei mehrere Werte durch ein Semikolon (;) getrennt sind; eine Ausnahme stellen `all` und `none` dar, die nur alleine dargestellt werden dürfen:
 
-| Wert | Beschreibung  |
+| Wert | Beschreibung |
 | --- | ---
 | compile | Inhalt des Ordners `lib` und steuert, ob Ihr Projekt anhand der Assemblys im Ordner kompiliert werden kann |
 | Laufzeit | Inhalt der Ordner `lib` und `runtimes` und steuert, ob diese Assemblys in das Buildausgabeverzeichnis kopiert werden |
@@ -155,16 +155,16 @@ Bedingungen können auch auf der `ItemGroup`-Ebene angewendet werden und gelten 
 ```
 
 ## <a name="locking-dependencies"></a>Sperren von Abhängigkeiten
-*Dieses Feature ist mit NuGet **4.9** oder höher und mit Visual Studio 2017 **15.9 Vorschauversion 5** oder höher verfügbar.*
+*Dieses Feature ist mit NuGet **4.9** oder höher und mit Visual Studio 2017 **15.9** oder höher verfügbar.*
 
-Die Eingabe für die NuGet-Wiederherstellung ist ein Satz mit Paketverweisen aus der Projektdatei (oberste Ebene oder direkte Abhängigkeiten). Die Ausgabe ist der vollständige Abschluss aller Paketabhängigkeiten einschließlich transitiver Abhängigkeiten. NuGet versucht immer, den gleichen vollständigen Abschluss von Paketabhängigkeiten zu erzeugen, wenn sich die PackageReference-Eingabeliste nicht geändert hat. Es gibt jedoch einige Szenarien, in denen dies nicht möglich ist. Zum Beispiel:
+Die Eingabe für die NuGet-Wiederherstellung ist ein Satz mit Paketverweisen aus der Projektdatei (oberste Ebene oder direkte Abhängigkeiten). Die Ausgabe ist der vollständige Abschluss aller Paketabhängigkeiten einschließlich transitiver Abhängigkeiten. NuGet versucht immer, den gleichen vollständigen Abschluss von Paketabhängigkeiten zu erzeugen, wenn sich die PackageReference-Eingabeliste nicht geändert hat. Es gibt jedoch einige Szenarien, in denen dies nicht möglich ist. Beispiel:
 
 * Beim Verwenden von unverankerten Versionen wie `<PackageReference Include="My.Sample.Lib" Version="4.*"/>`. Während die Absicht hierbei darin liegt, bei jeder Wiederherstellung die neueste Version zu verwenden, gibt es Szenarien, in denen Benutzer anfordern, dass der Paketgraph auf eine bestimmte neueste Version festgelegt und zu einem späteren Zeitpunkt ggf. explizit eine höhere Version geändert werden kann.
 * Eine neuere Version des Pakets, die den Anforderungen an die PackageReference-Version entspricht, wird veröffentlicht. Beispiel: 
 
   * Tag 1: Sie haben `<PackageReference Include="My.Sample.Lib" Version="4.0.0"/>` angegeben, aber die in den NuGet-Repositorys verfügbaren Versionen waren 4.1.0, 4.2.0 und 4.3.0. In diesem Fall verwendet NuGet die Version 4.1.0 (die nächste verfügbare Mindestversion).
 
-  * Tag 2: Version 4.0.0 wird veröffentlicht. NuGet findet jetzt die exakte Übereinstimmung und beginnt mit der Verwendung von 4.0.0.
+  * Tag 2: Version 4.0.0 wird veröffentlicht. NuGet findet jetzt die exakte Übereinstimmung und beginnt mit der Verwendung von 4.0.0.
 
 * Eine bestimmte Paketversion wird aus dem Repository entfernt. Auch wenn nuget.org das Löschen von Paketen nicht erlaubt, weisen nicht alle Paketrepositorys diese Einschränkung auf. Daher sucht NuGet nach der besten Übereinstimmung, wenn die gelöschte Version nicht verwendet werden kann.
 
@@ -213,7 +213,7 @@ Sie können diese bedingte MSBuild-Eigenschaft auch in Ihrer Projektdatei festle
 Wenn der Sperrmodus `true` lautet, gilt Folgendes: Bei der Wiederherstellung werden entweder die Pakete genau so wiederhergestellt wie in der Sperrdatei aufgelistet, oder es tritt ein Fehler auf, wenn Sie die definierten Paketabhängigkeiten für das Projekt nach dem Erstellen der Sperrdatei aktualisiert haben.
 
 ### <a name="make-lock-file-part-of-your-source-repository"></a>Einbinden der Sperrdatei als Teil Ihres Quellrepositorys
-Wenn Sie eine Anwendung oder eine ausführbare Datei erstellen und sich das fragliche Projekt am Ende der Abhängigkeitskette befindet, checken Sie die Sperrdatei im Quellcoderepository ein, damit NuGet diese während der Wiederherstellung verwenden kann.
+Wenn Sie eine Anwendung oder eine ausführbare Datei erstellen und sich das fragliche Projekt am Anfang der Abhängigkeitskette befindet, checken Sie die Sperrdatei im Quellcoderepository ein, damit NuGet diese während der Wiederherstellung verwenden kann.
 
 Wenn es sich bei Ihrem Projekt aber um ein nicht auszulieferndes Bibliotheksprojekt oder ein Projekt mit gemeinsamem Code handelt, von dem andere Projekte abhängig sind, sollten Sie die Sperrdatei **nicht** als Teil Ihres Quellcodes einchecken. Es schadet nicht, die Sperrdatei zu behalten, aber die gesperrten Paketabhängigkeiten für das Projekt mit gemeinsamem Code werden möglicherweise während der Wiederherstellung bzw. Erstellung eines Projekts, das von diesem Projekt mit gemeinsamem Code abhängig ist, nicht wie in der Sperrdatei aufgelistet verwendet.
 
