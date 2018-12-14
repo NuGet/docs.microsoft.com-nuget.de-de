@@ -55,7 +55,7 @@ ms.locfileid: "43549843"
 * Der Paketbefehl „dotnet add“ schlägt bei Paketen fehl, die ein portables Profil mit wenig Anleitung als Ziel verwenden – [#4349](https://github.com/NuGet/Home/issues/4349)
 * dotnet pack: Versionssuffix fehlt in ProjectReference – [#4337](https://github.com/NuGet/Home/issues/4337)
 * Buildfehler und Abstürzen von Visual Studio bei .NET Core-Vorlagen – [#3973](https://github.com/NuGet/Home/issues/3973)
-* Dienstindex für HTTPS der Quelle kann nicht geladen werden – [#3681](https://github.com/NuGet/Home/issues/3681)
+* Dienstindex für HTTPS der Quelle kann nicht geladen werden:* – [#3681](https://github.com/NuGet/Home/issues/3681)
 * nuget.exe-Liste: „Allversions“ funktioniert nicht – [#3441](https://github.com/NuGet/Home/issues/3441)
 * Irreführende Fehlermeldung für die Abhängigkeitsauflösung – [#2984](https://github.com/NuGet/Home/issues/2984)
 * Das Wiederherstellen von „nuget.exe“ erstellt keine PROPS- und TARGETS-Dateien für MSBUILDPROJ (Regression im Upgrade von Version 3.3.0 auf 3.4.4) – [#2921](https://github.com/NuGet/Home/issues/2921)
