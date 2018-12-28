@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: a9427d87f69a2e942a9802fbdae5193eead1c724
-ms.sourcegitcommit: af58d59669674c3bc0a230d5764e37020a9a3f1e
+ms.openlocfilehash: 878fb582a31667c84f3ae306b554718de72eca7a
+ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52831019"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53645671"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet pack and restore as MSBuild targets (NuGet-Befehle „pack“ und „restore“ MSBuild-Ziele)
 
@@ -117,8 +117,8 @@ Im Rahmen der Änderung [NuGet Problem 352](https://github.com/NuGet/Home/issues
 
 Sie können zwei MSBuild-Eigenschaften in Ihrer Projektdatei oder Befehlszeile verwenden, um das Ziel der Ausgabeassemblys zu steuern:
 
-- `IncludeBuildOutput`: Ein boolescher Wert, der bestimmt, ob die Ausgabeassemblys des Builds in das Paket eingeschlossen werden sollten.
-- `BuildOutputTargetFolder`: Gibt den Ordner an, in dem die Ausgabeassemblys angeordnet werden sollten. Die Ausgabeassemblys (und andere Ausgabedateien) werden in ihre jeweiligen Frameworkordner kopiert.
+- `IncludeBuildOutput`: Ein boolescher Wert, der bestimmt, ob die buildausgabeassemblys in das Paket aufgenommen werden sollen.
+- `BuildOutputTargetFolder`: Gibt den Ordner, in dem die Ausgabeassemblys angeordnet werden soll. Die Ausgabeassemblys (und andere Ausgabedateien) werden in ihre jeweiligen Frameworkordner kopiert.
 
 ### <a name="package-references"></a>Paketverweise
 
@@ -202,7 +202,7 @@ Wenn eine Lizenzdatei packen möchten, müssen Sie PackageLicenseFile-Eigenschaf
 </PropertyGroup>
 
 <ItemGroup>
-    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)"/>
+    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath=""/>
 </ItemGroup>
 ```
 [Lizenz-Beispieldatei](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
@@ -217,7 +217,7 @@ Sie können eine `.nuspec` Datei Ihrem Projekt packen, vorausgesetzt, dass Sie e
 
 1. `NuspecFile`: Relativer oder absoluter Pfad zur `.nuspec`-Datei, der für das Packen verwendet wird.
 1. `NuspecProperties`: Durch Semikolons (;) getrennte Liste der Schlüssel/Wert-Paare. Aufgrund der Funktionsweise der MSBuild-Befehlszeilenanalyse müssen mehrere Eigenschaften wie folgt angegeben werden: `-p:NuspecProperties=\"key1=value1;key2=value2\"`.  
-1. `NuspecBasePath`: Der Basispfad für die `.nuspec`-Datei.
+1. `NuspecBasePath`: Basispfad für die `.nuspec` Datei.
 
 Wenn Sie Ihr Projekt mithilfe der Datei `dotnet.exe` packen, verwenden Sie einen Befehl wie den folgenden:
 
@@ -260,7 +260,7 @@ Die `pack` Ziel bietet zwei Erweiterungspunkte, die in diesem bestimmten Build d
 Schreiben Sie ein benutzerdefiniertes Ziel, und geben Sie ihn als Wert für die `$(TargetsForTfmSpecificBuildOutput)` Eigenschaft. Für alle Dateien, die näher betrachten müssen die `BuildOutputTargetFolder` Lib (Standardeinstellung), das Ziel sollten diese Dateien schreiben, in der ItemGroup `BuildOutputInPackage` und Festlegen der für die folgenden beiden Metadatenwerte:
 
 - `FinalOutputPath`: Der absolute Pfad der Datei; Wenn nicht angegeben, wird die Identität zum Auswerten der Quellpfad verwendet.
-- `TargetPath`: (Optional) festgelegt, wenn die Datei in einen Unterordner in muss `lib\<TargetFramework>` , wie z. B. Assemblys, wechseln Sie in ihren jeweiligen Kulturordner Satellitenassemblys. Der Standardwert ist der Name der Datei.
+- `TargetPath`:  (Optional) Festlegen, wenn die Datei in einen Unterordner in muss `lib\<TargetFramework>` , wie z. B. Assemblys, wechseln Sie in ihren jeweiligen Kulturordner Satellitenassemblys. Der Standardwert ist der Name der Datei.
 
 Beispiel:
 
@@ -282,7 +282,7 @@ Beispiel:
 
 Schreiben Sie ein benutzerdefiniertes Ziel, und geben Sie ihn als Wert für die `$(TargetsForTfmSpecificContentInPackage)` Eigenschaft. Für alle Dateien in das Paket eingeschlossen werden sollen, sollte das Ziel dieser Dateien schreiben, in der ItemGroup `TfmSpecificPackageFile` und legen Sie die folgende optionale Metadaten:
 
-- `PackagePath`: Pfad, in dem die Datei Ausgabe im Paket werden soll. NuGet gibt eine Warnung aus, wenn der Pfad des gleichen Pakets mehr als eine Datei hinzugefügt wird.
+- `PackagePath`: Der Pfad, in dem die Datei Ausgabe im Paket werden soll. NuGet gibt eine Warnung aus, wenn der Pfad des gleichen Pakets mehr als eine Datei hinzugefügt wird.
 - `BuildAction`: Der Buildvorgang, weisen Sie in der Datei nur erforderlich, wenn in der Paketpfad ist die `contentFiles` Ordner. Der Standardwert ist "None".
 
 Ein Beispiel:
