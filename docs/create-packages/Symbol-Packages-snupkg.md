@@ -16,12 +16,12 @@ keywords: NuGet-Symbolpakete, Debugging von NuGet-Paketen, Unterstützung von Nu
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 48ca4b62e722988b3dfe69306565d7f159805962
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: 1fbb243a7b3518307a393b5f371feae1edb7623a
+ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453454"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53645658"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Erstellen von Symbolpaketen (.snupkg)
 
@@ -31,7 +31,7 @@ ms.locfileid: "52453454"
 
 ## <a name="creating-a-symbol-package"></a>Erstellen eines Symbolpakets
 
-Ein SNUPKG-Symbolpaket kann über eine NUSPEC-Datei oder eine CSPROJ-Datei erstellt werden. NuGet.exe und dotnet.exe werden jeweils unterstützt. Wenn die Optionen ```-Symbols -SymbolPackageFormat snupkg``` für den nuget.exe-Befehl „pack“ verwendet werden, wird eine SNUPKG-Datei zusätzlich zur NUPKG-Datei erstellt.
+Ein SNUPKG-Symbolpaket kann über eine NUSPEC-Datei oder eine CSPROJ-Datei erstellt werden. NuGet.exe und dotnet.exe werden jeweils unterstützt. Wenn die Optionen ```-Symbols -SymbolPackageFormat snupkg``` für den nuget.exe-Befehl „pack“ verwendet werden, wird zusätzlich zur NUPKG-Datei eine SNUPKG-Datei erstellt.
 
 Beispielbefehle zum Erstellen von SNUPKG-Dateien
 ```
