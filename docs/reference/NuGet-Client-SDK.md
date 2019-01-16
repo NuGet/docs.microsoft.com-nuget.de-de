@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8e612d9f86bcffc99870c5541aa6091e678db512
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 97ed3ec7d41d2847c0521af69373a1871eb585dd
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547088"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324681"
 ---
 # <a name="nuget-client-sdk"></a>NuGet-Client-SDK
 
@@ -30,9 +30,13 @@ Der Quellcode ist im Projekt auf GitHub veröffentlichten [NuGet/NuGet.Client](h
 Sie finden Beispiele und Dokumentation für einige der API in den folgenden Blog von Dave Glick, 2016 veröffentlicht:
 
 - [Untersuchen die NuGet-v3-Bibliotheken, Teil 1: Einführung und Konzepte](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
-- [Untersuchen die NuGet-v3-Bibliotheken, Teil 2: Suchen nach Paketen](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
+- [Untersuchen die NuGet-v3-Bibliotheken, Teil 2: Pakete werden gesucht](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
 - [Untersuchen die NuGet-v3-Bibliotheken, Teil 3: Installieren von Paketen](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
 
 > [!Note]
 > Diese Blogbeiträge wurde kurz nach der **3.4.3** Version des NuGet Client-SDK-Pakete wurden veröffentlicht.
 > Neuere Versionen der Pakete möglicherweise nicht kompatibel mit den Informationen in den Blogbeiträgen.
+
+Martin Björkström hat einen Blogbeitrag zur nachverfolgung Dave Glicks Blog-Reihe, in denen führt er eines anderen Ansatzes zur Verwendung des NuGet-Client-SDK für die Installation von NuGet-Pakete:
+
+- [Öffnen Sie erneut die NuGet-v3-Bibliotheken](https://martinbjorkstrom.com/posts/2018-09-19-revisiting-nuget-client-libraries)

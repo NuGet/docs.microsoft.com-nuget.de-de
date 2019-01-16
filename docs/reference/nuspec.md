@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: e8d4ed1f3fe4394d084a5847200901b23a1b7b39
-ms.sourcegitcommit: c825eb7e222d4a551431643f5b5617ae868ebe0a
+ms.openlocfilehash: 009be99a1c6623a00b4bdbe6db3164ca70782212
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51944079"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324902"
 ---
 # <a name="nuspec-reference"></a>NUSPEC-Referenz
 
@@ -105,6 +105,9 @@ Wenn Sie eine Lizenz, die einen Bezeichner SPDX zugewiesen wurde, oder es eine b
   </files>
 </package>
 ```
+
+Für die MSBuild-Entsprechung, sehen Sie sich [Packen eines Ausdrucks für die Lizenz oder eine Lizenzdatei](msbuild-targets.md#packing-a-license-expression-or-a-license-file).
+
 Die genaue Syntax für Ausdrücke für die NuGet-Lizenz wird im folgenden beschrieben in [ABNF](https://tools.ietf.org/html/rfc5234).
 ```cli
 license-id            = <short form license identifier from https://spdx.org/spdx-specification-21-web-version#h.luq9dgcle9mo>
@@ -250,7 +253,7 @@ In den folgenden Zeilen wird zwar auf Abhängigkeiten von denselben Paketen verw
 </dependencies>
 ```
 
-Hinweis: Bei der Erstellung einer `.nuspec`-Datei mithilfe von `nuget spec` aus einem Projekt werden in diesem Projekt bestehende Abhängigkeiten automatisch in die resultierende `.nuspec`-Datei eingeschlossen.
+Hinweis: Beim Erstellen einer `.nuspec` aus einem Projekt mit `nuget spec`, Abhängigkeiten, die in diesem Projekt vorhanden sind, sind automatisch im resultierenden enthalten `.nuspec` Datei.
 
 ### <a name="dependency-groups"></a>Abhängigkeitsgruppen
 

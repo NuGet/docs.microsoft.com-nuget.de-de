@@ -6,16 +6,16 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: ffd0cf5d50a2deed16e1722b32e43047bc81df2f
-ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
+ms.openlocfilehash: ee4ffaa7e250cdbf313476fd794a8d87c80b69f9
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52303686"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324707"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>Vertrauenswürdige Signaturgeber-Befehl (NuGet-CLI)
 
-**Gilt für:** Paket Verbrauch &bullet; **unterstützte Versionen:** 4.9 und höher
+**Gilt für:** Paket Verbrauch &bullet; **unterstützte Versionen:** 4.9.1+
 
 Übernimmt oder bestimmt der vertrauenswürdige Signaturgeber der NuGet-Konfiguration. Zusätzliche Nutzung, finden Sie unter [Konfigurieren des NuGet-Verhaltens](../consume-packages/configuring-nuget-behavior.md). Weitere Einzelheiten, wie das Schema der Datei "NuGet.config" offenbar, auf die [NuGet Config-Dateiverweis](../reference/nuget-config-file.md).
 
@@ -80,7 +80,7 @@ Bereitstellung `-Author` und `-Repository` zur gleichen Zeit wird nicht unterst�
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Beachten Sie_: mit dieser Option wird nur vertrauenswürdigen Repositorys hinzugefügt. 
+_Hinweis:_ Diese Option wird nur mit vertrauenswürdigen Repositorys hinzufügen. 
 
 | Option | Beschreibung |
 | --- | --- |
@@ -94,7 +94,7 @@ _Beachten Sie_: mit dieser Option wird nur vertrauenswürdigen Repositorys hinzu
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Beachten Sie_: Wenn es sich bei ein vertrauenswürdiger Signaturgeber mit dem angegebenen Namen bereits vorhanden ist, das zertifikatselement wird hinzugefügt, Signaturgeber. Andernfalls wird der Autor ein vertrauenswürdigen erstellt werden, mit einem zertifikatselement aus den angegebenen Informationen zum Zertifikat.
+_Hinweis:_ Wenn es sich bei ein vertrauenswürdiger Signaturgeber mit dem angegebenen Namen bereits vorhanden ist, wird diese Signaturgeber das zertifikatselement hinzugefügt werden. Andernfalls wird der Autor ein vertrauenswürdigen erstellt werden, mit einem zertifikatselement aus den angegebenen Informationen zum Zertifikat.
 
 | Option | Beschreibung |
 | --- | --- |
@@ -110,7 +110,7 @@ Entfernt alle vertrauenswürdigen Signaturgeber, die mit dem angegebenen Namen �
 
 Fordert die aktuelle Liste der Zertifikate, die im derzeit vertrauenswürdiges Repository verwendet werden, zum Aktualisieren der die vorhandenen Zertifikatliste in der vertrauenswürdige Signaturgeber.
 
-_Beachten Sie_: dieser Bewegung wird die aktuelle Liste der Zertifikate zu löschen und Ersetzen Sie sie durch eine aktuelle Liste, aus dem Repository.
+_Hinweis:_ Diese stiftbewegung wird die aktuelle Liste der Zertifikate zu löschen und Ersetzen Sie sie durch eine aktuelle Liste, aus dem Repository.
 
 ## <a name="options"></a>Optionen
 

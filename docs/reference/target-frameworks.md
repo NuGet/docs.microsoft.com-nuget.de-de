@@ -6,29 +6,29 @@ ms.author: karann
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 047ede14c7935844cb4f6d0315772c2a1190e5b8
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 0c76ea43e871009223cc4328449e21e5d02129bb
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547258"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324876"
 ---
 # <a name="target-frameworks"></a>Zielframeworks
 
 NuGet verwendet Zielframeworkverweise an vielen Stellen, um die Framework-abhängigen Komponenten eines Pakets zu identifizieren und zu isolieren:
 
-- [NUSPEC-Manifest:](../reference/nuspec.md) Ein Paket kann unterschiedliche Pakete angeben, die je nach Zielframework in ein Projekt eingeschlossen werden sollen.
-- [NUPKG-Ordnername:](../create-packages/creating-a-package.md#from-a-convention-based-working-directory) Die Ordner innerhalb des `lib`-Ordners eines Pakets können dem Zielframework entsprechend benannt werden. Jeder Ordner enthält die DLLs und andere geeignete Inhalte für das jeweilige Framework.
-- [packages.config:](../reference/packages-config.md) Das `targetframework`-Attribut einer Abhängigkeit gibt die Variante eines Pakets an, das installiert werden soll.
+- [NuSpec-Manifest](../reference/nuspec.md): Ein Paket kann unterschiedliche Pakete in ein Projekt abhängig vom Zielframework des Projekts einbezogen werden angeben.
+- [NUPKG-Ordnername](../create-packages/creating-a-package.md#from-a-convention-based-working-directory): Die Ordner innerhalb eines Pakets `lib` Ordner kann dem Zielframework, von denen jede, die DLLs und andere geeignete Inhalte für das Framework enthält entsprechend benannt werden.
+- [packages.config](../reference/packages-config.md): Die `targetframework` -Attribut einer Abhängigkeit gibt die Variante eines Pakets installieren.
 
 > [!Note]
 > Der Quellcode des NuGet-Clients, der die folgenden Tabellen berechnet, befindet sich an folgenden Speicherorten:
 > - Unterstützte Frameworknamen: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
-> - Rangfolge und Zuordnung von Frameworks: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
+> - Framework-Rangfolge und Zuordnung: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
 
 ## <a name="supported-frameworks"></a>Unterstützte Frameworks
 
-Auf ein Framework wird in der Regel durch einen kurzen Zielframeworkmoniker (Target Framework Moniker, TFM) verwiesen. In .NET Standard kann dies auch mit *TxM* generalisiert werden, um einen einzigen Verweis auf mehrere Frameworks zu ermöglichen.
+Auf ein Framework wird in der Regel durch einen kurzen Zielframeworkmoniker (Target Framework Moniker, TFM) verwiesen. In .NET Standard ist dies auch auf generalisiert *TxM* um einen einzigen Verweis mehrere Frameworks zu ermöglichen.
 
 Die NuGet-Clients unterstützen die in der folgenden Tabelle aufgelisteten Frameworks. Äquivalente werden in eckigen Klammern angegeben. Beachten Sie, dass einige Tools (z.B. `dotnet`) möglicherweise Variationen von kanonischen TFMs in einigen Dateien verwenden. `dotnet pack` verwendet beispielsweise `.NETCoreApp2.0` statt `netcoreapp2.0` in einer `.nuspec`-Datei. Die verschiedenen NuGet-Clienttools verarbeiten diese Variationen ordnungsgemäß, Sie sollten jedoch immer kanonische TFMs verwenden, wenn Sie Dateien direkt bearbeiten.
 

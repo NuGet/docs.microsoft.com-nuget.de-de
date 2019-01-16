@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: ba47d6fdeeaa4ee9de83ef4dd990707bd4928063
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: 19a1f48164f65f1ff805e036e55abb110247aa72
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453558"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324863"
 ---
 # <a name="package-metadata"></a>Metadaten von Paketen
 
@@ -141,7 +141,8 @@ dependencyGroups         | Array von Objekten           | Nein       | Die Abhä
 description              | Zeichenfolge                     | Nein       | 
 iconUrl                  | Zeichenfolge                     | Nein       | 
 id                       | Zeichenfolge                     | ja      | Die ID des Pakets
-licenseUrl               | Zeichenfolge                     | Nein       | 
+licenseUrl               | Zeichenfolge                     | Nein       |
+licenseExpression        | Zeichenfolge                     | Nein       | 
 Liste                   | boolean                    | Nein       | Sollten als aufgelisteten Falls nicht vorhanden betrachtet werden
 minClientVersion         | Zeichenfolge                     | Nein       | 
 projectUrl               | Zeichenfolge                     | Nein       | 
@@ -155,6 +156,8 @@ version                  | Zeichenfolge                     | ja      | Die voll
 Das Paket `version` Eigenschaft ist die vollständige Versionszeichenfolge nach der Normalisierung. Dies bedeutet, dass SemVer 2.0.0-Builddaten hier aufgenommen werden können.
 
 Die `dependencyGroups` -Eigenschaft ist ein Array von Objekten, die die Abhängigkeiten des Pakets nach Zielframework gruppiert darstellt. Wenn das Paket keine Abhängigkeiten auf, verfügt die `dependencyGroups` Eigenschaft nicht vorhanden ist, ein leeres Array, oder die `dependencies` -Eigenschaft aller Gruppen ist, leer oder nicht vorhanden.
+
+Der Wert des der `licenseExpression` Eigenschaft einhält [Syntax zum Ausdrücken von NuGet-Lizenz](https://docs.microsoft.com/en-us/nuget/reference/nuspec#license).
 
 #### <a name="package-dependency-group"></a>Gruppe der Paket-Abhängigkeit
 

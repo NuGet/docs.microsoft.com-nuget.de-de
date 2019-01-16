@@ -6,18 +6,18 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: bb47c72768b0698d8e712c8261321ff38bba2764
-ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
+ms.openlocfilehash: 39b710c483ce4b3f2da30df6bb5b6842f9ee1fca
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53248428"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324837"
 ---
 # <a name="nuget-api"></a>NuGet-API
 
 Die NuGet-API ist eine Reihe von HTTP-Endpunkten, die dazu genutzt werden kann, Pakete herunterzuladen, Metadaten abzurufen, neue Pakete zu veröffentlichen und die meisten anderen Vorgänge durchzuführen, die in den offiziellen NuGet-Clients verfügbar sind.
 
-Diese API wird vom NuGet-Client in Visual Studio, nuget.exe und der .NET-CLI verwendet, um NuGet-Vorgänge auszuführen, z.B. [`dotnet restore`](/dotnet/articles/core/preview3/tools/dotnet-restore), Suche in der Visual Studio-UI und [`nuget.exe push`](../tools/cli-ref-push.md).
+Diese API wird vom NuGet-Client in Visual Studio, nuget.exe und der .NET-CLI verwendet, um NuGet-Vorgänge auszuführen, z.B. [`dotnet restore`](/dotnet/core/tools/dotnet-restore?tabs=netcore2x), Suche in der Visual Studio-UI und [`nuget.exe push`](../tools/cli-ref-push.md).
 
 Beachten Sie, dass "nuget.org" in einigen Fällen zusätzliche Anforderungen besitzt, die nicht von anderen Paketquellen erzwungen werden. Diese Unterschiede sind in den [nuget.org-Protokollen](nuget-protocols.md) dokumentiert.
 
@@ -35,7 +35,7 @@ Weitere Informationen zum Dienstindex finden Sie in [der zugehörigen API-Refere
 
 ## <a name="versioning"></a>Versionskontrolle
 
-Die API ist Version 3 des NuGet HTTP-Protokolls. Dieses Protokoll wird manchmal als "V3-API" bezeichnet. Diese Referenzdokumentation nennt diese Version des Protokolls einfach "die API".
+Die API ist Version 3 des NuGet HTTP-Protokolls. Dieses Protokoll wird manchmal als "API V3" bezeichnet. Diese Referenzdokumentation nennt diese Version des Protokolls einfach "die API".
 
 Die Schemaversion des Dienstindex wird von der `version`-Eigenschaft im Dienstindex angegeben. Die API erfordert, dass die version-Zeichenfolge die Hautpversionsnummer `3` hat. Wenn API-kompatible Änderungen am Schema des Dienstindex durchgeführt werden, wird die Nebenversion der version-Zeichenfolge erhöht.
 
@@ -43,7 +43,7 @@ Die Schemaversion des Dienstindex wird von der `version`-Eigenschaft im Dienstin
 
 Die NuGet-V3-API wird so genannt, weil sie der Nachfolger der V2-API ist. Die V2-API war ein OData-basiertes Protokoll, das durch die 2.x-Version des offiziellen NuGet-Clients implementiert wurde. Die V3-API wurde zuerst durch die Version 3.0 des offiziellen NuGet-Clients unterstützt und ist weiterhin die neueste MAJOR-Protokollversion, die durch den NuGet-Client unterstützt wird. 
 
-Geschütztes Protokoll an die API wurde geändert seit dem ersten Version.
+Geschütztes Protokoll an die API wurde geändert, da es veröffentlicht wurde.
 
 ## <a name="resources-and-schema"></a>Ressourcen und schema
 
@@ -110,7 +110,7 @@ name                     | Beschreibung
 X-NuGet-ApiKey           | Erforderlich für Push und Löschen, siehe [ `PackagePublish` -Ressource](package-publish-resource.md)
 X-NuGet-Client-Version   | **Veraltet** und durch `X-NuGet-Protocol-Version` ersetzt
 X-NuGet-Protocol-Version | Auf nuget.org nur in bestimmten Fällen erforderlich, siehe [Protokolle auf nuget.org](NuGet-Protocols.md)
-X-NuGet-Sitzungs-Id       | *Optional*. NuGet-Clients mit Version 4.7 oder höher identifizieren HTTP-Anfragen, die Teil der gleichen Client-Sitzung sind. Für `PackageReference`-Wiederherstellungsoperationen gibt es eine einzelne Sitzungs-ID; für andere Szenarien wie Autovervollständigung und Wiederherstellung von `packages.config` können mehrere verschiedene Sitzungs-IDs existieren. Dies hängt mit der Programmierung des Clients zusammen.
+X-NuGet-Session-Id       | *Optional*. NuGet-Clients mit Version 4.7 oder höher identifizieren HTTP-Anfragen, die Teil der gleichen Client-Sitzung sind. Für `PackageReference`-Wiederherstellungsoperationen gibt es eine einzelne Sitzungs-ID; für andere Szenarien wie Autovervollständigung und Wiederherstellung von `packages.config` können mehrere verschiedene Sitzungs-IDs existieren. Dies hängt mit der Programmierung des Clients zusammen.
 
 ## <a name="authentication"></a>Authentifizierung
 
