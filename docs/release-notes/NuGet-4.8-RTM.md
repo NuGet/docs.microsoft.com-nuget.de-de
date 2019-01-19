@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 641304059c90e360fae4d0956d7b922e34bc6501
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: cf15c4f6a2e3e9f6ce7b6acb2304648041043685
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981118"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324824"
 ---
 # <a name="nuget-48-rtm-release-notes"></a>Anmerkungen zu NuGet 4.8 RTM
 
@@ -72,7 +72,7 @@ Hinweis: Dies wurde in VS 2017 15.9, Vorschau 3, behoben.
 * Arbeitsspeicher ist beim Aktualisieren der Signaturgeberinformationen ungültig, wenn der Gegensignatur ein Zeitstempel hinzugefügt wird: [#6840](https://github.com/NuGet/Home/issues/6840)
 * Signierung: CTL-Ausnahmen entfernen: [#6794](https://github.com/NuGet/Home/issues/6794)
 * Signierung: ContentUrl muss HTTPS sein: [#6777](https://github.com/NuGet/Home/issues/6777)
-* Signierung: SignedPackageVerifierSettings.VSClientDefaultPolicy wird nicht verwendet: [#6601](https://github.com/NuGet/Home/issues/6601)
+* Signierung:  SignedPackageVerifierSettings.VSClientDefaultPolicy wird nicht verwendet: [#6601](https://github.com/NuGet/Home/issues/6601)
 
 
 #### <a name="pack"></a>Verpacken
