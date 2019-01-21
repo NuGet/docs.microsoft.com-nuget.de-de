@@ -7,12 +7,12 @@ ms.date: 02/12/2018
 ms.topic: overview
 layout: HubPage
 hide_bc: true
-ms.openlocfilehash: 6e2f00c14433e75323e2b185067e110bc554084c
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 35eef5125c40689da0f888992ea8376bb9eb096b
+ms.sourcegitcommit: a801052aa728a3a137225ca3ef3ff89f2d1c6b76
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550034"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54403150"
 ---
 <div id="main" class="v2">
 <div class="container">
@@ -224,7 +224,7 @@ ms.locfileid: "43550034"
                             </a>
                         </li>
                         <li>
-                            <a href="policies/nuget-faq.md">
+                            <a href="policies/governance.md">
                             <div class="cardSize">
                                 <div class="cardPadding">
                                     <div class="card">
@@ -235,7 +235,7 @@ ms.locfileid: "43550034"
                                         </div>
                                         <div class="cardText">
                                             <h3>Richtlinien</h3>
-                                            <p>Häufig gestellte Fragen und Informationen zu NuGet als Open Source-Projekt, zum Löschen von Paketen und Lösen von Konflikten.</p>
+                                            <p>Hier erhalten Sie Informationen dazu, wie Sie NuGet als Open Source-Projekt, Ökosystem, zur Governance und zur Beseitigung von Konflikten einsetzen können.</p>
                                         </div>
                                     </div>
                                 </div>
