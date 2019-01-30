@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5f52b00e0c45882fb7a4bd1c1a80022192f3be6b
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 506a093ff4d62c10c896246f746e6765f64f33f4
+ms.sourcegitcommit: a801052aa728a3a137225ca3ef3ff89f2d1c6b76
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580245"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54403163"
 ---
 # <a name="package-consumption-workflow"></a>Workflow der Nutzung von Paketen
 
@@ -35,7 +35,7 @@ Wenn Sie Projektcode zu einem Quellrepository hinzufügen, schließen Sie üblic
 
 ![Workflow: NuGet-Pakete wiederherstellen, indem ein Repository geklont wird oder durch Verwenden des restore-Befehls](media/Overview-02-RestoreFlow.png)
 
-Die [Paketwiederherstellung](../consume-packages/package-restore.md) verwendet die in der Projektdatei oder `packages.config` enthaltenen Informationen, um alle Abhängigkeiten erneut zu installieren. Beachten Sie, dass es wie in [Abhängigkeitsauflösungen](../consume-packages/dependency-resolution.md) beschrieben Unterschiede zwischen den beteiligten Prozessen gibt. Das obige Diagramm zeigt auch keinen Wiederherstellungsbefehl für die Paket-Manager-Konsole, da Sie sich mit der Konsole bereits im Kontext von Visual Studio befinden, das normalerweise Pakete automatisch wiederherstellt und den Befehl auf Lösungsebene wie gezeigt bereitstellt.
+Die [Paketwiederherstellung](../consume-packages/package-restore.md) verwendet die in der Projektdatei oder `packages.config` enthaltenen Informationen, um alle Abhängigkeiten erneut zu installieren. Beachten Sie, dass es wie in [Abhängigkeitsauflösungen](../consume-packages/dependency-resolution.md) beschrieben Unterschiede zwischen den beteiligten Prozessen gibt. Im obigen Diagramm ist kein Wiederherstellungsbefehl für die Paket-Manager-Konsole enthalten, da Sie sich mit der Konsole bereits im Kontext von Visual Studio befinden. Dort werden Pakete normalerweise automatisch wiederherstellt, und der Befehl ist wie im Folgenden veranschaulicht auf Projektmappenebene verfügbar.
 
 Gelegentlich ist es erforderlich, Pakete erneut zu installieren, die bereits in einem Projekt enthalten sind. Dadurch können auch Abhängigkeiten erneut installiert werden. Dazu können Sie einfach den Befehl `nuget reinstall` oder die NuGet-Paket-Manager-Konsole verwenden. Weitere Informationen finden Sie unter [Reinstalling and Updating Packages (Erneutes Installieren und Aktualisieren von Paketen)](../consume-packages/reinstalling-and-updating-packages.md).
 
