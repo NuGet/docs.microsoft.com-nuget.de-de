@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: cdbe13df04bb27091b684a4ae27b0e751da1098f
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: a561a49f2e733929e32584adf7b6849ea535c440
+ms.sourcegitcommit: 585394f063e95dcbc24d7ac0ce07de643eaf6f4d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549033"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "55046254"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Auflösung von Paketabhängigkeiten durch NuGet
 
@@ -117,10 +117,10 @@ In einigen Szenarios wird möglicherweise mehrmals in einem Projekt auf Assembly
 
 Wenn Sie dieses Problem lösen möchten, müssen Sie direkt auf die Version von `C.dll` verweisen, die verwendet werden soll, oder ein anderes Paket verwenden, dass auf die richtige Version verweist. Fügen Sie anschließend eine Abhängigkeit von Paket C hinzu, die alle Objekte dieses Pakets ausschließt. Abhängig von dem verwendeten Format für die Paketverwaltung, führen Sie dafür folgende Schritte aus:
 
-- [PackageReference](../consume-packages/package-references-in-project-files.md): Fügen Sie der Abhängigkeit `Exclude="All"` hinzu:
+- [PackageReference](../consume-packages/package-references-in-project-files.md): Fügen Sie der Abhängigkeit `ExcludeAssets="All"` hinzu:
 
     ```xml
-    <PackageReference Include="PackageC" Version="1.0.0" Exclude="All" />
+    <PackageReference Include="PackageC" Version="1.0.0" ExcludeAssets="All" />
     ```
 
 - `packages.config`: Entfernen Sie den Verweis auf Paket C von der `.csproj`-Datei, sodass nur auf die Version von `C.dll` verwiesen wird, die Sie verwenden möchten.

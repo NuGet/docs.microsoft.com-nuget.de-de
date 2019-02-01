@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 009be99a1c6623a00b4bdbe6db3164ca70782212
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: fec6dd0fb97b565b364a7ffcb192d2eb99187e83
+ms.sourcegitcommit: b15fdd101aec13ea5fe9dd12845051d648034abd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324902"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55480139"
 ---
 # <a name="nuspec-reference"></a>NUSPEC-Referenz
 
@@ -90,7 +90,7 @@ Hier ist die vollständige Liste der [SPDX Lizenz Bezeichner](https://spdx.org/l
 
 Wenn Ihr Paket in mehrere allgemeine-Lizenzen lizenziert ist, können Sie angeben, eine zusammengesetzte Lizenz mithilfe der [SPDX Expression Syntaxversion 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60).<br>Beispiel: `<license type="expression">BSD-2-Clause OR MIT</license>`
 
-Wenn Sie eine Lizenz, die einen Bezeichner SPDX zugewiesen wurde, oder es eine benutzerdefinierte-Lizenz ist, können Sie eine Datei mit dem Text der Lizenz packen. Zum Beispiel:
+Wenn Sie eine Lizenz, die einen Bezeichner SPDX zugewiesen wurde, oder es eine benutzerdefinierte-Lizenz ist, können Sie eine Datei verpacken (nur `.txt.` oder `.md`) mit dem Text der Lizenz. Zum Beispiel:
 ```xml
 <package>
   <metadata>
