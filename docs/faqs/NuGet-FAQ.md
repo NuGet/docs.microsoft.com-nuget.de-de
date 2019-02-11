@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: dbdd171321c2560adc06feccbd60fc4e84dcf0a3
-ms.sourcegitcommit: a801052aa728a3a137225ca3ef3ff89f2d1c6b76
+ms.openlocfilehash: 290055a306306e944695d3a6ac970819882ee0c6
+ms.sourcegitcommit: 046717af2eba9ff6f619a0533844dee56a600d1c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54403209"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55648269"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Häufig gestellte Fragen zu NuGet
 
@@ -235,10 +235,17 @@ Hinweis: Es kann erforderlich sein, die Umgebungsvariable `HTTP_PROXY` auf `http
 
 Wenn dies fehlschlägt, befolgen Sie die Ratschläge [in diesem StackOverflow-Beitrag](http://stackoverflow.com/questions/21049908/using-fiddler-to-sniff-visual-studio-2013-requests-proxy-firewall).
 
-**Welche API-Endpunkte gibt es für nuget.org?**
+## <a name="what-is-the-api-endpoint-for-nugetorg"></a>Wie lautet der API-Endpunkt für nuget.org?
 
-- V3: `https://api.nuget.org/v3/index.json`
-- V2: `https://www.nuget.org/api/v2/` (Beachten Sie, dass die V2-API veraltet ist und nicht mit NuGet 4 und höher funktioniert.)
+Damit Sie nuget.org als Paketrepository mit NuGet-Clients verwenden können, müssen Sie den folgenden V3-API-Endpunkt verwenden: 
+
+**`https://api.nuget.org/v3/index.json`**
+
+Ältere Clients können noch das V2-Protokoll verwenden, um nuget.org zu erreichen. Beachten Sie jedoch, dass NuGet-Clients für Version 3.0 oder höher mit dem V2-Protokoll einen langsameren und weniger zuverlässigen Dienst in Kauf nehmen müssen:
+
+`https://www.nuget.org/api/v2/` (VERALTET!) **Hinweis:** „www“ ist wichtig.
+
+Der Befehl *„List“ von NuGet.exe* funktioniert darüber hinaus nur mit dem V2-Protokoll.
 
 ## <a name="nugetorg-account-management"></a>Kontoverwaltung auf nuget.org
 
