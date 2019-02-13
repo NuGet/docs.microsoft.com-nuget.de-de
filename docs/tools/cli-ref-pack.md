@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: d39ec8caf94caa767b6c502cc475e278aa718b95
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 9db24b2dd6ced0869ac84b25f9796ded5df10f86
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324785"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145643"
 ---
 # <a name="pack-command-nuget-cli"></a>Der Befehl „pack“ (NuGet-CLI)
 
@@ -43,7 +43,7 @@ wobei `<nuspecPath>` und `<projectPath>` angeben der `.nuspec` oder Projektdatei
 | IncludeReferencedProjects | Gibt an, dass das erstellte Paket referenzierte Projekte entweder als Abhängigkeiten oder als Teil des Pakets enthalten soll. Wenn ein Referenziertes Projekt ein entsprechendes hat `.nuspec` -Datei mit dem gleichen Namen wie das Projekt, und klicken Sie dann das referenzierte Projekt als Abhängigkeit hinzugefügt wird. Andernfalls wird das referenzierte Projekt als Teil des Pakets hinzugefügt. |
 | MinClientVersion | Legen Sie die *MinClientVersion* -Attribut für das erstellte Paket. Dieser Wert überschreibt den Wert des vorhandenen *MinClientVersion* -Attribut (sofern vorhanden) in der `.nuspec` Datei. |
 | MSBuildPath | *(4.0 und höher)*  Gibt den Pfad des MSBuild für die Verwendung mit dem Befehl vor `-MSBuildVersion`. |
-| MSBuildVersion | *(3.2 und höher)*  Gibt die Version von MSBuild mit dem folgenden Befehl verwendet werden. Unterstützte Werte sind 4, 12, 14, 15. Standardmäßig die MSBuild in Ihrem Pfad ausgewählt wird, wird standardmäßig andernfalls die neueste installierte Version von MSBuild. |
+| MSBuildVersion | *(3.2 und höher)*  Gibt die Version von MSBuild mit dem folgenden Befehl verwendet werden. Unterstützte Werte sind 4, 12, 14, 15.1, 15.3, Version 15.4, Version 15.5, 15.6, 15.7, 15.8, 15.9. Standardmäßig die MSBuild in Ihrem Pfad ausgewählt wird, wird standardmäßig andernfalls die neueste installierte Version von MSBuild. |
 | NoDefaultExcludes | Verhindert die Standard-Ausschlussliste von NuGet-Paket-Dateien, Dateien und Ordnern, wie z. B. mit einem Punkt, ab `.svn` und `.gitignore`. |
 | NoPackageAnalysis | Gibt an, dass der Packvorgang keine Paketanalyse nach dem Erstellen des Pakets ausführen sollte. |
 | OutputDirectory | Gibt den Ordner, in dem das erstellte Paket gespeichert ist. Wenn kein Ordner angegeben wird, wird der aktuelle Ordner verwendet. |

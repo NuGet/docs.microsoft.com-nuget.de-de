@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 39b710c483ce4b3f2da30df6bb5b6842f9ee1fca
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 5d0d60cbcf6516d24efeb04f8262902da69d92d1
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324837"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145656"
 ---
 # <a name="nuget-api"></a>NuGet-API
 
@@ -49,17 +49,17 @@ Geschütztes Protokoll an die API wurde geändert, da es veröffentlicht wurde.
 
 Die **dienstindex** beschreibt eine Reihe von Ressourcen. Der aktuelle Satz von unterstützten Ressourcen lauten wie folgt aus:
 
-Ressourcenname                                                           | Erforderlich | Beschreibung
-----------------------------------------------------------------------  | -------- | -----------
+Ressourcenname                                                          | Erforderlich | Beschreibung
+---------------------------------------------------------------------- | -------- | -----------
 [`PackagePublish`](package-publish-resource.md)                        | ja      | Mithilfe von Push übertragen und löschen (oder aus der Liste entfernen) Pakete.
 [`SearchQueryService`](search-query-service-resource.md)               | ja      | Filtern und Pakete nach Schlüsselwort suchen.
 [`RegistrationsBaseUrl`](registration-base-url-resource.md)            | ja      | Abrufen von Metadaten von Paketen.
 [`PackageBaseAddress`](package-base-address-resource.md)               | ja      | Paketinhalt (NUPKG) zu erhalten.
 [`SearchAutocompleteService`](search-autocomplete-service-resource.md) | Nein       | Entdecken Sie die Paket-IDs und Versionen von Teilzeichenfolge.
 [`ReportAbuseUriTemplate`](report-abuse-resource.md)                   | Nein       | Erstellen Sie eine URL für den Zugriff auf eine Webseite "Missbrauch melden".
-[`RepositorySignatures`](repository-signatures-resource.md)             | Nein      | Abrufen von Zertifikaten, die zum Signieren von Repository verwendet.
-[`Catalog`](catalog-resource.md)                                         | Nein      | Vollständigen Datensatz aller Ereignisse für Paket.
-[`SymbolPackagePublish`](symbol-package-publish-resource.md)            | Nein      | Push-Symbolpaketen an.
+[`RepositorySignatures`](repository-signatures-resource.md)            | Nein       | Abrufen von Zertifikaten, die zum Signieren von Repository verwendet.
+[`Catalog`](catalog-resource.md)                                       | Nein       | Vollständigen Datensatz aller Ereignisse für Paket.
+[`SymbolPackagePublish`](symbol-package-publish-resource.md)           | Nein       | Push-Symbolpaketen an.
 
 Im Allgemeinen werden alle nicht binären Daten zurückgegeben, die von einer API-Ressource mit JSON serialisiert. Das Antwortschema von jeder Ressource im dienstindex zurückgegeben wird einzeln für diese Ressource definiert. Weitere Informationen zu jeder Ressource finden Sie unter den oben aufgeführten Themen.
 
@@ -67,6 +67,19 @@ Der Weiterentwicklung des Protokolls, möglicherweise in Zukunft neue Eigenschaf
 
 > [!Note]
 > Wenn eine Datenquelle den `SearchAutocompleteService` nicht implementiert, sollte das Auto-Vervollständigungs-Verfahren kontrolliert deaktiviert werden. Wenn `ReportAbuseUriTemplate` nicht implementiert wird, fällt der offizielle NuGet-Client auf die "Missbrauch melden"-URL von nuget.org zurück (zu verfolgen in [NuGet/Home#4924](https://github.com/NuGet/Home/issues/4924)). Andere Clients können sich dazu entscheiden, einfach keine solche URL anzuzeigen.
+
+### <a name="undocumented-resources-on-nugetorg"></a>Nicht dokumentierte Ressourcen auf nuget.org
+
+Dienstindex auf nuget.org V3 verfügt über einige Ressourcen, die oben nicht dokumentiert sind. Es gibt einige Gründe für die Dokumentierung nicht auf einer Ressourcensatzes.
+
+Wir dokumentieren nicht zuerst als Implementierungsdetail beibehalten von nuget.org verwendete Ressourcen. Die `SearchGalleryQueryService` in diese Kategorie fällt. [NuGetGallery](https://github.com/NuGet/NuGetGallery) verwendet diese Ressource, delegieren einige V2 (OData) Abfragen in unserer Search-Index mit der Datenbank. Diese Ressource wurde aus Gründen der Skalierbarkeit eingeführt und ist nicht für die externe Verwendung vorgesehen.
+
+Zweitens, nicht wir Ressourcen dokumentieren, die in der RTM-Version von der offiziellen Client nie ausgeliefert wurden.
+`PackageDisplayMetadataUriTemplate` und `PackageVersionDisplayMetadataUriTemplate` fallen in diese Kategorie.
+
+Drittens nicht wir dokumentieren Sie Ressourcen, die eng gekoppelt mit dem V2-Protokoll, die wiederum ist absichtlich nicht dokumentiert. Die `LegacyGallery` Ressource in diese Kategorie fällt. Diese Ressource ermöglicht eine V3-dienstindex, um auf eine entsprechende V2-Quell-URL zu verweisen. Diese Ressource unterstützt die `nuget.exe list`.
+
+Wenn eine Ressource hier nicht dokumentiert ist es *stark* wird empfohlen, dass Sie nicht über eine Abhängigkeit auf diesen führen. Wir können entfernen oder ändern das Verhalten der folgenden nicht dokumentierten Ressourcen, die Ihre Implementierung auf unerwartete Weise unterbrechen kann.
 
 ## <a name="timestamps"></a>Timestamps
 

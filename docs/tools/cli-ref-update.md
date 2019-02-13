@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: fc34550b3669d83466318645987cfd3078bc3c18
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: ded9b571324d810c2f0e1a46ea76375a28940406
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545099"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145604"
 ---
 # <a name="update-command-nuget-cli"></a>Der Befehl „commnad“ (NuGet CLI)
 
@@ -39,16 +39,16 @@ in denen `<configPath>` identifiziert entweder eine `packages.config` oder Proje
 | ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) verwendet wird.|
 | FileConflictAction | Gibt die Aktion an, wenn Sie gefragt werden, überschrieben werden soll, oder ignorieren die vorhandene Dateien, die vom Projekt verwiesen wird. Werte sind *überschrieben werden soll, zu ignorieren, keine*. |
 | ForceEnglishOutput | *(3.5 und höher)*  Erzwingt nuget.exe über eine invariante Kultur auf Englisch basierenden ausgeführt werden. |
-| Hilfe | Zeigt die Informationen für den Befehl Hilfe. |
+| Help | Zeigt die Informationen für den Befehl Hilfe. |
 | Id | Gibt eine Liste der Paket-IDs zu aktualisieren. |
 | MSBuildPath | *(4.0 und höher)*  Gibt den Pfad des MSBuild für die Verwendung mit dem Befehl vor `-MSBuildVersion`. |
-| MSBuildVersion | *(3.2 und höher)*  Gibt die Version von MSBuild mit dem folgenden Befehl verwendet werden. Unterstützte Werte sind 4, 12, 14, 15. Standardmäßig die MSBuild in Ihrem Pfad ausgewählt wird, wird standardmäßig andernfalls die neueste installierte Version von MSBuild. |
+| MSBuildVersion | *(3.2 und höher)*  Gibt die Version von MSBuild mit dem folgenden Befehl verwendet werden. Unterstützte Werte sind 4, 12, 14, 15.1, 15.3, Version 15.4, Version 15.5, 15.6, 15.7, 15.8, 15.9. Standardmäßig die MSBuild in Ihrem Pfad ausgewählt wird, wird standardmäßig andernfalls die neueste installierte Version von MSBuild. |
 | NonInteractive | Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an. |
-| Vorabversion | Ermöglicht das Aktualisieren auf Vorabversionen. Dieses Flag ist nicht erforderlich, beim Aktualisieren von Vorabversionen von Paketen, die bereits installiert sind. |
+| PreRelease | Ermöglicht das Aktualisieren auf Vorabversionen. Dieses Flag ist nicht erforderlich, beim Aktualisieren von Vorabversionen von Paketen, die bereits installiert sind. |
 | RepositoryPath | Gibt den lokalen Ordner, in dem Pakete installiert sind. |
 | Safe | Gibt an, dass nur mit der höchsten Version innerhalb der gleichen Haupt- und Nebenversionsnummern Version verfügbaren updates wie das installierte Paket installiert wird. |
 | Self-Service | Nuget.exe auf die neueste Version aktualisiert wird; Alle anderen Argumente werden ignoriert. |
-| Quelle | Gibt die Liste der Paketquellen (wie URLs), um nach Updates verwenden. Wenn nicht angegeben, wird der Befehl verwendet die Quellen in Konfigurationsdateien, finden Sie unter [Konfigurieren des NuGet-Verhaltens](../consume-packages/configuring-nuget-behavior.md). |
+| Source | Gibt die Liste der Paketquellen (wie URLs), um nach Updates verwenden. Wenn nicht angegeben, wird der Befehl verwendet die Quellen in Konfigurationsdateien, finden Sie unter [Konfigurieren des NuGet-Verhaltens](../consume-packages/configuring-nuget-behavior.md). |
 | Ausführlichkeit | Gibt an, die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *quiet*, *ausführliche*. |
 | Version | Bei Verwendung mit einem Paket-ID gibt die Version des Pakets aktualisieren. |
 

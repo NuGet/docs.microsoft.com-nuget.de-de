@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 06e3a26863761b7e7a42752866e7fe369f5be4ef
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: adf97196f50f2a55d6b8ceed93d53ff12b67657b
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550351"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145630"
 ---
 # <a name="restore-command-nuget-cli"></a>RESTORE-Befehl (NuGet-CLI)
 
-**Gilt für:** Paket Verbrauch &bullet; **unterstützte Versionen:** 2.7 und höher
+**Gilt für:** Paket Verbrauch &bullet; **unterstützte Versionen:** 2.7+
 
 Heruntergeladen und installiert alle Pakete fehlen die `packages` Ordner. Mit NuGet 4.0 und höher und das PackageReference-Format verwendet, generiert eine `<project>.nuget.props` Datei bei Bedarf, in der `obj` Ordner. (Die Datei kann aus der quellcodeverwaltung ausgelassen werden.)
 
@@ -37,9 +37,9 @@ wo `<projectPath>` gibt den Speicherort einer Projektmappe oder ein `packages.co
 | DisableParallelProcessing | Deaktiviert, die mehrere Pakete gleichzeitig wiederhergestellt werden. |
 | FallbackSource | *(3.2 und höher)*  Eine Liste der Paketquellen, die als Fallbacks verwendet werden soll, für den Fall, dass das Paket nicht, auf dem primären gefunden wird oder Standardquelle. |
 | ForceEnglishOutput | *(3.5 und höher)*  Erzwingt nuget.exe über eine invariante Kultur auf Englisch basierenden ausgeführt werden. |
-| Hilfe | Zeigt die Informationen für den Befehl Hilfe. |
+| Help | Zeigt die Informationen für den Befehl Hilfe. |
 | MSBuildPath | *(4.0 und höher)*  Gibt den Pfad des MSBuild für die Verwendung mit dem Befehl vor `-MSBuildVersion`. |
-| MSBuildVersion | *(3.2 und höher)*  Gibt die Version von MSBuild mit dem folgenden Befehl verwendet werden. Unterstützte Werte sind 4, 12, 14, 15. Standardmäßig die MSBuild in Ihrem Pfad ausgewählt wird, wird standardmäßig andernfalls die neueste installierte Version von MSBuild. |
+| MSBuildVersion | *(3.2 und höher)*  Gibt die Version von MSBuild mit dem folgenden Befehl verwendet werden. Unterstützte Werte sind 4, 12, 14, 15.1, 15.3, Version 15.4, Version 15.5, 15.6, 15.7, 15.8, 15.9. Standardmäßig die MSBuild in Ihrem Pfad ausgewählt wird, wird standardmäßig andernfalls die neueste installierte Version von MSBuild. |
 | NoCache | Verhindert, dass NuGet zwischengespeicherte Pakete verwenden. Finden Sie unter [Verwalten der globalen Paketordner und Cacheordner](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | NonInteractive | Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an. |
 | OutputDirectory | Gibt den Ordner, in dem Pakete installiert sind. Wenn kein Ordner angegeben wird, wird der aktuelle Ordner verwendet. Erforderlich, wenn die Wiederherstellung mit einem `packages.config` Datei, wenn `PackagesDirectory` oder `SolutionDirectory` verwendet wird.|
@@ -49,7 +49,7 @@ wo `<projectPath>` gibt den Speicherort einer Projektmappe oder ein `packages.co
 | Rekursive | *(4.0 und höher)*  Stellt alle Verweise-Projekte für UWP und .NET Core-Projekte wieder her. Gilt nicht für Projekte mit `packages.config`. |
 | RequireConsent | Stellt sicher, dass die Wiederherstellung von Paketen aktiviert ist, vor dem Herunterladen und Installieren der Pakete. Weitere Informationen finden Sie unter [Paketwiederherstellung](../consume-packages/package-restore.md). |
 | SolutionDirectory | Gibt den Projektmappenordner. Gilt nicht beim Wiederherstellen von Paketen für eine Lösung. Erforderlich, wenn die Wiederherstellung mit einem `packages.config` Datei, wenn `PackagesDirectory` oder `OutputDirectory` verwendet wird. |
-| Quelle | Gibt die Liste der Paketquellen (wie URLs) für die Verwendung für die Wiederherstellung an. Wenn nicht angegeben, wird der Befehl verwendet die Quellen in Konfigurationsdateien, finden Sie unter [Konfigurieren des NuGet-Verhaltens](../consume-packages/configuring-nuget-behavior.md). |
+| Source | Gibt die Liste der Paketquellen (wie URLs) für die Verwendung für die Wiederherstellung an. Wenn nicht angegeben, wird der Befehl verwendet die Quellen in Konfigurationsdateien, finden Sie unter [Konfigurieren des NuGet-Verhaltens](../consume-packages/configuring-nuget-behavior.md). |
 | Ausführlichkeit |> Gibt an, die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *quiet*, *ausführliche*. |
 
 Siehe auch [Umgebungsvariablen](cli-ref-environment-variables.md)
