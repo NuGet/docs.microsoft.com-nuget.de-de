@@ -5,20 +5,52 @@ author: anangaur
 ms.author: anangaur
 ms.date: 1/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: ed3294f88ff99d5e26f630bdbca03aa8446b6e7f
-ms.sourcegitcommit: 0cb4c9853cde3647291062eadee2298dd273311e
+ms.openlocfilehash: 5889ea52f993fa8fe841f8eb83b6da659cdede93
+ms.sourcegitcommit: 1ab750ff17e55c763d646c50e7630138804ce8b8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55084936"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247658"
 ---
 # <a name="nuget-50-preview-release-notes"></a>Anmerkungen zu NuGet 5.0 Preview
+
+## <a name="nuget-50-preview-releases"></a>NuGet-5.0 Preview-Versionen
+
+* 13 Februar 2019 - [NuGet 5.0 Preview 3](#summary-whats-new-in-50-preview-3)
+* 23 Januar 2019 - [NuGet 5.0 Preview 2](#summary-whats-new-in-50-preview-2)
+
+## <a name="summary-whats-new-in-nuget-50-preview-3"></a>Zusammenfassung: Neuerungen in NuGet 5.0 Preview 3
+
+### <a name="issues-fixed-in-this-release"></a>In diesem Release behobene Probleme 
+
+**Bugs:**
+
+* nuget.exe /? tragen Sie richtige Msbuild-Versionen – [#7794](https://github.com/NuGet/Home/issues/7794)
+
+* NuGet.targets(498,5): error : Einen Teil des Pfads konnte nicht gefunden "/ Tmp/NuGetScratch - unter Mono - [#7793](https://github.com/NuGet/Home/issues/7793)
+
+* Wiederherstellung listet unnötigerweise den Inhalt von allen Versionen von Referenziertes Paket im Cache Machine - [#7639](https://github.com/NuGet/Home/issues/7639)
+
+* Automatische Erkennung von MSBuild wählt immer 16.0, nach der Installation von Visual Studio 2019 Vorschau - [#7621](https://github.com/NuGet/Home/issues/7621)
+
+* Dotnet-umgebungsaufgabenlisten-Paket für eine Lösung gibt doppelte Einträge für Framework - [#7607](https://github.com/NuGet/Home/issues/7607)
+
+* Ausnahme "ein leerer Pfad ist nicht zulässig." beim aufrufenden IVsPackageInstaller.InstallPackage auf dem alten Projekte und-Pakete Ordner ist nicht vorhanden. - [#5936](https://github.com/NuGet/Home/issues/5936)
+
+* MSBuild/t: Restore Ausführlichkeitsgrad muss funktionalitätsanforderungen - [#4695](https://github.com/NuGet/Home/issues/4695)
+
+**DCRs**
+
+* Paketersteller, die zum Definieren von Ressourcen transitive Buildverhalten - ermöglichen [#6091](https://github.com/NuGet/Home/issues/6091)
+
+* Aktivieren der Wiederherstellung in Visual Studio erfolgreich, wenn ein Projekt nicht Teil der Lösung ist oder wurde nicht geladen, aber es bereits wiederhergestellt wurde - [#5820](https://github.com/NuGet/Home/issues/5820)
+
 
 ## <a name="summary-whats-new-in-50-preview-2"></a>Zusammenfassung: Neuerungen in 5.0 Preview 2
 
 ### <a name="issues-fixed-in-this-release"></a>In diesem Release behobene Probleme
 
-#### <a name="bugs"></a>Fehler:
+**Bugs:**
 
 * Visual Studio 16.0 NuGet UI enthält unlesbare Registerkarten aufgrund von Problemen mit Farbe - [#7735](https://github.com/NuGet/Home/issues/7735)
 
@@ -60,7 +92,7 @@ ms.locfileid: "55084936"
 
 * Dotnet-Restore versagt, wenn deaktivierte auf den gesamten Computer feed - [#5410](https://github.com/NuGet/Home/issues/5410)
 
-#### <a name="dcrs"></a>DCRs
+**DCRs**
 
 * NuGet-5.0-Assemblys in .NET 4.7.2 (über die Änderung der TFM) - erfordern [#7510](https://github.com/NuGet/Home/issues/7510)
 
@@ -76,21 +108,12 @@ ms.locfileid: "55084936"
 
 [Liste aller Probleme, die in dieser Version 5.0.0-preview2 behoben](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.2")
 
+### <a name="known-issues"></a>Bekannte Probleme
 
-## <a name="known-issues"></a>Bekannte Probleme
+#### <a name="dotnet-nuget-push---interactive-gives-an-error-on-mac---7519httpsgithubcomnugethomeissues7519"></a>„dotnet nuget push --interactive“ löst auf dem Mac eine Fehlermeldung aus. - [#7519](https://github.com/NuGet/Home/issues/7519)
+**Problem** der `--interactive` Argument wird von der Dotnet-Cli nicht weitergeleitet werden und führt zu dem Fehler `error: Missing value for option 'interactive'` 
+ **Problemumgehung** jeden anderen Dotnet-Befehl ausführen, mit der Option "Interaktiv", wie z. B. `dotnet restore --interactive` und authentifizieren. Die Authentifizierung könnte dann möglicherweise vom Anmeldeinformationsanbieter zwischengespeichert werden. Führen Sie anschließend `dotnet nuget push` aus.
 
-### <a name="dotnet-nuget-push---interactive-gives-an-error-on-mac---7519httpsgithubcomnugethomeissues7519"></a>„dotnet nuget push --interactive“ löst auf dem Mac eine Fehlermeldung aus. - [#7519](https://github.com/NuGet/Home/issues/7519)
-
-#### <a name="issue"></a>Problem
-Das `--interactive`-Argument wird von der DotNet-CLI nicht weitergeleitet und löst die Fehlermeldung `error: Missing value for option 'interactive'` aus.
-
-#### <a name="workaround"></a>Problemumgehung
-Führen Sie jeden anderen DotNet-Befehl mit einer interaktiven Option wie `dotnet restore --interactive` aus, und authentifizieren Sie sich. Die Authentifizierung könnte dann möglicherweise vom Anmeldeinformationsanbieter zwischengespeichert werden. Führen Sie anschließend `dotnet nuget push` aus.
-
-### <a name="packages-in-fallbackfolders-installed-by-net-core-sdk-are-custom-installed-and-fail-signature-validation---7414httpsgithubcomnugethomeissues7414"></a>Von .NET Core SDK in FallbackFolders installierte Pakete werden benutzerdefiniert installiert und bestehen die Signaturüberprüfung nicht. - [#7414](https://github.com/NuGet/Home/issues/7414)
-
-#### <a name="issue"></a>Problem
-Bei Verwendung von dotnet.exe 2.x zum Wiederherstellen eines Projekts mit mehreren Zielen netcoreapp 1.x und netcoreapp 2.x wird der Fallbackordner als Dateifeed behandelt. Dies bedeutet, dass NuGet bei der Wiederherstellung das Paket aus dem Fallbackordner auswählt und versucht, es im globalen Paketordner zu installieren, und die übliche Signaturüberprüfung durchführt, bei der ein Fehler auftritt.
-
-#### <a name="workaround"></a>Problemumgehung
-Deaktivieren Sie die Verwendung des Fallbackordners, indem Sie für `RestoreAdditionalProjectSources` nichts festlegen. `<RestoreAdditionalProjectSources/>` Verwenden Sie dies mit Vorsicht, da es bewirkt, dass viele Pakete von NuGet.org heruntergeladen werden, die andernfalls aus dem Fallbackordner wiederhergestellt würden.
+#### <a name="packages-in-fallbackfolders-installed-by-net-core-sdk-are-custom-installed-and-fail-signature-validation---7414httpsgithubcomnugethomeissues7414"></a>Von .NET Core SDK in FallbackFolders installierte Pakete werden benutzerdefiniert installiert und bestehen die Signaturüberprüfung nicht. - [#7414](https://github.com/NuGet/Home/issues/7414)
+**Problem** bei Verwendung des dotnet.exe 2.x auf ein Projekt, mit mehreren Zielen Netcoreapp wiederherstellen 1.x und Netcoreapp 2.x, alternative Ordner so behandelt, als eine Datei mit dem feed. Dies bedeutet, dass NuGet bei der Wiederherstellung das Paket aus dem Fallbackordner auswählt und versucht, es im globalen Paketordner zu installieren, und die übliche Signaturüberprüfung durchführt, bei der ein Fehler auftritt.
+**Problemumgehung** deaktivieren Sie die Verwendung des Ordners fallback durch Festlegen der `RestoreAdditionalProjectSources` auf nichts verweist. `<RestoreAdditionalProjectSources/>` Verwenden Sie dies mit Vorsicht, da es bewirkt, dass viele Pakete von NuGet.org heruntergeladen werden, die andernfalls aus dem Fallbackordner wiederhergestellt würden.
