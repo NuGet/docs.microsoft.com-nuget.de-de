@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 290055a306306e944695d3a6ac970819882ee0c6
-ms.sourcegitcommit: 046717af2eba9ff6f619a0533844dee56a600d1c
+ms.openlocfilehash: f15639c883241c328b5fc0a4bf5617540b52b7ee
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55648269"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145682"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Häufig gestellte Fragen zu NuGet
 
@@ -243,9 +243,7 @@ Damit Sie nuget.org als Paketrepository mit NuGet-Clients verwenden können, mü
 
 Ältere Clients können noch das V2-Protokoll verwenden, um nuget.org zu erreichen. Beachten Sie jedoch, dass NuGet-Clients für Version 3.0 oder höher mit dem V2-Protokoll einen langsameren und weniger zuverlässigen Dienst in Kauf nehmen müssen:
 
-`https://www.nuget.org/api/v2/` (VERALTET!) **Hinweis:** „www“ ist wichtig.
-
-Der Befehl *„List“ von NuGet.exe* funktioniert darüber hinaus nur mit dem V2-Protokoll.
+`https://www.nuget.org/api/v2` (VERALTET!) **Hinweis:** Verwenden Sie „www.“ für die optimale Zuverlässigkeit.
 
 ## <a name="nugetorg-account-management"></a>Kontoverwaltung auf nuget.org
 

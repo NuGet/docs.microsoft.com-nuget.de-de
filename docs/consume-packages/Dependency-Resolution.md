@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: a561a49f2e733929e32584adf7b6849ea535c440
-ms.sourcegitcommit: 585394f063e95dcbc24d7ac0ce07de643eaf6f4d
+ms.openlocfilehash: a2aed3950b3e19e30d9d026ad1b9bdaef44c9d37
+ms.sourcegitcommit: 1ab750ff17e55c763d646c50e7630138804ce8b8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "55046254"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247645"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Auflösung von Paketabhängigkeiten durch NuGet
 
@@ -24,7 +24,7 @@ Wenn mehrere Pakete über dieselbe Abhängigkeit verfügen, kann in dem Diagramm
 
 Bei der Installation von Paketen in Projekte, die das PackageReference-Format verwenden, fügt NuGet Verweise auf ein flaches Paketdiagramm in der entsprechenden Datei hinzu und löst Konflikte auf, bevor sie entstehen. Dieser Vorgang wird als *transitive Wiederherstellung* bezeichnet. Für die erneute Installation oder die Wiederherstellung müssen dann nur noch die in dem Diagramm aufgeführten Pakete heruntergeladen werden, wodurch schnellere und zuverlässigere Builds erstellt werden. Sie können auch Platzhalterversionen (unverankert) wie 2.8.\* nutzen, um speicherintensive und fehlernanfällige Aufrufe von `nuget update` auf den Clientcomputern und Buildservern zu vermeiden.
 
-Wenn der Wiederherstellungsprozess von NuGet vor einem Buildvorgang ausgeführt wird, löst dieser zuerst Abhängigkeiten im Arbeitsspeicher aus und schreibt das resultierende Diagramm dann in eine Datei mit der Bezeichnung `project.assets.json` in den `obj`-Ordner eines Projekts, das PackageReference verwendet. MSBuild liest diese Datei und übersetzt sie in mehrere Ordner, in denen sich mögliche Verweise befinden, und fügt diese dann der Projektstruktur im Arbeitsspeicher hinzu.
+Wenn der Wiederherstellungsprozess von NuGet vor einem Buildvorgang ausgeführt wird, löst dieser zuerst Abhängigkeiten im Arbeitsspeicher aus und schreibt das resultierende Diagramm dann in eine Datei mit der Bezeichnung `project.assets.json`. Die Ressourcendatei befindet sich unter `MSBuildProjectExtensionsPath`, was standardmäßig der Objektordner des Projekts ist. MSBuild liest diese Datei und übersetzt sie in mehrere Ordner, in denen sich mögliche Verweise befinden, und fügt diese dann der Projektstruktur im Arbeitsspeicher hinzu.
 
 Die Sperrdatei dient nur als temporäre Datei und sollte nicht der Quellcodeverwaltung hinzugefügt werden. Sie wird standardmäßig sowohl in `.gitignore` als auch in `.tfignore` aufgeführt. Weitere Informationen finden Sie unter [Packages and source control (Pakete und Quellcodeverwaltung)](packages-and-source-control.md).
 

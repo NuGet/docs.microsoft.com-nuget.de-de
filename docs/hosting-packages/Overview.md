@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/25/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 4741d780afa4fbe11001aed49a9f72bf608d96d9
-ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
+ms.openlocfilehash: 45d8a6557ee02998f3d12b128ee2dc4fd6ae48bb
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52303562"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145591"
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>Hosten eigener NuGet-Feeds
 
@@ -25,7 +25,7 @@ Zu diesen Zwecken unterstützt NuGet das Einrichten privater Paketquellen auf fo
 
 Es gibt zudem verschiedene andere NuGet-Produkte zum Hosten, die remote private Feeds unterstützen, z.B:
 
-- [Visual Studio Team Services-Paketverwaltung](https://www.visualstudio.com/docs/package/nuget/publish) (auch bei Team Foundation Server 2017 und höher verfügbar)
+- [Azure Artifacts](https://www.visualstudio.com/docs/package/nuget/publish), was auch auf Team Foundation Server 2017 und höher verfügbar ist.
 - [MyGet](http://myget.org)
 - [ProGet](http://inedo.com/proget) von Inedo
 - [NuGet Server](http://nugetserver.net/), ein Communityprojekt von Inedo
