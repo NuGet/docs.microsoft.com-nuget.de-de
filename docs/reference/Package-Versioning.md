@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: b980c1084fe8e31573053a4dcf38bbfa6146e6de
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 6407cd2ea5e5e7a9c9e2be679764a8a0d5dd9260
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549772"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852467"
 ---
 # <a name="package-versioning"></a>Paketversionsverwaltung
 
@@ -29,9 +29,9 @@ In diesem Thema:
 
 Die Versionsnummer wird in der Form *Hauptversion.Nebenversion.Patch [-Suffix]*, in dem die Komponenten die folgenden Bedeutungen haben:
 
-- *Wichtige*: wichtige Änderungen
-- *Kleinere*: neue Features, aber dennoch abwärtskompatibel
-- *Patch*: abwärtskompatibel Fehlerbehebungen
+- *Wichtige*: Breaking Changes
+- *Kleinere*: Neue Funktionen, aber dennoch abwärtskompatibel
+- *Patch*: Nur abwärtskompatible Fehlerkorrekturen
 - *-Suffix* (optional): ein Bindestrich gefolgt von eine Zeichenfolge, die eine Vorabversion (folgenden der [semantische Versionierung bzw. SemVer-1.0-Konvention](http://semver.org/spec/v1.0.0.html)).
 
 **Beispiele:**
@@ -51,8 +51,8 @@ Technisch gesehen können Paketersteller eine beliebige Zeichenfolge als Suffix 
 Dies bedeutet, dass Paketentwickler allgemein anerkannte Namenskonventionen zu halten folgen:
 
 - `-alpha`: Alpha-Release, in der Regel für die laufende Arbeit und experimentieren verwendet.
-- `-beta`: Beta-Release; in der Regel ein Release, das alle Features des nächsten geplanten Releases besitzt, aber womöglich bereits bekannte Fehler enthält
-- `-rc`: Release Candidate (RC); in der Regel ein stabiles Release, das veröffentlicht werden könnte, sofern keine erheblichen Fehler mehr auftreten
+- `-beta`: Beta-Release; in der Regel ein Release, das alle Features des nächsten geplanten Releases besitzt, aber womöglich bereits bekannte Fehler enthält.
+- `-rc`: Release Candidate (RC); in der Regel ein stabiles Release, das veröffentlicht werden könnte, sofern keine erheblichen Fehler mehr auftreten.
 
 > [!Note]
 > NuGet 4.3.0 unterstützt [SemVer 2.0.0](http://semver.org/spec/v2.0.0.html), die Vorabversion von Zahlen mit Punktnotation, wie in unterstützt *1.0.1-build.23*. Die Punktnotation wird für NuGet-Versionen vor Version 4.3.0 nicht unterstützt. Sie können eine Formulierung wie *1.0.1-build23*.
@@ -106,7 +106,7 @@ In Bezug auf die paketabhängigkeiten unterstützt NuGet an, mit Intervall Notat
 |----------|--------------|-------------|
 | 1.0 | X ≥ 1.0 | Mindestens erforderliche Version, einschließlich |
 | (1.0,) | x > 1.0 | Mindestens erforderliche Version, exklusiv |
-| [1.0] | X == 1.0 | Übereinstimmung mit der genauen version |
+| [1.0] | x == 1.0 | Übereinstimmung mit der genauen version |
 | (,1.0] | x ≤ 1.0 | Maximale Version, einschließlich |
 | (,1.0) | x < 1.0 | Maximale Version, exklusiv |
 | [1.0,2.0] | 1.0 ≤ x ≤ 2.0 | Genaue Bereich, inklusiv |
@@ -187,9 +187,6 @@ Die `version` -Attribut in einem `<dependency>` -Element beschreibt die Bereichs
 ```xml
 <!-- Accepts any version 6.1 and above. -->
 <dependency id="ExamplePackage" version="6.1" />
-
-<!-- Accepts any 6.x.y version. -->
-<dependency id="ExamplePackage" version="6.*" />
 
 <!-- Accepts any version above, but not including 4.1.3. Could be
      used to guarantee a dependency with a specific bug fix. -->

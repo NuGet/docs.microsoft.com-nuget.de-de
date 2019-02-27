@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 08/16/2018
 ms.topic: conceptual
 ms.reviewer: kraigb
-ms.openlocfilehash: 6184fe8e987e0637cb912999f2e3fa3a3dc9b4ba
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 003139abac7808dbdaef4aa66119e09772db2b4f
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546934"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852532"
 ---
 # <a name="toolsjson-for-discovering-nugetexe-versions"></a>Tools.JSON für die Ermittlung von nuget.exe-Versionen
 
@@ -45,14 +45,14 @@ Jedes Objekt in der `nuget.exe` Array verfügt über die folgenden Eigenschaften
 
 name     | Typ   | Erforderlich | Hinweise
 -------- | ------ | -------- | -----
-Version  | Zeichenfolge | ja      | Eine Zeichenfolge SemVer 2.0.0
+version  | Zeichenfolge | ja      | Eine Zeichenfolge SemVer 2.0.0
 url      | Zeichenfolge | ja      | Eine absolute URL für das Herunterladen dieser Version von nuget.exe
-Phase    | Zeichenfolge | ja      | Eine Enum-Zeichenfolge
-hochgeladen | Zeichenfolge | ja      | Wenn die Version zur Verfügung gestellt wurde eine ungefähre Zeitstempel
+Stufe    | Zeichenfolge | ja      | Eine Enum-Zeichenfolge
+hochgeladen | Zeichenfolge | ja      | Eine ungefähre ISO 8601-Zeitstempel, der bei die Version verfügbar gemacht wurde
 
-Die Elemente im Array werden in absteigender, SemVer 2.0.0-Reihenfolge sortiert werden. Diese Garantie ist vorgesehen, um die Last auf einem Client, suchen Sie die neueste Version zu erleichtern. 
+Die Elemente im Array werden in absteigender, SemVer 2.0.0-Reihenfolge sortiert werden. Diese Garantie ist vorgesehen, um die Last eines Clients zu reduzieren, die höchste Versionsnummer interessiert ist. Dies bedeutet jedoch, dass die Liste nicht in chronologischer Reihenfolge sortiert wird. Z. B. wenn eine niedrigere Hauptversion zu einem Zeitpunkt nach einer höheren Hauptversion gewartet wird, wird diese bearbeitete Version, nicht am Anfang der Liste angezeigt. Wenn Sie möchten, dass die neueste Version von veröffentlichten *Zeitstempel*, Sortieren Sie das Array von der `uploaded` Zeichenfolge. Dies funktioniert, da die `uploaded` Zeitstempel wird in der [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) Format, das chronologisch sortiert werden kann, mit der eine lexikografische Sortierung (d. h. eine einfache Zeichenfolge-Sortierung).
 
-Die `stage` Eigenschaft gibt an, wie Vettect für diese Version des Tools ist. 
+Die `stage` Eigenschaft gibt an, wie überprüfte diese Version des Tools ist. 
 
 Stufe              | Bedeutung
 ------------------ | ------
@@ -60,7 +60,7 @@ EarlyAccessPreview | Nicht noch sichtbar ist, auf die [Webseite herunterladen](h
 Freigegeben           | Verfügbar auf der Downloadwebsite aber noch nicht für die umfassende Nutzung empfohlen
 ReleasedAndBlessed | Auf der Downloadwebsite verfügbar und wird empfohlen, für die Nutzung
 
-Ein einfacher Ansatz dafür, die neueste empfohlene Version ist, wird von der ersten Version in der Liste, die die `stage` Wert `ReleasedAndBlessed`.
+Ein einfacher Ansatz dafür, die neueste empfohlene Version ist, wird von der ersten Version in der Liste, die die `stage` Wert `ReleasedAndBlessed`. Dies funktioniert, da die Versionen, die in SemVer 2.0.0-Reihenfolge sortiert sind.
 
 Die `NuGet.CommandLine` Pakets auf nuget.org werden in der Regel nur mit aktualisiert `ReleasedAndBlessed` Versionen.
 
