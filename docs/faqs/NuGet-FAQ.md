@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: f15639c883241c328b5fc0a4bf5617540b52b7ee
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: 03223e949eeeadd7eaa6e392297ba79d28eed2f2
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145682"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852545"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Häufig gestellte Fragen zu NuGet
 
@@ -166,7 +166,7 @@ Es wird empfohlen, dass Sie alle Pakete für NuGet signieren. Ein Entwurfsprinzi
 
 Beachten Sie, dass die für Ihr Paket aufgeführten Abhängigkeiten automatisch vom Paket generiert werden und nicht bearbeitet werden können.
 
-Zusätzlich stellt das Hochladen von Paketen auf [int.nugettest.org](https://int.nugettest.org) eine gute Möglichkeit zum Testen und Überprüfen des Pakets dar, ohne dieses im öffentlichen Katalog zur Verfügung zu stellen.
+Zusätzlich stellt das Hochladen von Paketen auf [int.nugettest.org](https://int.nugettest.org) eine gute Möglichkeit zum Testen und Überprüfen des Pakets dar, ohne dieses im öffentlichen Katalog zur Verfügung zu stellen. API-Endpunkt: https://apiint.nugettest.org/v3/index.json
 
 **Ist es möglich, Namen für Pakete zu reservieren, die in Zukunft veröffentlicht werden sollen?**
 
