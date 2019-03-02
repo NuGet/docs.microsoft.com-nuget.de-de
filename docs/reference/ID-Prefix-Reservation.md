@@ -6,12 +6,12 @@ ms.author: diverdan92
 ms.date: 10/09/2017
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 32f83bede42f7643a9a4fed593643eefea0453c1
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: e8b902c89427333afb7a27ee9de0eeb99a92f391
+ms.sourcegitcommit: 571644118e3c5a2fd818891d305b4b8de8ef21de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981001"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57225874"
 ---
 # <a name="package-id-prefix-reservation"></a>Paket-ID-präfixreservierung
 
@@ -31,7 +31,7 @@ Wenn ein Präfix auf reserviert [nuget.org](https://www.nuget.org/), passiert Fo
 
 1. Jedes Mal, wenn ein Paket gesendet wird, um [nuget.org](https://www.nuget.org/) mit einer ID, die reservierte ID-Präfix entspricht, wird das Paket abgelehnt, es sei denn, sie der Besitzer stammt, der das ID-Präfix reserviert.
 
-1. Alle Pakete, die der reservierte ID-Präfix entspricht und stammt aus dem der Besitzer, der das ID-Präfix reserviert haben einen visuellen Indikator in Visual Studio 2017 Version 15.4 oder höher, und klicken Sie auf [nuget.org](https://www.nuget.org/) , der angibt, der das Paket wird ein reserviertes ID-Präfix. Dies gilt für sowohl neue Paket Übermittlungen sowie vorhandene Pakete unter den Besitzern genehmigt. **Hinweis:** der Indikator in Visual Studio, das angezeigt wird, nur, wenn Sie ein einzelner Feed als Paketquelle ausgewählt ist.
+1. Alle Pakete, die der reservierte ID-Präfix entspricht und stammt aus dem der Besitzer, der das ID-Präfix reserviert haben einen visuellen Indikator in Visual Studio 2017 Version 15.4 oder höher, und klicken Sie auf [nuget.org](https://www.nuget.org/) , der angibt, der das Paket wird ein reserviertes ID-Präfix. Dies gilt für sowohl neue Paket Übermittlungen sowie vorhandene Pakete unter den Besitzern genehmigt. **Hinweis**: Der Indikator in Visual Studio angezeigt wird, nur, wenn Sie ein einzelner Feed als Paketquelle ausgewählt ist.
 
 1. Gibt alle bereits vorhandenen Pakete, die die reservierte ID-Präfix, entsprechen jedoch *nicht* gehören dem Besitzer des reservierten Präfix bleiben unverändert (sie werden nicht aufgehoben werden, aber sie müssen auch nicht des visuellen Indikators). Darüber hinaus werden Besitzer dieser Pakete kann neue Versionen für das Paket gesendet.
 
@@ -55,8 +55,8 @@ Es gibt mehrere erweiterte Präfix-Reservierung Szenarien unten beschriebenen, e
 
 Wenn ein Paket ein reserviertes Präfix stammen, sehen Sie die unten visuelle Indikatoren für die [nuget.org](https://www.nuget.org/) Katalog und in Visual Studio 2017 Version 15.4 oder höher:
 
-**Katalog von NuGet.org**
-![NuGet-Katalog](media/nuget-gallery-reserved-prefix.png)
+**nuget.org Gallery**
+![nuget.org Gallery](media/nuget-gallery-reserved-prefix.png)
 
 **Visual Studio**
 ![Visual Studio](media/visual-studio-reserved-prefix.png)
@@ -84,6 +84,8 @@ Beim Überprüfen von jeder Anwendung für ID-präfixreservierung der [nuget.org
 1. Würde *nicht* reservieren das Paket-ID-Präfix dazu führen, dass Mehrdeutigkeiten und Verwirrung für die Community?
 
 1. Gibt die identifizierenden Eigenschaften der Pakete, die mit der Paket-ID-Präfix klare und einheitliche (insbesondere Paketersteller) übereinstimmen?
+
+1. Verfügen die Pakete über eine Lizenz (mit der [Lizenz](https://docs.microsoft.com/en-us/nuget/reference/nuspec#license) Metadaten-Element und nicht der "licenseUrl" der veraltet ist)?
 
 ## <a name="third-party-feed-provider-scenarios"></a>Von Drittanbietern, die feed-Anbieter-Szenarien
 

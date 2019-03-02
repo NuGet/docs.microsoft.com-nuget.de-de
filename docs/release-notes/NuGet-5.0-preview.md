@@ -5,26 +5,26 @@ author: anangaur
 ms.author: anangaur
 ms.date: 1/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: 57b66b347ac47a3d05907a4bb237002de8981ecc
-ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
+ms.openlocfilehash: 4b05dcb9a2960c1e3231e81d4b4c122d3a518753
+ms.sourcegitcommit: 571644118e3c5a2fd818891d305b4b8de8ef21de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196199"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57225887"
 ---
 # <a name="nuget-50-preview-release-notes"></a>Anmerkungen zu NuGet 5.0 Preview
 
 ## <a name="nuget-50-preview-releases"></a>NuGet-5.0 Preview-Versionen
 
-* 27 Februar 2010 - [NuGet 5.0 Preview 4](#summary-whats-new-in-50-preview-4)
-* 13 Februar 2019 - [NuGet 5.0 Preview 3](#summary-whats-new-in-50-preview-3)
-* 23 Januar 2019 - [NuGet 5.0 Preview 2](#summary-whats-new-in-50-preview-2)
+* 27 Februar 2019 - [NuGet 5.0 Preview 4](#whats-new-in-nuget-50-preview-4)
+* 13 Februar 2019 - [NuGet 5.0 Preview 3](#whats-new-in-nuget-50-preview-3)
+* 23 Januar 2019 - [NuGet 5.0 Preview 2](#whats-new-in-nuget-50-preview-2)
 
-## <a name="summary-whats-new-in-nuget-50-preview-4"></a>Zusammenfassung: Neuerungen in NuGet 5.0 Preview 4
+## <a name="whats-new-in-nuget-50-preview-4"></a>Neuerungen in NuGet 5.0 Preview 4
 
 ### <a name="issues-fixed-in-this-release"></a>In diesem Release behobene Probleme
 
-**Bugs:**
+**Fehler**
 
 * NuGet.VisualStudio.IVsPackageInstaller - Aufruf in einem Projekt mit kein Paket verweist immer auf "Packages.config" verwendet, auch wenn der Standardwert festgelegt ist, zu "packagereference" - [#7005](https://github.com/NuGet/Home/issues/7005)
 
@@ -48,7 +48,7 @@ ms.locfileid: "57196199"
 
 * Pfad für die Ermittlung von Msbuild bevorzugen, wenn Benutzer bestimmte Msbuild-Version - anfordern nicht [#7786](https://github.com/NuGet/Home/issues/7786)
 
-**DCRs:**
+**DCRs**
 
 * Beschränken der Anzahl von HTTP-Anforderung pro Datenquelle über die Datei "NuGet.config" - [#4538](https://github.com/NuGet/Home/issues/4538)
 
@@ -61,11 +61,11 @@ ms.locfileid: "57196199"
 * Pakete, NuGet.* netstandard2.0-Unterstützung hinzufügen [#6516](https://github.com/NuGet/Home/issues/6516)
 
 
-## <a name="summary-whats-new-in-nuget-50-preview-3"></a>Zusammenfassung: Neuerungen in NuGet 5.0 Preview 3
+## <a name="whats-new-in-nuget-50-preview-3"></a>Neuerungen in NuGet 5.0 Preview 3
 
 ### <a name="issues-fixed-in-this-release"></a>In diesem Release behobene Probleme 
 
-**Bugs:**
+**Fehler**
 
 * nuget.exe /? tragen Sie richtige Msbuild-Versionen – [#7794](https://github.com/NuGet/Home/issues/7794)
 
@@ -81,18 +81,18 @@ ms.locfileid: "57196199"
 
 * MSBuild/t: Restore Ausführlichkeitsgrad muss funktionalitätsanforderungen - [#4695](https://github.com/NuGet/Home/issues/4695)
 
-**DCRs:**
+**DCRs**
 
 * Paketersteller, die zum Definieren von Ressourcen transitive Buildverhalten - ermöglichen [#6091](https://github.com/NuGet/Home/issues/6091)
 
 * Aktivieren der Wiederherstellung in Visual Studio erfolgreich, wenn ein Projekt nicht Teil der Lösung ist oder wurde nicht geladen, aber es bereits wiederhergestellt wurde - [#5820](https://github.com/NuGet/Home/issues/5820)
 
 
-## <a name="summary-whats-new-in-50-preview-2"></a>Zusammenfassung: Neuerungen in 5.0 Preview 2
+## <a name="whats-new-in-nuget-50-preview-2"></a>Neuerungen in NuGet 5.0 Preview 2
 
 ### <a name="issues-fixed-in-this-release"></a>In diesem Release behobene Probleme
 
-**Bugs:**
+**Fehler**
 
 * Visual Studio 16.0 NuGet UI enthält unlesbare Registerkarten aufgrund von Problemen mit Farbe - [#7735](https://github.com/NuGet/Home/issues/7735)
 
@@ -134,7 +134,7 @@ ms.locfileid: "57196199"
 
 * Dotnet-Restore versagt, wenn deaktivierte auf den gesamten Computer feed - [#5410](https://github.com/NuGet/Home/issues/5410)
 
-**DCRs:**
+**DCRs**
 
 * NuGet-5.0-Assemblys in .NET 4.7.2 (über die Änderung der TFM) - erfordern [#7510](https://github.com/NuGet/Home/issues/7510)
 
