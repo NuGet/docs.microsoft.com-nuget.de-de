@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 03223e949eeeadd7eaa6e392297ba79d28eed2f2
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: 1c838116f9737b01ea3f9ca17f5d5002f6548044
+ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852545"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196212"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Häufig gestellte Fragen zu NuGet
 
@@ -158,7 +158,7 @@ Jedes Paket unterliegt den im Paket enthaltenen Bestimmungen. Sie sollten die ge
 
 Wenn ein Paket keine Lizenzbedingungen angibt, kontaktieren Sie den Paketbesitzer direkt, indem Sie den Link **Contact owners** (Besitzer kontaktieren) auf der Seite für Pakete auf nuget.org verwenden. Microsoft lizenziert kein geistiges Eigentum von Drittanbietern für Pakete und ist nicht verantwortlich für die durch Drittanbieter bereitgestellten Inhalte.
 
-## <a name="managing-packages-on-nugetorg"></a>Verwalten von Paketen auf nuget.org
+## <a name="managing-packages-on-nugetorg"></a>Verwalten von Paketen auf NuGet.org
 
 **Können Paketmetadaten nach dem Upload bearbeitet werden?**
 
@@ -167,6 +167,10 @@ Es wird empfohlen, dass Sie alle Pakete für NuGet signieren. Ein Entwurfsprinzi
 Beachten Sie, dass die für Ihr Paket aufgeführten Abhängigkeiten automatisch vom Paket generiert werden und nicht bearbeitet werden können.
 
 Zusätzlich stellt das Hochladen von Paketen auf [int.nugettest.org](https://int.nugettest.org) eine gute Möglichkeit zum Testen und Überprüfen des Pakets dar, ohne dieses im öffentlichen Katalog zur Verfügung zu stellen. API-Endpunkt: https://apiint.nugettest.org/v3/index.json
+
+**Kann ich ein Paket löschen, das auf NuGet.org veröffentlicht wurde?**
+
+Im Allgemeinen wird das Löschen eines Pakets, das auf NuGet.org veröffentlicht wurde, nicht unterstützt. Weitere Informationen finden Sie in der [Richtlinie zum Löschen von Paketen](../policies/deleting-packages).
 
 **Ist es möglich, Namen für Pakete zu reservieren, die in Zukunft veröffentlicht werden sollen?**
 

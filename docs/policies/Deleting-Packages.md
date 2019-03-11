@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 901eb09711a6e32740c70829028da66b782870a0
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 833f4a67bc75c5d650e85180b52ecd8f69218f15
+ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548127"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196186"
 ---
 # <a name="deleting-packages"></a>Löschen von Paketen
 
@@ -23,7 +23,7 @@ Nuget.org unterstützt jedoch das *Aufheben der Auflistung* eines Pakets. Dieser
 
 ## <a name="exceptions"></a>Ausnahmen
 
-In Ausnahmefällen, wie Urheberrechtsverletzungen und möglichen schädlichen Inhalten, können Pakete vom NuGet-Team auch manuell gelöscht werden. Senden Sie zum Starten dieses Prozesses eine Supportanfrage über den [NuGet-Katalog](http://www.nuget.org).
+In Ausnahmefällen, wie Urheberrechtsverletzungen und möglichen schädlichen Inhalten, können Pakete vom NuGet-Team auch manuell gelöscht werden. Sie können auf NuGet.org ein Paket auf der zugehörigen Detailseite durch Klick auf die Schaltfläche „Report abuse“ (Missbrauch melden) melden. Wenn Sie der Paketbesitzer sind, melden Sie sich bei Ihrem Konto auf NuGet.org an, um auf der Detailseite über die Schaltfläche „Contact support“ (Support kontaktieren) den Support zu kontaktieren.
 
 ## <a name="prohibited-use"></a>Unzulässige Verwendung
 
