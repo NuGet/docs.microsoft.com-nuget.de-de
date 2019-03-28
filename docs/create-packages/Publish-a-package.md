@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: bd19bc402ff9d66d7e2baa4f326d75f0ed444f30
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: 6d183100a8319b517347567f34d276e94eb4e15d
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852571"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432542"
 ---
 # <a name="publishing-packages"></a>Veröffentlichen von Paketen
 
@@ -74,7 +74,7 @@ Sie müssen [nuget.exe v4.1.0 oder höher](https://www.nuget.org/downloads) verw
 
 #### <a name="publish-signed-packages"></a>Veröffentlichen signierter Pakete
 
-Um signierte Pakete zu übermitteln, müssen Sie zunächst [das Zertifikat registrieren](../reference/Signed-Packages-Reference.md#register-certificate-on-nugetorg), das zum Signieren der Pakete verwendet wird. 
+Um signierte Pakete zu übermitteln, müssen Sie zunächst [das Zertifikat registrieren](../create-packages/Sign-a-Package.md#register-the-certificate-on-nugetorg), das zum Signieren der Pakete verwendet wird. 
 
 > [!Warning]
 > Auf nuget.org werden Pakete abgelehnt, die den [Anforderungen für signierte Pakete](../reference/Signed-Packages-Reference.md#signature-requirements-on-nugetorg) nicht entsprechen.
@@ -83,7 +83,7 @@ Um signierte Pakete zu übermitteln, müssen Sie zunächst [das Zertifikat regis
 
 Per Push an nuget.org übertragene Pakete werden verschiedenen Prüfungen, wie z.B. auf Viren, unterzogen. (Alle Pakete auf nuget.org werden in regelmäßigen Abständen geprüft.)
 
-sein. Wenn das Paket alle Validierungsüberprüfungen bestanden hat, kann es einige Zeit dauern, bis es indiziert und in den Suchergebnissen angezeigt wird. Nachdem die Indizierung abgeschlossen wurde, erhalten Sie eine Bestätigungs-E-Mail, die bestätigt, dass das Paket erfolgreich veröffentlicht wurde. Wenn das Paket eine Validierungsüberprüfung nicht besteht, wird die Paketdetailansicht aktualisiert und zeigt den entsprechenden Fehler an. Auch dann erhalten Sie eine E-Mail-Benachrichtigung.
+Wenn das Paket alle Validierungsüberprüfungen bestanden hat, kann es einige Zeit dauern, bis es indiziert und in den Suchergebnissen angezeigt wird. Nachdem die Indizierung abgeschlossen wurde, erhalten Sie eine Bestätigungs-E-Mail, die bestätigt, dass das Paket erfolgreich veröffentlicht wurde. Wenn das Paket eine Validierungsüberprüfung nicht besteht, wird die Paketdetailansicht aktualisiert und zeigt den entsprechenden Fehler an. Auch dann erhalten Sie eine E-Mail-Benachrichtigung.
 
 Die Validierung und Indizierung eines Pakets nimmt für gewöhnlich unter 15 Minuten in Anspruch. Wenn das Veröffentlichen des Pakets längere Zeit als erwartet in Anspruch nimmt, besuchen Sie [status.nuget.org](https://status.nuget.org/), um zu überprüfen, ob gerade eine Störung auf nuget.org vorliegt. Wenn alle Systeme in Betrieb sind und das Paket innerhalb einer Stunde nicht erfolgreich veröffentlicht wurde, melden Sie sich auf nuget.org an, und informieren Sie uns über den Link zum Support auf der Paketseite.
 
