@@ -6,16 +6,26 @@ ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 9ea11ad5476b02940b171fdc69ac0bf56598418d
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 3be24a86cc92c4e6d07fcae1dc625a150f28d7b4
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548413"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432568"
 ---
-# <a name="nuget-44-rtm-release-notes"></a>Anmerkungen zu Version 4.4 RTM von NuGet
+# <a name="nuget-44-release-notes"></a>Versionshinweise zu NuGet 4.4
 
 NuGet 4.4 RTM ist im Lieferumfang von [Visual Studio 2017 15.4 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) enthalten.
+
+## <a name="summary-whats-new-in-440"></a>Zusammenfassung: Neuigkeiten in 4.4.0
+
+## <a name="summary-whats-new-in-442"></a>Zusammenfassung: Neuerungen in Version 4.4.2
+
+* Sicherheitsfix: Die Berechtigungen für Dateien, die in ~/.nuget erstellt werden, sind nicht restriktiv genug ([#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)).
+
+## <a name="summary-whats-new-in-443"></a>Zusammenfassung: Neuerungen in Version 4.4.3
+
+* Sicherheitsfix: Dateien innerhalb von NUPKGs können einen relativen Pfad über dem NUPKG-Verzeichnis besitzen ([#7906](https://github.com/NuGet/Home/issues/7906)).
 
 ## <a name="known-issues"></a>Bekannte Probleme
 
@@ -165,15 +175,15 @@ In den [Anmerkungen zu der Version 4.3 RTM von NuGet](../release-notes/nuget-4.3
 
 - [Warnungen und Fehler] „Nowarn“ fließt nicht auf transitive Weise durch P2P-Verweise ([#5501](https://github.com/NuGet/Home/issues/5501))
 
-- Lightweight-Ladevorgang für Projektmappen: Gemeinsamer Kern für die PM-Benutzeroberfläche, PMC und IVs ([#5057](https://github.com/NuGet/Home/issues/5057))
+- Lightweight-Lösung laden: Gemeinsamer Kern für die PM-Benutzeroberfläche und IVs – [#5057](https://github.com/NuGet/Home/issues/5057)
 
-- Lightweight-Ladevorgang für Projektmappen: PMC-Unterstützung ([#5053](https://github.com/NuGet/Home/issues/5053))
+- Lightweight-Lösung laden: Unterstützung – PMC – [#5053](https://github.com/NuGet/Home/issues/5053)
 
 - Hinzufügen der Unterstützung von MSBuild-Zielen vor der Wiederherstellung, die von Visual Studio ausgelöst werden ([#4781](https://github.com/NuGet/Home/issues/4781))
 
 - Hinzufügen eines öffentlichen Ziels zu „NuGet.targets“, auf das mithilfe von BeforeTargets verwiesen werden kann ([#4634](https://github.com/NuGet/Home/issues/4634))
 
-- Das Paketziel kann keine einwandfreien Inhaltsdateien mit Buildaktionen erstellen ([#4166](https://github.com/NuGet/Home/issues/4166))
+- Das Paketziel kann keine einwandfreien Inhaltsdateien mit Buildaktionen erstellen – [#4166](https://github.com/NuGet/Home/issues/4166)
 
 - „RestoreOperationLogger.Do“ blockiert Threadpoolthreads ([#5663](https://github.com/NuGet/Home/issues/5663))
 

@@ -6,16 +6,23 @@ ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 4bee32995884f4c003ebb963d2fd5b2d04363bab
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 72d707cb9bacd8abbac873ee10b2fd00f233d3cc
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551623"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432477"
 ---
-# <a name="nuget-43-rtm-release-notes"></a>Anmerkungen zu Version 4.3 RTM von NuGet
+# <a name="nuget-43-release-notes"></a>Versionshinweise zu NuGet 4.3
 
 NuGet 4.3 RTM ist im Lieferumfang von [Visual Studio 2017 15.3 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) enthalten, fügt die Unterstützung von neuen Szenarios wie .NET Standard 2.0 und .NET Core 2.0 hinzu, enthält viele wichtige Fehlerbehebungen und verbessert die Leistung. In diesem Release sind außerdem einige Verbesserungen enthalten, wie u.a. die Unterstützung von Version 2.0.0 der semantischen Versionierung und die MSBuild-Integration von NuGet-Warnungen und -Fehlern.
+
+## <a name="summary-whats-new-in-430"></a>Zusammenfassung: Neuerungen in Version 4.3.0
+
+## <a name="summary-whats-new-in-431"></a>Zusammenfassung: Neuerungen in Version 4.3.1
+
+* Sicherheitsfix: Die Berechtigungen für Dateien, die in ~/.nuget erstellt werden, sind nicht restriktiv genug ([#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)).
+* Sicherheitsfix: Dateien innerhalb von NUPKGs können einen relativen Pfad über dem NUPKG-Verzeichnis besitzen ([#7906](https://github.com/NuGet/Home/issues/7906)).
 
 ## <a name="known-issues"></a>Bekannte Probleme
 
@@ -71,15 +78,15 @@ In den [Anmerkungen zu der Version 4.0 RTM von NuGet](../release-notes/nuget-4.0
 
 - Verbesserung der Wiederherstellungsleistung für NuGet: eine intelligentere NoOp-Version für Befehlszeilenwiederherstellungen und Visual Studio ([#5080](https://github.com/NuGet/Home/issues/5080))
 
-- NET Core 2.0: Die Visual Studio- bzw. Dotnet-CLI sollte mithilfe von FallBack-Ordnern geöffnet werden, einer NuGet-Funktion ([#4939](https://github.com/NuGet/Home/issues/4939))
+- .NET Core 2.0: Die Visual Studio- bzw. Dotnet-CLI sollte mithilfe einer vorhandenen NuGet-Funktion geöffnet werden: FallBack-Ordner ([#4939](https://github.com/NuGet/Home/issues/4939))
 
-- NET Core 2.0: Benutzer können bestimmte Wiederherstellungswarnungen ignorieren oder auf einen Fehler erweitern ([#4898](https://github.com/NuGet/Home/issues/4898))
+- .NET Core 2.0: Benutzer können bestimmte Wiederherstellungswarnungen ignorieren oder auf einen Fehler erweitern ([#4898](https://github.com/NuGet/Home/issues/4898))
 
-- NET Core 2.0: lokalisierte CLI-Assemblys ([#4896](https://github.com/NuGet/Home/issues/4896))
+- .NET Core 2.0: lokalisierte CLI-Assemblys ([#4896](https://github.com/NuGet/Home/issues/4896))
 
 - NET Core 2.0: Registrierung aller Warnungen bzw. Fehler in Objektdateien, einschließlich PackageTargetFallback ([#4895](https://github.com/NuGet/Home/issues/4895))
 
-- Aktivierung der TFM-Unterstützung: .NET Standard 2.0, Tizen ([#4892](https://github.com/NuGet/Home/issues/4892))
+- Aktivieren der TFM-Unterstützung: NetStandard2.0, Tizen ([#4892](https://github.com/NuGet/Home/issues/4892))
 
 - Reduzierung der Anzahl von NuGet.Core- und NuGet.Client-Projekten und somit auch von DLLs ([#2446](https://github.com/NuGet/Home/issues/2446))
 

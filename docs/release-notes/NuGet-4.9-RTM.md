@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: aa9bf87504477506dbb1e9ac10d5c1d5841c224f
-ms.sourcegitcommit: 885973352d31808e3ddbb45da6d6e54d1e4fca9d
+ms.openlocfilehash: e0dea74fe179c0dce4996f3e498185bb3a491856
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56224943"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432490"
 ---
 # <a name="nuget-49-release-notes"></a>Anmerkungen zu NuGet 4.9
 
@@ -139,6 +139,12 @@ Möglichkeiten der NuGet-Verteilung:
 * Fehler beim Erstellen eines SNUPKG-Symbolpakets bei Verwendung einer eingebetteten Lizenzdatei – [#7591](https://github.com/NuGet/Home/issues/7591)
 
 [Liste aller in diesem Release 4.9.3 behobenen Fehler](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.3")
+
+## <a name="summary-whats-new-in-494"></a>Zusammenfassung: Neuerungen in Version 4.9.4
+
+* Sicherheitsfix: Die Berechtigungen für Dateien, die in ~/.nuget erstellt werden, sind nicht restriktiv genug ([#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)).
+
+
 ## <a name="known-issues"></a>Bekannte Probleme
 
 ### <a name="dotnet-nuget-push---interactive-gives-an-error-on-mac---7519httpsgithubcomnugethomeissues7519"></a>„dotnet nuget push --interactive“ löst auf dem Mac eine Fehlermeldung aus. - [#7519](https://github.com/NuGet/Home/issues/7519)

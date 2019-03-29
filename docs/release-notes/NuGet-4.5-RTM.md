@@ -5,16 +5,26 @@ author: anangaur
 ms.author: anangaur
 ms.date: 12/4/2017
 ms.topic: conceptual
-ms.openlocfilehash: 01ecd8c7de1a0f713766e3c413d889038522bac7
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 321aedb471bc6f86e9c03878093b199267e31195
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548295"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432503"
 ---
-# <a name="nuget-45-rtm-release-notes"></a>Anmerkungen zu Version 4.5 RTM von NuGet
+# <a name="nuget-45-release-notes"></a>Versionshinweise zu NuGet 4.5
 
 [NuGet 4.5 RTM](https://dist.nuget.org/win-x86-commandline/v4.5.0/nuget.exe) ist im Lieferumfang von [Visual Studio 2017 15.5 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) enthalten.
+
+## <a name="summary-whats-new-in-450"></a>Zusammenfassung: Neuerungen in Version 4.5.0
+
+## <a name="summary-whats-new-in-452"></a>Zusammenfassung: Neuerungen in Version 4.5.2
+
+* Sicherheitsfix: Die Berechtigungen für Dateien, die in ~/.nuget erstellt werden, sind nicht restriktiv genug ([#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)).
+
+## <a name="summary-whats-new-in-453"></a>Zusammenfassung: Neuerungen in Version 4.5.3
+
+* Sicherheitsfix: Dateien innerhalb von NUPKGs können einen relativen Pfad über dem NUPKG-Verzeichnis besitzen ([#7906](https://github.com/NuGet/Home/issues/7906)).
 
 ## <a name="known-issues"></a>Bekannte Probleme
 

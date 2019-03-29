@@ -5,22 +5,30 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4ecbdc5475837b1aa1e723a94c2c6c3e8460f9ef
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: f1397e2f42fd65c3a883c864bd430ba5892c12b2
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549427"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432525"
 ---
-# <a name="nuget-47-rtm-release-notes"></a>Anmerkungen zu NuGet 4.7 RTM
+# <a name="nuget-47-release-notes"></a>Versionshinweise zu NuGet 4.7
 
 [NuGet 4.7.0](https://dist.nuget.org/win-x86-commandline/v4.7.0/nuget.exe) ist im Lieferumfang von [Visual Studio 2017 15.7 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) enthalten.
 
-## <a name="summary-whats-new-in-this-release"></a>Zusammenfassung: Neues in diesem Release
+## <a name="summary-whats-new-in-470"></a>Zusammenfassung: Neuerungen in Version 4.7.0
 
 * Die Paketsignierung wurde angepasst, sodass nun [von Repositorys signierte Pakete](https://github.com/NuGet/Home/wiki/Repository-Signatures) möglich sind.
 
 * In Visual Studio 15.7 haben wir stattdessen eine Funktion zum [Migrieren vorhandener Projekte mit packages.config-Format zum Verwenden von PackageReference](https://docs.microsoft.com/en-us/nuget/reference/migrate-packages-config-to-package-reference) eingeführt.
+
+## <a name="summary-whats-new-in-472"></a>Zusammenfassung: Neuerungen in Version 4.7.2
+
+* Sicherheitsfix: Die Berechtigungen für Dateien, die in ~/.nuget erstellt werden, sind nicht restriktiv genug ([#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)).
+
+## <a name="summary-whats-new-in-473"></a>Zusammenfassung: Neuerungen in Version 4.7.3
+
+* Sicherheitsfix: Dateien innerhalb von NUPKGs können einen relativen Pfad über dem NUPKG-Verzeichnis besitzen ([#7906](https://github.com/NuGet/Home/issues/7906)).
 
 ## <a name="known-issues"></a>Bekannte Probleme
 
@@ -49,16 +57,16 @@ Jetzt sollten Sie die Option zur Migration sehen. Beachten Sie, dass diese Optio
 ### <a name="bugs"></a>Fehler
 
 * In .NET Core-Projektsystemen (neue Regression) kommt es für NuGet zu einem Deadlock. - [#6733](https://github.com/NuGet/Home/issues/6733)
-* Packen: PackagePath wird inkorrekt erstellt, wenn TfmSpecificPackageFile mit Platzhalterpfaden verwendet wird – [#6726](https://github.com/NuGet/Home/issues/6726).
+* Packen: PackagePath wird inkorrekt erstellt, wenn TfmSpecificPackageFile mit Platzhalterpfaden verwendet wird ([#6726](https://github.com/NuGet/Home/issues/6726)).
 * Packen: Ein Web-API-Projekt kann Pakete nur dann erstellen, wenn ispackagable explizit festgelegt wird. - [#6156](https://github.com/NuGet/Home/issues/6156)
 * Die VS-Benutzeroberfläche und PMC zeigen neue Pakete erst nach 30 Minuten an („nuget.exe“ zeigt sie umgehend an) – [#6657](https://github.com/NuGet/Home/issues/6657).
-* Signieren: SignatureUtility.GetCertificateChain(...) überprüft nicht alle Kettenstatus – [#6565](https://github.com/NuGet/Home/issues/6565).
+* Signierung:  SignatureUtility.GetCertificateChain(...) überprüft nicht alle Kettenstatus ([#6565](https://github.com/NuGet/Home/issues/6565)).
 * Signieren: Verbesserungsbedarf bei der Behandlung von GeneralizedTime (DER) – [#6564](https://github.com/NuGet/Home/issues/6564).
-* Signieren: VS zeigt keinen NU3002-Fehler an, wenn ein manipuliertes Paket installiert wird – [#6337](https://github.com/NuGet/Home/issues/6337).
+* Signierung: VS zeigt keinen NU3002-Fehler an, wenn ein manipuliertes Paket installiert wird ([#6337](https://github.com/NuGet/Home/issues/6337)).
 * „lockFile.GetLibrary“ beachtet die Groß- und Kleinschreibung – [#6500](https://github.com/NuGet/Home/issues/6500).
 * Das Installieren/Aktualisieren von Wiederherstellungscode und das Wiederherstellen von Codepfaden sind nicht konsistent – [#3471](https://github.com/NuGet/Home/issues/3471).
 * Projektmappen-Paket-Manager (Version ComboBox) kann Trennlinie über Tastatur auswählen – [#2606](https://github.com/NuGet/Home/issues/2606).
-* Dienstindex für Quelle kann nicht geladen werden `https://www.myget.org/F/<id>`. System.Net.Http.HttpRequestException: Response status code does not indicate success: 403 (Forbidden) (Antwortstatuscode gibt Erfolg nicht an: 403 Verboten) – [#2530](https://github.com/NuGet/Home/issues/2530).
+* Der Dienstindex für die Source konnte nicht geladen werden: `https://www.myget.org/F/<id>` ---> System.Net.Http.HttpRequestException: Der Antwortstatuscode zeigt keinen Erfolg an: (403) Unzulässig ([#2530](https://github.com/NuGet/Home/issues/2530))
 
 ### <a name="dcrs"></a>DCRs
 
@@ -67,7 +75,7 @@ Jetzt sollten Sie die Option zur Migration sehen. Beachten Sie, dass diese Optio
 * „nuget.exe“: NoServiceEndpoint verhindert das Anfügen eines Dienst-URL-Suffixes – [#6586](https://github.com/NuGet/Home/issues/6586).
 * Hinzufügen von Commithash zu Versionsinformationen – [#6492](https://github.com/NuGet/Home/issues/6492).
 * Signieren: Ermöglichen, dass Repositorysignatur/Gegensignatur entfernt werden kann – [#6646](https://github.com/NuGet/Home/issues/6646).
-* Signieren: API zum Entfernen der Repositorysignatur/Gegensignatur – [#6589](https://github.com/NuGet/Home/issues/6589).
+* Signierung:  API zum Entfernen der Repositorysignatur/Gegensignatur ([#6589](https://github.com/NuGet/Home/issues/6589)).
 * Protokollieren zusätzlicher Informationen in VS – [#6527](https://github.com/NuGet/Home/issues/6527).
 * Filtern von /tools nur in TFM und RID, damit die Einstellungs-XML in den Ordner /tools eingefügt werden kann – [#6197](https://github.com/NuGet/Home/issues/6197).
 * Warnen, wenn der Befehl „Pack“ Dateien ausschließt, die mit „.“ beginnen  - [#3308](https://github.com/NuGet/Home/issues/3308)

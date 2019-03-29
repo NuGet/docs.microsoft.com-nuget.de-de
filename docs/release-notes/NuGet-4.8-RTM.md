@@ -5,14 +5,14 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: cf15c4f6a2e3e9f6ce7b6acb2304648041043685
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: f85042b8fe1511934d6a3ac7de34da92c575f6e0
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324824"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432517"
 ---
-# <a name="nuget-48-rtm-release-notes"></a>Anmerkungen zu NuGet 4.8 RTM
+# <a name="nuget-48-release-notes"></a>Anmerkungen zu NuGet 4.8
 
 Die NuGet 4.8-Funktionalität ist im Lieferumfang von [Visual Studio 2017 15.8 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) enthalten.
 
@@ -22,11 +22,15 @@ Befehlszeilenversionen der gleichen Funktionalität sind ebenfalls verfügbar:
 * DotNet.exe: [.NET Core SDK 2.1.400](https://www.microsoft.com/net/download/visual-studio-sdks)
 
 
-## <a name="summary-whats-new-in-this-release"></a>Zusammenfassung: Neues in diesem Release
+## <a name="summary-whats-new-in-480"></a>Zusammenfassung: Neuerungen in Version 4.8.0
 * NuGet.exe unterstützt jetzt lange Dateinamen unter Windows 10: [#6937](https://github.com/NuGet/Home/issues/6937)
 * Authentifizierungs-Plug-Ins funktionieren nun übergreifend in MsBuild, DotNet.exe, NuGet.exe und Visual Studio, auch plattformübergreifend. Die erste Generation des Authentifizierung-Plug-Ins wurde in MsBuild und DotNet.exe nicht unterstützt. Hinweis: In Vorschaubuilds von VS 2017 15.9 ist ein VSTS-Authentifizierungs-Plug-In enthalten. [#6486](https://github.com/NuGet/Home/issues/6486)
 * Der SDK-Konfliktlöser von MsBuild wird jetzt als Teil von NuGet erstellt und mit den NuGet-Tools für VS installiert. Dadurch wird Asynchronizität von Versionen vermieden. [#6799](https://github.com/NuGet/Home/issues/6799)
 * PackageReference unterstützt jetzt DevelopmentDependency-Metadaten: [#4125](https://github.com/NuGet/Home/issues/4125)
+
+## <a name="summary-whats-new-in-482"></a>Zusammenfassung: Neuerungen in Version 4.8.2
+
+* Sicherheitsfix: Die Berechtigungen für Dateien, die in ~/.nuget erstellt werden, sind nicht restriktiv genug ([#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)).
 
 ## <a name="known-issues"></a>Bekannte Probleme
 ### <a name="installing-signed-packages-on-a-ci-machine-or-in-an-offline-environment-takes-longer-than-usual"></a>Das Installieren von signierten Paketen auf einem CI-Computer oder in einer Offlineumgebung dauert länger als gewöhnlich

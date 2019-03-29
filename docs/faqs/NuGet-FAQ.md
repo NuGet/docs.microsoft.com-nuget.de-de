@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1c838116f9737b01ea3f9ca17f5d5002f6548044
-ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
+ms.openlocfilehash: 3b6257287c1f8c6345765e0a081bac11b34e05cb
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196212"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432581"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Häufig gestellte Fragen zu NuGet
 
@@ -346,8 +346,8 @@ Befolgen Sie die Schritte im Abschnitt [Ich kann mein Microsoft-Konto nicht verw
 ### <a name="unable-to-use-microsoft-login-how-do-i-recover-my-nugetorg-account"></a>Ich kann mein Microsoft-Konto nicht verwenden. Wie kann ich mein Konto auf nuget.org wiederherstellen?
 
 Wenn Sie die Anleitung zur [Hilfe bei der Anmeldung](#which-microsoft-account-is-linked-to-my-nugetorg-account) befolgt haben und dennoch nicht auf das Microsoft-Konto zugreifen können, das dem Konto auf nuget.org zugeordnet ist, befolgen Sie diese Schritte, um ein neues Microsoft-Konto mit Ihrem Konto auf nuget.org zu verknüpfen.
-1. **Voraussetzung:** Sie müssen auf ein Microsoft-Konto zugreifen können (das mit keinem vorhandenen Konto auf nuget.org verknüpft ist). Wenn Sie kein Konto besitzen, können Sie eines [erstellen](https://signup.live.com).
-2. Befolgen Sie die [Schritte zum Wiederherstellen Ihres Kennworts](#how-to-recover-nugetorg-password-login). Wenn Sie Ihr Kennwort nicht vergessen haben, können Sie diesen Schritt überspringen.
+1. **Voraussetzung:** Sie müssen auf ein Microsoft-Konto zugreifen können, das mit keinem vorhandenen Konto auf nuget.org verknüpft ist. Wenn Sie kein Konto besitzen, können Sie eines [erstellen](https://signup.live.com).
+2. Wenn Sie Ihren Benutzernamen und das Kennwort für Ihr nuget.org-Konto vergessen haben, befolgen Sie die [Schritte, um Ihr Kennwort wiederherzustellen](#how-to-recover-nugetorg-password-login).
 3. [Melden Sie sich mit Ihrem Benutzernamen und Kennwort auf nuget.org an.](https://www.nuget.org/users/account/LogOnNuGetAccount)
 4. Nach der Anmeldung wird ein Popupfenster angezeigt. In diesem Dialogfeld werden Sie über die Aufhebung des Kennworts informiert.
 5. **HINWEIS**: Ignorieren Sie die Anweisung, sich mit dem angegebenen Microsoft-Konto anzumelden. Sie können Ihr Konto auf nuget.org nun mit einem anderen Microsoft-Konto verknüpfen.
