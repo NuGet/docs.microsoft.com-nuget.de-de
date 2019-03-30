@@ -10,12 +10,12 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 1de6ddeca6295c621a90409807af198bc3c7a068
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: 422faf99e58e058d86db774a8f3c1c576b3dc393
+ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981183"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58637622"
 ---
 # <a name="nuget-package-manager-ui"></a>Benutzeroberfläche des NuGet-Paket-Managers
 
@@ -71,7 +71,7 @@ In diesem Thema:
     ![Aktualisieren eines Pakets](media/UpdatePackages.png)
 
 1. <a name="implicit_reference"></a>Für einige Pakete aufgeführt die **Update** -Schaltfläche deaktiviert ist und eine Meldung angezeigt wird, besagt, dass "implizit ein SDK verweist" (oder "AutoReferenced"). Diese Meldung gibt an, dass das Paket Teil einer größeren Framework oder das SDK ist und nicht unabhängig voneinander aktualisiert werden sollten. (Diese Pakete mit intern markiert sind `<IsImplicitlyDefined>True</IsImplicitlyDefined>`.) Z. B. `Microsoft.NETCore.App` ist Teil des .NET Core SDK und die Paketversion ist nicht identisch mit der Version der Runtime-Framework, die von der Anwendung verwendet. Sie müssen [die .NET Core-Installation zu aktualisieren](https://aka.ms/dotnet-download) um neue Versionen der ASP.NET Core und .NET Core-Runtime zu erhalten. [Finden Sie unter diesem Dokument Weitere Informationen zu .NET Core-metapakete und versionsverwaltung](/dotnet/core/packages). Dies gilt für die folgenden häufig verwendeten Pakete:
-    * "Microsoft.aspnetcore.All"
+    * Microsoft.AspNetCore.All
     * Microsoft.AspNetCore.App
     * Microsoft.NETCore.App
     * NETStandard.Library
@@ -127,7 +127,7 @@ So verwalten Sie Paketquellen
 1. Um eine Paketquelle zu ändern, wählen Sie ihn aus, nehmen Sie Änderungen vor, in der **Namen** und **Quelle** angezeigt, und wählen Sie **Update**.
 1. Um eine Paketquelle zu deaktivieren, deaktivieren Sie das Kontrollkästchen links neben dem Namen in der Liste aus.
 1. Um eine Paketquelle zu entfernen, wählen Sie ihn, und wählen Sie dann die **X** Schaltfläche.
-1. Verwenden Sie die nach-oben und nach-unten Sie-Pfeile, um die Reihenfolge der Priorität die Paketquellen zu ändern. Beim Wiederherstellen von Paketen für ein Projekt, durchsucht Visual Studio diese Quellen in der Reihenfolge ihrer Priorität. Weitere Informationen finden Sie unter [paketwiederherstellung](../consume-packages/package-restore.md).
+1. Verwenden die nach-oben und Pfeil nach unten Schaltflächen ändert nicht die Reihenfolge der Priorität die Paketquellen. Visual Studio ignoriert die Reihenfolgen der Paketquellen, verwendet dabei das Paket aus einer beliebigen Quelle als Erstes auf Anforderungen reagieren. Weitere Informationen finden Sie unter [paketwiederherstellung](../consume-packages/package-restore.md).
 
 > [!Tip]
 > Wenn Sie eine Paketquelle erneut angezeigt wird, nach dem Löschen, kann es in einer Computerebene oder Benutzerebene aufgeführt `NuGet.Config` Dateien. Finden Sie unter [Konfigurieren des NuGet-Verhaltens](../consume-packages/configuring-nuget-behavior.md) für den Speicherort dieser Dateien, entfernen Sie Sie dann die Quelle durch die Dateien manuell bearbeiten, oder Verwenden der [Nuget Quellen Befehl](../tools/nuget-exe-CLI-reference.md).
