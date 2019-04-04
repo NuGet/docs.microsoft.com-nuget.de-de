@@ -5,19 +5,19 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 97ed3ec7d41d2847c0521af69373a1871eb585dd
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 8f96bf289e8121fd25262fb95c2f36dfc89045c5
+ms.sourcegitcommit: 9f94e00428d83aef4a7a87db679129eff7720c59
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324681"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58911035"
 ---
 # <a name="nuget-client-sdk"></a>NuGet-Client-SDK
 
 > [!Note]
 > Nicht zu verwechseln mit der [NuGet *Web* API](https://docs.microsoft.com/en-us/nuget/api/overview)
 
-Die *NuGet-Client-SDK* bezieht sich auf eine Gruppe von Bibliotheken für .NET zentraler Punkt [NuGet.Client](https://www.nuget.org/packages/NuGet.Client), [Nuget.Packaging](https://www.nuget.org/packages/NuGet.Packaging), und [NuGet.Protocol](https://www.nuget.org/packages/NuGet.Protocol). Diese Pakete ersetzt die frühere [NuGet.Core](https://www.nuget.org/packages/NuGet.Core/) Bibliothek.
+Die *NuGet-Client-SDK* bezieht sich auf eine Gruppe von Bibliotheken für .NET zentraler Punkt [NuGet.Commands](https://www.nuget.org/packages/NuGet.Commands), [Nuget.Packaging](https://www.nuget.org/packages/NuGet.Packaging), und [NuGet.Protocol](https://www.nuget.org/packages/NuGet.Protocol). Diese Pakete ersetzt die frühere [NuGet.Core](https://www.nuget.org/packages/NuGet.Core/) Bibliothek.
 
 Wir arbeiten, haben Sie eine stabile Oberfläche, die wir in Kürze dokumentiert werden können.
 

@@ -1,8 +1,19 @@
+---
+title: licenses.nuget.org
+author: agr
+ms.date: 02/22/2019
+ms.openlocfilehash: 4a40cc1f7d333e8d35a721f3eed2e6b9365faf7b
+ms.sourcegitcommit: 8793f528a11bd8e8fb229cd12e9abba50d61e104
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58921558"
+---
 # <a name="licensesnugetorg"></a>licenses.nuget.org
 
 ## <a name="rationale"></a>Begründung
 
-Mit der Einführung der [Lizenz Ausdrücke](nuspec.md#license) gebracht, die eine Anforderung ein zuverlässigen Diensts verfügen, die einen Verweis Text für Einzelbenutzerlizenz Bezeichner, die Bezeichner der Ausnahme oder die Lizenz Ausdrücke bieten würde.
+Mit der Einführung der [Lizenz Ausdrücke](nuspec.md#license), gebracht, die eine Anforderung ein zuverlässigen Diensts verfügen, die einen Verweis Text für Einzelbenutzerlizenz Bezeichner, die Bezeichner der Ausnahme oder die Lizenz Ausdrücke bieten würde.
 Eine weitere Anforderung für diesen Dienst ist ein stabiler URL-Schema haben, die nicht anfällig für Rot, verknüpfen, damit wir sie problemlos auf der Abwärtskompatibilität für ältere Clients verwenden können.
 
 Diese Funktion wird von Licenses.NuGet.org erfüllt. "NuGet.org" verwendet, um den Lizenz-Text-Verweis für Pakete bereitstellen, die die Lizenz, die mithilfe eines Ausdrucks Lizenz angeben. `nuget pack` oder mit anderen Verpackung [Clienttools](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools) legen Sie die [ `licenseUrl` ](nuspec.md#licenseurl) Element, zeigen Sie auf licenses.nuget.org um Abwärtskompatibilität auf Kompatibilität mit älteren Clients bereitzustellen, die nicht unterstützen die `license` Element.
@@ -21,15 +32,16 @@ Lizenz-Ausdrücke (einschließlich der einfachen Fällen auf, wenn es sich bei A
 
 | Lizenz-Ausdruck | URL zu verwenden |
 |:---|:---|
-MIT                                                | https://licenses.nuget.org/MIT
-(MIT)                                              | https://licenses.nuget.org/(MIT)
-(LGPL-2.0-only mit FLTK-Ausnahme oder Apache-2.0) | https://licenses.nuget.org/(LGPL-2.0-only%20WITH%20FLTK-exception%20OR%20Apache-2.0+)
+| MIT                                                | <https://licenses.nuget.org/MIT> |
+| (MIT)                                              | <https://licenses.nuget.org/(MIT)> |
+| (LGPL-2.0-only mit FLTK-Ausnahme oder Apache-2.0) | <https://licenses.nuget.org/(LGPL-2.0-only%20WITH%20FLTK-exception%20OR%20Apache-2.0+)> |
 
 Der Dienst unterstützt nur Lizenz und Lizenz-Ausnahme-Bezeichner, die von "NuGet.org" akzeptiert werden. Alle Lizenzen-Ausdrücke, die nicht unterstützte Lizenz Bezeichner oder Bezeichner der Lizenz-Ausnahme enthalten werden oder entsprechen, die nicht zur Ausdruckssyntax Lizenz, werden als ungültig betrachtet.
 
 #### <a name="response"></a>Antwort
 
 Licenses.NuGet.org reagiert auf Anforderungen, die mit Ausdrücken, die gültige Lizenz mit einem HTTP 200-Statuscode und einer Webseite, die mit einer Beschreibung des Ausdrucks Lizenz:
+
 * Lizenz-Ausdruck bereitgestellt enthält eine einzelne Lizenz-ID, die einer Webseite zurückgegeben wird, die diese Lizenz Verweis Text enthält;
 * Wenn die angegebene Lizenz-Ausdruck ist ein zusammengesetztes Lizenz-Ausdruck, wird eine Webseite zurückgegeben, die den Ausdruck "Lizenz" mit Links zu einzelnen Lizenz- oder Lizenz Ausnahme Verweise enthält.
 
@@ -43,8 +55,8 @@ Lizenz Ausnahme Bezeichner muss URL-codiert und als Pfad für die Anforderung zu
 
 | Lizenz-Ausnahme-ID | URL zu verwenden |
 |:---|:---|
-FLTK-Ausnahme            | https://licenses.nuget.org/FLTK-exception
-openvpn-openssl-exception | https://licenses.nuget.org/openvpn-openssl-exception
+|FLTK-Ausnahme            | <https://licenses.nuget.org/FLTK-exception> |
+|openvpn-openssl-exception | <https://licenses.nuget.org/openvpn-openssl-exception> |
 
 #### <a name="response"></a>Antwort
 

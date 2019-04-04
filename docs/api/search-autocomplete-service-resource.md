@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 2d2b20c1ea439ec0a3225cf983d9a4d2eedb0333
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: fdc3ad8aa239a42d8a4c169a757715e856bdcb41
+ms.sourcegitcommit: 9f94e00428d83aef4a7a87db679129eff7720c59
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324759"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58911048"
 ---
 # <a name="autocomplete"></a>AutoVervollständigen
 
@@ -71,7 +71,7 @@ Die Antwort ist die JSON-Dokument mit bis zu `take` Autocomplete-Ergebnisse.
 
 Die JSON-Stammobjekt hat die folgenden Eigenschaften:
 
-name      | Typ             | Erforderlich | Hinweise
+Name      | Typ             | Erforderlich | Hinweise
 --------- | ---------------- | -------- | -----
 totalHits | Ganze Zahl          | ja      | Die Gesamtzahl der Übereinstimmungen ohne Berücksichtigung der `skip` und `take`
 Daten      | Array von Zeichenfolgen | ja      | Die Paket-IDs, die von der Anforderung übereinstimmen
@@ -110,11 +110,11 @@ Die Antwort ist die JSON-Dokument mit der alle Paketversionen von den angegebene
 
 Die JSON-Stammobjekt hat die folgende Eigenschaft:
 
-name      | Typ             | Erforderlich | Hinweise
+Name      | Typ             | Erforderlich | Hinweise
 --------- | ---------------- | -------- | -----
 Daten      | Array von Zeichenfolgen | ja      | Die Paketversionen, die von der Anforderung übereinstimmen
 
-Die Versionen des Pakets in der `data` Array kann SemVer 2.0.0-Build-Metadaten enthalten (z. B. `1.0.0+metadata`) Wenn die `semVerLevel=2.0.0` wurde in der Abfragezeichenfolge angegeben.
+Die Versionen des Pakets in der `data` Array SemVer 2.0.0-Build-Metadaten enthalten (z. B. `1.0.0+metadata`) Wenn die `semVerLevel=2.0.0` wird in der Abfragezeichenfolge bereitgestellt.
 
 ### <a name="sample-request"></a>Beispiel für eine Anforderung
 

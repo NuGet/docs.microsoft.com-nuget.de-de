@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: reference
-ms.openlocfilehash: c294e4c188db2e90e6bcb62b60f71ed5529977fe
-ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
+ms.openlocfilehash: d7c943c1f13edf782dabe4afee9d19a1a42bd42a
+ms.sourcegitcommit: 9f94e00428d83aef4a7a87db679129eff7720c59
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52303518"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58911087"
 ---
 # <a name="nugetconfig-reference"></a>NuGet.config-Referenzthema
 
 Das NuGet-Verhalten wird durch Einstellungen in verschiedenen `NuGet.Config`-Dateien gesteuert, wie unter [Konfigurieren des NuGet-Verhaltens](../consume-packages/configuring-nuget-behavior.md) beschrieben.
 
-`nuget.config` ist eine XML-Datei mit einem `<configuration>`-Knoten der obersten Ebene, in dem die in diesem Thema beschriebenen Abschnittselemente beschrieben werden. Jeder Abschnitt enthält null oder mehr Elemente. Siehe die [Beispiele für die Konfigurationsdatei](#example-config-file). Bei Einstellungsnamen ist die Groß-/Kleinschreibung zu beachten, und Werte können [Umgebungsvariablen](#using-environment-variables) verwenden.
+`nuget.config` eine XML-Datei mit einer der obersten Ebene `<configuration>` Knoten, der die in diesem Thema beschriebenen Abschnittselemente enthält. Jeder Abschnitt enthält null oder mehr Elemente. Siehe die [Beispiele für die Konfigurationsdatei](#example-config-file). Bei Einstellungsnamen ist die Groß-/Kleinschreibung zu beachten, und Werte können [Umgebungsvariablen](#using-environment-variables) verwenden.
 
 In diesem Thema:
 
@@ -149,7 +149,7 @@ Speichert Benutzernamen und Kennwörter für Quellen, die in der Regel mit den `
 | Key | Wert |
 | --- | --- |
 | username | Der Benutzername für die Quelle in Nur-Text. |
-| Kennwort | Das verschlüsselte Kennwort für die Quelle. |
+| password | Das verschlüsselte Kennwort für die Quelle. |
 | cleartextpassword | Das unverschlüsselte Kennwort für die Quelle. |
 
 **Beispiel:**
@@ -221,7 +221,7 @@ Identifizierte, derzeit deaktivierte Quellen. Kann leer sein.
 
 ### <a name="activepackagesource"></a>activePackageSource
 
-*(nur 2.x; Unterstützung in 3.x und höher eingestellt)*
+*(nur 2.x; als veraltet markierte in 3.x und höher)*
 
 Identifiziert die derzeit aktive Quelle oder gibt das Aggregat aller Quellen an.
 
