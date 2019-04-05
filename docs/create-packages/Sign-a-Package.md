@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: e8955f9d46bab235c8755d5654814a4291d542d6
-ms.sourcegitcommit: 673e580ae749544a4a071b4efe7d42fd2bb6d209
+ms.openlocfilehash: 8ff92e5a3ab2d5c13ee02a9e49709866e2ac0e87
+ms.sourcegitcommit: 8793f528a11bd8e8fb229cd12e9abba50d61e104
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52977562"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58921571"
 ---
 # <a name="signing-nuget-packages"></a>Signieren von NuGet-Paketen
 
@@ -29,7 +29,7 @@ Sie können selbst ausgestellte Zertifikate für Testzwecke verwenden. Pakete, d
 
   ![Zertifikatexport-Assistent](../reference/media/CertificateExportWizard.png)
 
-* Sie können das Zertifikat auch mithilfe des [PowerShell-Befehls „Export-Certificate“](/powershell/module/pkiclient/export-certificate.md) exportieren.
+* Sie können das Zertifikat auch mithilfe des [PowerShell-Befehls „Export-Certificate“](/powershell/module/pkiclient/export-certificate) exportieren.
 
 ## <a name="sign-the-package"></a>Signieren des Pakets
 
@@ -39,8 +39,11 @@ Sie können selbst ausgestellte Zertifikate für Testzwecke verwenden. Pakete, d
 Signieren Sie das Paket mithilfe von [nuget sign](../tools/cli-ref-sign.md):
 
 ```cli
-nuget sign MyPackage.nupkg -CertificateFilePath <PathToTheCertificate> -Timestamper <TimestampServiceURL>
+nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper <TimestampServiceURL>
 ```
+
+> [!Tip]
+> Der Zertifikatanbieter stellt häufig auch eine Zeitstempelserver-URL bereit, die Sie für das oben gezeigte optionale Argument `Timestamper` verwenden können. Informieren Sie sich über diese Dienst-URL anhand der Dokumentation Ihres Anbieters und/oder über dessen Support.
 
 * Sie können ein im Zertifikatspeicher verfügbares Zertifikat oder ein Zertifikat aus einer Datei verwenden. Informationen zu [nuget sign](../tools/cli-ref-sign.md) finden Sie in der Referenz der Befehlszeilenschnittstelle.
 * Signierte Pakete sollten einen Zeitstempel enthalten, um sicherzustellen, dass die Signatur gültig bleibt, wenn das Signaturzertifikat abläuft. Andernfalls erzeugt der Signierungsvorgang eine [Warnung](../reference/errors-and-warnings/NU3002.md).
@@ -67,7 +70,7 @@ Sie können das Paket jetzt auf NuGet.org veröffentlichen. Informationen dazu f
 
 ## <a name="create-a-test-certificate"></a>Erstellen eines Testzertifikats
 
-Sie können selbst ausgestellte Zertifikate für Testzwecke verwenden. Um ein selbst ausgestelltes Zertifikat zu erstellen, verwenden Sie den [PowerShell-Befehl „New-SelfSignedCertificate“](/powershell/module/pkiclient/new-selfsignedcertificate.md).
+Sie können selbst ausgestellte Zertifikate für Testzwecke verwenden. Um ein selbst ausgestelltes Zertifikat zu erstellen, verwenden Sie den [PowerShell-Befehl „New-SelfSignedCertificate“](/powershell/module/pkiclient/new-selfsignedcertificate).
 
 ```ps
 New-SelfSignedCertificate -Subject "CN=NuGet Test Developer, OU=Use for testing purposes ONLY" `
@@ -89,8 +92,8 @@ Dieser Befehl erstellt ein Testzertifikat, das im persönlichen Zertifikatspeich
 ## <a name="manage-signing-requirements-for-your-package-on-nugetorg"></a>Verwalten der Signaturanforderungen für Ihr Paket auf NuGet.org
 1. [Melden Sie sich](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) bei NuGet.org an.
 
-1. Wechseln Sie zu `Manage Packages`. 
-   ![Paketsignierer konfigurieren](../reference/media/configure-package-signers.png)
+1. Wechseln Sie zu `Manage Packages` 
+   ![Paketsignierer konfigurieren](../reference/media/configure-package-signers.png).
 
 * Wenn Sie der einzige Besitzer eines Pakets sind, sind Sie der erforderliche Signaturgeber, d.h., Sie können ein beliebiges der registrierten Zertifikate verwenden, um Ihre Pakete in NuGet.org zu signieren und zu veröffentlichen.
 
