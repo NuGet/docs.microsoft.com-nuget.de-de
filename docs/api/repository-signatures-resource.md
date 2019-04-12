@@ -8,12 +8,12 @@ description: Die Repository-Signaturen-Ressource ermöglicht es Clients Paketque
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 81d32a7011268e45136e00cdb7345a95070aae06
-ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
+ms.openlocfilehash: ea318446c41a0d85d3fbf959dd38c929a0d0e9a1
+ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53248441"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59509021"
 ---
 # <a name="repository-signatures"></a>Repository-Signaturen
 
@@ -25,10 +25,11 @@ Die Ressource, die zum Abrufen von diesem Repository Signaturinformationen ist d
 
 Die folgenden `@type` Wert wird verwendet:
 
-@type-Wert                | Hinweise
+@type -Wert                | Hinweise
 -------------------------- | -----
 RepositorySignatures/4.7.0 | Die erste Version
-RepositorySignatures/4.9.0 | Ermöglicht die Aktivierung `allRepositorySigned`
+RepositorySignatures/4.9.0 | Unterstützt durch NuGet v4.9 +-clients
+RepositorySignatures/5.0.0 | Ermöglicht das Aktivieren der `allRepositorySigned`. Unterstützt durch NuGet-Clients V5. 0 +
 
 ## <a name="base-url"></a>Basis-URL
 
@@ -57,19 +58,19 @@ Die folgende Anforderung Ruft den Index der Repository-Signaturen ab.
 
 Der Index der Repository-Signatur ist ein JSON-Dokument, das ein Objekt mit den folgenden Eigenschaften enthält:
 
-name                | Typ             | Erforderlich | Hinweise
+Name                | Typ             | Erforderlich | Hinweise
 ------------------- | ---------------- | -------- | -----
-allRepositorySigned | boolean          | ja      | Muss `false` auf 4.7.0 Ressource
+allRepositorySigned | boolean          | ja      | Muss `false` auf 4.7.0 und 4.9.0
 signingCertificates | Array von Objekten | ja      | 
 
 Die `allRepositorySigned` boolescher Wert auf "false" festgelegt ist, wenn die Paketquelle einige Pakete gespeichert sind, die keine Repository-Signatur verfügen. Bei Verwendung der boolesche Wert auf true festgelegt ist, alle Pakete verfügbar muss die Quelle eine Repository-Signatur, die durch eines der Signaturzertifikate in erwähnten erzeugt `signingCertificates`.
 
 > [!Warning]
-> Die `allRepositorySigned` booleschen muss "false", auf die 4.7.0 Ressource. NuGet-v4. 7 "und" v4. 8-Clients können keine Installationspakete aus Quellen, die `allRepositorySigned` auf "true" festgelegt ist.
+> Die `allRepositorySigned` booleschen muss für die Ressourcen 4.7.0 und 4.9.0 falsch gesetzt sein. NuGet v4.9, v4. 7 und v4. 8-Clients können keine Installationspakete aus Quellen, die `allRepositorySigned` auf "true" festgelegt ist.
 
 Es muss eine oder mehrere Signaturzertifikate in der `signingCertificates` array, wenn die `allRepositorySigned` booleschen Wert festgelegt ist auf "true". Wenn das Array leer ist und `allRepositorySigned` nastaven NA hodnotu True gibt an, alle Pakete aus der Quelle angesehen werden ungültig ist, obwohl eine Clientrichtlinie möglicherweise weiterhin die Nutzung von Paketen zulässt. Jedes Element im Array ist ein JSON-Objekt mit den folgenden Eigenschaften an.
 
-name         | Typ   | Erforderlich | Hinweise
+Name         | Typ   | Erforderlich | Hinweise
 ------------ | ------ | -------- | -----
 contentUrl   | Zeichenfolge | ja      | Das öffentliche Zertifikat von DER-codierte absolute URL
 Fingerabdrücke | object | ja      |
@@ -85,7 +86,7 @@ Diese Geschäftstrends Eigenschaften dienen als praktische Roundtrips zu minimie
 
 Die `fingerprints` Objekt hat die folgenden Eigenschaften:
 
-name                   | Typ   | Erforderlich | Hinweise
+Name                   | Typ   | Erforderlich | Hinweise
 ---------------------- | ------ | -------- | -----
 2.16.840.1.101.3.4.2.1 | Zeichenfolge | ja      | Der SHA-256-Fingerabdruck
 
