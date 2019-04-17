@@ -44,9 +44,9 @@ wo `<packagePath>` der Pfadname für das Paket zum Hinzufügen, und `<sourcePath
 | ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) verwendet wird.|
 | Expand | Fügt alle Dateien im Paket für die Paketquelle. |
 | ForceEnglishOutput | *(3.5 und höher)*  Erzwingt nuget.exe über eine invariante Kultur auf Englisch basierenden ausgeführt werden. |
-| Hilfe | Zeigt die Informationen für den Befehl Hilfe. |
+| Help | Zeigt die Informationen für den Befehl Hilfe. |
 | NonInteractive | Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an. |
-| Ausführlichkeit | Gibt an, die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *quiet*, *ausführliche*. |
+| Verbosity | Gibt an, die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *quiet*, *ausführliche*. |
 
 Siehe auch [Umgebungsvariablen](cli-ref-environment-variables.md)
 

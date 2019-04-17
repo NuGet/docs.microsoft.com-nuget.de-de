@@ -33,10 +33,10 @@ wo `<packageID>` und `<packageVersion>` identifizieren Sie das genaue Paket lös
 | "Apikey" | Die API-Schlüssel für die Ziel-Repository. Wenn nicht vorhanden ist, wird angegeben, in der Konfigurationsdatei verwendet. |
 | ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) verwendet wird.|
 | ForceEnglishOutput | *(3.5 und höher)*  Erzwingt nuget.exe über eine invariante Kultur auf Englisch basierenden ausgeführt werden. |
-| Hilfe | Zeigt die Informationen für den Befehl Hilfe. |
+| Help | Zeigt die Informationen für den Befehl Hilfe. |
 | NonInteractive | Unterdrückt aufforderungen für Benutzereingaben oder Bestätigungen an. |
-| Quelle | Gibt die Server-URL an. Die URL für nuget.org `https://api.nuget.org/v3/index.json`. Ersetzen Sie für private Feeds den Hostnamen ein, z. B. *%hostname%/api/v3*. |
-| Ausführlichkeit | Gibt an, die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *quiet*, *ausführliche*. |
+| Source | Gibt die Server-URL an. Die URL für nuget.org `https://api.nuget.org/v3/index.json`. Ersetzen Sie für private Feeds den Hostnamen ein, z. B. *%hostname%/api/v3*. |
+| Verbosity | Gibt an, die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *quiet*, *ausführliche*. |
 
 Siehe auch [Umgebungsvariablen](cli-ref-environment-variables.md)
 
