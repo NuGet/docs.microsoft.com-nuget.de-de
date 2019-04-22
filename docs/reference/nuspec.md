@@ -10,7 +10,7 @@ ms.openlocfilehash: ebb1dd929042a1fcd269d0ac50154ae6b8234be2
 ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59509100"
 ---
 # <a name="nuspec-reference"></a>NUSPEC-Referenz
@@ -84,13 +84,11 @@ URL der Homepage des Pakets, wird häufig auf Benutzeroberflächen und auf nuget
 
 URL der Paketlizenz, wird häufig auf Benutzeroberflächen und auf nuget.org angezeigt.
 #### <a name="license"></a>Lizenz
-Ein SPDX-Lizenzausdruck oder Pfad zu einer Lizenzdatei innerhalb des Pakets, der oft sowohl in der Benutzeroberfläche als auch auf nuget.org angezeigt wird. Wenn Sie das Paket unter einer gemeinsamen Lizenz z. B. BSD-2-Klausel oder MIT lizenzieren, verwenden Sie den zugehörigen SPDX-Lizenz-Bezeichner.<br>Zum Beispiel:
-`<license type="expression">MIT</license>`
+Ein SPDX-Lizenzausdruck oder Pfad zu einer Lizenzdatei innerhalb des Pakets, der oft sowohl in der Benutzeroberfläche als auch auf nuget.org angezeigt wird. Wenn Sie das Paket unter einer gemeinsamen Lizenz z. B. BSD-2-Klausel oder MIT lizenzieren, verwenden Sie den zugehörigen SPDX-Lizenz-Bezeichner.<br>Beispiel: `<license type="expression">MIT</license>`
 
 Hier ist die vollständige Liste der [SPDX Lizenzbezeichner](https://spdx.org/licenses/). NuGet.org akzeptiert nur von OSI oder FSF genehmigte Lizenzen, wenn der Ausdruck „license type“ verwendet wird.
 
-Wenn Ihr Paket in mehrere allgemeine-Lizenzen lizenziert ist, können Sie angeben, eine zusammengesetzte Lizenz mithilfe der [SPDX Expression Syntaxversion 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60).<br>Zum Beispiel:
-`<license type="expression">BSD-2-Clause OR MIT</license>`
+Wenn Ihr Paket in mehrere allgemeine-Lizenzen lizenziert ist, können Sie angeben, eine zusammengesetzte Lizenz mithilfe der [SPDX Expression Syntaxversion 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60).<br>Beispiel: `<license type="expression">BSD-2-Clause OR MIT</license>`
 
 Wenn Sie eine Lizenz, die einen Bezeichner SPDX zugewiesen wurde, oder es eine benutzerdefinierte-Lizenz ist, können Sie eine Datei verpacken (nur `.txt` oder `.md`) mit dem Text der Lizenz. Zum Beispiel:
 ```xml
@@ -161,7 +159,7 @@ Eine Sammlung mit null oder mehr `<dependency>`-Elementen, die die Abhängigkeit
 #### <a name="frameworkassemblies"></a>frameworkAssemblies
 *(ab Version 1.2)* Eine Sammlung mit null oder mehr `<frameworkAssembly>`-Elementen, die die für das Paket erforderlichen Verweise auf .NET Framework-Assemblys benennt. Hierdurch wird sichergestellt, dass Verweise auf Projekte hinzugefügt werden, die das Paket verarbeiten. Jedes frameworkAssembly-Element verfügt über die Attribute *assemblyName* und *targetFramework*. Informationen hierzu finden Sie unter [Verweise auf Frameworkassemblys](#specifying-framework-assembly-references-gac). |
 #### <a name="references"></a>references
-*(ab Version 1.5)* Eine Sammlung mit null oder mehr `<reference>`-Elementen, die Assemblys im `lib`-Ordner des Pakets benennt, die als Projektverweise hinzugefügt werden. Jeder Verweis verfügt über ein *file*-Attribut. `<references>` kann auch enthalten eine `<group>` -Element mit einem *TargetFramework* Attribut, das dann enthält `<reference>` Elemente. Wenn das Element nicht angegeben ist, werden alle Verweise in `lib` eingeschlossen. Informationen hierzu finden Sie unter [Explizite Assemblyverweise](#specifying-explicit-assembly-references).
+*(ab Version 1.5)* Eine Sammlung mit null oder mehr `<reference>`-Elementen, die Assemblys im `lib`-Ordner des Pakets benennt, die als Projektverweise hinzugefügt werden. Jeder Verweis verfügt über ein *file*-Attribut. `<references>` kann außerdem ein `<group>`-Element mit einem *targetFramework*-Attribut enthalten, das seinerseits `<reference>`-Elemente enthält. Wenn das Element nicht angegeben ist, werden alle Verweise in `lib` eingeschlossen. Informationen hierzu finden Sie unter [Explizite Assemblyverweise](#specifying-explicit-assembly-references).
 #### <a name="contentfiles"></a>contentFiles
 *(ab Version 3.3)* Eine Sammlung von `<files>`-Elementen, die Inhaltsdateien angeben, die in das verarbeitende Projekt eingeschlossen werden sollen. Diese Dateien werden zusammen mit Attributen angegeben, die beschreiben, wie sie im Projektsystem verwendet werden sollen. Informationen hierzu finden Sie weiter unten unter [Einschließen von Assemblydateien](#specifying-files-to-include-in-the-package).
 #### <a name="files"></a>files 
@@ -259,7 +257,7 @@ Hinweis: Beim Erstellen einer `.nuspec` aus einem Projekt mit `nuget spec`, Abh�
 
 ### <a name="dependency-groups"></a>Abhängigkeitsgruppen
 
-*Version 2.0+*
+*Version 2.0 und höher*
 
 Als Alternative zu einer einzelnen flachen Liste können Abhängigkeiten auf der Grundlage des Frameworkprofils des Zielprojekts mithilfe von `<group>`-Elementen in `<dependencies>` angegeben werden.
 
@@ -392,7 +390,7 @@ Jedes `<file>`-Element gibt die folgenden Attribute an:
 
 ### <a name="examples"></a>Beispiele
 
-**Einzelne assembly**
+**Einzelne Assembly**
 
     Source file:
         library.dll
@@ -403,7 +401,7 @@ Jedes `<file>`-Element gibt die folgenden Attribute an:
     Packaged result:
         lib\library.dll
 
-**Einzelne Assembly, die für ein Zielframework spezifisch**
+**Einzelne Assembly, die für ein Zielframework spezifisch ist**
 
     Source file:
         library.dll
@@ -414,7 +412,7 @@ Jedes `<file>`-Element gibt die folgenden Attribute an:
     Packaged result:
         lib\net40\library.dll
 
-**Satz von DLLs, die mit einem Platzhalter**
+**Mehrere DLLs mit Verwendung eines Platzhalterzeichens**
 
     Source files:
         bin\release\libraryA.dll
@@ -427,7 +425,7 @@ Jedes `<file>`-Element gibt die folgenden Attribute an:
         lib\libraryA.dll
         lib\libraryB.dll
 
-**DLLs für verschiedene frameworks**
+**DLLs für verschiedene Frameworks**
 
     Source files:
         lib\net40\library.dll
@@ -500,7 +498,7 @@ Verwenden Sie für Inhaltsdateien einfach dasselbe Format wie für Assemblydatei
         content\css\mobile\wp7\style.css
         content\css\browser\style.css
 
-**Inhaltsdatei, die für ein Zielframework spezifisch**
+**Inhaltsdatei für ein bestimmtes Zielframework**
 
     Source file:
         css\cool\style.css
@@ -511,7 +509,7 @@ Verwenden Sie für Inhaltsdateien einfach dasselbe Format wie für Assemblydatei
     Packaged result:
         content\style.css
 
-**Inhaltsdatei in einen Ordner mit einem Punkt im Namen kopiert**
+**Inhaltsdatei, die in einen Ordner mit einem Punkt im Namen kopiert wird**
 
 In diesem Fall erkennt NuGet, dass die Erweiterung in `target` nicht mit der Erweiterung in `src` übereinstimmt, und behandelt diesen Namensbestandteil in `target` als Ordner:
 
@@ -537,7 +535,7 @@ Verwenden Sie die Platzhalterzeichen `*` oder `**`, um Dateien ohne Erweiterunge
     Packaged result:
         flags\installed
 
-**Inhaltsdateien mit Tiefen Pfaden und Tiefen Zielen**
+**Inhaltsdateien mit langen Pfaden und langen Zielen**
 
 In diesem Fall nimmt NuGet an, dass das Ziel ein Dateiname und kein Ordner ist, da die Dateierweiterungen von Quelle und Ziel übereinstimmen:
 
@@ -595,7 +593,7 @@ Die Angabe der Dateien erfolgt mithilfe mehrerer Attribute, die beschreiben, wie
 | **exclude** | Eine mit Semikolons getrennte Datei oder ein Muster für Dateien, die aus dem `src`-Speicherort ausgeschlossen werden. Das Platzhalterzeichen `*` ist zulässig, und das doppelte Platzhalterzeichen `**` impliziert eine rekursive Ordnersuche. |
 | **buildAction** | Die Buildaktion, die dem Inhaltselement für MSBuild zugewiesen werden soll, z.B. `Content`, `None`, `Embedded Resource` oder `Compile`. Die Standardeinstellung ist `Compile`. |
 | **copyToOutput** | Boolescher Wert, mit dem angegeben wird, ob Inhaltselemente in den Buildausgabeordner (oder den Veröffentlichungsausgabeordner) kopiert werden sollen. Der Standardwert ist FALSE. |
-| **vereinfachen** | Boolescher Wert, der angibt, ob Inhaltselemente in einen Ordner in der Buildausgabe kopiert werden sollen (TRUE) oder die Ordnerstruktur in den Paketen beibehalten werden soll (FALSE). Dieses Flag funktioniert nur, wenn das copyToOutput-Flag auf TRUE festgelegt ist. Der Standardwert ist FALSE. |
+| **flatten** | Boolescher Wert, der angibt, ob Inhaltselemente in einen Ordner in der Buildausgabe kopiert werden sollen (TRUE) oder die Ordnerstruktur in den Paketen beibehalten werden soll (FALSE). Dieses Flag funktioniert nur, wenn das copyToOutput-Flag auf TRUE festgelegt ist. Der Standardwert ist FALSE. |
 
 Beim Installieren eines Pakets wendet NuGet die untergeordneten Elemente von `<contentFiles>` von oben nach unten an. Wenn mehrere Einträge derselben Datei entsprechen, werden sie alle angewendet. Der oberste Eintrag hat im Falle eines Attributkonflikts Vorrang vor den untergeordneten Einträgen.
 
@@ -605,8 +603,8 @@ Das Paketprojekt sollte Inhalte anhand des folgenden Musters strukturieren:
 
     /contentFiles/{codeLanguage}/{TxM}/{any?}
 
-- `codeLanguages` möglicherweise `cs`, `vb`, `fs`, `any`, oder die kleinbuchstabenentsprechung von einer bestimmten `$(ProjectLanguage)`
-- `TxM` Alle Zielframework zulässiger Moniker, der NuGet unterstützt wird (siehe [Zielframeworks](../reference/target-frameworks.md)).
+- `codeLanguages` kann `cs`, `vb`, `fs`, `any` oder das klein geschriebene Äquivalent einer `$(ProjectLanguage)` sein.
+- `TxM` ist ein für das Zielframework zulässiger Moniker, den NuGet unterstützt (Informationen hierzu finden Sie unter [Zielframeworks](../reference/target-frameworks.md)).
 - Ans Ende dieser Syntax kann eine beliebige Ordnerstruktur angehängt werden.
 
 Zum Beispiel:
@@ -649,7 +647,7 @@ Für leere Ordner kann `.` eingefügt werden, wenn diese keine Inhalte mehr für
 
 ## <a name="example-nuspec-files"></a>NUSPEC-Beispieldateien
 
-**Eine einfache `.nuspec` , die gibt keine Abhängigkeiten oder Dateien**
+**Einfache `.nuspec`-Datei, die weder Abhängigkeiten noch Dateien enthält**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -666,7 +664,7 @@ Für leere Ordner kann `.` eingefügt werden, wenn diese keine Inhalte mehr für
 </package>
 ```
 
-**Ein `.nuspec` mit Abhängigkeiten**
+**`.nuspec`-Datei mit Abhängigkeiten**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -683,7 +681,7 @@ Für leere Ordner kann `.` eingefügt werden, wenn diese keine Inhalte mehr für
 </package>
 ```
 
-**Ein `.nuspec` mit Dateien**
+**`.nuspec`-Datei mit Dateien**
 
 ```xml
 <?xml version="1.0"?>
@@ -701,7 +699,7 @@ Für leere Ordner kann `.` eingefügt werden, wenn diese keine Inhalte mehr für
 </package>
 ```
 
-**Ein `.nuspec` mit Frameworkassemblys**
+**`.nuspec`-Datei mit Frameworkassemblys**
 
 ```xml
 <?xml version="1.0"?>
@@ -727,7 +725,7 @@ Für leere Ordner kann `.` eingefügt werden, wenn diese keine Inhalte mehr für
 
 In diesem Beispiel werden die folgenden Elemente für bestimmte Projektziele installiert:
 
-- .NET4 -> `System.Web`, `System.Net`
-- . NET4-Clientprofil > `System.Net`
-- Silverlight 3 -> `System.Json`
-- WindowsPhone -> `Microsoft.Devices.Sensors`
+- .NET4: `System.Web` und `System.Net`
+- .NET4-Clientprofil: `System.Net`
+- Silverlight 3: `System.Json`
+- WindowsPhone: `Microsoft.Devices.Sensors`

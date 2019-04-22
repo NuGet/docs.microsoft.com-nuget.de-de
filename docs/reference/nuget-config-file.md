@@ -6,17 +6,17 @@ ms.author: karann
 ms.date: 10/25/2017
 ms.topic: reference
 ms.openlocfilehash: d7c943c1f13edf782dabe4afee9d19a1a42bd42a
-ms.sourcegitcommit: 9f94e00428d83aef4a7a87db679129eff7720c59
+ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58911087"
 ---
 # <a name="nugetconfig-reference"></a>NuGet.config-Referenzthema
 
 Das NuGet-Verhalten wird durch Einstellungen in verschiedenen `NuGet.Config`-Dateien gesteuert, wie unter [Konfigurieren des NuGet-Verhaltens](../consume-packages/configuring-nuget-behavior.md) beschrieben.
 
-`nuget.config` eine XML-Datei mit einer der obersten Ebene `<configuration>` Knoten, der die in diesem Thema beschriebenen Abschnittselemente enthält. Jeder Abschnitt enthält null oder mehr Elemente. Siehe die [Beispiele für die Konfigurationsdatei](#example-config-file). Bei Einstellungsnamen ist die Groß-/Kleinschreibung zu beachten, und Werte können [Umgebungsvariablen](#using-environment-variables) verwenden.
+`nuget.config` ist eine XML-Datei mit einem `<configuration>`-Knoten der obersten Ebene, in dem die in diesem Thema beschriebenen Abschnittselemente beschrieben werden. Jeder Abschnitt enthält null oder mehr Elemente. Siehe die [Beispiele für die Konfigurationsdatei](#example-config-file). Bei Einstellungsnamen ist die Groß-/Kleinschreibung zu beachten, und Werte können [Umgebungsvariablen](#using-environment-variables) verwenden.
 
 In diesem Thema:
 
@@ -221,7 +221,7 @@ Identifizierte, derzeit deaktivierte Quellen. Kann leer sein.
 
 ### <a name="activepackagesource"></a>activePackageSource
 
-*(nur 2.x; als veraltet markierte in 3.x und höher)*
+*(nur 2.x; Unterstützung in 3.x und höher eingestellt)*
 
 Identifiziert die derzeit aktive Quelle oder gibt das Aggregat aller Quellen an.
 

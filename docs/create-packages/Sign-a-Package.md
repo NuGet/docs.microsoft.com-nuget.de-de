@@ -7,10 +7,10 @@ ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
 ms.openlocfilehash: 8ff92e5a3ab2d5c13ee02a9e49709866e2ac0e87
-ms.sourcegitcommit: 8793f528a11bd8e8fb229cd12e9abba50d61e104
+ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58921571"
 ---
 # <a name="signing-nuget-packages"></a>Signieren von NuGet-Paketen
@@ -92,8 +92,8 @@ Dieser Befehl erstellt ein Testzertifikat, das im persönlichen Zertifikatspeich
 ## <a name="manage-signing-requirements-for-your-package-on-nugetorg"></a>Verwalten der Signaturanforderungen für Ihr Paket auf NuGet.org
 1. [Melden Sie sich](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) bei NuGet.org an.
 
-1. Wechseln Sie zu `Manage Packages` 
-   ![Paketsignierer konfigurieren](../reference/media/configure-package-signers.png).
+1. Wechseln Sie zu `Manage Packages`. 
+   ![Paketsignierer konfigurieren](../reference/media/configure-package-signers.png)
 
 * Wenn Sie der einzige Besitzer eines Pakets sind, sind Sie der erforderliche Signaturgeber, d.h., Sie können ein beliebiges der registrierten Zertifikate verwenden, um Ihre Pakete in NuGet.org zu signieren und zu veröffentlichen.
 
