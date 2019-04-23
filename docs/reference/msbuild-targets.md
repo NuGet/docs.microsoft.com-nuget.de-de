@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8132595cbfaf553736fbcc81aada283a44d6cdbf
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 1e89aeb46f2538d46c013561a51a41702b2472d8
+ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324850"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59932098"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet pack and restore as MSBuild targets (NuGet-Befehle „pack“ und „restore“ MSBuild-Ziele)
 
@@ -322,7 +322,7 @@ Das Ziel `MSBuild -t:restore` (das von `nuget restore` und `dotnet restore` in .
 
 1. Lesen aller Projekt-zu-Projekt-Verweise
 1. Lesen der Projekteigenschaften, um den Zwischenordner und Zielframeworks zu finden
-1. Übergeben der MSBuild-Daten an NuGet.Build.Tasks.dll
+1. Übergeben von MSBuild-Daten an NuGet.Build.Tasks.dll
 1. Ausführen des Befehls „restore“
 1. Herunterladen von Paketen
 1. Schreiben von Assetdatei, Zielen und Eigenschaften
@@ -341,9 +341,14 @@ Weitere Wiederherstellungseigenschaften können aus MSBuild-Eigenschaften in der
 | RestoreConfigFile | Der Pfad zu einer anzuwendenden `Nuget.Config`-Datei. |
 | RestoreNoCache | Wenn "true" wird vermieden, zwischengespeicherte Pakete verwenden. Finden Sie unter [Verwalten der globalen Paketordner und Cacheordner](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | RestoreIgnoreFailedSources | Wenn „TRUE“ festgelegt ist, werden fehlerhafte oder fehlende Paketquellen ignoriert. |
+| RestoreFallbackFolders | Fallback-Ordnern, werden die Benutzer-Pakete, die Ordner verwendet wird, auf die gleiche Weise verwendet. |
+| RestoreAdditionalProjectSources | Zusätzliche Quellen für die Verwendung während der Wiederherstellung. |
+| RestoreAdditionalProjectFallbackFolders | Zusätzliche alternative Ordner für die Verwendung während der Wiederherstellung. |
+| RestoreAdditionalProjectFallbackFoldersExcludes | Schließt die im angegebenen fallback-Ordnern `RestoreAdditionalProjectFallbackFolders` |
 | RestoreTaskAssemblyFile | Pfad zu `NuGet.Build.Tasks.dll`. |
 | RestoreGraphProjectInput | Durch Semikolons (;) getrennte Liste mit wiederherzustellenden Projekten, die absolute Pfade enthalten sollten. |
-| RestoreOutputPath | Ausgabeordner, der standardmäßig auf den Ordner `obj` festgelegt ist. |
+| RestoreUseSkipNonexistentTargets  | Wenn Projekte über MSBuild gesammelt werden, es bestimmt, ob sie gesammelt werden, mithilfe, der `SkipNonexistentTargets` Optimierung. Wenn nicht festgelegt, wird standardmäßig auf `true`. Die Folge ist ein Fail-Fast-Verhalten aus, wenn ein die Ziele des Projekts nicht importiert werden können. |
+| MSBuildProjectExtensionsPath | Ordner "Output", es wird der Standardwert `BaseIntermediateOutputPath` und `obj` Ordner. |
 
 #### <a name="examples"></a>Beispiele
 
@@ -370,6 +375,23 @@ Bei der Wiederherstellung werden die folgenden Dateien im `obj`-Buildordner erst
 | `project.assets.json` | Enthält das Abhängigkeitsdiagramm von alle Paketverweise an. |
 | `{projectName}.projectFileExtension.nuget.g.props` | Verweist auf in Paketen enthaltene MSBuild-Eigenschaften |
 | `{projectName}.projectFileExtension.nuget.g.targets` | Verweist auf in Paketen enthaltene MSBuild-Ziele |
+
+### <a name="restoring-and-building-with-one-msbuild-command"></a>Wiederherstellen und erstellen mit einem MSBuild-Befehl
+
+Aufgrund der Tatsache, dass NuGet Pakete werden, die MSBuild-Ziele und Eigenschaften zum Ausfall wiederhergestellt kann, werden das Wiederherstellen und die Build-auswertungen mit anderen globalen Eigenschaften ausgeführt.
+Dies bedeutet, dass die folgenden ein Verhalten unvorhersehbar und häufig falsch hat.
+
+```cli
+msbuild -t:restore,build
+```
+
+ Stattdessen wird empfohlen:
+
+```cli
+msbuild -t:build -restore
+```
+
+Die gleiche Logik gilt für andere Ziele, die ähnlich wie `build`.
 
 ### <a name="packagetargetfallback"></a>PackageTargetFallback
 

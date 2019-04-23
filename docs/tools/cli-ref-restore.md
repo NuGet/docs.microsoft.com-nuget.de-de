@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: adf97196f50f2a55d6b8ceed93d53ff12b67657b
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: 9964186dcbfedfbf2415a57102f8f019a1eef23a
+ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145630"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59931994"
 ---
 # <a name="restore-command-nuget-cli"></a>RESTORE-Befehl (NuGet-CLI)
 
@@ -50,7 +50,7 @@ wo `<projectPath>` gibt den Speicherort einer Projektmappe oder ein `packages.co
 | RequireConsent | Stellt sicher, dass die Wiederherstellung von Paketen aktiviert ist, vor dem Herunterladen und Installieren der Pakete. Weitere Informationen finden Sie unter [Paketwiederherstellung](../consume-packages/package-restore.md). |
 | SolutionDirectory | Gibt den Projektmappenordner. Gilt nicht beim Wiederherstellen von Paketen für eine Lösung. Erforderlich, wenn die Wiederherstellung mit einem `packages.config` Datei, wenn `PackagesDirectory` oder `OutputDirectory` verwendet wird. |
 | Source | Gibt die Liste der Paketquellen (wie URLs) für die Verwendung für die Wiederherstellung an. Wenn nicht angegeben, wird der Befehl verwendet die Quellen in Konfigurationsdateien, finden Sie unter [Konfigurieren des NuGet-Verhaltens](../consume-packages/configuring-nuget-behavior.md). |
-| Ausführlichkeit |> Gibt an, die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *quiet*, *ausführliche*. |
+| Verbosity |> Gibt an, die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *quiet*, *ausführliche*. |
 
 Siehe auch [Umgebungsvariablen](cli-ref-environment-variables.md)
 
@@ -71,7 +71,7 @@ Der Restore-Befehl führt die folgenden Schritte aus:
 2. Bestimmen Sie den Ordner "Pakete" mithilfe der folgenden Prioritätsreihenfolge (NuGet gibt einen Fehler, wenn keiner dieser Ordner gefunden werden):
 
     - Der Ordner, der mit angegebenen `-PackagesDirectory`.
-    - Die `repositoryPath` Wert in `Nuget.Config`
+    - Die `repositoryPath` Wert `Nuget.Config`
     - Der Ordner, der mit angegebenen `-SolutionDirectory`
     - `$(SolutionDir)\packages`
 
