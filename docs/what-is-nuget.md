@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/10/2018
 ms.topic: overview
-ms.openlocfilehash: d688aecaa73cecbfee184e3b13801ed22326a852
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 87f7494ea97a4fa65be04b2692d7b894938c3fe5
+ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580323"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59509125"
 ---
 # <a name="an-introduction-to-nuget"></a>Eine Einführung in NuGet
 
@@ -37,13 +37,13 @@ Ein „kompatibles“ Paket bedeutet, dass es Assemblys enthält, die für minde
 Im Gegensatz dazu erstellen Paketentwickler, die APIs außerhalb von .NET Standard verwenden, separate Assemblys für verschiedene Zielframeworks, die sie unterstützen wollen, und schließen all diese Assemblys in das gleiche Paket mit ein (auch bekannt als „Festlegung von mehreren Zielversionen“). Wenn ein Verbraucher ein solches Paket installiert, extrahiert NuGet nur die Assemblys, die vom Projekt benötigt werden. Dadurch wird der Speicherbedarf des Pakets in der fertigen Anwendung bzw. in den vom Projekt erzeugten Assemblys gesenkt. Es ist für den Ersteller aufwendiger, ein Paket mit mehreren Zielversionen auf dem neuesten Stand zu halten.
 
 > [!Note]
-> Die Zielsetzung von .NET Standard ersetzt den vorherigen Ansatz, verschiedene „portable Klassenbibliotheken“ (PCL) als Ziele zu verwenden. Deshalb liegt in dieser Dokumentation der Schwerpunkt auf dem Erstellen von Paketen für .NET Standard.
+> Die Zielsetzung von .NET Standard ersetzt den vorherigen Ansatz, verschiedene portable Klassenbibliotheken (PCL) als Ziele zu verwenden. Deshalb liegt in dieser Dokumentation der Schwerpunkt auf dem Erstellen von Paketen für .NET Standard.
 
 ## <a name="nuget-tools"></a>NuGet-Tools
 
 Zusätzlich zur Unterstützung für das Hosting bietet NuGet außerdem eine Vielzahl von Tools, die vom Ersteller und Benutzer verwendet werden. Informationen dazu, wie Sie bestimmte Tools erhalten, finden Sie unter [Installieren von NuGet-Clienttools](install-nuget-client-tools.md).
 
-| Tool | Plattformen | Anwendbare Szenarios | Beschreibung  |
+| Tool | Plattformen | Anwendbare Szenarios | Beschreibung |
 | --- | --- | --- | --- |
 | [nuget.exe-CLI](tools/nuget-exe-cli-reference.md) | Alle | Erstellung, Verbrauch | Bietet alle NuGet-Funktionen, mit einigen Befehlen, die speziell für Paketersteller bestimmt sind, anderen Befehlen, die nur für Benutzer, und wieder anderen, die für beide bestimmt sind. Beispielsweise verwenden Paketersteller den Befehl `nuget pack` zum Erstellen eines Pakets aus verschiedenen Assemblys und zugehörigen Dateien, Paketverbraucher verwenden `nuget install`, um Pakete in einen Projektordner einzubinden, und alle verwenden `nuget config`, um NuGet-Konfigurationsvariablen festzulegen. Als ein plattformunabhängiges Tool interagiert die NuGet-CLI nicht mit Visual Studio-Projekten. |
 | [dotnet-CLI](tools/dotnet-Commands.md) | Alle | Erstellung, Verbrauch | Stellt bestimmte NuGet-CLI-Funktionen direkt in der .NET Core-Toolkette bereit. Ähnlich wie NuGet-CLI interagiert die dotnet-CLI nicht mit Visual Studio-Projekten. |
@@ -82,7 +82,7 @@ Der Computer, der ein Projekt, z.B. einen Buildserver, erhält, der eine Kopie d
 
 Die primäre Rolle von NuGet bei Entwicklern liegt dann klar im Verwalten der Verweisliste für Ihr Projekt und im Bereitstellen der Möglichkeiten, um diese referenzierten Pakete effizient wiederherzustellen (und zu aktualisieren). Die Liste wird in einem von zwei *Paketverwaltungsformaten* verwaltet:
 
-- [`packages.config`](reference/packages-config.md): *(NuGet 1.0+)* Eine XML-Datei, die eine flache Liste aller Abhängigkeiten im Projekt, einschließlich der Abhängigkeiten von anderen installierten Paketen, verwaltet. Installierte oder wiederhergestellte Pakete werden in einem `packages`-Ordner gespeichert.
+- [`packages.config`](reference/packages-config.md): *(NuGet 1.0 und höher)* Eine XML-Datei, die eine flache Liste aller Abhängigkeiten im Projekt, einschließlich der Abhängigkeiten von anderen installierten Paketen, verwaltet. Installierte oder wiederhergestellte Pakete werden in einem `packages`-Ordner gespeichert.
 
 - [PackageReference](consume-packages/package-references-in-project-files.md) (bzw. „Packen von Verweisen in Projektdateien“) | *(NuGet 4.0 und höher)* verwaltet eine Liste der Abhängigkeiten der obersten Ebene eines Projekts direkt in der Projektdatei, damit keine separate Datei benötigt wird. Eine zugehörige Datei, `obj/project.assets.json`, wird dynamisch generiert, um das gesamte Abhängigkeitsdiagramm der von einem Projekt verwendeten Pakete zusammen mit allen untergeordneten Abhängigkeiten zu verwalten. PackageReference wird immer von .NET Core-Projekten verwendet.
 
