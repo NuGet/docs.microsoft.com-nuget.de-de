@@ -7,7 +7,7 @@ ms.date: 11/11/2016
 ms.topic: conceptual
 ms.openlocfilehash: 5bdd2aa5621eead9ce79794052663cc2f8a63d45
 ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 09/04/2018
 ms.locfileid: "43549521"
@@ -47,7 +47,7 @@ Es gibt eine Anzahl von Korrekturen für Probleme mit verschiedenen Befehlen:
 
 * Push-Befehl ist nicht mehr vor eines PUT-AUFRUFS für eine Paketquelle - GET [1237](https://github.com/NuGet/Home/issues/1237)
 * List-Befehl wird nicht mehr wiederholt Versionsnummern - [1185](https://github.com/NuGet/Home/issues/1185)
-* Pack mit dem - Build-Argument jetzt ordnungsgemäß unterstützt c# 6.0 - [1107](https://github.com/NuGet/Home/issues/1107)
+* Pack mit dem - Build-Argument jetzt ordnungsgemäß unterstützt C# 6.0 - [1107](https://github.com/NuGet/Home/issues/1107)
 * Korrigierte Probleme, die versuchen, eine f#-Projekt packen, die mit Visual Studio 2015 – erstellt [1048](https://github.com/NuGet/Home/issues/1048)
 * Jetzt keine Funktion wiederherstellen, wenn bereits Pakete vorhanden sind - [1040](https://github.com/NuGet/Home/issues/1040)
 * Verbesserte Fehlermeldungen, wenn `packages.config` Datei ist falsch formatiert: [1034](https://github.com/NuGet/Home/issues/1034)
