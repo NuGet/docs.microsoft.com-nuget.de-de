@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 125671ca3f695f82bd74f8097e590c3972003e22
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 4a9460944e2c232e2a72195434a491d26eee3559
+ms.sourcegitcommit: 3fc93f7a64be040699fe12125977dd25a7948470
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548342"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64877958"
 ---
 # <a name="push-command-nuget-cli"></a>Push-Befehl (NuGet-CLI)
 
@@ -35,7 +35,7 @@ wo `<packagePath>` identifiziert das Paket an den Server mithilfe von Push über
 
 | Option | Beschreibung |
 | --- | --- |
-| "Apikey" | Die API-Schlüssel für die Ziel-Repository. Wenn nicht vorhanden ist, wird angegeben, in der Konfigurationsdatei verwendet. |
+| ApiKey | Die API-Schlüssel für die Ziel-Repository. Wenn nicht vorhanden ist, wird angegeben, in der Konfigurationsdatei verwendet. |
 | ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) verwendet wird.|
 | DisableBuffering | Deaktiviert die Pufferung, wenn auf einem Server HTTP(s) übertragen werden, um Arbeitsspeicher Verwendungen zu verringern. Vorsicht: Wenn diese Option verwendet wird, integrierte Windows-Authentifizierung funktioniert möglicherweise nicht. |
 | ForceEnglishOutput | *(3.5 und höher)*  Erzwingt nuget.exe über eine invariante Kultur auf Englisch basierenden ausgeführt werden. |
@@ -46,7 +46,7 @@ wo `<packagePath>` identifiziert das Paket an den Server mithilfe von Push über
 | SymbolSource | *(3.5 und höher)*  Gibt an, die Symbolserver-URL; nuget.smbsrc.net wird verwendet, wenn Sie mithilfe von Push an nuget.org übertragen |
 | SymbolApiKey | *(3.5 und höher)*  Gibt den API-Schlüssel an, für die URL in angegeben `-SymbolSource`. |
 | Timeout | Gibt das Timeout in Sekunden für die Übertragung auf einen Server an. Der Standardwert ist 300 Sekunden (5 Minuten). |
-| Ausführlichkeit | Gibt an, die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *quiet*, *ausführliche*. |
+| Verbosity | Gibt an, die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *quiet*, *ausführliche*. |
 
 Siehe auch [Umgebungsvariablen](cli-ref-environment-variables.md)
 
@@ -67,5 +67,5 @@ nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -Source https://api.nu
 
 nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a
 
-nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -s https://customsource/
+nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -src https://customsource/
 ```
