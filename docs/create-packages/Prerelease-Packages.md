@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 150fc61e51fe10622fe6b369b60dfc61a9ac916f
-ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
+ms.openlocfilehash: 696f51905198defdbfd475ba7d010ac3e27ac557
+ms.sourcegitcommit: 3fc93f7a64be040699fe12125977dd25a7948470
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58432451"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64877944"
 ---
 # <a name="building-pre-release-packages"></a>Erstellen von Vorabversionen von Paketen
 
@@ -22,7 +22,7 @@ Ein Release wird dann als „stabil“ bezeichnet, wenn es zuverlässig genug is
 
 Damit die Phasen des Softwareveröffentlichungsprozesses unterstützt werden können, lässt NuGet ab Version 1.6 die Verteilung von Paketvorabversionen zu, deren Versionsnummern ein Suffix des Schemas „semantische Versionierung“ enthalten, z.B. `-alpha`, `-beta` oder `-rc`. Weitere Informationen finden Sie im Artikel zum Thema [Paketversionsverwaltung](../reference/package-versioning.md#pre-release-versions).
 
-Sie können derartige Versionen auf zwei Arten angeben:
+Sie können solche Versionen auf drei Arten angeben:
 
 - Datei des Typs `.nuspec`: Schließen Sie das Suffix der semantischen Versionierung im Element `version` ein:
 
@@ -30,7 +30,15 @@ Sie können derartige Versionen auf zwei Arten angeben:
     <version>1.0.1-alpha</version>
     ```
 
-- Assemblyattribute: Verwenden Sie beim Erstellen eines Pakets aus einem Visual Studio-Projekt (`.csproj` oder `.vbproj`) das `AssemblyInformationalVersionAttribute`, um die Version anzugeben:
+- Datei des Typs `.csproj`: Schließen Sie das Suffix der semantischen Versionierung im Element `PackageVersion` ein:
+
+    ```xml
+    <PropertyGroup>
+        <PackageVersion>1.0.1-alpha</PackageVersion>
+    </PropertyGroup>
+    ```
+
+- Assemblyattribute: Angeben der Version mithilfe von `AssemblyInformationalVersionAttribute`:
 
     ```cs
     [assembly: AssemblyInformationalVersion("1.0.1-beta")]
