@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: ac1bf2b65ab6ec4e8cf864810181fc661236262a
-ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
+ms.openlocfilehash: 9f26f75a70a996cad158fd125e86d98e10c3dac1
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59931981"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610634"
 ---
 # <a name="nuget-cli-environment-variables"></a>NuGet-CLI-Umgebungsvariablen
 
@@ -33,7 +33,7 @@ Die Liste der Eigenschaften finden Sie im [NuGet Packen und Wiederherstellen als
 | NUGET_HTTP_CACHE_PATH | Pfad für die *http-Cache* Ordner unter [Verwalten der globalen Paketordner und Cacheordner](../consume-packages/managing-the-global-packages-and-cache-folders.md). | Als absoluter Pfad angegeben. |
 | NUGET_PERSIST_DG | Flag zum angeben, wenn der GD-Dateien (Daten gesammelt, die von MSBuild) beibehalten werden soll. | Als angegebenen *"true"* oder *"false"* (Standard), ist nicht, NUGET_PERSIST_DG_PATH festgelegt in das temporäre Verzeichnis (NuGetScratch Ordner im aktuellen umgebungsverzeichnis temp) gespeichert werden sollen. |
 | NUGET_PERSIST_DG_PATH | Pfad zur Verteilergruppe Dateien beizubehalten. | Als absoluter Pfad angegeben, wird diese Option nur verwendet, wenn *NUGET_PERSIST_DG* wird festgelegt auf "true". |
-| NUGET_RESTORE_MSBUILD_ARGS | Legt zusätzliche MSBuild-Argumente. | |
+| NUGET_RESTORE_MSBUILD_ARGS | Legt zusätzliche MSBuild-Argumente. | Übergeben von Argumenten mit, wie Sie sie an msbuild.exe übergeben würde. Ein Beispiel für eine Projekteigenschaft "Foo" über die Befehlszeile festlegen, auf die Balken der Wert wäre /p:Foo = Bar |
 | NUGET_RESTORE_MSBUILD_VERBOSITY | Legt die Ausführlichkeit der MSBuild-Protokoll. | Der Standardwert ist *quiet* ("/ V: Q"). Mögliche Werte *Q [Uiet]*, *m [Inimal]*, *n [Ormal]*, *d [Etailed]*, und *Diag [Nostic]*. |
 | NUGET_SHOW_STACK | Bestimmt, ob es sich bei der vollständige Ausnahme (einschließlich stapelüberwachung), die dem Benutzer angezeigt werden soll. | Als angegebenen *"true"* oder *"false"* (Standard). |
 | NUGET_XMLDOC_MODE | Bestimmt, wie Assemblys XML-Dokumentation Dateiextraktion behandelt werden sollen. | Unterstützte Modi *überspringen* (keine XML-Dokumentationsdateien extrahieren), *komprimieren* (Speichern von XML-Doc-Dateien als Zip-Archiv) oder *keine* (Standard, XML Doc-Dateien als reguläre behandeln -Dateien). |
