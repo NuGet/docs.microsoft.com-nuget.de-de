@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: c23b464ca39fd8d872f21846a7d6d34edf9dce93
-ms.sourcegitcommit: 1bd72dca2f85b4267b9924236f1d23dd7b0ed733
+ms.openlocfilehash: db968189e892723c8fd080cb01a7222696c9d3f3
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50088916"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610567"
 ---
 # <a name="configuring-nuget-behavior"></a>Konfigurieren des NuGet-Verhaltens
 
@@ -18,7 +18,7 @@ Das Verhalten von NuGet wird durch die Eigenschaften gesteuert, die in einer ode
 
 ## <a name="config-file-locations-and-uses"></a>Speicherorte und Verwendungsmöglichkeiten von Konfigurationsdateien
 
-| Bereich | Speicherort der NuGet.Config-Datei | Beschreibung  |
+| Bereich | Speicherort der NuGet.Config-Datei | Beschreibung |
 | --- | --- | --- |
 | Projekt | Aktueller Ordner (bzw. Projektordner) oder ein beliebiger anderer Ordner im Stammlaufwerk.| Die Einstellungen in einem Projektordner gelten nur für dieses Projekt. Die Einstellungen in einem übergeordneten Ordner, der mehrere Unterordner mit Projekten enthält, gelten für alle Projekte in diesen Unterordnern. |
 | Benutzer | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.config/NuGet/NuGet.Config` oder `~/.nuget/NuGet/NuGet.Config` (je nach Betriebssystemverteilung) | Die Einstellungen gelten für alle Vorgänge, werden jedoch durch sämtliche Einstellungen auf Projektebene überschrieben. |
@@ -186,17 +186,17 @@ Datei D (disk_drive_2/Project2/NuGet.Config):
 
 Je nachdem, wo aus NuGet aufgerufen wird, werden die Einstellungen folgendermaßen geladen und angewendet:
 
-- **Aufruf von disk_drive_1/users aus:** Nur die Standardrepository, die in der Konfigurationsdatei auf Benutzerebene (A) aufgeführt wird, wird verwendet, da dies die einzige Datei ist, die auf disk_drive_1 gefunden wurde.
+- **Aufgerufen von disk_drive_1/users aus**: Es wird nur das Standardrepository verwendet, das in der Konfigurationsdatei auf Benutzerebene (A) aufgeführt wird, da dies die einzige Datei ist, die auf disk_drive_1 gefunden wurde.
 
-- **Aufruf von disk_drive_2/ oder disk_drive_/tmp aus:** Die Datei auf Benutzerebene (A) wird zuerst geladen, dann sucht NuGet im Stamm von disk_drive_2 und findet Datei B. NuGet sucht ebenfalls in /tmp nach einer Konfigurationsdatei, findet jedoch keine. Deshalb wird das Standardrepository auf nuget.org verwendet, außerdem wird die Paketwiederherstellung aktiviert und Pakete werden in disk_drive_2/tmp erweitert.
+- **Aufgerufen von disk_drive_2/ oder disk_drive_/tmp aus**: Die Datei auf Benutzerebene (A) wird zuerst geladen, dann sucht NuGet im Stamm von disk_drive_2 und findet Datei (B). NuGet sucht ebenfalls in /tmp nach einer Konfigurationsdatei, findet jedoch keine. Deshalb wird das Standardrepository auf nuget.org verwendet, außerdem wird die Paketwiederherstellung aktiviert und Pakete werden in disk_drive_2/tmp erweitert.
 
-- **Aufruf von disk_drive_2/Project1 oder disk_drive_2/Project1/Source aus:** Die Datei auf Benutzerebene (A) wird zuerst geladen, dann lädt NuGet Datei B aus dem Stamm von disk_drive_2 und schließlich Datei C. Die Einstellungen in Datei C überschreiben die in Datei A und B. Pakete werden deshalb im `repositoryPath` disk_drive_2/Project1/External/Packages statt in *disk_drive_2/tmp* installiert. Da `<packageSources>` durch Datei C gelöscht wird, ist nuget.org nicht mehr als Quelle verfügbar, sondern nur noch `https://MyPrivateRepo/ES/nuget`.
+- **Aufgerufen von disk_drive_2/Project1 oder disk_drive_2/Project1/Source aus**: Die Datei auf Benutzerebene (A) wird zuerst geladen, dann lädt NuGet aus dem Stamm von disk_drive_2 zunächst Datei (B) und anschließend Datei (C). Die Einstellungen in Datei C überschreiben die in Datei A und B. Pakete werden deshalb im `repositoryPath` disk_drive_2/Project1/External/Packages statt in *disk_drive_2/tmp* installiert. Da `<packageSources>` durch Datei C gelöscht wird, ist nuget.org nicht mehr als Quelle verfügbar, sondern nur noch `https://MyPrivateRepo/ES/nuget`.
 
-- **Aufruf von disk_drive_2/Project2 oder disk_drive_2/Project2/Source aus:** Die Datei auf Benutzerebene (A) wird zuerst geladen, anschließend werden Datei B und D geladen. Da `packageSources` nicht gelöscht wurde, sind `nuget.org` und `https://MyPrivateRepo/DQ/nuget` als Quellen verfügbar. Die Pakete werden wie in Datei B angegeben in disk_drive_2/tmp erweitert.
+- **Aufgerufen von disk_drive_2/Project2 oder disk_drive_2/Project2/Source aus**: Die Datei auf Benutzerebene (A) wird zuerst geladen, anschließend folgen Datei (B) und Datei (D). Da `packageSources` nicht gelöscht wurde, sind `nuget.org` und `https://MyPrivateRepo/DQ/nuget` als Quellen verfügbar. Die Pakete werden wie in Datei B angegeben in disk_drive_2/tmp erweitert.
 
 ## <a name="nuget-defaults-file"></a>NuGet-Standarddatei
 
-Die `NuGetDefaults.Config`-Datei ist vorhanden, um Paketquellen anzugeben, von denen aus Pakete installiert und aktualisiert werden können und um das Standardziel für das Veröffentlichen von Paketen mit `nuget push` anzugeben. Da Administratoren konsistente `NuGetDefaults.Config`-Dateien einfach für Entwickler- und Buildcomputer bereitstellen können (z.B. mithilfe von Gruppenrichtlinie), können diese sicherstellen, dass jeder in der Organisation die richtige Paketquelle anstelle von nuget.org verwendet.
+Die `NuGetDefaults.Config`-Datei ist vorhanden, um Paketquellen anzugeben, von denen aus Pakete installiert und aktualisiert werden können und um das Standardziel für das Veröffentlichen von Paketen mit `nuget push` anzugeben. Da Administratoren konsistente `NuGetDefaults.Config`-Dateien einfach für Entwickler- und Buildcomputer bereitstellen können (z. B. mithilfe des Tools Gruppenrichtlinie), können diese sicherstellen, dass jeder im Unternehmen anstelle von nuget.org die richtige Paketquelle verwendet.
 
 > [!Important]
 > Durch die `NuGetDefaults.Config`-Datei werden Paketquellen niemals aus der NuGet-Konfiguration eines Entwicklers gelöscht. Wenn der Entwickler also bereits NuGet verwendet und deshalb eine Paketquelle von nuget.org registriert, wird diese nach der Erstellung der `NuGetDefaults.Config`-Datei nicht entfernt.

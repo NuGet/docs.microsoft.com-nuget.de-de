@@ -16,12 +16,12 @@ keywords: NuGet-Symbolpakete, Debugging von NuGet-Paketen, Unterstützung von Nu
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 43f346dc64ebbc59d02b9c7875b04205d8c5d83a
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: 18d54e28d77f2bdcfea70ff9ae9def05278cb26c
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852441"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610554"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Erstellen von Symbolpaketen (.snupkg)
 
@@ -54,7 +54,7 @@ Wenn Sie „dotnet.exe“ oder MSBuild verwenden, können Sie folgende Schritte 
 
 1. Packen Sie Ihr Projekt mit `dotnet pack MyPackage.csproj` oder `msbuild -t:pack MyPackage.csproj`.
 
-Die Eigenschaft `SymbolPackageFormat` kann einen von zwei Werten besitzen: `symbols.nupkg` (Standard) oder `snupkg`. Wenn die Eigenschaft `SymbolPackageFormat` nicht festgelegt wird, wird sie standardmäßig auf `symbols.nupkg` festgelegt, und ein älteres Symbolpaket wird erstellt.
+Die Eigenschaft [`SymbolPackageFormat`](/dotnet/core/tools/csproj.md#symbolpackageformat) kann einen von zwei Werten besitzen: `symbols.nupkg` (Standard) oder `snupkg`. Wenn die Eigenschaft [`SymbolPackageFormat`](/dotnet/core/tools/csproj.md#symbolpackageformat) nicht festgelegt wurde, wird ein älteres Symbolpaket erstellt.
 
 > [!Note]
 > Das ältere Format `.symbols.nupkg` wir noch immer unterstützt, jedoch nur aus Kompatibilitätsgründen (weitere Informationen unter [Erstellen von Symbolpaketen](Symbol-Packages.md)). Der NuGet.org-Symbolserver akzeptiert nur das neue Symbolpaketformat `.snupkg`.
@@ -80,6 +80,9 @@ Die Eigenschaft `SymbolPackageFormat` kann einen von zwei Werten besitzen: `symb
     ```
 
 NuGet veröffentlicht beide Pakete auf nuget.org. `MyPackage.nupkg` wird zuerst veröffentlicht, gefolgt von `MyPackage.snupkg`.
+
+> [!Note]
+> Wenn das Symbolpaket nicht veröffentlicht wird, vergewissern Sie sich, dass Sie die NuGet.org-Quelle folgendermaßen konfiguriert haben: `https://api.nuget.org/v3/index.json`. Die Veröffentlichung des Symbolpakets wird nur von der [NuGet V3-API](../api/overview.md#versioning) unterstützt.
 
 ## <a name="nugetorg-symbol-server"></a>NuGet.org-Symbolserver
 
