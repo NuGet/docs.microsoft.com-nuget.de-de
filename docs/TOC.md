@@ -260,6 +260,7 @@
 ## [Löschen von Paketen](policies/deleting-packages.md)
 # Anmerkungen zu diesem Release
 ## [Bekannte Probleme](release-notes/known-issues.md)
+## [NuGet 5.1 RTM](release-notes/NuGet-5.1-RTM.md)
 ## [NuGet 5.0 RTM](release-notes/NuGet-5.0-RTM.md)
 ## NuGet 4.x
 ### [NuGet 4.9 RTM](release-notes/NuGet-4.9-RTM.md)
