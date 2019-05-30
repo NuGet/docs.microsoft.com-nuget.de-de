@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: db968189e892723c8fd080cb01a7222696c9d3f3
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: 963d1d59ea7e65e3d75bc7105b8864e3e4045938
+ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610567"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266336"
 ---
 # <a name="configuring-nuget-behavior"></a>Konfigurieren des NuGet-Verhaltens
 
@@ -20,7 +20,7 @@ Das Verhalten von NuGet wird durch die Eigenschaften gesteuert, die in einer ode
 
 | Bereich | Speicherort der NuGet.Config-Datei | Beschreibung |
 | --- | --- | --- |
-| Projekt | Aktueller Ordner (bzw. Projektordner) oder ein beliebiger anderer Ordner im Stammlaufwerk.| Die Einstellungen in einem Projektordner gelten nur für dieses Projekt. Die Einstellungen in einem übergeordneten Ordner, der mehrere Unterordner mit Projekten enthält, gelten für alle Projekte in diesen Unterordnern. |
+| Lösung | Aktueller Ordner (bzw. Projektmappenordner) oder ein beliebiger anderer Ordner im Stammlaufwerk.| In einem Projektmappenordner gelten die Einstellungen für alle Projekte in den Unterordnern. Beachten Sie, dass eine Konfigurationsdatei, die in einem Projektordner gespeichert wird, keine Auswirkungen auf das Projekt hat. |
 | Benutzer | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.config/NuGet/NuGet.Config` oder `~/.nuget/NuGet/NuGet.Config` (je nach Betriebssystemverteilung) | Die Einstellungen gelten für alle Vorgänge, werden jedoch durch sämtliche Einstellungen auf Projektebene überschrieben. |
 | Computer | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME`. Wenn `$XDG_DATA_HOME` NULL oder leer ist, wird `~/.local/share` oder `/usr/local/share` verwendet (je nach Betriebssystemverteilung)  | Die Einstellungen gelten für alle Vorgänge auf dem Computer, werden jedoch von allen Einstellungen auf Benutzer- oder Projektebene überschrieben. |
 
