@@ -6,16 +6,16 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: fd5188c92f8154391359b8da5c8a32f4d5d6f2c0
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: 4884de71151ee1ae3c0a78b803c9222f9c1d86ec
+ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453584"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266358"
 ---
 # <a name="catalog"></a>Catalog
 
-Die **Katalog** ist eine Ressource, die auf eine Paketquelle an, wie, wann alle Paketvorgängen erfasst. Die Katalogressource hat die `Catalog` Geben Sie in der [dienstindex](service-index.md).
+Die **Katalog** ist eine Ressource, die auf eine Paketquelle an, wie, wann alle Paketvorgängen erfasst. Die Katalogressource hat die `Catalog` Geben Sie in der [dienstindex](service-index.md). Sie können diese Ressource zu verwenden, [Abfragen für alle Pakete veröffentlicht](../guides/api/query-for-all-published-packages.md).
 
 > [!Note]
 > Da der Katalog nicht von der offiziellen NuGet-Client verwendet wird, implementieren Sie nicht alle Paketquellen des Katalogs.
@@ -27,7 +27,7 @@ Die **Katalog** ist eine Ressource, die auf eine Paketquelle an, wie, wann alle 
 
 Die folgenden `@type` Wert wird verwendet:
 
-@type-Wert   | Hinweise
+@type -Wert   | Hinweise
 ------------- | -----
 Catalog/3.0.0 | Die erste Version
 
@@ -67,7 +67,7 @@ Die folgende Anforderung Ruft den Katalogindex ab.
 
 Der Katalogindex ist ein JSON-Dokument, das ein Objekt mit den folgenden Eigenschaften enthält:
 
-name            | Typ             | Erforderlich | Hinweise
+Name            | Typ             | Erforderlich | Hinweise
 --------------- | ---------------- | -------- | -----
 commitId        | Zeichenfolge           | ja      | Eine eindeutige ID zugewiesen, mit dem aktuellsten commit
 commitTimeStamp | Zeichenfolge           | ja      | Ein Zeitstempel des letzten Commits
@@ -84,7 +84,7 @@ Hinzufügen von Elementen im Katalog, der Index des `commitId` ändert und die `
 
 Die Seite Katalogobjekten finden Sie in des Katalogindex `items` Eigenschaft haben die folgenden Eigenschaften:
 
-name            | Typ    | Erforderlich | Hinweise
+Name            | Typ    | Erforderlich | Hinweise
 --------------- | ------- | -------- | -----
 @id             | Zeichenfolge  | ja      | Die URL, Fetch-Seite "Sicherungskatalog"
 commitId        | Zeichenfolge  | ja      | Eine eindeutige ID, die mit dem aktuellsten Commit auf dieser Seite verknüpft ist
@@ -109,7 +109,7 @@ Neuen Katalogelemente werden auf der Seite in den Katalogindex nur mit der höch
 
 Das Katalog-Seite-Dokument ist ein JSON-Objekt mit den folgenden Eigenschaften:
 
-name            | Typ             | Erforderlich | Hinweise
+Name            | Typ             | Erforderlich | Hinweise
 --------------- | ---------------- | -------- | -----
 commitId        | Zeichenfolge           | ja      | Eine eindeutige ID, die mit dem aktuellsten Commit auf dieser Seite verknüpft ist
 commitTimeStamp | Zeichenfolge           | ja      | Ein Zeitstempel des letzten Commits auf dieser Seite
@@ -129,14 +129,14 @@ Hinzufügen von Elementen auf der Seite die `commitId` Änderungen und die `comm
 
 Die Elementobjekte Katalog finden Sie in der Katalogseite `items` Eigenschaft haben die folgenden Eigenschaften:
 
-name            | Typ    | Erforderlich | Hinweise
+Name            | Typ    | Erforderlich | Hinweise
 --------------- | ------- | -------- | -----
 @id             | Zeichenfolge  | ja      | Die URL zum Abrufen des Katalogelements
 @type           | Zeichenfolge  | ja      | Der Typ des Katalogelements
 commitId        | Zeichenfolge  | ja      | Die Commit-ID, die diesem Katalogelement zugeordnet
 commitTimeStamp | Zeichenfolge  | ja      | Der commitzeitstempel, der dieses Katalogelement
-NuGet:ID        | Zeichenfolge  | ja      | Die Paket-ID, die auf diesem Blatt beziehen
-NuGet:Version   | Zeichenfolge  | ja      | Die Paketversion, der auf diesem Blatt beziehen
+nuget:id        | Zeichenfolge  | ja      | Die Paket-ID, die auf diesem Blatt beziehen
+nuget:version   | Zeichenfolge  | ja      | Die Paketversion, der auf diesem Blatt beziehen
 
 Die `@type` Wert wird einer der beiden folgenden Werte sein:
 
@@ -159,7 +159,7 @@ Das Katalog-Blatt enthält Metadaten zu einem bestimmten Paket-ID und Version an
 
 Die katalogblattdokument ist ein JSON-Objekt mit den folgenden Eigenschaften:
 
-name                    | Typ                       | Erforderlich | Hinweise
+Name                    | Typ                       | Erforderlich | Hinweise
 ----------------------- | -------------------------- | -------- | -----
 @type                   | Zeichenfolge oder Array von Zeichenfolgen | ja      | Die Typen des Katalogelements
 catalog:commitId        | Zeichenfolge                     | ja      | Eine Commit-ID, die diesem Katalogelement zugeordnet
@@ -190,7 +190,7 @@ Nutzen die Katalogelemente Clients sollten nicht versuchen, um zu bestimmen, wel
 
 Paket-Details-Katalogelemente haben die folgenden Eigenschaften zusätzlich zu den [enthalten alle Katalogseiten](#catalog-leaf).
 
-name                    | Typ                       | Erforderlich | Hinweise
+Name                    | Typ                       | Erforderlich | Hinweise
 ----------------------- | -------------------------- | -------- | -----
 authors                 | Zeichenfolge                     | Nein       |
 created                 | Zeichenfolge                     | Nein       | Ein Zeitstempel, wann das Paket zuerst erstellt wurde. Fallback-Eigenschaft: `published`.
