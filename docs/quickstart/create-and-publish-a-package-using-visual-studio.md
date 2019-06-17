@@ -3,14 +3,14 @@ title: Erstellen und Veröffentlichen eines .NET Standard-Pakets mithilfe von Vi
 description: Exemplarische Vorgehensweise zum Erstellen und Veröffentlichen eines .NET Standard-NuGet-Pakets mit Visual Studio 2017 auf Windows.
 author: karann-msft
 ms.author: karann
-ms.date: 05/18/2018
+ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: faea00372bd387aee1502e388ad1ea88de07b95d
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: d30e89473b5f00895136b75a90d8d95b7645a100
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453519"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812980"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Schnellstart: Erstellen und Veröffentlichen eines NuGet-Pakets mithilfe von Visual Studio (.NET Standard, nur Windows)
 
@@ -23,9 +23,11 @@ Ein NuGet-Paket kann problemlos über eine .NET Standard-Klassenbibliothek in Vi
 
 1. Installieren Sie über [visualstudio.com](https://www.visualstudio.com/) eine beliebige Edition von Visual Studio 2017 mit einer beliebigen .NET-bezogenen Workload. Visual Studio 2017 enthält automatisch NuGet-Funktionen, wenn eine .NET-Workload installiert ist.
 
-1. Installieren Sie die `nuget.exe`-CLI, indem Sie sie von [nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) herunterladen, die `.exe`-Datei in einen geeigneten Ordner speichern und den Ordner der Umgebungsvariable PATH hinzufügen.
+1. Installieren Sie eines der CLI-Tools.
 
-    Alternativ können Sie die `dotnet`-CLI verwenden, wenn Sie das [.NET Core SDK](https://www.microsoft.com/net/download/) installiert haben.
+   * Für die `dotnet`-CLI installieren Sie das [.NET Core SDK](https://www.microsoft.com/net/download/). Die dotnet-CLI ist für .NET Standard-Projekte erforderlich, die das Format im SDK-Stil (SDK-Attribut) verwenden.
+
+   * Installieren Sie die `nuget.exe`-CLI, indem Sie sie von [nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) herunterladen, die `.exe`-Datei in einem geeigneten Ordner speichern und den Ordner der Umgebungsvariable PATH hinzufügen. Die nuget.exe-CLI wird für .NET Standard-Bibliotheken im Nicht-SDK-Format verwendet.
 
 1. [Registrieren Sie sich für ein kostenloses Konto auf nuget.org](https://www.nuget.org/users/account/LogOn?returnUrl=%2F), falls Sie noch kein Konto haben. Wenn Sie ein neues Konto erstellen, wird Ihnen eine Bestätigungs-E-Mail gesendet. Sie müssen das Konto bestätigen, bevor Sie ein Paket hochladen können.
 
@@ -112,7 +114,13 @@ Sobald Sie eine `.nupkg`-Datei haben, können Sie diese gemeinsam mit einem API-
 
 [!INCLUDE [publish-api-key](includes/publish-api-key.md)]
 
-### <a name="publish-with-nuget-push"></a>Veröffentlichen mit dem Befehl „nuget push“
+### <a name="publish-with-dotnet-nuget-push-dotnet-cli"></a>Veröffentlichen mit „dotnet nuget push“ (dotnet-CLI)
+
+Dieser Schritt ist eine Alternative zur Verwendung von `nuget.exe`.
+
+[!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
+
+### <a name="publish-with-nuget-push-nugetexe-cli"></a>Veröffentlichen mit „nuget push“ (nuget.exe-CLI)
 
 Dieser Schritt ist eine Alternative zur Verwendung von `dotnet.exe`.
 
@@ -134,12 +142,6 @@ Dieser Schritt ist eine Alternative zur Verwendung von `dotnet.exe`.
     ```
 
 Siehe [nuget push-Befehl](../tools/cli-ref-push.md).
-
-### <a name="publish-with-dotnet-nuget-push"></a>Veröffentlichen mit „dotnet nuget push“
-
-Dieser Schritt ist eine Alternative zur Verwendung von `nuget.exe`.
-
-[!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
 
 ### <a name="publish-errors"></a>Veröffentlichungsfehler
 

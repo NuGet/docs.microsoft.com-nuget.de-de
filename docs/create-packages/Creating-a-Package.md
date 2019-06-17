@@ -3,25 +3,31 @@ title: Erstellen eines NuGet-Pakets
 description: Eine ausführliche Anleitung zum Entwerfen und Erstellen eines NuGet-Pakets, einschließlich der wichtigsten Entscheidungspunkte wie Dateien und Versionsverwaltung
 author: karann-msft
 ms.author: karann
-ms.date: 12/12/2017
+ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: f0d9667b752caf7831278ac3fd63cfd67f7d34a4
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: 5e362673acfab4b31c8a2e02a521afd8b19d2754
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610591"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812921"
 ---
 # <a name="creating-nuget-packages"></a>Erstellen von NuGet-Paketen
 
-Unabhängig davon, was Ihr Paket macht oder welchen Code es enthält, können Sie die Funktionalität mit `nuget.exe` in eine Komponente packen, die für andere Entwickler freigegeben und von ihnen verwendet werden kann. Weitere Informationen zum Installieren von `nuget.exe` finden Sie unter [Install NuGet CLI (Installieren der NuGet-CLI)](../install-nuget-client-tools.md#nugetexe-cli). Beachten Sie, dass `nuget.exe` nicht automatisch in Visual Studio enthalten ist.
+Unabhängig davon, welchen Zweck Ihr Paket erfüllt oder welchen Code es enthält, verwenden Sie eines der CLI-Tools (entweder `nuget.exe` oder `dotnet.exe`), um diese Funktionalität in einer Komponente zu verpacken, die für andere Entwickler freigegeben und von ihnen verwendet werden kann. Informationen zur Installation von NuGet-CLI-Tools finden Sie unter [Installieren von NuGet-Clienttools](../install-nuget-client-tools.md). Beachten Sie, dass Visual Studio nicht automatisch ein CLI-Tool enthält.
+
+- Für .NET Core- und .NET Standard-Projekte, die das SDK-Format verwenden ([SDK-Attribut](/dotnet/core/tools/csproj#additions)), und für alle anderen Projekte im SDK-Stil verwendet NuGet Informationen in der Projektdatei direkt zum Erstellen eines Pakets. Weitere Informationen finden Sie unter [Create .NET Standard Packages with Visual Studio 2017 (Erstellen von .NET Standard-Paketen mit Visual Studio 2017)](../quickstart/create-and-publish-a-package-using-visual-studio.md) und [NuGet pack and restore as MSBuild targets (NuGet-Befehle „pack“ und „restore“ als MSBuild-Ziele)](../reference/msbuild-targets.md).
+
+- Für Nicht-SDK-Projekte befolgen Sie die in diesem Artikel beschriebenen Schritte zum Erstellen eines Pakets.
+
+- Für Projekte, die von `packages.config` zu [PackageReference](../consume-packages/package-references-in-project-files.md) migriert wurden, verwenden Sie [msbuild -t:pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
 Technisch gesehen ist ein NuGet-Paket eine ZIP-Datei, die mit der `.nupkg`-Erweiterung umbenannt wurde und deren Inhalt bestimmten Konventionen entspricht. In diesem Thema werden die Schritte zum Erstellen eines Pakets, das diesen Konventionen entspricht, ausführlich beschrieben. Eine fokussierte exemplarische Vorgehensweise finden Sie unter [Quickstart: Create and Publish a Package (Schnellstart: Erstellen und Veröffentlichen eines Pakets)](../quickstart/create-and-publish-a-package.md).
 
 Das Packen beginnt mit dem kompilierten Code (Assemblys), Symbolen und/oder anderen Dateien, die Sie als Paket übermitteln möchten. Weitere Informationen finden Sie unter [Overview and workflow (Übersicht und Workflow)](overview-and-workflow.md). Dieser Vorgang wird unabhängig vom Kompilieren oder jeder anderen Methode zum Erstellen der Dateien ausgeführt, die in das Paket einfließen. Sie können die kompilierten Assemblys und Pakete jedoch mithilfe der Informationen in einer Projektdatei kontinuierlich synchronisieren.
 
 > [!Note]
-> Dieses Thema gilt nicht für .NET Core-Projekte, in denen Visual Studio 2017 und NuGet 4.0 und höher verwendet wurde. In diesen .NET-Projekten verwendet NuGet die Informationen direkt in der Projektdatei. Weitere Informationen finden Sie unter [Create .NET Standard Packages with Visual Studio 2017 (Erstellen von .NET Standard-Paketen mit Visual Studio 2017)](../guides/create-net-standard-packages-vs2017.md) und [NuGet pack and restore as MSBuild targets (NuGet-Befehle „pack“ und „restore“ als MSBuild-Ziele)](../reference/msbuild-targets.md).
+> Dieses Thema gilt für Nicht-SDK-Projekte, in der Regel andere als .NET Core- und .NET Standard-Projekte mit Visual Studio 2017 und NuGet 4.0 und höher.
 
 ## <a name="deciding-which-assemblies-to-package"></a>Welche Assemblys sollen gepackt werden?
 
@@ -261,8 +267,8 @@ Der Paketbezeichner (`<id>`-Element) und die Versionsnummer (`<version>`-Element
 
 > Die folgenden kurzen Blogbeiträge enthalten weitere Informationen zur Versionsverwaltung:
 >
-> - [Part 1: Taking on DLL Hell (Teil 1: DLLs)](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
-> - [Part 2: The core algorithm (Teil 2: Der Kernalgorithmus)](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
+> - [Teil 1: Taking on DLL Hell (Teil 1: DLLs)](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
+> - [Teil 2: The core algorithm (Teil 2: Der Kernalgorithmus)](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
 > - [Part 3: Unification via Binding Redirects (Teil 3: Vereinheitlichung über Bindungsumleitungen)](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
 
 ## <a name="setting-a-package-type"></a>Festlegen eines Pakettyps

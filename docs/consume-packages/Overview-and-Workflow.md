@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: 506a093ff4d62c10c896246f746e6765f64f33f4
-ms.sourcegitcommit: a801052aa728a3a137225ca3ef3ff89f2d1c6b76
+ms.openlocfilehash: 556683e5a24c57a6c32d8b4e368bfdccd4d19b48
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54403163"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812860"
 ---
 # <a name="package-consumption-workflow"></a>Workflow der Nutzung von Paketen
 
@@ -22,7 +22,7 @@ Zwischen nuget.org und privaten Katalogen für Pakete, die Ihre Organisation mö
 
 Weitere Informationen finden Sie unter [Suchen und Auswerten von NuGet-Paketen für Ihr Projekt](../consume-packages/finding-and-choosing-packages.md) und [Verschiedene Möglichkeiten zum Installieren von NuGet-Paketen](ways-to-install-a-package.md).
 
-NuGet speichert die Identität und Versionsnummer jedes installierten Pakets entweder in der [`packages.config`](../reference/packages-config.md) oder in der Projektdatei (unter Verwendung von [PackageReference](../consume-packages/package-references-in-project-files.md)), abhängig vom Projekttyp und Ihrer NuGet-Version. Mit NuGet 4.0+ wird PackageReference bevorzugt, obwohl dies in Visual Studio über die [Paket-Manager-UI-Optionen](../tools/package-manager-ui.md) konfigurierbar ist. Sie können in der entsprechenden Datei jederzeit eine vollständige Liste der Abhängigkeiten für Ihr Projekt anzeigen lassen.
+NuGet speichert die Identität und Versionsnummer jedes installierten Pakets entweder in der Projektdatei (unter Verwendung von [PackageReference](../consume-packages/package-references-in-project-files.md)) oder in [`packages.config`](../reference/packages-config.md), abhängig vom Projekttyp und Ihrer NuGet-Version. Mit NuGet 4.0+ wird PackageReference bevorzugt, obwohl dies in Visual Studio über die [Paket-Manager-UI-Optionen](../tools/package-manager-ui.md) konfigurierbar ist. Sie können in der entsprechenden Datei jederzeit eine vollständige Liste der Abhängigkeiten für Ihr Projekt anzeigen lassen.
 
 > [!Tip]
 > Sie müssen die Lizenz für jedes Paket überprüfen, das Sie in Ihrer Software verwenden möchten. Auf nuget.org finden Sie auf der rechten Seite der Beschreibungsseite jedes Pakets den Link **License Info** (Lizenzinformationen). Wenn ein Paket keine Lizenzbedingungen angibt, kontaktieren Sie den Paketbesitzer direkt, indem Sie den Link **Contact owners** (Besitzer kontaktieren) auf der Seite für Pakete verwenden. Microsoft lizenziert kein geistiges Eigentum von Drittanbietern für Pakete und ist nicht verantwortlich für die durch Drittanbieter bereitgestellten Inhalte.

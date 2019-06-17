@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 15268ae33d56042a765420e5076dac49db6cce04
-ms.sourcegitcommit: 1591bb230e106b94162a87dd1d86fe427366730a
+ms.openlocfilehash: 8cfb7bd31c37847d83ffe31f11ba61eadc717eb8
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52671174"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812906"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio"></a>Schnellstart: Installieren und Verwenden eines Pakets in Visual Studio
 
@@ -27,6 +27,8 @@ Beziehen Sie sich nach der Installation mit `using <namespace>` auf das Paket im
 - Visual Studio 2015 Update 3 mit Tools für universelle Windows-Apps.
 
 Sie können die 2017 Community Edition kostenlos über [visualstudio.com](https://www.visualstudio.com/) installieren oder die Professional bzw. Enterprise Edition verwenden.
+
+Wenn Sie Visual Studio für Mac verwenden, finden Sie Informationen unter [Einschließen eines NuGet-Pakets in Ihr Projekt](/visualstudio/mac/nuget-walkthrough).
 
 ## <a name="create-a-project"></a>Erstellen eines Projekts
 
