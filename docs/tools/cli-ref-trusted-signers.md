@@ -6,18 +6,18 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: ee4ffaa7e250cdbf313476fd794a8d87c80b69f9
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: c22c7f0a6b6878bec4f8396e02e2d97998170455
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324707"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425979"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>Vertrauenswürdige Signaturgeber-Befehl (NuGet-CLI)
 
 **Gilt für:** Paket Verbrauch &bullet; **unterstützte Versionen:** 4.9.1+
 
-Übernimmt oder bestimmt der vertrauenswürdige Signaturgeber der NuGet-Konfiguration. Zusätzliche Nutzung, finden Sie unter [Konfigurieren des NuGet-Verhaltens](../consume-packages/configuring-nuget-behavior.md). Weitere Einzelheiten, wie das Schema der Datei "NuGet.config" offenbar, auf die [NuGet Config-Dateiverweis](../reference/nuget-config-file.md).
+Übernimmt oder bestimmt der vertrauenswürdige Signaturgeber der NuGet-Konfiguration. Zusätzliche Nutzung, finden Sie unter [häufig auftretenden NuGet Konfigurationen](../consume-packages/configuring-nuget-behavior.md). Weitere Einzelheiten, wie das Schema der Datei "NuGet.config" offenbar, auf die [NuGet Config-Dateiverweis](../reference/nuget-config-file.md).
 
 ## <a name="usage"></a>Verwendung
 
@@ -119,7 +119,7 @@ _Hinweis:_ Diese stiftbewegung wird die aktuelle Liste der Zertifikate zu lösch
 | ConfigFile | Die NuGet-Konfigurationsdatei angewendet werden soll. Wenn nicht angegeben, `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) verwendet wird.|
 | ForceEnglishOutput | Erzwingt, dass nuget.exe über eine invariante Kultur auf Englisch basierenden ausgeführt werden. |
 | Help | Zeigt die Informationen für den Befehl Hilfe. |
-| Ausführlichkeit | Gibt an, die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *quiet*, *ausführliche*. |
+| Verbosity | Gibt an, die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *quiet*, *ausführliche*. |
 
 ## <a name="examples"></a>Beispiele
 

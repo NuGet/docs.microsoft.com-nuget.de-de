@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/02/2017
 ms.topic: reference
-ms.openlocfilehash: 45c8be9956ceaab844bdcd89f1b96adc256f805c
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 977e06d36962366abd69f1c7f21ef33eca4e5029
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546663"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426123"
 ---
 # <a name="powershell-reference"></a>PowerShell-Referenz
 
-Der Paket-Manager-Konsole enthält eine PowerShell-Schnittstelle in Visual Studio unter Windows für die Interaktion mit NuGet über die spezifischen Befehle aufgeführt. (Die Konsole ist nicht in Visual Studio für Mac derzeit verfügbar) Eine Anleitung zur Verwendung der Konsole, finden Sie unter den [-Paket-Manager-Konsole](../tools/package-manager-console.md) Thema.
+Der Paket-Manager-Konsole enthält eine PowerShell-Schnittstelle in Visual Studio unter Windows für die Interaktion mit NuGet über die spezifischen Befehle aufgeführt. (Die Konsole ist nicht in Visual Studio für Mac derzeit verfügbar) Eine Anleitung zur Verwendung der Konsole, finden Sie unter [installieren und Verwalten von Paketen mithilfe von PowerShell](../tools/package-manager-console.md) Thema.
 
 > [!Tip]
 > Alle PowerShell-Befehle beziehen sich nur auf paketverbrauch. Keine PowerShell-Befehle beziehen sich auf erstellen und veröffentlichen Pakete mit Ausnahme aus, in dem Umfang, ein Paket kann auch ein Consumer von anderen Paketen sein.

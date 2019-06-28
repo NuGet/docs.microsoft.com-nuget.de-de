@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: reference
-ms.openlocfilehash: 2743dde63487124c706f2b1521ef2c6c3b28339d
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: a257dbbd9d56b5989e050ed4096d096cd1036184
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548077"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426024"
 ---
 # <a name="nuget-cli-reference"></a>NuGet-CLI-Referenz
 
@@ -19,6 +19,8 @@ Die NuGet Command Line Interface (CLI), `nuget.exe`, enthält das Ausmaß des Nu
 Um einen beliebigen Befehl verwenden, öffnen Sie ein Befehlsfenster oder bash-Shell, und führen Sie `nuget` wie z. B. gefolgt von den Befehl und die entsprechenden Optionen `nuget help pack` (zum Anzeigen der Hilfe zum Befehl "Pack").
 
 In dieser Dokumentation gibt die neueste Version des NuGet-CLI. Führen Sie für Informationen für jede Version, die Sie verwenden, `nuget help` für den gewünschten Befehl.
+
+Erfahren, wie grundlegende Befehle mit den `nuget.exe` -Befehlszeilenschnittstelle finden Sie unter [installieren und Verwenden von Paketen mithilfe von nuget.exe-CLI](../consume-packages/install-use-packages-nuget-cli.md).
 
 ## <a name="installing-nugetexe"></a>Installieren von nuget.exe
 

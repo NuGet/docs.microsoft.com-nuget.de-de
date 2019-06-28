@@ -1,5 +1,5 @@
 ---
-title: Referenz zur NuGet-Paket-Manager-Benutzeroberfläche
+title: Installieren und Verwalten von NuGet-Pakete in Visual Studio
 description: Anweisungen zum Verwenden der NuGet-Paket-Manager-UI in Visual Studio für die Arbeit mit NuGet-Pakete.
 author: karann-msft
 ms.author: karann
@@ -10,30 +10,21 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 422faf99e58e058d86db774a8f3c1c576b3dc393
-ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
+ms.openlocfilehash: 97e5de3f07199cd3c6a645749c8f2f1603ca630e
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58637622"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426240"
 ---
-# <a name="nuget-package-manager-ui"></a>Benutzeroberfläche des NuGet-Paket-Managers
+# <a name="install-and-manage-packages-in-visual-studio"></a>Installieren und Verwalten von Paketen in Visual Studio
 
 Die NuGet-Paket-Manager-UI in Visual Studio unter Windows können Sie ganz einfach zu installieren, deinstallieren und Aktualisieren von NuGet-Paketen in Projekte und Projektmappen. Die Umgebung in Visual Studio für Mac, finden Sie unter [einschließen eines NuGet-Paket in Ihrem Projekt](/visualstudio/mac/nuget-walkthrough). Die Paket-Manager-UI kann nicht mit Visual Studio Code enthalten ist.
 
-In diesem Thema:
-
-- [Suchen und Installieren eines Pakets (Registerkarte "Durchsuchen")](#finding-and-installing-a-package)
-- [Deinstallieren eines Pakets (Registerkarte "installiert")](#uninstalling-a-package)
-- [Aktualisieren eines Pakets (installiert und Updates Registerkarten)](#updating-a-package) (enthält die ["Implizit auf die verwiesen wird durch ein SDK" oder "AutoReferenced"](#implicit_reference))
-- [Verwalten von Paketen für die Lösung](#managing-packages-for-the-solution) (Arbeiten mit mehreren Projekten gleichzeitig).
-- [Paketquellen](#package-sources)
-- [Steuerelement "Optionen" Paket-manager](#package-manager-options-control)
-
-> [!Note]
+> [!NOTE]
 > Wenn Sie das NuGet-Paket-Manager in Visual Studio 2015 nicht vorhanden sind, überprüfen Sie **Tools > Erweiterungen und Updates...**  und suchen Sie nach der *NuGet Package Manager* Erweiterung. Wenn Sie nicht das Installationsprogramm für Erweiterungen in Visual Studio verwenden können, laden Sie die Erweiterung direkt aus [ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html).
 >
-> In Visual Studio 2017 werden NuGet und den NuGet-Paket-Manager mit einem automatisch installiert. NET-bezogenen Workloads. Installieren Sie sie einzeln durch Auswählen der **einzelne Komponenten > Codetools > NuGet-Paket-Manager** -Option in der Visual Studio 2017-Installer.
+> In Visual Studio 2017 beginnen, werden NuGet und den NuGet-Paket-Manager automatisch mit allen installiert. NET-bezogenen Workloads. Installieren Sie sie einzeln durch Auswählen der **einzelne Komponenten > Codetools > NuGet-Paket-Manager** -Option in Visual Studio-Installer.
 
 ## <a name="finding-and-installing-a-package"></a>Suchen und Installieren eines Pakets
 
@@ -123,14 +114,14 @@ So verwalten Sie Paketquellen
 
     ![Quellen Paketoptionen](media/options.png)
 
-1. Wählen Sie zum Hinzufügen einer Quelle **+**, bearbeiten Sie den Namen, geben Sie die URL oder Pfad in der **Quelle** steuern, und wählen Sie **Update**. Die Quelle wird jetzt in der Auswahl-Dropdownliste angezeigt.
+1. Wählen Sie zum Hinzufügen einer Quelle **+** , bearbeiten Sie den Namen, geben Sie die URL oder Pfad in der **Quelle** steuern, und wählen Sie **Update**. Die Quelle wird jetzt in der Auswahl-Dropdownliste angezeigt.
 1. Um eine Paketquelle zu ändern, wählen Sie ihn aus, nehmen Sie Änderungen vor, in der **Namen** und **Quelle** angezeigt, und wählen Sie **Update**.
 1. Um eine Paketquelle zu deaktivieren, deaktivieren Sie das Kontrollkästchen links neben dem Namen in der Liste aus.
 1. Um eine Paketquelle zu entfernen, wählen Sie ihn, und wählen Sie dann die **X** Schaltfläche.
 1. Verwenden die nach-oben und Pfeil nach unten Schaltflächen ändert nicht die Reihenfolge der Priorität die Paketquellen. Visual Studio ignoriert die Reihenfolgen der Paketquellen, verwendet dabei das Paket aus einer beliebigen Quelle als Erstes auf Anforderungen reagieren. Weitere Informationen finden Sie unter [paketwiederherstellung](../consume-packages/package-restore.md).
 
 > [!Tip]
-> Wenn Sie eine Paketquelle erneut angezeigt wird, nach dem Löschen, kann es in einer Computerebene oder Benutzerebene aufgeführt `NuGet.Config` Dateien. Finden Sie unter [Konfigurieren des NuGet-Verhaltens](../consume-packages/configuring-nuget-behavior.md) für den Speicherort dieser Dateien, entfernen Sie Sie dann die Quelle durch die Dateien manuell bearbeiten, oder Verwenden der [Nuget Quellen Befehl](../tools/nuget-exe-CLI-reference.md).
+> Wenn Sie eine Paketquelle erneut angezeigt wird, nach dem Löschen, kann es in einer Computerebene oder Benutzerebene aufgeführt `NuGet.Config` Dateien. Finden Sie unter [häufig auftretenden NuGet Konfigurationen](../consume-packages/configuring-nuget-behavior.md) für den Speicherort dieser Dateien, entfernen Sie Sie dann die Quelle durch die Dateien manuell bearbeiten, oder Verwenden der [Nuget Quellen Befehl](../tools/nuget-exe-CLI-reference.md).
 
 ## <a name="package-manager-options-control"></a>Steuerelement "Optionen" Paket-manager
 

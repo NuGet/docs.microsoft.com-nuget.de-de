@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 6c545ddeddb0c5909f57e879912eaeed744e42d5
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: e4c57c0580fe9018703291c08d60e559f95183dc
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812928"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426202"
 ---
 # <a name="nuspec-reference"></a>NUSPEC-Referenz
 
@@ -85,7 +85,7 @@ Eine durch Kommas getrennte Liste der Paketautoren entsprechend den Profilnamen 
 #### <a name="title"></a>title
 Ein benutzerfreundlicher Titel des Pakets, der gewöhnlich auf Benutzeroberflächen wie auf nuget.org oder im Paket-Manager in Visual Studio angezeigt wird. Sofern nicht angegeben, wird die Paket-ID verwendet. 
 #### <a name="owners"></a>owners
-Eine durch Kommas getrennte Liste der Paketersteller mit den auf nuget.org verwendeten Profilnamen. Dabei handelt es sich häufig um dieselbe Liste wie in `authors`. Sie wird beim Hochladen der Pakete auf nuget.org ignoriert. Informationen hierzu finden Sie unter [Verwalten von Paketbesitzern auf nuget.org](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). 
+Eine durch Kommas getrennte Liste der Paketersteller mit den auf nuget.org verwendeten Profilnamen. Dabei handelt es sich häufig um dieselbe Liste wie in `authors`. Sie wird beim Hochladen der Pakete auf nuget.org ignoriert. Informationen hierzu finden Sie unter [Verwalten von Paketbesitzern auf nuget.org](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg). 
 #### <a name="projecturl"></a>projectUrl
 URL der Homepage des Pakets, wird häufig auf Benutzeroberflächen und auf nuget.org angezeigt. 
 #### <a name="licenseurl"></a>licenseUrl
@@ -300,7 +300,7 @@ Im folgenden Beispiel werden verschiedene Variationen des `<group>`-Elements dar
 
 ## <a name="explicit-assembly-references"></a>Explizite Assemblyverweise
 
-Das `<references>`-Element gibt ausdrücklich die Assemblyverweise an, auf die das Zielprojekt bei der Verwendung des Pakets verweisen soll. Wenn dieses Element vorhanden ist, fügt NuGet nur Verweise auf die aufgelisteten Assemblys hinzu. Es werden keine Verweise auf andere Assemblys im `lib`-Ordner des Pakets hinzugefügt.
+Die `<references>` Element dient der Projekte mit `packages.config` explizit auf die Assemblys angeben, die das Zielprojekt verweisen soll, wenn das Paket verwendet. In der Regel werden Verweise nur für Assemblys zur Entwurfszeit verwendet. Weitere Informationen finden Sie auf der Seite [Assemblys, die auf die verwiesen wird von Projekten auswählen](../create-packages/select-assemblies-referenced-by-projects.md) für Weitere Informationen.
 
 Beispielsweise gibt das folgende `<references>`-Element NuGet die Anweisung, Verweise auch dann nur auf `xunit.dll` und `xunit.extensions.dll` hinzuzufügen, wenn zusätzliche Assemblys im Paket enthalten sind:
 
@@ -310,10 +310,6 @@ Beispielsweise gibt das folgende `<references>`-Element NuGet die Anweisung, Ver
     <reference file="xunit.extensions.dll" />
 </references>
 ```
-
-In der Regel werden Verweise nur für Assemblys zur Entwurfszeit verwendet. Beispielsweise müssen sich Vertragsassemblys bei der Verwendung von [Codeverträgen](/dotnet/framework/debug-trace-profile/code-contracts) neben den Runtimeassemblys befinden, die sie erweitern, damit Visual Studio sie finden kann. Allerdings muss das Projekt auf die Vertragsassemblys verweisen, und sie dürfen auch nicht in den `bin`-Ordner des Projekts kopiert werden.
-
-Genauso können explizite Verweise für Komponententestframeworks wie XUnit verwendet werden, in denen sich zwar die Toolassemblys neben den Runtimeassemblys befinden, jedoch nicht als Projektverweise eingeschlossen werden müssen.
 
 ### <a name="reference-groups"></a>Verweisgruppen
 

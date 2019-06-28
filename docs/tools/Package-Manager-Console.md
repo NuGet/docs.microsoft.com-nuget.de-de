@@ -1,24 +1,26 @@
 ---
-title: Leitfaden für die NuGet-Paket-Manager-Konsole
+title: Installieren und Verwalten von NuGet-Pakete, die mithilfe von PowerShell in Visual Studio
 description: Anweisungen zum Verwenden der NuGet-Paket-Manager-Konsole in Visual Studio zum Arbeiten mit Paketen.
 author: karann-msft
 ms.author: karann
-ms.date: 01/23/2018
+ms.date: 06/24/2019
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 88979c67ea7f073f2ea5a02c445186642f77f210
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 11ec25598d3110ba84dec5044642e205e13346af
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546877"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426218"
 ---
-# <a name="package-manager-console"></a>Paket-Manager-Konsole
+# <a name="install-and-manage-packages-using-powershell-in-visual-studio"></a>Installieren und Verwalten von Paketen mithilfe von PowerShell in Visual Studio
 
-Der NuGet-Paket-Manager-Konsole ist in Visual Studio unter Windows 2012 und höher integriert. (Es ist nicht in Visual Studio für Mac oder Visual Studio Code enthalten.)
+Der NuGet-Paket-Manager-Konsole können Sie die Verwendung [NuGet-PowerShell-Befehle](../tools/powershell-reference.md) finden, installieren, deinstallieren und Aktualisieren von NuGet-Pakete. Mithilfe der Konsole ist erforderlich, in Fällen, in denen die Paket-Manager-UI keine Möglichkeit zum Ausführen eines Vorgangs bereitstellt. Verwendung von `nuget.exe` CLI-Befehle in der Konsole finden Sie unter [mithilfe der nuget.exe-CLI in der Konsole](#using-the-nugetexe-cli-in-the-console).
 
-Die Konsole können Sie verwenden [NuGet-PowerShell-Befehle](../tools/powershell-reference.md) finden, installieren, deinstallieren und Aktualisieren von NuGet-Pakete. Mithilfe der Konsole ist erforderlich, in Fällen, in denen die Paket-Manager-UI keine Möglichkeit zum Ausführen eines Vorgangs bereitstellt. Verwendung von `nuget.exe` Befehle in der Konsole finden Sie unter [mithilfe der nuget.exe-CLI in der Konsole](#using-the-nugetexe-cli-in-the-console).
+Die Konsole ist in Visual Studio unter Windows integriert. Es ist nicht in Visual Studio für Mac oder Visual Studio Code enthalten.
+
+## <a name="find-and-install-a-package"></a>Suchen und Installieren eines Pakets
 
 Suchen und Installieren eines Pakets erfolgt z. B. mit drei einfachen Schritten:
 
@@ -74,7 +76,7 @@ Install-Package Elmah -ProjectName UtilitiesLib
 
 Finden Sie unter [Install-Package](../tools/ps-ref-install-package.md).
 
-Installieren eines Pakets in der Konsole führt die gleichen Schritte aus, wie im [was geschieht, wenn die Installation eines Pakets](../consume-packages/ways-to-install-a-package.md#what-happens-when-a-package-is-installed), mit den folgenden Ergänzungen:
+Installieren eines Pakets in der Konsole führt die gleichen Schritte aus, wie im [was geschieht, wenn die Installation eines Pakets](../concepts/package-installation-process.md), mit den folgenden Ergänzungen:
 
 - Die Konsole zeigt jeweils geltenden Lizenzbedingungen genannten in einem Fenster mit implizite Vereinbarung. Wenn Sie den Lizenzbedingungen nicht einverstanden sind, sollten Sie das Paket sofort deinstallieren.
 - Außerdem ein Verweis auf das Paket wird in der Projektdatei hinzugefügt und wird im **Projektmappen-Explorer** unter der **Verweise** Knoten müssen Sie zum Speichern des Projekts, um die Änderungen in der Projektdatei direkt anzuzeigen.
@@ -139,7 +141,7 @@ Finden Sie unter [Find-Package](../tools/ps-ref-find-package.md). Verwenden Sie 
 
 ## <a name="availability-of-the-console"></a>Verfügbarkeit der Konsole
 
-In Visual Studio 2017 werden NuGet und den NuGet-Paket-Manager automatisch installiert, wenn Sie eine auswählen. NET-bezogenen Workloads; Sie können auch installieren sie einzeln Überprüfen der **einzelne Komponenten > Codetools > NuGet-Paket-Manager** -Option in der Visual Studio 2017-Installer.
+In Visual Studio 2017 beginnen, werden NuGet und den NuGet-Paket-Manager automatisch installiert, wenn Sie eine auswählen. NET-bezogenen Workloads; Sie können auch installieren sie einzeln überprüfen die **einzelne Komponenten > Codetools > NuGet-Paket-Manager** -Option in Visual Studio-Installer.
 
 Überprüfen Sie auch, wenn Sie den NuGet-Paket-Manager in Visual Studio 2015 und früheren Versionen nicht vorhanden sind, **Tools > Erweiterungen und Updates...**  und suchen Sie nach der NuGet-Paket-Manager-Erweiterung. Wenn Sie nicht das Installationsprogramm für Erweiterungen in Visual Studio verwenden können, können Sie die Erweiterung direkt aus [ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html).
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: b47f73c1c225540226d3780e17053427b8ea4a8a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 5d10d6bf27614980a144c30c3af6f9892a109061
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545686"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426187"
 ---
 # <a name="nuget-12-release-notes"></a>Anmerkungen zu NuGet Version 1.2
 
@@ -43,7 +43,7 @@ Diese Assemblys sind nicht im Paket enthalten, da davon ausgegangen wird auf jed
 |Attribut |Beschreibung|
 |----------------|-----------|
 |**assemblyName**|*Erforderliche*. Name der Assembly, z. B. `System.Net`.|
-|**targetFramework**|*Optionale*. Ermöglicht es Ihnen, ein Framework und Profile-Name (oder Alias), die dieses Framework-Assembly, z. B. "net40" oder "sl4" gilt. Verwendet das gleiche Format, die in beschriebenen [unterstützen mehrerer Zielframeworks](../create-packages/supporting-multiple-target-frameworks.md).|
+|**targetFramework**|*Optional*. Ermöglicht es Ihnen, ein Framework und Profile-Name (oder Alias), die dieses Framework-Assembly, z. B. "net40" oder "sl4" gilt. Verwendet das gleiche Format, die in beschriebenen [unterstützen mehrerer Zielframeworks](../create-packages/supporting-multiple-target-frameworks.md).|
 
 ```xml
   <frameworkAssemblies>
@@ -54,7 +54,7 @@ Diese Assemblys sind nicht im Paket enthalten, da davon ausgegangen wird auf jed
 
 ### <a name="nugetexe-now-is-able-to-store-api-key-credentials"></a>NuGet.exe kann jetzt zum Speichern von Anmeldeinformationen von API-Schlüssel
 
-Wenn Sie das Befehlszeilentool nuget.exe verwenden zu können, jetzt können den Befehl "SetApiKey" Sie um Ihren API-Schlüssel zu speichern. Auf diese Weise müssen Sie nicht jedes Mal, wenn Sie ein Paket per Push übertragen angegeben. Weitere Informationen zum Speichern von Ihren API-Schlüssels bei nuget.exe [finden Sie in der Dokumentation zum Veröffentlichen eines Pakets](../create-packages/publish-a-package.md).
+Wenn Sie das Befehlszeilentool nuget.exe verwenden zu können, jetzt können den Befehl "SetApiKey" Sie um Ihren API-Schlüssel zu speichern. Auf diese Weise müssen Sie nicht jedes Mal, wenn Sie ein Paket per Push übertragen angegeben. Weitere Informationen zum Speichern von Ihren API-Schlüssels bei nuget.exe [finden Sie in der Dokumentation zum Veröffentlichen eines Pakets](../nuget-org/publish-a-package.md).
 
 ### <a name="package-explorer"></a>Paket-Explorer
 Paket-Explorer wurde zur Unterstützung von NuGet 1.2 aktualisiert. Weitere Informationen finden Sie in der [Paket-Explorer – Anmerkungen zu dieser](http://nuget.codeplex.com/wikipage?title=New%20features%20in%20NuGet%20Package%20Explorer%201.0).
@@ -65,6 +65,6 @@ Die vorherige Liste wurden die wichtigsten von den zahlreichen Features, die wir
 
 ## <a name="known-issues"></a>Bekannte Probleme
 
-* **1.2 Paket Inkompatibilität**: Pakete, die mit der neuesten Version des Tools über die Befehlszeile erstellt, nuget.exe (> 1.2) funktioniert nicht mit älteren Versionen des NuGet-VS-Add-Ins (z. B. 1.1). Wenn Sie eine Fehlermeldung etwas nicht kompatibles Schema wird feststellen, führen Sie diesen Fehler. Aktualisieren Sie NuGet, auf die neueste Version.
-* **"NuGet.Server" Inkompatibilität**: Wenn Sie einen internen NuGet-Feeds, mit dem Projekt "NuGet.Server" hosten, müssen Sie das Projekt mit der neuesten Version von "NuGet.Server" aktualisieren.
-* **Signatur stimmt nicht überein. Fehler**: Wenn ein Fehler während eines Upgrades mit einer Meldung über eine Signatur Konflikt auftreten, müssen Sie NuGet zuerst deinstallieren und installieren Sie es. Dieser wird aufgeführt, unserem [bekannte Probleme Seite](../release-notes/known-issues.md) die finden Sie weitere Details. Das Problem nur wirkt sich auf jene, die Visual Studio 2010 SP1 ausführen und eine Version von NuGet 1.0 installiert, die nicht ordnungsgemäß signiert wurde. Diese Version wurde von der CodePlex-Website nur verfügbar gemacht für einen kurzen Zeitraum damit dieses Problem zu viele Entwickler nicht beeinträchtigen sollte.
+* **1.2 Paket Inkompatibilität**: Pakete, die mit der neuesten Version des Tools über die Befehlszeile erstellt werden, funktioniert nuget.exe (> 1.2) nicht mit älteren Versionen des NuGet-VS-Add-Ins (z. B. 1.1). Wenn Sie eine Fehlermeldung etwas nicht kompatibles Schema wird feststellen, führen Sie diesen Fehler. Aktualisieren Sie NuGet, auf die neueste Version.
+* **"NuGet.Server" Inkompatibilität**: Wenn Sie einen internen NuGet-Feeds, mit dem Projekt "NuGet.Server" hosten, müssen Sie das Projekt mit der neuesten Version von "NuGet.Server" zu aktualisieren.
+* **Signatur Typenkonfliktfehler**: Wenn ein Fehler während eines Upgrades mit einer Meldung über eine Signatur Konflikt auftreten, müssen Sie NuGet zuerst deinstallieren und installieren Sie es. Dieser wird aufgeführt, unserem [bekannte Probleme Seite](../release-notes/known-issues.md) die finden Sie weitere Details. Das Problem nur wirkt sich auf jene, die Visual Studio 2010 SP1 ausführen und eine Version von NuGet 1.0 installiert, die nicht ordnungsgemäß signiert wurde. Diese Version wurde von der CodePlex-Website nur verfügbar gemacht für einen kurzen Zeitraum damit dieses Problem zu viele Entwickler nicht beeinträchtigen sollte.

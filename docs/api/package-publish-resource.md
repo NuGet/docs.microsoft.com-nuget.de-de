@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: ad66d8e0ffda13aaef744104c213863b0e111e0e
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 6e81055796e20186c5769d2ec39849e6c551ff87
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547520"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426723"
 ---
 # <a name="push-and-delete"></a>Mithilfe von Push übertragen und löschen
 
@@ -21,7 +21,7 @@ Es ist möglich, mithilfe von Push übertragen, löschen (oder aus der Liste ent
 
 Die folgenden `@type` Wert wird verwendet:
 
-@type-Wert          | Hinweise
+@type -Wert          | Hinweise
 -------------------- | -----
 PackagePublish/2.0.0 | Die erste Version
 
@@ -48,7 +48,7 @@ NuGet.org unterstützt Ablegevorgänge neuer Pakete mithilfe der folgenden-API. 
 
 name           | In     | Typ   | Erforderlich | Hinweise
 -------------- | ------ | ------ | -------- | -----
-X-NuGet-ApiKey | Header | Zeichenfolge | ja      | Beispiel: `X-NuGet-ApiKey: {USER_API_KEY}`
+X-NuGet-ApiKey | Header | String | ja      | Beispiel: `X-NuGet-ApiKey: {USER_API_KEY}`
 
 Die API-Schlüssel ist eine nicht transparente Zeichenfolge, aus der Paketquelle vom Benutzer abgerufen und in den Client konfiguriert. Kein besonderes Zeichenfolgenformat wird vorgeschrieben, aber der API-Schlüssel sollte nicht länger als eine angemessene Größe für HTTP-Headerwerte.
 
@@ -72,7 +72,7 @@ Serverimplementierungen unterscheiden sich auf den Statuscode für Erfolg zurüc
 
 ## <a name="delete-a-package"></a>Löschen eines Pakets
 
-"NuGet.org" interpretiert, die Paket-Delete-Anforderung als eine "Auflistung aufheben". Dies bedeutet, dass das Paket noch für vorhandene Benutzer des Pakets verfügbar ist, aber das Paket nicht mehr angezeigt, in den Suchergebnissen oder in der Webschnittstelle wird. Weitere Informationen zu dieser Vorgehensweise finden Sie unter den [Pakete gelöscht](../policies/deleting-packages.md) Richtlinie. Andere serverimplementierungen können dieses Signal als ein hartes löschen interpretieren, vorläufiges löschen oder aus der Liste entfernen. Z. B. ["NuGet.Server"](https://www.nuget.org/packages/NuGet.Server) (eine Server-Implementierung unterstützt nur die älteren V2-API) unterstützt diese Anforderung verarbeitet, als ein Aufheben der Auflistung oder ein hartes löschen, die basierend auf einer Konfigurationsoption.
+"NuGet.org" interpretiert, die Paket-Delete-Anforderung als eine "Auflistung aufheben". Dies bedeutet, dass das Paket noch für vorhandene Benutzer des Pakets verfügbar ist, aber das Paket nicht mehr angezeigt, in den Suchergebnissen oder in der Webschnittstelle wird. Weitere Informationen zu dieser Vorgehensweise finden Sie unter den [Pakete gelöscht](../nuget-org/policies/deleting-packages.md) Richtlinie. Andere serverimplementierungen können dieses Signal als ein hartes löschen interpretieren, vorläufiges löschen oder aus der Liste entfernen. Z. B. ["NuGet.Server"](https://www.nuget.org/packages/NuGet.Server) (eine Server-Implementierung unterstützt nur die älteren V2-API) unterstützt diese Anforderung verarbeitet, als ein Aufheben der Auflistung oder ein hartes löschen, die basierend auf einer Konfigurationsoption.
 
     DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
 
@@ -82,7 +82,7 @@ name           | In     | Typ   | Erforderlich | Hinweise
 -------------- | ------ | ------ | -------- | -----
 Id             | URL    | Zeichenfolge | ja      | Die ID des Pakets zu löschenden
 VERSION        | URL    | Zeichenfolge | ja      | Die Version des zu löschenden Pakets
-X-NuGet-ApiKey | Header | Zeichenfolge | ja      | Beispiel: `X-NuGet-ApiKey: {USER_API_KEY}`
+X-NuGet-ApiKey | Header | String | ja      | beispielsweise `X-NuGet-ApiKey: {USER_API_KEY}`
 
 ### <a name="response"></a>Antwort
 
@@ -105,11 +105,11 @@ name           | In     | Typ   | Erforderlich | Hinweise
 -------------- | ------ | ------ | -------- | -----
 Id             | URL    | Zeichenfolge | ja      | Die ID des Pakets, die neu auflisten
 VERSION        | URL    | Zeichenfolge | ja      | Die Version des Pakets neu auflisten
-X-NuGet-ApiKey | Header | Zeichenfolge | ja      | Beispiel: `X-NuGet-ApiKey: {USER_API_KEY}`
+X-NuGet-ApiKey | Header | String | ja      | beispielsweise `X-NuGet-ApiKey: {USER_API_KEY}`
 
 ### <a name="response"></a>Antwort
 
 Statuscode | Bedeutung
 ----------- | -------
-300         | Das Paket wird jetzt aufgeführt.
+200         | Das Paket wird jetzt aufgeführt.
 404         | Kein Paket mit dem angegebenen `ID` und `VERSION` vorhanden ist

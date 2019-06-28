@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: ded9b571324d810c2f0e1a46ea76375a28940406
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: a242d02a54fd86899cbe274ab63538b53307c1bb
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145604"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425920"
 ---
 # <a name="update-command-nuget-cli"></a>Der Befehl „commnad“ (NuGet CLI)
 
@@ -48,8 +48,8 @@ in denen `<configPath>` identifiziert entweder eine `packages.config` oder Proje
 | RepositoryPath | Gibt den lokalen Ordner, in dem Pakete installiert sind. |
 | Safe | Gibt an, dass nur mit der höchsten Version innerhalb der gleichen Haupt- und Nebenversionsnummern Version verfügbaren updates wie das installierte Paket installiert wird. |
 | Self-Service | Nuget.exe auf die neueste Version aktualisiert wird; Alle anderen Argumente werden ignoriert. |
-| Source | Gibt die Liste der Paketquellen (wie URLs), um nach Updates verwenden. Wenn nicht angegeben, wird der Befehl verwendet die Quellen in Konfigurationsdateien, finden Sie unter [Konfigurieren des NuGet-Verhaltens](../consume-packages/configuring-nuget-behavior.md). |
-| Ausführlichkeit | Gibt an, die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *quiet*, *ausführliche*. |
+| Source | Gibt die Liste der Paketquellen (wie URLs), um nach Updates verwenden. Wenn nicht angegeben, wird der Befehl verwendet die Quellen in Konfigurationsdateien, finden Sie unter [häufig auftretenden NuGet Konfigurationen](../consume-packages/configuring-nuget-behavior.md). |
+| Verbosity | Gibt an, die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *quiet*, *ausführliche*. |
 | Version | Bei Verwendung mit einem Paket-ID gibt die Version des Pakets aktualisieren. |
 
 Siehe auch [Umgebungsvariablen](cli-ref-environment-variables.md)

@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 4884de71151ee1ae3c0a78b803c9222f9c1d86ec
-ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
+ms.openlocfilehash: 34c205e7dac60c7abfb6323b4dc45bf4f074d46a
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266358"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426788"
 ---
 # <a name="catalog"></a>Catalog
 
@@ -236,8 +236,8 @@ ERHALTEN https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure
 
 Katalogobjekte mit dem Typ `PackageDelete` enthalten einen minimalen Satz von Informationen, die für Katalog-Clients, dass ein Paket aus der Paketquelle gelöscht wurde und nicht mehr verfügbar ist, für jeden Paket-Vorgang (z. B. Wiederherstellung ist).
 
-> [!Note]
-> Es ist möglich, dass ein Paket gelöscht werden und später erneut veröffentlichten mithilfe der gleichen Paket-ID und Version. Auf nuget.org entspricht dies einer seltenen Fall des Clients, auf der offiziellen Annahme unterbrochen wird, die ein Paket-ID und eine Version einer bestimmten Paketinhalt implizieren. Weitere Informationen zum Löschen des Pakets auf nuget.org finden Sie unter [unsere Richtlinie](../policies/deleting-packages.md).
+> [!NOTE]
+> Es ist möglich, dass ein Paket gelöscht werden und später erneut veröffentlichten mithilfe der gleichen Paket-ID und Version. Auf nuget.org entspricht dies einer seltenen Fall des Clients, auf der offiziellen Annahme unterbrochen wird, die ein Paket-ID und eine Version einer bestimmten Paketinhalt implizieren. Weitere Informationen zum Löschen des Pakets auf nuget.org finden Sie unter [unsere Richtlinie](../nuget-org/policies/deleting-packages.md).
 
 Paket löschen Katalogelemente verfügen nicht über zusätzlichen Eigenschaften zusätzlich zu den [enthalten alle Katalogseiten](#catalog-leaf).
 

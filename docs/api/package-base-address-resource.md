@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 740defc34077793b81fb35db73a2eee393ae3bac
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 2f0f93e0cee78ea03cbd53194cdc2a10871fd7e1
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547153"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426763"
 ---
 # <a name="package-content"></a>Paketinhalt
 
@@ -23,7 +23,7 @@ Diese Ressource wird häufig als entweder die "Paket Basisadresse" oder "Flatfil
 
 Die folgenden `@type` Wert wird verwendet:
 
-@type-Wert              | Hinweise
+@type -Wert              | Hinweise
 ------------------------ | -----
 PackageBaseAddress/3.0.0 | Die erste Version
 
@@ -58,7 +58,7 @@ Wenn die Paketquelle keine Versionen der angegebenen Paket-ID verfügt, wird Sta
 
 Wenn die Paketquelle eine oder mehrere Versionen verfügt, wird ein Statuscode "200" zurückgegeben. Der Antworttext ist ein JSON-Objekt mit der folgenden Eigenschaft:
 
-name     | Typ             | Erforderlich | Hinweise
+Name     | Typ             | Erforderlich | Hinweise
 -------- | ---------------- | -------- | -----
 Versionen | Array von Zeichenfolgen | ja      | Die Paket-IDs verfügbar
 
@@ -114,10 +114,10 @@ Wenn der Client weiß, ein Paket-ID und die Version dass und das Paketmanifest l
 
 ### <a name="request-parameters"></a>Anforderungsparameter
 
-name          | In     | Typ    | Erforderlich | Hinweise
-------------- | ------ | ------- | -------- | -----
-LOWER_ID      | URL    | Zeichenfolge  | ja      | Die Paket-ID Kleinbuchstaben
-LOWER_VERSION | URL    | Ganze Zahl | ja      | Die Paketversion, normalisiert, und klein schreiben
+name          | In     | Typ   | Erforderlich | Hinweise
+------------- | ------ | ------ | -------- | -----
+LOWER_ID      | URL    | Zeichenfolge | ja      | Die Paket-ID Kleinbuchstaben
+LOWER_VERSION | URL    | Zeichenfolge | ja      | Die Paketversion, normalisiert, und klein schreiben
 
 Beide `LOWER_ID` und `LOWER_VERSION` sind klein schreiben, die mithilfe von implementierten Regeln entspricht. NET [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) Methode.
 
