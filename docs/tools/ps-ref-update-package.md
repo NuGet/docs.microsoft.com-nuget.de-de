@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: d47e1978ab7d827e0b8b97cd4e7237019185b50f
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: a5b5a11ee11d9e2cf6a90d56ac63b1f7bad750ea
+ms.sourcegitcommit: 2a9d149bc6f5ff76b0b657324820bd0429cddeef
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546075"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67496494"
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Update-Package (Paket-Manager-Konsole in Visual Studio)
 
@@ -41,20 +41,20 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 | ProjektName | Der Name des Projekts, in dem Pakete aktualisiert, es wird der Standardwert für alle Projekte. |
 | Version | Die Version, die für das Upgrade, standardmäßig auf die neueste Version verwendet. In NuGet 3.0 und höher der Wert muss einer der *niedrigste, höchste, HighestMinor*, oder *HighestPatch* (Äquivalent zu: Safe). |
 | Safe | Schränkt Upgrades nur Versionen mit der gleichen Haupt- und Nebenversionen-Version als die derzeit installierten Paket. |
-| Quelle | Der URL oder Ordner Pfad für die Paketquelle, um zu suchen. Lokalen Ordnerpfade können absolut oder relativ zum aktuellen Ordner sein. Wenn nicht angegeben, `Update-Package` die aktuell ausgewählte Paketquelle durchsucht. |
+| Source | Der URL oder Ordner Pfad für die Paketquelle, um zu suchen. Lokalen Ordnerpfade können absolut oder relativ zum aktuellen Ordner sein. Wenn nicht angegeben, `Update-Package` die aktuell ausgewählte Paketquelle durchsucht. |
 | IncludePrerelease | Enthält nach Updates Vorabversionen von Paketen. |
 | Neuinstallation | Resintalls-Pakete, die ihre aktuell installierten Versionen verwenden. Informationen dazu finden Sie unter [Neuinstallieren und Aktualisieren von Paketen](../consume-packages/reinstalling-and-updating-packages.md). |
 | FileConflictAction | Die auszuführende Aktion, wenn aufgefordert, die überschrieben werden soll, oder ignorieren die vorhandene Dateien, die vom Projekt verwiesen wird. Mögliche Werte sind *überschreiben, die Sie keine "," OverwriteAll*, und *' ignoreall '* (3.0 und höher). |
-| Optionen "dependencyversion" | Die Version des der abhängigkeitspakete zu verwenden, die in der folgenden Werte sind möglich:<br/><ul><li>*Niedrigste* (Standard): die niedrigste Version</li><li>*HighestPatch*: die Version mit der niedrigsten wichtigen, niedrigste kleinere, höchste Patch</li><li>*HighestMinor*: die Version mit der niedrigsten Hauptversion, die höchste kleinere, höchste-Patch</li><li>*Höchste* (Standard für Update-Package ohne Parameter): die höchste Version</li></ul>Sie können festlegen, den Standard-Wert mit der [ `dependencyVersion` ](../reference/nuget-config-file.md#config-section) festlegen in der `Nuget.Config` Datei. |
-| ToHighestPatch | Schränkt Upgrades nur Versionen mit der gleichen Nebenversion des derzeit installierten Pakets. |
+| DependencyVersion | Die Version des der abhängigkeitspakete zu verwenden, die in der folgenden Werte sind möglich:<br/><ul><li>*Niedrigste* (Standard): die niedrigste Version</li><li>*HighestPatch*: die Version mit der niedrigsten wichtigen, niedrigste kleinere, höchste Patch</li><li>*HighestMinor*: die Version mit der niedrigsten Hauptversion, die höchste kleinere, höchste-Patch</li><li>*Höchste* (Standard für Update-Package ohne Parameter): die höchste Version</li></ul>Sie können festlegen, den Standard-Wert mit der [ `dependencyVersion` ](../reference/nuget-config-file.md#config-section) festlegen in der `Nuget.Config` Datei. |
+| ToHighestPatch | Äquivalent zu – sicher. |
 | ToHighestMinor | Schränkt Upgrades nur Versionen mit derselben Hauptversion als die derzeit installierten Paket. |
-| "WhatIf" | Zeigt an, was geschieht, wenn der Befehl ausgeführt wird, ohne das Update ausführen. |
+| WhatIf | Zeigt an, was geschieht, wenn der Befehl ausgeführt wird, ohne das Update ausführen. |
 
 Keine Parameter akzeptieren Pipeline Eingabe- oder Platzhalter-Zeichen.
 
 ### <a name="common-parameters"></a>Allgemeine Parameter
 
-`Update-Package` unterstützt die folgenden [allgemeine PowerShell-Parameter](http://go.microsoft.com/fwlink/?LinkID=113216): Debuggen, Fehleraktion, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction und WarningVariable.
+`Update-Package` unterstützt die folgenden [allgemeine PowerShell-Parameter](http://go.microsoft.com/fwlink/?LinkID=113216): Debuggen, Fehleraktion, ErrorVariable, OutBuffer, OutVariable PipelineVariable, Verbose, WarningAction und WarningVariable.
 
 ### <a name="examples"></a>Beispiele
 

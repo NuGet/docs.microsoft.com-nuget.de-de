@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 34c205e7dac60c7abfb6323b4dc45bf4f074d46a
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 8e4fb376e471a207333d241aeb414da7d5c3571e
+ms.sourcegitcommit: 2a9d149bc6f5ff76b0b657324820bd0429cddeef
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426788"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67496536"
 ---
 # <a name="catalog"></a>Catalog
 
@@ -194,7 +194,8 @@ Name                    | Typ                       | Erforderlich | Hinweise
 ----------------------- | -------------------------- | -------- | -----
 authors                 | Zeichenfolge                     | Nein       |
 created                 | Zeichenfolge                     | Nein       | Ein Zeitstempel, wann das Paket zuerst erstellt wurde. Fallback-Eigenschaft: `published`.
-dependencyGroups        | Array von Objekten           | Nein       | Gleiche format wie die [paketmetadatenressource](registration-base-url-resource.md#package-dependency-group)
+dependencyGroups        | Array von Objekten           | Nein       | Die Abhängigkeiten des Pakets nach Zielframework gruppiert ([dasselbe Format wie die Ressource "Package" Metadaten](registration-base-url-resource.md#package-dependency-group))
+als veraltet             | object                     | Nein       | Die Einstellung, die dem Paket zugeordneten ([dasselbe Format wie die Ressource "Package" Metadaten](registration-base-url-resource.md#package-deprecation))
 description             | Zeichenfolge                     | Nein       |
 iconUrl                 | Zeichenfolge                     | Nein       |
 isPrerelease            | boolean                    | Nein       | Unabhängig davon, ob die Paketversion Vorabversion ist. Erkannt werden können, von `version`.

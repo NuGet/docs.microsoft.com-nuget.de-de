@@ -6,14 +6,14 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 19a1f48164f65f1ff805e036e55abb110247aa72
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 0b35e2bbdde63f7f7a5298bd035c180389cd345d
+ms.sourcegitcommit: 2a9d149bc6f5ff76b0b657324820bd0429cddeef
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324863"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67496500"
 ---
-# <a name="package-metadata"></a>Metadaten von Paketen
+# <a name="package-metadata"></a>Paketmetadaten
 
 Es ist möglich, zum Abrufen von Metadaten zu den verfügbaren Paketen auf eine Paketquelle, die mithilfe der NuGet-V3-API. Diese Metadaten kann abgerufen werden, mithilfe der `RegistrationsBaseUrl` Ressource finden Sie in der [dienstindex](service-index.md).
 
@@ -23,7 +23,7 @@ Die Auflistung der Dokumente finden Sie unter `RegistrationsBaseUrl` werden oft 
 
 Die folgenden `@type` Werte werden verwendet:
 
-@type-Wert                     | Hinweise
+@type -Wert                     | Hinweise
 ------------------------------- | -----
 RegistrationsBaseUrl            | Die erste Version
 RegistrationsBaseUrl/3.0.0-beta | Alias der `RegistrationsBaseUrl`
@@ -86,7 +86,7 @@ Die `LOWER_ID` Wert ist die gewünschte Paket-ID Kleinbuchstaben geändert, mith
 
 Die Antwort ist ein JSON-Dokument mit einem Stammobjekt mit den folgenden Eigenschaften:
 
-name  | Typ             | Erforderlich | Hinweise
+Name  | Typ             | Erforderlich | Hinweise
 ----- | ---------------- | -------- | -----
 count | Ganze Zahl          | ja      | Die Anzahl der von Registrierungsseiten im index
 items | Array von Objekten | ja      | Das Array von Registrierungsseiten
@@ -97,7 +97,7 @@ Jedes Element in des Indexobjekt `items` Array ist ein JSON-Objekt, das eine Reg
 
 Das Registrierungsobjekt-Seite finden Sie in der Registrierung Index hat die folgenden Eigenschaften:
 
-name   | Typ             | Erforderlich | Hinweise
+Name   | Typ             | Erforderlich | Hinweise
 ------ | ---------------- | -------- | -----
 @id    | Zeichenfolge           | ja      | Die URL der Registrierungsseite
 count  | Ganze Zahl          | ja      | Die Anzahl der Registrierung bleiben auf der Seite
@@ -121,7 +121,7 @@ Jedes Element in des Seitenobjekts `items` Array ist ein JSON-Objekt, das ein Re
 
 Das Registrierungsobjekt-Blatt finden Sie in einer Registrierungsseite hat die folgenden Eigenschaften:
 
-name           | Typ   | Erforderlich | Hinweise
+Name           | Typ   | Erforderlich | Hinweise
 -------------- | ------ | -------- | -----
 @id            | Zeichenfolge | ja      | Die URL in der Registrierung-Blatt
 catalogEntry   | object | ja      | Der Katalogeintrag, enthält die Metadaten von Paketen
@@ -133,11 +133,12 @@ Jede Registrierung Endknotenobjekt stellt ein einzelnes Paketversion zugeordnete
 
 Die `catalogEntry` -Eigenschaft in der Registrierung Endknotenobjekt hat die folgenden Eigenschaften:
 
-name                     | Typ                       | Erforderlich | Hinweise
+Name                     | Typ                       | Erforderlich | Hinweise
 ------------------------ | -------------------------- | -------- | -----
 @id                      | Zeichenfolge                     | ja      | Die URL zum Dokument verwendet, um dieses Objekt zu erstellen.
 authors                  | Zeichenfolge oder Array von Zeichenfolgen | Nein       | 
 dependencyGroups         | Array von Objekten           | Nein       | Die Abhängigkeiten des Pakets nach Zielframework gruppiert
+als veraltet              | object                     | Nein       | Die Einstellung, die dem Paket zugeordneten
 description              | Zeichenfolge                     | Nein       | 
 iconUrl                  | Zeichenfolge                     | Nein       | 
 id                       | Zeichenfolge                     | ja      | Die ID des Pakets
@@ -163,7 +164,7 @@ Der Wert des der `licenseExpression` Eigenschaft einhält [Syntax zum Ausdrücke
 
 Jede Gruppe Abhängigkeitsobjekt hat die folgenden Eigenschaften:
 
-name            | Typ             | Erforderlich | Hinweise
+Name            | Typ             | Erforderlich | Hinweise
 --------------- | ---------------- | -------- | -----
 targetFramework | Zeichenfolge           | Nein       | Das Zielframework aus, dem diese Abhängigkeiten betreffen
 dependencies    | Array von Objekten | Nein       |
@@ -176,13 +177,33 @@ Die `dependencies` -Eigenschaft ist ein Array von Objekten, die jeweils eine pak
 
 Jede paketabhängigkeit weist die folgenden Eigenschaften:
 
-name         | Typ   | Erforderlich | Hinweise
+Name         | Typ   | Erforderlich | Hinweise
 ------------ | ------ | -------- | -----
 id           | Zeichenfolge | ja      | Die ID der Paket-Abhängigkeit
 range        | object | Nein       | Die zulässigen [Versionsbereich](../reference/package-versioning.md#version-ranges-and-wildcards) der Abhängigkeit
 Registrierung | Zeichenfolge | Nein       | Die URL für den Index der Registrierung für diese Abhängigkeit
 
 Wenn die `range` -Eigenschaft ausgeschlossen oder eine leere Zeichenfolge und der Client sollte standardmäßig auf den Versionsbereich `(, )`. Das heißt, ist jede Version der Abhängigkeit zulässig.
+
+#### <a name="package-deprecation"></a>Paket-Veraltung
+
+Jedes Paket als veraltet hat die folgenden Eigenschaften:
+
+Name             | Typ             | Erforderlich | Hinweise
+---------------- | ---------------- | -------- | -----
+Gründe          | Array von Zeichenfolgen | ja      | Die Gründe, warum das Paket als veraltet markiert wurde
+message          | Zeichenfolge           | Nein       | Zusätzliche Details zu dieser Einstellung
+alternatePackage | object           | Nein       | Die paketabhängigkeit, die stattdessen verwendet werden soll
+
+Die `reasons` muss mindestens eine Zeichenfolge enthalten und sollte nur Zeichenfolgen aus der folgenden Tabelle enthält:
+
+Grund       | Beschreibung             
+------------ | -----------
+Legacy       | Das Paket wird nicht mehr verwaltet.
+CriticalBugs | Das Paket enthält Fehler, die ungeeignet für die Verwendung zu vereinfachen
+Andere        | Das Paket kann eine aus folgendem Grund nicht in dieser Liste als veraltet markiert
+
+Wenn die `reasons` Eigenschaft enthält Zeichenfolgen, die nicht von einem bekannten Satz sind, wird sie ignoriert werden sollen. Die Zeichenfolgen sind Groß-/Kleinschreibung, sodass `legacy` muss die gleiche Weise behandelt wie `Legacy`. Es gibt keine Sortierung Einschränkung für das Array, damit die Zeichenfolgen können in beliebiger Reihenfolge angeordnet. Darüber hinaus enthält die Eigenschaft nur Zeichenfolgen, die nicht von einem bekannten Satz sind, sollten sie behandelt werden, als ob es sich nur um die Zeichenfolge "Other" enthalten.
 
 ### <a name="sample-request"></a>Beispiel für eine Anforderung
 
@@ -200,7 +221,7 @@ Die Registrierungsseite enthält Registrierung bleibt. Die URL zum Abrufen einer
 
 Wenn die `items` Array nicht in der Registrierung Index angegeben ist, eine HTTP GET-Anforderung von der `@id` Wert gibt ein JSON-Dokument, das ein Objekt als Stamm hat. Das Objekt hat die folgenden Eigenschaften:
 
-name   | Typ             | Erforderlich | Hinweise
+Name   | Typ             | Erforderlich | Hinweise
 ------ | ---------------- | -------- | -----
 @id    | Zeichenfolge           | ja      | Die URL der Registrierungsseite
 count  | Ganze Zahl          | ja      | Die Anzahl der Registrierung bleiben auf der Seite
@@ -227,7 +248,7 @@ Die URL zum Abrufen der ein Blatt für die Registrierung wird abgerufen, von der
 
 Das Blatt für die Registrierung ist ein JSON-Dokument mit einem Stammobjekt mit den folgenden Eigenschaften:
 
-name           | Typ    | Erforderlich | Hinweise
+Name           | Typ    | Erforderlich | Hinweise
 -------------- | ------- | -------- | -----
 @id            | Zeichenfolge  | ja      | Die URL in der Registrierung-Blatt
 catalogEntry   | Zeichenfolge  | Nein       | Die URL, den Katalogeintrag, der diese Blattelemente erstellt
