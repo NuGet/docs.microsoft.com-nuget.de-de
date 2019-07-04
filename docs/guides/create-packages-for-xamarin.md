@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: tutorial
-ms.openlocfilehash: c43f4e80d456214ca354e136db6419a95fc797a0
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: d737b70febd1e18aa8a39cc73a9a9cf333f758c6
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551907"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426842"
 ---
 # <a name="create-packages-for-xamarin-with-visual-studio-2015"></a>Erstellen von Paketen für Xamarin mit Visual Studio 2015
 
@@ -260,7 +260,7 @@ Dadurch wird `LoggingLibrary.YOUR_NAME.1.0.0.nupkg` generiert. Wenn Sie diese Da
 > [!Tip]
 > Bei einer `.nupkg`-Datei handelt es sich um eine ZIP-Datei mit einer anderen Erweiterung. Sie können auch die Paketinhalte untersuchen, indem Sie `.nupkg` in `.zip` ändern. Denken Sie jedoch daran, die Erweiterung wiederherzustellen, bevor Sie ein Paket auf nuget.org hochladen.
 
-Befolgen Sie die Anweisungen unter [Veröffentlichen eines Pakets](../create-packages/publish-a-package.md), um Ihr Paket für andere Entwickler zur Verfügung zu stellen.
+Befolgen Sie die Anweisungen unter [Veröffentlichen eines Pakets](../nuget-org/publish-a-package.md), um Ihr Paket für andere Entwickler zur Verfügung zu stellen.
 
 ## <a name="related-topics"></a>Verwandte Themen
 

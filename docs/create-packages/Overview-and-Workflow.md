@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: 6b41b23df115c45e830404afcf9defa23615bd7c
-ms.sourcegitcommit: ce97dded7715f217ec44f6c8368ab0df19c38342
+ms.openlocfilehash: a285650034c99026e34fcda398ca7ced4855e40a
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52615755"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425715"
 ---
 # <a name="package-creation-workflow"></a>Workflow für die Paketerstellung
 
@@ -41,6 +41,6 @@ Danach können Sie viele weitere Optionen für Ihr Paket in Betracht ziehen:
 - Im Artikel [Native Packages (Native Pakete)](../create-packages/native-packages.md) wird beschrieben, wie Sie ein Paket für C++-Nutzer erstellen.
 - Im Artikel [Signing Packages (Signieren von Paketen)](../create-packages/sign-a-package.md) wird der Vorgang zum Hinzufügen einer digitalen Signatur zu einem Paket beschrieben.
 
-Wenn Sie dazu bereit sind, ein Paket auf nuget.org zu veröffentlichen, befolgen Sie einfach den im Artikel [Publish a package (Veröffentlichen eines Pakets)](../create-packages/publish-a-package.md) beschriebenen Prozess.
+Wenn Sie dazu bereit sind, ein Paket auf nuget.org zu veröffentlichen, befolgen Sie einfach den im Artikel [Publish a package (Veröffentlichen eines Pakets)](../nuget-org/publish-a-package.md) beschriebenen Prozess.
 
 Wenn Sie einen privaten Feed statt nuget.org verwenden möchten, finden Sie weitere Informationen unter [Hosting Packages Overview (Übersicht über das Hosting von Paketen)](../hosting-packages/overview.md).

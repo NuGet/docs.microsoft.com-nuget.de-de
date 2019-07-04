@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 56125516345b2255998c1f734db60b58b9a92a06
-ms.sourcegitcommit: 585394f063e95dcbc24d7ac0ce07de643eaf6f4d
+ms.openlocfilehash: 40f934f3c3fcea62acae66639c22108a93363b8b
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "55046327"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426780"
 ---
 # <a name="creating-symbol-packages-legacy"></a>Erstellen von Symbolpaketen (Legacy)
 
@@ -102,7 +102,7 @@ Ein Symbolpaket kann, wie im vorherigen Abschnitt beschrieben, nach Konventionen
 > [!Important]
 > Sie müssen [nuget.exe v4.9.1 oder höher](https://www.nuget.org/downloads) verwenden, um Pakete per Push an nuget.org übertragen zu können, da so die erforderlichen [NuGet-Protokolle](../api/nuget-protocols.md) implementiert werden.
 
-1. Speichern Sie Ihren API-Schlüssel der Einfachheit halber zunächst mit NuGet (siehe [Paket veröffentlichen](../create-packages/publish-a-package.md)). Dieser gilt dann für nuget.org und symbolsource.org, da symbolsource.org mit nuget.org überprüft, ob Sie der Paketbesitzer sind.
+1. Speichern Sie Ihren API-Schlüssel der Einfachheit halber zunächst mit NuGet (siehe [Paket veröffentlichen](../nuget-org/publish-a-package.md)). Dieser gilt dann für nuget.org und symbolsource.org, da symbolsource.org mit nuget.org überprüft, ob Sie der Paketbesitzer sind.
 
     ```cli
     nuget SetApiKey Your-API-Key

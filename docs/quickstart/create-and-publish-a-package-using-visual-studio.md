@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: d30e89473b5f00895136b75a90d8d95b7645a100
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: c75785d361f25564c8a59d7a2d85924c570a7b9a
+ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812980"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467815"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Schnellstart: Erstellen und Veröffentlichen eines NuGet-Pakets mithilfe von Visual Studio (.NET Standard, nur Windows)
 
@@ -29,7 +29,7 @@ Ein NuGet-Paket kann problemlos über eine .NET Standard-Klassenbibliothek in Vi
 
    * Installieren Sie die `nuget.exe`-CLI, indem Sie sie von [nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) herunterladen, die `.exe`-Datei in einem geeigneten Ordner speichern und den Ordner der Umgebungsvariable PATH hinzufügen. Die nuget.exe-CLI wird für .NET Standard-Bibliotheken im Nicht-SDK-Format verwendet.
 
-1. [Registrieren Sie sich für ein kostenloses Konto auf nuget.org](https://www.nuget.org/users/account/LogOn?returnUrl=%2F), falls Sie noch kein Konto haben. Wenn Sie ein neues Konto erstellen, wird Ihnen eine Bestätigungs-E-Mail gesendet. Sie müssen das Konto bestätigen, bevor Sie ein Paket hochladen können.
+1. [Registrieren Sie sich für ein kostenloses Konto auf nuget.org](https://docs.microsoft.com/en-us/nuget/nuget-org/individual-accounts#add-a-new-individual-account), falls Sie noch kein Konto haben. Wenn Sie ein neues Konto erstellen, wird Ihnen eine Bestätigungs-E-Mail gesendet. Sie müssen das Konto bestätigen, bevor Sie ein Paket hochladen können.
 
 ## <a name="create-a-class-library-project"></a>Erstellen eines Klassenbibliotheksprojekts
 
@@ -174,7 +174,7 @@ Dies schließt eine Datei namens `readme.txt` im Stammverzeichnis ein. Visual St
 ## <a name="related-topics"></a>Verwandte Themen
 
 - [Erstellen eines Pakets](../create-packages/creating-a-package.md)
-- [Veröffentlichen eines Pakets](../create-packages/publish-a-package.md)
+- [Veröffentlichen eines Pakets](../nuget-org/publish-a-package.md)
 - [Vorabversionen von Paketen](../create-packages/Prerelease-Packages.md)
 - [Unterstützung mehrerer Zielframeworks](../create-packages/supporting-multiple-target-frameworks.md)
 - [Paketversionsverwaltung](../reference/package-versioning.md)
