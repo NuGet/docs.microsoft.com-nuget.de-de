@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 02/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 7b1ccfbede4cec53cee3ec7d1c023e4c5be60bf0
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: af0c42853a9e407557a010ff2793406499b4b2ef
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545912"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426878"
 ---
 # <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>Erstellen von .NET Standard- und .NET Framework-Paketen mit Visual Studio 2015
 
@@ -37,7 +37,7 @@ Dieser Leitfaden begleitet Sie durch das Erstellen eines NuGet-Pakets für die .
 
 1. Wählen Sie im angezeigten Dialogfeld **Portable Klassenbibliothek hinzufügen** die Optionen für `.NET Framework 4.6` und `ASP.NET Core 1.0` aus. (Für .NET Framework können Sie die entsprechenden Optionen auswählen.)
 
-1. Für .NET Standard klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf `AppLogger (Portable)`, und wählen Sie dann unter **Eigenschaften** die Registerkarte **Bibliothek**. Wählen Sie dort im Abschnitt **Ziel** die Option **Ziel: .NET-Plattform (Standard)**. Sie werden aufgefordert, diese Aktion zu bestätigen. Anschließend können Sie `.NET Standard 1.4` (oder eine andere verfügbare Version) aus der Dropdownliste auswählen:
+1. Für .NET Standard klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf `AppLogger (Portable)`, und wählen Sie dann unter **Eigenschaften** die Registerkarte **Bibliothek**. Wählen Sie dort im Abschnitt **Ziel** die Option **Ziel: .NET-Plattform (Standard)** . Sie werden aufgefordert, diese Aktion zu bestätigen. Anschließend können Sie `.NET Standard 1.4` (oder eine andere verfügbare Version) aus der Dropdownliste auswählen:
 
     ![Festlegen des Ziels auf .NET Standard 1.4](media/NetStandard-ChangeTarget.png)
 
@@ -159,7 +159,7 @@ Dadurch wird die Datei `AppLogger.YOUR_NAME.1.0.0.nupkg` generiert. Wenn Sie die
 > [!Tip]
 > Bei einer `.nupkg`-Datei handelt es sich um eine ZIP-Datei mit einer anderen Erweiterung. Sie können auch die Paketinhalte untersuchen, indem Sie `.nupkg` in `.zip` ändern. Denken Sie jedoch daran, die Erweiterung wiederherzustellen, bevor Sie ein Paket auf nuget.org hochladen.
 
-Befolgen Sie die Anweisungen unter [Veröffentlichen eines Pakets](../create-packages/publish-a-package.md), um Ihr Paket für andere Entwickler zur Verfügung zu stellen.
+Befolgen Sie die Anweisungen unter [Veröffentlichen eines Pakets](../nuget-org/publish-a-package.md), um Ihr Paket für andere Entwickler zur Verfügung zu stellen.
 
 Beachten Sie, dass für `pack` Mono 4.4.2 unter Mac OS X erforderlich ist und dass dieser Befehl auf Linux-Systemen nicht funktioniert. Auf einem Mac müssen Sie ebenfalls Windows-Pfadnamen in der `.nuspec`-Datei in Pfade im Unix-Format konvertieren.
 

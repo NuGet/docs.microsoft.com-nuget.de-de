@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: aa5cd1a2f3e3a6707a9d68204306db85651b0a18
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: d43f002b740b669de13f5872844ac0df97fc8fdc
+ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545199"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467789"
 ---
 # <a name="projectjson-archive"></a>project.json-Archiv
 
@@ -38,9 +38,9 @@ Funktioniert mit `project.json`.
 
 ## <a name="constraining-package-versions-with-restore"></a>Einschränken der Paketversionen mit der Wiederherstellung
 
-*Ursprünglich unter [Paketwiederherstellung](../consume-packages/package-restore.md#constraining-package-versions-with-restore).*
+*Ursprünglich unter [Paketwiederherstellung](../consume-packages/package-restore.md#constrain-package-versions-with-restore).*
 
-- `project.json`: Gibt einen Versionsbereich zusammen mit der Versionsnummer der Abhängigkeit an. Zum Beispiel:
+- `project.json`: Gibt einen Versionsbereich zusammen mit der Versionsnummer der Abhängigkeit an. Beispiel:
 
     ```json
     "Newtonsoft.json": "[6, 7)"
@@ -93,7 +93,7 @@ Eine zusätzliche Möglichkeit zum Beheben von Fehlern:
 
 *Ursprünglich unter [Zielframework](../reference/target-frameworks.md).*
 
-- [project.json:](project-json.md) Der `frameworks`-Knoten gibt die Frameworkversionen an, für die das Projekt kompiliert werden kann.
+- [project.json](project-json.md): Der `frameworks`-Knoten gibt die Frameworkversionen an, für die das Projekt kompiliert werden kann.
 
 ## <a name="creating-a-package"></a>Erstellen eines Pakets
 

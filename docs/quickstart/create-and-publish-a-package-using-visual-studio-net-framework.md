@@ -1,16 +1,16 @@
 ---
 title: Erstellen und Veröffentlichen eines .NET Framework-Pakets mithilfe von Visual Studio auf Windows
-description: Eine exemplarische Vorgehensweise zum Erstellen und Veröffentlichen eines .NET Framework NuGet-Pakets mit Visual Studio 2017 unter Windows.
+description: Ein Tutorial zum Erstellen und Veröffentlichen eines .NET Framework NuGet-Pakets mit Visual Studio unter Windows.
 author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: 68593211da1a34649c7050753a5db0f3a03cb41b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: efdaa0128d47f948c86c3cc83d6a332410cbf99f
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549627"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426326"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Schnellstart: Erstellen und Veröffentlichen eines Pakets mithilfe von Visual Studio (.NET Framework, Windows)
 
@@ -175,7 +175,7 @@ Siehe [nuget push-Befehl](../tools/cli-ref-push.md).
 ## <a name="related-topics"></a>Verwandte Themen
 
 - [Erstellen eines Pakets](../create-packages/creating-a-package.md)
-- [Veröffentlichen eines Pakets](../create-packages/publish-a-package.md)
+- [Veröffentlichen eines Pakets](../nuget-org/publish-a-package.md)
 - [Vorabversionen von Paketen](../create-packages/Prerelease-Packages.md)
 - [Unterstützung mehrerer Zielframeworks](../create-packages/supporting-multiple-target-frameworks.md)
 - [Paketversionsverwaltung](../reference/package-versioning.md)

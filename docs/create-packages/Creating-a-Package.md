@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5e362673acfab4b31c8a2e02a521afd8b19d2754
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: e3a40a521a3b16d9757ef1bbf2511a1537d8bddb
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812921"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425815"
 ---
 # <a name="creating-nuget-packages"></a>Erstellen von NuGet-Paketen
 
 Unabhängig davon, welchen Zweck Ihr Paket erfüllt oder welchen Code es enthält, verwenden Sie eines der CLI-Tools (entweder `nuget.exe` oder `dotnet.exe`), um diese Funktionalität in einer Komponente zu verpacken, die für andere Entwickler freigegeben und von ihnen verwendet werden kann. Informationen zur Installation von NuGet-CLI-Tools finden Sie unter [Installieren von NuGet-Clienttools](../install-nuget-client-tools.md). Beachten Sie, dass Visual Studio nicht automatisch ein CLI-Tool enthält.
 
-- Für .NET Core- und .NET Standard-Projekte, die das SDK-Format verwenden ([SDK-Attribut](/dotnet/core/tools/csproj#additions)), und für alle anderen Projekte im SDK-Stil verwendet NuGet Informationen in der Projektdatei direkt zum Erstellen eines Pakets. Weitere Informationen finden Sie unter [Create .NET Standard Packages with Visual Studio 2017 (Erstellen von .NET Standard-Paketen mit Visual Studio 2017)](../quickstart/create-and-publish-a-package-using-visual-studio.md) und [NuGet pack and restore as MSBuild targets (NuGet-Befehle „pack“ und „restore“ als MSBuild-Ziele)](../reference/msbuild-targets.md).
+- Für .NET Core- und .NET Standard-Projekte, die das SDK-Format verwenden ([SDK-Attribut](/dotnet/core/tools/csproj#additions)), und für alle anderen Projekte im SDK-Stil verwendet NuGet Informationen in der Projektdatei direkt zum Erstellen eines Pakets. Weitere Informationen finden Sie unter [Erstellen von .NET Standard-Paketen mit Visual Studio](../quickstart/create-and-publish-a-package-using-visual-studio.md) und [NuGet-Befehle „pack“ und „restore“ als MSBuild-Ziele](../reference/msbuild-targets.md).
 
 - Für Nicht-SDK-Projekte befolgen Sie die in diesem Artikel beschriebenen Schritte zum Erstellen eines Pakets.
 
@@ -27,7 +27,7 @@ Technisch gesehen ist ein NuGet-Paket eine ZIP-Datei, die mit der `.nupkg`-Erwei
 Das Packen beginnt mit dem kompilierten Code (Assemblys), Symbolen und/oder anderen Dateien, die Sie als Paket übermitteln möchten. Weitere Informationen finden Sie unter [Overview and workflow (Übersicht und Workflow)](overview-and-workflow.md). Dieser Vorgang wird unabhängig vom Kompilieren oder jeder anderen Methode zum Erstellen der Dateien ausgeführt, die in das Paket einfließen. Sie können die kompilierten Assemblys und Pakete jedoch mithilfe der Informationen in einer Projektdatei kontinuierlich synchronisieren.
 
 > [!Note]
-> Dieses Thema gilt für Nicht-SDK-Projekte, in der Regel andere als .NET Core- und .NET Standard-Projekte mit Visual Studio 2017 und NuGet 4.0 und höher.
+> Dieses Thema gilt für Nicht-SDK-Projekte, in der Regel andere als .NET Core- und .NET Standard-Projekte mit Visual Studio 2017 und höheren Versionen und NuGet 4.0 und höher.
 
 ## <a name="deciding-which-assemblies-to-package"></a>Welche Assemblys sollen gepackt werden?
 
@@ -56,7 +56,7 @@ Das Manifest:
 Erforderliche Eigenschaften:
 
 - Der Paketbezeichner. Dieser muss im Katalog, der das Paket hostet, eindeutig sein.
-- Eine bestimmte Versionsnummer in der Schreibweise *Hauptversion.Nebenversion.Patch[-Suffix]*, wobei im *-Suffix* die [Vorabversionen](prerelease-packages.md) angegeben werden
+- Eine bestimmte Versionsnummer in der Schreibweise *Hauptversion.Nebenversion.Patch[-Suffix]* , wobei im *-Suffix* die [Vorabversionen](prerelease-packages.md) angegeben werden
 - Der Titel des Pakets, so wie er auf dem Host (z.B. „nuget.org“) angezeigt werden sollte
 - Informationen zum Autor und zum Besitzer
 - Eine ausführliche Beschreibung des Pakets
@@ -177,7 +177,7 @@ Der Vorteil dieses Ansatzes ist, dass Sie nicht wie weiter unten in diesem Thema
 
 Die Ordnerkonventionen lauten folgendermaßen:
 
-| Ordner | Beschreibung | Aktion bei der Paketinstallation |
+| Ordner | BESCHREIBUNG | Aktion bei der Paketinstallation |
 | --- | --- | --- |
 | (Stammverzeichnis) | Speicherort für „readme.txt“ | In Visual Studio wird die Datei „readme.txt“ im Stammverzeichnis des Pakets angezeigt, wenn das Paket installiert wird. |
 | lib/{tfm} | Assembly- (`.dll`), Dokumentations- (`.xml`) und Symboldateien (`.pdb`) für den angegebenen Zielframeworkmoniker (Target Framework Moniker, TFM) | Assemblys werden als Verweise für die Kompilierzeit ebenso wie für die Laufzeit hinzugefügt, und `.xml` sowie `.pdb` werden in Projektordner kopiert. Informationen zum Erstellen von für das Zielframework spezifischen Unterordnern finden Sie unter [Supporting multiple .NET framework versions (Unterstützen mehrerer .NET Framework-Versionen)](supporting-multiple-target-frameworks.md). |
@@ -408,7 +408,7 @@ nuget pack <project-name>.csproj
 
 NuGet gibt an, ob die `.nuspec`-Datei Fehler enthält, die korrigiert werden müssen, z.B. nicht geänderte Platzhalterwerte im Manifest.
 
-Wenn `nuget pack` erfolgreich ausgeführt wurde, können Sie die erstellte `.nupkg`-Datei wie in [Publishing packages (Veröffentlichen von Paketen)](../create-packages/publish-a-package.md) beschrieben in einem geeigneten Katalog veröffentlichen.
+Wenn `nuget pack` erfolgreich ausgeführt wurde, können Sie die erstellte `.nupkg`-Datei wie in [Publishing packages (Veröffentlichen von Paketen)](../nuget-org/publish-a-package.md) beschrieben in einem geeigneten Katalog veröffentlichen.
 
 > [!Tip]
 > Wenn Sie sich das erstellte Paket genauer ansehen möchten, öffnen Sie es einfach im [Paket-Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer). Dieser stellt den Inhalt des Pakets und das Manifest grafisch dar. Sie können die resultierende `.nupkg`-Datei auch in eine `.zip`-Datei umbenennen und deren Inhalt direkt prüfen.
@@ -445,7 +445,7 @@ Folgende Optionen werden beispielsweise häufig in Visual Studio-Projekten verwe
 
 Vor dem Veröffentlichen eines Pakets testen Sie in der Regel die Installation eines Pakets in einem Projekt. Diese Tests stellen sicher, dass die erforderlichen Dateien an den richtigen Orten im Projekt installiert werden.
 
-Installationen lassen sich manuell in Visual Studio oder mithilfe der normalen [Paketinstallationsschritte](../consume-packages/ways-to-install-a-package.md) über die Befehlszeile testen.
+Installationen lassen sich manuell in Visual Studio oder mithilfe der normalen [Paketinstallationsschritte](../consume-packages/overview-and-workflow.md#ways-to-install-a-nuget-package) über die Befehlszeile testen.
 
 Für automatisierte Tests gehen Sie folgendermaßen vor:
 
@@ -456,7 +456,7 @@ Für automatisierte Tests gehen Sie folgendermaßen vor:
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Nachdem Sie ein Paket erstellt haben, das eine `.nupkg`-Datei ist, können Sie sie wie unter [Publishing packages (Veröffentlichen von Paketen)](../create-packages/publish-a-package.md) beschrieben im Katalog Ihrer Wahl veröffentlichen.
+Nachdem Sie ein Paket erstellt haben, das eine `.nupkg`-Datei ist, können Sie sie wie unter [Publishing packages (Veröffentlichen von Paketen)](../nuget-org/publish-a-package.md) beschrieben im Katalog Ihrer Wahl veröffentlichen.
 
 Sie können auch die Funktionen des Pakets erweitern oder wie in den folgenden Themen beschrieben andere Szenarios unterstützen:
 

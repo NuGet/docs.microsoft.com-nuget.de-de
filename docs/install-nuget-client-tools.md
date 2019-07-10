@@ -3,24 +3,24 @@ title: Installieren von NuGet-Clienttools
 description: Anleitung zum Installieren von Clienttools, der dotnet- und nuget-Befehlszeilenschnittstellen (Command-Line Interface, CLI) und des Paket-Managers für Visual Studio.
 author: karann-msft
 ms.author: karann
-ms.date: 05/24/2019
+ms.date: 06/20/2019
 ms.topic: quickstart
-ms.openlocfilehash: 4336377ee90f2187234c0f637620c5fac1f05fb1
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: 6e3011493b7b89bc43cd9a267aea7fd32d668cec
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812854"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426570"
 ---
-# <a name="installing-nuget-client-tools"></a>Installieren von NuGet-Clienttools
+# <a name="install-nuget-client-tools"></a>Installieren von NuGet-Clienttools
 
-> **Sie möchten ein Paket installieren? Weitere Informationen unter [Möglichkeiten zum Installieren von NuGet-Paketen](consume-packages/ways-to-install-a-package.md).**
+> **Sie möchten ein Paket installieren? Weitere Informationen unter [Möglichkeiten zum Installieren von NuGet-Paketen](consume-packages/overview-and-workflow.md#ways-to-install-a-nuget-package).**
 
 Damit Sie als Paketverbraucher oder -ersteller mit NuGet arbeiten können, können Sie Befehlszeilenschnittstellentools (CLI) und NuGet-Features in Visual Studio verwenden. Dieser Artikel beschreibt kurz die Funktionen der verschiedenen Tools, wie sie installiert werden und ihre [Verfügbarkeit von Features](#feature-availability) im Vergleich. Informationen zum Einstieg in das Nutzen von Paketen mithilfe von NuGet finden Sie unter [Install and use a package (.NET CLI) [Installieren und Verwenden eines Pakets (.NET CLI)]](quickstart/install-and-use-a-package-using-the-dotnet-cli.md) und [Install and use a package (Visual Studio) [Installieren und Verwenden eines Pakets (Visual Studio)]](quickstart/install-and-use-a-package-in-visual-studio.md). Informationen zum Einstieg in das Erstellen von NuGet-Paketen finden Sie unter [Create and publish a NET Standard package (dotnet CLI) [Erstellen und Veröffentlichen eines NET Standard-Pakets (.NET CLI)]](quickstart/create-and-publish-a-package-using-the-dotnet-cli.md) und [Create and publish a NET Standard package (Visual Studio) [Erstellen und Veröffentlichen eines NET Standard-Pakets (Visual Studio)]](quickstart/create-and-publish-a-package-using-visual-studio.md).
 
-| Tool&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Beschreibung | Herunterladen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+| Tool&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | BESCHREIBUNG | Herunterladen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 |:------------- |:-------------|:-----|
-| [dotnet.exe](#dotnetexe-cli) | CLI-Tool für .NET Core- und .NET Standard-Bibliotheken und für Projekte im SDK-Stil für .NET Framework (Informationen finden Sie unter [SDK-Attribut](/dotnet/core/tools/csproj#additions)). Im .NET Core SDK enthalten und stellt NuGet-Kernfeatures auf allen Plattformen bereit. | [.NET Core SDK](https://www.microsoft.com/net/download/) |
+| [dotnet.exe](#dotnetexe-cli) | CLI-Tool für .NET Core- und .NET Standard-Bibliotheken und für beliebige Projekte im SDK-Stil, z.B. ein Projekt für .NET Framework (siehe [SDK-Attribut](/dotnet/core/tools/csproj#additions)). Im .NET Core SDK enthalten und stellt NuGet-Kernfeatures auf allen Plattformen bereit. | [.NET Core SDK](https://www.microsoft.com/net/download/) |
 | [nuget.exe](#nugetexe-cli) | CLI-Tool für .NET Framework-Bibliotheken und Nicht-SDK-Projekte, die auf .NET Standard-Bibliotheken abzielen. Stellt alle Funktionen von NuGet unter Windows und die meisten Features für Mac und Linux unter Mono bereit. | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |
 | [Visual Studio](#visual-studio) | Stellt unter Windows Funktionen von NuGet über die Benutzeroberfläche und die Konsole des Paket-Managers bereit, einschließlich .NET-bezogener Workloads. Stellt unter Mac bestimmte Features über die Benutzeroberfläche bereit. In Visual Studio werden NuGet-Features über Erweiterungen bereitgestellt. | [Visual Studio 2017](https://www.visualstudio.com/downloads/) |
 
@@ -31,7 +31,7 @@ Die [MSBuild-CLI](reference/msbuild-targets.md) bietet auch die Möglichkeit, Pa
 `dotnet.exe` und `nuget.exe` sind die zwei NuGet-CLI-Tools. Einen Vergleich finden Sie unter [Verfügbarkeit von Features](#feature-availability).
 
 * Für .NET Core oder .NET Standard verwenden Sie die dotnet-CLI. Die dotnet-CLI ist für das Projektformat im SDK-Stil erforderlich, welches das [SDK-Attribut](/dotnet/core/tools/csproj#additions) verwendet.
-* Um .NET Framework in Ihrem Projekt als Ziel festzulegen, verwenden Sie die `nuget.exe CLI`.
+* Verwenden Sie für eine Ausrichtung auf .NET Framework (nur Nicht-SDK-Projekte) die `nuget.exe CLI`. Wenn das Projekt zu `packages.config` migriert wird, verwenden Sie die dotnet-CLI.
 
 ### <a name="dotnetexe-cli"></a>dotnet.exe-CLI
 
@@ -42,11 +42,11 @@ Installation:
 - Installieren Sie auf Entwicklercomputern das [.NET Core SDK](https://aka.ms/dotnetcoregs).
 - Befolgen Sie für Buildserver die Anweisungen unter [Verwenden der .NET Core SDK und Tools in Continuous Integration](/dotnet/core/tools/using-ci-with-cli).
 
-Weitere Informationen finden Sie unter [Tools für die .NET Core-Befehlszeilenschnittstelle](/dotnet/core/tools/index?tabs=netcore2x#tabpanel_fXL5YCOYDa_netcore2x).
+Informationen zur Verwendung grundlegender Befehle der dotnet-CLI finden Sie unter [Installieren und Verwenden von Paketen mit der dotnet-CLI](consume-packages/install-use-packages-dotnet-cli.md).
 
 ### <a name="nugetexe-cli"></a>nuget.exe-CLI
 
-Die NuGet-CLI `nuget.exe` ist das Befehlszeilenprogramm für Windows, über das alle Funktionen von NuGet bereitgestellt werden. Mit [Mono](http://www.mono-project.com/docs/getting-started/install/) kann es auch unter Mac OSX und Linux ausgeführt werden (mit Einschränkungen). Im Gegensatz zu `dotnet`, wirkt sich die `nuget.exe`-CLI nicht auf die Projektdateien aus, und beim Installieren von Paketen wird `packages.config` nicht aktualisiert.
+Die `nuget.exe`-CLI `nuget.exe` ist das Befehlszeilenprogramm für Windows, über das alle Funktionen von NuGet bereitgestellt werden. Mit [Mono](http://www.mono-project.com/docs/getting-started/install/) kann es (mit Einschränkungen) auch unter Mac OSX und Linux ausgeführt werden.
 
 Installation:
 
@@ -54,6 +54,8 @@ Installation:
 
 > [!Tip]
 > Verwenden Sie unter Windows `nuget update -self`, um eine vorhandene „nuget.exe“-Datei auf die neueste Version zu aktualisieren.
+
+Informationen zur Verwendung grundlegender Befehle der `nuget.exe`-CLI finden Sie unter [Installieren und Verwenden von Paketen mit der nuget.exe-CLI](consume-packages/install-use-packages-nuget-cli.md).
 
 > [!Note]
 > Die neueste empfohlene NuGet-CLI ist immer unter `https://dist.nuget.org/win-x86-commandline/latest/nuget.exe` verfügbar. Für die Kompatibilität mit älteren Continuous Integration-Systemen wird aktuell über die vorherige URL, `https://nuget.org/nuget.exe`, das [veraltete 2.8.6 CLI-Tool](https://github.com/NuGet/NuGetGallery/issues/5381) zur Verfügung gestellt.
@@ -64,8 +66,8 @@ Installation:
 
 - Visual Studio für Mac: Bestimmte Funktionen von NuGet sind direkt integriert. Eine exemplarische Vorgehensweise finde Sie unter [Einschließen eines NuGet-Pakets in Ihr Projekt](/visualstudio/mac/nuget-walkthrough). Verwenden Sie die CLI-Tools `dotnet.exe` oder `nuget.exe` für weitere Funktionen.
 
-- Visual Studio unter Windows: Der **NuGet-Paket-Manager** ist in Visual Studio 2012 und höher enthalten. Der Paket-Manager stellt die [Paket-Manager-Benutzeroberfläche](tools/package-manager-ui.md) und die [Paket-Manager-Konsole](tools/package-manager-console.md) bereit, durch die Sie die meisten NuGet-Vorgänge ausführen können.
-  - Der Installer von Visual Studio 2017 umfasst den NuGet-Paket-Manager mit allen Workloads, die .NET verwenden. Führen Sie den Installer von Visual Studio 2017 aus, und überprüfen Sie die Option unter **Einzelne Komponenten > Codetools > NuGet-Paket-Manager**, um eine separate Installation auszuführen oder um zu überprüfen, ob der Paket-Manager installiert wurde.
+- Visual Studio unter Windows: Der **NuGet-Paket-Manager** ist in Visual Studio 2012 und höher enthalten. Visual Studio stellt die [Paket-Manager-Benutzeroberfläche](tools/package-manager-ui.md) und die [Paket-Manager-Konsole](tools/package-manager-console.md) bereit, über die Sie die meisten NuGet-Vorgänge ausführen können.
+  - Ab Visual Studio 2017 schließt der Installer den NuGet-Paket-Manager für alle Workloads ein, die .NET verwenden. Um eine separate Installation durchzuführen oder um zu überprüfen, ob der Paket-Manager installiert wurde, führen Sie den Visual Studio-Installer aus, und überprüfen Sie die Option unter **Einzelne Komponenten > Codetools > NuGet-Paket-Manager**.
   - Die Benutzeroberfläche und die Konsole des Paket-Managers sind nur für Visual Studio unter Windows verfügbar. Sie sind aktuell nicht in Visual Studio für Mac verfügbar.
   - Ein CLI-Tool ist erforderlich, um NuGet-Features in der IDE zu unterstützen. Verwenden Sie entweder die `dotnet`-CLI oder die `nuget.exe`-CLI. Die `dotnet`-CLI wird mit einigen Visual Studio-Workloads installiert, z.B. .NET Core. Die `nuget.exe`-CLI muss wie oben beschrieben separat installiert werden.
   - Die Konsolenbefehle des Paket-Managers funktionieren nur in Visual Studio unter Windows und nicht in anderen PowerShell-Umgebungen.
@@ -100,12 +102,12 @@ Installation:
 
 ### <a name="related-topics"></a>Verwandte Themen
 
-- [dotnet-Befehle](tools/dotnet-commands.md)
-- [Verweis auf NuGet-CLI](tools/nuget-exe-cli-reference.md)
-- [Benutzeroberflächenverweis des Paket-Managers](tools/package-manager-ui.md)
-- [Verweis der Paket-Manager-Konsole](tools/package-manager-console.md)
+- [Installieren und Verwalten von Paketen mit Visual Studio](tools/package-manager-ui.md)
+- [Installieren und Verwalten von Paketen mit PowerShell](tools/package-manager-console.md)
+- [Installieren und Verwalten von Paketen mit der dotnet-CLI](consume-packages/install-use-packages-dotnet-cli.md)
+- [Installieren und Verwalten von Paketen mit der nuget.exe-CLI](consume-packages/install-use-packages-nuget-cli.md)
 - [PowerShell-Verweis des Paket-Managers](tools/powershell-reference.md)
 - [Erstellen eines Pakets](create-packages/creating-a-package.md)
-- [Veröffentlichen eines Pakets](create-packages/publish-a-package.md)
+- [Veröffentlichen eines Pakets](nuget-org/publish-a-package.md)
 
 Entwickler, die unter Windows arbeiten, können auch den [NuGet-Paket-Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) durchsuchen, ein eigenständiges Open-Source-Tool, mit dem NuGet-Pakete visuell angezeigt, erstellt und bearbeitet werden können. Dieses Tool ist beispielsweise sehr hilfreich, wenn experimentelle Änderungen an einer Paketstruktur vorgenommen werden, ohne das Paket jedes Mal neu erstellen zu müssen.

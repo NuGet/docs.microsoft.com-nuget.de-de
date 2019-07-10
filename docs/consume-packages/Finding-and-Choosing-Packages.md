@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: c86a07c30631b7ee99526b014ac9c3b9f136aa81
-ms.sourcegitcommit: 1591bb230e106b94162a87dd1d86fe427366730a
+ms.openlocfilehash: 8cd7529c4a1ecf659abde03fb1632e26431aebf3
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52671187"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426749"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Suchen und Auswerten von NuGet-Paketen für Ihr Projekt
 
@@ -54,13 +54,13 @@ Standardmäßig zeigt nuget.org auch Vorabversionen von Paketen in den Suchergeb
 
 Wenn Sie Visual Studio und die NuGet- und dotnet-CLI-Tools verwenden, enthält NuGet standardmäßig keine Vorabversionen. Führen Sie folgende Schritte aus, um dieses Verhalten zu ändern:
 
-- **Benutzeroberfläche des Paket-Managers in Visual Studio:** Aktivieren Sie in der Benutzeroberfläche **NuGet-Pakete verwalten** das Kontrollkästchen **Vorabversion einbeziehen**. Wenn Sie dieses Kontrollkästchen aktivieren oder deaktivieren, wird die Benutzeroberfläche des Paket-Managers sowie die Liste der verfügbaren Versionen aktualisiert, die Sie installieren können.
+- **Benutzeroberfläche des Paket-Managers in Visual Studio**: Aktivieren Sie in der Benutzeroberfläche **NuGet-Pakete verwalten** das Kontrollkästchen **Vorabversion einbeziehen**. Wenn Sie dieses Kontrollkästchen aktivieren oder deaktivieren, wird die Benutzeroberfläche des Paket-Managers sowie die Liste der verfügbaren Versionen aktualisiert, die Sie installieren können.
 
     ![Kontrollkästchen „Vorabversion einbeziehen“ in Visual Studio](media/Prerelease_02-CheckPrerelease.png)
 
-- **Paket-Manager-Konsole**: Verwenden Sie den Parameter `-IncludePrerelease` zusammen mit den Befehlen `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` und `Update-Package`. Lesen Sie hierzu die [PowerShell-Referenz](../tools/powershell-reference.md).
+- **Paket-Manager-Konsole**: Verwenden Sie den Schalter `-IncludePrerelease` zusammen mit den Befehlen `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` und `Update-Package`. Lesen Sie hierzu die [PowerShell-Referenz](../tools/powershell-reference.md).
 
-- **nuget.exe-CLI**: Verwenden Sie den Parameter `-prerelease` zusammen mit den Befehlen `install`, `update`, `delete` und `mirror`. Weitere Informationen finden Sie in der [NuGet CLI reference (Referenz für die NuGet-CLI)](../tools/nuget-exe-cli-reference.md).
+- **nuget.exe-CLI**: Verwenden Sie den Schalter `-prerelease` zusammen mit den Befehlen `install`, `update`, `delete` und `mirror`. Weitere Informationen finden Sie in der [NuGet CLI reference (Referenz für die NuGet-CLI)](../tools/nuget-exe-cli-reference.md).
 
 - **dotnet.exe-CLI**: Geben Sie die genaue Vorabversion mit dem Argument `-v` an. Informationen finden Sie in der [Referenz zu „dotnet add package“](/dotnet/core/tools/dotnet-add-package).
 
@@ -96,13 +96,13 @@ Allerdings bedeutet das Verwenden eines NuGet-Pakets auch, dass eine Abhängigke
 
 - *Kontaktieren der Besitzer:* Neue Entwickler können gleichermaßen dazu fähig sein, für Sie nützliche Pakete zu erstellen. Es ist daher ratsam, diesen eine Chance zu geben, NuGet mit neuen Inhalten zu bereichern. Nutzen Sie deshalb die Option **Contact Owners** (Besitzer kontaktieren), die sich auf der Angebotsseite unter **Info** befindet, um Paketentwickler direkt zu kontaktieren. Diese arbeiten sicherlich gerne mit Ihnen zusammen, um Ihre Vorstellungen umzusetzen.
 
-- *Reservierte Paket-ID-Präfixe*: Viele Paketbesitzer haben ein [reserviertes Paket-ID-Präfix](../reference/id-prefix-reservation.md) beantragt und erhalten. Wenn Sie auf [nuget.org](https://www.nuget.org/) oder in Visual Studio das Häkchen neben einer Paket-ID sehen, bedeutet dies, dass der Paketbesitzer unsere [Kriterien](../reference/id-prefix-reservation.md#id-prefix-reservation-criteria) für die ID-Präfixreservierung erfüllt hat. Dies bedeutet, dass der Paketbesitzer sich und sein Paket eindeutig identifizieren kann.
+- *Reservierte Paket-ID-Präfixe*: Viele Paketbesitzer haben ein [reserviertes Paket-ID-Präfix](../nuget-org/id-prefix-reservation.md) beantragt und erhalten. Wenn Sie auf [nuget.org](https://www.nuget.org/) oder in Visual Studio das Häkchen neben einer Paket-ID sehen, bedeutet dies, dass der Paketbesitzer unsere [Kriterien](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria) für die ID-Präfixreservierung erfüllt hat. Dies bedeutet, dass der Paketbesitzer sich und sein Paket eindeutig identifizieren kann.
 
 > [!Note]
 > Sie sollten stets die Lizenzbedingungen eines Pakets beachten. Diese können Sie anzeigen, indem Sie auf der Angebotsseite eines Pakets auf nuget.org auf **License Info** (Lizenzinformationen) klicken. Wenn ein Paket keine Lizenzbedingungen angibt, kontaktieren Sie den Paketbesitzer direkt, indem Sie den Link **Contact owners** (Besitzer kontaktieren) auf der Seite für Pakete verwenden. Microsoft lizenziert kein geistiges Eigentum von Drittanbietern für Pakete und ist nicht verantwortlich für die durch Drittanbieter bereitgestellten Inhalte.
 
 ## <a name="license-url-deprecation"></a>Veralten der Lizenz-URL
-Beim Übergang von [licenseUrl](../reference/nuspec#licenseurl) zu [Lizenz](../reference/nuspec#license) haben einige NuGet-Clients und NuGet-Feeds möglicherweise in einigen Fällen noch nicht die Möglichkeit, Informationen zur Lizenzierung anzuzeigen. Um Abwärtskompatibilität zu gewährleisten, zeigt die Lizenz-URL auf dieses Dokument, das Informationen zum Abrufen der Lizenzinformationen in solchen Fällen enthält.
+Beim Übergang von [licenseUrl](../reference/nuspec.md#licenseurl) zu [Lizenz](../reference/nuspec.md#license) haben einige NuGet-Clients und NuGet-Feeds möglicherweise in einigen Fällen noch nicht die Möglichkeit, Informationen zur Lizenzierung anzuzeigen. Um Abwärtskompatibilität zu gewährleisten, zeigt die Lizenz-URL auf dieses Dokument, das Informationen zum Abrufen der Lizenzinformationen in solchen Fällen enthält.
 
 Wenn Sie durch Klicken auf die Lizenz-URL für ein Paket auf diese Seite weitergeleitet wurden, zeigt dies, dass das Paket eine Lizenzdatei enthält, und
 * Sie sind mit einem Feed verbunden, der noch nicht weiß, wie die neuen Lizenzinformationen zu interpretieren sind und dem Client angezeigt werden müssen, **ODER**

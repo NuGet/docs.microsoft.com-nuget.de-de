@@ -1,26 +1,26 @@
 ---
-title: Konfigurieren des NuGet-Verhaltens
+title: Gängige NuGet-Konfigurationen
 description: NuGet.Config-Dateien steuern das Verhalten von NuGet global und auf Projektebene und werden mit dem Befehl „nuget config“ bearbeitet.
 author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: 963d1d59ea7e65e3d75bc7105b8864e3e4045938
-ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
+ms.openlocfilehash: 57b7f29b533a8e6d7db2710c7e42a239f50199a1
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266336"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426651"
 ---
-# <a name="configuring-nuget-behavior"></a>Konfigurieren des NuGet-Verhaltens
+# <a name="common-nuget-configurations"></a>Gängige NuGet-Konfigurationen
 
 Das Verhalten von NuGet wird durch die Eigenschaften gesteuert, die in einer oder mehreren `NuGet.Config`-Dateien (XML) gesammelt sind, die auf Projekt-, Benutzer- oder Computerebene vorhanden sein kann. Eine globale `NuGetDefaults.Config`-Datei konfiguriert insbesondere Paketquellen. Die Einstellungen gelten für alle Befehle, die in der CLI, der Konsole oder der Benutzeroberfläche des Paket-Managers ausgeführt werden.
 
 ## <a name="config-file-locations-and-uses"></a>Speicherorte und Verwendungsmöglichkeiten von Konfigurationsdateien
 
-| Bereich | Speicherort der NuGet.Config-Datei | Beschreibung |
+| Bereich | Speicherort der NuGet.Config-Datei | BESCHREIBUNG |
 | --- | --- | --- |
-| Lösung | Aktueller Ordner (bzw. Projektmappenordner) oder ein beliebiger anderer Ordner im Stammlaufwerk.| In einem Projektmappenordner gelten die Einstellungen für alle Projekte in den Unterordnern. Beachten Sie, dass eine Konfigurationsdatei, die in einem Projektordner gespeichert wird, keine Auswirkungen auf das Projekt hat. |
+| Lösung | Aktueller Ordner (bzw. Projektmappenordner) oder ein beliebiger anderer Ordner im Stammlaufwerk.| In einem Projektmappenordner gelten die Einstellungen für alle Projekte in sämtlichen Unterordnern. Beachten Sie, dass eine Konfigurationsdatei, die in einem Projektordner gespeichert wird, keine Auswirkungen auf das Projekt hat. |
 | Benutzer | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.config/NuGet/NuGet.Config` oder `~/.nuget/NuGet/NuGet.Config` (je nach Betriebssystemverteilung) | Die Einstellungen gelten für alle Vorgänge, werden jedoch durch sämtliche Einstellungen auf Projektebene überschrieben. |
 | Computer | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME`. Wenn `$XDG_DATA_HOME` NULL oder leer ist, wird `~/.local/share` oder `/usr/local/share` verwendet (je nach Betriebssystemverteilung)  | Die Einstellungen gelten für alle Vorgänge auf dem Computer, werden jedoch von allen Einstellungen auf Benutzer- oder Projektebene überschrieben. |
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: c547ae1d46079d040d7c3aa4c7678e70cd199dce
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 4b365488c8dd0e081449552b06451e7b40b5223b
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548012"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426618"
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>Verwalten von globalen Pakete-, Cache- und temporären Ordnern
 
@@ -30,7 +30,7 @@ Durch die Verwendung des Cacheordners und des Ordners *global-packages* vermeide
 
 Wenn Sie aufgefordert werden, ein Paket abzurufen, sucht NuGet zuerst im Ordner *global-packages*. Wenn die genaue Version des Pakets nicht vorhanden ist, prüft NuGet alle Nicht-HTTP-Paketquellen. Wenn das Paket immer noch nicht gefunden wird, sucht NuGet nach dem Paket im *http-cache*, es sei denn, Sie geben `--no-cache` mit `dotnet.exe`-Befehlen oder `-NoCache` mit `nuget.exe`-Befehlen an. Wenn sich das Paket nicht im Cache befindet oder der Cache nicht verwendet wird, ruft NuGet das Paket über HTTP ab.
 
-Weitere Informationen finden Sie unter [Allgemeiner Installationsvorgang](ways-to-install-a-package.md#what-happens-when-a-package-is-installed).
+Weitere Informationen finden Sie unter [Was geschieht bei der Paketinstallation?](../concepts/package-installation-process.md).
 
 ## <a name="viewing-folder-locations"></a>Anzeigen der Speicherorte von Ordnern
 
@@ -100,7 +100,7 @@ nuget locals all -clear
 
 Alle Pakete, die von Projekten verwendet werden, die derzeit in Visual Studio geöffnet sind, werden nicht aus dem Ordner *global-packages* gelöscht.
 
-In Visual Studio 2017 verwenden Sie den Menübefehl **Extras > NuGet-Paket-Manager > Paket-Manager-Einstellungen**, und wählen Sie dann **Alle NuGet-Caches leeren**. Die Verwaltung des Caches ist derzeit nicht über die Paket-Manager-Konsole möglich. Verwenden Sie in Visual Studio 2015 stattdessen die CLI-Befehle.
+Ab Visual Studio 2017 verwenden Sie den Menübefehl **Extras > NuGet-Paket-Manager > Paket-Manager-Einstellungen**, und wählen Sie dann **Alle NuGet-Caches leeren**. Die Verwaltung des Caches ist derzeit nicht über die Paket-Manager-Konsole möglich. Verwenden Sie in Visual Studio 2015 stattdessen die CLI-Befehle.
 
 ![NuGet-Optionsbefehl zum Bereinigen des Caches](media/options-clear-caches.png)
 
@@ -108,7 +108,7 @@ In Visual Studio 2017 verwenden Sie den Menübefehl **Extras > NuGet-Paket-Manag
 
 Folgende Fehler können beim Verwenden von `nuget locals` oder `dotnet nuget locals` auftreten:
 
-- *Fehler: Der Prozess kann nicht auf die Datei <package> zugreifen, da sie bereits von einem anderen Prozess verwendet wird.* oder *Fehler beim Löschen der lokalen Ressourcen: Mindestens eine Datei konnte nicht gelöscht werden.*
+- *Fehler: Der Prozess kann nicht auf die Datei <package> zugreifen, da sie von einem anderen Prozess verwendet wird.* oder *Fehler beim Löschen der lokalen Ressourcen: Mindestens eine Datei konnte nicht gelöscht werden.*
 
     Mindestens eine Datei im Ordner wird von einem anderen Prozess verwendet; beispielsweise ist ein Visual Studio-Projekt geöffnet, das sich auf Pakete im Ordner *global-packages* bezieht. Schließen Sie diese Prozesse, und wiederholen Sie den Vorgang.
 
@@ -116,6 +116,6 @@ Folgende Fehler können beim Verwenden von `nuget locals` oder `dotnet nuget loc
 
     Sie haben keine Berechtigung zum Löschen von Dateien in dem Cache. Ändern Sie die Zugriffsberechtigungen für den Ordner, wenn möglich, und wiederholen Sie den Vorgang. Wenden Sie sich anderenfalls an Ihren Systemadministrator.
 
-- *Fehler: Der angegebene Pfad und/oder Dateiname ist zu lang. Der vollqualifizierte Dateiname muss weniger als 260 Zeichen umfassen, und der Verzeichnisname muss kürzer als 248 Zeichen sein.*
+- *Fehler: Der angegebene Pfad und/oder Dateiname sind zu lang. Der vollqualifizierte Dateiname muss weniger als 260 Zeichen umfassen, und der Verzeichnisname muss kürzer als 248 Zeichen sein.*
 
     Kürzen Sie die Ordnernamen, und wiederholen Sie den Vorgang.
