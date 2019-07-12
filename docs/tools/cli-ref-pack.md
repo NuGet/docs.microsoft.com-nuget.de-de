@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 9db24b2dd6ced0869ac84b25f9796ded5df10f86
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: c3a01b7747be96f02f7b93b3bf66f5d1783ceed7
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145643"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842550"
 ---
 # <a name="pack-command-nuget-cli"></a>Der Befehl „pack“ (NuGet-CLI)
 
@@ -50,8 +50,9 @@ wobei `<nuspecPath>` und `<projectPath>` angeben der `.nuspec` oder Projektdatei
 | Eigenschaften | Zuletzt in der Befehlszeile sollten nach der anderen Optionen angezeigt werden. Gibt eine Liste der Eigenschaften, die Werte in der Projektdatei überschrieben werden; finden Sie unter [gemeinsame MSBuild-Projekteigenschaften](/visualstudio/msbuild/common-msbuild-project-properties) für Eigenschaftsnamen. Hier das Eigenschaften-Argument ist eine Liste von Token = Wert-Paaren, durch Semikolons getrennt, in denen jedes Vorkommen von `$token$` in die `.nuspec` Datei mit dem angegebenen Wert ersetzt werden. Werte können Zeichenfolgen in Anführungszeichen sein. Beachten Sie, dass für die Eigenschaft "Konfiguration" die Standardeinstellung ist "Debug". Verwenden Sie zum Ändern zu einer versionskonfiguration `-Properties Configuration=Release`. |
 | Suffix | *(3.4.4+)*  Fügt ein Suffix, die intern generierte Versionsnummer, die in der Regel zum Anfügen von Build oder andere Vorabversion-IDs verwendet. Verwenden Sie beispielsweise `-suffix nightly` erstellt ein Paket mit einer Version Anzahl Like `1.2.3-nightly`. Suffixe müssen mit einem Buchstaben, vermeiden Sie Warnungen, Fehler und mögliche Inkompatibilitäten mit verschiedenen Versionen von NuGet und den NuGet-Paket-Manager starten. |
 | Symbole | Gibt an, dass das Paket Quellen und Symbole enthält. Bei Verwendung mit einem `.nuspec` Datei dies eine normale NuGet-Paket-Datei erstellt und das entsprechende Symbolpaket. Erstellt standardmäßig eine [ältere Symbolpaket](../create-packages/Symbol-Packages.md). Das neue empfohlene Format für Symbolpakete ist „.snupkg“. Weitere Informationen finden Sie unter [Erstellen von Symbolpaketen (.snupkg)](../create-packages/Symbol-Packages-snupkg.md). |
+| SymbolPackageFormat | Gibt das Symbolpaket-Format an: *symbols.nupkg* (legacy) oder *Snupkg* (empfohlen). Erstellt standardmäßig eine [ältere Symbolpaket](../create-packages/Symbol-Packages.md). Weitere Informationen finden Sie unter [Erstellen von Symbolpaketen (.snupkg)](../create-packages/Symbol-Packages-snupkg.md). |
 | Tool | Gibt an, dass die Ausgabedateien des Projekts soll, in platziert werden der `tool` Ordner. |
-| Ausführlichkeit | Gibt an, die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *quiet*, *ausführliche*. |
+| Verbosity | Gibt an, die Anzahl der Details in der Ausgabe angezeigt: *normalen*, *quiet*, *ausführliche*. |
 | Version | Überschreibt die Version aus der `.nuspec` Datei. |
 
 Siehe auch [Umgebungsvariablen](cli-ref-environment-variables.md)
