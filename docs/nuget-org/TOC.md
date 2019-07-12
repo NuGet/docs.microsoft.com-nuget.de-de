@@ -11,7 +11,8 @@
 ## [Konfliktlösung](policies/dispute-resolution.md)
 ## [Löschen von Paketen](policies/deleting-packages.md)
 ## [Exportieren von Steuerelementen](policies/export-control.md)
-# Verweis
+# Referenz
 ## [NuGet-API](../api/overview.md)
 ## [licenses.nuget.org](licenses.nuget.org.md)
+# Ressourcen
 ## [Häufig gestellte Fragen](nuget-org-faq.md)
