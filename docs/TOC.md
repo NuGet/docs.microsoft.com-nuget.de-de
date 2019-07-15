@@ -15,7 +15,7 @@
 ### [Visual Studio für Mac](/visualstudio/mac/nuget-walkthrough?toc=/nuget/toc.json)
 ### [dotnet-CLI](consume-packages/install-use-packages-dotnet-cli.md)
 ### [nuget.exe-CLI](consume-packages/install-use-packages-nuget-cli.md)
-### [PowerShell](tools/package-manager-console.md)
+### [Paket-Manager-Konsole (PowerShell)](tools/package-manager-console.md)
 ## Konfigurieren von NuGet
 ### Optionen zur Paketwiederherstellung
 #### [Wiederherstellungsoptionen](consume-packages/package-restore.md)
@@ -31,21 +31,23 @@
 ### [packages.config](reference/packages-config.md)
 # Erstellen von Paketen
 ## [Übersicht und Workflow](create-packages/overview-and-workflow.md)
-## [Erstellen eines Pakets: nuget.exe-CLI](create-packages/creating-a-package.md)
+## [Erstellen eines Pakets](create-packages/creating-a-package.md)
 ## [Erstellen eines Pakets mit MSBuild](reference/msbuild-targets.md)
 ## [Unterstützung mehrerer Zielframeworks](create-packages/supporting-multiple-target-frameworks.md)
 ## [Erstellen eines Vorabversionspakets](create-packages/prerelease-packages.md)
 ## [Erstellen eines Symbolpakets](create-packages/symbol-packages-snupkg.md)
 ## Aufgaben für Fortgeschrittene
 ### [Ändern von Quellcode und Konfigurationsdateien](create-packages/source-and-config-file-transformations.md)
-### [Erstellen eines lokalisierten Pakets](create-packages/creating-localized-packages.md)
 ### [Auswählen von Assemblys, auf die von Projekten verwiesen wird](create-packages/select-assemblies-referenced-by-projects.md)
+### [Festlegen des Pakettyps](create-packages/set-package-type.md)
+### [Erstellen eines lokalisierten Pakets](create-packages/creating-localized-packages.md)
 ## Anleitungen für bestimmte Inhalte
 ### [Erstellen eines UWP-Pakets](guides/create-uwp-packages.md)
 ### [Erstellen eines nativen Pakets](create-packages/native-packages.md)
 ### [Erstellen von Benutzeroberflächensteuerelementen als NuGet-Pakete](guides/create-UI-controls.md)
 ### [Erstellen eines Analysetools als NuGet-Paket](reference/analyzers-conventions.md)
 ### [Erstellen eines Pakets für Xamarin mit Visual Studio 2015](guides/create-packages-for-xamarin.md)
+### [Erstellen eines Pakets, das COM-Interop-Assemblys enthält](create-packages/author-packages-with-COM-interop-assemblies.md)
 ## Signieren von Paketen
 ### [Signieren eines Pakets](create-packages/sign-a-package.md)
 ### [Signieren von Paketsignaturen und -anforderungen](reference/signed-packages-reference.md)
@@ -62,18 +64,18 @@
 ## [Paketinstallationsprozess](concepts/package-installation-process.md)
 ## [Paketversionsverwaltung](reference/package-versioning.md)
 ## [Abhängigkeitsauflösung](consume-packages/dependency-resolution.md)
-# Verweis
+# Referenz
 ## [.nuspec](reference/nuspec.md)
 ## [Datei „nuget.config“](reference/nuget-config-file.md)
 ## [Zielframeworks](reference/target-frameworks.md)
 ## [dotnet-CLI](tools/dotnet-Commands.md)
 ## [Referenz zur nuget.exe-CLI](tools/nuget-exe-cli-reference.md)
-### [Hinzufügen](tools/cli-ref-add.md)
+### [add](tools/cli-ref-add.md)
 ### [config](tools/cli-ref-config.md)
 ### [delete](tools/cli-ref-delete.md)
 ### [help or ?](tools/cli-ref-help.md)
 ### [init](tools/cli-ref-init.md)
-### [Installieren](tools/cli-ref-install.md)
+### [install](tools/cli-ref-install.md)
 ### [list](tools/cli-ref-list.md)
 ### [locals](tools/cli-ref-locals.md)
 ### [mirror](tools/cli-ref-mirror.md)
@@ -111,7 +113,7 @@
 #### [Push-Symbolpaketen](api/symbol-package-publish-resource.md)
 #### [URL für das Melden von Missbrauch](api/report-abuse-resource.md)
 #### [Repository-Signaturen](api/repository-signatures-resource.md)
-#### [Suchen,](api/search-query-service-resource.md)
+#### [Suchen](api/search-query-service-resource.md)
 #### [Dienstindex](api/service-index.md)
 ### [Gewusst wie: Abfrage für alle Pakete mithilfe der API](guides/api/query-for-all-published-packages.md)
 ### [Begrenzung der Bandbreite](api/rate-limits.md)
@@ -254,7 +256,7 @@
 ### [project.json-Verwaltungsformat](archive/project-json.md)
 ### [„project.json“ und UWP](archive/project-json-and-uwp.md)
 ### [Auswirkungen von „project.json“](archive/project-json-impact.md)
-# Erweiterbarkeit
+# Erweiterungen
 ## Erweiterbarkeit: NuGet-Plug-Ins
 ### [Plattformübergreifende NuGet-Plug-Ins](reference/extensibility/NuGet-Cross-Platform-Plugins.md)
 ### [Plattformübergreifendes Authentifizierungs-Plug-In für NuGet](reference/extensibility/nuget-cross-platform-authentication-plugin.md)
@@ -269,7 +271,7 @@
 ### [Governance](policies/governance.md)
 ### [Ökosystem](policies/ecosystem.md)
 ### [NuGet.org-Richtlinien](nuget-org/policies/data-requests.md)
-## Versionshinweise
+## Anmerkungen zu diesem Release
 ### [Bekannte Probleme](release-notes/known-issues.md)
 ### [NuGet 5.0 RTM](release-notes/NuGet-5.0-RTM.md)
 ### NuGet 4.x
@@ -334,5 +336,6 @@
 #### [NuGet 1.3](release-notes/NuGet-1.3.md)
 #### [NuGet 1.2](release-notes/NuGet-1.2.md)
 #### [NuGet 1.1](release-notes/NuGet-1.1.md)
-## [Häufig gestellte Fragen](faqs/nuget-faq.md)
+## [Häufig gestellte Fragen (FAQs)](faqs/nuget-faq.md)
+## [Projektformat](resources/check-project-format.md)
 # [NuGet.org](nuget-org/overview-nuget-org.md)
