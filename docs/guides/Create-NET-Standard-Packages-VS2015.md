@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 02/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: af0c42853a9e407557a010ff2793406499b4b2ef
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 1198a781543e581f55740cc0ae5a212d3f8a8b61
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426878"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842442"
 ---
 # <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>Erstellen von .NET Standard- und .NET Framework-Paketen mit Visual Studio 2015
 
@@ -68,7 +68,7 @@ Dieser Leitfaden begleitet Sie durch das Erstellen eines NuGet-Pakets für die .
     nuget spec
     ```
 
-1. Öffnen Sie `AppLogger.nuspec` in einem Editor, aktualisieren Sie die Datei gemäß den folgenden Angaben, und ersetzen Sie YOUR_NAME dabei durch einen entsprechenden Wert. Insbesondere der `<id>`-Wert muss auf nuget.org eindeutig sein. Weitere Informationen zu den Namenskonventionen finden Sie unter [Creating a package (Erstellen eines Pakets)](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number). Beachten Sie außerdem, dass Sie ebenfalls die Tags für den Autor und die Beschreibung ändern müssen, damit beim Packen kein Fehler ausgelöst wird.
+1. Öffnen Sie `AppLogger.nuspec` in einem Editor, aktualisieren Sie die Datei gemäß den folgenden Angaben, und ersetzen Sie YOUR_NAME dabei durch einen entsprechenden Wert. Insbesondere der `<id>`-Wert muss auf nuget.org eindeutig sein. Weitere Informationen zu den Namenskonventionen finden Sie unter [Creating a package (Erstellen eines Pakets)](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number). Beachten Sie außerdem, dass Sie ebenfalls die Tags für den Autor und die Beschreibung ändern müssen, damit beim Packen kein Fehler ausgelöst wird.
 
     ```xml
     <?xml version="1.0"?>
@@ -167,7 +167,7 @@ Beachten Sie, dass für `pack` Mono 4.4.2 unter Mac OS X erforderlich ist und da
 
 - [NUSPEC-Referenz](../reference/nuspec.md)
 - [Unterstützen mehrerer .NET Framework-Versionen](../create-packages/supporting-multiple-target-frameworks.md)
-- [Einfügen von MSBuild-Eigenschaften und -Zielen in ein Paket](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)
+- [Einfügen von MSBuild-Eigenschaften und -Zielen in ein Paket](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [Erstellen von lokalisierten Paketen](../create-packages/creating-localized-packages.md)
 - [Symbolpakete](../create-packages/symbol-packages.md)
 - [Paketversionsverwaltung](../reference/package-versioning.md)

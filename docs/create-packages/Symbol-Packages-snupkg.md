@@ -16,12 +16,12 @@ keywords: NuGet-Symbolpakete, Debugging von NuGet-Paketen, Unterstützung von Nu
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 0d82cf8614b88247bc3a3ba3019c11bf1b5e2593
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 9f9cdd188cf2ec678bc9047604e618f1af9124ae
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426803"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842466"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Erstellen von Symbolpaketen (.snupkg)
 
@@ -54,7 +54,7 @@ Wenn Sie „dotnet.exe“ oder MSBuild verwenden, können Sie folgende Schritte 
 
 1. Packen Sie Ihr Projekt mit `dotnet pack MyPackage.csproj` oder `msbuild -t:pack MyPackage.csproj`.
 
-Die Eigenschaft [`SymbolPackageFormat`](/dotnet/core/tools/csproj.md#symbolpackageformat) kann einen von zwei Werten besitzen: `symbols.nupkg` (Standard) oder `snupkg`. Wenn die Eigenschaft [`SymbolPackageFormat`](/dotnet/core/tools/csproj.md#symbolpackageformat) nicht festgelegt wurde, wird ein älteres Symbolpaket erstellt.
+Die Eigenschaft [`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) kann einen von zwei Werten besitzen: `symbols.nupkg` (Standard) oder `snupkg`. Wenn die Eigenschaft [`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) nicht festgelegt wurde, wird ein älteres Symbolpaket erstellt.
 
 > [!Note]
 > Das ältere Format `.symbols.nupkg` wir noch immer unterstützt, jedoch nur aus Kompatibilitätsgründen (weitere Informationen unter [Erstellen von Symbolpaketen](Symbol-Packages.md)). Der NuGet.org-Symbolserver akzeptiert nur das neue Symbolpaketformat `.snupkg`.

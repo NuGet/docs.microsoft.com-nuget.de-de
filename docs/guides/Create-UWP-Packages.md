@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/21/2017
 ms.topic: tutorial
-ms.openlocfilehash: 52f2057f7d1012b75bba9e8730eacffd99adacfa
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 344c8d764180d0f33c1bce77b721e3657297e74e
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426860"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842126"
 ---
 # <a name="create-uwp-packages"></a>Erstellen von UWP-Paketen
 
@@ -58,7 +58,7 @@ Befolgen Sie folgende drei Schritte, um die erste `.nuspec`-Datei zu erstellen. 
     nuget spec
     ```
 
-1. Öffnen Sie `ImageEnhancer.nuspec` in einem Editor, und aktualisieren Sie die Datei, damit Sie dem Folgenden entspricht. Dabei wird YOUR_NAME durch einen passenden Wert ersetzt. Insbesondere der `<id>`-Wert muss auf nuget.org eindeutig sein. Weitere Informationen zu den Namenskonventionen finden Sie unter [Creating a package (Erstellen eines Pakets)](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number). Beachten Sie außerdem, dass Sie ebenfalls die Tags für den Autor und die Beschreibung ändern müssen, damit beim Packen kein Fehler ausgelöst wird.
+1. Öffnen Sie `ImageEnhancer.nuspec` in einem Editor, und aktualisieren Sie die Datei, damit Sie dem Folgenden entspricht. Dabei wird YOUR_NAME durch einen passenden Wert ersetzt. Insbesondere der `<id>`-Wert muss auf nuget.org eindeutig sein. Weitere Informationen zu den Namenskonventionen finden Sie unter [Creating a package (Erstellen eines Pakets)](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number). Beachten Sie außerdem, dass Sie ebenfalls die Tags für den Autor und die Beschreibung ändern müssen, damit beim Packen kein Fehler ausgelöst wird.
 
     ```xml
     <?xml version="1.0"?>
@@ -256,5 +256,5 @@ Befolgen Sie die Anweisungen unter [Veröffentlichen eines Pakets](../nuget-org/
 - [Symbolpakete](../create-packages/symbol-packages.md)
 - [Paketversionsverwaltung](../reference/package-versioning.md)
 - [Unterstützung mehrerer .NET Framework-Versionen](../create-packages/supporting-multiple-target-frameworks.md)
-- [Einfügen von MSBuild-Eigenschaften und -Zielen in ein Paket](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)
+- [Einfügen von MSBuild-Eigenschaften und -Zielen in ein Paket](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [Erstellen von lokalisierten Paketen](../create-packages/creating-localized-packages.md)
