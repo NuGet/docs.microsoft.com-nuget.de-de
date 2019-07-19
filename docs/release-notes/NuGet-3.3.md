@@ -1,62 +1,62 @@
 ---
-title: Anmerkungen zu NuGet 3.3
-description: Anmerkungen zu NuGet 3.3, einschließlich der bekannten Probleme, Fehlerkorrekturen, hinzugefügter Features und DCRs.
+title: Anmerkungen zu dieser Version von nuget 3,3
+description: Anmerkungen zu dieser Version von nuget 3,3 einschließlich bekannter Probleme, Fehlerbehebungen, hinzugefügter Features und dcrs.
 author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 5fb840ab6a1329611e9cf417724bcdcd75efe2df
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 482c03a4f6ca39edf317b6ef8d535e79b53d5d16
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546646"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317039"
 ---
-# <a name="nuget-33-release-notes"></a>Anmerkungen zu NuGet 3.3
+# <a name="nuget-33-release-notes"></a>Anmerkungen zu dieser Version von nuget 3,3
 
-[Anmerkungen zu NuGet 3.2.1](../release-notes/nuget-3.2.1.md) | [NuGet 3.4-RC-Versionsanmerkungen](../release-notes/nuget-3.4-RC.md)
+[Versions Anmerkungen](../release-notes/nuget-3.2.1.md) | zu nuget 3.2.1[nuget 3,4-RC Anmerkungen](../release-notes/nuget-3.4-RC.md) zu dieser Version
 
-NuGet 3.3 wurde am 30. November 2015 mit einer großen Anzahl von Benutzerschnittstellen-Updates und -Befehlszeilenfunktionen sowie eine Sammlung von nützlich Fehlerbehebungen für die NuGet-Clients veröffentlicht.
+Nuget 3,3 wurde am 30. November 2015 mit einer erheblichen Anzahl von Benutzeroberflächen Updates und Befehlszeilen Features sowie eine Sammlung nützlicher Korrekturen für die nuget-Clients veröffentlicht.
 
 ## <a name="new-features"></a>Neue Funktionen
 
-* Anmeldeinformationsanbieter wurden eingeführt, mit denen Befehlszeilen NuGet-Clients, um die nahtlose Zusammenarbeit mit einem authentifizierten-Feed zu können. [Anweisungen zum Installieren von Visual Studio Team Services-Anmeldeinformationen Anbieter ](../api/nuget-exe-credential-providers.md) und Konfigurieren des NuGet-Pakets Clients seiner Verwendung finden Sie auf NuGet-Dokumentation.
+* Es wurden Anmelde Informationsanbieter eingeführt, mit denen nuget-Befehlszeilen Clients nahtlos mit einem authentifizierten Feed arbeiten können. [Anweisungen zum Installieren des Visual Studio Team Services](../api/nuget-exe-credential-providers.md) Anmelde Informationsanbieters und zum Konfigurieren der zu verwendenden nuget-Clients finden Sie unter nuget-Dokumentation.
 
-## <a name="new-user-interface-features"></a>Neue Features der Benutzeroberfläche
+## <a name="new-user-interface-features"></a>Neue Benutzeroberflächen Features
 
-* Separate Registerkarten für das Durchsuchen, installiert und Updates verfügbar
-* Verfügbare Updates-Badge, der angibt, der Anzahl der Pakete mit verfügbaren updates
-* Paketbadges in der Paketliste angeben, ob das Paket installiert ist, oder ein Update verfügbar ist
-* Herunterladen Sie Anzahl und der Autor hinzugefügt, um die Liste der Pakete
-* Anzahl der höchste verfügbare Version und die Anzahl der aktuell installierten Version in der Paketliste
-* Aktionsschaltflächen können schnell installieren, aktualisieren und deinstallieren Sie auf die Liste der Pakete
-* Klarer Aktionsschaltflächen im Bereich der Paket-Details
-* Paket Aktualisierungsdatum im Bereich der Paket-Details
-* Bereich, in der Projektmappenansicht konsolidieren
-* Sortierbar Raster von Projekten und der installierten Versionsnummern in der Projektmappenansicht
+* Getrennte Registerkarten zum Durchsuchen, installieren und aktualisieren
+* Verfügbarer Hinweis "Updates" gibt die Anzahl der Pakete mit verfügbaren Updates an
+* Paket Ausweise in der Paketliste, um anzugeben, ob das Paket installiert ist oder ein Update verfügbar ist
+* Download Anzahl und Autor zur Paketliste hinzugefügt
+* Höchste verfügbare Versionsnummer und aktuell installierte Versionsnummer in der Paketliste
+* Aktions Schaltflächen für die schnelle Installation, Aktualisierung und Deinstallation in der Paketliste
+* Klarere Aktions Schaltflächen im Paket Detailbereich
+* Paket Aktualisierungsdatum im Paket Detailbereich
+* Bereich "konsolidieren" in der Lösungs Ansicht
+* Sortier bares Raster von Projekten und installierten Versionsnummern in der projektmappenansicht
 
-## <a name="new-command-line-features"></a>Neue Befehlszeile Features
+## <a name="new-command-line-features"></a>Neue Befehlszeilen Funktionen
 
-In dieser Version eingeführten wir die `add` und `init` Befehle aus, um die Ordner-basierten Repositorys zu initialisieren, wie beschrieben in der [Referenz zur nuget.exe](../tools/nuget-exe-cli-reference.md). Repositorys, die erstellt und verwaltet, die mit diesem Ordner-Struktur wird [bieten Sie beachtliche Leistungsvorteile](http://blog.nuget.org/20150922/Accelerate-Package-Source.html) wie beschrieben in unserem Blog.
+In dieser Version haben wir die `add` Befehle `init` und eingeführt, um Ordner basierte Depots zu initialisieren, wie in der Referenz zu " [nuget. exe](../reference/nuget-exe-cli-reference.md)" beschrieben. Mit dieser Ordnerstruktur erstellte und erhaltene Depots [bieten bedeutende Leistungsvorteile](http://blog.nuget.org/20150922/Accelerate-Package-Source.html) , die in unserem Blog beschrieben werden.
 
 ## <a name="contentfiles"></a>ContentFiles
 
-Inhalt wird nun unterstützt `project.json` zu verwalteten Projekten, die über die neue `contentFiles` Ordner und `.nuspec` `contentFiles` Element-Notation.  Dieser Inhalt kann direkt vom Paketersteller für Interaktionen mit Projektsystemen angegeben werden.  Weitere Informationen zum Konfigurieren von "contentfiles" in einem `.nuspec` Dokument finden Sie in der [NuSpec-Referenz](../reference/nuspec.md).
+Der Inhalt wird nun in `project.json` verwalteten Projekten durch die neue `contentFiles` Ordner- `.nuspec` und `contentFiles` Element Notation unterstützt.  Dieser Inhalt kann vom Paket Ersteller für Interaktionen mit Projekt Systemen direkt angegeben werden.  Weitere Informationen zum Konfigurieren von contentfiles in einem `.nuspec` Dokument finden Sie in der [nuspec-Referenz](../reference/nuspec.md).
 
-## <a name="nuget-locals-cache-management"></a>NuGet "lokal" Cache-Verwaltung
+## <a name="nuget-locals-cache-management"></a>Lokale nuget-Cache Verwaltung
 
-Das NuGet-Befehlszeile wurde aktualisiert, um Informationen zum Verwalten des lokalen Caches auf einer Arbeitsstation gehören.  Weitere Informationen zu den Befehl "Locals" steht in der [NuGet-Befehlszeilenreferenz](../tools/cli-ref-locals.md).
+Die nuget-Befehlszeile wurde aktualisiert und enthält Informationen zum Verwalten der lokalen Caches auf einer Arbeitsstation.  Weitere Informationen zum Befehl "Locals" finden Sie in der [nuget-Befehlszeilen Referenz](../reference/cli-reference/cli-ref-locals.md).
 
 ## <a name="fixed-issues"></a>Behobene Probleme
 
 **Relevante Probleme**
 
-* NuGet-Befehlszeile wiederhergestellten Unterstützung für die Wiederherstellung mit einer Projektmappe unter Mono - Pakete [1543](https://github.com/NuGet/Home/issues/1543)
+* [1543](https://github.com/NuGet/Home/issues/1543) in der nuget-Befehlszeilen Wiederherstellung wiederhergestellte Unterstützung für die Wiederherstellung von Paketen mit einer Projektmappendatei
 
-Die vollständige Liste der in der Version 3.3 behandelten Probleme finden Sie auf GitHub unter den [3.3 Meilenstein](https://github.com/NuGet/Home/issues?q=is%3Aissue+milestone%3A3.3.0+is%3Aclosed).
+Eine umfassende Liste der Probleme, die in Version 3,3 behoben wurden, finden Sie auf GitHub unter dem [3,3-Meilenstein](https://github.com/NuGet/Home/issues?q=is%3Aissue+milestone%3A3.3.0+is%3Aclosed).
 
-Die Liste der in der Befehlszeile 3.3-Version behobene Probleme in aufgezeichnet werden die [3.3 Befehlszeilen Meilenstein](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A3.3.0-commandline).
+Die Liste der Probleme, die in der 3,3-Befehlszeilen Freigabe behoben wurden, wird im [3,3-Befehlszeilen Meilenstein](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A3.3.0-commandline)aufgezeichnet.
 
 ## <a name="known-issues"></a>Bekannte Probleme
 
-Wir fahren fort, um Probleme in der Liste unserer GitHub-Probleme nachzuverfolgen, die finden Sie unter: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)
+Wir verfolgen weiterhin Probleme in unserer GitHub-Liste mit Problemen, die unter folgenden Themen zu finden sind:[http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

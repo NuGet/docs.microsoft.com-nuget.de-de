@@ -1,60 +1,60 @@
 ---
 title: Signierte Pakete
-description: Anforderungen zum Signieren von NuGet-Paket.
+description: Anforderungen für das Signieren von nuget-Paketen
 author: rido-min
 ms.author: rmpablos
 ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 952256a24246543ecd4c37285cd001622aa2bc46
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: e02b2a241008b1b7096f20b351173fd3df7ed172
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426178"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317519"
 ---
 # <a name="signed-packages"></a>Signierte Pakete
 
-*NuGet 4.6.0+ und Visual Studio 2017 Version 15.6 und höher*
+*Nuget 4.6.0 + und Visual Studio 2017 Version 15,6 und höher*
 
-NuGet-Paketen können es sich um eine digitale Signatur enthalten, die Schutz vor manipulierte Inhalte bereitstellt. Diese Signatur wird aus einem x. 509-Zertifikat erstellt, die die eigentliche Quelle des Pakets auch Authentizität Nachweise hinzufügt.
+Nuget-Pakete können eine digitale Signatur enthalten, die Schutz vor Manipulations Inhalten bietet. Diese Signatur wird von einem X. 509-Zertifikat erzeugt, das dem eigentlichen Ursprung des Pakets auch Authentizitäts Nachweise hinzufügt.
 
-Signierte Pakete bereitstellen die stärkste End-to-End-Überprüfung. Es gibt zwei verschiedene Arten von NuGet-Signaturen:
-- **Erstellen der Signatur**. Eine Autor-Signatur wird sichergestellt, dass das Paket nicht geändert wurde, seit der Autor signiert das Paket, unabhängig davon aus dem Repository, oder welche Methode transport wird das Paket bereitgestellt. Darüber hinaus bieten Autor signierte Pakete einen zusätzlichen Authentifizierungsmechanismus für die Veröffentlichung nuget.org-Pipeline aus, da das Signaturzertifikat vorab registriert werden muss. Weitere Informationen finden Sie unter [Registrieren von Zertifikaten](#signature-requirements-on-nugetorg).
-- **Repository-Signatur**. Repository-Signaturen bieten eine Garantie der Integrität für **alle** Pakete in einem Repository, ob diese Autor signiert oder unsigniert, sind, auch wenn diese Pakete aus einem anderen Ort als das ursprüngliche Repository abgerufen werden, in denen sie waren, signiert.   
+Signierte Pakete bieten die stärkste End-to-End-Validierung. Es gibt zwei verschiedene Arten von nuget-Signaturen:
+- **Signatur des Autors**. Eine Autoren Signatur garantiert, dass das Paket nicht geändert wurde, seit der Autor das Paket signiert hat, unabhängig davon, welches Repository oder welche Transportmethode das Paket übermittelt. Außerdem bieten Autor-signierte Pakete einen zusätzlichen Authentifizierungsmechanismus für die nuget.org-Veröffentlichungs Pipeline, da das Signaturzertifikat vorab registriert werden muss. Weitere Informationen finden Sie unter [Registrieren von Zertifikaten](#signature-requirements-on-nugetorg).
+- **Repository-Signatur**. Repository-Signaturen stellen eine Integritäts Garantie für **alle** Pakete in einem Repository dar, unabhängig davon, ob Sie Autor signiert sind oder nicht, auch wenn diese Pakete von einem anderen Speicherort als dem ursprünglichen Repository abgerufen werden, in dem Sie signiert wurden.   
 
-Ausführliche Informationen zum Erstellen eines signierten Autor-Pakets, finden Sie unter [Pakete signieren](../create-packages/Sign-a-package.md) und [Nuget-anmelden-Befehl](../tools/cli-ref-sign.md).
+Weitere Informationen zum Erstellen eines signierten Pakets mit Vorzeichen finden Sie [unter Signieren von Paketen](../create-packages/Sign-a-package.md) und [nuget](../reference/cli-reference/cli-ref-sign.md)-Signierungs Befehl.
 
 > [!Important]
-> Paketsignierung wird derzeit nur bei Verwendung von nuget.exe auf Windows unterstützt. Überprüfung von signierten Paketen werden derzeit nur bei Verwendung von nuget.exe- oder Visual Studio für Windows.
+> Die Paket Signierung wird derzeit nur unterstützt, wenn "nuget. exe" unter Windows verwendet wird. Die Überprüfung von signierten Paketen wird derzeit nur unterstützt, wenn Sie "nuget. exe" oder Visual Studio unter Windows verwenden.
 
-## <a name="certificate-requirements"></a>Zertifikatanforderungen
+## <a name="certificate-requirements"></a>Zertifikat Anforderungen
 
-Paketsignierung erfordert ein Codesignaturzertifikat, der eine besondere Art von Zertifikat ist, für ungültig ist, die `id-kp-codeSigning` Zweck [[RFC 5280 Abschnitt 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. Darüber hinaus muss das Zertifikat eine RSA Länge des öffentliche Schlüssels von 2048 Bits oder höher aufweisen.
+Zum Signieren von Paketen ist ein Code Signaturzertifikat erforderlich, bei dem es sich um einen speziellen Zertifikattyp handelt, der für den `id-kp-codeSigning` Zweck [[RFC 5280 section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)] gültig ist. Außerdem muss das Zertifikat eine öffentliche RSA-Schlüssellänge von 2048 Bits oder höher aufweisen.
 
-## <a name="timestamp-requirements"></a>Zeitstempel-Anforderungen
+## <a name="timestamp-requirements"></a>Timestamp-Anforderungen
 
-Signierte Pakete sollten einen Zeitstempel RFC 3161 Sicherstellen der Gültigkeit der Signatur über das Paket Signieren der Gültigkeitszeitraum des Zertifikats enthalten. Das Zertifikat zum Signieren des Zeitstempels muss für die `id-kp-timeStamping` Zweck [[RFC 5280 Abschnitt 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. Darüber hinaus muss das Zertifikat eine RSA Länge des öffentliche Schlüssels von 2048 Bits oder höher aufweisen.
+Signierte Pakete sollten einen RFC 3161-Zeitstempel enthalten, um die Gültigkeit der Signatur außerhalb der Gültigkeitsdauer des Paket Signatur Zertifikats sicherzustellen. Das zum Signieren des Zeitstempels verwendete Zertifikat muss für den `id-kp-timeStamping` Zweck [[RFC 5280 section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)] gültig sein. Außerdem muss das Zertifikat eine öffentliche RSA-Schlüssellänge von 2048 Bits oder höher aufweisen.
 
-Zusätzliche technische Details finden Sie in der [Paket Signatur technische Spezifikationen](https://github.com/NuGet/Home/wiki/Package-Signatures-Technical-Details) (GitHub).
+Weitere technische Details finden Sie in der [Paket Signatur Technical Spezifikationen](https://github.com/NuGet/Home/wiki/Package-Signatures-Technical-Details) (GitHub).
 
-## <a name="signature-requirements-on-nugetorg"></a>Signatur-Anforderungen auf NuGet.org
+## <a name="signature-requirements-on-nugetorg"></a>Signatur Anforderungen auf NuGet.org
 
-"NuGet.org" verfügt über zusätzliche Anforderungen für das Akzeptieren eines signierten Pakets:
+nuget.org bietet zusätzliche Anforderungen für die Annahme eines signierten Pakets:
 
-- Die primäre Signatur muss eine Signatur erstellen.
-- Die primäre Signatur muss einen einzigen gültigen Zeitstempel haben.
-- Die x. 509-Zertifikate für die Signatur der Autor und der Timestamp-Signatur:
-  - Benötigen Sie einen öffentlichen RSA-Schlüssel 2048 Bits betragen.
-  - Muss innerhalb seiner Gültigkeitsdauer pro aktuelle UTC-Zeit zum Zeitpunkt der paketüberprüfung auf nuget.org.
-  - Muss mit einer vertrauenswürdigen Stammzertifizierungsstelle verkettet, die standardmäßig unter Windows als vertrauenswürdig eingestuft wird. Pakete, die mit selbst ausgestellte Zertifikate signiert werden abgelehnt.
-  - Gültig muss für den Zweck: 
-    - Der Autor Signaturzertifikat muss zum Signieren von Code gültig sein.
-    - Der Timestamp-Zertifikat muss für Zeitstempel gültig sein.
-  - Muss auf den Zeitpunkt der Signatur nicht widerrufen werden. (Diese zum Zeitpunkt der Einreichung bei möglicherweise nicht so, dass nuget.org in regelmäßigen Abständen den Status der Zertifikatsperre dann nachkontrolliert).
+- Die primäre Signatur muss eine Autoren Signatur sein.
+- Die primäre Signatur muss einen einzelnen gültigen Zeitstempel aufweisen.
+- Die X. 509-Zertifikate für die Autor-Signatur und deren Zeitstempel Signatur:
+  - Muss über einen öffentlichen RSA-Schlüssel von 2048 Bits oder höher verfügen.
+  - Muss innerhalb der Gültigkeitsdauer der aktuellen UTC-Zeit zum Zeitpunkt der Paket Validierung auf nuget.org liegen.
+  - Muss zu einer vertrauenswürdigen Stamm Zertifizierungsstelle verkettet werden, die standardmäßig unter Windows als vertrauenswürdig eingestuft wird Pakete, die mit selbst ausgestellten Zertifikaten signiert sind, werden abgelehnt.
+  - Muss für den Zweck gültig sein: 
+    - Das Signaturzertifikat des Autors muss für die Code Signatur gültig sein.
+    - Das Zeitstempel Zertifikat muss für das Zeitstempel gültig sein.
+  - Muss zum Zeitpunkt der Signierung nicht widerrufen werden. (Dies ist möglicherweise zum Zeitpunkt der Übermittlung nicht erkennbar, sodass nuget.org den Sperr Status regelmäßig erneut überprüft.)
   
   
 ## <a name="related-articles"></a>Verwandte Artikel
 
 - [Signieren von NuGet-Paketen](../create-packages/Sign-a-Package.md)
-- [Paket Vertrauensgrenzen hinweg verwalten](../consume-packages/installing-signed-packages.md)
+- [Verwalten von Paketvertrauensgrenzen](../consume-packages/installing-signed-packages.md)

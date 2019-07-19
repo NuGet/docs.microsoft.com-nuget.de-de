@@ -1,23 +1,23 @@
 ---
-title: Übersicht über die NuGet-API
+title: Übersicht über die nuget-API
 description: Die NuGet-API ist eine Reihe von HTTP-Endpunkten, die zum Herunterladen von Paketen, Abrufen von Metadaten, Veröffentlichen von neuen Paketen usw. verwendet werden kann.
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: bb15b4decef104f1aefe37fd18f3358181a848af
-ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
+ms.openlocfilehash: e8e8fdeee4f0765e2409aea261db8217744ae2c7
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58637661"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68316996"
 ---
 # <a name="nuget-api"></a>NuGet-API
 
 Die NuGet-API ist eine Reihe von HTTP-Endpunkten, die dazu genutzt werden kann, Pakete herunterzuladen, Metadaten abzurufen, neue Pakete zu veröffentlichen und die meisten anderen Vorgänge durchzuführen, die in den offiziellen NuGet-Clients verfügbar sind.
 
-Diese API wird vom NuGet-Client in Visual Studio, nuget.exe und der .NET-CLI verwendet, um NuGet-Vorgänge auszuführen, z.B. [`dotnet restore`](/dotnet/core/tools/dotnet-restore?tabs=netcore2x), Suche in der Visual Studio-UI und [`nuget.exe push`](../tools/cli-ref-push.md).
+Diese API wird vom NuGet-Client in Visual Studio, nuget.exe und der .NET-CLI verwendet, um NuGet-Vorgänge auszuführen, z.B. [`dotnet restore`](/dotnet/core/tools/dotnet-restore?tabs=netcore2x), Suche in der Visual Studio-UI und [`nuget.exe push`](../reference/cli-reference/cli-ref-push.md).
 
 Beachten Sie, dass "nuget.org" in einigen Fällen zusätzliche Anforderungen besitzt, die nicht von anderen Paketquellen erzwungen werden. Diese Unterschiede sind in den [nuget.org-Protokollen](nuget-protocols.md) dokumentiert.
 
@@ -35,7 +35,7 @@ Weitere Informationen zum Dienstindex finden Sie in [der zugehörigen API-Refere
 
 ## <a name="versioning"></a>Versionskontrolle
 
-Die API ist Version 3 des NuGet HTTP-Protokolls. Dieses Protokoll wird manchmal als "API V3" bezeichnet. Diese Referenzdokumentation nennt diese Version des Protokolls einfach "die API".
+Die API ist Version 3 des NuGet HTTP-Protokolls. Dieses Protokoll wird manchmal als "v3-API" bezeichnet. Diese Referenzdokumentation nennt diese Version des Protokolls einfach "die API".
 
 Die Schemaversion des Dienstindex wird von der `version`-Eigenschaft im Dienstindex angegeben. Die API erfordert, dass die version-Zeichenfolge die Hautpversionsnummer `3` hat. Wenn API-kompatible Änderungen am Schema des Dienstindex durchgeführt werden, wird die Nebenversion der version-Zeichenfolge erhöht.
 
@@ -43,44 +43,44 @@ Die Schemaversion des Dienstindex wird von der `version`-Eigenschaft im Dienstin
 
 Die NuGet-V3-API wird so genannt, weil sie der Nachfolger der V2-API ist. Die V2-API war ein OData-basiertes Protokoll, das durch die 2.x-Version des offiziellen NuGet-Clients implementiert wurde. Die V3-API wurde zuerst durch die Version 3.0 des offiziellen NuGet-Clients unterstützt und ist weiterhin die neueste MAJOR-Protokollversion, die durch den NuGet-Client unterstützt wird. 
 
-Geschütztes Protokoll an die API wurde geändert, da es veröffentlicht wurde.
+An der API wurden seit der ersten Veröffentlichung nicht unterbrechende Protokoll Änderungen vorgenommen.
 
-## <a name="resources-and-schema"></a>Ressourcen und schema
+## <a name="resources-and-schema"></a>Ressourcen und Schema
 
-Die **dienstindex** beschreibt eine Reihe von Ressourcen. Der aktuelle Satz von unterstützten Ressourcen lauten wie folgt aus:
+Der **Dienst Index** beschreibt eine Vielzahl von Ressourcen. Der aktuelle Satz unterstützter Ressourcen lautet wie folgt:
 
 Ressourcenname                                                        | Erforderlich | Beschreibung
 -------------------------------------------------------------------- | -------- | -----------
-[Katalog](catalog-resource.md)                                       | Nein       | Vollständigen Datensatz aller Ereignisse für Paket.
-[PackageBaseAddress](package-base-address-resource.md)               | ja      | Paketinhalt (NUPKG) zu erhalten.
-[PackageDetailsUriTemplate](package-details-template-resource.md)    | Nein       | Erstellen Sie eine URL für den Zugriff auf eine Webseite des Paket-Details.
-[PackagePublish](package-publish-resource.md)                        | ja      | Mithilfe von Push übertragen und löschen (oder aus der Liste entfernen) Pakete.
-[RegistrationsBaseUrl](registration-base-url-resource.md)            | ja      | Abrufen von Metadaten von Paketen.
-[ReportAbuseUriTemplate](report-abuse-resource.md)                   | Nein       | Erstellen Sie eine URL für den Zugriff auf eine Webseite des Bericht-Missbrauch.
-[RepositorySignatures](repository-signatures-resource.md)            | Nein       | Abrufen von Zertifikaten, die zum Signieren von Repository verwendet.
-[SearchAutocompleteService](search-autocomplete-service-resource.md) | Nein       | Entdecken Sie die Paket-IDs und Versionen von Teilzeichenfolge.
-[SearchQueryService](search-query-service-resource.md)               | ja      | Filtern und Pakete nach Schlüsselwort suchen.
-[SymbolPackagePublish](symbol-package-publish-resource.md)           | Nein       | Push-Symbolpaketen an.
+[Katalog](catalog-resource.md)                                       | Nein       | Vollständiger Datensatz aller Paket Ereignisse.
+[Packagebaseaddress](package-base-address-resource.md)               | ja      | Get Package Content (. nupkg).
+[PackageDetailsUriTemplate](package-details-template-resource.md)    | Nein       | Erstellen Sie eine URL für den Zugriff auf die Webseite mit Paket Details.
+[Packagepublish](package-publish-resource.md)                        | ja      | Pakete per Push und DELETE (oder Unlist).
+[RegistrationsBaseUrl](registration-base-url-resource.md)            | ja      | Paket Metadaten erhalten.
+[ReportAbuseUriTemplate](report-abuse-resource.md)                   | Nein       | Erstellen Sie eine URL für den Zugriff auf eine Website zum missbrauchen von Berichten.
+[RepositorySignatures](repository-signatures-resource.md)            | Nein       | Zertifikate für die Repository-Signierung erhalten.
+[SearchAutocompleteService](search-autocomplete-service-resource.md) | Nein       | Ermitteln der Paket-IDs und-Versionen nach Teil Zeichenfolge.
+[SearchQueryService](search-query-service-resource.md)               | ja      | Filtern Sie nach und suchen Sie nach-Schlüsselwort.
+[SymbolPackagePublish](symbol-package-publish-resource.md)           | Nein       | Push-Symbol Pakete.
 
-Im Allgemeinen werden alle nicht binären Daten zurückgegeben, die von einer API-Ressource mit JSON serialisiert. Das Antwortschema von jeder Ressource im dienstindex zurückgegeben wird einzeln für diese Ressource definiert. Weitere Informationen zu jeder Ressource finden Sie unter den oben aufgeführten Themen.
+Im Allgemeinen werden alle nicht binären Daten, die von einer API-Ressource zurückgegeben werden, mit JSON serialisiert. Das Antwort Schema, das von jeder Ressource im Dienst Index zurückgegeben wird, wird für diese Ressource einzeln definiert. Weitere Informationen zu den einzelnen Ressourcen finden Sie in den oben aufgeführten Themen.
 
-Der Weiterentwicklung des Protokolls, möglicherweise in Zukunft neue Eigenschaften zu JSON-Antworten hinzugefügt werden. Der Client zukunftssicher ist sollte die Implementierung nicht ausgegangen, dass das Antwortschema endgültig ist und kann nicht die zusätzliche Daten enthalten. Alle Eigenschaften, die die Implementierung nicht interpretieren kann ignoriert werden sollen.
+In Zukunft können den JSON-Antworten neue Eigenschaften hinzugefügt werden, wenn das Protokoll weiterentwickelt wird. Damit der Client in Zukunft sicher ist, sollte die Implementierung nicht davon ausgehen, dass das Antwort Schema endgültig ist und keine zusätzlichen Daten enthalten kann. Alle Eigenschaften, die von der Implementierung nicht verstanden werden, sollten ignoriert werden.
 
 > [!Note]
 > Wenn eine Datenquelle den `SearchAutocompleteService` nicht implementiert, sollte das Auto-Vervollständigungs-Verfahren kontrolliert deaktiviert werden. Wenn `ReportAbuseUriTemplate` nicht implementiert wird, fällt der offizielle NuGet-Client auf die "Missbrauch melden"-URL von nuget.org zurück (zu verfolgen in [NuGet/Home#4924](https://github.com/NuGet/Home/issues/4924)). Andere Clients können sich dazu entscheiden, einfach keine solche URL anzuzeigen.
 
 ### <a name="undocumented-resources-on-nugetorg"></a>Nicht dokumentierte Ressourcen auf nuget.org
 
-Dienstindex auf nuget.org V3 verfügt über einige Ressourcen, die oben nicht dokumentiert sind. Es gibt einige Gründe für die Dokumentierung nicht auf einer Ressourcensatzes.
+Der V3-Dienst Index in nuget.org verfügt über einige Ressourcen, die oben nicht dokumentiert sind. Es gibt einige Gründe, eine Ressource nicht zu dokumentieren.
 
-Wir dokumentieren nicht zuerst als Implementierungsdetail beibehalten von nuget.org verwendete Ressourcen. Die `SearchGalleryQueryService` in diese Kategorie fällt. [NuGetGallery](https://github.com/NuGet/NuGetGallery) verwendet diese Ressource, delegieren einige V2 (OData) Abfragen in unserer Search-Index mit der Datenbank. Diese Ressource wurde aus Gründen der Skalierbarkeit eingeführt und ist nicht für die externe Verwendung vorgesehen.
+Zunächst werden keine Ressourcen dokumentiert, die als Implementierungsdetail von nuget.org verwendet werden. Der `SearchGalleryQueryService` fällt in diese Kategorie. [Nugetgallery](https://github.com/NuGet/NuGetGallery) verwendet diese Ressource, um einige v2 (odata)-Abfragen an den Suchindex zu delegieren, anstatt die Datenbank zu verwenden. Diese Ressource wurde aus Gründen der Skalierbarkeit eingeführt und ist nicht für die externe Verwendung vorgesehen.
 
-Zweitens, nicht wir Ressourcen dokumentieren, die in der RTM-Version von der offiziellen Client nie ausgeliefert wurden.
-`PackageDisplayMetadataUriTemplate` und `PackageVersionDisplayMetadataUriTemplate` fallen in diese Kategorie.
+Zweitens werden keine Ressourcen dokumentiert, die nie in einer RTM-Version des offiziellen Clients ausgeliefert wurden.
+`PackageDisplayMetadataUriTemplate`und `PackageVersionDisplayMetadataUriTemplate` fallen in diese Kategorie.
 
-Drittens nicht wir dokumentieren Sie Ressourcen, die eng gekoppelt mit dem V2-Protokoll, die wiederum ist absichtlich nicht dokumentiert. Die `LegacyGallery` Ressource in diese Kategorie fällt. Diese Ressource ermöglicht eine V3-dienstindex, um auf eine entsprechende V2-Quell-URL zu verweisen. Diese Ressource unterstützt die `nuget.exe list`.
+Drittens werden keine Ressourcen dokumentiert, die eng mit dem V2-Protokoll gekoppelt sind, das selbst absichtlich nicht dokumentiert ist. Die `LegacyGallery` Ressource fällt in diese Kategorie. Diese Ressource ermöglicht einem v3-Dienst Index, auf eine entsprechende v2-Quell-URL zu verweisen. Diese Ressource unterstützt `nuget.exe list`.
 
-Wenn eine Ressource hier nicht dokumentiert ist es *stark* wird empfohlen, dass Sie nicht über eine Abhängigkeit auf diesen führen. Wir können entfernen oder ändern das Verhalten der folgenden nicht dokumentierten Ressourcen, die Ihre Implementierung auf unerwartete Weise unterbrechen kann.
+Wenn eine Ressource hier nicht dokumentiert ist, wird *dringend* empfohlen, dass Sie keine Abhängigkeit davon treffen. Wir können das Verhalten dieser nicht dokumentierten Ressourcen entfernen oder ändern, was die Implementierung auf unerwartete Weise unterbrechen könnte.
 
 ## <a name="timestamps"></a>Timestamps
 
@@ -88,7 +88,7 @@ Alle Zeitstempel, die von der API zurückgegeben werden, sind in UTC oder werden
 
 ## <a name="http-methods"></a>HTTP-Methoden
 
-Verb   | Mit
+Ben   | Mit
 ------ | -----------
 GET    | Führt eine Nur-Lesen-Operation aus, meistens ein Abruf von Daten.
 HEAD   | Ruft die Antwortheader für die zusammenhängende `GET`-Anfrage ab.
@@ -106,18 +106,18 @@ Code | Beschreibung
 301  | Eine permanente Umleitung.
 302  | Eine temporäre Umleitung.
 400  | Die Parameter in der URL oder im Anfragetext sind ungültig.
-401  | Die angegebenen Anmeldeinformationen sind ungültig.
+401  | Die angegebenen Anmelde Informationen sind ungültig.
 403  | Die Aktion ist mit den angegebenen Anmeldeinformationen nicht zulässig.
 404  | Die angeforderte Ressource ist nicht vorhanden.
 409  | Die Anforderung steht in Konflikt mit einer vorhandenen Ressource.
-500  | Der Dienst hat einen unerwarteten Fehler festgestellt.
+500  | Unerwarteter Fehler beim Dienst.
 503  | Der Dienst ist vorübergehend nicht verfügbar.
 
 Jede `GET`-Anforderung an einen API-Endpunkt kann eine HTTP-Umleitung (301 oder 302) zurückgeben. Clients sollten diesen Umleitungen anstandslos folgen, indem sie den `Location`-Header berücksichtigen und eine entsprechende `GET`-Anforderung ausstellen. Die Dokumentation der einzelnen Endpunkte gibt genau nicht an, wo Umleitungen benutzt werden können.
 
 Im Fall eines Statuscodes in der Region 500 kann der Client einen angemessenen Wiederholungsmechanismus implementieren. Der offizielle NuGet-Client führt drei Wiederholungen durch, wenn er einen Statuscode in der Region 500 oder einen TCP-/DNS-Fehler antrifft.
 
-## <a name="http-request-headers"></a>HTTP-Anforderungsheader
+## <a name="http-request-headers"></a>HTTP-Anforderungs Header
 
 name                     | Beschreibung
 ------------------------ | -----------
@@ -126,7 +126,7 @@ X-NuGet-Client-Version   | **Veraltet** und durch `X-NuGet-Protocol-Version` ers
 X-NuGet-Protocol-Version | Auf nuget.org nur in bestimmten Fällen erforderlich, siehe [Protokolle auf nuget.org](NuGet-Protocols.md)
 X-NuGet-Session-Id       | *Optional*. NuGet-Clients mit Version 4.7 oder höher identifizieren HTTP-Anfragen, die Teil der gleichen Client-Sitzung sind.
 
-Die `X-NuGet-Session-Id` hat einen einzigen Wert für alle Vorgänge im Zusammenhang mit einer einzigen Wiederherstellung an `PackageReference`. Für andere Szenarios wie AutoVervollständigen und `packages.config` Wiederherstellung möglicherweise gibt es mehrere andere Sitzung IDs aufgrund wie der Code berücksichtigt wurden.
+Der `X-NuGet-Session-Id` verfügt über einen einzelnen Wert für alle Vorgänge, die sich auf eine `PackageReference`einzelne Wiederherstellung in beziehen. In anderen Szenarien, wie z. b `packages.config` . Auto Vervollständigen und Restore, gibt es möglicherweise mehrere unterschiedliche Sitzungs-IDs aufgrund der Art und Weise, wie der Code berücksichtigt wird.
 
 ## <a name="authentication"></a>Authentifizierung
 
