@@ -1,34 +1,35 @@
 ---
-title: Ziel-Frameworks-Referenz für NuGet
+title: Ziel Framework-Referenz für nuget
 description: Durch NuGet-Zielframeworkverweise werden die Framework-abhängigen Komponenten eines Pakets identifiziert und isoliert.
 author: karann-msft
 ms.author: karann
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 0b2a4fe45d0311b7540c73b481d6821357c723af
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: ea9f699b202d7f32648f0ccfeac3ceb1ca325b7e
+ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610648"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68342442"
 ---
 # <a name="target-frameworks"></a>Zielframeworks
 
 NuGet verwendet Zielframeworkverweise an vielen Stellen, um die Framework-abhängigen Komponenten eines Pakets zu identifizieren und zu isolieren:
 
-- [NuSpec-Manifest](../reference/nuspec.md): Ein Paket kann unterschiedliche Pakete in ein Projekt abhängig vom Zielframework des Projekts einbezogen werden angeben.
-- [NUPKG-Ordnername](../create-packages/creating-a-package.md#from-a-convention-based-working-directory): Die Ordner innerhalb eines Pakets `lib` Ordner kann dem Zielframework, von denen jede, die DLLs und andere geeignete Inhalte für das Framework enthält entsprechend benannt werden.
-- [packages.config](../reference/packages-config.md): Die `targetframework` -Attribut einer Abhängigkeit gibt die Variante eines Pakets installieren.
+- [Projektdatei](../create-packages/multiple-target-frameworks-project-file.md): Für Projekte im SDK-Stil enthält die *csproj* -Datei die zielframeworkverweise.
+- [nuspec-Manifest](../reference/nuspec.md): Ein Paket kann angeben, dass unterschiedliche Pakete in ein Projekt eingeschlossen werden sollen, abhängig vom Ziel Framework des Projekts.
+- [nupkg-Ordnername](../create-packages/creating-a-package.md#from-a-convention-based-working-directory): Die Ordner im `lib` Ordner eines Pakets können gemäß dem Ziel Framework benannt werden, von denen jede die DLLs und andere Inhalte enthält, die für dieses Framework geeignet sind.
+- [packages.config](../reference/packages-config.md): Das `targetframework` -Attribut einer Abhängigkeit gibt die Variante eines zu installierenden Pakets an.
 
 > [!Note]
 > Der Quellcode des NuGet-Clients, der die folgenden Tabellen berechnet, befindet sich an folgenden Speicherorten:
-> - Unterstützte Frameworknamen: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
-> - Framework-Rangfolge und Zuordnung: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
+> - Unterstützte frameworknamen: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
+> - Framework-Rangfolge und-Zuordnung: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
 
 ## <a name="supported-frameworks"></a>Unterstützte Frameworks
 
-Auf ein Framework wird in der Regel durch einen kurzen Zielframeworkmoniker (Target Framework Moniker, TFM) verwiesen. In .NET Standard ist dies auch auf generalisiert *TxM* um einen einzigen Verweis mehrere Frameworks zu ermöglichen.
+Auf ein Framework wird in der Regel durch einen kurzen Zielframeworkmoniker (Target Framework Moniker, TFM) verwiesen. In .NET Standard dies auch in *txm* generalisiert, um einen einzelnen Verweis auf mehrere Frameworks zu ermöglichen.
 
 Die NuGet-Clients unterstützen die in der folgenden Tabelle aufgelisteten Frameworks. Äquivalente werden in eckigen Klammern angegeben. Beachten Sie, dass einige Tools (z.B. `dotnet`) möglicherweise Variationen von kanonischen TFMs in einigen Dateien verwenden. `dotnet pack` verwendet beispielsweise `.NETCoreApp2.0` statt `netcoreapp2.0` in einer `.nuspec`-Datei. Die verschiedenen NuGet-Clienttools verarbeiten diese Variationen ordnungsgemäß, Sie sollten jedoch immer kanonische TFMs verwenden, wenn Sie Dateien direkt bearbeiten.
 
@@ -68,7 +69,7 @@ Windows Phone (SL) | wp | wp [wp7] |
 Windows Phone (UWP) | | wpa81 |
 Universelle Windows-Plattform | uap | uap [uap10.0] |
 | | | uap10.0 |
-| | | uap10.0.xxxxx (wobei 10.0.xxxxx für die minimale Version der Zielplattform der verwendeten app ist) |
+| | | UAP 10.0. xxxxx (wobei 10.0. xxxxx die Zielplattform für die Mindestversion der verwendeten APP ist) |
 .NET-Standard | netstandard | netstandard1.0 |
 | | | netstandard1.1 |
 | | | netstandard1.2 |
@@ -120,9 +121,9 @@ Einige Frameworks sind miteinander verwandt und kompatibel, aber nicht notwendig
 | win (Microsoft Store) | winrt |
 | | |
 
-## <a name="net-platform-standard"></a>.NET-Plattformstandard
+## <a name="net-standard"></a>NET Standard
 
-Der [.NET-Plattformstandard](https://github.com/dotnet/corefx/blob/master/Documentation/architecture/net-platform-standard.md) vereinfacht Verweise zwischen binärkompatiblen Frameworks, wodurch ein einzelnes Zielframeworks auf eine Kombination aus anderen Frameworks verweisen kann. (Weitere Informationen finden Sie unter [.NET Primer (Einführung in .NET)](/dotnet/articles/standard/index).)
+[.NET Standard](/dotnet/standard/net-standard) vereinfacht Verweise zwischen Binär kompatiblen Frameworks, wodurch ein einzelnes Ziel Framework auf eine Kombination von anderen verweisen kann. (Weitere Informationen finden Sie unter [.NET Primer (Einführung in .NET)](/dotnet/articles/standard/index).)
 
 Das NuGet-Tool [Get Nearest Framework](https://aka.ms/s2m3th) simuliert, wie NuGet in einem Paket, das auf dem Framework des Projekts basiert, ein Framework aus vielen verfügbaren Frameworkobjekten auswählt.
 
@@ -131,7 +132,7 @@ Die `dotnet`-Reihe von Monikern sollte in NuGet 3.3 und früher verwendet werden
 ## <a name="portable-class-libraries"></a>Portable Klassenbibliotheken
 
 > [!Warning]
-> **Portable Klassenbibliotheken werden nicht empfohlen.** Obwohl portable Klassenbibliotheken unterstützt werden, sollten Paketersteller stattdessen netstandard unterstützen. .NET Plattform Standard wird eine Weiterentwicklung von PCLs und stellt binäre Portabilität mithilfe eines einzelnen Monikers an, die mit einer statischen Bibliothek wie verknüpft ist nicht plattformübergreifend *portable-a + b + c* Moniker.
+> **Portable Klassenbibliotheken werden nicht empfohlen.** Obwohl portable Klassenbibliotheken unterstützt werden, sollten Paketersteller stattdessen netstandard unterstützen. Der .net-Platt Form Standard ist eine Weiterentwicklung von pcls und stellt eine plattformübergreifende binäre Portabilität dar, die einen einzelnen Moniker verwendet, der nicht an eine statische Bibliothek wie *Portable-a + b + c-* Moniker gebunden ist.
 
 Verwenden Sie zum Definieren eines Zielframeworks, das auf mehrere untergeordnete Zielframeworks verweist, das `portable`-Schlüsselwort, um der Liste der Frameworks, auf die verwiesen wird, ein Präfix hinzuzufügen. Vermeiden Sie das künstliche Hinzufügen von zusätzlichen Frameworks, die nicht direkt kompiliert werden, da dies zu unbeabsichtigten Nebeneffekten bei diesen Frameworks führen kann.
 
