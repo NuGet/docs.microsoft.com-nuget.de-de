@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: fd6ecab05a392a2a0b4ddf1ac15eb108f2653703
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: cd9e223a4ee93552b67e7357afa2ccb4e6fdb432
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842411"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317238"
 ---
 # <a name="nuspec-reference"></a>NUSPEC-Referenz
 
@@ -28,15 +28,15 @@ In diesem Thema:
 - [Einschließen von Inhaltsdateien](#including-content-files)
 - [NUSPEC-Beispieldateien](#example-nuspec-files)
 
-## <a name="project-type-compatibility"></a>Projektkompatibilität-Typ
+## <a name="project-type-compatibility"></a>Projekttyp Kompatibilität
 
-- Verwenden Sie `.nuspec` mit `nuget.exe pack` für nicht-SDK-Style Projekten, in denen `packages.config`.
+- Verwenden `.nuspec` Sie `nuget.exe pack` mit für Projekte ohne SDK-Stil, die `packages.config`verwenden.
 
-- Ein `.nuspec` Datei ist nicht erforderlich, zum Erstellen von Paketen für [SDK-Projekten](../resources/check-project-format.md) (in der Regel .NET Core und .NET Standard Projekten, in denen die [SDK-Attribut](/dotnet/core/tools/csproj#additions)). (Beachten Sie, dass eine `.nuspec` wird generiert, wenn Sie das Paket zu erstellen.)
+- Zum Erstellen von Paketen für [Projekte im SDK-Stil](../resources/check-project-format.md) ist keine Dateierforderlich(inderRegel.netCore-und.NETStandardProjekte,[diedasSDK-Attributverwenden](/dotnet/core/tools/csproj#additions)`.nuspec` ). (Beachten Sie, `.nuspec` dass beim Erstellen des Pakets eine generiert wird.)
 
-   Wenn Sie ein Paket mit erstellen `dotnet.exe pack` oder `msbuild pack target`, es wird empfohlen, die Sie [enthalten alle Eigenschaften](../reference/msbuild-targets.md#pack-target) , sind in der Regel in der `.nuspec` stattdessen in der Projektdatei Datei. Aber Sie können stattdessen auch [verwenden eine `.nuspec` Datei packen mit `dotnet.exe` oder `msbuild pack target` ](../reference/msbuild-targets.md#packing-using-a-nuspec).
+   Wenn Sie ein Paket `dotnet.exe pack` mit oder `msbuild pack target`erstellen, empfiehlt es sich, stattdessen [alle Eigenschaften](../reference/msbuild-targets.md#pack-target) in der `.nuspec` -Datei in der-Projektdatei einzubeziehen. Stattdessen können Sie jedoch [eine `.nuspec` Datei verwenden, um Sie mit `dotnet.exe` `msbuild pack target`oder zu verpacken ](../reference/msbuild-targets.md#packing-using-a-nuspec).
 
-- Für Projekte von migriert `packages.config` zu ["packagereference"](../consume-packages/package-references-in-project-files.md), `.nuspec` Datei ist nicht erforderlich, um das Paket zu erstellen. Verwenden Sie stattdessen [Msbuild-Pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
+- Für Projekte, die `packages.config` von zu [packagereferenzierung](../consume-packages/package-references-in-project-files.md)migriert wurden, ist eine `.nuspec` Datei zum Erstellen des Pakets nicht erforderlich. Verwenden Sie stattdessen [msbuild-t:Pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
 ## <a name="general-form-and-schema"></a>Allgemeine Form und Schema
 
@@ -90,23 +90,23 @@ URL der Homepage des Pakets, wird häufig auf Benutzeroberflächen und auf nuget
 
 #### <a name="licenseurl"></a>licenseUrl
 > [!Important]
-> "licenseUrl" ist veraltet. Verwenden Sie stattdessen die Lizenz.
+> "licen* URL" ist veraltet. Verwenden Sie stattdessen die Lizenz.
 
-Eine URL für die paketlizenz, häufig in Benutzeroberflächen wie nuget.org angezeigt.
+Eine URL für die Lizenz des Pakets, die häufig in Benutzeroberflächen wie nuget.org angezeigt wird.
 
-#### <a name="license"></a>Lizenz
-Ein Ausdruck der SPDX-Lizenz oder der Pfad zu einer Lizenzdatei, in dem Paket, das häufig in Benutzeroberflächen wie nuget.org angezeigt werden soll. Wenn Sie das Paket unter dem eine allgemeine Lizenz, z. B. MIT oder BSD-2-Klausel, lizenzieren verwenden Sie die zugeordnete [SPDX Lizenz-ID](https://spdx.org/licenses/). Beispiel:
+#### <a name="license"></a>Führer
+Ein spdx-Lizenz Ausdruck oder Pfad zu einer Lizenzdatei innerhalb des Pakets, die häufig in Benutzeroberflächen wie nuget.org angezeigt wird. Wenn Sie das Paket unter einer gemeinsamen Lizenz lizenzieren, wie z. b. mit oder der BSD-2-Klausel, verwenden Sie den zugehörigen [spdx-Lizenz Bezeichner](https://spdx.org/licenses/). Beispiel:
 
 `<license type="expression">MIT</license>`
 
 > [!Note]
-> "NuGet.org" akzeptiert nur Lizenz-Ausdrücke, die von der Open Source-Initiative oder die Free Software Foundation genehmigt werden.
+> NuGet.org akzeptiert nur Lizenz Ausdrücke, die von der Open Source-Initiative oder der kostenlosen Software Foundation genehmigt werden.
 
-Wenn Ihr Paket in mehrere allgemeine-Lizenzen lizenziert ist, können Sie angeben, eine zusammengesetzte Lizenz mithilfe der [SPDX Expression Syntaxversion 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60). Beispiel:
+Wenn Ihr Paket unter mehreren gängigen Lizenzen lizenziert ist, können Sie eine zusammengesetzte Lizenz mithilfe der [spdx-Ausdruckssyntax Version 2,0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60)angeben. Beispiel:
 
 `<license type="expression">BSD-2-Clause OR MIT</license>`
 
-Wenn Sie eine angepasste Lizenz, die Lizenz Ausdrücke unterstützt wird verwenden, können Sie Verpacken einer `.txt` oder `.md` -Datei mit der Lizenz des Texts. Beispiel:
+Wenn Sie eine benutzerdefinierte Lizenz verwenden, die nicht von Lizenz Ausdrücken unterstützt wird, `.txt` können `.md` Sie eine-oder-Datei mit dem Lizenztext verpacken. Beispiel:
 
 ```xml
 <package>
@@ -123,9 +123,9 @@ Wenn Sie eine angepasste Lizenz, die Lizenz Ausdrücke unterstützt wird verwend
 </package>
 ```
 
-Für die MSBuild-Entsprechung, sehen Sie sich [Packen eines Ausdrucks für die Lizenz oder eine Lizenzdatei](msbuild-targets.md#packing-a-license-expression-or-a-license-file).
+Die MSBuild-Entsprechung finden Sie unter [packen eines Lizenz Ausdrucks oder einer Lizenzdatei](msbuild-targets.md#packing-a-license-expression-or-a-license-file).
 
-Die genaue Syntax für Ausdrücke für die NuGet-Lizenz wird im folgenden beschrieben in [ABNF](https://tools.ietf.org/html/rfc5234).
+Die genaue Syntax der nuget-Lizenz Ausdrücke wird unten in [ABNF](https://tools.ietf.org/html/rfc5234)beschrieben.
 ```cli
 license-id            = <short form license identifier from https://spdx.org/spdx-specification-21-web-version#h.luq9dgcle9mo>
 
@@ -149,7 +149,7 @@ URL eines 64 × 64 Pixel großen Bilds mit transparentem Hintergrund, das als Sy
 Ein boolescher Wert, der angibt, ob der Client den Consumer dazu auffordern muss, die Paketlizenz vor der Installation des Pakets zu akzeptieren.
 
 #### <a name="developmentdependency"></a>developmentDependency
-*(ab Version 2.8)* Boolescher Wert, der angibt, ob das Paket mit einer Abhängigkeit markiert werden soll, die nur für die Entwicklung gilt. Hierdurch wird vermieden, dass das Paket als Abhängigkeit in andere Pakete eingeschlossen wird. Mit "packagereference" (NuGet 4.8) bedeutet dieses Flag auch, dass es während der Kompilierung von Ressourcen aus der Kompilierung ausgeschlossen werden. Finden Sie unter [DevelopmentDependency-Unterstützung für PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)
+*(ab Version 2.8)* Boolescher Wert, der angibt, ob das Paket mit einer Abhängigkeit markiert werden soll, die nur für die Entwicklung gilt. Hierdurch wird vermieden, dass das Paket als Abhängigkeit in andere Pakete eingeschlossen wird. Mit packagereferen(nuget 4.8 und höher) bedeutet dieses Flag auch, dass die Kompilierzeit Ressourcen von der Kompilierung ausgeschlossen werden. Weitere Informationen finden Sie [unter Unterstützung von "developmentdependependenz](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference) "
 
 #### <a name="summary"></a>summary
 Kurzbeschreibung des Pakets zur Anzeige auf der Benutzeroberfläche. Wenn diese nicht angegeben ist, wird eine gekürzte Version von `description` verwendet.
@@ -176,7 +176,7 @@ Repositorymetadaten. Sie umfassen vier optionale Attribute: *type* und *url* *(a
 Gibt die mindestens erforderliche Version des NuGet-Clients an, der dieses Paket installieren kann. Dies wird von nuget.exe und dem Paket-Manager von Visual Studio erzwungen. Das Attribut wird verwendet, wenn das Paket von bestimmten Funktionen der `.nuspec`-Datei abhängig ist, die in einer bestimmten Version des NuGet-Clients hinzugefügt wurden. Beispielsweise sollte ein Paket, das das `developmentDependency`-Attribut verwendet, „2.8“ für `minClientVersion` angeben. Genauso sollte ein Paket, das das `contentFiles`-Element verwendet (vgl. nächster Abschnitt), `minClientVersion` auf „3.3“ festlegen. Beachten Sie außerdem, dass NuGet-Clients vor Version 2.5 dieses Flag nicht erkennen und daher die Installation des Pakets unabhängig vom Inhalt von `minClientVersion` *immer* verweigern.
 
 #### <a name="title"></a>title
-Ein Benutzerfreundlicher Titel des Pakets in einer Benutzeroberfläche verwendet werden kann, werden angezeigt. ("NuGet.org" und die Paket-Manager in Visual Studio nicht Titel anzeigen)
+Ein benutzerfreundlicher Titel des Pakets, das in einigen Benutzeroberflächen anzeigen verwendet werden kann. (nuget.org und der Paket-Manager in Visual Studio zeigen keinen Titel an.)
 
 #### <a name="collection-elements"></a>Sammlungselemente
 
@@ -191,11 +191,11 @@ Eine Sammlung mit null oder mehr `<dependency>`-Elementen, die die Abhängigkeit
 #### <a name="contentfiles"></a>contentFiles
 *(ab Version 3.3)* Eine Sammlung von `<files>`-Elementen, die Inhaltsdateien angeben, die in das verarbeitende Projekt eingeschlossen werden sollen. Diese Dateien werden zusammen mit Attributen angegeben, die beschreiben, wie sie im Projektsystem verwendet werden sollen. Informationen hierzu finden Sie weiter unten unter [Einschließen von Assemblydateien](#specifying-files-to-include-in-the-package).
 #### <a name="files"></a>files 
-Die `<package>` -Knoten enthält möglicherweise eine `<files>` Knoten einen gleichgeordneten Knoten zu `<metadata>`, und ein `<contentFiles>` untergeordnetes Element unter `<metadata>`, um anzugeben, welche Dateien Assembly- und Inhaltsdateien im Paket enthalten. Ausführliche Informationen hierzu finden Sie weiter unten in den Abschnitten [Einschließen von Assemblydateien](#including-assembly-files) und [Einschließen von Inhaltsdateien](#including-content-files).
+Der `<package>` Knoten kann einen `<files>` Knoten als gleich geordnetes Element von `<metadata>`und ein `<contentFiles>` untergeordnetes Element unter `<metadata>`enthalten, um anzugeben, welche Assembly-und Inhalts Dateien in das Paket eingeschlossen werden sollen. Ausführliche Informationen hierzu finden Sie weiter unten in den Abschnitten [Einschließen von Assemblydateien](#including-assembly-files) und [Einschließen von Inhaltsdateien](#including-content-files).
 
 ## <a name="replacement-tokens"></a>Ersetzungstoken
 
-Bei der Erstellung eines Pakets ersetzt der [`nuget pack`-Befehl](../tools/cli-ref-pack.md) durch $ getrennte Token im `<metadata>`-Knoten der `.nuspec`-Datei durch Werte, die entweder einer Projektdatei oder der `-properties`-Option des `pack`-Befehls entstammen.
+Bei der Erstellung eines Pakets ersetzt der [`nuget pack`-Befehl](../reference/cli-reference/cli-ref-pack.md) durch $ getrennte Tokens im `<metadata>`-Knoten der `.nuspec`-Datei durch Werte, die entweder einer Projektdatei oder dem `-properties`-Schalter des `pack`-Befehls entstammen.
 
 Geben Sie in der Befehlszeile die Tokenwerte mit `nuget pack -properties <name>=<value>;<name>=<value>` an. Beispielsweise können Sie ein Token wie `$owners$` und `$desc$` in der `.nuspec`-Datei verwenden und die Werte zur Packzeit wie im Folgenden dargestellt bereitstellen:
 
@@ -281,7 +281,7 @@ In den folgenden Zeilen wird zwar auf Abhängigkeiten von denselben Paketen verw
 </dependencies>
 ```
 
-Hinweis: Beim Erstellen einer `.nuspec` aus einem Projekt mit `nuget spec`, Abhängigkeiten, die in diesem Projekt vorhanden sind, sind automatisch im resultierenden enthalten `.nuspec` Datei.
+Hinweis: Wenn Sie ein `.nuspec` aus einem Projekt mithilfe `nuget spec`von erstellen, werden Abhängigkeiten, die in diesem Projekt vorhanden sind, `.nuspec` automatisch in die resultierende Datei eingeschlossen.
 
 ### <a name="dependency-groups"></a>Abhängigkeitsgruppen
 
@@ -318,7 +318,7 @@ Im folgenden Beispiel werden verschiedene Variationen des `<group>`-Elements dar
 
 ## <a name="explicit-assembly-references"></a>Explizite Assemblyverweise
 
-Die `<references>` Element dient der Projekte mit `packages.config` explizit auf die Assemblys angeben, die das Zielprojekt verweisen soll, wenn das Paket verwendet. In der Regel werden Verweise nur für Assemblys zur Entwurfszeit verwendet. Weitere Informationen finden Sie auf der Seite [Assemblys, die auf die verwiesen wird von Projekten auswählen](../create-packages/select-assemblies-referenced-by-projects.md) für Weitere Informationen.
+Das `<references>` -Element wird von Projekten verwendet `packages.config` , die verwenden, um explizit die Assemblys anzugeben, auf die das Ziel Projekt bei Verwendung des Pakets verweisen soll. In der Regel werden Verweise nur für Assemblys zur Entwurfszeit verwendet. Weitere Informationen finden Sie auf der Seite zum [Auswählen von](../create-packages/select-assemblies-referenced-by-projects.md) Assemblys, auf die von-Projekten verwiesen wird.
 
 Beispielsweise gibt das folgende `<references>`-Element NuGet die Anweisung, Verweise auch dann nur auf `xunit.dll` und `xunit.extensions.dll` hinzuzufügen, wenn zusätzliche Assemblys im Paket enthalten sind:
 
