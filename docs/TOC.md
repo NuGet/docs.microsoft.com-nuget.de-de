@@ -31,12 +31,14 @@
 ### [packages.config](reference/packages-config.md)
 # Erstellen von Paketen
 ## [Übersicht und Workflow](create-packages/overview-and-workflow.md)
-## [Erstellen eines Pakets](create-packages/creating-a-package.md)
+## [Erstellen eines Pakets (dotnet CLI)](create-packages/creating-a-package-dotnet-cli.md)
+## [Erstellen eines Pakets (nuget.exe-CLI)](create-packages/creating-a-package.md)
 ## [Erstellen eines Pakets mit MSBuild](reference/msbuild-targets.md)
-## [Unterstützung mehrerer Zielframeworks](create-packages/supporting-multiple-target-frameworks.md)
+## [Unterstützung für mehrere Zielframeworks in der Projektdatei](create-packages/multiple-target-frameworks-project-file.md)
 ## [Erstellen eines Vorabversionspakets](create-packages/prerelease-packages.md)
 ## [Erstellen eines Symbolpakets](create-packages/symbol-packages-snupkg.md)
 ## Aufgaben für Fortgeschrittene
+### [Unterstützung mehrerer Zielframeworks](create-packages/supporting-multiple-target-frameworks.md)
 ### [Ändern von Quellcode und Konfigurationsdateien](create-packages/source-and-config-file-transformations.md)
 ### [Auswählen von Assemblys, auf die von Projekten verwiesen wird](create-packages/select-assemblies-referenced-by-projects.md)
 ### [Festlegen des Pakettyps](create-packages/set-package-type.md)
