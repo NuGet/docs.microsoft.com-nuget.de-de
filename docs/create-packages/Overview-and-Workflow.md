@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: a285650034c99026e34fcda398ca7ced4855e40a
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 58ad05cb854c8f7233d90d03c1b320f8797ca2ab
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67425715"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842391"
 ---
 # <a name="package-creation-workflow"></a>Workflow für die Paketerstellung
 
@@ -21,9 +21,7 @@ Ein Paket kann ebenfalls dafür verwendet werden, eine beliebige Anzahl von ande
 > [!Note]
 > Wenn Sie ein Paket erstellen, das von anderen Entwicklern verwendet werden soll, beachten Sie, dass diese Abhängigkeiten von Ihrer Arbeit erstellen. Daher bringt das Erstellen und Veröffentlichen eines Pakets ebenfalls die Verpflichtung mit sich, Probleme zu beheben und weitere Updates durchzuführen. Sie sollten jedoch mindestens die Open Source-Verfügbarkeit des Pakets gewährleisten, sodass andere Sie bei der Verwaltung unterstützen können.
 
-In jedem Fall beginnt das Erstellen eines Pakets mit der Entscheidung, welche Assemblys und welche anderen Dateien verpackt werden sollen. Erstellen Sie dann eine Manifestdatei, die als `.nuspec`-Datei bezeichnet wird, die die Inhalte des Pakets beschreibt sowie den Bezeichner, die Versionsnummer, Copyrightinformationen, MSBuild-Eigenschaften und -Ziele usw. enthält.
-
-Wenn Sie alle erforderlichen Dateien in den entsprechenden Ordnern vorbereitet und die entsprechende `.nuspec`-Datei erstellt haben, verwenden Sie den `nuget pack`-Befehl (oder das [MSBuild-Paketziel](../reference/msbuild-targets.md)), um alle Bestandteile in einer `.nupkg`-Datei zu vereinen. Sie können das Paket dann an den Host bereitstellen, der es für andere Entwickler zur Verfügung stellt.
+Auf jeden Fall werden beim Erstellen eines Pakets zunächst sein Bezeichner, seine Versionsnummer, seine Lizenz, seine Copyrightinformationen und weitere erforderliche Inhalte festgelegt. Anschließend können Sie mit dem Befehl „pack“ alles zusammen in eine `.nupkg`-Datei einfügen. Diese Datei kann in einem NuGet-Feed, z. B. „nuget.org“, veröffentlicht werden.
 
 > [!Tip]
 > Bei einem NuGet-Paket mit der `.nupkg`-Erweiterung handelt es sich um eine einfache ZIP-Datei. Ändern Sie die Erweiterung in `.zip`, und erweitern Sie den Inhalt wie gewohnt, um den Inhalt von Paketen zu überprüfen. Stellen Sie jedoch sicher, dass Sie die Erweiterung wieder in `.nupkg` ändern, bevor Sie das Paket bei einem Host hochladen.

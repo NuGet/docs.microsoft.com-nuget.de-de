@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: efdaa0128d47f948c86c3cc83d6a332410cbf99f
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: bf561d36a06bf42c029eb96ff1b7930abffa4c0a
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426326"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842042"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Schnellstart: Erstellen und Veröffentlichen eines Pakets mithilfe von Visual Studio (.NET Framework, Windows)
 
@@ -145,7 +145,7 @@ Sobald Sie eine `.nupkg`-Datei haben, können Sie diese, gemeinsam mit einem API
 
 ### <a name="publish-with-nuget-push"></a>Veröffentlichen mit dem Befehl „nuget push“
 
-1. Navigieren Sie zum Ordner, der die `.nupkg`-Datei enthält.
+1. Öffnen Sie eine Befehlszeile, und navigieren Sie zu dem Ordner, der die `.nupkg`-Datei enthält.
 
 1. Führen Sie den folgenden Befehl aus, geben Sie dabei Ihren Paketnamen an, und ersetzen Sie den Schlüsselwert durch Ihren API-Schlüssel:
 

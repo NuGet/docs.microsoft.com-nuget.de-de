@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: overview
-ms.openlocfilehash: 087bb043ba4b388b9de6d94cd838915a2e7247f4
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: e11eed5c614a7634fa578ebc84c3ab2068522fe2
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426133"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842205"
 ---
 # <a name="an-introduction-to-nuget"></a>Eine Einführung in NuGet
 
@@ -45,8 +45,8 @@ Zusätzlich zur Unterstützung für das Hosting bietet NuGet außerdem eine Viel
 
 | Tool | Plattformen | Anwendbare Szenarios | BESCHREIBUNG |
 | --- | --- | --- | --- |
-| [dotnet-CLI](consume-packages/install-use-packages-dotnet-cli.md) | Alle | Erstellung, Verbrauch | CLI-Tool für .NET Core- und .NET Standard-Bibliotheken und für Projekte im SDK-Stil für .NET Framework (Informationen finden Sie unter [SDK-Attribut](/dotnet/core/tools/csproj#additions)). Stellt bestimmte NuGet-CLI-Funktionen direkt in der .NET Core-Toolkette bereit. Ähnlich wie NuGet-CLI interagiert die dotnet-CLI nicht mit Visual Studio-Projekten. |
-| [nuget.exe-CLI](consume-packages/install-use-packages-nuget-cli.md) | Alle | Erstellung, Verbrauch | CLI-Tool für .NET Framework-Bibliotheken und Nicht-SDK-Projekte, die auf .NET Standard-Bibliotheken abzielen. Bietet alle NuGet-Funktionen, mit einigen Befehlen, die speziell für Paketersteller bestimmt sind, anderen Befehlen, die nur für Benutzer, und wieder anderen, die für beide bestimmt sind. Beispielsweise verwenden Paketersteller den Befehl `nuget pack` zum Erstellen eines Pakets aus verschiedenen Assemblys und zugehörigen Dateien, Paketverbraucher verwenden `nuget install`, um Pakete in einen Projektordner einzubinden, und alle verwenden `nuget config`, um NuGet-Konfigurationsvariablen festzulegen. Als ein plattformunabhängiges Tool interagiert die NuGet-CLI nicht mit Visual Studio-Projekten. |
+| [dotnet-CLI](consume-packages/install-use-packages-dotnet-cli.md) | Alle | Erstellung, Verbrauch | CLI-Tool für .NET Core- und .NET Standard-Bibliotheken und für [Projekte im SDK-Format](resources/check-project-format.md) für .NET Framework. Stellt bestimmte NuGet-CLI-Funktionen direkt in der .NET Core-Toolkette bereit. Ähnlich wie NuGet-CLI interagiert die dotnet-CLI nicht mit Visual Studio-Projekten. |
+| [nuget.exe-CLI](consume-packages/install-use-packages-nuget-cli.md) | Alle | Erstellung, Verbrauch | CLI-Tool für .NET Framework-Bibliotheken und [Projekte im Nicht-SDK-Format](resources/check-project-format.md), die auf .NET Standard-Bibliotheken abzielen. Bietet alle NuGet-Funktionen, mit einigen Befehlen, die speziell für Paketersteller bestimmt sind, anderen Befehlen, die nur für Benutzer, und wieder anderen, die für beide bestimmt sind. Beispielsweise verwenden Paketersteller den Befehl `nuget pack` zum Erstellen eines Pakets aus verschiedenen Assemblys und zugehörigen Dateien, Paketverbraucher verwenden `nuget install`, um Pakete in einen Projektordner einzubinden, und alle verwenden `nuget config`, um NuGet-Konfigurationsvariablen festzulegen. Als ein plattformunabhängiges Tool interagiert die NuGet-CLI nicht mit Visual Studio-Projekten. |
 | [Paket-Manager-Konsole](tools/package-manager-console.md) | Visual Studio unter Windows | Verbrauch | Stellt [PowerShell-Befehle](tools/Powershell-Reference.md) zum Installieren und Verwalten von Paketen in Visual Studio-Projekten bereit. |
 | [Benutzeroberfläche des Paket-Managers](tools/package-manager-ui.md) | Visual Studio unter Windows | Verbrauch | Stellt eine einfache zu bedienende Benutzeroberfläche zum Installieren und Verwalten von Paketen in Visual Studio-Projekten bereit. |
 | [Manage NuGet UI (Verwalten der NuGet-Benutzeroberfläche)](/visualstudio/mac/nuget-walkthrough) | Visual Studio für Mac | Verbrauch | Stellt eine einfache zu bedienende Benutzeroberfläche zum Installieren und Verwalten von Paketen in Projekten von Visual Studio für Mac bereit. |

@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3be8d1dad6552db2fc04b2f324145ac7ce86acb2
-ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
+ms.openlocfilehash: 287237cf4041870c562a6a7f48f233d8fdc8ef33
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467773"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842382"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Problembehandlung bei der Paketwiederherstellung
 
-In diesem Artikel erhalten Sie Informationen zu Fehlern, die beim Wiederherstellen von Paketen häufig auftreten, sowie entsprechende Anleitungen zur Problembehebung. Ausführliche Details zur Wiederherstellung von Paketen finden Sie unter [Paketwiederherstellung](../consume-packages/package-restore.md#enable-and-disable-package-restore).
+In diesem Artikel erhalten Sie Informationen zu Fehlern, die beim Wiederherstellen von Paketen häufig auftreten, sowie entsprechende Anleitungen zur Problembehebung. Ausführliche Details zur Wiederherstellung von Paketen finden Sie unter [Paketwiederherstellung](../consume-packages/package-restore.md#enable-and-disable-package-restore-visual-studio).
 
 Wenn Ihnen die hier aufgeführten Anweisungen nicht weiterhelfen, [melden Sie bitte das Problem auf GitHub](https://github.com/NuGet/docs.microsoft.com-nuget/issues), damit wir das Szenario gründlich prüfen können. Verwenden Sie nicht das Steuerelement „Is this page helpful?“ (Hilft Ihnen diese Seite weiter?), das möglicherweise auf dieser Seite angezeigt wird, da wir Sie darüber nicht erreichen können, wenn wir weitere Informationen benötigen.
 
@@ -29,7 +29,7 @@ Wenn Sie Visual Studio verwenden, sollten Sie wie folgt zunächst die Paketwiede
 
 ![Aktivieren der NuGet-Paketwiederherstellung unter Extras > Optionen](../consume-packages/media/restore-01-autorestoreoptions.png)
 
-Sie können diese Einstellungen auch in Ihrer `NuGet.config`-Datei ändern (vgl. Abschnitt [Zustimmung](#consent)).
+Sie können diese Einstellungen auch in Ihrer `NuGet.config`-Datei ändern (vgl. Abschnitt [Zustimmung](#consent)). Wenn das Projekt ein älteres Projekt ist, in dem die in MSBuild integrierte Paketwiederherstellung verwendet wird, müssen Sie möglicherweise zur automatischen Paketwiederherstellung [migrieren](package-restore.md#migrate-to-automatic-package-restore-visual-studio).
 
 <a name="missing"></a>
 
@@ -54,10 +54,10 @@ Der Fehler kann auch auftreten, wenn Ihre Projektdatei absolute Pfade zu Paketsp
 Verwenden Sie eine der folgenden Methoden, um die Pakete wiederherzustellen:
 
 - Wenn Sie die Projektdatei verschoben haben, bearbeiten Sie die Datei direkt, um die Paketverweise zu aktualisieren.
-- Aktivieren Sie in Visual Studio die Paketwiederherstellung, indem Sie auf den Menübefehl **Extras > NuGet-Paket-Manager > Paket-Manager-Einstellungen** klicken, beide Optionen unter **Paketwiederherstellung** festlegen, und auf **OK** klicken. Erstellen Sie die Projektmappe anschließend erneut.
-- Führen Sie für .NET Core-Projekte `dotnet restore` oder `dotnet build` aus, wodurch automatisch ein Wiederherstellungsvorgang ausgeführt wird.
-- Führen Sie in der Befehlszeile automatisch `nuget restore` aus. Verwenden Sie jedoch `dotnet restore`, wenn Sie das Projekt mit `dotnet` erstellt haben.
-- Führen Sie in der Befehlszeile mit den Projekten, die das PackageReference-Format verwenden, `msbuild -t:restore` aus.
+- (Visual Studio) Aktivieren Sie die Paketwiederherstellung, indem Sie auf den Menübefehl **Extras > NuGet-Paket-Manager > Paket-Manager-Einstellungen** klicken, beide Optionen unter **Paketwiederherstellung** festlegen, und auf **OK** klicken. Erstellen Sie die Projektmappe anschließend erneut.
+- (dotnet-CLI) Wechseln Sie in der Befehlszeile zu dem Ordner, der das Projekt enthält, und führen Sie `dotnet restore` oder `dotnet build` aus.
+- (nuget.exe-CLI) Wechseln Sie in der Befehlszeile zu dem Ordner, der das Projekt enthält, und führen Sie dann `nuget restore` aus (außer für mit der `dotnet`-CLI erstellte Projekten; verwenden Sie in diesem Fall `dotnet restore`).
+- (Zu PackageReference migrierte Projekte) Führen Sie in der Befehlszeile `msbuild -t:restore` aus.
 
 Nach einer erfolgreichen Wiederherstellung sollte das Paket im Ordner *global-packages* vorhanden sein. Bei Projekten, die PackageReference verwenden, sollte die `obj/project.assets.json`-Datei wiederhergestellt werden; bei Projekten, die `packages.config` verwenden, sollte das Paket im `packages`-Ordner des Projekts erscheinen. Das Projekt sollte jetzt erfolgreich erstellt werden. Wenn dies nicht der Fall sein sollte, [melden Sie das Problem auf GitHub](https://github.com/NuGet/docs.microsoft.com-nuget/issues), damit wir dies überprüfen können.
 

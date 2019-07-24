@@ -3,33 +3,33 @@ title: Erstellen eines NuGet-Pakets
 description: Eine ausführliche Anleitung zum Entwerfen und Erstellen eines NuGet-Pakets, einschließlich der wichtigsten Entscheidungspunkte wie Dateien und Versionsverwaltung
 author: karann-msft
 ms.author: karann
-ms.date: 05/24/2019
+ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: e3a40a521a3b16d9757ef1bbf2511a1537d8bddb
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 1dce8556448131c36680167fdc3605e4378b9178
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67425815"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842303"
 ---
-# <a name="creating-nuget-packages"></a>Erstellen von NuGet-Paketen
+# <a name="create-nuget-packages"></a>Erstellen von NuGet-Paketen
 
 Unabhängig davon, welchen Zweck Ihr Paket erfüllt oder welchen Code es enthält, verwenden Sie eines der CLI-Tools (entweder `nuget.exe` oder `dotnet.exe`), um diese Funktionalität in einer Komponente zu verpacken, die für andere Entwickler freigegeben und von ihnen verwendet werden kann. Informationen zur Installation von NuGet-CLI-Tools finden Sie unter [Installieren von NuGet-Clienttools](../install-nuget-client-tools.md). Beachten Sie, dass Visual Studio nicht automatisch ein CLI-Tool enthält.
 
-- Für .NET Core- und .NET Standard-Projekte, die das SDK-Format verwenden ([SDK-Attribut](/dotnet/core/tools/csproj#additions)), und für alle anderen Projekte im SDK-Stil verwendet NuGet Informationen in der Projektdatei direkt zum Erstellen eines Pakets. Weitere Informationen finden Sie unter [Erstellen von .NET Standard-Paketen mit Visual Studio](../quickstart/create-and-publish-a-package-using-visual-studio.md) und [NuGet-Befehle „pack“ und „restore“ als MSBuild-Ziele](../reference/msbuild-targets.md).
+- Für .NET Core- und .NET Standard-Projekte, die das [SDK-Format](../resources/check-project-format.md) verwenden, und für alle anderen Projekte im SDK-Format verwendet NuGet Informationen in der Projektdatei direkt zum Erstellen eines Pakets. Ausführliche Informationen zu den Schritten finden Sie unter [Erstellen von .NET Standard-Paketen mit der dotnet-CLI](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md), [Erstellen von .NET- Standard-Paketen mit Visual Studio](../quickstart/create-and-publish-a-package-using-visual-studio.md) und [NuGet-Befehle „pack“ und „restore“ als MSBuild-Ziele](../reference/msbuild-targets.md).
 
-- Für Nicht-SDK-Projekte befolgen Sie die in diesem Artikel beschriebenen Schritte zum Erstellen eines Pakets.
+- Für Projekte im Nicht-SDK-Format, in der Regel .NET Framework-Projekte, befolgen Sie die in diesem Artikel beschriebenen Schritte zum Erstellen eines Pakets. Sie können auch die Schritte unter [Erstellen und Veröffentlichen eines .NET Framework-Pakets ](../quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md) ausführen, um ein Paket mithilfe von Visual Studio und der `nuget.exe`-CLI zu erstellen.
 
 - Für Projekte, die von `packages.config` zu [PackageReference](../consume-packages/package-references-in-project-files.md) migriert wurden, verwenden Sie [msbuild -t:pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
-Technisch gesehen ist ein NuGet-Paket eine ZIP-Datei, die mit der `.nupkg`-Erweiterung umbenannt wurde und deren Inhalt bestimmten Konventionen entspricht. In diesem Thema werden die Schritte zum Erstellen eines Pakets, das diesen Konventionen entspricht, ausführlich beschrieben. Eine fokussierte exemplarische Vorgehensweise finden Sie unter [Quickstart: Create and Publish a Package (Schnellstart: Erstellen und Veröffentlichen eines Pakets)](../quickstart/create-and-publish-a-package.md).
+Technisch gesehen ist ein NuGet-Paket eine ZIP-Datei, die mit der `.nupkg`-Erweiterung umbenannt wurde und deren Inhalt bestimmten Konventionen entspricht. In diesem Thema werden die Schritte zum Erstellen eines Pakets, das diesen Konventionen entspricht, ausführlich beschrieben.
 
 Das Packen beginnt mit dem kompilierten Code (Assemblys), Symbolen und/oder anderen Dateien, die Sie als Paket übermitteln möchten. Weitere Informationen finden Sie unter [Overview and workflow (Übersicht und Workflow)](overview-and-workflow.md). Dieser Vorgang wird unabhängig vom Kompilieren oder jeder anderen Methode zum Erstellen der Dateien ausgeführt, die in das Paket einfließen. Sie können die kompilierten Assemblys und Pakete jedoch mithilfe der Informationen in einer Projektdatei kontinuierlich synchronisieren.
 
-> [!Note]
+> [!Important]
 > Dieses Thema gilt für Nicht-SDK-Projekte, in der Regel andere als .NET Core- und .NET Standard-Projekte mit Visual Studio 2017 und höheren Versionen und NuGet 4.0 und höher.
 
-## <a name="deciding-which-assemblies-to-package"></a>Welche Assemblys sollen gepackt werden?
+## <a name="decide-which-assemblies-to-package"></a>Welche Assemblys sollten gepackt werden?
 
 Die meisten allgemeinen Pakete enthalten mindestens eine Assembly, die andere Entwickler in ihren eigenen Projekten verwenden können.
 
@@ -41,7 +41,7 @@ Die meisten allgemeinen Pakete enthalten mindestens eine Assembly, die andere En
 
 Ressourcen hingegen sind ein besonderer Fall. Wenn ein Paket in einem Projekt installiert wird, fügt NuGet automatisch den DLLs des Pakets Assemblyverweise hinzu. Die Verweise, die mit `.resources.dll` benannt sind, werden dabei allerdings *nicht* hinzugefügt, da angenommen wird, dass es sich dabei um lokalisierte Satellitenassemblys handelt. Weitere Informationen finden Sie unter [Creating localized NuGet packages (Erstellen lokalisierter NuGet-Pakete)](creating-localized-packages.md). Vermeiden Sie aus diesem Grund die Verwendung von `.resources.dll` für Dateien, die darüber hinaus wichtigen Paketcode enthalten.
 
-Wenn Ihre Bibliothek COM-Interop-Assemblys enthält, führen Sie die zusätzlichen Schritte unter [Erstellen von Paketen, die COM-Interop-Assemblys enthalten](#authoring-packages-with-com-interop-assemblies) aus.
+Wenn Ihre Bibliothek COM-Interop-Assemblys enthält, führen Sie die zusätzlichen Schritte unter [Erstellen von Paketen mit COM-Interop-Assemblys](author-packages-with-com-interop-assemblies.md) aus.
 
 ## <a name="the-role-and-structure-of-the-nuspec-file"></a>Rolle und Struktur der NUSPEC-Datei
 
@@ -151,7 +151,7 @@ Wechseln Sie in einen Ordner unter *package\version*, kopieren die `.nupkg`- in 
 > [!Note]
 > Wenn Sie eine `.nuspec`-Datei aus einem Visual Studio-Projekt erstellen, enthält das Manifest Tokens, die bei der Paketerstellung durch Informationen aus dem Projekt ersetzt werden. Weitere Informationen finden Sie im Abschnitt [Aus einem Visual Studio-Projekt](#from-a-visual-studio-project).
 
-## <a name="creating-the-nuspec-file"></a>Erstellen der NUSPEC-Datei
+## <a name="create-the-nuspec-file"></a>Erstellen der NUSPEC-Datei
 
 Das Erstellen eines vollständigen Manifests beginnt in der Regel mit einer einfachen `.nuspec`-Datei, die mithilfe einer der folgenden Methoden generiert wird:
 
@@ -228,7 +228,7 @@ Dieses Token wird zur Packzeit durch den Wert `AssemblyName` aus der Projektdate
 
 Durch Tokens müssen Sie wichtige Werte wie die Versionsnummer in der `.nuspec`-Datei nicht mit dem Projekt zusammen aktualisieren. Sie können die Tokens bei Bedarf jederzeit durch Literalwerte ersetzen. 
 
-Wenn Sie in einem Visual Studio-Projekt arbeiten, haben weitere Packoptionen zur Auswahl. Dies wird weiter unten im Abschnitt [Ausführen von „nuget pack“ zum Generieren der NUPKG-Datei](#running-nuget-pack-to-generate-the-nupkg-file) beschrieben.
+Wenn Sie in einem Visual Studio-Projekt arbeiten, haben weitere Packoptionen zur Auswahl. Dies wird weiter unten im Abschnitt [Ausführen von „nuget pack“ zum Generieren der NUPKG-Datei](#run-nuget-pack-to-generate-the-nupkg-file) beschrieben.
 
 #### <a name="solution-level-packages"></a>Pakete auf Projektmappenebene
 
@@ -250,7 +250,7 @@ Wenn Sie \<package-name\> weglassen, lautet die Ergebnisdatei `Package.nuspec`. 
 
 Die resultierende `.nuspec`-Datei enthält Platzhalter für Werte wie `projectUrl`. Denken Sie daran, die Datei zu bearbeiten, bevor Sie mit ihr die endgültige `.nupkg`-Datei erstellen.
 
-## <a name="choosing-a-unique-package-identifier-and-setting-the-version-number"></a>Auswählen eines eindeutigen Paketbezeichners und Festlegen der Versionsnummer
+## <a name="choose-a-unique-package-identifier-and-setting-the-version-number"></a>Auswählen eines eindeutigen Paketbezeichners und Festlegen der Versionsnummer
 
 Der Paketbezeichner (`<id>`-Element) und die Versionsnummer (`<version>`-Element) sind die beiden wichtigsten Werte im Manifest, da sie eindeutig den exakten Code bezeichnen, der im Paket enthalten ist.
 
@@ -262,7 +262,7 @@ Der Paketbezeichner (`<id>`-Element) und die Versionsnummer (`<version>`-Element
 
 **Bewährte Methoden für die Paketversion:**
 
-- Legen Sie die Version des Pakets auf die der Bibliothek fest, obwohl dies nicht zwingend erforderlich ist. Dies ist sehr einfach, wenn Sie ein Paket, wie zuvor im Abschnitt [Welche Assemblys sollen gepackt werden?](#deciding-which-assemblies-to-package) beschrieben, auf eine einzelne Assembly beschränken. Bedenken Sie, dass NuGet sich beim Auflösen der Abhängigkeiten nach den Paketversionen richtet, nicht nach den Assemblyversionen.
+- Legen Sie die Version des Pakets auf die der Bibliothek fest, obwohl dies nicht zwingend erforderlich ist. Dies ist sehr einfach, wenn Sie ein Paket, wie zuvor im Abschnitt [Welche Assemblys sollen gepackt werden?](#decide-which-assemblies-to-package) beschrieben, auf eine einzelne Assembly beschränken. Bedenken Sie, dass NuGet sich beim Auflösen der Abhängigkeiten nach den Paketversionen richtet, nicht nach den Assemblyversionen.
 - Wenn Sie ein nicht standardmäßiges Versionsschema verwenden, müssen Sie die NuGet-Versionsregeln wie unter [Package versioning (Paketversionsverwaltung](../reference/package-versioning.md) beschrieben anwenden.
 
 > Die folgenden kurzen Blogbeiträge enthalten weitere Informationen zur Versionsverwaltung:
@@ -271,33 +271,7 @@ Der Paketbezeichner (`<id>`-Element) und die Versionsnummer (`<version>`-Element
 > - [Teil 2: The core algorithm (Teil 2: Der Kernalgorithmus)](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
 > - [Part 3: Unification via Binding Redirects (Teil 3: Vereinheitlichung über Bindungsumleitungen)](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
 
-## <a name="setting-a-package-type"></a>Festlegen eines Pakettyps
-
-In NuGet 3.5 und höher können Pakete mit einem bestimmten *Pakettyp* gekennzeichnet werden, um den vorgesehenen Zweck anzugeben. Pakete ohne Typ, einschließlich aller mit früheren Versionen von NuGet erstellten Pakete, haben standardmäßig den Typ `Dependency`.
-
-- Pakete mit Typ `Dependency` fügen Bibliotheken und Anwendungen Build- oder Laufzeitressourcen hinzu und können in jedem Projekttyp installiert werden, wenn sie kompatibel sind.
-
-- Pakete mit Typ `DotnetCliTool` sind Erweiterungen der [.NET-CLI](/dotnet/articles/core/tools/index) und werden über die Befehlszeile aufgerufen. Solche Pakete können nur in .NET Core-Projekten installiert werden und haben keine Auswirkungen auf Wiederherstellungsvorgänge. Weitere Informationen zu diesen projektspezifischen Erweiterungen finden Sie in der Dokumentation zur [.NET Core-Erweiterbarkeit](/dotnet/articles/core/tools/extensibility#per-project-based-extensibility).
-
-- Pakete des benutzerdefinierten Typs verwenden einen willkürlichen Typbezeichner, der den gleichen Formatierungsregeln wie Paketbezeichner unterliegt. Der NuGet-Paket-Manager in Visual Studio erkennt jedoch nur die Typen `Dependency` und `DotnetCliTool`.
-
-Pakettypen werden in der `.nuspec`-Datei festgelegt. Für die Abwärtskompatibilität wird empfohlen, den `Dependency`-Typ *nicht* explizit festzulegen und stattdessen NuGet entscheiden zu lassen, wenn kein Typ angegeben ist.
-
-- `.nuspec`: Geben Sie den Pakettyp innerhalb eines `packageTypes\packageType`-Knotens unter dem `<metadata>`-Element an:
-
-    ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
-        <metadata>
-        <!-- ... -->
-        <packageTypes>
-            <packageType name="DotnetCliTool" />
-        </packageTypes>
-        </metadata>
-    </package>
-    ```
-
-## <a name="adding-a-readme-and-other-files"></a>Hinzufügen einer Infodatei und anderer Dateien
+## <a name="add-a-readme-and-other-files"></a>Hinzufügen einer Infodatei und anderer Dateien
 
 Verwenden Sie den `<files>`-Knoten in der `.nuspec`-Datei, die dem `<metadata>`-Tag *folgt*, um Dateien, die in das Paket aufgenommen werden sollen, direkt anzugeben:
 
@@ -327,7 +301,7 @@ Wenn Sie eine Datei namens `readme.txt` im Stammverzeichnis des Pakets einschlie
 > [!Note]
 > Wenn Sie einen leeren `<files>`-Knoten in die `.nuspec`-Datei einschließen, fügt NuGet dem Paket keine weiteren Inhalte außer denen im Ordner `lib` hinzu.
 
-## <a name="including-msbuild-props-and-targets-in-a-package"></a>Einfügen von MSBuild-Eigenschaften und -Zielen in ein Paket
+## <a name="include-msbuild-props-and-targets-in-a-package"></a>Einfügen von MSBuild-Eigenschaften und -Zielen in ein Paket
 
 In einigen Fällen (z.B. beim Ausführen eines benutzerdefinierten Tools oder Prozesses während des Buildvorgangs) sollten Sie benutzerdefinierte Buildziele oder -eigenschaften zu Projekten hinzufügen, die Ihr Paket nutzen. Platzieren Sie dazu Dateien mit der Schreibweise `<package_id>.targets` oder `<package_id>.props` (z.B. `Contoso.Utility.UsefulStuff.targets`) im `\build`-Ordner des Projekts.
 
@@ -367,27 +341,7 @@ MSBuild-`.props`- und -`.targets`-Dateien für frameworkübergreifende Ziele kö
 
 In NuGet 3.x werden Ziele nicht zum Projekt hinzugefügt, sondern über `project.lock.json` zur Verfügung gestellt.
 
-## <a name="authoring-packages-with-com-interop-assemblies"></a>Erstellen von Paketen, die COM-Interop-Assemblys enthalten
-
-Pakete, die COM-Interop-Assemblys enthalten, müssen eine entsprechende [Zieledatei](#including-msbuild-props-and-targets-in-a-package) enthalten, damit die richtigen `EmbedInteropTypes`-Metadaten zu Projekten hinzugefügt werden, die das Format „PackageReference“ verwenden. Die `EmbedInteropTypes`-Metadaten sind für alle Assemblys immer FALSE, wenn „PackageReference“ verwendet wird, damit die Zieledatei diese Metadaten explizit hinzufügt. Um Konflikte zu vermeiden, sollte der Name des Ziels eindeutig sein. Verwenden Sie am besten eine Kombination aus dem Paketnamen und der Assembly, die eingebettet wird, und ersetzen Sie `{InteropAssemblyName}` im folgenden Beispiel durch diesen Wert. Ein weiteres Beispiel finden Sie unter [NuGet.Samples.Interop](https://github.com/NuGet/Samples/tree/master/NuGet.Samples.Interop).
-
-```xml
-<Target Name="Embedding**AssemblyName**From**PackageId**" AfterTargets="ResolveReferences" BeforeTargets="FindReferenceAssembliesForReferences">
-  <ItemGroup>
-    <ReferencePath Condition=" '%(FileName)' == '{InteropAssemblyName}' AND '%(ReferencePath.NuGetPackageId)' == '$(MSBuildThisFileName)' ">
-      <EmbedInteropTypes>true</EmbedInteropTypes>
-    </ReferencePath>
-  </ItemGroup>
-</Target>
-```
-
-Hinweis: Wenn Sie das `packages.config`-Verwaltungsformat verwenden, prüfen NuGet und Visual Studio beim Hinzufügen von Verweisen zu den Assemblys aus Paketen auf COM-Interop-Assemblys und legen `EmbedInteropTypes` in der Projektdatei auf TRUE fest. In diesem Fall werden die Ziele überschrieben.
-
-Darüber hinaus werden die [Buildressourcen standardmäßig nicht transitiv weitergeben](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets). Pakete, die dieser Beschreibung nach erstellt werden, funktionieren anders, wenn sie als transitive Abhängigkeit aus einem Projekt in einen Projektverweis gezogen werden. Der Paketbenutzer kann die Weiterleitung zulassen, indem er den Standardwert „PrivateAssets“ so ändert, dass „build“ nicht enthalten ist.
-
-<a name="creating-the-package"></a>
-
-## <a name="running-nuget-pack-to-generate-the-nupkg-file"></a>Ausführen von „nuget pack“ zum Generieren der NUPKG-Datei
+## <a name="run-nuget-pack-to-generate-the-nupkg-file"></a>Ausführen von „nuget pack“ zum Generieren der NUPKG-Datei
 
 Wenn Sie eine Assembly oder das konventionsbasierte Arbeitsverzeichnis verwenden, erstellen Sie ein Paket, indem Sie den Befehl `nuget pack` mit der `.nuspec`-Datei ausführen und dabei `<project-name>` durch den bestimmten Dateinamen ersetzen:
 
@@ -441,7 +395,7 @@ Folgende Optionen werden beispielsweise häufig in Visual Studio-Projekten verwe
     nuget pack MyProject.csproj -symbols
     ```
 
-### <a name="testing-package-installation"></a>Testen der Paketinstallation
+### <a name="test-package-installation"></a>Testen der Paketinstallation
 
 Vor dem Veröffentlichen eines Pakets testen Sie in der Regel die Installation eines Pakets in einem Projekt. Diese Tests stellen sicher, dass die erforderlichen Dateien an den richtigen Orten im Projekt installiert werden.
 
@@ -465,6 +419,8 @@ Sie können auch die Funktionen des Pakets erweitern oder wie in den folgenden T
 - [Transformationen von Quell- und Konfigurationsdateien](../create-packages/source-and-config-file-transformations.md)
 - [Lokalisierung](../create-packages/creating-localized-packages.md)
 - [Vorabversionen](../create-packages/prerelease-packages.md)
+- [Festlegen des Pakettyps](../create-packages/set-package-type.md)
+- [Erstellen von Paketen mit COM-Interop-Assemblys](../create-packages/author-packages-with-COM-interop-assemblies.md)
 
 Außerdem sollten Sie die folgenden zusätzlichen Pakettypen berücksichtigen:
 

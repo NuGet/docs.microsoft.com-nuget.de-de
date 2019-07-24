@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: c2fc11c0f5dd5d98c40c8b97f9d5a72c4a334b79
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: fd846632e7a1f5c49fa72d75b18e51cfc7539949
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427285"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67841955"
 ---
 # <a name="nugetorg-frequently-asked-questions"></a>Häufig gestellte Fragen zu NuGet.org
 
@@ -252,13 +252,15 @@ Befolgen Sie die Schritte im Abschnitt zum [Löschen Ihres Kontos auf nuget.org]
 
 Es wird empfohlen, den Besitz aller Pakete, deren alleiniger Besitzer Sie sind, auf ein anderes Konto zu übertragen, bevor Sie Ihr Konto löschen. Weitere Informationen zu diesem Thema finden Sie unter [Verwalten von Paketbesitzern auf nuget.org](https://docs.microsoft.com/en-us/nuget/create-packages/publish-a-package#managing-package-owners-on-nugetorg). Hierdurch können wir Ihre Anforderung schneller verarbeiten.
 
+Wenn Sie Ihr Konto in eine Organisation umwandeln möchten, führen Sie die in [Wie kann ich mein Konto auf nuget.org auf ein Organisationskonto umstellen?](#how-to-transform-my-nugetorg-account-to-an-organization) beschriebenen Schritte aus.
+
 > [!Important]
 > Das Löschen Ihres Kontos hat folgende Auswirkungen:
+>  1. Ihr Benutzername ist reserviert und kann nicht erneut verwendet werden, um ein einzelnes Konto oder ein Organisationskonto zu erstellen.
 >  1. Zugehörige API-Schlüssel werden widerrufen. 
->  2. Das Konto wird als Besitzer aller untergeordneten Pakete entfernt.
->  3. Alle ID-Präfixe, die mit diesem Konto reserviert wurden, werden freigegeben.
->  4. Die Mitgliedschaft des Kontos in sämtlichen Organisationen wird aufgehoben.
->  5. Ihr Benutzername wird reserviert, und kein Benutzer kann ihn ohne die entsprechende Berechtigung erneut verwenden.
+>  1. Das Konto wird als Besitzer aller untergeordneten Pakete entfernt.
+>  1. Alle ID-Präfixe, die mit diesem Konto reserviert wurden, werden freigegeben.
+>  1. Die Mitgliedschaft des Kontos in sämtlichen Organisationen wird aufgehoben.
 
 Befolgen Sie diese Schritte, um mit der Löschung Ihres Kontos fortzufahren:
 1. [Melden Sie sich mit dem Konto auf nuget.org an](https://www.nuget.org/users/account/LogOn), das Sie löschen möchten.
