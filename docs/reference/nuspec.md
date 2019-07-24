@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: cd9e223a4ee93552b67e7357afa2ccb4e6fdb432
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 5b9be55b593890127d8fe0ad1a9357b89527a09a
+ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317238"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68433373"
 ---
 # <a name="nuspec-reference"></a>NUSPEC-Referenz
 
@@ -170,7 +170,19 @@ Eine durch Leerzeichen getrennte Liste mit Tags und Schlüsselwörtern, die das 
 *(ab Version 3.3)* Nur zur internen Verwendung von NuGet.
 
 #### <a name="repository"></a>repository
-Repositorymetadaten. Sie umfassen vier optionale Attribute: *type* und *url* *(ab Version 4.0)* sowie *branch* und *commit* *(ab Version 4.6)* . Mit diesen Attributen können Sie die NUPKG-Datei dem Repository zuordnen, mit dem es erstellt wurde. Dabei lässt sich eine Detailtiefe bis hinab zum einzelnen Branch oder Commit erzielen, durch den das Paket erstellt wurde. Hierbei sollte es sich um eine öffentlich zugängliche URL handeln, die direkt von einer Versionskontrollsoftware aufgerufen werden kann. Dagegen sollte es keine HTML-Seite sein, da diese für den Computer vorgesehen ist. Zur Verknüpfung mit der Projektseite verwenden Sie stattdessen das Feld `projectUrl`.
+Repository-Metadaten, bestehend aus vier optionalen Attributen `type` : `url` und *(4.0 +)* und `branch` und `commit` *(4.6*und höher). Diese Attribute ermöglichen es Ihnen, das `.nupkg` dem Repository zuzuordnen, von dem es erstellt wurde, und mit der Möglichkeit, den einzelnen branchnamen und/oder den SHA-1-Hash, der das Paket erstellt hat, so detailliert wie möglich zu machen. Hierbei sollte es sich um eine öffentlich zugängliche URL handeln, die direkt von einer Versionskontrollsoftware aufgerufen werden kann. Dagegen sollte es keine HTML-Seite sein, da diese für den Computer vorgesehen ist. Zur Verknüpfung mit der Projektseite verwenden Sie stattdessen das Feld `projectUrl`.
+
+Beispiel:
+```xml
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2016/06/nuspec.xsd">
+    <metadata>
+        ...
+        <repository type="git" url="https://github.com/NuGet/NuGet.Client.git" branch="dev" commit="e1c65e4524cd70ee6e22abe33e6cb6ec73938cb3" />
+        ...
+    </metadata>
+</package>
+```
 
 #### <a name="minclientversion"></a>minClientVersion
 Gibt die mindestens erforderliche Version des NuGet-Clients an, der dieses Paket installieren kann. Dies wird von nuget.exe und dem Paket-Manager von Visual Studio erzwungen. Das Attribut wird verwendet, wenn das Paket von bestimmten Funktionen der `.nuspec`-Datei abhängig ist, die in einer bestimmten Version des NuGet-Clients hinzugefügt wurden. Beispielsweise sollte ein Paket, das das `developmentDependency`-Attribut verwendet, „2.8“ für `minClientVersion` angeben. Genauso sollte ein Paket, das das `contentFiles`-Element verwendet (vgl. nächster Abschnitt), `minClientVersion` auf „3.3“ festlegen. Beachten Sie außerdem, dass NuGet-Clients vor Version 2.5 dieses Flag nicht erkennen und daher die Installation des Pakets unabhängig vom Inhalt von `minClientVersion` *immer* verweigern.

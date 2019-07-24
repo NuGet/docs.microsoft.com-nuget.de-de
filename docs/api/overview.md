@@ -1,21 +1,21 @@
 ---
-title: Übersicht über die nuget-API
-description: Die NuGet-API ist eine Reihe von HTTP-Endpunkten, die zum Herunterladen von Paketen, Abrufen von Metadaten, Veröffentlichen von neuen Paketen usw. verwendet werden kann.
+title: Übersicht über die nuget-Server-API
+description: Die nuget-Server-API ist eine Reihe von HTTP-Endpunkten, die zum Herunterladen von Paketen, zum Abrufen von Metadaten, zum Veröffentlichen neuer Pakete usw. verwendet werden können.
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: e8e8fdeee4f0765e2409aea261db8217744ae2c7
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: aacf56a5dc5af9abf6f60d42bc7fd530a128d0d8
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68316996"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419835"
 ---
-# <a name="nuget-api"></a>NuGet-API
+# <a name="nuget-server-api"></a>Nuget-Server-API
 
-Die NuGet-API ist eine Reihe von HTTP-Endpunkten, die dazu genutzt werden kann, Pakete herunterzuladen, Metadaten abzurufen, neue Pakete zu veröffentlichen und die meisten anderen Vorgänge durchzuführen, die in den offiziellen NuGet-Clients verfügbar sind.
+Bei der nuget-Server-API handelt es sich um einen Satz von HTTP-Endpunkten, die zum Herunterladen von Paketen, zum Abrufen von Metadaten, zum Veröffentlichen neuer Pakete und zum Ausführen der meisten anderen in den offiziellen nuget-Clients verfügbaren Vorgänge
 
 Diese API wird vom NuGet-Client in Visual Studio, nuget.exe und der .NET-CLI verwendet, um NuGet-Vorgänge auszuführen, z.B. [`dotnet restore`](/dotnet/core/tools/dotnet-restore?tabs=netcore2x), Suche in der Visual Studio-UI und [`nuget.exe push`](../reference/cli-reference/cli-ref-push.md).
 
