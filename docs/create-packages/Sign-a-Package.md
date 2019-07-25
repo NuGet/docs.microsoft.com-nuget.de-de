@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: abdd06642ccc652527a1a005eda2689ce97df74c
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 85a862852761b68db882abdc1ca0e84d83d95f07
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426811"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317644"
 ---
 # <a name="signing-nuget-packages"></a>Signieren von NuGet-Paketen
 
@@ -36,7 +36,7 @@ Sie können selbst ausgestellte Zertifikate für Testzwecke verwenden. Pakete, d
 > [!note]
 > Erfordert nuget.exe 4.6.0 oder höher
 
-Signieren Sie das Paket mithilfe von [nuget sign](../tools/cli-ref-sign.md):
+Signieren Sie das Paket mithilfe von [nuget sign](../reference/cli-reference/cli-ref-sign.md):
 
 ```cli
 nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper <TimestampServiceURL>
@@ -45,9 +45,9 @@ nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper 
 > [!Tip]
 > Der Zertifikatanbieter stellt häufig auch eine Zeitstempelserver-URL bereit, die Sie für das oben gezeigte optionale Argument `Timestamper` verwenden können. Informieren Sie sich über diese Dienst-URL anhand der Dokumentation Ihres Anbieters und/oder über dessen Support.
 
-* Sie können ein im Zertifikatspeicher verfügbares Zertifikat oder ein Zertifikat aus einer Datei verwenden. Informationen zu [nuget sign](../tools/cli-ref-sign.md) finden Sie in der Referenz der Befehlszeilenschnittstelle.
+* Sie können ein im Zertifikatspeicher verfügbares Zertifikat oder ein Zertifikat aus einer Datei verwenden. Informationen zu [nuget sign](../reference/cli-reference/cli-ref-sign.md) finden Sie in der Referenz der Befehlszeilenschnittstelle.
 * Signierte Pakete sollten einen Zeitstempel enthalten, um sicherzustellen, dass die Signatur gültig bleibt, wenn das Signaturzertifikat abläuft. Andernfalls erzeugt der Signierungsvorgang eine [Warnung](../reference/errors-and-warnings/NU3002.md).
-* Sie können Details der Signatur eines bestimmten Pakets mit dem [NuGet-Befehl „verify“](../tools/cli-ref-verify.md) anzeigen.
+* Sie können Details der Signatur eines bestimmten Pakets mit dem [NuGet-Befehl „verify“](../reference/cli-reference/cli-ref-verify.md) anzeigen.
 
 ## <a name="register-the-certificate-on-nugetorg"></a>Registrieren des Zertifikats bei NuGet.org
 

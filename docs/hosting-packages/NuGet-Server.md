@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: e99d42744ec860976ae098be94e747ec4bc9a7c6
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 734f0a609f243c7bdb218a53ed664de68c707dd7
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551955"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317650"
 ---
 # <a name="nugetserver"></a>NuGet.Server
 
@@ -76,7 +76,7 @@ Wenn `packagesPath` weggelassen wird oder dafür nichts eingegeben wird, wird de
 
 ## <a name="adding-packages-to-the-feed-externally"></a>Externes Hinzufügen von Paketen zum Feed
 
-Sobald eine NuGet.Server-Website ausgeführt wird, können Sie mit dem Befehl [nuget push](../tools/cli-ref-push.md) weitere Pakete hinzufügen, vorausgesetzt Sie haben in `web.config` einen API-Schlüsselwert festgelegt.
+Sobald eine NuGet.Server-Website ausgeführt wird, können Sie mit dem Befehl [nuget push](../reference/cli-reference/cli-ref-push.md) weitere Pakete hinzufügen, vorausgesetzt Sie haben in `web.config` einen API-Schlüsselwert festgelegt.
 
 Nach der Installation des Pakets „NuGet.Server“ enthält `web.config` einen leeren `appSetting/apiKey`-Wert:
 
@@ -104,7 +104,7 @@ Wenn Ihr Server bereits geschützt ist oder Sie keinen API-Schlüssel benötigen
 
 ## <a name="removing-packages-from-the-feed"></a>Entfernen von Paketen aus dem Feed
 
-Bei „NuGet.Server“ löscht der Befehl [nuget delete](../tools/cli-ref-delete.md) ein Paket aus dem Repository, vorausgesetzt Sie schließen den API-Schlüssel in den Kommentar ein.
+Bei „NuGet.Server“ löscht der Befehl [nuget delete](../reference/cli-reference/cli-ref-delete.md) ein Paket aus dem Repository, vorausgesetzt Sie schließen den API-Schlüssel in den Kommentar ein.
 
 Wenn Sie das Verhalten so ändern möchten, dass das Paket stattdessen aus der Liste entfernt wird (somit bleibt es für die Paketwiederherstellung verfügbar), legen Sie den Schlüssel `enableDelisting` in `web.config` auf TRUE fest.
 

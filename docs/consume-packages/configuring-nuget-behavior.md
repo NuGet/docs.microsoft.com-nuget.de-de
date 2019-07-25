@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: 57b7f29b533a8e6d7db2710c7e42a239f50199a1
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 5309d94fafea9cdfc3699d443393be5d381dd145
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426651"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317735"
 ---
 # <a name="common-nuget-configurations"></a>Gängige NuGet-Konfigurationen
 
@@ -32,7 +32,7 @@ Hinweise für frühere Versionen von NuGet:
 
 Bei einer `NuGet.Config`-Datei handelt es sich um eine einfache XML-Textdatei, die wie im Artikel [NuGet Configuration Settings (NuGet-Konfigurationseinstellungen)](../reference/nuget-config-file.md) beschrieben Schlüssel/Wert-Paare enthält.
 
-Einstellungen werden mithilfe des NuGet-CLI-Befehls [config](../tools/cli-ref-config.md) verwaltet:
+Einstellungen werden mithilfe des NuGet-CLI-Befehls [config](../reference/cli-reference/cli-ref-config.md) verwaltet:
 - Standardmäßig werden Änderungen an der Konfigurationsdatei auf Benutzerebene vorgenommen.
 - Verwenden Sie den `-configFile`-Parameter, um die Einstellungen in einer anderen Datei zu ändern. In diesem Fall kann ein beliebiger Dateiname für Dateien verwendet werden.
 - Bei Schlüsseln wird die Groß-/Kleinschreibung immer beachtet.

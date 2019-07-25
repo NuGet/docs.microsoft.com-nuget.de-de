@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/25/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: f05c3a7a51bdc0760097422004cfc4339bf9ee2c
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 737b13be70de9aaa7dec7904d4c2a4ec494ef7b3
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426605"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317550"
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>Hosten eigener NuGet-Feeds
 
@@ -38,4 +38,4 @@ Es gibt zudem verschiedene andere NuGet-Produkte zum Hosten, die remote private 
 - [Nexus](http://www.sonatype.org/nexus/) von Sonatype
 - [TeamCity](https://www.jetbrains.com/teamcity/) von JetBrains
 
-Unabhängig davon, wie Pakete gehostet werden, können Sie auf diese zugreifen, indem Sie diese der Liste verfügbarer Datenquellen in `NuGet.Config` hinzufügen. Dies kann in Visual Studio ausgeführt werden, wie im Absatz zum Thema [Paketquellen](../tools/package-manager-ui.md#package-sources) beschrieben, oder über die Befehlszeile mithilfe von [`nuget sources`](../tools/cli-ref-sources.md). Bei dem Pfad zu einer Datenquelle kann es sich um einen Pfadnamen für einen lokalen Ordner, um einen Netzwerknamen oder eine URL handeln.
+Unabhängig davon, wie Pakete gehostet werden, können Sie auf diese zugreifen, indem Sie diese der Liste verfügbarer Datenquellen in `NuGet.Config` hinzufügen. Dies kann in Visual Studio ausgeführt werden, wie im Absatz zum Thema [Paketquellen](../consume-packages/install-use-packages-visual-studio.md#package-sources) beschrieben, oder über die Befehlszeile mithilfe von [`nuget sources`](../reference/cli-reference/cli-ref-sources.md). Bei dem Pfad zu einer Datenquelle kann es sich um einen Pfadnamen für einen lokalen Ordner, um einen Netzwerknamen oder eine URL handeln.

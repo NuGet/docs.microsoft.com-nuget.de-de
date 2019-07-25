@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: 64f3a1978cd336064a77c9f3872357e65c37fc10
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: a796c7a7537c3052259c7cf3f17d60981a495442
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842360"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317721"
 ---
 # <a name="install-and-manage-packages-using-the-dotnet-cli"></a>Installieren und Verwalten von Paketen mit der dotnet-CLI
 
@@ -18,7 +18,7 @@ Mit dem CLI-Tool können Sie auf einfache Weise NuGet-Pakete in Projekten und L�
 
 Die dotnet-CLI ist für die Verwendung in .NET Core- und .NET Standard-Projekten (Projekte im SDK-Stil) und für andere Projekte im SDK-Stil vorgesehen (z.B. ein Projekt im SDK-Stil, das auf .NET Framework abzielt). Weitere Informationen finden Sie unter [SDK-Attribute](/dotnet/core/tools/csproj#additions).
 
-Dieser Artikel zeigt die grundlegende Verwendung einiger der gängigsten dotnet-CLI-Befehle. Bei den meisten dieser Befehle sucht das CLI-Tool nach einer Projektdatei im aktuellen Verzeichnis, sofern keine Projektdatei im Befehl angegeben ist (die Projektdatei ist ein optionaler Schalter). Eine vollständige Liste der verfügbaren Befehle und Argumente finden Sie unter [.NET Core-CLI-Tools](../tools/dotnet-commands.md).
+Dieser Artikel zeigt die grundlegende Verwendung einiger der gängigsten dotnet-CLI-Befehle. Bei den meisten dieser Befehle sucht das CLI-Tool nach einer Projektdatei im aktuellen Verzeichnis, sofern keine Projektdatei im Befehl angegeben ist (die Projektdatei ist ein optionaler Schalter). Eine vollständige Liste der verfügbaren Befehle und Argumente finden Sie unter [.NET Core-CLI-Tools](../reference/dotnet-commands.md).
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
