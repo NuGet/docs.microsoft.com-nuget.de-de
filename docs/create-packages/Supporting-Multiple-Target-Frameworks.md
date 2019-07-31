@@ -3,22 +3,22 @@ title: Festlegung von Zielversionen für NuGet-Pakete
 description: Beschreibung der verschiedenen Methoden für die Ausrichtung mehrerer .NET Framework-Versionen aus einem einzelnen NuGet-Paket.
 author: karann-msft
 ms.author: karann
-ms.date: 09/27/2017
+ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: a755438c1f63d33271f636cb663cc5b51a5aecbc
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: d12b12c4670f5dcb4c1e7e475d77926bd5d3935b
+ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324811"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68342503"
 ---
-# <a name="supporting-multiple-net-framework-versions"></a>Unterstützen mehrerer .NET Framework-Versionen
+# <a name="support-multiple-net-versions"></a>Unterstützung für mehrere .NET-Versionen
 
-*Einzelheiten zur versionsübergreifenden Ausrichtung für .NET Core-Projekte, die NuGet 4.0 oder höher verwenden, finden Sie unter [NuGet pack and restore as MSBuild targets (NuGet-Befehle „pack“ und „restore“ als MSBuild-Ziele)](../reference/msbuild-targets.md).*
+Viele Bibliotheken sind auf eine bestimmte Version von .NET Framework ausgerichtet. So müssen Sie möglicherweise über eine für die UWP spezifische Version Ihrer Bibliothek sowie über eine weitere Version verfügen, die die Features in .NET Framework 4.6 nutzt. Dafür unterstützt NuGet das Platzieren mehrerer Versionen derselben Bibliothek in einem einzelnen Paket.
 
-Viele Bibliotheken sind auf eine bestimmte Version von .NET Framework ausgerichtet. So müssen Sie möglicherweise über eine für die UWP spezifische Version Ihrer Bibliothek sowie über eine weitere Version verfügen, die die Features in .NET Framework 4.6 nutzt.
+Dieser Artikel beschreibt das Layout eines NuGet-Pakets, unabhängig davon, wie das Paket oder die Assemblys aufgebaut sind (d.h. das Layout ist das gleiche, unabhängig davon, ob mehrere *.csproj*-Dateien im Nicht-SDK-Stil und eine benutzerdefinierte *.nuspec*-Datei oder eine einzelne *.csproj*-Datei im SDK-Stil mit mehreren Zielen verwendet werden). Für ein Projekt im SDK-Stil weiß NuGet-[pack targets](../reference/msbuild-targets.md), wie das Paket gestaltet sein muss, und automatisiert das Einfügen der Assemblys in die richtigen lib-Ordner und das Erstellen von Abhängigkeitsgruppen für jedes Zielframework (TFM). Ausführliche Anweisungen finden Sie unter [Unterstützung mehrerer .NET Framework-Versionen in der Projektdatei](multiple-target-frameworks-project-file.md).
 
-NuGet unterstützt zwecks einer entsprechenden Anpassung, dass bei Verwendung der unter [Erstellen eines Pakets](../create-packages/creating-a-package.md#from-a-convention-based-working-directory) beschriebenen Arbeitsverzeichnismethode mehrere Versionen der gleichen Bibliothek in ein einzelnes Paket eingefügt werden.
+Sie müssen das Paket manuell gestalten, wie in diesem Artikel beschrieben, wenn Sie die unter [Erstellen eines Pakets](../create-packages/creating-a-package.md#from-a-convention-based-working-directory) beschriebene konventionsbasierte Arbeitsverzeichnismethode verwenden. Für ein Projekt im SDK-Stil wird die automatisierte Methode empfohlen. Sie können das Paket aber auch manuell gestalten, wie in diesem Artikel beschrieben.
 
 ## <a name="framework-version-folder-structure"></a>Ordnerstruktur der Frameworkversion
 

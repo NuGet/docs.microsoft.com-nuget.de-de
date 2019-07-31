@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: e1e31e0534706dab43f8d7b1b0db059cd6f29b80
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: c88b88015bd6d5bae4789765126c0a3dec527e24
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427135"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419842"
 ---
 # <a name="individual-accounts"></a>Individuelle Konten
 
@@ -45,3 +45,27 @@ Sie müssen ein persönliches Microsoft-Konto (Managed Service Account, MSA) ode
 1. Klicken Sie auf die Schaltfläche **Register** (Registrieren).
 
 Sie besitzen nun ein NuGet.org-Konto. Sie können Ihr Konto über die Seite [account settings](https://www.nuget.org/account) (Kontoeinstellungen) verwalten.
+
+## <a name="enable-two-factor-authentication-2fa"></a>Aktivieren der zweistufigen Authentifizierung (2FA)
+
+Aktivieren Sie die zweistufige Authentifizierung (empfohlen), um Ihr Konto besser zu schützen.
+
+1. Öffnen Sie nach der Anmeldung bei Ihrem Konto Ihr Profil, und wählen Sie **Aktivieren**unter**Anmeldekonto** aus.
+
+   ![2FA aktivieren](media/nuget-org-register-2fa.png)
+
+   Es wird eine Meldung angezeigt, die Ihnen mitteilt, dass Sie bei der nächsten Anmeldung bei *nuget.org* um zusätzliche Anmeldeinformationen gebeten werden.
+
+2. Um die Authentifizierung jetzt abzuschließen, melden Sie sich ab und wieder an.
+
+3. Wenn Sie sich anmelden, wählen Sie entweder Textnachricht oder E-Mail als zweite Form der Authentifizierung aus.
+
+   Überprüfen Sie die Telefonnummer oder Mail-Adresse, die Ihrem Microsoft-Konto bereits zugeordnet ist. Sie müssen möglicherweise eine neue Telefonnummer oder E-Mail-Adresse für Ihr Konto eingeben. Wenn dies der Fall ist, geben Sie die erforderlichen Informationen ein, und klicken Sie auf **Weiter**.
+
+   ![2FA aktivieren](media/nuget-org-sign-in-2fa.png)
+
+4. Schauen Sie auf Ihrem Gerät oder in Ihrem E-Mail-Konto nach, und geben Sie den Code ein, den Sie soeben erhalten haben.
+
+   ![2FA aktivieren](media/nuget-org-enter-code-2fa.png)
+
+5. Befolgen Sie alle weiteren Anweisungen, um die zweistufige Authentifizierung abzuschließen.

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: fc338ba3810a125f638a937cf14456bf519a24a8
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: b104eb39ddeacd9ca1ea45937cf98ad57531112a
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548473"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317142"
 ---
 # <a name="known-issues-with-nuget"></a>Bekannte Probleme mit NuGet
 
@@ -29,7 +29,7 @@ $PAT = "Ihr persönliches Zugriffstoken" $Feed = "Ihre URL" .\nuget.exe sources 
 
 **Problemumgehung:**
 
-Speichern Sie Kennwörter in Klartext mithilfe der Option [-StorePasswordInClearText](../tools/cli-ref-sources.md).
+Speichern Sie Kennwörter in Klartext mithilfe der Option [-StorePasswordInClearText](../reference/cli-reference/cli-ref-sources.md).
 
 ## <a name="error-installing-packages-with-nuget-34-341"></a>Fehler beim Installieren von Paketen mit NuGet 3.4 und 3.4.1
 
@@ -75,7 +75,7 @@ Weitere Informationen zu diesem Fehler finden Sie in diesem [Arbeitselement](htt
 
 ## <a name="build-failure-after-package-update-in-vs-2012"></a>Buildfehler nach dem Aktualisieren des Pakets in Visual Studio 2012
 
-Das Problem: Sie verwenden Visual Studio 2012 RTM. Wenn Sie NuGet-Pakete aktualisieren, wird Ihnen folgende Meldung angezeigt: „Mindestens ein Paket konnte nicht vollständig deinstalliert werden.“ Sie werden außerdem dazu aufgefordert, Visual Studio neu zu starten. Nach dem Neustart von Visual Studio erhalten Sie merkwürdige Buildfehler.
+Die Problematik: Sie verwenden Visual Studio 2012 RTM. Beim Aktualisieren von NuGet-Paketen erhalten Sie die folgende Meldung: „Mindestens ein Paket konnte nicht deinstalliert werden.“ Sie werden außerdem dazu aufgefordert, Visual Studio neu zu starten. Nach dem Neustart von Visual Studio erhalten Sie merkwürdige Buildfehler.
 
 Dies wird durch bestimmte Dateien in alten Paketen verursacht, die durch einen MSBuild-Hintergrundprozess gesperrt sind. Auch nach dem Neustart von Visual Studio verwendet der MSBuild-Hintergrundprozess diese Dateien noch in den alten Paketen, wodurch die Buildfehler verursacht werden.
 
@@ -134,7 +134,7 @@ oder
 
 Der Autor des Add-Ins wurde in der Hoffnung kontaktiert, dass dieser eine Lösung dafür ausarbeiten kann.
 
-<p class="info">Update: Es wurde festgestellt, dass die aktuelle Version von Reflector (6.5) diese Ausnahme nicht mehr in der Konsole auslöst.</p>
+<p class="info">Aktualisieren: Es wurde festgestellt, dass die aktuelle Version von Reflector (6.5) diese Ausnahme nicht mehr in der Konsole auslöst.</p>
 
 ## <a name="opening-package-manager-console-fails-with-objectsecurity-exception"></a>Das Öffnen der Konsole des Paket-Managers schlägt mit der Ausnahme „ObjectSecurity“ fehl
 

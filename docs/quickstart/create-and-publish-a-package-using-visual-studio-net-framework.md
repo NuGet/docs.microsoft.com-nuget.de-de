@@ -1,16 +1,16 @@
 ---
-title: Erstellen und Veröffentlichen eines .NET Framework-Pakets mithilfe von Visual Studio auf Windows
+title: Erstellen und Veröffentlichen eines .NET Framework-NuGet-Pakets mithilfe von Visual Studio auf Windows
 description: Ein Tutorial zum Erstellen und Veröffentlichen eines .NET Framework NuGet-Pakets mit Visual Studio unter Windows.
 author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: bf561d36a06bf42c029eb96ff1b7930abffa4c0a
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 75160bf2b01f6d4707162e019a6263ddc64a6f5e
+ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842042"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68342521"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Schnellstart: Erstellen und Veröffentlichen eines Pakets mithilfe von Visual Studio (.NET Framework, Windows)
 
@@ -162,7 +162,7 @@ Sobald Sie eine `.nupkg`-Datei haben, können Sie diese, gemeinsam mit einem API
     Your package was pushed.
     ```
 
-Siehe [nuget push-Befehl](../tools/cli-ref-push.md).
+Siehe [nuget push-Befehl](../reference/cli-reference/cli-ref-push.md).
 
 ### <a name="publish-errors"></a>Veröffentlichungsfehler
 
@@ -172,9 +172,15 @@ Siehe [nuget push-Befehl](../tools/cli-ref-push.md).
 
 [!INCLUDE [publish-manage](includes/publish-manage.md)]
 
-## <a name="related-topics"></a>Verwandte Themen
+## <a name="next-steps"></a>Nächste Schritte
 
-- [Erstellen eines Pakets](../create-packages/creating-a-package.md)
+Herzlichen Glückwunsch zur Erstellung Ihres ersten NuGet-Pakets!
+
+> [!div class="nextstepaction"]
+> [Erstellen eines Pakets](../create-packages/creating-a-package.md)
+
+Klicken Sie für weitere Informationen zu den Features von NuGet auf folgende Links.
+
 - [Veröffentlichen eines Pakets](../nuget-org/publish-a-package.md)
 - [Vorabversionen von Paketen](../create-packages/Prerelease-Packages.md)
 - [Unterstützung mehrerer Zielframeworks](../create-packages/supporting-multiple-target-frameworks.md)

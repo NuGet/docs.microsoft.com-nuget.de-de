@@ -1,24 +1,24 @@
 ---
-title: Erstellen eines NuGet-Pakets
+title: Erstellen eines NuGet-Pakets mithilfe der „nuget.exe“-CLI
 description: Eine ausführliche Anleitung zum Entwerfen und Erstellen eines NuGet-Pakets, einschließlich der wichtigsten Entscheidungspunkte wie Dateien und Versionsverwaltung
 author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1dce8556448131c36680167fdc3605e4378b9178
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 894a39e9e67508234295db128928b09da7f468f0
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842303"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419816"
 ---
-# <a name="create-nuget-packages"></a>Erstellen von NuGet-Paketen
+# <a name="create-a-package-using-the-nugetexe-cli"></a>Erstellen eines Pakets mithilfe der „nuget.exe“-CLI
 
 Unabhängig davon, welchen Zweck Ihr Paket erfüllt oder welchen Code es enthält, verwenden Sie eines der CLI-Tools (entweder `nuget.exe` oder `dotnet.exe`), um diese Funktionalität in einer Komponente zu verpacken, die für andere Entwickler freigegeben und von ihnen verwendet werden kann. Informationen zur Installation von NuGet-CLI-Tools finden Sie unter [Installieren von NuGet-Clienttools](../install-nuget-client-tools.md). Beachten Sie, dass Visual Studio nicht automatisch ein CLI-Tool enthält.
 
-- Für .NET Core- und .NET Standard-Projekte, die das [SDK-Format](../resources/check-project-format.md) verwenden, und für alle anderen Projekte im SDK-Format verwendet NuGet Informationen in der Projektdatei direkt zum Erstellen eines Pakets. Ausführliche Informationen zu den Schritten finden Sie unter [Erstellen von .NET Standard-Paketen mit der dotnet-CLI](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md), [Erstellen von .NET- Standard-Paketen mit Visual Studio](../quickstart/create-and-publish-a-package-using-visual-studio.md) und [NuGet-Befehle „pack“ und „restore“ als MSBuild-Ziele](../reference/msbuild-targets.md).
+- Für Projekte im Nicht-SDK-Format, in der Regel .NET Framework-Projekte, befolgen Sie die in diesem Artikel beschriebenen Schritte zum Erstellen eines Pakets. Eine Schritt-für-Schritt-Anleitung für die Verwendung von Visual Studio und der `nuget.exe`-CLI finden Sie unter[ Erstellen und Veröffentlichen eines .NET Framework-Pakets](../quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md).
 
-- Für Projekte im Nicht-SDK-Format, in der Regel .NET Framework-Projekte, befolgen Sie die in diesem Artikel beschriebenen Schritte zum Erstellen eines Pakets. Sie können auch die Schritte unter [Erstellen und Veröffentlichen eines .NET Framework-Pakets ](../quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md) ausführen, um ein Paket mithilfe von Visual Studio und der `nuget.exe`-CLI zu erstellen.
+- Für .NET Core- und .NET Standard-Projekte, die das [SDK-Format](../resources/check-project-format.md) verwenden, und für alle anderen Projekte im SDK-Format finden Sie weitere Informationen unter [Erstellen eines NuGet-Pakets mit der dotnet-CLI](creating-a-package-dotnet-cli.md).
 
 - Für Projekte, die von `packages.config` zu [PackageReference](../consume-packages/package-references-in-project-files.md) migriert wurden, verwenden Sie [msbuild -t:pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
@@ -65,7 +65,7 @@ Allgemeine optionale Eigenschaften:
 
 - Anmerkungen zu diesem Release
 - Copyrightinformationen
-- Eine kurze Beschreibung der [Paket-Manager-UI in Visual Studio](../tools/package-manager-ui.md)
+- Eine kurze Beschreibung der [Paket-Manager-UI in Visual Studio](../consume-packages/install-use-packages-visual-studio.md)
 - Eine Gebietsschema-ID
 - Projekt-URL
 - Eine Lizenz als Ausdruck oder Datei (`licenseUrl` wird als veraltet markiert. Nutzen Sie das [Nuspec-Metadatenelement `license`](../reference/nuspec.md#license))
@@ -369,7 +369,7 @@ Wenn `nuget pack` erfolgreich ausgeführt wurde, können Sie die erstellte `.nup
 
 ### <a name="additional-options"></a>Zusätzliche Optionen
 
-Sie können `nuget pack` mit verschiedenen Befehlszeilenparameter verwenden, um z.B. Dateien auszuschließen, die Versionsnummer im Manifest zu überschreiben und den Ausgabeordner zu ändern. Eine vollständige Liste finden Sie in der [Referenz zum Packbefehl](../tools/cli-ref-pack.md).
+Sie können `nuget pack` mit verschiedenen Befehlszeilenparameter verwenden, um z.B. Dateien auszuschließen, die Versionsnummer im Manifest zu überschreiben und den Ausgabeordner zu ändern. Eine vollständige Liste finden Sie in der [Referenz zum Packbefehl](../reference/cli-reference/cli-ref-pack.md).
 
 Folgende Optionen werden beispielsweise häufig in Visual Studio-Projekten verwendet:
 
@@ -404,7 +404,7 @@ Installationen lassen sich manuell in Visual Studio oder mithilfe der normalen [
 Für automatisierte Tests gehen Sie folgendermaßen vor:
 
 1. Kopieren Sie die `.nupkg`-Datei in einen lokalen Ordner.
-1. Fügen Sie den Ordner mithilfe des `nuget sources add -name <name> -source <path>`-Befehls den Paketquellen hinzu. Weitere Informationen finden Sie unter [sources command (NuGet CLI) (sources-Befehl (NuGet-CLI))](../tools/cli-ref-sources.md). Diese lokale Quelle muss auf einem Computer nur einmal festgelegt werden.
+1. Fügen Sie den Ordner mithilfe des `nuget sources add -name <name> -source <path>`-Befehls den Paketquellen hinzu. Weitere Informationen finden Sie unter [sources command (NuGet CLI) (sources-Befehl (NuGet-CLI))](../reference/cli-reference/cli-ref-sources.md). Diese lokale Quelle muss auf einem Computer nur einmal festgelegt werden.
 1. Installieren Sie das Paket aus dieser Quelle mithilfe von `nuget install <packageID> -source <name>`, wobei `<name>` dem Namen der Quelle entspricht, so wie er an `nuget sources` übergeben wurde. Durch das Angeben der Quelle wird sichergestellt, dass das Paket nur aus dieser Quelle installiert wird.
 1. Überprüfen Sie Ihr Dateisystem, um sicherzustellen, dass Dateien richtig installiert wurden.
 

@@ -1,12 +1,14 @@
 ---
-ms.openlocfilehash: 5acdc54726e4cb07794f8ee07d5e0d357ff622a3
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 20851cd71cc5eb6735fe5e0cd8b0f314f9100be4
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842054"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419929"
 ---
 1. [Melden Sie sich bei Ihrem nuget.org-Konto an](https://www.nuget.org/users/account/LogOn?returnUrl=%2F), oder erstellen Sie ein Konto, wenn Sie noch keines besitzen.
+
+   Weitere Informationen zum Erstellen Ihres Kontos finden Sie unter [Individuelle Konten](../../nuget-org/individual-accounts.md).
 
 1. Klicken Sie auf Ihren Benutzernamen (oben rechts) und anschließend auf **API Keys** (API-Schlüssel).
 
@@ -18,4 +20,4 @@ ms.locfileid: "67842054"
 
 1. **Wichtig:** Speichern Sie den Schlüssel an einem sicheren Ort; Sie können den Schlüssel später nicht erneut kopieren. Wenn Sie auf die Seite „API-Schlüssel“ zurückkehren, müssen Sie den Schlüssel erneut generieren, um ihn zu kopieren. Sie können den API-Schlüssel auch entfernen, wenn sie keine Pakete mehr mithilfe von Push über die CLI übertragen möchten.
 
-Mit der Bereichsauswahl können Sie separate API-Schlüssel für verschiedene Zwecke erstellen. Jeder Schlüssel hat seinen Ablaufzeitraum und kann auf bestimmte Pakete (oder Globmuster) festgelegt werden. Jeder Schlüssel ist zudem auf bestimmte Vorgänge begrenzt: Push von neuen Paketen und Updates, Push von ausschließlich Updates oder Entfernen aus Listing. Durch das Festlegen des Gültigkeitsbereichs können Sie API-Schlüssel für verschiedene Personen erstellen, die Pakete für Ihre Organisation so verwalten, dass sie nur über die erforderlichen Berechtigungen verfügen. Weitere Informationen finden Sie in der [Einführung in API-Schlüssel mit begrenztem Gültigkeitsbereich](https://blog.nuget.org/20170202/introducing-scoped-api-keys.html) (blogs.nuget.org).
+Mit der Bereichsauswahl können Sie separate API-Schlüssel für verschiedene Zwecke erstellen. Jeder Schlüssel hat seinen Ablaufzeitraum und kann auf bestimmte Pakete (oder Globmuster) festgelegt werden. Jeder Schlüssel ist zudem auf bestimmte Vorgänge begrenzt: Push von neuen Paketen und Updates, Push von ausschließlich Updates oder Entfernen aus Listing. Durch das Festlegen des Gültigkeitsbereichs können Sie API-Schlüssel für verschiedene Personen erstellen, die Pakete für Ihre Organisation so verwalten, dass sie nur über die erforderlichen Berechtigungen verfügen. Weitere Informationen finden Sie unter [bereichsbezogene API-Schlüssel](../../nuget-org/scoped-api-keys.md).

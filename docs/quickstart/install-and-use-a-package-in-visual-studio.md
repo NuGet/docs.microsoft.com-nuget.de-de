@@ -1,32 +1,31 @@
 ---
-title: Einführender Leitfaden zur Verwendung von NuGet-Paketen innerhalb von Visual Studio
+title: Installieren und Verwenden eines NuGet-Pakets in Visual Studio
 description: Ein Tutorial mit einer exemplarischen Vorgehensweise bei der Installation und Verwendung eines NuGet-Pakets in einem Visual Studio-Projekt.
 author: karann-msft
 ms.author: karann
-ms.date: 01/23/2018
+ms.date: 07/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: 014b316ea03b45584406c313d46b96ad36340124
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: a2be42aeb322cfd0ab43c9cec6ad1b063cbc3089
+ms.sourcegitcommit: f291ff91561a6b58c2aec41c624d798e00ce41fa
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426229"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68462540"
 ---
-# <a name="quickstart-install-and-use-a-package-in-visual-studio"></a>Schnellstart: Installieren und Verwenden eines Pakets in Visual Studio
+# <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>Schnellstart: Installieren und Verwenden eines Pakets in Visual Studio (nur Windows)
 
-NuGet-Pakete enthalten wiederverwendbaren Code, der von anderen Entwicklern für die Verwendung in Ihren Projekten verfügbar gemacht wird. Unter [Was ist NuGet?](../What-is-NuGet.md) finden Sie weitere Informationen. Pakete werden über die Paket-Manager-Benutzeroberfläche oder die Paket-Manager-Konsole in einem Visual Studio-Projekt installiert. Dieser Artikel zeigt den Prozess mit dem beliebten [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)-Paket und einem UWP-Projekt (Universelle Windows-Plattform). Derselbe Prozess ist auch auf jedes andere .NET oder .NET Core-Projekt anwendbar.
+NuGet-Pakete enthalten wiederverwendbaren Code, der von anderen Entwicklern für die Verwendung in Ihren Projekten verfügbar gemacht wird. Unter [Was ist NuGet?](../What-is-NuGet.md) finden Sie weitere Informationen. Pakete werden über den NuGet-Paket-Manager oder die Paket-Manager-Konsole in einem Visual Studio-Projekt installiert. Dieser Artikel zeigt den Prozess mit dem beliebten [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)-Paket und einem WPF-Projekt (Windows Presentation Foundation). Derselbe Prozess ist auch auf jedes andere .NET oder .NET Core-Projekt anwendbar.
 
 Beziehen Sie sich nach der Installation mit `using <namespace>` auf das Paket im Code, wobei \<Namespace\> für das von Ihnen verwendete Paket spezifisch ist. Nachdem der Verweis erfolgt ist, können Sie das Paket über die zugehörige API aufrufen.
 
 > [!Tip]
-> **Einstieg in nuget.org**: .NET-Entwickler finden Komponenten für die Verwendung in ihren eigenen Anwendungen üblicherweise durch das Durchsuchen von nuget.org. Sie können nuget.org direkt durchsuchen oder in Visual Studio nach Paketen suchen und diese installieren, wie in diesem Artikel dargestellt wird.
+> **Einstieg in nuget.org**: .NET-Entwickler finden Komponenten für die Verwendung in ihren eigenen Anwendungen üblicherweise durch das Durchsuchen von *nuget.org*. Sie können *nuget.org* direkt durchsuchen oder in Visual Studio nach Paketen suchen und diese installieren, wie in diesem Artikel dargestellt wird. Allgemeine Informationen finden Sie [Suchen und Auswerten von NuGet-Paketen](../consume-packages/finding-and-choosing-packages.md).
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
-- Visual Studio 2017 mit der Entwicklungsworkload für die Universelle Windows-Plattform, oder
-- Visual Studio 2015 Update 3 mit Tools für universelle Windows-Apps.
+- Visual Studio 2019 mit der .NET Desktop Development-Workload.
 
-Sie können die 2017 Community Edition kostenlos über [visualstudio.com](https://www.visualstudio.com/) installieren oder die Professional bzw. Enterprise Edition verwenden.
+Sie können die 2019 Community-Edition kostenlos von [visualstudio.com](https://www.visualstudio.com/) installieren oder die Professional oder Enterprise Edition verwenden.
 
 Wenn Sie Visual Studio für Mac verwenden, finden Sie Informationen unter [Einschließen eines NuGet-Pakets in Ihr Projekt](/visualstudio/mac/nuget-walkthrough).
 
@@ -34,13 +33,15 @@ Wenn Sie Visual Studio für Mac verwenden, finden Sie Informationen unter [Einsc
 
 NuGet-Pakete können in jedem beliebigen .NET-Projekt installiert werden, vorausgesetzt, das Paket unterstützt dasselbe Zielframework wie das Projekt.
 
-In dieser exemplarischen Vorgehensweise verwenden Sie eine einfach universelle Windows-App (UWP). Erstellen Sie ein Projekt in Visual Studio, indem Sie auf **Datei > Neues Projekt...** klicken und **Windows Universal > Leere App (Universal Windows)** auswählen. Übernehmen Sie die Standardwerte für „Zielversion“ und „Mindestens erforderliche Version“, wenn Sie dazu aufgefordert werden.
+Verwenden Sie für diese exemplarische Vorgehensweise eine einfache WPF-App. Erstellen Sie ein Projekt in Visual Studio mit **Datei > Neues Projekt...** , geben Sie **.NET** in das Suchfeld ein, und wählen Sie dann die **WPF App (.NET Framework)** aus. Klicken Sie auf **Weiter**. Akzeptieren Sie die Standardwerte für **Framework**, wenn Sie dazu aufgefordert werden.
+
+Visual Studio erstellt das Projekt, das im Projektmappen-Explorer geöffnet wird.
 
 ## <a name="add-the-newtonsoftjson-nuget-package"></a>Hinzufügen des NuGet-Pakets „Newtonsoft.Json“
 
-Sie können entweder die Benutzeroberfläche oder die Konsole von Paket-Manager verwenden, um das Paket zu installieren. Beim Installieren eines Pakets zeichnet NuGet die Abhängigkeit entweder in Ihrer Projektdatei oder in einer `packages.config`-Datei auf. Weitere Informationen finden Sie unter [Übersicht und Workflow für die Paketerstellung](../consume-packages/Overview-and-Workflow.md).
+Sie können entweder dem NuGet-Paket-Manager oder die Paket-Manager-Konsole verwenden, um das Paket zu installieren. Beim Installieren eines Pakets zeichnet NuGet die Abhängigkeit entweder in Ihrer Projektdatei oder in einer `packages.config`-Datei auf (je nach Projektformat). Weitere Informationen finden Sie unter [Übersicht und Workflow für die Paketerstellung](../consume-packages/Overview-and-Workflow.md).
 
-### <a name="package-manager-ui"></a>Benutzeroberfläche des Paket-Managers
+### <a name="nuget-package-manager"></a>NuGet-Paket-Manager
 
 1. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf **Verweise**, und wählen Sie **NuGet-Pakete verwalten** aus.
 
@@ -50,9 +51,11 @@ Sie können entweder die Benutzeroberfläche oder die Konsole von Paket-Manager 
 
     ![Suchen des Pakets „Newtonsoft.Json“](media/QS_Use-03-NewtonsoftJson.png)
 
+    Weitere Informationen zum NuGet-Paket-Manager finden Sie unter [Installieren und Verwalten von Paketen mithilfe von Visual Studio.](../consume-packages/install-use-packages-visual-studio.md)
+
 1. Akzeptieren Sie die Lizenzbedingungen.
 
-1. (Visual Studio 2017) Wenn Sie dazu aufgefordert werden, ein Format für die Paketverwaltung auszuwählen, wählen Sie **PackageReference in Projektdatei**:
+1. (Nur Visual Studio 2017) Wenn Sie dazu aufgefordert werden, ein Format für die Paketverwaltung auszuwählen, wählen Sie **PackageReference in Projektdatei**:
 
     ![Auswahl eines Paketverwaltungsformats](media/QS_Use-03b-SelectFormat.png)
 
@@ -66,24 +69,26 @@ Sie können entweder die Benutzeroberfläche oder die Konsole von Paket-Manager 
 
     ![Suchen des Pakets „Newtonsoft.Json“](media/QS_Use-08-Console1.png)
 
-1. Geben Sie den Befehl `Install-Package Newtonsoft.Json` ein (siehe [Install-Package](../tools/ps-ref-install-package.md)). Das Konsolenfenster zeigt die Ausgabe des Befehls. Fehler deuten normalerweise darauf hin, dass das Paket nicht mit dem Zielframework des Projekts kompatibel ist.
+1. Geben Sie den Befehl `Install-Package Newtonsoft.Json` ein (siehe [Install-Package](../reference/ps-reference/ps-ref-install-package.md)). Das Konsolenfenster zeigt die Ausgabe des Befehls. Fehler deuten normalerweise darauf hin, dass das Paket nicht mit dem Zielframework des Projekts kompatibel ist.
+
+   Weitere Informationen zur Paket-Manager-Konsole finden Sie unter [Installieren und Verwalten von Paketen mithilfe der Paket-Manager-Konsole.](../consume-packages/install-use-packages-powershell.md)
 
 ## <a name="use-the-newtonsoftjson-api-in-the-app"></a>Verwenden der API „Newtonsoft.Json“ in der App
 
 Wenn das Paket „Newtonsoft.Json“ im Projekt enthalten ist, können Sie die zugehörige `JsonConvert.SerializeObject`-Methode aufrufen, um ein Objekt in eine lesbare Zeichenfolge zu konvertieren.
 
-1. Öffnen Sie `MainPage.xaml`, und ersetzen Sie das vorhandene `Grid`-Element mit folgendem:
+1. Öffnen Sie `MainWindow.xaml`, und ersetzen Sie das vorhandene `Grid`-Element mit folgendem:
 
     ```xaml
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="White">
         <StackPanel VerticalAlignment="Center">
-            <Button Click="Button_Click" Content="Click Me" Margin="10"/>
-            <TextBlock Name="TextBlock" Text="TextBlock" Margin="10"/>
+            <Button Click="Button_Click" Width="100px" HorizontalAlignment="Center" Content="Click Me" Margin="10"/>
+            <TextBlock Name="TextBlock" HorizontalAlignment="Center" Text="TextBlock" Margin="10"/>
         </StackPanel>
     </Grid>
     ```
 
-1. Öffnen Sie die Datei `MainPage.xaml.cs` (befindet sich in Projektmappen-Explorer unter dem Knoten `MainPage.xaml`), und fügen Sie den folgenden Code im Konstruktor `MainPage` ein:
+1. Öffnen Sie die Datei `MainWindow.xaml.cs` (befindet sich in Projektmappen-Explorer unter dem Knoten `MainWindow.xaml`), und fügen Sie den folgenden Code in der `MainWindow`-Klasse ein:
 
     ```cs
     public class Account
@@ -114,15 +119,24 @@ Wenn das Paket „Newtonsoft.Json“ im Projekt enthalten ist, können Sie die z
 
 1. Erstellen Sie die App, und führen Sie sie aus, indem Sie F5 drücken oder **Debuggen > Debuggen starten** auswählen:
 
-    ![Ursprüngliche Ausgabe der UWP-App](media/QS_Use-06-AppStart.png)
+    ![Ursprüngliche Ausgabe der WPF-App](media/QS_Use-06-AppStart.png)
 
 1. Klicken Sie auf die Schaltfläche, um die Inhalte des Elements „TextBlock“ anzuzeigen, das durch JSON-Text ersetzt wurde:
 
-    ![Ausgabe der UWP-App nach Klicken auf die Schaltfläche](media/QS_Use-07-AppEnd.png)
+    ![Ausgabe der WPF-App nach Klicken auf die Schaltfläche](media/QS_Use-07-AppEnd.png)
 
-## <a name="related-articles"></a>Verwandte Artikel
+## <a name="next-steps"></a>Nächste Schritte
+
+Herzlichen Glückwunsch zur Installation und Verwendung Ihres ersten NuGet-Pakets!
+
+> [!div class="nextstepaction"]
+> [Installieren und Verwalten von Paketen mit Visual Studio](../consume-packages/install-use-packages-visual-studio.md)
+
+> [!div class="nextstepaction"]
+> [Installieren und Verwalten von Paketen mit der Paket-Manager-Konsole](../consume-packages/install-use-packages-powershell.md)
+
+Klicken Sie für weitere Informationen zu den Features von NuGet auf folgende Links.
 
 - [Übersicht über den Paketverbrauch und dessen Workflows](../consume-packages/overview-and-workflow.md)
-- [Installieren und Verwalten von Paketen mit Visual Studio](../tools/package-manager-ui.md)
 - [Suchen und Auswählen von Paketen](../consume-packages/finding-and-choosing-packages.md)
-- [Häufig verwendete NuGet-Konfigurationen](../consume-packages/configuring-nuget-behavior.md)
+- [Paketverweise in Projektdateien](../consume-packages/package-references-in-project-files.md)

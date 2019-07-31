@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4b365488c8dd0e081449552b06451e7b40b5223b
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: f5d418fd5b6b9bb88958d6b7e9e3034f40485a7d
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426618"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419960"
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>Verwalten von globalen Pakete-, Cache- und temporären Ordnern
 
@@ -18,7 +18,7 @@ Wann immer Sie ein Paket installieren, aktualisieren oder wiederherstellen, verw
 
 | name | Beschreibung und Speicherort (pro Benutzer)|
 | --- | --- |
-| global&#8209;packages | Im Ordner *global-packages* installiert NuGet alle heruntergeladenen Pakete. Jedes Paket wird vollständig in einen Unterordner erweitert, der mit dem Paketbezeichner und der Versionsnummer übereinstimmt. Projekte, die das PackageReference-Format verwenden, verwenden immer Pakete direkt aus diesem Ordner. Bei Verwendung der `packages.config` werden Pakete in den Ordner *global-packages* installiert und dann in den Ordner `packages` des Projekts kopiert.<br/><ul><li>Windows: `%userprofile%\.nuget\packages`</li><li>Mac/Linux: `~/.nuget/packages`</li><li>Überschreiben mit der Umgebungsvariable NUGET_PACKAGES, den [Konfigurationseinstellungen](../reference/nuget-config-file.md#config-section) `globalPackagesFolder`oder `repositoryPath` (bei Verwendung von PackageReference bzw. `packages.config`) oder der MSBuild-Eigenschaft `RestorePackagesPath` (nur MSBuild). Die Umgebungsvariable hat Vorrang vor der Konfigurationseinstellung.</li></ul> |
+| global&#8209;packages | Im Ordner *global-packages* installiert NuGet alle heruntergeladenen Pakete. Jedes Paket wird vollständig in einen Unterordner erweitert, der mit dem Paketbezeichner und der Versionsnummer übereinstimmt. Projekte, die das [PackageReference](package-references-in-project-files.md)-Format verwenden, verwenden immer Pakete direkt aus diesem Ordner. Bei Verwendung der [packages.config](../reference/packages-config.md) werden Pakete in den Ordner *global-packages* installiert und dann in den Ordner `packages` des Projekts kopiert.<br/><ul><li>Windows: `%userprofile%\.nuget\packages`</li><li>Mac/Linux: `~/.nuget/packages`</li><li>Überschreiben mit der Umgebungsvariable NUGET_PACKAGES, den [Konfigurationseinstellungen](../reference/nuget-config-file.md#config-section) `globalPackagesFolder`oder `repositoryPath` (bei Verwendung von PackageReference bzw. `packages.config`) oder der MSBuild-Eigenschaft `RestorePackagesPath` (nur MSBuild). Die Umgebungsvariable hat Vorrang vor der Konfigurationseinstellung.</li></ul> |
 | http&#8209;cache | Der Visual Studio-Paket-Manager (NuGet 3.x und höher) und das `dotnet`-Tool speichern Kopien heruntergeladener Pakete in diesem Cache (gespeichert als `.dat`-Dateien), die in Unterordnern für jede Paketquelle organisiert sind. Pakete werden nicht aufgelöst, und der Cache hat eine Ablaufzeit von 30 Minuten.<br/><ul><li>Windows: `%localappdata%\NuGet\v3-cache`</li><li>Mac/Linux: `~/.local/share/NuGet/v3-cache`</li><li>Überschreiben mit der Umgebungsvariable NUGET_HTTP_CACHE_PATH.</li></ul> |
 | temp | Ein Ordner, in dem NuGet während der verschiedenen Vorgänge temporäre Dateien speichert.<br/><li>Windows: `%temp%\NuGetScratch`</li><li>Mac/Linux: `/tmp/NuGetScratch`</li></ul> |
 | plugins-cache **4.8 und höher** | Ein Ordner, in den NuGet die Ergebnisse aus der Vorgangsanspruchsanforderung speichert.<br/><ul><li>Windows: `%localappdata%\NuGet\plugins-cache`</li><li>Mac/Linux: `~/.local/share/NuGet/plugins-cache`</li><li>Überschreiben mit der Umgebungsvariable NUGET_PLUGINS_CACHE_PATH.</li></ul> |
@@ -34,7 +34,7 @@ Weitere Informationen finden Sie unter [Was geschieht bei der Paketinstallation?
 
 ## <a name="viewing-folder-locations"></a>Anzeigen der Speicherorte von Ordnern
 
-Speicherorte lassen sich auch über den Befehl [nuget locals](../tools/cli-ref-locals.md) anzeigen:
+Speicherorte lassen sich auch über den Befehl [nuget locals](../reference/cli-reference/cli-ref-locals.md) anzeigen:
 
 ```cli
 # Display locals for all folders: global-packages, http cache, temp and plugins cache
