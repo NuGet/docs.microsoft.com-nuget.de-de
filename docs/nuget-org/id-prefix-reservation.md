@@ -6,12 +6,12 @@ ms.author: diverdan92
 ms.date: 10/09/2017
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 94036e3ca7c65e6878f24a5a8514cbb0d8816d9c
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 650f570ec65a665e3d452af732ea22337835d8d9
+ms.sourcegitcommit: cae759ad8518c049575a30ad3bf04fe5d06244fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427225"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68616800"
 ---
 # <a name="package-id-prefix-reservation"></a>Reservierung für Paket-ID-Präfixe
 
@@ -76,6 +76,8 @@ Nachdem die Anforderung eingereicht wurde, werden Sie informiert, ob diese angen
 Bei der Prüfung von Anforderungen für ID-Präfixreservierungen prüft das [nuget.org](https://www.nuget.org/)-Team die Anforderung anhand der unten aufgeführten Kriterien. Nicht alle Kriterien müssen erfüllt werden, damit ein Präfix reserviert wird, aber es kann sein, dass eine Anforderung abgelehnt wird, wenn nicht nachgewiesen werden kann, dass ein Kriterium erfüllt wird (mit einer entsprechenden Erklärung):
 
 1. Gibt das Paket-ID-Präfix den Paketbesitzer eindeutig und ordnungsgemäß an?
+
+1. Hat der Paketbesitzer die [zweistufige Authentifizierung für sein NuGet.org-Konto](individual-accounts.md#enable-two-factor-authentication-2fa) aktiviert?
 
 1. Wurden viele der Pakete des Besitzers bereits mit diesem Paket-ID-Präfix veröffentlicht?
 
