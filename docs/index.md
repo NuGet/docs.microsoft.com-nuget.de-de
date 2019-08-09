@@ -7,12 +7,12 @@ ms.date: 02/12/2018
 ms.topic: hub-page
 layout: HubPage
 hide_bc: true
-ms.openlocfilehash: cdd032a5a7268a7ffddff5141229fd021ec275a5
-ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
+ms.openlocfilehash: 8f4fca447d61b6f435399a24ef4151604d43291d
+ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817545"
+ms.locfileid: "68833360"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -122,13 +122,16 @@ ms.locfileid: "68817545"
                             <a href="create-packages/overview-and-workflow.md">Workflow (Übersicht)</a>
                         </p>
                         <p>
-                            <a href="create-packages/creating-a-package-dotnet-cli.md">Erstellen eines Pakets – dotnet-CLI</a>
+                            <a href="quickstart/create-and-publish-a-package-using-visual-studio.md">Verwenden von Visual Studio</a>
                         </p>
                         <p>
-                            <a href="create-packages/creating-a-package.md">Erstellen eines Pakets – nuget.exe-CL</a>
+                            <a href="create-packages/creating-a-package-dotnet-cli.md">Verwenden der dotnet-CLI</a>
                         </p>
                         <p>
-                            <a href="create-packages/creating-a-package.md">Erstellen eines Pakets – MSBuild</a>
+                            <a href="create-packages/creating-a-package.md">Verwenden der nuget.exe-CLI</a>
+                        </p>
+                        <p>
+                            <a href="create-packages/creating-a-package.md">Verwenden von MSBuild</a>
                         </p>
                         <p>
                             <a href="create-packages/multiple-target-frameworks-project-file.md">Unterstützen mehrerer Zielframeworks</a>
@@ -210,6 +213,8 @@ ms.locfileid: "68817545"
                         <p>
                             <a href="consume-packages/package-references-in-project-files.md">Paketverweise</a>
                         </p>
+                        <p>
+                            <a href="reference/msbuild-targets.md">„pack“ und „restore“ als MSBuild-Ziele</a>
                         </p>
                         <p>
                             <a href="reference/nuspec.md">.nuspec</a>
