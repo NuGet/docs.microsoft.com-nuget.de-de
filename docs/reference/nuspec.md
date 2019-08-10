@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 5b9be55b593890127d8fe0ad1a9357b89527a09a
-ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
+ms.openlocfilehash: 9c608c5455bc83874b670b7f2b9a0ceeeafdc8e5
+ms.sourcegitcommit: dec3fa44547c6a00d0ae6cbb6c64cdc65660d808
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68433373"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912574"
 ---
 # <a name="nuspec-reference"></a>NUSPEC-Referenz
 
@@ -293,7 +293,8 @@ In den folgenden Zeilen wird zwar auf Abhängigkeiten von denselben Paketen verw
 </dependencies>
 ```
 
-Hinweis: Wenn Sie ein `.nuspec` aus einem Projekt mithilfe `nuget spec`von erstellen, werden Abhängigkeiten, die in diesem Projekt vorhanden sind, `.nuspec` automatisch in die resultierende Datei eingeschlossen.
+> [!Important]
+> Wenn Sie ein `.nuspec` aus einem Projekt mithilfe `nuget spec`von erstellen, werden Abhängigkeiten, die in diesem Projekt vorhanden sind, nicht `.nuspec` automatisch in die resultierende Datei eingeschlossen. Verwenden `nuget pack myproject.csproj`Sie stattdessen, und holen Sie die *nuspec* -Datei aus der generierten *nupkg* -Datei. Diese *. nuspec* -Datei enthält die Abhängigkeiten.
 
 ### <a name="dependency-groups"></a>Abhängigkeitsgruppen
 
