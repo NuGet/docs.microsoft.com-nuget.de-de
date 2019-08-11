@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3af29e2f9b09ba5bd82779f9aacf314bd8933436
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: cbe6fd964e88b054b9e2c5c8ead71d1f9090d63c
+ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317025"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68817567"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Suchen und Auswerten von NuGet-Paketen für Ihr Projekt
 
@@ -82,6 +82,10 @@ Allerdings bedeutet das Verwenden eines NuGet-Pakets auch, dass eine Abhängigke
 
     ![Downloadstatistiken auf der Angebotsseite eines Pakets](media/Finding-03-Downloads.png)
 
+- *GitHub-Verwendung*: Auf Seite für Pakete listet der Abschnitt **GitHub Usage** die wichtigsten GitHub-Repositorys auf, die von diesem Paket abhängen. Ein Paket, von dem viele beliebte GitHub-Repositorys abhängig sind, ist in der Regel eine bessere Wahl.
+
+    ![GitHub-Verwendung](media/GitHub-Usage.png)
+
 - *Versionsverlauf:* Auf der Seite für Pakete wird unter **Info** das Datum des aktuellen Updates angezeigt, außerdem können Sie dort den **Versionsverlauf** überprüfen. Ein gut verwaltetes Paket verfügt über aktuelle Updates und einen umfangreichen Versionsverlauf. Ein schlecht verwaltetes Paket verfügt über wenige Updates bzw. wurde häufig für längere Zeit nicht mehr aktualisiert.
 
     ![Versionsverlauf auf der Angebotsseite eines Pakets](media/Finding-04-VersionHistory.png)
@@ -115,6 +119,7 @@ So könnten Sie die Informationen lesen, die in der Lizenzdatei des Pakets entha
 1. Sie sollte ein Tag wie `<license type="file">license\license.txt</license>` haben. Dies bedeutet, dass die Lizenzdatei den Namen `license.txt` hat und sich in einem Ordner namens `license` befindet, der sich auch im Stammverzeichnis dieses Ordners befindet.
 1. Navigieren Sie zum `license`-Ordner, und öffnen Sie die `license.txt`-Datei.
 
+Weitere Informationen zum MSBuild-Äquivalent zum Festlegen der Lizenz in `.nuspec` finden Sie unter [Verpacken eines Lizenzausdrucks oder einer Lizenzdatei](/nuget/reference/msbuild-targets#packing-a-license-expression-or-a-license-file).
 
 ## <a name="search-syntax"></a>Suchsyntax
 

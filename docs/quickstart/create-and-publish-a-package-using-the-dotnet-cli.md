@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 30a77b427fe0a33b41262c5784045e5a6b10852f
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: f663b1b2176a5f0ae5bc6d82873193638e0efdaa
+ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419984"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68833383"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Schnellstart: Erstellen und Veröffentlichen eines Pakets (dotnet CLI)
 
@@ -26,9 +26,15 @@ Ein NuGet-Paket kann, mithilfe der `dotnet`-Befehlszeilenschnittstelle (CLI), pr
 
 Sie können ein vorhandenes Projekt in der .NET-Klassenbibliothek für Code verwenden, den Sie packen wollen, oder ein einfaches Projekt wie folgt erstellen:
 
-1. Erstellen Sie einen Ordner namens `AppLogger` und öffnen diesen.
+1. Erstellen Sie einen Ordner mit dem Namen `AppLogger`.
 
-1. Erstellen Sie das Projekt mit dem Befehl `dotnet new classlib`, der den Namen des aktuellen Ordners für das Projekt verwendet.
+1. Öffnen Sie eine Eingabeaufforderung, und navigieren Sie zum Ordner `AppLogger`.
+
+1. Geben Sie `dotnet new classlib` ein. Der Name des aktuellen Ordners wird für das Projekt verwendet.
+
+   Das neue Projekt wird erstellt.
+
+1. Verwenden Sie den Befehl `dotnet run`, um zu prüfen, ob die App ordnungsgemäß erstellt wurde.
 
 ## <a name="add-package-metadata-to-the-project-file"></a>Hinzufügen von Paketmetadaten zu einer Projektdatei
 
