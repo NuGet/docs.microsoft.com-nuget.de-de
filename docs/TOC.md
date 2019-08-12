@@ -18,7 +18,7 @@
 ### [Paket-Manager-Konsole (PowerShell)](consume-packages/install-use-packages-powershell.md)
 ## Konfigurieren von NuGet
 ### Optionen zur Paketwiederherstellung
-#### [Wiederherstellungsoptionen](consume-packages/package-restore.md)
+#### [Pakete wiederherstellen](consume-packages/package-restore.md)
 #### [Problembehandlung](consume-packages/package-restore-troubleshooting.md)
 ### [Neuinstallieren und Aktualisieren von Paketen](consume-packages/reinstalling-and-updating-packages.md)
 ### [Verwalten des Ordners „global packages“ und des Cacheordners](consume-packages/managing-the-global-packages-and-cache-folders.md)
