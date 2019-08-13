@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 0e12944bdd5d43b8b9e84908be480a5249dd924f
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: cab56cb87f46335f9fdebdbc1649fead16459877
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327657"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959721"
 ---
 # <a name="pack-command-nuget-cli"></a>Der Befehl „pack“ (NuGet-CLI)
 
 **Gilt für: von** der &bullet; Paket Erstellung **unterstützte Versionen:** 2.7+
 
-Erstellt ein nuget-Paket auf der Grundlage `.nuspec` der angegebenen-oder-Projektdatei. Der `dotnet pack` -Befehl (siehe [dotnet](../dotnet-Commands.md)-Befehle `msbuild -t:pack` ) und (siehe [MSBuild-Ziele](../msbuild-targets.md)) können als Alternativen verwendet werden.
+Erstellt ein nuget-Paket auf der Grundlage der angegebenen [. nuspec](../nuspec.md) -oder Projektdatei. Der `dotnet pack` -Befehl (siehe [dotnet](../dotnet-Commands.md)-Befehle `msbuild -t:pack` ) und (siehe [MSBuild-Ziele](../msbuild-targets.md)) können als Alternativen verwendet werden.
 
 > [!Important]
 > Unter Mono wird das Erstellen eines Pakets aus einer Projektdatei nicht unterstützt. Außerdem müssen Sie nicht lokale Pfade in der `.nuspec` Datei an Pfade im Unix-Stil anpassen, da "nuget. exe" keine Windows-Pfadnamen selbst konvertiert.
@@ -33,7 +33,7 @@ wobei `<nuspecPath>` und `<projectPath>` angeben der `.nuspec` oder Projektdatei
 
 | Option | Beschreibung |
 | --- | --- |
-| BasePath | Legt den Basispfad der in der `.nuspec` Datei definierten Dateien fest. |
+| BasePath | Legt den Basispfad der in der [nuspec](../nuspec.md) -Datei definierten Dateien fest. |
 | Build | Gibt an, dass das Projekt erstellt werden soll, bevor das Paket erstellt wird. |
 | Ausschließen | Gibt ein oder mehrere Platzhalter Muster an, die beim Erstellen eines Pakets ausgeschlossen werden sollen. Wenn Sie mehr als ein Muster angeben möchten, wiederholen Sie das Flag-Exclude. Siehe Beispiel unten. |
 | Excludeemptydirectories | Verhindert die Einbindung leerer Verzeichnisse beim Paket Erstellung. |

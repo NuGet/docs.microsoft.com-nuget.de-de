@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8403ae38b5d2e907c6f06b162a18cdcd5425565b
-ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
+ms.openlocfilehash: d8d1b2ef0185381d16c1bb73035588fe90bcfd14
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817523"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959691"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet pack and restore as MSBuild targets (NuGet-Befehle „pack“ und „restore“ MSBuild-Ziele)
 
@@ -34,6 +34,9 @@ Da es sich bei `pack` und `restore` um MSBuild-Ziele handelt, können sie zur Ve
 ```
 
 Gleichermaßen können Sie eine MSBuild-Task schreiben, Ihr eigenes Ziel schreiben und NuGet-Eigenschaften in der MSBuild-Task verwenden.
+
+> [!NOTE]
+> `$(OutputPath)`ist relativ und erwartet, dass Sie den Befehl aus dem Projektstamm ausführen.
 
 ## <a name="pack-target"></a>Pack-Ziel
 

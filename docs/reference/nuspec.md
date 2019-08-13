@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 9c608c5455bc83874b670b7f2b9a0ceeeafdc8e5
-ms.sourcegitcommit: dec3fa44547c6a00d0ae6cbb6c64cdc65660d808
+ms.openlocfilehash: 67bc95135f746c4a4685773808756df399cbf01e
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912574"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959702"
 ---
 # <a name="nuspec-reference"></a>NUSPEC-Referenz
 
@@ -184,9 +184,6 @@ Beispiel:
 </package>
 ```
 
-#### <a name="minclientversion"></a>minClientVersion
-Gibt die mindestens erforderliche Version des NuGet-Clients an, der dieses Paket installieren kann. Dies wird von nuget.exe und dem Paket-Manager von Visual Studio erzwungen. Das Attribut wird verwendet, wenn das Paket von bestimmten Funktionen der `.nuspec`-Datei abhängig ist, die in einer bestimmten Version des NuGet-Clients hinzugefügt wurden. Beispielsweise sollte ein Paket, das das `developmentDependency`-Attribut verwendet, „2.8“ für `minClientVersion` angeben. Genauso sollte ein Paket, das das `contentFiles`-Element verwendet (vgl. nächster Abschnitt), `minClientVersion` auf „3.3“ festlegen. Beachten Sie außerdem, dass NuGet-Clients vor Version 2.5 dieses Flag nicht erkennen und daher die Installation des Pakets unabhängig vom Inhalt von `minClientVersion` *immer* verweigern.
-
 #### <a name="title"></a>title
 Ein benutzerfreundlicher Titel des Pakets, das in einigen Benutzeroberflächen anzeigen verwendet werden kann. (nuget.org und der Paket-Manager in Visual Studio zeigen keinen Titel an.)
 
@@ -204,6 +201,29 @@ Eine Sammlung mit null oder mehr `<dependency>`-Elementen, die die Abhängigkeit
 *(ab Version 3.3)* Eine Sammlung von `<files>`-Elementen, die Inhaltsdateien angeben, die in das verarbeitende Projekt eingeschlossen werden sollen. Diese Dateien werden zusammen mit Attributen angegeben, die beschreiben, wie sie im Projektsystem verwendet werden sollen. Informationen hierzu finden Sie weiter unten unter [Einschließen von Assemblydateien](#specifying-files-to-include-in-the-package).
 #### <a name="files"></a>files 
 Der `<package>` Knoten kann einen `<files>` Knoten als gleich geordnetes Element von `<metadata>`und ein `<contentFiles>` untergeordnetes Element unter `<metadata>`enthalten, um anzugeben, welche Assembly-und Inhalts Dateien in das Paket eingeschlossen werden sollen. Ausführliche Informationen hierzu finden Sie weiter unten in den Abschnitten [Einschließen von Assemblydateien](#including-assembly-files) und [Einschließen von Inhaltsdateien](#including-content-files).
+
+### <a name="metadata-attributes"></a>Metadatenattribute
+
+#### <a name="minclientversion"></a>minClientVersion
+Gibt die mindestens erforderliche Version des NuGet-Clients an, der dieses Paket installieren kann. Dies wird von nuget.exe und dem Paket-Manager von Visual Studio erzwungen. Das Attribut wird verwendet, wenn das Paket von bestimmten Funktionen der `.nuspec`-Datei abhängig ist, die in einer bestimmten Version des NuGet-Clients hinzugefügt wurden. Beispielsweise sollte ein Paket, das das `developmentDependency`-Attribut verwendet, „2.8“ für `minClientVersion` angeben. Genauso sollte ein Paket, das das `contentFiles`-Element verwendet (vgl. nächster Abschnitt), `minClientVersion` auf „3.3“ festlegen. Beachten Sie außerdem, dass NuGet-Clients vor Version 2.5 dieses Flag nicht erkennen und daher die Installation des Pakets unabhängig vom Inhalt von `minClientVersion` *immer* verweigern.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
+    <metadata minClientVersion="100.0.0.1">
+        <id>dasdas</id>
+        <version>2.0.0</version>
+        <title />
+        <authors>dsadas</authors>
+        <owners />
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>My package description.</description>
+    </metadata>
+    <files>
+        <file src="content\one.txt" target="content\one.txt" />
+    </files>
+</package>
+```
 
 ## <a name="replacement-tokens"></a>Ersetzungstoken
 
@@ -261,7 +281,7 @@ Das `<dependencies>`-Element in `<metadata>` enthält eine beliebige Anzahl von 
 | Attribut | Beschreibung |
 | --- | --- |
 | `id` | (Erforderlich) Paket-ID der Abhängigkeit, z.B. „EntityFramework“ und „NUnit“. Dies ist der Name des Pakets, der auf nuget.org auf einer Paketseite angezeigt wird. |
-| `version` | (Erforderlich) Bereich an Versionen, die als Abhängigkeiten akzeptiert werden. Die genaue Syntax finden Sie unter [Version Ranges and Wildcards (Versionsbereiche und Platzhalter)](../reference/package-versioning.md#version-ranges-and-wildcards). |
+| `version` | (Erforderlich) Bereich an Versionen, die als Abhängigkeiten akzeptiert werden. Die genaue Syntax finden Sie unter [Version Ranges and Wildcards (Versionsbereiche und Platzhalter)](../reference/package-versioning.md#version-ranges-and-wildcards). Platzhalter Versionen (unverankert) werden nicht unterstützt. |
 | include | Eine kommagetrennte Liste mit include- und exclude-Tags (siehe nachfolgende Tabelle), die die Abhängigkeit angibt, die in das endgültige Paket eingeschlossen werden soll. Der Standardwert ist `all`. |
 | exclude | Eine kommagetrennte Liste mit include- und exclude-Tags (siehe nachfolgende Tabelle), die die Abhängigkeit angibt, die aus dem endgültigen Paket ausgeschlossen werden soll. Der Standardwert ist `build,analyzers`. Er kann überschrieben werden. Allerdings werden implizit auch `content/ ContentFiles` aus dem endgültigen Paket ausgeschlossen, was sich nicht überschreiben lässt. `exclude`-Tags haben Vorrang vor `include`-Tags. Beispielsweise hat `include="runtime, compile" exclude="compile"` die gleiche Wirkung wie `include="runtime"`. |
 
@@ -318,8 +338,8 @@ Im folgenden Beispiel werden verschiedene Variationen des `<group>`-Elements dar
     </group>
 
     <group targetFramework="net40">
-        <dependency id="jQuery" />
-        <dependency id="WebActivator" />
+        <dependency id="jQuery" version="1.6.2" />
+        <dependency id="WebActivator" version="1.4.4" />
     </group>
 
     <group targetFramework="sl30">
@@ -626,7 +646,7 @@ Die Angabe der Dateien erfolgt mithilfe mehrerer Attribute, die beschreiben, wie
 
 | Attribut | Beschreibung |
 | --- | --- |
-| **include** | (Erforderlich) Speicherort der Dateien, die eingeschlossen werden sollen. Hierbei werden die vom `exclude`-Attribut angegebenen Ausschlüsse berücksichtigt. Der Pfad ist relativ zur `.nuspec`-Datei, sofern kein absoluter Pfad angegeben ist. Das Platzhalterzeichen `*` ist zulässig, und das doppelte Platzhalterzeichen `**` impliziert eine rekursive Ordnersuche. |
+| **include** | (Erforderlich) Speicherort der Dateien, die eingeschlossen werden sollen. Hierbei werden die vom `exclude`-Attribut angegebenen Ausschlüsse berücksichtigt. Der Pfad ist relativ zum `contentFiles` Ordner, es sei denn, es wurde ein absoluter Pfad angegeben. Das Platzhalterzeichen `*` ist zulässig, und das doppelte Platzhalterzeichen `**` impliziert eine rekursive Ordnersuche. |
 | **exclude** | Eine mit Semikolons getrennte Datei oder ein Muster für Dateien, die aus dem `src`-Speicherort ausgeschlossen werden. Das Platzhalterzeichen `*` ist zulässig, und das doppelte Platzhalterzeichen `**` impliziert eine rekursive Ordnersuche. |
 | **buildAction** | Die Buildaktion, die dem Inhaltselement für MSBuild zugewiesen werden soll, z.B. `Content`, `None`, `Embedded Resource` oder `Compile`. Die Standardeinstellung ist `Compile`. |
 | **copyToOutput** | Boolescher Wert, mit dem angegeben wird, ob Inhaltselemente in den Buildausgabeordner (oder den Veröffentlichungsausgabeordner) kopiert werden sollen. Der Standardwert ist FALSE. |
