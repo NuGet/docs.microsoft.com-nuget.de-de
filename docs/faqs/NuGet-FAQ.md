@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9094d6b4a2dbd6ea1899b4470624948ce7c21f43
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 27a925c8748cb2085e8c9fe71ef23281cf9fd553
+ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317619"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68860540"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Häufig gestellte Fragen zu NuGet
 
@@ -135,7 +135,7 @@ Legen Sie die Einstellung [`disableSourceControlIntegration`](../reference/nuget
 
 **Wie kann die Paketwiederherstellung deaktiviert werden?**
 
-Weitere Informationen finden Sie unter [Enabling and disabling package restore (Aktivieren und Deaktivieren der Paketwiederherstellung)](../consume-packages/package-restore.md#enable-and-disable-package-restore-visual-studio).
+Weitere Informationen finden Sie unter [Enabling and disabling package restore (Aktivieren und Deaktivieren der Paketwiederherstellung)](../consume-packages/package-restore.md#enable-and-disable-package-restore-in-visual-studio).
 
 **Warum wird die Fehlermeldung „Der Abhängigkeitsfehler kann nicht aufgelöst werden.“ angezeigt, wenn ein lokales Paket mit Remoteabhängigkeiten installiert wird?**
 
