@@ -3,36 +3,20 @@ title: Verweis auf die Datei "nuget. config"
 description: Verweis auf Datei „NuGet.Config“ einschließlich der Abschnitte „config“, „bindingRedirects“, „packageRestore“, „solution“ und „packageSource“.
 author: karann-msft
 ms.author: karann
-ms.date: 10/25/2017
+ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: b03bb8da0191a679671e5898ac70fff2024d52f2
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: a2955617b899bfadab42d1ae98dd20c8fc6ddca9
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317218"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69020053"
 ---
 # <a name="nugetconfig-reference"></a>Referenz zu "nuget. config"
 
 Das nuget-Verhalten wird durch Einstellungen in `NuGet.Config` unterschiedlichen Dateien gesteuert, wie in [Common nuget-Konfigurationen](../consume-packages/configuring-nuget-behavior.md)beschrieben.
 
 `nuget.config` ist eine XML-Datei mit einem `<configuration>`-Knoten der obersten Ebene, in dem die in diesem Thema beschriebenen Abschnittselemente beschrieben werden. Jeder Abschnitt enthält 0 (null) oder mehr Elemente. Siehe die [Beispiele für die Konfigurationsdatei](#example-config-file). Bei Einstellungsnamen ist die Groß-/Kleinschreibung zu beachten, und Werte können [Umgebungsvariablen](#using-environment-variables) verwenden.
-
-In diesem Thema:
-
-- [Abschnitt „config“](#config-section)
-- [Abschnitt „bindingRedirects“](#bindingredirects-section)
-- [Abschnitt „packageRestore“](#packagerestore-section)
-- [Abschnitt „solution“](#solution-section)
-- [Paketquellenabschnitte](#package-source-sections):
-  - [packageSources](#packagesources)
-  - [packageSourceCredentials](#packagesourcecredentials)
-  - [apikeys](#apikeys)
-  - [disabledPackageSources](#disabledpackagesources)
-  - [activePackageSource](#activepackagesource)
-- [Abschnitt "Treuhänder"](#trustedsigners-section)
-- [Verwenden von Umgebungsvariablen](#using-environment-variables)
-- [Beispielkonfigurationsdatei](#example-config-file)
 
 <a name="dependencyVersion"></a>
 <a name="globalPackagesFolder"></a>
@@ -240,6 +224,7 @@ Identifiziert die derzeit aktive Quelle oder gibt das Aggregat aller Quellen an.
     <add key="All" value="(Aggregate source)" />
 </activePackageSource>
 ```
+
 ## <a name="trustedsigners-section"></a>Abschnitt "Treuhänder"
 
 Speichert vertrauenswürdige Signatur Geber, die beim Installieren oder Wiederherstellen von Paketen verwendet werden. Diese Liste darf nicht leer sein, wenn der `signatureValidationMode` Benutzer `require`auf festlegt. 
@@ -268,6 +253,50 @@ Die unterstützten Hash Algorithmen für einen Zertifikat Fingerabdruck `SHA256`
         <owners>microsoft;aspnet;nuget</owners>
     </repository>
 </trustedSigners>
+```
+
+## <a name="fallbackpackagefolders-section"></a>Abschnitt "fallbackpackagefolders"
+
+*(3.5* und höher) Bietet eine Möglichkeit, Pakete vorab zu installieren, sodass keine Arbeit ausgeführt werden muss, wenn das Paket in den Fall Back Ordnern gefunden wird. Fall Back Paket Ordner weisen genau dieselbe Ordner-und Dateistruktur auf wie der globale Paket Ordner: *. nupkg* ist vorhanden, und alle Dateien werden extrahiert.
+
+Die Suchlogik für diese Konfiguration lautet wie folgt:
+
+- Suchen Sie im globalen Paket Ordner, ob das Paket bzw. die Version bereits heruntergeladen wurde.
+
+- Suchen Sie in den Fall Back Ordnern nach einer Paket-/Versionsübereinstimmung.
+
+Wenn eine der beiden Nachrichten erfolgreich ausgeführt wurde, ist kein Download erforderlich.
+
+Wenn keine Entsprechung gefunden wird, überprüft nuget die Datei Quellen und anschließend die HTTP-Quellen, und die Pakete werden heruntergeladen.
+
+| Key | Wert |
+| --- | --- |
+| (Name des Fall Back Ordners) | Pfad zum Fall Back Ordner. |
+
+**Beispiel**:
+
+```xml
+<fallbackPackageFolders>
+   <add key="XYZ Offline Packages" value="C:\somePath\someFolder\"/>
+</fallbackPackageFolders>
+```
+
+## <a name="packagemanagement-section"></a>Abschnitt "packagemanagement"
+
+Legt das Standardformat für die Paketverwaltung fest, entweder *Packages. config* oder packagereferenzierung. Projekte im SDK-Stil verwenden immer packagereferenzierung.
+
+| Key | Wert |
+| --- | --- |
+| Format | Ein boolescher Wert, der das Standardformat für die Paketverwaltung angibt. Gibt `1`an, dass das Format packagereferenziert wird. Wenn `0`der Wert ist, ist das Format *Packages. config*. |
+| Deaktiviert | Ein boolescher Wert, der angibt, ob die Eingabeaufforderung zum Auswählen eines Standardpaket Formats bei der ersten Paketinstallation angezeigt werden soll. `False`Blendet die Eingabeaufforderung aus. |
+
+**Beispiel**:
+
+```xml
+<packageManagement>
+   <add key="format" value="1" />
+   <add key="disabled" value="False" />
+</packageManagement>
 ```
 
 ## <a name="using-environment-variables"></a>Verwenden von Umgebungsvariablen
