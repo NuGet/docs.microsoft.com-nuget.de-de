@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: de76cf610e580a36014be9274b9c2c762b1015ac
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 5f1d3ed6a1b20fb07437f1718faafaac0a193773
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317162"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488709"
 ---
 # <a name="nuget-14-release-notes"></a>Anmerkungen zu dieser Version von nuget 1,4
 
@@ -60,7 +60,7 @@ Weitere Informationen finden Sie im Thema zum [Verwalten von Paketen für die L�
 Wenn Sie den `Update-Package` Befehl für ein Paket ausführen (oder das Paket mithilfe des Dialog Felds aktualisieren), wird er standardmäßig auf die neueste Version im Feed aktualisiert. Mit der neuen Unterstützung für das Aktualisieren aller Pakete kann es Fälle geben, in denen Sie ein Paket für einen bestimmten Versions Bereich sperren möchten. Beispielsweise können Sie im Voraus wissen, dass Ihre Anwendung nur mit Version 2. * eines Pakets funktioniert, aber nicht mit 3,0 und höher. Um zu verhindern, dass das Paket versehentlich auf 3 aktualisiert wird, fügt nuget 1,4 Unterstützung für das Einschränken des Bereichs von Versionen hinzu, auf die Pakete aktualisiert werden `packages.config` können, indem die `allowedVersions` Datei mithilfe des neuen Attributs bearbeitet wird.
 
 Im folgenden Beispiel wird z. b. gezeigt, wie `SomePackage` das Paket den Versions Bereich 2,0-3,0 (exklusiv) sperrt.
-Das `allowedVersions` Attribut akzeptiert Werte unter Verwendung des [Versions Bereichs Formats](../reference/package-versioning.md#version-ranges-and-wildcards).
+Das `allowedVersions` Attribut akzeptiert Werte unter Verwendung des [Versions Bereichs Formats](../concepts/package-versioning.md#version-ranges-and-wildcards).
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -72,7 +72,7 @@ Das `allowedVersions` Attribut akzeptiert Werte unter Verwendung des [Versions B
 Beachten Sie, dass in 1,4 das Sperren eines Pakets in einen bestimmten Versions Bereich Hand bearbeitetet werden muss. In nuget 1,5 planen wir die Unterstützung für das Platzieren dieses Bereichs über `Install-Package` den Befehl.
 
 ### <a name="package-visualizer"></a>Paket Schnellansicht
-Mithilfe der neuen Paket Schnellansicht, die **über die Menü** -> Option "Paket-Manager-**Paket** -Manager-Paket-Manager" in der Paket-**Manager** -> -Menüoption gestartet wird, können Sie alle Projekte und ihre Paketabhängigkeiten in einer Not.
+Mithilfe der neuen Paket Schnellansicht, die über die -> Menüoption "Paket-Manager-**Paket** -Manager-Paket-Manager" in der Paket-**Manager** -> -Menüoption gestartet wird, können Sie alle Projekte und ihre Paketabhängigkeiten in einer Not.
 
 _**Wichtiger Hinweis:** Diese Funktion nutzt die DGML-Unterstützung in Visual Studio. Das Erstellen der Visualisierung wird nur in Visual Studio Ultimate unterstützt. Das Anzeigen eines dgml-Diagramms wird nur in Visual Studio Premium oder höher unterstützt._
 

@@ -1,21 +1,21 @@
 ---
-title: AutoVervollständigen-Funktion, NuGet-API
-description: Der Search-Dienst für automatische Vervollständigung unterstützt interaktive Suche in der Paket-IDs und Versionen.
+title: AutoComplete, nuget-API
+description: Der Dienst "Auto Vervollständigen suchen" unterstützt die interaktive Ermittlung von Paket-IDs und-Versionen.
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: fdc3ad8aa239a42d8a4c169a757715e856bdcb41
-ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
+ms.openlocfilehash: 1179ad649da560766f28c18ab6fa670fd8fa6d8b
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58911048"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488305"
 ---
 # <a name="autocomplete"></a>AutoVervollständigen
 
-Es ist möglich, eine Paket-ID und Version AutoVervollständigen Erfahrung mit der V3-API zu erstellen. Die Ressource, die zum Durchführen von AutoVervollständigen-Abfragen ist die `SearchAutocompleteService` Ressource finden Sie in der [dienstindex](service-index.md).
+Mithilfe der V3-API können Sie eine Paket-ID und eine automatische vollständige Version erstellen. Die Ressource, die für die automatische Vervollständigung von `SearchAutocompleteService` Abfragen verwendet wird, ist die im [Dienst Index](service-index.md)gefundene Ressource.
 
 ## <a name="versioning"></a>Versionskontrolle
 
@@ -24,102 +24,102 @@ Die folgenden `@type` Werte werden verwendet:
 @type -Wert                          | Hinweise
 ------------------------------------ | -----
 SearchAutocompleteService            | Die erste Version
-SearchAutocompleteService/3.0.0-beta | Alias der `SearchAutocompleteService`
-SearchAutocompleteService/3.0.0-rc   | Alias der `SearchAutocompleteService`
+Searchautocompleteservice/3.0.0-Beta | Alias von`SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-rc   | Alias von`SearchAutocompleteService`
 
 ## <a name="base-url"></a>Basis-URL
 
-Die base-URL für die folgenden APIs ist der Wert des der `@id` Eigenschaft, die einer der oben genannten Ressource zugeordneten `@type` Werte. Basis-URL im folgenden Dokument der Platzhalter `{@id}` verwendet werden.
+Die Basis-URL für die folgenden APIs ist der Wert der `@id` Eigenschaft, die mit einem der oben erwähnten `@type` Ressourcen Werte verknüpft ist. Im folgenden Dokument wird die Platzhalter-Basis- `{@id}` URL verwendet.
 
 ## <a name="http-methods"></a>HTTP-Methoden
 
-Alle URLs finden Sie in die Registrierung Unterstützung der HTTP-Methoden `GET` und `HEAD`.
+Alle URLs, die in der Registrierungs Ressource gefunden werden, `GET` unter `HEAD`stützen die HTTP-Methoden und.
 
-## <a name="search-for-package-ids"></a>Suchen Sie nach der Paket-IDs
+## <a name="search-for-package-ids"></a>Nach Paket-IDs suchen
 
-Die erste API für AutoVervollständigen unterstützt das Suchen nach Teil einer Paket-ID-Zeichenfolge. Dies ist nützlich, wenn Sie ein Paket Typeahead-Feature in einer Benutzeroberfläche, die in einem NuGet-Paketquelle integriert bereitstellen möchten.
+Die erste Auto Vervollständigen-API unterstützt die Suche nach einem Teil einer Paket-ID-Zeichenfolge. Dies eignet sich hervorragend, wenn Sie ein Paket typeahead-Feature in einer Benutzeroberfläche bereitstellen möchten, die in eine nuget-Paketquelle integriert ist.
 
-Ein Paket mit nur nicht aufgeführte Versionen wird nicht in den Ergebnissen angezeigt.
+Ein Paket, das nur nicht aufgelistete Versionen enthält, wird in den Ergebnissen nicht angezeigt.
 
     GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
-### <a name="request-parameters"></a>Anforderungsparameter
+### <a name="request-parameters"></a>Anforderungs Parameter
 
 name        | In     | Typ    | Erforderlich | Hinweise
 ----------- | ------ | ------- | -------- | -----
-q           | URL    | Zeichenfolge  | Nein       | Die Zeichenfolge, die mit der Paket-IDs verglichen werden soll
-überspringen        | URL    | Ganze Zahl | Nein       | Die Anzahl von Ergebnissen für die Paginierung überspringen
-Take        | URL    | Ganze Zahl | Nein       | Die Anzahl der zurückzugebenden Ergebnisse, für die Paginierung
-Vorabversion  | URL    | boolean | Nein       | `true` oder `false` bestimmen, ob enthalten [Vorabversionen von Paketen](../create-packages/prerelease-packages.md)
-semVerLevel | URL    | Zeichenfolge  | Nein       | Eine Versionszeichenfolge SemVer 1.0.0 
+q           | URL    | Zeichenfolge  | Nein       | Die Zeichenfolge, die mit Paket-IDs verglichen werden soll
+überspringen        | URL    | Ganze Zahl | Nein       | Die Anzahl der zu über springenden Ergebnisse für die Paginierung.
+Rechnung        | URL    | Ganze Zahl | Nein       | Die Anzahl der zurück zugebende Ergebnisse für die Paginierung.
+vorab  | URL    | boolean | Nein       | `true`oder `false` feststellen, ob [vorab Pakete](../create-packages/prerelease-packages.md) eingeschlossen werden sollen
+semVerLevel | URL    | Zeichenfolge  | Nein       | Eine Versions Zeichenfolge für semver 1.0.0 
 
-Die AutoVervollständigen-Abfrage `q` wird analysiert, in einer Weise, die von der serverimplementierung definiert ist. NuGet.org unterstützt das Abfragen für das Präfix der Paket-ID-Token, die Teile der Teilung von erzeugten-ID des ursprünglichen Camel Case "und" Symbol Zeichen.
+Die Auto Vervollständigen- `q` Abfrage wird auf eine Weise analysiert, die durch die Server Implementierung definiert wird. nuget.org unterstützt das Abfragen für das Präfix von Paket-ID-Token, bei denen es sich um Teile der ID handelt, die durch das Aufteilen der ursprünglichen nach Kamel-und Symbol Zeichen erzeugt werden.
 
-Die `skip` Parameter hat den Standardwert 0.
+Der `skip` -Parameter hat den Standardwert 0.
 
-Die `take` Parameter muss eine ganze Zahl größer als 0 (null) sein. Die Server-Implementierung kann es sich um einen maximalen Wert verursachen.
+Der `take` -Parameter muss eine ganze Zahl größer als 0 (null) sein. Die Server Implementierung kann einen maximalen Wert erzwingen.
 
-Wenn `prerelease` ist nicht angegeben wird, Vorabversionen von Paketen ausgeschlossen werden.
+Wenn `prerelease` nicht angegeben wird, werden vorab Versionen von Paketen ausgeschlossen.
 
-Die `semVerLevel` Query-Parameter wird verwendet, um abonnieren [SemVer 2.0.0 Pakete](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29#identifying-semver-v200-packages).
-Wenn dieser Parameter ausgeschlossen wird, wird nur Paket-IDs mit SemVer 1.0.0 kompatible Versionen zurückgegeben werden (mit der [standard NuGet-Versionsschema](../reference/package-versioning.md) Einschränkungen, z. B. Versionszeichenfolgen mit 4 Einheiten für ganze Zahl).
-Wenn `semVerLevel=2.0.0` bereitgestellt wird, werden sowohl SemVer 1.0.0 und kompatiblen Paketen SemVer 2.0.0 zurückgegeben werden. Finden Sie unter den [SemVer 2.0.0-Unterstützung für "NuGet.org"](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29) für Weitere Informationen.
+Der `semVerLevel` -Abfrage Parameter wird verwendet, um [semver 2.0.0-Pakete](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29#identifying-semver-v200-packages)zu abonnieren.
+Wenn dieser Abfrage Parameter ausgeschlossen wird, werden nur Paket-IDs mit mit semver 1.0.0 kompatiblen Versionen zurückgegeben (mit der [standardmäßigen nuget-Versions](../concepts/package-versioning.md) Kontrolle, z. b. Versions Zeichenfolgen mit vier ganzzahligen teilen).
+Wenn `semVerLevel=2.0.0` angegeben wird, werden sowohl das semver 1.0.0-als auch das semver 2.0.0-kompatible Paket zurückgegeben. Weitere Informationen finden Sie [unter der semver 2.0.0-Unterstützung für nuget.org](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29) .
 
 ### <a name="response"></a>Antwort
 
-Die Antwort ist die JSON-Dokument mit bis zu `take` Autocomplete-Ergebnisse.
+Die Antwort ist das JSON-Dokument, `take` das die Ergebnisse für die automatische Vervollständigung enthält.
 
-Die JSON-Stammobjekt hat die folgenden Eigenschaften:
+Das JSON-Stamm Objekt verfügt über die folgenden Eigenschaften:
 
 Name      | Typ             | Erforderlich | Hinweise
 --------- | ---------------- | -------- | -----
-totalHits | Ganze Zahl          | ja      | Die Gesamtzahl der Übereinstimmungen ohne Berücksichtigung der `skip` und `take`
-Daten      | Array von Zeichenfolgen | ja      | Die Paket-IDs, die von der Anforderung übereinstimmen
+totalhits | Ganze Zahl          | ja      | Die Gesamtanzahl der Übereinstimmungen, `skip` wobei und ignoriert werden.`take`
+Daten      | Array von Zeichen folgen | ja      | Die Paket-IDs, die mit der Anforderung übereinstimmen.
 
-### <a name="sample-request"></a>Beispiel für eine Anforderung
+### <a name="sample-request"></a>Beispiel Anforderung
 
     GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
 
-### <a name="sample-response"></a>Beispielantwort
+### <a name="sample-response"></a>Beispiel Antwort
 
 [!code-JSON [autocomplete-id-result.json](./_data/autocomplete-id-result.json)]
 
 ## <a name="enumerate-package-versions"></a>Auflisten von Paketversionen
 
-Eine Paket-ID mit der vorherigen-API ermittelt wurde, können ein Client die AutoVervollständigen-API Sie Auflisten von Paketversionen für ein bereitgestelltes Paket-ID
+Sobald eine Paket-ID mit der vorherigen API ermittelt wurde, kann ein Client die Auto Vervollständigen-API verwenden, um Paketversionen für eine angegebene Paket-ID aufzulisten.
 
-Eine Version des Pakets, die nicht aufgeführt ist, wird nicht in den Ergebnissen angezeigt.
+Eine nicht aufgelistete Paketversion wird in den Ergebnissen nicht angezeigt.
 
     GET {@id}?id={ID}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
-### <a name="request-parameters"></a>Anforderungsparameter
+### <a name="request-parameters"></a>Anforderungs Parameter
 
 name        | In     | Typ    | Erforderlich | Hinweise
 ----------- | ------ | ------- | -------- | -----
-id          | URL    | Zeichenfolge  | ja      | Die Paket-ID zum Abrufen von Versionen
-Vorabversion  | URL    | boolean | Nein       | `true` oder `false` bestimmen, ob enthalten [Vorabversionen von Paketen](../create-packages/prerelease-packages.md)
-semVerLevel | URL    | Zeichenfolge  | Nein       | Eine Zeichenfolge der SemVer 2.0.0-version 
+id          | URL    | Zeichenfolge  | ja      | Die Paket-ID, für die Versionen abgerufen werden sollen.
+vorab  | URL    | boolean | Nein       | `true`oder `false` feststellen, ob [vorab Pakete](../create-packages/prerelease-packages.md) eingeschlossen werden sollen
+semVerLevel | URL    | Zeichenfolge  | Nein       | Semver 2.0.0-Versions Zeichenfolge 
 
-Wenn `prerelease` ist nicht angegeben wird, Vorabversionen von Paketen ausgeschlossen werden.
+Wenn `prerelease` nicht angegeben wird, werden vorab Versionen von Paketen ausgeschlossen.
 
-Die `semVerLevel` Query-Parameter wird verwendet, um SemVer 2.0.0-Paketen teilnehmen. Wenn dieser Parameter ausgeschlossen wird, werden nur SemVer 1.0.0-Versionen zurückgegeben. Wenn `semVerLevel=2.0.0` bereitgestellt wird, werden sowohl die SemVer 1.0.0 als auch die SemVer 2.0.0-Version zurückgegeben werden. Finden Sie unter den [SemVer 2.0.0-Unterstützung für "NuGet.org"](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29) für Weitere Informationen.
+Der `semVerLevel` -Abfrage Parameter wird verwendet, um semver 2.0.0-Pakete zu abonnieren. Wenn dieser Abfrage Parameter ausgeschlossen wird, werden nur die semver 1.0.0-Versionen zurückgegeben. Wenn `semVerLevel=2.0.0` angegeben wird, werden die Versionen semver 1.0.0 und semver 2.0.0 zurückgegeben. Weitere Informationen finden Sie [unter der semver 2.0.0-Unterstützung für nuget.org](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29) .
 
 ### <a name="response"></a>Antwort
 
-Die Antwort ist die JSON-Dokument mit der alle Paketversionen von den angegebenen Paket-ID filtern nach den angegebenen Abfrageparametern.
+Die Antwort ist das JSON-Dokument, das alle Paketversionen der angegebenen Paket-ID enthält, die nach den angegebenen Abfrage Parametern gefiltert werden.
 
-Die JSON-Stammobjekt hat die folgende Eigenschaft:
+Das JSON-Stamm Objekt hat die folgende Eigenschaft:
 
 Name      | Typ             | Erforderlich | Hinweise
 --------- | ---------------- | -------- | -----
-Daten      | Array von Zeichenfolgen | ja      | Die Paketversionen, die von der Anforderung übereinstimmen
+Daten      | Array von Zeichen folgen | ja      | Die Paketversionen, die mit der Anforderung übereinstimmen.
 
-Die Versionen des Pakets in der `data` Array SemVer 2.0.0-Build-Metadaten enthalten (z. B. `1.0.0+metadata`) Wenn die `semVerLevel=2.0.0` wird in der Abfragezeichenfolge bereitgestellt.
+Die Paketversionen im `data` Array enthalten möglicherweise semver 2.0.0-buildmetadaten (z. b. `1.0.0+metadata`), wenn der `semVerLevel=2.0.0` in der Abfrage Zeichenfolge bereitgestellt wird.
 
-### <a name="sample-request"></a>Beispiel für eine Anforderung
+### <a name="sample-request"></a>Beispiel Anforderung
 
     GET https://api-v2v3search-0.nuget.org/autocomplete?id=nuget.protocol&prerelease=true
 
-### <a name="sample-response"></a>Beispielantwort
+### <a name="sample-response"></a>Beispiel Antwort
 
 [!code-JSON [autocomplete-version-result.json](./_data/autocomplete-version-result.json)]

@@ -1,35 +1,35 @@
 ---
-title: NuGet-Datei "Packages.config"-Dateiverweis
+title: Verweis auf die Datei "nuget Packages. config"
 description: Bei einigen Projekttypen wird in der Datei „packages.config“ die Liste der im Projekt verwendeten Pakete verwaltet.
 author: karann-msft
 ms.author: karann
 ms.date: 05/21/2018
 ms.topic: reference
-ms.openlocfilehash: 18566671b611899b28fcc8542cf53935f5ee2dfd
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 2fd1640295ca35304358565808a89d752cfd8abf
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551769"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488643"
 ---
 # <a name="packagesconfig-reference"></a>Verweis auf „packages.config“
 
 Die Datei `packages.config` wird bei einigen Projekttypen für die Verwaltung der Pakete verwendet, auf die vom Projekt verwiesen wird. Auf diese Weise kann NuGet die Projektabhängigkeiten problemlos wiederherstellen, wenn das Projekt ohne all diese Pakete auf ein anderes System, z.B. einen Buildserver, übertragen werden soll.
 
-Wenn verwendet, `packages.config` befindet sich in der Regel in einem Projektverzeichnis. Es wird automatisch erstellt, wenn der erste NuGet-Vorgang wird ausgeführt, jedoch auch manuell erstellt werden kann vor dem Ausführen von Befehlen wie z. B. `nuget restore`.
+Wenn diese verwendet `packages.config` wird, befindet sich in der Regel in einem Projektstamm. Sie wird automatisch erstellt, wenn der erste nuget-Vorgang ausgeführt wird `nuget restore`. Sie kann jedoch auch manuell erstellt werden, bevor Befehle wie ausgeführt werden.
 
-Projekte, ["packagereference"](../consume-packages/Package-References-in-Project-Files.md) verwenden Sie keine `packages.config`.
+Projekte, die [packagereferenzierung](../consume-packages/Package-References-in-Project-Files.md) verwenden, `packages.config`verwenden nicht.
 
 ## <a name="schema"></a>Schema
 
 Das Schema ist einfach: Dem XML-Standardheader folgt ein `<packages>`-Einzelknoten, der mindestens ein `<package>`-Element enthält (jeweils eines für jeden Verweis). Jedes `<package>`-Element kann die folgenden Attribute aufweisen:
 
-| Attribut | Erforderlich | Beschreibung |
+| Attribut | Required | Beschreibung |
 | --- | --- | --- |
-| ID | Ja | Der Bezeichner des Pakets, z.B. „Newtonsoft.json“ oder „Microsoft.AspNet.Mvc“. | 
-| Version | Ja | Die genaue Version des zu installierenden Pakets, z.B. 3.1.1 oder 4.2.5.11-beta. Eine Versionszeichenfolge muss mindestens drei Ziffern aufweisen, eine vierte Ziffer und ein Vorabreleasesuffix sind optional. Bereiche sind nicht zulässig. | 
+| id | Ja | Der Bezeichner des Pakets, z.B. „Newtonsoft.json“ oder „Microsoft.AspNet.Mvc“. | 
+| version | Ja | Die genaue Version des zu installierenden Pakets, z.B. 3.1.1 oder 4.2.5.11-beta. Eine Versionszeichenfolge muss mindestens drei Ziffern aufweisen, eine vierte Ziffer und ein Vorabreleasesuffix sind optional. Bereiche sind nicht zulässig. | 
 | targetFramework | Nein | Der [Zielframeworkmoniker](target-frameworks.md) (Target Framework Moniker, TFM), der bei der Installation des Pakets angewendet werden soll. Er wird bei der Installation eines Pakets zuerst auf das Projektziel festgelegt. Dadurch können unterschiedliche `<package>`-Elemente unterschiedliche TFMs aufweisen. Wenn Sie beispielsweise ein Projekt erstellen, das für .NET 4.5.2 erstellt wurde, verwenden an diesem Punkt installierte Pakete den TFM von net452. Wenn Sie das Projekt später dem neuen Ziel .NET 4.6 zuweisen und weitere Pakete hinzufügen, verwenden diese den TFM von net46. Bei einer fehlenden Übereinstimmung zwischen dem Projektziel und den `targetFramework`-Attributen werden Warnungen generiert. In diesem Fall können Sie die betroffenen Pakete erneut installieren. | 
-| allowedVersions | Nein | Ein Bereich mit zulässigen Versionen für dieses Paket, die während der Paketaktualisierung angewendet werden (weitere Informationen finden Sie unter [Constraining upgrade versions (Einschränkung von Upgradeversionen)](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions)). Dies hat *keine* Auswirkungen darauf, welches Paket während einer Installation oder Wiederherstellung installiert wird. Die Syntax finden Sie unter [Paketversionsverwaltung](../reference/package-versioning.md#version-ranges-and-wildcards). Die Benutzeroberfläche von PackageManager deaktiviert auch alle Versionen außerhalb des zulässigen Bereichs. | 
+| allowedVersions | Nein | Ein Bereich mit zulässigen Versionen für dieses Paket, die während der Paketaktualisierung angewendet werden (weitere Informationen finden Sie unter [Constraining upgrade versions (Einschränkung von Upgradeversionen)](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions)). Dies hat *keine* Auswirkungen darauf, welches Paket während einer Installation oder Wiederherstellung installiert wird. Die Syntax finden Sie unter [Paketversionsverwaltung](../concepts/package-versioning.md#version-ranges-and-wildcards). Die Benutzeroberfläche von PackageManager deaktiviert auch alle Versionen außerhalb des zulässigen Bereichs. | 
 | developmentDependency | Nein | Wenn im verwendeten Projekt selbst ein NuGet-Paket erstellt wird, wird durch eine Festlegung des Pakets auf `true` bei einer Abhängigkeit verhindert, dass das Paket bei der Erstellung des verwendeten Projekts eingeschlossen wird. Die Standardeinstellung ist `false`. | 
 
 ## <a name="examples"></a>Beispiele
