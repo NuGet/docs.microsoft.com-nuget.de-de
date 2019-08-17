@@ -1,11 +1,7 @@
 ---
 title: Veröffentlichen von NuGet-Symbolpaketen mithilfe des neuen Formats für Symbolpakete „.snupkg“ | Microsoft-Dokumentation
-author:
-- cristinamanu
-- kraigb
-ms.author:
-- cristinamanu
-- kraigb
+author: cristinamanu
+ms.author: cristinamanu
 manager: skofman
 ms.date: 10/30/2018
 ms.topic: reference
@@ -16,12 +12,12 @@ keywords: NuGet-Symbolpakete, Debugging von NuGet-Paketen, Unterstützung von Nu
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 9f9cdd188cf2ec678bc9047604e618f1af9124ae
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: e62d1872497e0e5e703bf7c49a87249ce9a996c7
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842466"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959678"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Erstellen von Symbolpaketen (.snupkg)
 
@@ -112,14 +108,17 @@ Die NUPKG-Datei wäre genau dieselbe wie heute, die SNUPKG-Datei würde jedoch f
 
 1) Die SNUPKG-Datei besitzt dieselbe ID und Version wie die entsprechende NUPKG-Datei.
 2) Für jede DLL- oder EXE-Datei enthält die SNUPKG-Datei dann dieselbe Ordnerstruktur wie die NUPKG-Datei, mit dem einzigen Unterschied, dass die entsprechenden PDB-Dateien in der gleichen Ordnerhierarchie eingeschlossen werden würden (anstelle der DLL-/EXE-Dateien). Dateien und Ordner mit anderen Erweiterungen als PDB werden aus der SNUPKG-Datei ausgeschlossen.
-3) Die NUSPEC-Datei im SNUPKG-Paket gibt auch einen neuen PackageType an, so wie unten dargestellt. Dieser sollte der einzige angegebene PackageType sein. 
-``` 
-<packageTypes>
-  <packageType name="SymbolsPackage"/>
-</packageTypes>
-```
+3) Die NUSPEC-Datei im SNUPKG-Paket gibt auch einen neuen PackageType an, so wie unten dargestellt. Dieser sollte der einzige angegebene PackageType sein.
+
+   ```xml
+   <packageTypes>
+      <packageType name="SymbolsPackage"/>
+   </packageTypes>
+   ```
+
 4) Wenn sich ein Autor dazu entscheidet, eine benutzerdefinierte NUSPEC-Datei für die Erstellung von NUPKG- und SNUPKG-Dateien zu verwenden, muss die SNUPKG-Datei über die gleiche Ordnerhierarchie und die gleichen Dateien wie unter Punkt 2 beschrieben verfügen.
 5) Die Felder ```authors``` und ```owners``` werden aus der NUSPEC-Datei von SNUPKG ausgeschlossen.
+6) Verwenden Sie nicht das <license>-Element. Eine SNUPKG-Datei wird von der gleichen Lizenz wie die entsprechende NUPK-Datei abgedeckt.
 
 ## <a name="see-also"></a>Siehe auch
 

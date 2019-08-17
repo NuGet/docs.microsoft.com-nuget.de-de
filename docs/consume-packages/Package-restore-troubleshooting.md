@@ -5,16 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 287237cf4041870c562a6a7f48f233d8fdc8ef33
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: a1f9f1d03e9a6e58466fa92426bd655d5e8ed83d
+ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842382"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68860627"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Problembehandlung bei der Paketwiederherstellung
 
-In diesem Artikel erhalten Sie Informationen zu Fehlern, die beim Wiederherstellen von Paketen häufig auftreten, sowie entsprechende Anleitungen zur Problembehebung. Ausführliche Details zur Wiederherstellung von Paketen finden Sie unter [Paketwiederherstellung](../consume-packages/package-restore.md#enable-and-disable-package-restore-visual-studio).
+In diesem Artikel erhalten Sie Informationen zu Fehlern, die beim Wiederherstellen von Paketen häufig auftreten, sowie entsprechende Anleitungen zur Problembehebung. 
+
+Die Paketwiederherstellung versucht, alle Paketabhängigkeiten im richtigen Zustand zu installieren, der den Paketverweisen in Ihrer Projektdatei ( *.csproj*) oder Ihrer Datei *packages.config* entspricht. (In Visual Studio werden die Verweise im Projektmappen-Explorer unter dem Knoten **Dependencies\NuGet** oder **References** angezeigt.) Um die erforderlichen Schritte zur Wiederherstellung von Paketen durchzuführen, lesen Sie [Wiederherstellen von Paketen](../consume-packages/package-restore.md#restore-packages). Wenn die Paketverweise in Ihrer Projektdatei ( *.csproj*) oder Ihrer Datei *packages.config* falsch sind (sie stimmen nach der Paketwiederherstellung nicht mit dem gewünschten Zustand überein), müssen Sie die Pakete installieren oder aktualisieren. In diesem Fall kann die Paketwiederherstellung nicht verwendet werden.
 
 Wenn Ihnen die hier aufgeführten Anweisungen nicht weiterhelfen, [melden Sie bitte das Problem auf GitHub](https://github.com/NuGet/docs.microsoft.com-nuget/issues), damit wir das Szenario gründlich prüfen können. Verwenden Sie nicht das Steuerelement „Is this page helpful?“ (Hilft Ihnen diese Seite weiter?), das möglicherweise auf dieser Seite angezeigt wird, da wir Sie darüber nicht erreichen können, wenn wir weitere Informationen benötigen.
 
@@ -44,8 +46,8 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 
 Dieser Fehler tritt auf, wenn Sie versuchen, ein Projekt zu erstellen, das Verweise auf mindestens ein NuGet-Paket enthält, das Paket zu diesem Zeitpunkt jedoch nicht auf dem Computer oder in dem Projekt vorhanden ist.
 
-- Bei Verwendung des PackageReference-Verwaltungsformats bedeutet der Fehler, dass das Paket nicht wie unter [Verwalten der globalen Pakete und Cacheordner](managing-the-global-packages-and-cache-folders.md) beschrieben im Ordner *global-packages* installiert ist.
-- Bei Verwendung von `packages.config` bedeutet der Fehler, dass das Paket nicht im `packages`-Ordner des Stammverzeichnisses der Lösung installiert ist.
+- Bei Verwendung des [PackageReference](package-references-in-project-files.md)-Verwaltungsformats bedeutet der Fehler, dass das Paket nicht wie unter [Verwalten der globalen Pakete und Cacheordner](managing-the-global-packages-and-cache-folders.md) beschrieben im Ordner *global-packages* installiert ist.
+- Bei Verwendung von [packages.config](../reference/packages-config.md) bedeutet der Fehler, dass das Paket nicht im Ordner `packages` des Stammverzeichnisses der Projektmappe installiert ist.
 
 Diese Situation tritt häufig auf, wenn Sie den Quellcode des Projekts über die Quellcodeverwaltung oder einen anderen Download erhalten. Pakete werden in der Regel von Quellcode oder Downloads ausgeschlossen, da sie aus Paketfeeds wie nuget.org wiederhergestellt werden (Informationen dazu finden Sie unter [Überspringen von NuGet-Paketen in Quellcodeverwaltungssystemen](Packages-and-Source-Control.md)). Wenn diese Pakete darin enthalten wären, würde dies ggf. es zu einer Überfrachtung des Repositorys oder zum Erstellen von unnötig großen ZIP-Dateien führen.
 
@@ -54,10 +56,12 @@ Der Fehler kann auch auftreten, wenn Ihre Projektdatei absolute Pfade zu Paketsp
 Verwenden Sie eine der folgenden Methoden, um die Pakete wiederherzustellen:
 
 - Wenn Sie die Projektdatei verschoben haben, bearbeiten Sie die Datei direkt, um die Paketverweise zu aktualisieren.
-- (Visual Studio) Aktivieren Sie die Paketwiederherstellung, indem Sie auf den Menübefehl **Extras > NuGet-Paket-Manager > Paket-Manager-Einstellungen** klicken, beide Optionen unter **Paketwiederherstellung** festlegen, und auf **OK** klicken. Erstellen Sie die Projektmappe anschließend erneut.
-- (dotnet-CLI) Wechseln Sie in der Befehlszeile zu dem Ordner, der das Projekt enthält, und führen Sie `dotnet restore` oder `dotnet build` aus.
-- (nuget.exe-CLI) Wechseln Sie in der Befehlszeile zu dem Ordner, der das Projekt enthält, und führen Sie dann `nuget restore` aus (außer für mit der `dotnet`-CLI erstellte Projekten; verwenden Sie in diesem Fall `dotnet restore`).
-- (Zu PackageReference migrierte Projekte) Führen Sie in der Befehlszeile `msbuild -t:restore` aus.
+- [Visual Studio](package-restore.md#restore-using-visual-studio) ([automatische Wiederherstellung](package-restore.md#restore-packages-automatically-using-visual-studio) oder [manuelle Wiederherstellung](package-restore.md#restore-packages-manually-using-visual-studio))
+- [dotnet-CLI](package-restore.md#restore-using-the-dotnet-cli)
+- [nuget.exe-CLI](package-restore.md#restore-using-the-nugetexe-cli)
+- [MSBuild](package-restore.md#restore-using-msbuild)
+- [Azure Pipelines](package-restore.md#restore-using-azure-pipelines)
+- [Azure DevOps Server](package-restore.md#restore-using-azure-devops-server)
 
 Nach einer erfolgreichen Wiederherstellung sollte das Paket im Ordner *global-packages* vorhanden sein. Bei Projekten, die PackageReference verwenden, sollte die `obj/project.assets.json`-Datei wiederhergestellt werden; bei Projekten, die `packages.config` verwenden, sollte das Paket im `packages`-Ordner des Projekts erscheinen. Das Projekt sollte jetzt erfolgreich erstellt werden. Wenn dies nicht der Fall sein sollte, [melden Sie das Problem auf GitHub](https://github.com/NuGet/docs.microsoft.com-nuget/issues), damit wir dies überprüfen können.
 

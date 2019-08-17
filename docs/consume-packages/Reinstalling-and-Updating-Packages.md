@@ -5,16 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: conceptual
-ms.openlocfilehash: 32b01e6066cf60f7a0942508e640fdd5658b4444
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: bc077220e05b14180baac9611fda9234675ad640
+ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68316978"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68860524"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Neuinstallieren und Aktualisieren von Paketen
 
 Es gibt einige Situationen, die nachfolgend unter [Wann ein Paket neu installiert wird](#when-to-reinstall-a-package) beschrieben werden, in denen Verweise auf ein Paket innerhalb eines Visual Studio-Projekts fehlerhaft werden können. In diesen Fällen werden diese Verweise durch das Löschen und die Neuinstallation der gleichen Paketversion ordnungsgemäß wiederhergestellt. Ein Paket zu aktualisieren bedeutet einfach, eine aktualisierte Version zu installieren. So lässt sich ein Paket häufig ordnungsgemäß wiederherstellen.
+
+In Visual Studio bietet die Paket-Manager-Konsole zahlreiche flexible Optionen für die Aktualisierung und erneute Installation von Paketen.
 
 Das Aktualisieren und die Neuinstallation von Paketen erfolgt wie im Folgenden dargestellt:
 
@@ -25,7 +27,7 @@ Das Aktualisieren und die Neuinstallation von Paketen erfolgt wie im Folgenden d
 | nuget.exe-CLI | `nuget update`-Befehl | Löschen Sie für alle Pakete den Paketordner, und führen Sie dann `nuget install` aus. Löschen Sie für ein einzelnes Paket den Paketordner, und verwenden Sie `nuget install <id>`, um den gleichen Ordner neu zu installieren. |
 
 > [!NOTE]
-> Für die dotnet-CLI ist das entsprechende Verfahren nicht erforderlich. In einem ähnlichen Szenario können Sie [Pakete mit der dotnet-CLI wiederherstellen](../consume-packages/install-use-packages-dotnet-cli.md#restore-packages).
+> Für die dotnet-CLI ist das entsprechende Verfahren nicht erforderlich. In einem ähnlichen Szenario können Sie [Pakete mit der dotnet-CLI wiederherstellen](package-restore.md#restore-using-the-dotnet-cli).
 
 In diesem Artikel:
 
@@ -61,7 +63,7 @@ Verwenden Sie in jedem Fall die unter [Paketversionsverwaltung](../reference/pac
 
 ## <a name="using-update-package"></a>Verwenden eines Updatepakets
 
-Unter Berücksichtigung der nachfolgend beschriebenen [Überlegungen](#considerations) können Sie einfach beliebige Paket neu installieren, indem Sie den [Befehl „Updatepaket“](../reference/ps-reference/ps-ref-update-package.md) in der Paket-Manager-Konsole von Visual Studio verwenden (**Extras** > **NuGet-Paket-Manager** > **Paket-Manager-Konsole**):
+Unter Berücksichtigung der nachfolgend beschriebenen [Überlegungen](#considerations) können Sie einfach beliebige Pakete neu installieren, indem Sie den [Befehl Update-Package](../reference/ps-reference/ps-ref-update-package.md) in der Paket-Manager-Konsole von Visual Studio verwenden (**Extras** > **NuGet-Paket-Manager** > **Paket-Manager-Konsole**).
 
 ```ps
 Update-Package -Id <package_name> –reinstall

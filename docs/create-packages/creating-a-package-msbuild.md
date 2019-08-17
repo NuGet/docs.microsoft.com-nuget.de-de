@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: a0db6dc95ffa5ad73741ae53a6be9d6f937c1dbf
-ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
+ms.openlocfilehash: 92b42f0a6133565844d0b6df2cb50770793055ec
+ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68833227"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68860631"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>Erstellen eines NuGet-Pakets mit MSBuild
 
@@ -105,14 +105,14 @@ Wenn Sie MSBuild mit einem Projekt im Nicht-SDK-Stil und PackageReference verwen
 
 Um ein NuGet-Paket (eine `.nupkg`-Datei) aus dem Projekt zu erstellen, führen Sie den `msbuild -t:pack`-Befehl aus, der auch das Projekt automatisch erstellt:
 
-Geben Sie in der Developer-Eingabeaufforderung folgenden Befehl ein:
+Geben Sie an der Developer-Eingabeaufforderung für Visual Studio den folgenden Befehl ein:
 
 ```cmd
 # Uses the project file in the current folder by default
 msbuild -t:pack
 ```
 
-Die Ausgabe zeigt den Pfad zu der `.nupkg`-Datei.
+Die Ausgabe zeigt den Pfad zur `.nupkg`-Datei.
 
 ```output
 Microsoft (R) Build Engine version 16.1.76+g14b0a930a7 for .NET Framework

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: b7870bb6aac39f0865d88efc8c16751fdbecc3a8
-ms.sourcegitcommit: cae759ad8518c049575a30ad3bf04fe5d06244fb
+ms.openlocfilehash: 8c1d8a479747f6f7bce388c1555589543c8824a0
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68616777"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69020059"
 ---
 # <a name="support-multiple-net-framework-versions-in-your-project-file"></a>Unterstützung für mehrere .NET Framework-Versionen in der Projektdatei
 
@@ -27,9 +27,13 @@ Für Projekte im SDK-Stil können Sie die Unterstützung für mehrere Zielframew
 
    Es wird empfohlen, dass Sie eine .NET Standard-Klassenbibliothek erstellen, um die bestmögliche Kompatibilität zu erzielen.
 
-2. Bearbeiten Sie die *CSPROJ*-Datei, damit diese das Zielframe unterstützt.
-
-   Ändern Sie beispielsweise `<TargetFramework>netstandard2.0</TargetFramework>` zu `<TargetFrameworks>netstandard2.0;net45</TargetFrameworks>`.
+2. Bearbeiten Sie die *CSPROJ*-Datei, damit diese die Zielframeworks unterstützt. Ändern Sie beispielsweise
+   
+   `<TargetFramework>netstandard2.0</TargetFramework>`
+   
+   in:
+   
+   `<TargetFrameworks>netstandard2.0;net45</TargetFrameworks>`
 
    Stellen Sie sicher, dass Sie das XML-Element ändern, das von Singular auf Plural geändert wurde (fügen Sie das „s“ sowohl zu den geöffneten als auch zu den schließenden Tags hinzu).
 

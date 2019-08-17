@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 16a14a72f8bb2e5d5a56f6c3c277f0988869273d
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 05ece5f36ff7ae5920960c42cfde8b271dc3e712
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426694"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69020011"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Paketverweise (PackageReference) in Projektdateien
 
@@ -105,7 +105,9 @@ Folgende Werte sind für diese Tags zulässig, wobei mehrere Werte durch ein Sem
 | compile | Inhalt des Ordners `lib` und steuert, ob Ihr Projekt anhand der Assemblys im Ordner kompiliert werden kann |
 | Laufzeit | Inhalt der Ordner `lib` und `runtimes` und steuert, ob diese Assemblys in das Buildausgabeverzeichnis kopiert werden |
 | contentFiles | Inhalte des Ordners `contentfiles` |
-| Build | Eigenschaften und Ziele im Ordner `build` |
+| Build | `.props` und `.targets` im Ordner `build` |
+| buildMultitargeting | `.props` und `.targets` im Ordner `buildMultitargeting` für frameworkübergreifende Zielplattformen |
+| buildTransitive | *(5.0 und höher)* : `.props` und `.targets` im Ordner `buildTransitive` für Ressourcen, die transitiv in beliebige verarbeitende Projekte eingefügt werden. Weitere Informationen finden Sie auf der Seite [Feature](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior). |
 | Analysetools | .NET-Analystetools |
 | Systemeigen | Inhalte des Ordners `native` |
 | Keine | Keiner der obigen Werte wird verwendet. |
