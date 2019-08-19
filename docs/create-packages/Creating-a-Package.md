@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: f33624cf50248d8a137216ed0d725ed88c0defd2
-ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
+ms.openlocfilehash: a9224ce4e515cf98893a7134077c90a47df1862a
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68833374"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69020073"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>Erstellen eines Pakets mithilfe der „nuget.exe“-CLI
 
@@ -184,7 +184,9 @@ Die Ordnerkonventionen lauten folgendermaßen:
 | ref/{tfm} | Dateien für Assembly (`.dll`) und Symbole (`.pdb`) für den angegebenen Zielframeworkmoniker (Target Framework Moniker, TFM) | Assemblys werden nur als Verweise für die Kompilierzeit hinzugefügt, daher werden keine Daten in den bin-Ordner des Projekts kopiert. |
 | Laufzeiten | Architekturspezifische Assembly- (`.dll`), Symbol- (`.pdb`) und native Ressourcendateien (`.pri`) | Assemblys werden nur als Verweise für die Laufzeit hinzugefügt. Andere Dateien werden in Projektordner kopiert. Es sollte immer eine entsprechende für `AnyCPU` spezifische TFM-Assembly im Ordner `/ref/{tfm}` vorhanden sein, um eine entsprechende Assembly für die Kompilierzeit bereitzustellen. Weitere Informationen finden Sie unter [Supporting multiple .NET framework versions (Unterstützen mehrerer .NET Framework-Versionen)](supporting-multiple-target-frameworks.md). |
 | Inhalt | Beliebige Dateien | Inhalte werden in das Projektstammverzeichnis kopiert. Der Ordner **content** (Inhalt) entspricht in etwa dem Stammverzeichnis der Zielanwendung, die das Paket letztendlich nutzt. Damit das Paket dem Ordner */images* der Anwendung ein Image hinzufügt, müssen Sie es im Ordner *content/images* ablegen. |
-| Build | MSBuild-Dateien `.targets` und `.props` | Sie werden automatisch in die Projektdatei oder in `project.lock.json` (NuGet 3.x und höher) eingefügt. |
+| Build | MSBuild-Dateien `.targets` und `.props` | Wird automatisch in das Projekt eingefügt (NuGet 3.x und höher). |
+| buildMultiTargeting | MSBuild-Dateien `.targets` und `.props` für frameworkübergreifende Zielversionen | Wird automatisch in das Projekt eingefügt. |
+| buildTransitive | *(5.0 und höher)* : MSBuild-Dateien `.targets` und `.props`, die transitiv in beliebige verarbeitende Projekte eingefügt werden. Weitere Informationen finden Sie auf der Seite [Feature](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior). | Wird automatisch in das Projekt eingefügt. |
 | Tools | PowerShell-Skripts und -Programme, auf die über die Paket-Manager-Konsole zugegriffen werden kann | Der Ordner `tools` wird nur zur Umgebungsvariable `PATH` der Paket-Manager-Konsole hinzugefügt, *niemals* jedoch zu `PATH`, so wie es für MSBuild beim Erstellen des Projekts festgelegt ist. |
 
 Da die Ordnerstruktur beliebig viele Assemblys für beliebig viele Zielframeworks enthalten kann, ist diese Methode für das Erstellen von Paketen erforderlich, die mehrere Frameworks unterstützen.
@@ -218,7 +220,15 @@ nuget spec
 
 Die anschließend erstellte `<project-name>.nuspec`-Datei enthält *Tokens*, die zur Packzeit durch Werte aus dem Projekt ersetzt werden, einschließlich der Verweise auf alle anderen Pakete, die bereits installiert wurden.
 
-Ein Token wird auf beiden Seiten der Projekteigenschaft durch das Symbol `$` begrenzt. Wird der Wert `<id>` auf diese Weise in einem Manifest generiert, wird er in der Regel folgendermaßen angezeigt:
+Wenn Sie Paketabhängigkeiten in die *NUSPEC*-Datei einbinden müssen, verwenden Sie stattdessen `nuget pack`, und rufen Sie die *NUSPEC*-Datei aus der generierten *NUPKG*-Datei ab. Verwenden Sie z.B. den folgenden Befehl.
+
+```cli
+# Use in a folder containing a project file <project-name>.csproj or <project-name>.vbproj
+nuget pack myproject.csproj
+```
+```
+
+A token is delimited by `$` symbols on both sides of the project property. For example, the `<id>` value in a manifest generated in this way typically appears as follows:
 
 ```xml
 <id>$id$</id>
@@ -339,7 +349,7 @@ Wenn NuGet ein Paket mit `\build`-Dateien erstellt, werden der Projektdatei MSBu
 
 MSBuild-`.props`- und -`.targets`-Dateien für frameworkübergreifende Ziele können im Ordner `\buildMultiTargeting` abgelegt werden. Bei der Paketinstallation fügt NuGet die entsprechenden `<Import>`-Elemente in die Projektdatei mit der Bedingung ein, dass das Zielframework nicht festgelegt ist (die MSBuild-Eigenschaft `$(TargetFramework)` muss leer sein).
 
-In NuGet 3.x werden Ziele nicht zum Projekt hinzugefügt, sondern über `project.lock.json` zur Verfügung gestellt.
+In NuGet 3.x werden Ziele nicht zum Projekt hinzugefügt, sondern über `{projectName}.nuget.g.targets` und `{projectName}.nuget.g.props` zur Verfügung gestellt.
 
 ## <a name="run-nuget-pack-to-generate-the-nupkg-file"></a>Ausführen von „nuget pack“ zum Generieren der NUPKG-Datei
 
