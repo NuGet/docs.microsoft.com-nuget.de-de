@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 82113d460f7f5ff467b0a0552cc49283de95de25
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 211f24ff67c06da00d6a014e679cc422d493d6d5
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327637"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959740"
 ---
 # <a name="restore-command-nuget-cli"></a>Restore-Befehl (nuget-CLI)
 
@@ -26,7 +26,7 @@ Unter Mac OSX und Linux mit der CLI in Mono wird das Wiederherstellen von Pakete
 nuget restore <projectPath> [options]
 ```
 
-Dabei gibt den Speicherort einer Projekt Mappe oder `packages.config` einer Datei an. `<projectPath>` Informationen zu den Verhaltens Details finden [Sie unten in](#remarks) den hinweisen.
+Dabei gibt den Speicherort einer Projekt Mappe oder `packages.config` einer Datei an. `<projectPath>` Weitere Informationen zum Verhalten finden Sie in den [Hinweisen](#remarks).
 
 ## <a name="options"></a>Optionen
 
@@ -35,7 +35,7 @@ Dabei gibt den Speicherort einer Projekt Mappe oder `packages.config` einer Date
 | ConfigFile | Die anzuwendende nuget-Konfigurationsdatei. Wenn nichts angegeben ist `%AppData%\NuGet\NuGet.Config` , wird (Windows `~/.nuget/NuGet/NuGet.Config` ) oder (Mac/Linux) verwendet.|
 | DirectDownload | *(4.0* und höher) Pakete werden direkt heruntergeladen, ohne dass Caches mit Binärdateien oder Metadaten aufgefüllt werden. |
 | DisableParallelProcessing | Deaktiviert die parallele Wiederherstellung mehrerer Pakete. |
-| FallbackSource | *(3.2 +)* Eine Liste von Paketquellen, die als Fallbacks verwendet werden sollen, falls das Paket nicht in der primären oder der Standard Quelle gefunden wurde. |
+| FallbackSource | *(3.2 +)* Eine Liste von Paketquellen, die als Fallbacks verwendet werden sollen, falls das Paket nicht in der primären oder der Standard Quelle gefunden wurde. Verwenden Sie zum Trennen von Listeneinträgen ein Semikolon. |
 | ForceEnglishOutput | *(3.5* und höher) Erzwingt, dass "nuget. exe" mit einer invarianten, englischen Kultur ausgeführt wird. |
 | Help | Zeigt Hilfe Informationen für den Befehl an. |
 | MSBuildPath | *(4.0* und höher) Gibt den Pfad von MSBuild an, der mit dem Befehl verwendet werden soll `-MSBuildVersion`, und hat Vorrang vor. |
@@ -49,7 +49,7 @@ Dabei gibt den Speicherort einer Projekt Mappe oder `packages.config` einer Date
 | Rekursive | *(4.0* und höher) Stellt alle Referenzprojekte für UWP-und .net Core-Projekte wieder her. Gilt nicht für Projekte, die `packages.config`verwenden. |
 | RequireConsent | Überprüft, ob das Wiederherstellen von Paketen aktiviert ist, bevor die Pakete heruntergeladen und installiert werden. Weitere Informationen finden Sie unter [Paket Wiederherstellung](../../consume-packages/package-restore.md). |
 | Projektmappenverzeichnis | Gibt den Projektmappenordner an. Ungültig beim Wiederherstellen von Paketen für eine Projekt Mappe. Erforderlich, wenn mit einer `packages.config` Datei wieder `PackagesDirectory` hergestellt `OutputDirectory` wird, sofern nicht oder verwendet wird. |
-| Source | Gibt die Liste der Paketquellen (als URLs) an, die für die Wiederherstellung verwendet werden sollen. Wenn der Befehl weggelassen wird, verwendet der Befehl die in den Konfigurationsdateien bereitgestellten Quellen, siehe [Konfigurieren des nuget-Verhaltens](../../consume-packages/configuring-nuget-behavior.md). |
+| Source | Gibt die Liste der Paketquellen (als URLs) an, die für die Wiederherstellung verwendet werden sollen. Wenn der Befehl weggelassen wird, verwendet der Befehl die in den Konfigurationsdateien bereitgestellten Quellen, siehe [Konfigurieren des nuget-Verhaltens](../../consume-packages/configuring-nuget-behavior.md). Verwenden Sie zum Trennen von Listeneinträgen ein Semikolon. |
 | Verbosity | Gibt den Umfang der in der Ausgabe angezeigten Details an: *Normal*, *quiet*, *ausführlich*. |
 
 Siehe auch [Umgebungsvariablen](cli-ref-environment-variables.md)
