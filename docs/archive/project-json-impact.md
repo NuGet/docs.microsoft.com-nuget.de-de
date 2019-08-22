@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8c85c1a89469c491c6be1f81961197450744349c
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 34b08f06f04efdcf7bf73efc2cbdb5a5494ae2d9
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545572"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488199"
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>Auswirkungen von „project.json“ auf das Erstellen von Paketen
 
@@ -25,7 +25,7 @@ NuGet-Pakete unterstützen üblicherweise einige Features, die nicht in die tran
 
 ### <a name="install-and-uninstall-scripts-are-ignored"></a>Installations- und Deinstallationsskripts werden ignoriert.
 
-Dem Modell zur transitiven Wiederherstellung, das in einem anderen Artikel im Abschnitt zum Thema [Abhängigkeitsauflösung](../consume-packages/dependency-resolution.md#dependency-resolution-with-packagereference) beschrieben wird, ist das Konzept der „Paketinstallationszeit“ nicht bekannt. Ein Paket ist entweder vorhanden oder nicht vorhanden. Es existiert also kein einheitlicher Prozess, der beim Installieren eines Pakets abläuft.
+Dem Modell zur transitiven Wiederherstellung, das in einem anderen Artikel im Abschnitt zum Thema [Abhängigkeitsauflösung](../concepts/dependency-resolution.md#dependency-resolution-with-packagereference) beschrieben wird, ist das Konzept der „Paketinstallationszeit“ nicht bekannt. Ein Paket ist entweder vorhanden oder nicht vorhanden. Es existiert also kein einheitlicher Prozess, der beim Installieren eines Pakets abläuft.
 
 Des Weiteren wurden Installationsskripts nur in Visual Studio unterstützt. Andere integrierte Entwicklungsumgebungen konnten nur durch Modellieren der Visual Studio-Erweiterbarkeits-API versuchen, solche Skripts zu unterstützen. In üblichen Editoren und Befehlszeilentools war dagegen keine Unterstützung verfügbar.
 

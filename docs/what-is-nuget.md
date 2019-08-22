@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: overview
-ms.openlocfilehash: f16cc6f66bc12727a4ec8eb5da4ff44a9eeb1764
-ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
+ms.openlocfilehash: 435103b600f14b9bbf606c09f0c870115204d5c7
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68833332"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488493"
 ---
 # <a name="an-introduction-to-nuget"></a>Eine Einführung in NuGet
 
@@ -66,7 +66,7 @@ Die folgende Abbildung zeigt ein Projekt, das von fünf Paketen abhängig ist, d
 
 Beachten Sie, dass einige Pakete mehrmals im Abhängigkeitsdiagramm angezeigt werden. Beispielsweise gibt es drei verschiedene Benutzer des Pakets B, und jeder Benutzer könnte auch eine andere Version für das Paket (nicht gezeigt) angeben. Dieser Fall tritt häufig auf, insbesondere bei häufig verwendeten Paketen. NuGet übernimmt alle schwierigen Aufgaben, um genau zu bestimmen, welche Version des Pakets B alle Benutzer zufriedenstellt. NuGet führt dies dann für alle anderen Pakete durch, unabhängig davon, wie ausführlich das Abhängigkeitsdiagramm wird.
 
-Weitere Details wie NuGet diesen Dienst ausführt finden Sie unter [Dependency resolution (Abhängigkeitsauflösung)](consume-packages/dependency-resolution.md).
+Weitere Details wie NuGet diesen Dienst ausführt finden Sie unter [Dependency resolution (Abhängigkeitsauflösung)](concepts/dependency-resolution.md).
 
 ## <a name="tracking-references-and-restoring-packages"></a>Nachverfolgungsverweise und Wiederherstellen von Paketen
 
@@ -103,9 +103,9 @@ Bisher haben Sie folgende Eigenschaften von NuGet kennengelernt:
 
 Damit diese Prozesse effizient arbeiten, führt NuGet einige Optimierungen im Hintergrund durch. Insbesondere verwaltet NuGet einen Paketcache und einen globalen Paketordner, um die Installation und Neuinstallation zu beschleunigen. Der Cache verhindert das Herunterladen eines Pakets, das bereits auf dem Rechner installiert ist. Der globale Paketordner ermöglicht es mehreren Projekten, das gleiche installierte Paket gemeinsam zu nutzen, wodurch insgesamt der Speicherbedarf von NuGet auf dem Computer verringert wird. Der Cache und der globale Paketordner sind sehr hilfreich, wenn Sie häufig eine größere Anzahl von Paketen wiederherstellen, wie z.B. auf einem Buildserver. Weitere Informationen zu diesen Mechanismen finden Sie unter [Verwalten der globalen Paketordner und Cacheordner](consume-packages/managing-the-global-packages-and-cache-folders.md).
 
-Innerhalb eines individuellen Projekts verwaltet NuGet den gesamten Abhängigkeitsdiagramm, was die Auflösung mehrerer Verweise auf verschiedene Versionen des selben Pakets enthält. Es ist üblich, dass ein Projekt eine Abhängigkeit von ein oder mehreren Paketen annimmt, die über die gleichen Abhängigkeiten verfügen. Einige der nützlichsten Hilfsprogrammpakete auf nuget.org werden von vielen anderen Paketen verwendet. Im gesamten Abhängigkeitsdiagramm, können dann sehr leicht zehn unterschiedliche Verweise auf verschiedene Versionen desselben Pakets vorkommen. NuGet sortiert aus, welche Version von allen Verbrauchern verwendet werden kann, um zu verhindern, dass mehrere Versionen eines Pakets in die Anwendung selbst platziert werden. (Weitere Informationen finden Sie unter [Auflösung von Abhängigkeiten](consume-packages/dependency-resolution.md).)
+Innerhalb eines individuellen Projekts verwaltet NuGet den gesamten Abhängigkeitsdiagramm, was die Auflösung mehrerer Verweise auf verschiedene Versionen des selben Pakets enthält. Es ist üblich, dass ein Projekt eine Abhängigkeit von ein oder mehreren Paketen annimmt, die über die gleichen Abhängigkeiten verfügen. Einige der nützlichsten Hilfsprogrammpakete auf nuget.org werden von vielen anderen Paketen verwendet. Im gesamten Abhängigkeitsdiagramm, können dann sehr leicht zehn unterschiedliche Verweise auf verschiedene Versionen desselben Pakets vorkommen. NuGet sortiert aus, welche Version von allen Verbrauchern verwendet werden kann, um zu verhindern, dass mehrere Versionen eines Pakets in die Anwendung selbst platziert werden. (Weitere Informationen finden Sie unter [Auflösung von Abhängigkeiten](concepts/dependency-resolution.md).)
 
-Darüber hinaus behält NuGet alle Spezifikationen im Zusammenhang mit der Struktur von Paketen (einschließlich [Lokalisierung](create-packages/creating-localized-packages.md) und [Debugsymbole](create-packages/symbol-packages.md)) und wie auf sie [verwiesen](consume-packages/package-references-in-project-files.md) wird (einschließlich [Versionsbereiche](reference/package-versioning.md#version-ranges-and-wildcards) und [Vorabversionen](create-packages/prerelease-packages.md)) bei. NuGet stellt auch verschiedene APIs für die programmgesteuerte Arbeit mit seinen Diensten bereit und unterstützt Entwickler, die Visual Studio-Erweiterungen und Projektvorlagen.
+Darüber hinaus behält NuGet alle Spezifikationen im Zusammenhang mit der Struktur von Paketen (einschließlich [Lokalisierung](create-packages/creating-localized-packages.md) und [Debugsymbole](create-packages/symbol-packages.md)) und wie auf sie [verwiesen](consume-packages/package-references-in-project-files.md) wird (einschließlich [Versionsbereiche](concepts/package-versioning.md#version-ranges-and-wildcards) und [Vorabversionen](create-packages/prerelease-packages.md)) bei. NuGet stellt auch verschiedene APIs für die programmgesteuerte Arbeit mit seinen Diensten bereit und unterstützt Entwickler, die Visual Studio-Erweiterungen und Projektvorlagen.
 
 Im Inhaltsverzeichnis dieser Dokumentation finden Sie alle hier dargestellten Funktionen und Versionshinweise, die bis zu den Anfängen von NuGet zurückgehen.
 

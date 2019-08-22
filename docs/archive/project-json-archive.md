@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8d732e87f01c55bde87da0a2e382fd6d509886a3
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 87116669c1e685ffd0dbe4142c2f7e357c413497
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317017"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488246"
 ---
 # <a name="projectjson-archive"></a>project.json-Archiv
 
@@ -54,19 +54,19 @@ Funktioniert mit `project.json`.
 
 ## <a name="dependency-resolution-with-packagereference"></a>Abhängigkeitsauflösung mit PackageReference
 
-*Ursprünglich unter [Abhängigkeitsauflösung](../consume-packages/dependency-resolution.md#dependency-resolution-with-packagereference).*
+*Ursprünglich unter [Abhängigkeitsauflösung](../concepts/dependency-resolution.md#dependency-resolution-with-packagereference).*
 
 Dieses Verhalten von PackageReference gilt auch für `project.json`. „nuget restore“ schreibt das Abhängigkeitsdiagramm in eine Datei namens `project.lock.json` zusammen mit `project.json`.
 
 ## <a name="managing-dependency-assets"></a>Verwalten von Abhängigkeitsobjekten
 
-*Ursprünglich unter [Abhängigkeitsauflösung](../consume-packages/dependency-resolution.md#managing-dependency-assets).*
+*Ursprünglich unter [Abhängigkeitsauflösung](../concepts/dependency-resolution.md#managing-dependency-assets).*
 
 Wenn Sie das Format `project.json` verwenden, können Sie kontrollieren, welche Objekte aus den Abhängigkeiten in die allgemeinen Projekte fließen. Weitere Informationen finden Sie unter [project.json](project-json.md).
 
 ## <a name="excluding-references"></a>Ausschließen von Verweisen
 
-*Ursprünglich unter [Abhängigkeitsauflösung](../consume-packages/dependency-resolution.md#excluding-references).*
+*Ursprünglich unter [Abhängigkeitsauflösung](../concepts/dependency-resolution.md#excluding-references).*
 
 - `project.json`: Fügen Sie `"exclude" : "all"` in der Abhängigkeit für Paket C hinzu:
 
@@ -83,7 +83,7 @@ Wenn Sie das Format `project.json` verwenden, können Sie kontrollieren, welche 
 
 ## <a name="resolving-incompatible-package-errors"></a>Auflösen von inkompatiblen Paketfehlern
 
-*Ursprünglich unter [Abhängigkeitsauflösung](../consume-packages/dependency-resolution.md#resolving-incompatible-package-errors).*
+*Ursprünglich unter [Abhängigkeitsauflösung](../concepts/dependency-resolution.md#resolving-incompatible-package-errors).*
 
 Eine zusätzliche Möglichkeit zum Beheben von Fehlern:
 
@@ -124,7 +124,7 @@ Wenn Sie `project.json` verwenden, werden Ziele nicht zum Projekt hinzugefügt, 
 
 ### <a name="package-versioning"></a>Paketversionsverwaltung
 
-*Ursprünglich unter [Paketversionsverwaltung](../reference/package-versioning.md).*
+*Ursprünglich unter [Paketversionsverwaltung](../concepts/package-versioning.md).*
 
 Wenn das Format `project.json` verwendet wird, unterstützt NuGet auch die Verwendung eines Platzhalterzeichens \* für den Suffix der Zahl bei Haupt-, Neben-, Patch- und Vorabversionen.
 

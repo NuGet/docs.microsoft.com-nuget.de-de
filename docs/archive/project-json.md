@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/27/2017
 ms.topic: reference
-ms.openlocfilehash: e4d8b5b9ab4605516827ead8939f278d110c7a48
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 5ecbcd4855de8ea7b6301a5e307779216baf96fc
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547783"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488284"
 ---
 # <a name="projectjson-reference"></a>project.json-Verweis
 
@@ -47,7 +47,7 @@ Listet die NuGet-Paketabhängigkeiten Ihres Projekts im folgenden Format auf:
 "PackageID" : "version_constraint"
 ```
 
-Zum Beispiel:
+Beispiel:
 
 ```json
 "dependencies": {
@@ -62,7 +62,7 @@ Die Paket-ID entspricht der ID des Pakets auf nuget.org, die mit der ID der Pake
 
 Die Versionseinschränkung von `"5.0.0"` impliziert bei der Wiederherstellung von Paketen `>= 5.0.0`. Wenn Version 5.0.0 auf dem Server nicht verfügbar ist, Version 5.0.1 aber verfügbar ist, installiert NuGet demnach Version 5.0.1 und warnt Sie im Hinblick auf das Upgrade. Andernfalls wählt NuGet die niedrigstmögliche Version auf dem Server aus, die der Einschränkung entspricht.
 
-Weitere Einzelheiten zu Auflösungsregeln finden Sie unter [Abhängigkeitsauflösung](../consume-packages/dependency-resolution.md).
+Weitere Einzelheiten zu Auflösungsregeln finden Sie unter [Abhängigkeitsauflösung](../concepts/dependency-resolution.md).
 
 ### <a name="managing-dependency-assets"></a>Verwalten von Abhängigkeitsobjekten
 

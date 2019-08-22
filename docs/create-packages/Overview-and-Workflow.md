@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: 58ad05cb854c8f7233d90d03c1b320f8797ca2ab
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: e4b9f6dae3a4be69e523888cc9bd2f212b45829c
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842391"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488841"
 ---
 # <a name="package-creation-workflow"></a>Workflow für die Paketerstellung
 
@@ -35,8 +35,8 @@ Danach können Sie viele weitere Optionen für Ihr Paket in Betracht ziehen:
 - Im Artikel [Pre-release Packages (Vorabversionen von Paketen)](../create-packages/prerelease-packages.md) wird veranschaulicht, wie Sie Alpha-, -Beta- und rc-Pakete für interessierte Kunden bereitstellen.
 - Im Artikel [Source and Config File Transformations (Transformationen von Quell- und Konfigurationsdateien)](../create-packages/source-and-config-file-transformations.md) wird beschrieben, wie Sie unidirektionale Ersetzungen von Tokens in Dateien durchführen, die zu einem Projekt hinzugefügt wurden, und wie Sie `web.config` und `app.config` mit Einstellungen bearbeiten, die bei der Deinstallation des Pakets zurückgesetzt werden.
 - Der Artikel [Symbol Packages (Symbolpakete)](../create-packages/symbol-packages-snupkg.md) enthält einen Leitfaden für das Bereitstellen von Symbolen für Ihre Bibliothek, wodurch es Nutzern ermöglicht wird, den Code während des Debuggens schrittweise auszuführen.
-- Im Artikel [Package versioning (Paketversionsverwaltung)](../reference/package-versioning.md) wird erläutert, wie die genauen Versionen identifiziert werden, die Sie für Ihre Abhängigkeiten (andere Pakete, die Sie über Ihr Paket nutzen) zulassen.
-- Im Artikel [Native Packages (Native Pakete)](../create-packages/native-packages.md) wird beschrieben, wie Sie ein Paket für C++-Nutzer erstellen.
+- Im Artikel [Package versioning (Paketversionsverwaltung)](../concepts/package-versioning.md) wird erläutert, wie die genauen Versionen identifiziert werden, die Sie für Ihre Abhängigkeiten (andere Pakete, die Sie über Ihr Paket nutzen) zulassen.
+- Im Artikel [Native Packages (Native Pakete)](../guides/native-packages.md) wird beschrieben, wie Sie ein Paket für C++-Nutzer erstellen.
 - Im Artikel [Signing Packages (Signieren von Paketen)](../create-packages/sign-a-package.md) wird der Vorgang zum Hinzufügen einer digitalen Signatur zu einem Paket beschrieben.
 
 Wenn Sie dazu bereit sind, ein Paket auf nuget.org zu veröffentlichen, befolgen Sie einfach den im Artikel [Publish a package (Veröffentlichen eines Pakets)](../nuget-org/publish-a-package.md) beschriebenen Prozess.

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 02/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 1198a781543e581f55740cc0ae5a212d3f8a8b61
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 11dce27b93c3d09a2d27dc79f8d4fed86df879ba
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842442"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488976"
 ---
 # <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>Erstellen von .NET Standard- und .NET Framework-Paketen mit Visual Studio 2015
 
@@ -125,7 +125,7 @@ Wenn Abhängigkeiten von anderen NuGet-Paketen bestehen, listen Sie diese im `<d
 </dependencies>
 ```
 
-Die Syntax des *version*-Attributs gibt an, dass Version 8.0.3 oder höher akzeptiert wird. Weitere Informationen zum Angeben von anderen Versionsbereichen finden Sie unter [Package versioning (Paketversionsverwaltung)](../reference/package-versioning.md).
+Die Syntax des *version*-Attributs gibt an, dass Version 8.0.3 oder höher akzeptiert wird. Weitere Informationen zum Angeben von anderen Versionsbereichen finden Sie unter [Package versioning (Paketversionsverwaltung)](../concepts/package-versioning.md).
 
 ### <a name="adding-a-readme"></a>Hinzufügen einer Infodatei
 
@@ -170,6 +170,6 @@ Beachten Sie, dass für `pack` Mono 4.4.2 unter Mac OS X erforderlich ist und da
 - [Einfügen von MSBuild-Eigenschaften und -Zielen in ein Paket](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [Erstellen von lokalisierten Paketen](../create-packages/creating-localized-packages.md)
 - [Symbolpakete](../create-packages/symbol-packages.md)
-- [Paketversionsverwaltung](../reference/package-versioning.md)
+- [Paketversionsverwaltung](../concepts/package-versioning.md)
 - [Dokumentation zur .NET Standard-Bibliothek](/dotnet/articles/standard/library)
 - [Portieren von .NET Framework auf .NET Core](/dotnet/articles/core/porting/index)
