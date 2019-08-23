@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5bf75bb724846f652725bfcf636908c34adc174f
-ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
+ms.openlocfilehash: dfe5f2ef4f0ababd81b91073938752aab2bdc01e
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68860678"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488808"
 ---
 # <a name="restore-packages-using-package-restore"></a>Wiederherstellen von Paketen mithilfe der Paketwiederherstellung
 
@@ -181,7 +181,7 @@ Wenn NuGet Pakete über eine beliebige Methode wiederherstellt, berücksichtigt 
     <PackageReference Include="Newtonsoft.json" Version="[6, 7)" />
     ```
 
-Verwenden Sie in jedem Fall die unter [Paketversionsverwaltung](../reference/package-versioning.md) beschriebene Notation.
+Verwenden Sie in jedem Fall die unter [Paketversionsverwaltung](../concepts/package-versioning.md) beschriebene Notation.
 
 ## <a name="force-restore-from-package-sources"></a>Erzwingen der Wiederherstellung aus Paketquellen
 
