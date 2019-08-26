@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: b1c2511c1fbafc7f52029c23521fa55671b0b5c5
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: dbc3781bd17f815c6b32fc70b275469337148f41
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546894"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488831"
 ---
 # <a name="creating-localized-nuget-packages"></a>Erstellen lokalisierter NuGet-Pakete
 
@@ -79,7 +79,7 @@ Das Bündeln aller Sprachen in ein Paket hat einige Nachteile:
 
 1. **Freigegebene Metadaten**: Da ein NuGet-Paket nur eine einzige `.nuspec`-Datei enthalten kann, können Sie nur Metadaten für eine Sprache angeben. Der Grund dafür ist, dass NuGet derzeit lokalisierte Metadaten nicht unterstützt.
 1. **Paketgröße**: Abhängig von der Anzahl der Sprachen, die Sie unterstützen, kann die Bibliothek eine beträchtliche Größe erreichen, wodurch das Installieren und Wiederherstellen des Pakets verlangsamt wird.
-1. **Gleichzeitige Veröffentlichung**: Das Bündeln lokalisierter Dateien in ein einzelnes Paket erfordert, dass alle Objekte in dem Paket gleichzeitig veröffentlicht werden. Sie können die Lokalisierungen nicht einzeln veröffentlichen. Weiterhin erfordert jedes Update einer Lokalisierung eine neue Version des gesamten Pakets.
+1. **Gleichzeitige Releases**: Das Bündeln lokalisierter Dateien in ein einzelnes Paket erfordert, dass alle Objekte in dem Paket gleichzeitig veröffentlicht werden. Sie können die Lokalisierungen nicht einzeln veröffentlichen. Weiterhin erfordert jedes Update einer Lokalisierung eine neue Version des gesamten Pakets.
 
 Dennoch hat diese Methode auch Vorteile:
 
@@ -101,7 +101,7 @@ Eine Satellitenassembly nutzt dann die Namenskonvention `{identifier}.{language}
 
 Da es sich um ein separates Paket handelt, verfügt es über eine eigene `.nuspec`-Datei, die lokalisierte Metadaten enthält. Beachten Sie, dass die Sprache in `.nuspec` der im Dateinamen angegebenen Sprache entsprechen **muss**.
 
-Die Satellitenassembly **muss**, mithilfe der []-Versionsnotation (siehe [Package versioning (Versionierung von Paketen)](../reference/package-versioning.md)), auch eine genaue Version des primären Pakets als Abhängigkeit deklarieren. Beispielsweise muss `ContosoUtilities.de.1.0.0.nupkg` durch die Notation `[1.0.0]` eine Abhängigkeit von `ContosoUtilities.1.0.0.nupkg` deklarieren. Die Versionsnummer des Satellitenpakets kann auch von der des primären Pakets abweichen.
+Die Satellitenassembly **muss**, mithilfe der []-Versionsnotation (siehe [Package versioning (Versionierung von Paketen)](../concepts/package-versioning.md)), auch eine genaue Version des primären Pakets als Abhängigkeit deklarieren. Beispielsweise muss `ContosoUtilities.de.1.0.0.nupkg` durch die Notation `[1.0.0]` eine Abhängigkeit von `ContosoUtilities.1.0.0.nupkg` deklarieren. Die Versionsnummer des Satellitenpakets kann auch von der des primären Pakets abweichen.
 
 In diesem Fall muss die Struktur des Satellitenpakets die Ressourcenassembly und die XML-Datei von IntelliSense in einem Unterordner enthalten, dessen Name `{language}` im Paketdateinamen entspricht:
 
@@ -137,12 +137,12 @@ Sie können diese Methode zum Erstellen von zusätzlichen Satellitenassemblys in
 
 Die Verwendung von Satellitenpaketen hat einige Vorteile:
 
-1. **Paketgröße**: Der gesamte Speicherbedarf des primären Pakets wird verringert, und für Benutzer fallen nur die Kosten der Sprachen an, die sie auch verwenden wollen.
-1. **Separate Metadaten**: Jedes Satellitenpaket hat seine eigene `.nuspec`-Datei, und demnach auch seine eigenen lokalisierten Metadaten. Dadurch wird Benutzern ermöglicht, Pakete leichter zu finden, da sie auf nuget.org mit lokalisierten Begriffen suchen können.
-1. **Ungebundene Releases**: Satellitenassemblys können nach und nach veröffentlicht werden, wodurch Sie den Aufwand für Ihre Lokalisierung verteilen können.
+1. **Paketgröße**: Der Gesamtspeicherbedarf des primären Pakets wird verringert, und für Benutzer fallen nur die Kosten der Sprachen an, die sie tatsächlich verwenden möchten.
+1. **Separate Metadaten**: Jedes Satellitenpaket weist eine eigene `.nuspec`-Datei und demnach auch eigene lokalisierte Metadaten auf. Dadurch wird Benutzern ermöglicht, Pakete leichter zu finden, da sie auf nuget.org mit lokalisierten Begriffen suchen können.
+1. **Entkoppelte Releases**: Satellitenassemblys können nach und nach veröffentlicht werden, wodurch Sie den Aufwand für die Lokalisierung verteilen können.
 
 Satellitenpakete haben jedoch ihre eigenen Nachteile:
 
-1. **Unübersichtliche**: Anstelle eines einzelnen Pakets haben Sie viele Pakete, was zu unübersichtlichen Suchergebnissen auf nuget.org und einer langen Liste von Verweisen in einem Visual Studio-Projekt führen kann.
+1. **Unübersichtlich**: Anstelle eines einzelnen Pakets haben Sie viele Pakete, was zu unübersichtlichen Suchergebnissen auf nuget.org und einer langen Liste von Verweisen in einem Visual Studio-Projekt führen kann.
 1. **Strenge Konventionen**: Satellitenpakete müssen die Konventionen strikt befolgen, sonst werden die lokalisierten Versionen nicht richtig abgerufen.
-1. **Versionierung**: Jedes Satellitenpaket benötigt eine bestimmte Versionsabhängigkeit vom primären Paket. Das bedeutet, dass ein Update des primären Pakets auch die Aktualisierung aller Satellitenpakete erfordert, selbst wenn an den Ressourcen nichts geändert wurde.
+1. **Versionsverwaltung**: Jedes Satellitenpaket benötigt eine bestimmte Versionsabhängigkeit vom primären Paket. Das bedeutet, dass ein Update des primären Pakets auch die Aktualisierung aller Satellitenpakete erfordert, selbst wenn an den Ressourcen nichts geändert wurde.

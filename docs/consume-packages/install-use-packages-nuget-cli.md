@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9ef990c16cca62a1fbad25ff1582bfa543135fab
-ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
+ms.openlocfilehash: 7039dd27f2dddebc3c84e5ad35d5efec59547792
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68860587"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488816"
 ---
 # <a name="manage-packages-using-the-nugetexe-cli"></a>Verwalten von Paketen mit der nuget.exe-CLI
 
@@ -19,7 +19,7 @@ Mit dem CLI-Tool können Sie auf einfache Weise NuGet-Pakete in Projekten und Pr
 Die `nuget.exe`-CLI ist für .NET Framework-Projekte und Projekte im Nicht-SDK-Format vorgesehen (z.B. Projekte im Nicht-SDK-Format, die auf .NET-Standardbibliotheken ausgerichtet sind). Wenn Sie ein Nicht-SDK-Projekt verwenden, das zu `PackageReference` migriert wurde, verwenden Sie stattdessen die `dotnet`-CLI. Die `nuget.exe`-CLI erfordert eine Datei [packages.config](../reference/packages-config.md) für Paketverweise.
 
 > [!NOTE]
-> In den meisten Szenarien wird empfohlen, [Nicht-SDK-Projekte mit Verwendung von `packages.config` zu PackageReference zu migrieren](../reference/migrate-packages-config-to-package-reference.md). Anschließend können Sie anstelle der `dotnet`-CLI die `nuget.exe`-CLI verwenden. Für C++- und ASP.NET-Projekte ist momentan keine Migration verfügbar.
+> In den meisten Szenarien wird empfohlen, [Nicht-SDK-Projekte mit Verwendung von `packages.config` zu PackageReference zu migrieren](../consume-packages/migrate-packages-config-to-package-reference.md). Anschließend können Sie anstelle der `dotnet`-CLI die `nuget.exe`-CLI verwenden. Für C++- und ASP.NET-Projekte ist momentan keine Migration verfügbar.
 
 Dieser Artikel zeigt die grundlegende Verwendung einiger der gängigsten `nuget.exe`-CLI-Befehle. Bei den meisten dieser Befehle sucht das CLI-Tool nach einer Projektdatei im aktuellen Verzeichnis, sofern keine Projektdatei im Befehl angegeben ist. Eine vollständige Liste der verfügbaren Befehle und Argumente finden Sie in der [Referenz zur nuget.exe-CLI](../reference/nuget-exe-cli-reference.md).
 
@@ -111,3 +111,13 @@ nuget update
 ## <a name="restore-packages"></a>Pakete wiederherstellen
 
 [!INCLUDE [restore-nuget-exe-cli](includes/restore-nuget-exe-cli.md)]
+
+## <a name="get-the-cli-version"></a>Abrufen der CLI-Version
+
+Verwenden Sie diesen Befehl:
+
+```cli
+nuget help
+```
+
+Die erste Zeile der Hilfeausgabe zeigt die Version an. Um nicht nach oben scrollen zu müssen, verwenden Sie stattdessen `nuget help | more`.

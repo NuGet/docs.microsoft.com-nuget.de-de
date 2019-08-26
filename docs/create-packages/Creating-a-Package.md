@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: a9224ce4e515cf98893a7134077c90a47df1862a
-ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
+ms.openlocfilehash: e4223c25daa1c14c30de1ef063cd0f48df70c8b5
+ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69020073"
+ms.lasthandoff: 08/17/2019
+ms.locfileid: "69564574"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>Erstellen eines Pakets mithilfe der „nuget.exe“-CLI
 
@@ -20,7 +20,7 @@ Unabhängig davon, welchen Zweck Ihr Paket erfüllt oder welchen Code es enthäl
 
 - Für .NET Core- und .NET Standard-Projekte, die das [SDK-Format](../resources/check-project-format.md) verwenden, und für alle anderen Projekte im SDK-Format finden Sie weitere Informationen unter [Erstellen eines NuGet-Pakets mit der dotnet-CLI](creating-a-package-dotnet-cli.md).
 
-- Für Projekte, die von `packages.config` zu [PackageReference](../consume-packages/package-references-in-project-files.md) migriert wurden, verwenden Sie [msbuild -t:pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
+- Für Projekte, die von `packages.config` zu [PackageReference](../consume-packages/package-references-in-project-files.md) migriert wurden, verwenden Sie [msbuild -t:pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
 Technisch gesehen ist ein NuGet-Paket eine ZIP-Datei, die mit der `.nupkg`-Erweiterung umbenannt wurde und deren Inhalt bestimmten Konventionen entspricht. In diesem Thema werden die Schritte zum Erstellen eines Pakets, das diesen Konventionen entspricht, ausführlich beschrieben.
 
@@ -138,7 +138,7 @@ Im folgenden Beispiel sehen Sie eine typische, aber fiktive `.nuspec`-Datei mit 
 </package>
 ```
 
-Weitere Informationen zum Deklarieren von Abhängigkeiten und zum Angeben von Versionsnummern finden Sie unter [packages.config](../reference/packages-config.md) und [Package versioning](../reference/package-versioning.md) (Paketversionsverwaltung). Es ist auch möglich, Ressourcen aus Abhängigkeiten mithilfe der Attribute `include` und `exclude` des Elements `dependency` direkt im Paket verfügbar zu machen. Informationen dazu finden Sie unter [.nuspec Reference – Dependencies (NUSPEC-Referenz: Abhängigkeiten)](../reference/nuspec.md#dependencies).
+Weitere Informationen zum Deklarieren von Abhängigkeiten und zum Angeben von Versionsnummern finden Sie unter [packages.config](../reference/packages-config.md) und [Package versioning](../concepts/package-versioning.md) (Paketversionsverwaltung). Es ist auch möglich, Ressourcen aus Abhängigkeiten mithilfe der Attribute `include` und `exclude` des Elements `dependency` direkt im Paket verfügbar zu machen. Informationen dazu finden Sie unter [.nuspec Reference – Dependencies (NUSPEC-Referenz: Abhängigkeiten)](../reference/nuspec.md#dependencies).
 
 Da das Manifest im Paket enthalten ist, aus dem es erstellt wurde, finden Sie viele weitere Beispiele in den vorhandenen Paketen. Eine gute Quelle ist z.B. der Ordner *global-packages* auf Ihrem Computer, der sich mithilfe des folgenden Befehls öffnen lässt:
 
@@ -184,8 +184,8 @@ Die Ordnerkonventionen lauten folgendermaßen:
 | ref/{tfm} | Dateien für Assembly (`.dll`) und Symbole (`.pdb`) für den angegebenen Zielframeworkmoniker (Target Framework Moniker, TFM) | Assemblys werden nur als Verweise für die Kompilierzeit hinzugefügt, daher werden keine Daten in den bin-Ordner des Projekts kopiert. |
 | Laufzeiten | Architekturspezifische Assembly- (`.dll`), Symbol- (`.pdb`) und native Ressourcendateien (`.pri`) | Assemblys werden nur als Verweise für die Laufzeit hinzugefügt. Andere Dateien werden in Projektordner kopiert. Es sollte immer eine entsprechende für `AnyCPU` spezifische TFM-Assembly im Ordner `/ref/{tfm}` vorhanden sein, um eine entsprechende Assembly für die Kompilierzeit bereitzustellen. Weitere Informationen finden Sie unter [Supporting multiple .NET framework versions (Unterstützen mehrerer .NET Framework-Versionen)](supporting-multiple-target-frameworks.md). |
 | Inhalt | Beliebige Dateien | Inhalte werden in das Projektstammverzeichnis kopiert. Der Ordner **content** (Inhalt) entspricht in etwa dem Stammverzeichnis der Zielanwendung, die das Paket letztendlich nutzt. Damit das Paket dem Ordner */images* der Anwendung ein Image hinzufügt, müssen Sie es im Ordner *content/images* ablegen. |
-| Build | MSBuild-Dateien `.targets` und `.props` | Wird automatisch in das Projekt eingefügt (NuGet 3.x und höher). |
-| buildMultiTargeting | MSBuild-Dateien `.targets` und `.props` für frameworkübergreifende Zielversionen | Wird automatisch in das Projekt eingefügt. |
+| Build | *(3.x+)* MSBuild-Dateien `.targets` und `.props` | Wird automatisch in das Projekt eingefügt. |
+| buildMultiTargeting | *(4.0+)* MSBuild-Dateien `.targets` und `.props` für frameworkübergreifende Ziele | Wird automatisch in das Projekt eingefügt. |
 | buildTransitive | *(5.0 und höher)* : MSBuild-Dateien `.targets` und `.props`, die transitiv in beliebige verarbeitende Projekte eingefügt werden. Weitere Informationen finden Sie auf der Seite [Feature](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior). | Wird automatisch in das Projekt eingefügt. |
 | Tools | PowerShell-Skripts und -Programme, auf die über die Paket-Manager-Konsole zugegriffen werden kann | Der Ordner `tools` wird nur zur Umgebungsvariable `PATH` der Paket-Manager-Konsole hinzugefügt, *niemals* jedoch zu `PATH`, so wie es für MSBuild beim Erstellen des Projekts festgelegt ist. |
 
@@ -226,9 +226,8 @@ Wenn Sie Paketabhängigkeiten in die *NUSPEC*-Datei einbinden müssen, verwenden
 # Use in a folder containing a project file <project-name>.csproj or <project-name>.vbproj
 nuget pack myproject.csproj
 ```
-```
 
-A token is delimited by `$` symbols on both sides of the project property. For example, the `<id>` value in a manifest generated in this way typically appears as follows:
+Ein Token wird auf beiden Seiten der Projekteigenschaft durch das Symbol `$` begrenzt. Wird der Wert `<id>` auf diese Weise in einem Manifest generiert, wird er in der Regel folgendermaßen angezeigt:
 
 ```xml
 <id>$id$</id>
@@ -273,7 +272,7 @@ Der Paketbezeichner (`<id>`-Element) und die Versionsnummer (`<version>`-Element
 **Bewährte Methoden für die Paketversion:**
 
 - Legen Sie die Version des Pakets auf die der Bibliothek fest, obwohl dies nicht zwingend erforderlich ist. Dies ist sehr einfach, wenn Sie ein Paket, wie zuvor im Abschnitt [Welche Assemblys sollen gepackt werden?](#decide-which-assemblies-to-package) beschrieben, auf eine einzelne Assembly beschränken. Bedenken Sie, dass NuGet sich beim Auflösen der Abhängigkeiten nach den Paketversionen richtet, nicht nach den Assemblyversionen.
-- Wenn Sie ein nicht standardmäßiges Versionsschema verwenden, müssen Sie die NuGet-Versionsregeln wie unter [Package versioning (Paketversionsverwaltung](../reference/package-versioning.md) beschrieben anwenden.
+- Wenn Sie ein nicht standardmäßiges Versionsschema verwenden, müssen Sie die NuGet-Versionsregeln wie unter [Package versioning (Paketversionsverwaltung](../concepts/package-versioning.md) beschrieben anwenden.
 
 > Die folgenden kurzen Blogbeiträge enthalten weitere Informationen zur Versionsverwaltung:
 >
@@ -424,7 +423,7 @@ Nachdem Sie ein Paket erstellt haben, das eine `.nupkg`-Datei ist, können Sie s
 
 Sie können auch die Funktionen des Pakets erweitern oder wie in den folgenden Themen beschrieben andere Szenarios unterstützen:
 
-- [Paketversionsverwaltung](../reference/package-versioning.md)
+- [Paketversionsverwaltung](../concepts/package-versioning.md)
 - [Unterstützen mehrerer Zielframeworks](../create-packages/supporting-multiple-target-frameworks.md)
 - [Transformationen von Quell- und Konfigurationsdateien](../create-packages/source-and-config-file-transformations.md)
 - [Lokalisierung](../create-packages/creating-localized-packages.md)
@@ -434,5 +433,5 @@ Sie können auch die Funktionen des Pakets erweitern oder wie in den folgenden T
 
 Außerdem sollten Sie die folgenden zusätzlichen Pakettypen berücksichtigen:
 
-- [Native Pakete](../create-packages/native-packages.md)
+- [Native Pakete](../guides/native-packages.md)
 - [Symbolpakete](../create-packages/symbol-packages.md)

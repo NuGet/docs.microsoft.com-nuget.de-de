@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 40f934f3c3fcea62acae66639c22108a93363b8b
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: f7503dd413a976997580aa03da26df0c462ff0e1
+ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426780"
+ms.lasthandoff: 08/17/2019
+ms.locfileid: "69564552"
 ---
 # <a name="creating-symbol-packages-legacy"></a>Erstellen von Symbolpaketen (Legacy)
 
@@ -127,7 +127,7 @@ Ein Symbolpaket kann, wie im vorherigen Abschnitt beschrieben, nach Konventionen
     ```
 
    > [!Note]
-   > Bei nuget.exe 4.5.0 oder höher werden die Symbolpakete nicht automatisch mithilfe von Push auf symbolsource.org übertragen. Sie müssten die Symbolpakete separat mithilfe von Push übertragen, wie im nächsten Schritt beschrieben wird.
+   > Bei nuget.exe 4.5.0 oder höher werden die Symbolpakete nicht automatisch mithilfe von Push auf symbolsource.org übertragen. Sie müssten die Symbolpakete separat mithilfe von Push übertragen, wie in den oben genannten Schritten beschrieben.
    
 In diesem Fall veröffentlicht NuGet `MyPackage.symbols.nupkg`, falls vorhanden, auf https://nuget.smbsrc.net/ (die Push-URL für symbolsource.org), nachdem das primäre Paket auf nuget.org veröffentlicht wurde.
 

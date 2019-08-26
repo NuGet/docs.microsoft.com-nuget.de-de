@@ -12,12 +12,12 @@ keywords: NuGet-Symbolpakete, Debugging von NuGet-Paketen, Unterstützung von Nu
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: e62d1872497e0e5e703bf7c49a87249ce9a996c7
-ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
+ms.openlocfilehash: 992b3ddd04a1bb34e7aca25dfaa6f7df5485907b
+ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959678"
+ms.lasthandoff: 08/17/2019
+ms.locfileid: "69564536"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Erstellen von Symbolpaketen (.snupkg)
 
@@ -118,7 +118,7 @@ Die NUPKG-Datei wäre genau dieselbe wie heute, die SNUPKG-Datei würde jedoch f
 
 4) Wenn sich ein Autor dazu entscheidet, eine benutzerdefinierte NUSPEC-Datei für die Erstellung von NUPKG- und SNUPKG-Dateien zu verwenden, muss die SNUPKG-Datei über die gleiche Ordnerhierarchie und die gleichen Dateien wie unter Punkt 2 beschrieben verfügen.
 5) Die Felder ```authors``` und ```owners``` werden aus der NUSPEC-Datei von SNUPKG ausgeschlossen.
-6) Verwenden Sie nicht das <license>-Element. Eine SNUPKG-Datei wird von der gleichen Lizenz wie die entsprechende NUPK-Datei abgedeckt.
+6) Verwenden Sie nicht das <license>-Element. Eine SNUPKG-Datei wird von der gleichen Lizenz abgedeckt wie die entsprechende NUPKG-Datei.
 
 ## <a name="see-also"></a>Siehe auch
 

@@ -90,7 +90,7 @@ URL der Homepage des Pakets, wird häufig auf Benutzeroberflächen und auf nuget
 
 #### <a name="licenseurl"></a>licenseUrl
 > [!Important]
-> "licen* URL" ist veraltet. Verwenden Sie stattdessen die Lizenz.
+> "licenseURL" ist veraltet. Verwenden Sie stattdessen die Lizenz.
 
 Eine URL für die Lizenz des Pakets, die häufig in Benutzeroberflächen wie nuget.org angezeigt wird.
 
