@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: f931ed297a6a1e9e24ce5eb30a8158f59925bb39
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 29c52b6684dff252e9c45bf5365d83b6a3fe5201
+ms.sourcegitcommit: c65e7a889ddf64a8e2ff7bc59ec08edb308e16ca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488675"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060244"
 ---
 # <a name="nuspec-reference"></a>NUSPEC-Referenz
 
@@ -76,7 +76,7 @@ Paketbezeichner, der auf nuget.org oder im für das Paket verwendeten Katalog ei
 #### <a name="version"></a>version
 Die Version des Pakets. Das Format lautet *Hauptversion.Nebenversion.Patch*. Versionsnummern enthalten möglicherweise, wie unter [Version Ranges and Wildcards (Versionsbereiche und Platzhalter)](../concepts/package-versioning.md#pre-release-versions) beschrieben, ein Suffix der Vorabversion. 
 #### <a name="description"></a>description
-Eine ausführliche Beschreibung des Pakets zur Anzeige auf der Benutzeroberfläche. 
+Eine Beschreibung des Pakets für die Anzeige der Benutzeroberfläche.
 #### <a name="authors"></a>authors
 Eine durch Kommas getrennte Liste der Paketautoren entsprechend den Profilnamen unter nuget.org. Diese werden im NuGet-Katalog auf nuget.org angezeigt und verwendet, um auf Pakete derselben Autoren zu verweisen. 
 
@@ -152,6 +152,9 @@ Ein boolescher Wert, der angibt, ob der Client den Consumer dazu auffordern muss
 *(ab Version 2.8)* Boolescher Wert, der angibt, ob das Paket mit einer Abhängigkeit markiert werden soll, die nur für die Entwicklung gilt. Hierdurch wird vermieden, dass das Paket als Abhängigkeit in andere Pakete eingeschlossen wird. Mit packagereferen(nuget 4.8 und höher) bedeutet dieses Flag auch, dass die Kompilierzeit Ressourcen von der Kompilierung ausgeschlossen werden. Weitere Informationen finden Sie [unter Unterstützung von "developmentdependependenz](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference) "
 
 #### <a name="summary"></a>summary
+> [!Important]
+> `summary`wird als veraltet markiert. Verwenden Sie stattdessen `description`.
+
 Kurzbeschreibung des Pakets zur Anzeige auf der Benutzeroberfläche. Wenn diese nicht angegeben ist, wird eine gekürzte Version von `description` verwendet.
 
 #### <a name="releasenotes"></a>releaseNotes
