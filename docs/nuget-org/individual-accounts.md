@@ -1,18 +1,18 @@
 ---
-title: Individuelle Konten
+title: 'Individuelle Konten: NuGet.org'
 description: Individuelle Konten werden auf NuGet.org benötigt, um Pakete zu veröffentlichen.
 author: mikejo5000
 ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: c88b88015bd6d5bae4789765126c0a3dec527e24
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: 63c6b5eb5ad635e436b4d53a5f833af35f72d76f
+ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419842"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69999968"
 ---
-# <a name="individual-accounts"></a>Individuelle Konten
+# <a name="individual-accounts-on-nugetorg"></a>Individuelle Konten auf NuGet.org
 
 Sie müssen ein individuelles Konto erstellen, um Pakete auf NuGet.org zu veröffentlichen und zu verwalten.
 
@@ -69,3 +69,7 @@ Aktivieren Sie die zweistufige Authentifizierung (empfohlen), um Ihr Konto besse
    ![2FA aktivieren](media/nuget-org-enter-code-2fa.png)
 
 5. Befolgen Sie alle weiteren Anweisungen, um die zweistufige Authentifizierung abzuschließen.
+
+## <a name="delete-a-nugetorg-account"></a>Löschen eines NuGet.org-Kontos
+
+Hilfe zu weiteren kontobezogenen Aufgaben, z. B. zum Löschen eines NuGet.org-Kontos, finden Sie unter [Kontoverwaltung auf NuGet.org](nuget-org-faq.md#nugetorg-account-management).

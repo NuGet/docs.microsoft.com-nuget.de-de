@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: dfe5f2ef4f0ababd81b91073938752aab2bdc01e
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 93a94a5468b48179d27b89825cebf2447657c8f2
+ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488808"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69999980"
 ---
 # <a name="restore-packages-using-package-restore"></a>Wiederherstellen von Paketen mithilfe der Paketwiederherstellung
 
@@ -44,7 +44,7 @@ Die Paketwiederherstellung versucht, alle Paketabhängigkeiten im richtigen Zust
 
    Bei Projekten, die PackageReference verwenden, sollte sich das Paket nach einer erfolgreichen Wiederherstellung im Ordner *global-packages* befinden, und die Datei `obj/project.assets.json` wird neu erstellt. Bei Projekten, die `packages.config` verwenden, sollte das Paket im Ordner `packages` des Projekts angezeigt werden. Das Projekt sollte jetzt erfolgreich erstellt werden. 
 
-2. Wenn nach der Ausführung der Paketwiederherstellung immer noch fehlende Pakete oder paketbezogene Fehler (z. B. Fehlersymbole im Projektmappen-Explorer in Visual Studio) auftreten, müssen Sie möglicherweise [Pakete erneut installieren und aktualisieren](../consume-packages/reinstalling-and-updating-packages.md).
+2. Wenn nach Ausführung der Paketwiederherstellung immer noch fehlende Pakete oder paketbezogene Fehler (z. B. Fehlersymbole im Projektmappen-Explorer in Visual Studio) auftreten, müssen Sie möglicherweise die Anweisungen unter [Problembehandlung bei der Paketwiederherstellung](package-restore-troubleshooting.md) befolgen oder [Pakete erneut installieren und aktualisieren](../consume-packages/reinstalling-and-updating-packages.md).
 
    In Visual Studio bietet die Paket-Manager-Konsole verschiedene flexible Optionen für die erneute Installation von Paketen. Weitere Informationen finden Sie unter[Verwenden von Package-Update](reinstalling-and-updating-packages.md#using-update-package).
 
