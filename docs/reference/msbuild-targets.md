@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: d8d1b2ef0185381d16c1bb73035588fe90bcfd14
-ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
+ms.openlocfilehash: a9331ad2ea0482737d84f4ea9a9babf95da8d66f
+ms.sourcegitcommit: d5cc3f01a92c2d69b794343c09aff07ba9e912e5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959691"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70385893"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet pack and restore as MSBuild targets (NuGet-Befehle „pack“ und „restore“ MSBuild-Ziele)
 
@@ -60,9 +60,10 @@ Beachten Sie, dass die Eigenschaften `Owners` und `Summary` aus einer `.nuspec`-
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
 | Führer | PackageLicenseExpression | Leer | Entspricht`<license type="expression">` |
 | Führer | PackageLicenseFile | Leer | Entspricht `<license type="file">` Möglicherweise müssen Sie explizit die referenzierte Lizenzdatei verpacken. |
-| LicenseUrl | PackageLicenseUrl | Leer | `licenseUrl`ist veraltet, verwenden Sie die packagelicenseexpression-oder packagelicensefile-Eigenschaft. |
+| LicenseUrl | PackageLicenseUrl | Leer | `PackageLicenseUrl`ist veraltet, verwenden Sie die packagelicenseexpression-oder packagelicensefile-Eigenschaft. |
 | ProjectUrl | PackageProjectUrl | Leer | |
-| IconUrl | PackageIconUrl | Leer | |
+| Symbol | Packageicon | Leer | Möglicherweise müssen Sie explizit die Symbolbild Datei des referenzierten Symbols verpacken.|
+| IconUrl | PackageIconUrl | Leer | `PackageIconUrl`ist veraltet, verwenden Sie die packageicon-Eigenschaft. |
 | Tags | PackageTags | Leer | Ziele werden durch Semikolons (;) getrennt. |
 | ReleaseNotes | PackageReleaseNotes | Leer | |
 | Repository/URL | RepositoryUrl | Leer | Die Repository-URL, die zum Klonen oder Abrufen von Quellcode verwendet wird. Beispiel *https://github.com/NuGet/NuGet.Client.git* |
@@ -117,7 +118,32 @@ Um Paketabhängigkeiten aus dem generierten nuget-Paket zu `SuppressDependencies
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
-Als Teil der Änderung für das [nuget-Problem 352](https://github.com/NuGet/Home/issues/352)wird letztendlich in `PackageIconUrl` `PackageIconUri` geändert und kann ein relativer Pfad zu einer Symbol Datei sein, die im Stammverzeichnis des resultierenden Pakets enthalten ist.
+> [!Important]
+> Packageidie URL ist veraltet. Verwenden Sie stattdessen [packageicon](#packing-an-icon-image-file) .
+
+### <a name="packing-an-icon-image-file"></a>Packen einer Symbolbild Datei
+
+Beim Packen einer Symbolbild Datei müssen Sie die packageicon-Eigenschaft verwenden, um den Paketpfad relativ zum Stamm des Pakets anzugeben. Außerdem müssen Sie sicherstellen, dass die Datei im Paket enthalten ist. Die Größe der Bild Datei ist auf 1 MB beschränkt. Unterstützte Dateiformate sind JPEG und PNG. Wir empfehlen eine Bildauflösung von 64x64.
+
+Beispiel:
+
+```xml
+<PropertyGroup>
+    ...
+    <PackageIcon>icon.png</PackageIcon>
+    ...
+</PropertyGroup>
+
+<ItemGroup>
+    ...
+    <None Include="images\icon.png" Pack="true" PackagePath="\"/>
+    ...
+</ItemGroup>
+```
+
+[Paket Symbol Beispiel](https://github.com/NuGet/Samples/tree/master/PackageIconExample).
+
+Die nuspec-Entsprechung finden Sie in der [nuspec-Referenz für das Symbol](nuspec.md#icon).
 
 ### <a name="output-assemblies"></a>Ausgabeassemblys
 
@@ -221,6 +247,7 @@ Beim Verpacken einer Lizenzdatei müssen Sie den Paketpfad relativ zum Stamm des
     <None Include="licenses\LICENSE.txt" Pack="true" PackagePath=""/>
 </ItemGroup>
 ```
+
 [Beispiel für eine Lizenzdatei](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
 
 ### <a name="istool"></a>IsTool

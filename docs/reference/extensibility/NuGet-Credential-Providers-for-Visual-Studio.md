@@ -1,57 +1,57 @@
 ---
 title: NuGet-Anmeldeinformationsanbieter für Visual Studio
-description: NuGet-Anmeldeinformationsanbieter, mit Feeds durch Implementieren der IVsCredentialProvider-Schnittstelle in Visual Studio-Erweiterung authentifizieren.
+description: Nuget-Anmelde Informationsanbieter authentifizieren sich mit Feeds, indem die ivscredentialprovider-Schnittstelle in einer Visual Studio-Erweiterung implementiert wird.
 author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: abe009fee5863c55a188f4d7c71ed0924dd067ff
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 4e781a2462871bceeb1c7f02220320daabdab98a
+ms.sourcegitcommit: a0807671386782021acb7588741390e6f07e94e1
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547953"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70384432"
 ---
-# <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>Authentifizieren von Datenfeeds in Visual Studio mit NuGet-Anmeldeinformationsanbieter
+# <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>Authentifizieren von Feeds in Visual Studio mit nuget-Anmelde Informationsanbietern
 
-Die Visual Studio-Erweiterung für NuGet 3.6 unterstützt Anmeldeinformationsanbieter, bei die NuGet mit authentifizierte Feeds arbeiten können.
-Nachdem Sie einen NuGet-Anmeldeinformationsanbieter für Visual Studio installieren, NuGet Visual Studio-Erweiterung automatisch abrufen und aktualisieren die Anmeldeinformationen für authentifizierte Feeds nach Bedarf.
+Die nuget Visual Studio-Erweiterung 3.6 und höher unterstützt Anmelde Informationsanbieter, mit denen nuget mit authentifizierten Feeds arbeiten kann.
+Nachdem Sie einen nuget-Anmelde Informationsanbieter für Visual Studio installiert haben, werden die Anmelde Informationen für authentifizierte Feeds von der nuget-Erweiterung für Visual Studio nach Bedarf automatisch abgerufen und aktualisiert.
 
-Eine beispielimplementierung finden Sie im [VsCredentialProvider Beispiel](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider).
+Eine Beispiel Implementierung finden Sie im [vscredentialprovider-Beispiel](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider).
 
-4.8 ab NuGet in Visual Studio unterstützt die neue plattformübergreifende Authentifizierung Plug-Ins auch, aber sie sind nicht die empfohlene Vorgehensweise zur Verbesserung der Leistung.
+Ab 4.8 + nuget in Visual Studio unterstützt auch die neuen plattformübergreifenden Authentifizierungs-Plug-ins, aber Sie sind aus Leistungsgründen nicht empfehlenswert.
 
 > [!Note]
-> NuGet-Anmeldeinformationsanbieter für Visual Studio muss als reguläre Visual Studio-Erweiterung installiert werden und müssen [Visual Studio 2017](http://aka.ms/vs/15/release/vs_enterprise.exe) oder höher.
+> Nuget-Anmelde Informationsanbieter für Visual Studio müssen als reguläre Visual Studio-Erweiterung installiert sein und benötigen [Visual Studio 2017](http://aka.ms/vs/15/release/vs_enterprise.exe) oder höher.
 >
-> NuGet-Anmeldeinformationsanbieter für Visual Studio funktionieren nur in Visual Studio (nicht im Dotnet Restore "oder" nuget.exe "). Der Anmeldeinformationsanbieter bei nuget.exe, finden Sie unter [nuget.exe-Anmeldeinformationsanbieter](nuget-exe-Credential-providers.md).
-> Anmeldeinformationen-Anbieter in Dotnet und Msbuild finden Sie unter [NuGet cross-Platform-Plug-Ins](nuget-cross-platform-authentication-plugin.md)
+> Nuget-Anmelde Informationsanbieter für Visual Studio funktionieren nur in Visual Studio (nicht in dotnet Restore oder nuget. exe). Informationen zu Anmelde Informationsanbietern mit nuget. exe finden [Sie unter nuget. exe](nuget-exe-Credential-providers.md)-Anmelde Informationsanbieter.
+> Informationen zu Anmelde Informationsanbietern in dotnet und MSBuild finden [Sie unter nuget-plattformübergreifende](nuget-cross-platform-authentication-plugin.md) Plug-ins
 
-## <a name="available-nuget-credential-providers-for-visual-studio"></a>Verfügbare NuGet-Anmeldeinformationsanbieter für Visual Studio
+## <a name="available-nuget-credential-providers-for-visual-studio"></a>Verfügbare nuget-Anmelde Informationsanbieter für Visual Studio
 
-Es gibt einen Anmeldeinformationsanbieter erstellt, in der Visual Studio-NuGet-Erweiterung zur Unterstützung von Visual Studio Team Services.
+In der nuget-Erweiterung von Visual Studio ist ein Anmelde Informationsanbieter integriert, um Visual Studio Team Services zu unterstützen.
 
-Die NuGet-Erweiterung für Visual Studio verwendet eine interne `VsCredentialProviderImporter` das für Anmeldeinformationsanbieter-Plug-Ins werden überprüft. Diese Anmeldeinformationsanbieter--Plug-in müssen als ein MEF-Export vom Typ erkannt werden, `IVsCredentialProvider`.
+Die nuget Visual Studio-Erweiterung verwendet ein `VsCredentialProviderImporter` internes, das auch nach Plug-in-Anmelde Informationsanbietern sucht. Diese Plug-in-Anmelde Informationsanbieter müssen als MEF-Export vom Typ `IVsCredentialProvider`erkannt werden können.
 
--Plug-in-Anmeldeinformationsanbieter verfügbar sind:
+Folgende Plug-in-Anmelde Informationsanbieter sind verfügbar:
 
-- [MyGet-Anmeldeinformationsanbieter für Visual Studio 2017](http://docs.myget.org/docs/reference/credential-provider-for-visual-studio)
+- [Myget-Anmelde Informationsanbieter für Visual Studio](http://docs.myget.org/docs/reference/credential-provider-for-visual-studio)
 
-## <a name="creating-a-nuget-credential-provider-for-visual-studio"></a>Erstellen einen NuGet-Anmeldeinformationsanbieter für Visual Studio
+## <a name="creating-a-nuget-credential-provider-for-visual-studio"></a>Erstellen eines nuget-Anmelde Informationsanbieters für Visual Studio
 
-Die Visual Studio-Erweiterung für NuGet 3.6 implementiert eine interne CredentialService, die zum Abrufen der Anmeldeinformationen verwendet wird. Die CredentialService hat es sich um eine Liste der integrierten und Plug-in-Anmeldeinformationsanbieter. Jeder Anbieter wird nacheinander ausprobiert, bis Anmeldeinformationen abgerufen werden.
+Die nuget Visual Studio-Erweiterung 3.6 + implementiert einen internen "dedentialservice", der zum Abrufen von Anmelde Informationen verwendet wird. Der Dienst "eigene Anmelde Informationen" enthält eine Liste integrierter und Plug-in-Anmelde Informationsanbieter. Jeder Anbieter wird sequenziell ausprobiert, bis Anmelde Informationen abgerufen werden.
 
-Beim Abrufen von Anmeldeinformationen versucht der Anmeldeinformationsdienst Anmeldeinformationsanbieter in der folgenden Reihenfolge und hört auf, sobald Anmeldeinformationen abgerufen werden:
+Beim Erwerb der Anmelde Informationen versucht der Anmelde Informationsdienst, Anmelde Informationsanbieter in der folgenden Reihenfolge zu verwenden, und wird beendet, sobald Anmelde Informationen abgerufen werden:
 
-1. Anmeldeinformationen werden von NuGet-Konfigurationsdateien abgerufen werden (unter Verwendung der integrierten `SettingsCredentialProvider`).
-1. Wenn die Paketquelle in Visual Studio Team Services ist die `VisualStudioAccountProvider` verwendet werden.
-1. Alle anderen-Plug-in Visual Studio Anmeldeinformationsanbieter werden nacheinander ausprobiert.
-1. Versuchen Sie es, alle NuGet cross-Platform-Anmeldeinformationsanbieter sequenziell zu verwenden.
-1. Wenn noch keine Anmeldeinformationen abgerufen wurden, wird der Benutzer zur Eingabe von Anmeldeinformationen mithilfe einer standard Standardauthentifizierung-Dialogfelds aufgefordert werden.
+1. Anmelde Informationen werden aus den nuget-Konfigurationsdateien abgerufen (mit dem integrierten `SettingsCredentialProvider`).
+1. Wenn sich die Paketquelle auf Visual Studio Team Services befindet, `VisualStudioAccountProvider` wird verwendet.
+1. Alle anderen Plug-in-Anmelde Informationsanbieter für Visual Studio werden nacheinander ausprobiert.
+1. Versuchen Sie, alle nuget-plattformübergreifenden Anmelde Informationsanbieter sequenziell zu verwenden.
+1. Wenn noch keine Anmelde Informationen abgerufen wurden, wird der Benutzer über ein Standardmäßiges Standard Authentifizierungs Dialogfeld zur Eingabe von Anmelde Informationen aufgefordert.
 
-### <a name="implementing-ivscredentialprovidergetcredentialsasync"></a>Implementieren von IVsCredentialProvider.GetCredentialsAsync
+### <a name="implementing-ivscredentialprovidergetcredentialsasync"></a>Implementieren von ivscredentialprovider. getkredentialsasync
 
-Um ein NuGet-Anmeldeinformationsanbieter für Visual Studio zu erstellen, erstellen Sie eine Visual Studio-Erweiterung, die einen öffentlichen MEF-Export Implementierung verfügbar macht die `IVsCredentialProvider` geben, und die unten beschriebenen Prinzipien folgt.
+Um einen nuget-Anmelde Informationsanbieter für Visual Studio zu erstellen, erstellen Sie eine Visual Studio-Erweiterung, die einen öffentlichen MEF-Export verfügbar macht, der den `IVsCredentialProvider` -Typ implementiert, und entspricht den unten beschriebenen Prinzipien.
 
 ```cs
 public interface IVsCredentialProvider
@@ -66,24 +66,24 @@ public interface IVsCredentialProvider
 }
 ```
 
-Eine beispielimplementierung finden Sie im [VsCredentialProvider Beispiel](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider).
+Eine Beispiel Implementierung finden Sie im [vscredentialprovider-Beispiel](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider).
 
-Jedes NuGet-Anmeldeinformationsanbieter für Visual Studio muss:
+Jeder nuget-Anmelde Informationsanbieter für Visual Studio muss folgende Aktionen ausführen:
 
-1. Bestimmen Sie, ob sie Anmeldeinformationen für den Ziel-URI angeben kann, vor dem Abrufen von Anmeldeinformationen zu initiieren. Wenn der Anbieter kann Anmeldeinformationen für die entsprechenden Quelle nicht bereitstellen, sollte zurückgegeben `null`.
-1. Wenn der Anbieter Anforderungen für den Ziel-URI behandelt, aber Sie können keine Anmeldeinformationen bereitstellen, sollte eine Ausnahme ausgelöst werden.
+1. Bestimmen Sie, ob die Anmelde Informationen für den Ziel-URI vor dem Initiieren der Anmelde Informationen bereitgestellt werden können. Wenn der Anbieter keine Anmelde Informationen für die Ziel Quelle angeben kann, sollte er `null`zurückgeben.
+1. Wenn der Anbieter Anforderungen für den Ziel-URI verarbeitet, aber keine Anmelde Informationen angeben kann, sollte eine Ausnahme ausgelöst werden.
 
-Implementieren Sie einen benutzerdefinierten NuGet-Anmeldeinformationsanbieter für Visual Studio muss die `IVsCredentialProvider` -Schnittstelle in der [NuGet.VisualStudio Paket](https://www.nuget.org/packages/NuGet.VisualStudio/).
+Ein benutzerdefinierter nuget-Anmelde Informationsanbieter für Visual Studio muss `IVsCredentialProvider` die Schnittstelle implementieren, die im [nuget. VisualStudio-Paket](https://www.nuget.org/packages/NuGet.VisualStudio/)verfügbar ist.
 
-#### <a name="getcredentialasync"></a>GetCredentialAsync
+#### <a name="getcredentialasync"></a>Getkredentialasync
 
-| Eingabeparameter |Beschreibung|
+| Eingabe Parameter |Beschreibung|
 | ----------------|-----------|
-| URI-uri | Die Paket-Quell-Uri für den Anmeldeinformationen angefordert werden.|
-| IWebProxy-proxy | Der Webproxy verwenden, bei der Kommunikation über das Netzwerk. NULL, wenn es keine Proxyauthentifizierung konfiguriert gibt. |
-| "bool" isProxyRequest | "True", wenn die Anforderung beim Anmeldeinformationen für die Authentifizierung abrufen ist. Wenn die Implementierung für den Erwerb von Proxy-Anmeldeinformationen ungültig ist, sollte Null zurückgegeben werden. |
-| "bool" isRetry | True, wenn die Anmeldeinformationen wurden für diesen Uri bereits zuvor angefordert, aber die angegebenen Anmeldeinformationen wurde nicht autorisierten Zugriff zugelassen. |
-| nicht interaktive "bool" | Bei "true", muss der Anmeldeinformationsanbieter werden alle benutzeraufforderungen unterdrückt und verwenden Sie stattdessen die Standardwerte. |
-| CancellationToken-cancellationToken | Dieses Abbruchtoken sollte überprüft werden, um festzustellen, ob der Vorgang Anfordern von Anmeldeinformationen wurde abgebrochen. |
+| URI-URI | Der Paketquellen-URI, für den Anmelde Informationen angefordert werden.|
+| IWebProxy-Proxy | Der WebProxy, der für die Kommunikation im Netzwerk verwendet werden soll. NULL, wenn keine Proxy Authentifizierung konfiguriert ist. |
+| bool isproxyrequest | True, wenn die Anforderung besteht, Anmelde Informationen für die Proxy Authentifizierung zu erhalten. Wenn die Implementierung für den Erwerb von Proxy Anmelde Informationen nicht gültig ist, sollte NULL zurückgegeben werden. |
+| Boolescher isretry | True, wenn zuvor Anmelde Informationen für diesen URI angefordert wurden, die angegebenen Anmelde Informationen aber keinen autorisierten Zugriff hatten. |
+| bool nicht interaktiv | True gibt an, dass der Anmelde Informationsanbieter alle Benutzer Aufforderungen unterdrücken und stattdessen Standardwerte verwenden muss. |
+| CancellationToken CancellationToken | Dieses Abbruch Token sollte geprüft werden, um zu bestimmen, ob der Vorgang zum Anfordern von Anmelde Informationen abgebrochen wurde. |
 
-**Rückgabewert**: eine objektimplementierung Anmeldeinformationen der [ `System.Net.ICredentials` Schnittstelle](/dotnet/api/system.net.icredentials?view=netstandard-2.0).
+**Rückgabewert**: Ein Anmelde Informationsobjekt, das die [ `System.Net.ICredentials` -Schnittstelle](/dotnet/api/system.net.icredentials?view=netstandard-2.0)implementiert.
