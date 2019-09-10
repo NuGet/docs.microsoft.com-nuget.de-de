@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: a9331ad2ea0482737d84f4ea9a9babf95da8d66f
-ms.sourcegitcommit: d5cc3f01a92c2d69b794343c09aff07ba9e912e5
+ms.openlocfilehash: 16b8ff532b87a3e3f96029e77dd166eb39294c0b
+ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70385893"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815345"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet pack and restore as MSBuild targets (NuGet-Befehle „pack“ und „restore“ MSBuild-Ziele)
 
@@ -109,6 +109,7 @@ Beachten Sie, dass die Eigenschaften `Owners` und `Summary` aus einer `.nuspec`-
 - NuspecFile
 - NuspecBasePath
 - NuspecProperties
+- Deterministic
 
 ## <a name="pack-scenarios"></a>Pack-Szenarios
 
@@ -172,6 +173,18 @@ Sie können auf folgende Metadaten zu Ihrem Projektverweis hinzufügen:
 <IncludeAssets>
 <ExcludeAssets>
 <PrivateAssets>
+```
+
+### <a name="deterministic"></a>Deterministic
+
+Bei Verwendung `MSBuild -t:pack -p:Deterministic=true`von wird durch mehrere Aufrufe des Paket Ziels genau dasselbe Paket generiert.
+Der Umgebungszustand des Computers wirkt sich nicht auf die Ausgabe des Pack-Befehls aus. Insbesondere ZIP-Einträge werden mit einem Zeitstempel von 1980-01-01. Um vollständigen Determinismus zu erreichen, sollten die Assemblys mit der entsprechenden Compileroption [-deterministisch](/dotnet/csharp/language-reference/compiler-options/deterministic-compiler-option)erstellt werden.
+Es wird empfohlen, die deterministische Eigenschaft wie folgt anzugeben, damit der Compiler und nuget dies beachten.
+
+```xml
+<PropertyGroup>
+  <Deterministic>true</Deterministic>
+</PropertyGroup>
 ```
 
 ### <a name="including-content-in-a-package"></a>Einschließlich der Inhalte in einem Paket

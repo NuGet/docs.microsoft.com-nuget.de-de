@@ -1,87 +1,89 @@
 ---
-title: NuGet cross-Platform-Plug-Ins
-description: NuGet cross Platform-Plug-Ins für NuGet.exe "," dotnet.exe "," msbuild.exe "und" Visual Studio
+title: Cross Platform-Plug-ins
+description: Nuget-plattformübergreifende Plug-Ins für nuget. exe, dotnet. exe, MSBuild. exe und Visual Studio
 author: nkolev92
 ms.author: nikolev
 ms.date: 07/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: fdefc5b6189051fd83b2de644080284c09dd85f4
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 74b80b1791dcb403c90bb3032c009717c11ffe57
+ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548205"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815302"
 ---
-# <a name="nuget-cross-platform-plugins"></a>NuGet cross-Platform-Plug-Ins
+# <a name="nuget-cross-platform-plugins"></a>Cross Platform-Plug-ins
 
-In NuGet 4.8 und höher wurde Unterstützung für cross-Platform-Plug-Ins hinzugefügt.
-Dies wurde mit erreicht, indem Sie erstellen ein neues-Plug-in-Erweiterbarkeitsmodell, die einem strikter Regeln des Vorgangs entsprechen.
-Die Plug-Ins sind eigenständige ausführbare Dateien und (in der .NET Core-Welt Runnables), die die NuGet-Clients in einem separaten Prozess zu starten.
-Dies ist ein "true" Schreibvorgang einmal auszuführen weltweit-Plug-in. Es funktioniert mit allen NuGet-Clienttools.
-Die Plug-Ins kann entweder mit .NET Framework ("NuGet.exe", "MSBuild.exe" und "Visual Studio") oder .NET Core (dotnet.exe) sein.
-Es wird ein mit versionsverwaltung durch das Kommunikationsprotokoll zwischen dem NuGet-Client und das Plug-in definiert. Während des Handshakes beim Start aushandeln 2 Prozesse die Protokollversion an.
+In nuget 4.8 und höher wurde die Unterstützung für plattformübergreifende Plug-Ins hinzugefügt.
+Dies wurde durch das Entwickeln eines neuen Plug-in-Erweiterbarkeits Modells erreicht, das einem strengen Satz von Vorgangs Regeln entspricht.
+Die Plug-ins sind eigenständige ausführbare Dateien (Runnables in der .net Core-Welt), die von den nuget-Clients in einem separaten Prozess gestartet werden.
+Dies ist ein echter Schreibvorgang, wenn Sie das Plug-in überall ausführen. Es funktioniert mit allen nuget-Client Tools.
+Die Plug-Ins können entweder .NET Framework (nuget. exe, MSBuild. exe und Visual Studio) oder .net Core (dotnet. exe) sein.
+Ein Kommunikationsprotokoll mit Versions Angabe zwischen dem nuget-Client und dem-Plug-in ist definiert. Während des Start Handshakes aushandeln die beiden Prozesse die Protokollversion.
 
-Um alle NuGet Client Tools-Szenarien abzudecken, würde eine ein .NET Framework und eine .NET Core-Plug-in benötigen.
-Die im folgenden wird beschrieben, die Client/Framework-Kombinationen der Plug-Ins.
+Um alle Szenarien für nuget-Client Tools abzudecken, benötigen Sie eine .NET Framework und ein .net Core-Plug-in.
+Im folgenden werden die Client/Framework-Kombinationen der Plug-Ins beschrieben.
 
 | Client-Tool  | Framework |
 | ------------ | --------- |
 | Visual Studio | .NET Framework |
 | dotnet.exe | .NET Core |
-| NuGet.exe | .NET Framework |
-| MSBuild.exe | .NET Framework |
-| NuGet.exe auf Mono | .NET Framework |
+| "Nuget. exe" | .NET Framework |
+| MSBuild. exe | .NET Framework |
+| "Nuget. exe" unter Mono | .NET Framework |
 
-## <a name="how-does-it-work"></a>Wie funktioniert es
+## <a name="how-does-it-work"></a>Funktionsweise
 
 Der allgemeine Workflow kann wie folgt beschrieben werden:
 
-1. NuGet erkennt verfügbaren Plug-Ins.
-1. Gegebenenfalls wird NuGet die Plug-Ins in der Reihenfolge ihrer Priorität und startet Sie einzeln durchlaufen werden.
-1. NuGet wird das erste Plug-in verwenden, das die Anforderung bedienen kann.
-1. Die Plug-Ins wird heruntergefahren wenn sie nicht mehr benötigt werden.
+1. Nuget erkennt verfügbare Plug-ins.
+1. Wenn zutreffend, durchläuft nuget die Plug-ins in der Reihenfolge der Priorität und startet Sie nacheinander.
+1. Nuget verwendet das erste Plug-in, das die Anforderung bedienen kann.
+1. Die Plug-ins werden heruntergefahren, wenn Sie nicht mehr benötigt werden.
 
-## <a name="general-plugin-requirements"></a>Allgemeine-Plug-in-Anforderungen
+## <a name="general-plugin-requirements"></a>Allgemeine Plug-ins
 
 Die aktuelle Protokollversion ist *2.0.0*.
-In dieser Version sind wie folgt:
+Unter dieser Version gelten die folgenden Anforderungen:
 
-- Haben Sie einen gültigen und vertrauenswürdigen Authenticode-Signatur Assemblys, die auf Windows und Mono ausgeführt werden. Es ist keine besondere Vertrauensstellung erforderlich für Assemblys, die noch unter Linux und Mac ausgeführt. [Relevante Problem](https://github.com/NuGet/Home/issues/6702)
-- Unterstützung von zustandslosen starten im aktuellen Sicherheitskontext der NuGet-Clienttools. NuGet-Clienttools führt beispielsweise keine Erhöhung der Rechte oder zusätzliche Initialisierung außerhalb des-Plug-in-Protokolls, die weiter unten beschrieben.
-- Sofern nicht ausdrücklich angegeben, wird nicht interaktiv sein.
-- Das ausgehandelte-Plug-Ins Protokoll, Version entsprechen.
-- Für alle Anforderungen innerhalb eines angemessenen Zeitraums zu reagieren.
-- Berücksichtigen Sie abbruchanforderungen für jeden Vorgang in Bearbeitung.
+- Sie verfügen über eine gültige vertrauenswürdige Authenticode-Signatur-Assemblys, die unter Windows und Mono ausgeführt werden. Für Assemblys, die unter Linux und Mac ausgeführt werden, ist keine besondere Vertrauensstellung erforderlich. [Relevantes Problem](https://github.com/NuGet/Home/issues/6702)
+- Unterstützung des Zustands losen Starts im aktuellen Sicherheitskontext der nuget-Client Tools. Beispielsweise führen nuget-Client Tools keine Rechte Erweiterung oder zusätzliche Initialisierung außerhalb des später beschriebenen Plug-in-Protokolls aus.
+- Wenn Sie nicht explizit angegeben sind, sind Sie nicht interaktiv.
+- Einhaltung der ausgehandelten Plug-in-Protokollversion.
+- Reagieren Sie innerhalb eines angemessenen Zeitraums auf alle Anforderungen.
+- Beachten Sie Abbruch Anforderungen für alle laufenden Vorgänge.
 
-Die technische Spezifikation wird in der folgenden Spezifikationen ausführlicher beschrieben:
+Die technische Spezifikation wird in den folgenden Spezifikationen ausführlicher beschrieben:
 
-- [NuGet-Paket herunterladen-Plug-in](https://github.com/NuGet/Home/wiki/NuGet-Package-Download-Plugin)
-- [NuGet cross-Plat-Authentifizierung-Plug-in](https://github.com/NuGet/Home/wiki/NuGet-cross-plat-authentication-plugin)
+- [Plug-in für nuget-Paket](https://github.com/NuGet/Home/wiki/NuGet-Package-Download-Plugin)
+- [Nuget-Plug-in für die nuget-Authentifizierung](https://github.com/NuGet/Home/wiki/NuGet-cross-plat-authentication-plugin)
 
-## <a name="client---plugin-interaction"></a>Client --Plug-in-Interaktion
+## <a name="client---plugin-interaction"></a>Client-Plug-in-Interaktion
 
-NuGet-Clienttools und die Plug-Ins kommunizieren mit JSON-Code über standard-Streams (Stdin, Stdout, Stderr). Alle Daten müssen UTF-8 codiert sein.
-Die Plug-Ins werden gestartet, mit dem Argument "--Plug-in". Für den Fall, dass ein Benutzer direkt ein ausführbare Datei ohne dieses Argument-Plug-in startet, kann das Plug-in eine informative Meldung, anstatt abzuwarten, bis eine Protokoll-Handshakes geben.
-Das Protokoll-Handshakes-Timeout beträgt 5 Sekunden. Das Plug-in sollte die Einrichtung in als, kleiner als eine Menge wie möglich abgeschlossen werden.
-NuGet-Clienttools werden unterstützten ein Plug-in-Vorgänge durch die Übergabe dienstindex für ein NuGet-Quelle abgefragt werden. Ein Plug-in kann den dienstindex verwenden, um auf das Vorhandensein der unterstützten Diensttypen überprüfen zu können.
+Die nuget-Client Tools und-Plug-ins kommunizieren mit JSON über Standardstreams (stdin, stdout, stderr). Alle Daten müssen UTF-8-codiert sein.
+Die Plug-ins werden mit dem Argument "-Plugin" gestartet. Wenn ein Benutzer eine ausführbare Plug-in-Datei ohne dieses Argument direkt aufruft, kann das Plug-in eine informative Nachricht senden, anstatt auf einen Protokoll Hand Shake zu warten.
+Der Protokoll Hand Shake Timeout beträgt 5 Sekunden. Das Plug-in sollte das Setup so kurz wie möglich ausführen.
+Die nuget-Client Tools werden die unterstützten Vorgänge eines Plug-ins Abfragen, indem der Dienst Index für eine nuget-Quelle übergeben wird. Ein Plug-in kann den Dienst Index verwenden, um zu überprüfen, ob die unterstützten Dienst Typen vorhanden sind.
 
-Die Kommunikation zwischen den NuGet-Clienttools und das Plug-in ist bidirektional. Jede Anforderung hat ein Timeout von fünf Sekunden. Wenn Vorgänge sollten länger dauern sollte eine Statusmeldung, um zu verhindern, dass die Anforderung ein Timeout eingetreten der entsprechende Prozess gesendet. Nach einer Minute Inaktivität ein Plug-in als inaktiv betrachtet und wird heruntergefahren.
+Die Kommunikation zwischen den nuget-Client Tools und dem Plug-in ist bidirektional. Jede Anforderung hat ein Timeout von 5 Sekunden. Wenn der Vorgang länger dauern soll, sollte der jeweilige Prozess eine Statusmeldung senden, um eine Zeitüberschreitung der Anforderung zu verhindern. Nach 1 Minuten Inaktivität wird ein Plug-in als Leerlauf betrachtet und heruntergefahren.
 
-## <a name="plugin-installation-and-discovery"></a>Plug-in-Installation und Ermittlung
+## <a name="plugin-installation-and-discovery"></a>Installation und Ermittlung von Plug-ins
 
-Die Plug-Ins werden über eine Verzeichnisstruktur konventionsbasierten ermittelt.
-CI/CD-Szenarien und erfahrene Benutzer können eine Umgebungsvariable, das Verhalten.
+Die Plug-ins werden über eine auf Konventionen basierende Verzeichnisstruktur ermittelt.
+CI/CD-Szenarien und Poweruser können Umgebungsvariablen verwenden, um das Verhalten zu überschreiben. Beachten Sie `NUGET_NETFX_PLUGIN_PATHS` , `NUGET_NETCORE_PLUGIN_PATHS` dass und nur mit einer Version von 5.3 und höher für die nuget-Tools und höher verfügbar sind.
 
-- `NUGET_PLUGIN_PATHS` : definiert die Plug-Ins, die für diesen Prozess für NuGet, Priorität, die reserviert verwendet werden. Wenn diese Umgebungsvariable festgelegt ist, wird die Ermittlung des konventionsbasierten überschrieben.
--  Benutzer-Speicherort, den Speicherort der NuGet-Startseite in `%UserProfile%/.nuget/plugins`. Dieser Speicherort kann nicht überschrieben werden. Ein Stammverzeichnis für die verschiedenen wird für .NET Core und .NET Framework-Plug-Ins verwendet werden.
+- `NUGET_NETFX_PLUGIN_PATHS`: definiert die Plug-ins, die von den .NET Framework basierten Tools (nuget. exe/MSBuild. exe/Visual Studio) verwendet werden. Hat Vorrang `NUGET_PLUGIN_PATHS`vor. (Nur nuget-Version 5.3 +)
+- `NUGET_NETCORE_PLUGIN_PATHS`: definiert die Plug-ins, die von den .net Core-basierten Tools (dotnet. exe) verwendet werden. Hat Vorrang `NUGET_PLUGIN_PATHS`vor. (Nur nuget-Version 5.3 +)
+- `NUGET_PLUGIN_PATHS`: definiert die Plug-ins, die für den nuget-Prozess verwendet werden, für die die Priorität reserviert ist. Wenn diese Umgebungsvariable festgelegt ist, wird die auf der Konvention basierende Ermittlung überschrieben. Wird ignoriert, wenn eine der Framework-spezifischen Variablen angegeben wird.
+-  Benutzer-Location: der nuget-Start Speicherort in `%UserProfile%/.nuget/plugins`. Dieser Speicherort kann nicht überschrieben werden. Für .net Core-und .NET Framework-Plug-ins wird ein anderes Stammverzeichnis verwendet.
 
-| Framework | Stammverzeichnis für die Ermittlung  |
+| Framework | Speicherort der Stamm Ermittlung  |
 | ------- | ------------------------ |
 | .NET Core |  `%UserProfile%/.nuget/plugins/netcore` |
 | .NET Framework | `%UserProfile%/.nuget/plugins/netfx` |
 
-Jede-Plug-in sollte in einem eigenen Ordner installiert werden.
-Der Einstiegspunkt-Plug-in werden der Name des installierten-Ordner, mit der DLL-Erweiterungen für .NET Core und ".exe"-Erweiterung für .NET Framework.
+Jedes Plug-in sollte in einem eigenen Ordner installiert werden.
+Der Plug-in-Einstiegspunkt ist der Name des installierten Ordners mit den dll-Erweiterungen für .net Core und der Erweiterung ". exe" für .NET Framework.
 
 ```
 .nuget
@@ -99,202 +101,202 @@ Der Einstiegspunkt-Plug-in werden der Name des installierten-Ordner, mit der DLL
 ```
 
 > [!Note]
-> Es gibt derzeit keine User Storys für die Installation des Plug-Ins. Es ist so einfach wie die erforderlichen Dateien in den zuvor festgelegten Speicherort verschieben.
+> Zurzeit gibt es keine User Story für die Installation der Plug-ins. Es ist ganz einfach, die erforderlichen Dateien an den vordefinierten Speicherort zu verschieben.
 
 ## <a name="supported-operations"></a>Unterstützte Vorgänge
 
-Zwei Vorgänge werden in das neue Plug-in-Protokoll unterstützt.
+Unter dem neuen Plug-in-Protokoll werden zwei Vorgänge unterstützt.
 
-| Vorgangsname | Mindestprotokollversion | Mindestversion für NuGet-client |
+| Vorgangs Name | Minimale Protokollversion | Minimale nuget-Client Version |
 | -------------- | ----------------------- | --------------------- |
 | Paket herunterladen | 1.0.0 | 4.3.0 |
 | [Authentifizierung](NuGet-Cross-Platform-Authentication-Plugin.md) | 2.0.0 | 4.8.0 |
 
-## <a name="running-plugins-under-the-correct-runtime"></a>Ausführen unter die richtige Runtime-Plug-Ins
+## <a name="running-plugins-under-the-correct-runtime"></a>Ausführen von Plug-ins unter der richtigen Laufzeit
 
-Für die NuGet in dotnet.exe-Szenarien müssen-Plug-Ins unter dieser bestimmten Laufzeit von der dotnet.exe ausgeführt werden.
-Es ist der Anbieter-Plug-Ins und Consumer, um sicherzustellen, dass eine kompatible dotnet.exe/plugin-Kombination verwendet wird.
-Ein mögliches Problem kann auftreten, mit dem Benutzerstandort Plug-Ins bei z. B., eine dotnet.exe unter der 2.0-Runtime versucht, eine-Plug-Ins für die 2.1-Runtime geschrieben wurden.
+Für nuget-Szenarien in dotnet. exe müssen Plug-ins unter dieser bestimmten Laufzeit von "dotnet. exe" ausgeführt werden können.
+Er ist auf dem Plug-in-Anbieter und dem Consumer, um sicherzustellen, dass eine kompatible Kombination aus "dotnet. exe/Plugin" verwendet wird
+Ein potenzielles Problem könnte bei den Benutzer-/Speicherort-Plug-ins auftreten, wenn beispielsweise eine dotnet. exe-Datei unter der 2,0-Laufzeit versucht, ein für die 2,1-Laufzeit geschriebenes Plug-in
 
-## <a name="capabilities-caching"></a>Funktionen, die Zwischenspeicherung
+## <a name="capabilities-caching"></a>Zwischenspeichern von Funktionen
 
-Die sicherheitsüberprüfung und -Instanziierung der Plug-Ins ist teuer. Der Downloadvorgang geschieht viel häufiger auf als den Authentifizierungsvorgang, jedoch ist der durchschnittliche Benutzer von NuGet nur wahrscheinlich eine Authentifizierung-Plug-in.
-Um die benutzerfreundlichkeit zu verbessern, speichert NuGet die Vorgang-Ansprüche für die angegebene Anforderung. Dieser Cache wird pro-Plug-in, mit dem-Plug-in-Schlüssel wird der Pfad-Plug-in, und das Ablaufdatum für diesen Cache Funktionen beträgt 30 Tage. 
+Die Sicherheitsüberprüfung und-Instanziierung der Plug-ins ist aufwendig. Der Downloadvorgang erfolgt häufiger als der Authentifizierungs Vorgang, aber der durchschnittliche nuget-Benutzer hat wahrscheinlich nur ein Authentifizierungs-Plug-in.
+Um die Leistung zu verbessern, speichert nuget die Vorgangs Ansprüche für die angegebene Anforderung zwischen. Dieser Cache ist pro Plug-in, wobei der Plug-in-Pfad der Plug-in-Pfad ist, und der Ablauf für diesen Funktions Cache beträgt 30 Tage. 
 
-Der Cache befindet sich im `%LocalAppData%/NuGet/plugins-cache` und werden zusammen mit der Umgebungsvariable `NUGET_PLUGINS_CACHE_PATH`. Um dies zu löschen [Cache](../../consume-packages/managing-the-global-packages-and-cache-folders.md), möglich, die lokal auszuführen-Befehl mit der `plugins-cache` Option.
-Die `all` "lokal"-Option wird auch den Cache-Plug-Ins gelöscht. 
+Der Cache befindet sich in `%LocalAppData%/NuGet/plugins-cache` und ist mit der Umgebungsvariablen `NUGET_PLUGINS_CACHE_PATH`überschrieben. Zum Löschen dieses [Caches](../../consume-packages/managing-the-global-packages-and-cache-folders.md)können Sie den Befehl "Locals" mit der `plugins-cache` Option ausführen.
+Die `all` Option "Locals" löscht nun auch den Plug-in-Cache. 
 
-## <a name="protocol-messages-index"></a>Index der Protokoll-Nachrichten
+## <a name="protocol-messages-index"></a>Protokollnachrichten Index
 
-Protokollversion *1.0.0* Nachrichten:
+Protokoll Version *1.0.0* :
 
 1.  Schließen
-    * Anfordern der Richtung: NuGet ->-Plug-in
-    * Die Anforderung wird keine Nutzlast enthalten.
-    * Es wird keine Antwort erwartet.  Die richtige Antwort ist für den Prozess-Plug-in, um sofort zu beenden.
+    * Anforderungs Richtung:  Nuget->-Plug-in
+    * Die Anforderung enthält keine Nutzlast.
+    * Es wird keine Antwort erwartet.  Die richtige Antwort besteht darin, dass der Plug-in-Prozess umgehend beendet wird.
 
-2.  Kopieren von Dateien im Paket
-    * Anfordern der Richtung: NuGet ->-Plug-in
+2.  Dateien in Paket kopieren
+    * Anforderungs Richtung:  Nuget->-Plug-in
     * Die Anforderung enthält Folgendes:
-        * der Paket-ID und version
-        * Speicherort für die Paketquelle repository
-        * Zielverzeichnispfad
-        * ein aufzählbares Objekt von Dateien im Paket in den Zielverzeichnispfad kopiert werden sollen
+        * die Paket-ID und die Version
+        * Speicherort des Paket Quell Repository
+        * Zielverzeichnis Pfad
+        * ein Aufzähl bares Element von Dateien im Paket, das in den Zielverzeichnis Pfad kopiert werden soll.
     * Eine Antwort enthält Folgendes:
-        * Antwortcode, der angibt, des Ergebnis des Vorgangs
-        * ein aufzählbares Objekt von vollständigen Pfade für die kopierten Dateien in das Zielverzeichnis, wenn der Vorgang erfolgreich war
+        * ein Antwort Code, der das Ergebnis des Vorgangs angibt.
+        * ein Aufzähl barer vollständiger Pfad für kopierte Dateien im Zielverzeichnis, wenn der Vorgang erfolgreich war.
 
-3.  Kopieren Sie die Paketdatei (NUPKG-Datei)
-    * Anfordern der Richtung: NuGet ->-Plug-in
+3.  Paketdatei kopieren (nupkg-Datei)
+    * Anforderungs Richtung:  Nuget->-Plug-in
     * Die Anforderung enthält Folgendes:
-        * der Paket-ID und version
-        * Speicherort für die Paketquelle repository
-        * der Zieldateipfad
+        * die Paket-ID und die Version
+        * Speicherort des Paket Quell Repository
+        * der Ziel Datei Pfad.
     * Eine Antwort enthält Folgendes:
-        * Antwortcode, der angibt, des Ergebnis des Vorgangs
+        * ein Antwort Code, der das Ergebnis des Vorgangs angibt.
 
-4.  Abrufen von Anmeldeinformationen
-    * Anfordern der Richtung: NuGet-Plug-in ->
+4.  Anmelde Informationen erhalten
+    * Anforderungs Richtung: Plug-in > nuget
     * Die Anforderung enthält Folgendes:
-        * Speicherort für die Paketquelle repository
-        * die HTTP-Statuscode, der vom Paket Quell-Repository mit aktuellen Anmeldeinformationen abgerufen
+        * Speicherort des Paket Quell Repository
+        * der HTTP-Statuscode, der über die aktuellen Anmelde Informationen aus dem Paket Quellrepository abgerufen wurde
     * Eine Antwort enthält Folgendes:
-        * Antwortcode, der angibt, des Ergebnis des Vorgangs
-        * ein Benutzername, sofern verfügbar
+        * ein Antwort Code, der das Ergebnis des Vorgangs angibt.
+        * ein Benutzername, falls verfügbar
         * ein Kennwort, falls verfügbar
 
-5.  Abrufen von Dateien im Paket
-    * Anfordern der Richtung: NuGet ->-Plug-in
+5.  Dateien im Paket erhalten
+    * Anforderungs Richtung:  Nuget->-Plug-in
     * Die Anforderung enthält Folgendes:
-        * der Paket-ID und version
-        * Speicherort für die Paketquelle repository
+        * die Paket-ID und die Version
+        * Speicherort des Paket Quell Repository
     * Eine Antwort enthält Folgendes:
-        * Antwortcode, der angibt, des Ergebnis des Vorgangs
-        * ein aufzählbares Objekt von Dateipfaden in das Paket aus, wenn der Vorgang erfolgreich war
+        * ein Antwort Code, der das Ergebnis des Vorgangs angibt.
+        * ein Aufzähl bares Element von Dateipfaden im Paket, wenn der Vorgang erfolgreich war.
 
-6.  Abrufen von Vorgang Ansprüche 
-    * Anfordern der Richtung: NuGet ->-Plug-in
+6.  Vorgangs Ansprüche abrufen 
+    * Anforderungs Richtung:  Nuget->-Plug-in
     * Die Anforderung enthält Folgendes:
-        * der Dienst index.json für eine Paketquelle
-        * Speicherort für die Paketquelle repository
+        * der Dienst Index. JSON für eine Paketquelle
+        * Speicherort des Paket Quell Repository
     * Eine Antwort enthält Folgendes:
-        * Antwortcode, der angibt, des Ergebnis des Vorgangs
-        * ein aufzählbares Objekt von unterstützten Vorgänge (z. B.: Paketdownload), wenn der Vorgang erfolgreich war.  Wenn Sie ein Plug-in die Paketquelle nicht unterstützt, muss die-Plug-in einen leeren Satz von unterstützten Vorgänge zurückgeben.
+        * ein Antwort Code, der das Ergebnis des Vorgangs angibt.
+        * ein Aufzähl bares Element unterstützter Vorgänge (z. b. Paket Download), wenn der Vorgang erfolgreich war.  Wenn ein Plug-in die Paketquelle nicht unterstützt, muss das Plug-in eine leere Gruppe unterstützter Vorgänge zurückgeben.
 
 > [!Note]
-> Diese Nachricht wurde in Version aktualisiert *2.0.0*. Es ist auf dem Client um Abwärtskompatibilität zu gewährleisten.
+> Diese Meldung wurde in Version *2.0.0*aktualisiert. Sie befindet sich auf dem Client, um die Abwärtskompatibilität aufrechtzuerhalten.
 
-7.  Abrufen der pakethash
-    * Anfordern der Richtung: NuGet ->-Plug-in
+7.  Pakethash erhalten
+    * Anforderungs Richtung:  Nuget->-Plug-in
     * Die Anforderung enthält Folgendes:
-        * der Paket-ID und version
-        * Speicherort für die Paketquelle repository
-        * Der Hashalgorithmus
+        * die Paket-ID und die Version
+        * Speicherort des Paket Quell Repository
+        * der Hash Algorithmus
     * Eine Antwort enthält Folgendes:
-        * Antwortcode, der angibt, des Ergebnis des Vorgangs
-        * der Dateihash ein Paket unter Verwendung des angeforderten Hashalgorithmus, wenn der Vorgang erfolgreich war
+        * ein Antwort Code, der das Ergebnis des Vorgangs angibt.
+        * ein paketdateihash, der den angeforderten Hash Algorithmus verwendet, wenn der Vorgang erfolgreich war.
 
-8.  Abrufen von Paketversionen
-    * Anfordern der Richtung: NuGet ->-Plug-in
+8.  Paketversionen erhalten
+    * Anforderungs Richtung:  Nuget->-Plug-in
     * Die Anforderung enthält Folgendes:
         * die Paket-ID
-        * Speicherort für die Paketquelle repository
+        * Speicherort des Paket Quell Repository
     * Eine Antwort enthält Folgendes:
-        * Antwortcode, der angibt, des Ergebnis des Vorgangs
-        * ein aufzählbares Objekt von Paketversionen, wenn der Vorgang erfolgreich war
+        * ein Antwort Code, der das Ergebnis des Vorgangs angibt.
+        * ein Aufzähl bares Element von Paketversionen, wenn der Vorgang erfolgreich war.
 
-9.  Dienstindex abrufen
-    * Anfordern der Richtung: NuGet-Plug-in ->
+9.  Dienst Index erhalten
+    * Anforderungs Richtung: Plug-in > nuget
     * Die Anforderung enthält Folgendes:
-        * Speicherort für die Paketquelle repository
+        * Speicherort des Paket Quell Repository
     * Eine Antwort enthält Folgendes:
-        * Antwortcode, der angibt, des Ergebnis des Vorgangs
-        * der dienstindex, wenn der Vorgang erfolgreich war
+        * ein Antwort Code, der das Ergebnis des Vorgangs angibt.
+        * der Dienst Index, wenn der Vorgang erfolgreich war.
 
-10.  Handshake
-     * Anfordern der Richtung: NuGet <> –-Plug-in
+10.  Shakes
+     * Anforderungs Richtung:  Nuget-<->-Plug-in
      * Die Anforderung enthält Folgendes:
-         * die aktuelle Version des-Plug-in-Protokoll
-         * die unterstützte Mindestversion-Plug-in-Protokoll
+         * die aktuelle Plug-in-Protokollversion
+         * die minimal unterstützte Plug-in-Protokollversion
      * Eine Antwort enthält Folgendes:
-         * Antwortcode, der angibt, des Ergebnis des Vorgangs
-         * Das ausgehandelte Protokoll-Version, wenn der Vorgang erfolgreich war.  Ein Fehler führen die Beendigung des Plug-Ins.
+         * ein Antwort Code, der das Ergebnis des Vorgangs angibt.
+         * die ausgehandelte Protokollversion, wenn der Vorgang erfolgreich war.  Ein Fehler führt zu einer Beendigung des Plug-ins.
 
-11.  Initialisieren
-     * Anfordern der Richtung: NuGet ->-Plug-in
+11.  Initialize
+     * Anforderungs Richtung:  Nuget->-Plug-in
      * Die Anforderung enthält Folgendes:
-         * die Version des NuGet-Client-Tools
-         * die NuGet Client Tools effektive Sprache.  Dies berücksichtigt die ForceEnglishOutput-Einstellung, wenn verwendet.
-         * das standardmäßige Anforderung-Timeout, die der Protokoll-Standardwert hat Vorrang vor.
+         * die Version des nuget-Client Tools
+         * die effektive Sprache des nuget-Client Tools.  Dabei wird ggf. die Einstellung "forceengloutput" berücksichtigt.
+         * der standardmäßige Anforderungs Timeout, der den Standardwert des Protokolls ersetzt.
      * Eine Antwort enthält Folgendes:
-         * eine Antwortcode, der angibt, des Ergebnis des Vorgangs.  Ein Fehler führen die Beendigung des Plug-Ins.
+         * ein Antwort Code, der das Ergebnis des Vorgangs angibt.  Ein Fehler führt zu einer Beendigung des Plug-ins.
 
 12.  Protokoll
-     * Anfordern der Richtung: NuGet-Plug-in ->
+     * Anforderungs Richtung: Plug-in > nuget
      * Die Anforderung enthält Folgendes:
-         * die Protokollebene für die Anforderung
-         * einer zu protokollierenden Meldung
+         * die Protokollebene für die Anforderung.
+         * eine Meldung, die protokolliert werden soll
      * Eine Antwort enthält Folgendes:
-         * eine Antwortcode, der angibt, des Ergebnis des Vorgangs.
+         * ein Antwort Code, der das Ergebnis des Vorgangs angibt.
 
-13.  Überwachen von NuGet-Prozessende
-     * Anfordern der Richtung: NuGet ->-Plug-in
+13.  Überwachen von nuget-Prozess beenden
+     * Anforderungs Richtung:  Nuget->-Plug-in
      * Die Anforderung enthält Folgendes:
-         * die NuGet-Prozess-ID
+         * die nuget-Prozess-ID
      * Eine Antwort enthält Folgendes:
-         * eine Antwortcode, der angibt, des Ergebnis des Vorgangs.
+         * ein Antwort Code, der das Ergebnis des Vorgangs angibt.
 
-14.  Vorabrufen von Paket
-     * Anfordern der Richtung: NuGet ->-Plug-in
+14.  Paket vorab abrufen
+     * Anforderungs Richtung:  Nuget->-Plug-in
      * Die Anforderung enthält Folgendes:
-         * der Paket-ID und version
-         * Speicherort für die Paketquelle repository
+         * die Paket-ID und die Version
+         * Speicherort des Paket Quell Repository
      * Eine Antwort enthält Folgendes:
-         * Antwortcode, der angibt, des Ergebnis des Vorgangs
+         * ein Antwort Code, der das Ergebnis des Vorgangs angibt.
 
-15.  Festlegen von Anmeldeinformationen
-     * Anfordern der Richtung: NuGet ->-Plug-in
+15.  Anmelde Informationen festlegen
+     * Anforderungs Richtung:  Nuget->-Plug-in
      * Die Anforderung enthält Folgendes:
-         * Speicherort für die Paketquelle repository
-         * der letzte bekannte Quelle paketbenutzernamen, falls verfügbar
-         * das letzte bekannte Quelle Paketkennwort, falls verfügbar
-         * der letzte bekannte Proxybenutzername, falls verfügbar
-         * das letzte bekannte Proxykennwort, falls verfügbar
+         * Speicherort des Paket Quell Repository
+         * der letzte bekannte Paket Quell Benutzername, falls verfügbar
+         * das letzte bekannte Paket Quell Kennwort, falls verfügbar
+         * der letzte bekannte Proxy Benutzername, falls verfügbar
+         * Letztes bekanntes Proxy Kennwort, falls verfügbar
      * Eine Antwort enthält Folgendes:
-         * Antwortcode, der angibt, des Ergebnis des Vorgangs
+         * ein Antwort Code, der das Ergebnis des Vorgangs angibt.
 
-16.  Set-Protokollebene
-     * Anfordern der Richtung: NuGet ->-Plug-in
+16.  Festlegen der Protokollebene
+     * Anforderungs Richtung:  Nuget->-Plug-in
      * Die Anforderung enthält Folgendes:
-         * Die Standardprotokollebene
+         * die Standardprotokoll Ebene
      * Eine Antwort enthält Folgendes:
-         * Antwortcode, der angibt, des Ergebnis des Vorgangs
+         * ein Antwort Code, der das Ergebnis des Vorgangs angibt.
 
-Protokollversion *2.0.0* Nachrichten
+Protokoll Version *2.0.0* -Nachrichten
 
-17. Abrufen von Vorgang Ansprüche
+17. Vorgangs Ansprüche abrufen
 
-* Anfordern der Richtung: NuGet ->-Plug-in
+* Anforderungs Richtung:  Nuget->-Plug-in
     * Die Anforderung enthält Folgendes:
-        * der Dienst index.json für eine Paketquelle
-        * Speicherort für die Paketquelle repository
+        * der Dienst Index. JSON für eine Paketquelle
+        * Speicherort des Paket Quell Repository
     * Eine Antwort enthält Folgendes:
-        * Antwortcode, der angibt, des Ergebnis des Vorgangs
-        * ein aufzählbares Element für unterstützten Vorgänge, wenn der Vorgang erfolgreich war.  Wenn Sie ein Plug-in die Paketquelle nicht unterstützt, muss die-Plug-in einen leeren Satz von unterstützten Vorgänge zurückgeben.
+        * ein Antwort Code, der das Ergebnis des Vorgangs angibt.
+        * eine Aufzähl Bare der unterstützten Vorgänge, wenn der Vorgang erfolgreich war.  Wenn ein Plug-in die Paketquelle nicht unterstützt, muss das Plug-in eine leere Gruppe unterstützter Vorgänge zurückgeben.
 
-    Wenn die Dienst Index und die Paket-Quelle auf null festgelegt sind, kann das Plug-in mit der Authentifizierung beantworten.
+    Wenn der Dienst Index und die Paketquelle NULL sind, kann das Plug-in mit der Authentifizierung Antworten.
 
-18. Abrufen von Authentifizierungsanmeldeinformationen für
+18. Authentifizierungs Anmelde Informationen erhalten
 
-* Anfordern der Richtung: NuGet ->-Plug-in
+* Anforderungs Richtung: Nuget->-Plug-in
 * Die Anforderung enthält Folgendes:
     * URI
-    * isRetry
+    * isretry
     * NonInteractive
-    * CanShowDialog
-* Eine Antwort enthält.
+    * Canshowdialog
+* Eine Antwort enthält
     * Benutzername
     * Kennwort
     * Meldung
-    * Liste der Typen der Authentifizierung
-    * MessageResponseCode
+    * Liste der Authentifizierungs Typen
+    * Messageresponsecode

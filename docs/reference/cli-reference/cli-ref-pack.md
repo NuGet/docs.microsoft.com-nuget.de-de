@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: cab56cb87f46335f9fdebdbc1649fead16459877
-ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
+ms.openlocfilehash: 76829d45ea9821da3b7fdaa2f88d30dbb104fea1
+ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959721"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815365"
 ---
 # <a name="pack-command-nuget-cli"></a>Der Befehl „pack“ (NuGet-CLI)
 
@@ -35,6 +35,7 @@ wobei `<nuspecPath>` und `<projectPath>` angeben der `.nuspec` oder Projektdatei
 | --- | --- |
 | BasePath | Legt den Basispfad der in der [nuspec](../nuspec.md) -Datei definierten Dateien fest. |
 | Build | Gibt an, dass das Projekt erstellt werden soll, bevor das Paket erstellt wird. |
+| Deterministic | Geben Sie an, ob mit dem Befehl ein deterministisches Paket erstellt werden soll. Mehrere Aufrufe des Pack-Befehls generieren genau dasselbe Byte-zu-Byte-Paket. Der Umgebungszustand des Computers wirkt sich nicht auf die Ausgabe des Pack-Befehls aus. Insbesondere ZIP-Einträge werden mit einem Zeitstempel von 1980-01-01. Um vollständigen Determinismus zu erreichen, sollten die Assemblys mit der entsprechenden Compileroption [-deterministisch](/dotnet/csharp/language-reference/compiler-options/deterministic-compiler-option)erstellt werden. |
 | Ausschließen | Gibt ein oder mehrere Platzhalter Muster an, die beim Erstellen eines Pakets ausgeschlossen werden sollen. Wenn Sie mehr als ein Muster angeben möchten, wiederholen Sie das Flag-Exclude. Siehe Beispiel unten. |
 | Excludeemptydirectories | Verhindert die Einbindung leerer Verzeichnisse beim Paket Erstellung. |
 | ForceEnglishOutput | *(3.5* und höher) Erzwingt, dass "nuget. exe" mit einer invarianten, englischen Kultur ausgeführt wird. |
