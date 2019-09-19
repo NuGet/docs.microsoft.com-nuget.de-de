@@ -259,6 +259,7 @@
 ### [NU5123](reference/errors-and-warnings/NU5123.md)
 ### [NU5124](reference/errors-and-warnings/NU5124.md)
 ### [NU5125](reference/errors-and-warnings/NU5125.md)
+### [NU5128](reference/errors-and-warnings/NU5128.md)
 ### [NU5500](reference/errors-and-warnings/NU5500.md)
 ## Archivierte Inhalte
 ### [project.json-Verwaltungsformat](archive/project-json.md)
