@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 5ec6c0e17a3e8b9a3f156a48685bcaafe42c744b
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 7aea28d6224a89149aa33be035c82a45db3058f0
+ms.sourcegitcommit: 1eda83ab537c86cc27316e7bc67f95a358766e63
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488219"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094116"
 ---
 # <a name="package-content"></a>Paket Inhalt
 
@@ -60,7 +60,7 @@ Wenn die Paketquelle mindestens eine Version aufweist, wird ein 200-Statuscode z
 
 Name     | Typ             | Erforderlich | Hinweise
 -------- | ---------------- | -------- | -----
-Versionen | Array von Zeichen folgen | ja      | Verfügbare Paket-IDs
+Versionen | Array von Zeichen folgen | ja      | Verfügbare Versionen
 
 Die Zeichen folgen im `versions` Array sind alle in Kleinbuchstaben, [normalisierten nuget-Versions](../concepts/package-versioning.md#normalized-version-numbers)Zeichenfolgen. Die Versions Zeichenfolgen enthalten keine semver 2.0.0 Build-Metadaten.
 
