@@ -12,12 +12,12 @@ keywords: NuGet-Symbolpakete, Debugging von NuGet-Paketen, Unterstützung von Nu
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 109df18bcfd3e6a3fbd3ef3da1707ffada585140
-ms.sourcegitcommit: f4bfdbf62302c95f1f39e81ccf998f8bbc6d56b0
+ms.openlocfilehash: 5546881dbf7577eb289a28b35bc2c0e7dc5cac40
+ms.sourcegitcommit: 1eda83ab537c86cc27316e7bc67f95a358766e63
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70749027"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094109"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Erstellen von Symbolpaketen (.snupkg)
 
@@ -92,23 +92,23 @@ NuGet veröffentlicht beide Pakete auf nuget.org. `MyPackage.nupkg` wird zuerst 
 
 ## <a name="nugetorg-symbol-server"></a>NuGet.org-Symbolserver
 
-NuGet.org unterstützt das eigene Symbolserverrepository und akzeptiert ausschließlich das neue Symbolpaketformat `.snupkg`. Paketverbraucher können die auf nuget.org-Symbolservern veröffentlichen Symbole verwenden, indem sie `https://symbols.nuget.org/download/symbols` zu ihren Symbolquellen in Visual Studio hinzufügen, wodurch Paketcode im Visual Studio Debugger schrittweise verwendet werden kann. Weitere Einzelheiten zu diesem Prozess finden Sie unter [Angeben von Symbol- (PDB) und Quelldateien im Visual Studio Debugger](https://docs.microsoft.com/en-us/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger?view=vs-2017).
+NuGet.org unterstützt das eigene Symbolserverrepository und akzeptiert ausschließlich das neue Symbolpaketformat `.snupkg`. Paketverbraucher können die auf nuget.org-Symbolservern veröffentlichen Symbole verwenden, indem sie `https://symbols.nuget.org/download/symbols` zu ihren Symbolquellen in Visual Studio hinzufügen, wodurch Paketcode im Visual Studio Debugger schrittweise verwendet werden kann. Weitere Einzelheiten zu diesem Prozess finden Sie unter [Angeben von Symbol- (PDB) und Quelldateien im Visual Studio Debugger](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md).
 
-### <a name="nugetorg-symbol-package-constraints"></a>Einschränkungen für nuget.org-Symbolpakete
+### <a name="nugetorg-symbol-package-constraints"></a>Einschränkungen für NuGet.org-Symbolpakete
 
-Die auf nuget.org unterstützten Symbolpakete unterliegen den folgenden Einschränkungen
+NuGet.org weist die folgenden Einschränkungen für Symbolpakete auf:
 
-- Es dürfen ausschließlich die folgenden Dateierweiterungen an ein Symbolpaket angefügt werden. ```.pdb,.nuspec,.xml,.psmdcp,.rels,.p7s```
-- Auf dem NuGet-Symbolserver werden derzeit nur verwaltete und [portable PDB-Dateien](https://github.com/dotnet/corefx/blob/master/src/System.Reflection.Metadata/specs/PortablePdb-Metadata.md) unterstützt.
-- Die PDB-Dateien und zugehörigen NUPKG-DLLs müssen mit dem Compiler in Visual Studio 15.9 oder höher erstellt worden sein (weiter Informationen unter [pdb crypto hash (Kryptografiehash für PDB-Dateien)](https://github.com/dotnet/roslyn/issues/24429)).
+- Nur die folgenden Dateierweiterungen sind in Symbolpaketen zulässig: `.pdb`, `.nuspec`, `.xml`, `.psmdcp`, `.rels`, `.p7s`
+- Auf dem NuGet-Symbolserver werden nur verwaltete [Portable PDB-Dateien](https://github.com/dotnet/corefx/blob/master/src/System.Reflection.Metadata/specs/PortablePdb-Metadata.md) unterstützt.
+- Die PDB-Dateien und ihre zugehörigen NUPKG-DLLs müssen mit dem Compiler in Visual Studio 15.9 oder höher erstellt worden sein (weitere Informationen unter [PDB crypto hash (Kryptografiehash für PDB-Dateien)](https://github.com/dotnet/roslyn/issues/24429)).
 
-Das auf nuget.org veröffentlichte Symbolpaket schlägt fehl, wenn ein anderer Dateityp in der SNUPKG-Datei enthalten ist.
+Bei Symbol Paketen, die auf NuGet.org veröffentlicht werden, tritt bei der Überprüfung ein Fehler auf, wenn diese Bedingungen nicht erfüllt sind. 
 
 ### <a name="symbol-package-validation-and-indexing"></a>Symbolpaketvalidierung und -indizierung
 
-Per Push an [NuGet.org](https://www.nuget.org/) übertragene Symbolpakete werden verschiedenen Prüfungen, wie z.B. auf Viren, unterzogen.
+Per Push an [NuGet.org](https://www.nuget.org/) übertragene Symbolpakete werden verschiedenen Prüfungen unterzogen, darunter eine Prüfung auf Schadsoftware. Wenn bei einem Paket ein Fehler bei der Überprüfung auftritt, wird auf dessen Paketdetailseite eine Fehlermeldung angezeigt. Darüber hinaus erhalten die Besitzer des Pakets eine E-Mail mit Anweisungen zum Beheben der erkannten Probleme.
 
-Wenn das Paket alle Validierungsüberprüfungen bestanden hat, kann es dennoch eine Weile dauern, bis die Symbole indiziert werden und zur Nutzung über die NuGet.org-Symbolserver bereitstehen. Wenn das Paket eine Validierungsüberprüfung nicht besteht, wird die Paketdetailansicht für NUPKG aktualisiert und zeigt den entsprechenden Fehler an. Auch dann erhalten Sie eine E-Mail-Benachrichtigung.
+Wenn das Symbolpaket alle Überprüfungen bestanden hat, werden die Symbole von den Symbolservern von NuGet.org indiziert. Nach der Indizierung steht ein Symbol dann für die Verwendung durch die NuGet.org-Symbolserver zur Verfügung.
 
 Die Validierung und Indizierung eines Pakets nimmt für gewöhnlich unter 15 Minuten in Anspruch. Wenn das Veröffentlichen des Pakets längere Zeit als erwartet in Anspruch nimmt, besuchen Sie [status.nuget.org](https://status.nuget.org/), um zu überprüfen, ob gerade eine Störung auf nuget.org vorliegt. Wenn alle Systeme in Betrieb sind und das Paket innerhalb einer Stunde nicht erfolgreich veröffentlicht wurde, melden Sie sich auf nuget.org an, und informieren Sie uns über den Link zum Support auf der Paketdetailseite.
 
@@ -132,4 +132,6 @@ Die NUPKG-Datei wäre genau dieselbe wie heute, die SNUPKG-Datei würde jedoch f
 
 ## <a name="see-also"></a>Siehe auch
 
-[Verbesserungen des Debuggens und der Symbole für NuGet-Pakete](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements)
+Erwägen Sie die Verwendung von SourceLink, um das Debuggen des Quellcodes von .NET-Assemblys zu aktivieren. Weitere Informationen finden Sie in der [SourceLink-Anleitung](/dotnet/standard/library-guidance/sourcelink.md).
+
+Weitere Informationen zu Symbolpaketen finden Sie in den Entwurfsspezifikationen für [NuGet Package Debugging & Symbols Improvements](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements) (Debuggen von NuGet-Paketen und Verbesserungen bei Symbolen).

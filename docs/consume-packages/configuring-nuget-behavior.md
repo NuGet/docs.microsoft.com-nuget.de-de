@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: 5309d94fafea9cdfc3699d443393be5d381dd145
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 89127203df0aa1eb24f36b8ec64c5bb4a4d59319
+ms.sourcegitcommit: 1eda83ab537c86cc27316e7bc67f95a358766e63
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317735"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094077"
 ---
 # <a name="common-nuget-configurations"></a>Gängige NuGet-Konfigurationen
 
@@ -25,7 +25,7 @@ Das Verhalten von NuGet wird durch die Eigenschaften gesteuert, die in einer ode
 | Computer | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME`. Wenn `$XDG_DATA_HOME` NULL oder leer ist, wird `~/.local/share` oder `/usr/local/share` verwendet (je nach Betriebssystemverteilung)  | Die Einstellungen gelten für alle Vorgänge auf dem Computer, werden jedoch von allen Einstellungen auf Benutzer- oder Projektebene überschrieben. |
 
 Hinweise für frühere Versionen von NuGet:
-- In NuGet 3.3 und früher wurde ein `.nuget`-Ordner für projektmappenweite Einstellungen verwendet. Diese Datei wird nicht in NuGet 3.4 oder höher verwendet.
+- In NuGet 3.3 und früher wurde ein `.nuget`-Ordner für projektmappenweite Einstellungen verwendet. Dieser Ordner wird in NuGet 3.4 oder höher nicht verwendet.
 - Bei NuGet 2.6 bis 3.x unter Windows befindet sich die Konfigurationsdatei auf Computerebene unter %ProgramData%\NuGet\Config[\\{IDE}[\\{Version}[\\{SKU}]]]\NuGet.Config. Hierbei kann *{IDE}* z.B. für *Visual Studio* stehen, *{Version}* stellt die Version von Visual Studio dar, z.B. *14.0*, und *{SKU}* steht für *Community*, *Professional* oder *Enterprise*. Kopieren Sie die Konfigurationsdatei in %ProgramFiles(x86)%\NuGet\Config, um Einstellungen zu NuGet 4.0 und höher zu migrieren. Unter Linux war der Speicherort zuvor /etc/opt, unter Mac /Library/Application Support.
 
 ## <a name="changing-config-settings"></a>Ändern von Konfigurationseinstellungen
