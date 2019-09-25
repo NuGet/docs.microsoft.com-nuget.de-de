@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: f16bfe5481009f7924a61f03233d288d25ac618f
-ms.sourcegitcommit: f4bfdbf62302c95f1f39e81ccf998f8bbc6d56b0
+ms.openlocfilehash: 96d176beaa6b2f0c4f53488390e585b70c9ba846
+ms.sourcegitcommit: 188ade66b7ac807ba1667c77cfb9325bf89a8a4a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70774086"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71248159"
 ---
 # <a name="nuget-53-release-notes"></a>Anmerkungen zu dieser Version von nuget 5,3
 
@@ -18,11 +18,11 @@ Möglichkeiten der NuGet-Verteilung:
 
 | NuGet-Version | Verfügbar in der Visual Studio-Version| Verfügbar in .NET SDK(s)|
 |:---|:---|:---|
-| [**5.3.0-preview3**](https://nuget.org/downloads) | [Visual Studio 2019, Version 16,3, Vorschau 3](https://visualstudio.microsoft.com/vs/preview/) | [3.0.100-preview9](https://dotnet.microsoft.com/download/dotnet-core/3.0) <sup>1</sup> |
+| [**5.3.0**](https://nuget.org/downloads) | [Visual Studio 2019, Version 16,3](https://visualstudio.microsoft.com/downloads/) | [3.0.100](https://dotnet.microsoft.com/download/dotnet-core/3.0) <sup>1</sup> |
 
 <sup>1</sup> Installiert mit Visual Studio 2019 mit .net Core-Arbeitsauslastung
 
-## <a name="summary-whats-new-in-53-preview-3"></a>Zusammenfassung: Neuerungen in 5,3 Preview 3
+## <a name="summary-whats-new-in-53"></a>Zusammenfassung: Neuerungen in 5,3
 
 * [Das Paket Symbol kann in das Paket eingebettet werden](../reference/msbuild-targets.md#packing-an-icon-image-file), anstatt eine externe URL zu benötigen. - [#352](https://github.com/NuGet/Home/issues/352)
 
@@ -32,6 +32,10 @@ Möglichkeiten der NuGet-Verteilung:
 
 **Fehler**
 
+* Nuget-Pakete, die mit 3.0.100-preview9 SDK erstellt wurden, können von 2,2 SDK-Benutzern nicht verwendet werden... abhängig von Ihrer Zeitzone [#8603](https://github.com/NuGet/Home/issues/8603)
+
+* Anführungszeichen "ungültige Zeichen im Pfad" in `nuget restore` [#8168](https://github.com/NuGet/Home/issues/8168)
+
 * VS: Assemblys sind vollständig ngen-ED, nicht teilweise ngen- [#8513](https://github.com/NuGet/Home/issues/8513)
 
 * Reduzieren der Speicherauslastung (kündigen von Ereignissen)- [#8471](https://github.com/NuGet/Home/issues/8471)
@@ -40,7 +44,7 @@ Möglichkeiten der NuGet-Verteilung:
 
 * NU1403 Verbesserungen-alle Pakete überprüfen, die erwarteten/tatsächlichen SHA-Werte einschließen- [#8424](https://github.com/NuGet/Home/issues/8424)
 
-* Mehrfache Enumeration in "nugetpackagemanager. previewupdatepackagesasync- [#8401](https://github.com/NuGet/Home/issues/8401)
+* Mehrfache Enumeration in `NuGetPackageManager.PreviewUpdatePackagesAsync`  -  [#8401](https://github.com/NuGet/Home/issues/8401)
 
 * "Öffentliche > interne" Änderung in "pluginprocess- [#8390](https://github.com/NuGet/Home/issues/8390) " Zurücksetzen
 
@@ -64,7 +68,7 @@ Möglichkeiten der NuGet-Verteilung:
 
 * Aktivieren der Einstellungen in vs Lazy- [#8156](https://github.com/NuGet/Home/issues/8156)
 
-* Die Regression in "nuget-Quellen hinzufügen" bewirkt, dass das Zeichen ":", Hexadezimalwert 0x3a, nicht in einen Namen eingeschlossen werden kann. Fehler- [#7948](https://github.com/NuGet/Home/issues/7948)
+* Regression in `Nuget sources add` bewirkt, dass das Zeichen "The ':", der hexadezimale Wert 0x3a, nicht in einen Namen eingeschlossen werden kann. Fehler- [#7948](https://github.com/NuGet/Home/issues/7948)
 
 * Anmelde Informationsanbieter für nuget-Plug-in: Ausblenden des Prozess Fensters- [#7511](https://github.com/NuGet/Home/issues/7511)
 
@@ -86,6 +90,4 @@ Möglichkeiten der NuGet-Verteilung:
 
 * Add-SolutionDirectory und-packagedirectory-Optionen zu nuget. exe Pack- [#7163](https://github.com/NuGet/Home/issues/7163)
 
-* Aktivieren Sie das nuget-Paket als deterministisch [#6229](https://github.com/NuGet/Home/issues/6229)
-
-**[Liste aller in dieser Version behobene Probleme-5,3 Preview 3](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%225.3")**
+**[Liste aller Probleme, die in dieser Version behoben wurden: 5,3](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%225.3")**
