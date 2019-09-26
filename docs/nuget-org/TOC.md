@@ -5,7 +5,8 @@
 ## [API-Schlüssel](scoped-api-keys.md)
 # Verwalten von Paketen auf NuGet.org
 ## [Veröffentlichen eines Pakets](publish-a-package.md)
-## [Packen der ID-Präfixreservierung](id-prefix-reservation.md)
+## [Reservierung für Paket-ID-Präfixe](id-prefix-reservation.md)
+## [Veraltetes Paket](deprecate-packages.md)
 # Richtlinien
 ## [Datenanforderungen](policies/Data-requests.md)
 ## [Konfliktlösung](policies/dispute-resolution.md)
