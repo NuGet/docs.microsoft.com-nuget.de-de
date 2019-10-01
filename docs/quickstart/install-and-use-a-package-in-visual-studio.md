@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: d9937a2b087fd88c1e6fd9f07a513b5047bdcf2e
-ms.sourcegitcommit: ac9a00ccaf90e539a381e92b650074910b21eb0d
+ms.openlocfilehash: 92fc78a88733d0308dc26e10c5b0bafb86b78045
+ms.sourcegitcommit: e4b0ff4460865db6dc7bc9f20e9f644d98493011
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70235083"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71307225"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>Schnellstart: Installieren und Verwenden eines Pakets in Visual Studio (nur Windows)
 
@@ -33,7 +33,7 @@ Wenn Sie Visual Studio für Mac verwenden, lesen Sie [Installieren und Verwenden
 
 NuGet-Pakete können in jedem beliebigen .NET-Projekt installiert werden, vorausgesetzt, das Paket unterstützt dasselbe Zielframework wie das Projekt.
 
-Verwenden Sie für diese exemplarische Vorgehensweise eine einfache WPF-App. Erstellen Sie ein Projekt in Visual Studio mit **Datei > Neues Projekt...** , geben Sie **.NET** in das Suchfeld ein, und wählen Sie dann die **WPF App (.NET Framework)** aus. Klicken Sie auf **Weiter**. Akzeptieren Sie die Standardwerte für **Framework**, wenn Sie dazu aufgefordert werden.
+Verwenden Sie für diese exemplarische Vorgehensweise eine einfache WPF-App. Erstellen Sie ein Projekt in Visual Studio mit **Datei** > **Neues Projekt**, geben Sie **.NET** in das Suchfeld ein, und wählen Sie dann die **WPF App (.NET Framework)** aus. Klicken Sie auf **Weiter**. Akzeptieren Sie die Standardwerte für **Framework**, wenn Sie dazu aufgefordert werden.
 
 Visual Studio erstellt das Projekt, das im Projektmappen-Explorer geöffnet wird.
 
@@ -63,7 +63,7 @@ Sie können entweder dem NuGet-Paket-Manager oder die Paket-Manager-Konsole verw
 
 ### <a name="package-manager-console"></a>Paket-Manager-Konsole
 
-1. Wählen Sie den Menübefehl **Tools > NuGet-Paket-Manager > Paket-Manager-Konsole** aus.
+1. Wählen Sie den Menübefehl **Tools** > **NuGet-Paket-Manager** > **Paket-Manager-Konsole** aus.
 
 1. Wenn die Konsole geöffnet wird, überprüfen Sie, ob die Dropdownliste **Standardprojekt** das Projekt anzeigt, in das Sie das Paket installieren möchten. Wenn Sie ein einzelnes Projekt in der Projektmappe haben, ist es bereits ausgewählt.
 
@@ -117,7 +117,7 @@ Wenn das Paket „Newtonsoft.Json“ im Projekt enthalten ist, können Sie die z
     using Newtonsoft.Json;
     ```
 
-1. Erstellen Sie die App, und führen Sie sie aus, indem Sie F5 drücken oder **Debuggen > Debuggen starten** auswählen:
+1. Erstellen Sie die App, und führen Sie sie aus, indem Sie F5 drücken oder **Debuggen** > **Debuggen starten** auswählen:
 
     ![Ursprüngliche Ausgabe der WPF-App](media/QS_Use-06-AppStart.png)
 

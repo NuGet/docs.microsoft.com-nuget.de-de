@@ -6,16 +6,16 @@ ms.author: karann
 ms.date: 09/07/2019
 ms.topic: reference
 ms.reviewer: karann
-ms.openlocfilehash: 630c2b193500ec0b9aa5a7fe4af3ea95ae52aeec
-ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
+ms.openlocfilehash: f6c4a18366b4df20fb210f718d3779e85c08d550
+ms.sourcegitcommit: 188ade66b7ac807ba1667c77cfb9325bf89a8a4a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70815283"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71248121"
 ---
 # <a name="package-id-prefix-reservation"></a>Reservierung für Paket-ID-Präfixe
 
-Paketbesitzer können ihre Identität schützen, indem sie ID-Präfixe reservieren. Paketnutzer erhalten zusätzliche Informationen, wenn sie ein Paket nutzen, dass das verwendete Paket bezüglich identifizierenden Eigenschaften nicht irreführend ist. 
+Paketbesitzer können ihre Identität schützen, indem sie ID-Präfixe reservieren. Paketnutzer erhalten zusätzliche Informationen, wenn die von ihnen genutzten Pakete bezüglich deren identifizierenden Eigenschaften nicht irreführend sind. 
 
 Auf [nuget.org](https://www.nuget.org/) und in Visual Studio 2017 Version 15.4 oder höher wird für ein Paket eine Meldung angezeigt, dessen Besitzer mit einem reservierten Paket-ID-Präfix arbeitet, solange das Paket dem Namensmuster für reservierte ID-Präfixe entspricht. Im Verlauf dieses Artikels wird beschrieben, welche Aspekte bei der ID-Präfixreservierung zu beachten sind und wie ein Besitzer einen ID-Präfix anfordern kann.
 
