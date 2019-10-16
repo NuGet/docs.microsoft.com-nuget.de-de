@@ -5,12 +5,12 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 07/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 74b80b1791dcb403c90bb3032c009717c11ffe57
-ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
+ms.openlocfilehash: 00410214500c7f5256be243dd6fca0907ba9b0c4
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70815302"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380502"
 ---
 # <a name="nuget-cross-platform-plugins"></a>Cross Platform-Plug-ins
 
@@ -70,11 +70,11 @@ Die Kommunikation zwischen den nuget-Client Tools und dem Plug-in ist bidirektio
 ## <a name="plugin-installation-and-discovery"></a>Installation und Ermittlung von Plug-ins
 
 Die Plug-ins werden über eine auf Konventionen basierende Verzeichnisstruktur ermittelt.
-CI/CD-Szenarien und Poweruser können Umgebungsvariablen verwenden, um das Verhalten zu überschreiben. Beachten Sie `NUGET_NETFX_PLUGIN_PATHS` , `NUGET_NETCORE_PLUGIN_PATHS` dass und nur mit einer Version von 5.3 und höher für die nuget-Tools und höher verfügbar sind.
+CI/CD-Szenarien und Poweruser können Umgebungsvariablen verwenden, um das Verhalten zu überschreiben. Wenn Sie Umgebungsvariablen verwenden, sind nur absolute Pfade zulässig. Beachten Sie, dass `NUGET_NETFX_PLUGIN_PATHS` und `NUGET_NETCORE_PLUGIN_PATHS` nur mit einer Version von 5.3 und höher für die nuget-Tools und höher verfügbar sind.
 
-- `NUGET_NETFX_PLUGIN_PATHS`: definiert die Plug-ins, die von den .NET Framework basierten Tools (nuget. exe/MSBuild. exe/Visual Studio) verwendet werden. Hat Vorrang `NUGET_PLUGIN_PATHS`vor. (Nur nuget-Version 5.3 +)
-- `NUGET_NETCORE_PLUGIN_PATHS`: definiert die Plug-ins, die von den .net Core-basierten Tools (dotnet. exe) verwendet werden. Hat Vorrang `NUGET_PLUGIN_PATHS`vor. (Nur nuget-Version 5.3 +)
-- `NUGET_PLUGIN_PATHS`: definiert die Plug-ins, die für den nuget-Prozess verwendet werden, für die die Priorität reserviert ist. Wenn diese Umgebungsvariable festgelegt ist, wird die auf der Konvention basierende Ermittlung überschrieben. Wird ignoriert, wenn eine der Framework-spezifischen Variablen angegeben wird.
+- `NUGET_NETFX_PLUGIN_PATHS`: definiert die Plug-ins, die von den .NET Framework basierten Tools (nuget. exe/MSBuild. exe/Visual Studio) verwendet werden. Hat Vorrang vor `NUGET_PLUGIN_PATHS`. (Nur nuget-Version 5.3 +)
+- `NUGET_NETCORE_PLUGIN_PATHS`: definiert die Plug-ins, die von den .net Core-basierten Tools (dotnet. exe) verwendet werden. Hat Vorrang vor `NUGET_PLUGIN_PATHS`. (Nur nuget-Version 5.3 +)
+- `NUGET_PLUGIN_PATHS`: definiert die Plug-ins, die für den nuget-Prozess verwendet werden. die Priorität wird beibehalten. Wenn diese Umgebungsvariable festgelegt ist, wird die auf der Konvention basierende Ermittlung überschrieben. Wird ignoriert, wenn eine der Framework-spezifischen Variablen angegeben wird.
 -  Benutzer-Location: der nuget-Start Speicherort in `%UserProfile%/.nuget/plugins`. Dieser Speicherort kann nicht überschrieben werden. Für .net Core-und .NET Framework-Plug-ins wird ein anderes Stammverzeichnis verwendet.
 
 | Framework | Speicherort der Stamm Ermittlung  |
@@ -123,20 +123,20 @@ Ein potenzielles Problem könnte bei den Benutzer-/Speicherort-Plug-ins auftrete
 Die Sicherheitsüberprüfung und-Instanziierung der Plug-ins ist aufwendig. Der Downloadvorgang erfolgt häufiger als der Authentifizierungs Vorgang, aber der durchschnittliche nuget-Benutzer hat wahrscheinlich nur ein Authentifizierungs-Plug-in.
 Um die Leistung zu verbessern, speichert nuget die Vorgangs Ansprüche für die angegebene Anforderung zwischen. Dieser Cache ist pro Plug-in, wobei der Plug-in-Pfad der Plug-in-Pfad ist, und der Ablauf für diesen Funktions Cache beträgt 30 Tage. 
 
-Der Cache befindet sich in `%LocalAppData%/NuGet/plugins-cache` und ist mit der Umgebungsvariablen `NUGET_PLUGINS_CACHE_PATH`überschrieben. Zum Löschen dieses [Caches](../../consume-packages/managing-the-global-packages-and-cache-folders.md)können Sie den Befehl "Locals" mit der `plugins-cache` Option ausführen.
-Die `all` Option "Locals" löscht nun auch den Plug-in-Cache. 
+Der Cache befindet sich in `%LocalAppData%/NuGet/plugins-cache` und wird mit der Umgebungsvariablen `NUGET_PLUGINS_CACHE_PATH` überschrieben. Um diesen [Cache](../../consume-packages/managing-the-global-packages-and-cache-folders.md)zu löschen, kann der Befehl "Locals" mit der Option "`plugins-cache`" ausgeführt werden.
+Mit der Option "`all` lokal" wird nun auch der Plug-in-Cache gelöscht. 
 
 ## <a name="protocol-messages-index"></a>Protokollnachrichten Index
 
 Protokoll Version *1.0.0* :
 
 1.  Schließen
-    * Anforderungs Richtung:  Nuget->-Plug-in
+    * Anforderungs Richtung: nuget->-Plug-in
     * Die Anforderung enthält keine Nutzlast.
     * Es wird keine Antwort erwartet.  Die richtige Antwort besteht darin, dass der Plug-in-Prozess umgehend beendet wird.
 
 2.  Dateien in Paket kopieren
-    * Anforderungs Richtung:  Nuget->-Plug-in
+    * Anforderungs Richtung: nuget->-Plug-in
     * Die Anforderung enthält Folgendes:
         * die Paket-ID und die Version
         * Speicherort des Paket Quell Repository
@@ -147,7 +147,7 @@ Protokoll Version *1.0.0* :
         * ein Aufzähl barer vollständiger Pfad für kopierte Dateien im Zielverzeichnis, wenn der Vorgang erfolgreich war.
 
 3.  Paketdatei kopieren (nupkg-Datei)
-    * Anforderungs Richtung:  Nuget->-Plug-in
+    * Anforderungs Richtung: nuget->-Plug-in
     * Die Anforderung enthält Folgendes:
         * die Paket-ID und die Version
         * Speicherort des Paket Quell Repository
@@ -166,7 +166,7 @@ Protokoll Version *1.0.0* :
         * ein Kennwort, falls verfügbar
 
 5.  Dateien im Paket erhalten
-    * Anforderungs Richtung:  Nuget->-Plug-in
+    * Anforderungs Richtung: nuget->-Plug-in
     * Die Anforderung enthält Folgendes:
         * die Paket-ID und die Version
         * Speicherort des Paket Quell Repository
@@ -175,7 +175,7 @@ Protokoll Version *1.0.0* :
         * ein Aufzähl bares Element von Dateipfaden im Paket, wenn der Vorgang erfolgreich war.
 
 6.  Vorgangs Ansprüche abrufen 
-    * Anforderungs Richtung:  Nuget->-Plug-in
+    * Anforderungs Richtung: nuget->-Plug-in
     * Die Anforderung enthält Folgendes:
         * der Dienst Index. JSON für eine Paketquelle
         * Speicherort des Paket Quell Repository
@@ -187,7 +187,7 @@ Protokoll Version *1.0.0* :
 > Diese Meldung wurde in Version *2.0.0*aktualisiert. Sie befindet sich auf dem Client, um die Abwärtskompatibilität aufrechtzuerhalten.
 
 7.  Pakethash erhalten
-    * Anforderungs Richtung:  Nuget->-Plug-in
+    * Anforderungs Richtung: nuget->-Plug-in
     * Die Anforderung enthält Folgendes:
         * die Paket-ID und die Version
         * Speicherort des Paket Quell Repository
@@ -197,7 +197,7 @@ Protokoll Version *1.0.0* :
         * ein paketdateihash, der den angeforderten Hash Algorithmus verwendet, wenn der Vorgang erfolgreich war.
 
 8.  Paketversionen erhalten
-    * Anforderungs Richtung:  Nuget->-Plug-in
+    * Anforderungs Richtung: nuget->-Plug-in
     * Die Anforderung enthält Folgendes:
         * die Paket-ID
         * Speicherort des Paket Quell Repository
@@ -214,7 +214,7 @@ Protokoll Version *1.0.0* :
         * der Dienst Index, wenn der Vorgang erfolgreich war.
 
 10.  Shakes
-     * Anforderungs Richtung:  Nuget-<->-Plug-in
+     * Anforderungs Richtung: nuget-<->-Plug-in
      * Die Anforderung enthält Folgendes:
          * die aktuelle Plug-in-Protokollversion
          * die minimal unterstützte Plug-in-Protokollversion
@@ -223,7 +223,7 @@ Protokoll Version *1.0.0* :
          * die ausgehandelte Protokollversion, wenn der Vorgang erfolgreich war.  Ein Fehler führt zu einer Beendigung des Plug-ins.
 
 11.  Initialize
-     * Anforderungs Richtung:  Nuget->-Plug-in
+     * Anforderungs Richtung: nuget->-Plug-in
      * Die Anforderung enthält Folgendes:
          * die Version des nuget-Client Tools
          * die effektive Sprache des nuget-Client Tools.  Dabei wird ggf. die Einstellung "forceengloutput" berücksichtigt.
@@ -240,14 +240,14 @@ Protokoll Version *1.0.0* :
          * ein Antwort Code, der das Ergebnis des Vorgangs angibt.
 
 13.  Überwachen von nuget-Prozess beenden
-     * Anforderungs Richtung:  Nuget->-Plug-in
+     * Anforderungs Richtung: nuget->-Plug-in
      * Die Anforderung enthält Folgendes:
          * die nuget-Prozess-ID
      * Eine Antwort enthält Folgendes:
          * ein Antwort Code, der das Ergebnis des Vorgangs angibt.
 
 14.  Paket vorab abrufen
-     * Anforderungs Richtung:  Nuget->-Plug-in
+     * Anforderungs Richtung: nuget->-Plug-in
      * Die Anforderung enthält Folgendes:
          * die Paket-ID und die Version
          * Speicherort des Paket Quell Repository
@@ -255,7 +255,7 @@ Protokoll Version *1.0.0* :
          * ein Antwort Code, der das Ergebnis des Vorgangs angibt.
 
 15.  Anmelde Informationen festlegen
-     * Anforderungs Richtung:  Nuget->-Plug-in
+     * Anforderungs Richtung: nuget->-Plug-in
      * Die Anforderung enthält Folgendes:
          * Speicherort des Paket Quell Repository
          * der letzte bekannte Paket Quell Benutzername, falls verfügbar
@@ -266,7 +266,7 @@ Protokoll Version *1.0.0* :
          * ein Antwort Code, der das Ergebnis des Vorgangs angibt.
 
 16.  Festlegen der Protokollebene
-     * Anforderungs Richtung:  Nuget->-Plug-in
+     * Anforderungs Richtung: nuget->-Plug-in
      * Die Anforderung enthält Folgendes:
          * die Standardprotokoll Ebene
      * Eine Antwort enthält Folgendes:
@@ -276,7 +276,7 @@ Protokoll Version *2.0.0* -Nachrichten
 
 17. Vorgangs Ansprüche abrufen
 
-* Anforderungs Richtung:  Nuget->-Plug-in
+* Anforderungs Richtung: nuget->-Plug-in
     * Die Anforderung enthält Folgendes:
         * der Dienst Index. JSON für eine Paketquelle
         * Speicherort des Paket Quell Repository
@@ -288,15 +288,15 @@ Protokoll Version *2.0.0* -Nachrichten
 
 18. Authentifizierungs Anmelde Informationen erhalten
 
-* Anforderungs Richtung: Nuget->-Plug-in
+* Anforderungs Richtung: nuget->-Plug-in
 * Die Anforderung enthält Folgendes:
     * URI
     * isretry
-    * NonInteractive
+    * Nicht interaktive
     * Canshowdialog
 * Eine Antwort enthält
     * Benutzername
     * Kennwort
-    * Meldung
+    * Nachricht
     * Liste der Authentifizierungs Typen
     * Messageresponsecode

@@ -6,26 +6,26 @@ ms.author: karann
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: ea9f699b202d7f32648f0ccfeac3ceb1ca325b7e
-ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
+ms.openlocfilehash: caa1509fd996c54f7de17e86559ea62ef67f749f
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68342442"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380485"
 ---
 # <a name="target-frameworks"></a>Zielframeworks
 
 NuGet verwendet Zielframeworkverweise an vielen Stellen, um die Framework-abhängigen Komponenten eines Pakets zu identifizieren und zu isolieren:
 
-- [Projektdatei](../create-packages/multiple-target-frameworks-project-file.md): Für Projekte im SDK-Stil enthält die *csproj* -Datei die zielframeworkverweise.
-- [nuspec-Manifest](../reference/nuspec.md): Ein Paket kann angeben, dass unterschiedliche Pakete in ein Projekt eingeschlossen werden sollen, abhängig vom Ziel Framework des Projekts.
-- [nupkg-Ordnername](../create-packages/creating-a-package.md#from-a-convention-based-working-directory): Die Ordner im `lib` Ordner eines Pakets können gemäß dem Ziel Framework benannt werden, von denen jede die DLLs und andere Inhalte enthält, die für dieses Framework geeignet sind.
-- [packages.config](../reference/packages-config.md): Das `targetframework` -Attribut einer Abhängigkeit gibt die Variante eines zu installierenden Pakets an.
+- [Projektdatei](../create-packages/multiple-target-frameworks-project-file.md): für Projekte im SDK-Stil enthält die *csproj* -Datei die zielframeworkverweise.
+- [NUSPEC-Manifest:](../reference/nuspec.md) Ein Paket kann unterschiedliche Pakete angeben, die je nach Zielframework in ein Projekt eingeschlossen werden sollen.
+- [NUPKG-Ordnername:](../create-packages/creating-a-package.md#from-a-convention-based-working-directory) Die Ordner innerhalb des `lib`-Ordners eines Pakets können dem Zielframework entsprechend benannt werden. Jeder Ordner enthält die DLLs und andere geeignete Inhalte für das jeweilige Framework.
+- [packages.config:](../reference/packages-config.md) Das `targetframework`-Attribut einer Abhängigkeit gibt die Variante eines Pakets an, das installiert werden soll.
 
 > [!Note]
 > Der Quellcode des NuGet-Clients, der die folgenden Tabellen berechnet, befindet sich an folgenden Speicherorten:
-> - Unterstützte frameworknamen: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
-> - Framework-Rangfolge und-Zuordnung: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
+> - Unterstützte Frameworknamen: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
+> - Rangfolge und Zuordnung von Frameworks: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
 
 ## <a name="supported-frameworks"></a>Unterstützte Frameworks
 
@@ -33,7 +33,7 @@ Auf ein Framework wird in der Regel durch einen kurzen Zielframeworkmoniker (Tar
 
 Die NuGet-Clients unterstützen die in der folgenden Tabelle aufgelisteten Frameworks. Äquivalente werden in eckigen Klammern angegeben. Beachten Sie, dass einige Tools (z.B. `dotnet`) möglicherweise Variationen von kanonischen TFMs in einigen Dateien verwenden. `dotnet pack` verwendet beispielsweise `.NETCoreApp2.0` statt `netcoreapp2.0` in einer `.nuspec`-Datei. Die verschiedenen NuGet-Clienttools verarbeiten diese Variationen ordnungsgemäß, Sie sollten jedoch immer kanonische TFMs verwenden, wenn Sie Dateien direkt bearbeiten.
 
-| Name | Abkürzung | TFMs/TxMs |
+| -Name | Abkürzung | TFMs/TxMs |
 | ------------- | ------------ | --------- |
 |.NET Framework | net | net11 |
 | | | net20 |
@@ -83,6 +83,7 @@ Universelle Windows-Plattform | uap | uap [uap10.0] |
 | | | netcoreapp2.0 |
 | | | netcoreapp2.1 |
 | | | netcoreapp2.2 |
+| | | netcoreapp3.0 |
 Tizen | tizen | tizen3 |
 | | | tizen4 |
 
@@ -283,7 +284,7 @@ Zusätzliche Frameworks, die von Drittanbietern definiert wurden, sind mit ander
 
 Darüber hinaus können NuGet-Pakete, die Xamarin anzielen, zusätzliche für Xamarin definierte Frameworks verwenden. Weitere Informationen finden Sie unter [Creating NuGet packages for Xamarin (Erstellen von NuGet-Paketen für Xamarin)](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/).
 
-| Name | Beschreibung | .NET-Standard |
+| -Name | Beschreibung | .NET-Standard |
 | --- | --- | ---
 | monoandroid | Mono-Unterstützung für Android | netstandard1.4 |
 | monotouch | Mono-Unterstützung für iOS | netstandard1.4 |
