@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8c1d8a479747f6f7bce388c1555589543c8824a0
-ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
+ms.openlocfilehash: 1d23759433efb405fa5f0035049befced2c43d6b
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69020059"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380675"
 ---
 # <a name="support-multiple-net-framework-versions-in-your-project-file"></a>Unterstützung für mehrere .NET Framework-Versionen in der Projektdatei
 
@@ -27,7 +27,7 @@ Für Projekte im SDK-Stil können Sie die Unterstützung für mehrere Zielframew
 
    Es wird empfohlen, dass Sie eine .NET Standard-Klassenbibliothek erstellen, um die bestmögliche Kompatibilität zu erzielen.
 
-2. Bearbeiten Sie die *CSPROJ*-Datei, damit diese die Zielframeworks unterstützt. Ändern Sie beispielsweise
+2. Bearbeiten Sie die *CSPROJ*-Datei, damit diese das Zielframe unterstützt. Ändern Sie beispielsweise
    
    `<TargetFramework>netstandard2.0</TargetFramework>`
    
@@ -37,7 +37,7 @@ Für Projekte im SDK-Stil können Sie die Unterstützung für mehrere Zielframew
 
    Stellen Sie sicher, dass Sie das XML-Element ändern, das von Singular auf Plural geändert wurde (fügen Sie das „s“ sowohl zu den geöffneten als auch zu den schließenden Tags hinzu).
 
-3. Wenn Sie einen Code haben, der nur in einem TFM funktioniert, können Sie mit `#if NET45` oder `#if NETSTANDARD20` den TFM-abhängigen Code trennen. (Weitere Informationen finden Sie unter [So legen Sie die Zielversion fest](/dotnet/core/tutorials/libraries#how-to-multitarget).) Verwenden Sie z.B. den folgenden Code:
+3. Wenn Sie einen Code haben, der nur in einem TFM funktioniert, können Sie mit `#if NET45` oder `#if NETSTANDARD2_0` den TFM-abhängigen Code trennen. (Weitere Informationen finden Sie unter [So legen Sie die Zielversion fest](/dotnet/core/tutorials/libraries#how-to-multitarget).) Verwenden Sie z.B. den folgenden Code:
 
    ```csharp
    public string Platform {

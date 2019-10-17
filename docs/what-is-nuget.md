@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: overview
-ms.openlocfilehash: 435103b600f14b9bbf606c09f0c870115204d5c7
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: a08ac24ce6b1d64496c9fc1b20604850e9711dd6
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488493"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380674"
 ---
 # <a name="an-introduction-to-nuget"></a>Eine Einführung in NuGet
 
@@ -105,7 +105,7 @@ Damit diese Prozesse effizient arbeiten, führt NuGet einige Optimierungen im Hi
 
 Innerhalb eines individuellen Projekts verwaltet NuGet den gesamten Abhängigkeitsdiagramm, was die Auflösung mehrerer Verweise auf verschiedene Versionen des selben Pakets enthält. Es ist üblich, dass ein Projekt eine Abhängigkeit von ein oder mehreren Paketen annimmt, die über die gleichen Abhängigkeiten verfügen. Einige der nützlichsten Hilfsprogrammpakete auf nuget.org werden von vielen anderen Paketen verwendet. Im gesamten Abhängigkeitsdiagramm, können dann sehr leicht zehn unterschiedliche Verweise auf verschiedene Versionen desselben Pakets vorkommen. NuGet sortiert aus, welche Version von allen Verbrauchern verwendet werden kann, um zu verhindern, dass mehrere Versionen eines Pakets in die Anwendung selbst platziert werden. (Weitere Informationen finden Sie unter [Auflösung von Abhängigkeiten](concepts/dependency-resolution.md).)
 
-Darüber hinaus behält NuGet alle Spezifikationen im Zusammenhang mit der Struktur von Paketen (einschließlich [Lokalisierung](create-packages/creating-localized-packages.md) und [Debugsymbole](create-packages/symbol-packages.md)) und wie auf sie [verwiesen](consume-packages/package-references-in-project-files.md) wird (einschließlich [Versionsbereiche](concepts/package-versioning.md#version-ranges-and-wildcards) und [Vorabversionen](create-packages/prerelease-packages.md)) bei. NuGet stellt auch verschiedene APIs für die programmgesteuerte Arbeit mit seinen Diensten bereit und unterstützt Entwickler, die Visual Studio-Erweiterungen und Projektvorlagen.
+Darüber hinaus behält NuGet alle Spezifikationen im Zusammenhang mit der Struktur von Paketen (einschließlich [Lokalisierung](create-packages/creating-localized-packages.md) und [Debugsymbole](create-packages/symbol-packages-snupkg.md)) und wie auf sie [verwiesen](consume-packages/package-references-in-project-files.md) wird (einschließlich [Versionsbereiche](concepts/package-versioning.md#version-ranges-and-wildcards) und [Vorabversionen](create-packages/prerelease-packages.md)) bei. NuGet stellt auch verschiedene APIs für die programmgesteuerte Arbeit mit seinen Diensten bereit und unterstützt Entwickler, die Visual Studio-Erweiterungen und Projektvorlagen.
 
 Im Inhaltsverzeichnis dieser Dokumentation finden Sie alle hier dargestellten Funktionen und Versionshinweise, die bis zu den Anfängen von NuGet zurückgehen.
 
