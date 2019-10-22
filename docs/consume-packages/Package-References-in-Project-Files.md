@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: ae80206117eed639140a0c7977043d8330bc37bb
-ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
+ms.openlocfilehash: 892483760a9f3568da7101663e93c69ce3d70b96
+ms.sourcegitcommit: 8a424829b1f70cf7590e95db61997af6ae2d7a41
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/17/2019
-ms.locfileid: "69564569"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72510814"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Paketverweise (PackageReference) in Projektdateien
 
@@ -236,11 +236,12 @@ ProjectA
 Wenn `ProjectA` eine Abhängigkeit von einer `PackageX`-Version `2.0.0` aufweist und auch auf `ProjectB` verweist, das von der `PackageX`-Version `1.0.0` abhängig ist, listet die Sperrdatei für `ProjectB` eine Abhängigkeit von der `PackageX`-Version `1.0.0` auf. Wenn `ProjectA` jedoch erstellt wird, enthält die Sperrdatei eine Abhängigkeit von der `PackageX`-Version **`2.0.0`** und **nicht** von `1.0.0`, wie in der Sperrdatei für `ProjectB` aufgelistet. Daher hat die Sperrdatei eines Projekts mit gemeinsamem Code nur wenig Aussagekraft für die verwendeten Pakete für Projekte, die von diesem Projekt abhängig sind.
 
 ### <a name="lock-file-extensibility"></a>Erweiterbarkeit der Sperrdatei
+
 Sie können mit einer Sperrdatei verschiedene Verhaltensweisen der Wiederherstellung steuern, wie im Folgenden beschrieben:
 
-| Option | Entsprechende MSBuild-Option | 
-|:---  |:--- |
-| `--use-lock-file` | Bootstrapverwendung einer Sperrdatei für ein Projekt. Alternativ dazu können Sie die `RestorePackagesWithLockFile`-Eigenschaft in der Projektdatei festlegen. | 
-| `--locked-mode` | Ermöglicht den Sperrmodus für die Wiederherstellung. Dies ist nützlich in CI/CD-Szenarien, in denen Sie wiederholbare Builds erhalten möchten. Dieses Verhalten können Sie auch erreichen, indem Sie die MSBuild-Eigenschaft `RestoreLockedMode` auf `true` festlegen. |  
-| `--force-evaluate` | Diese Option ist nützlich bei Paketen, bei denen im Projekt unverankerte Versionen definiert sind. Standardmäßig aktualisiert die NuGet-Wiederherstellung die Paketversion nicht automatisch bei jedem Wiederherstellungsvorgang, wenn Sie diesen Vorgang nicht mit der `--force-evaluate`-Option ausführen. |
-| `--lock-file-path` | Definiert einen benutzerdefinierten Speicherort der Sperrdatei für ein Projekt. Dieses Verhalten können Sie auch erreichen, indem Sie die MSBuild-Eigenschaft `NuGetLockFilePath` festlegen. Standardmäßig unterstützt NuGet `packages.lock.json` im Stammverzeichnis. Wenn Sie über mehrere Projekte im gleichen Verzeichnis verfügen, unterstützt NuGet die projektspezifische Sperrdatei `packages.<project_name>.lock.json`. |
+| Option | Entsprechende MSBuild-Option | BESCHREIBUNG|
+|:---  |:--- |:--- |
+| `--use-lock-file` | RestorePackagesWithLockFile | Ermöglicht die Verwendung einer Sperrdatei. | 
+| `--locked-mode` | RestoreLockedMode | Ermöglicht den Sperrmodus für die Wiederherstellung. Dies ist nützlich in CI/CD-Szenarien, in denen Sie wiederholbare Builds wünschen.|   
+| `--force-evaluate` | RestoreForceEvaluate | Diese Option ist nützlich bei Paketen, bei denen im Projekt unverankerte Versionen definiert sind. Standardmäßig aktualisiert die NuGet-Wiederherstellung die Paketversion nicht automatisch bei jedem Wiederherstellungsvorgang, wenn Sie diesen Vorgang nicht mit dieser Option ausführen. |
+| `--lock-file-path` | NuGetLockFilePath | Definiert einen benutzerdefinierten Speicherort der Sperrdatei für ein Projekt. Standardmäßig unterstützt NuGet `packages.lock.json` im Stammverzeichnis. Wenn Sie über mehrere Projekte im gleichen Verzeichnis verfügen, unterstützt NuGet die projektspezifische Sperrdatei `packages.<project_name>.lock.json`. |
