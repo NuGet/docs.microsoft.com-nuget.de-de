@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: 683ee7d1bef30d0a7414ec1694a9735d79b2ab45
-ms.sourcegitcommit: c529f5944868a0692ca8550b716a73e05df0ccbf
+ms.openlocfilehash: 3418eb9b60123596eaa361a546e8ea1403396f14
+ms.sourcegitcommit: f9645fc5f49c18978e12a292a3f832e162e069d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687892"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72924597"
 ---
 # <a name="nuget-53-release-notes"></a>Anmerkungen zu dieser Version von nuget 5,3
 
@@ -18,17 +18,17 @@ Möglichkeiten der NuGet-Verteilung:
 
 | NuGet-Version | Verfügbar in der Visual Studio-Version| Verfügbar in .NET SDK(s)|
 |:---|:---|:---|
-| [**5.3.0**](https://nuget.org/downloads) | [Visual Studio 2019, Version 16,3](https://visualstudio.microsoft.com/downloads/) | [3.0.100](https://dotnet.microsoft.com/download/dotnet-core/3.0) <sup>1</sup> |
-
+| [**5.3.0**](https://nuget.org/downloads) | [Visual Studio 2019, Version 16,3](https://visualstudio.microsoft.com/downloads/) | [3.0.100](https://dotnet.microsoft.com/download/dotnet-core/3.0)<sup>1</sup> |
+| [**5.3.1**](https://nuget.org/downloads) | [Visual Studio 2019 Version 16.3.6](https://visualstudio.microsoft.com/downloads/) | [Zukünftige Version: 3.0.101](https://dotnet.microsoft.com/download/dotnet-core/3.0) |
 <sup>1</sup> Installiert mit Visual Studio 2019 mit .net Core-Arbeitsauslastung
 
-## <a name="summary-whats-new-in-53"></a>Zusammenfassung: Neuerungen in 5,3
+## <a name="summary-whats-new-in-53"></a>Zusammenfassung: Neues in 5,3
 
 * [Das Paket Symbol kann in das Paket eingebettet werden](../reference/msbuild-targets.md#packing-an-icon-image-file), anstatt eine externe URL zu benötigen. - [#352](https://github.com/NuGet/Home/issues/352)
 
 * Verbesserte Sicherheit mit SHA-Nachverfolgung und-Erzwingung für Packages. config- [#7281](https://github.com/NuGet/Home/issues/7281)
 
-* Aktivieren der veralteten/Legacy-nuget-Pakete [#2867](https://github.com/NuGet/Home/issues/2867) | -[Blog Beitrag](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/) | [docs](https://docs.microsoft.com/en-us/nuget/nuget-org/deprecate-packages)
+* Aktivieren von veralteten/Legacy-nuget-Paketen [#2867](https://github.com/NuGet/Home/issues/2867) | [Blog Beitrag](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/) | [docs](https://docs.microsoft.com/en-us/nuget/nuget-org/deprecate-packages)
 
 ### <a name="issues-fixed-in-this-release"></a>In diesem Release behobene Probleme
 
@@ -46,7 +46,7 @@ Möglichkeiten der NuGet-Verteilung:
 
 * NU1403 Verbesserungen-alle Pakete überprüfen, die erwarteten/tatsächlichen SHA-Werte einschließen- [#8424](https://github.com/NuGet/Home/issues/8424)
 
-* Mehrfache Enumeration in `NuGetPackageManager.PreviewUpdatePackagesAsync`  -  [#8401](https://github.com/NuGet/Home/issues/8401)
+* Mehrfache Enumeration in `NuGetPackageManager.PreviewUpdatePackagesAsync` - [#8401](https://github.com/NuGet/Home/issues/8401)
 
 * "Öffentliche > interne" Änderung in "pluginprocess- [#8390](https://github.com/NuGet/Home/issues/8390) " Zurücksetzen
 
@@ -70,7 +70,7 @@ Möglichkeiten der NuGet-Verteilung:
 
 * Aktivieren der Einstellungen in vs Lazy- [#8156](https://github.com/NuGet/Home/issues/8156)
 
-* Regression in `Nuget sources add` bewirkt, dass das Zeichen "The ':", der hexadezimale Wert 0x3a, nicht in einen Namen eingeschlossen werden kann. Fehler- [#7948](https://github.com/NuGet/Home/issues/7948)
+* Regression in `Nuget sources add` bewirkt, dass das Zeichen "The": ", der Hexadezimalwert 0x3a, nicht in einen Namen eingeschlossen werden kann [#7948](https://github.com/NuGet/Home/issues/7948)
 
 * Anmelde Informationsanbieter für nuget-Plug-in: Ausblenden des Prozess Fensters- [#7511](https://github.com/NuGet/Home/issues/7511)
 
@@ -86,10 +86,16 @@ Möglichkeiten der NuGet-Verteilung:
 
 * Wiederherstellung für proj-Dateien aktivieren- [#8212](https://github.com/NuGet/Home/issues/8212)
 
-* Stellen `NUGET_NETFX_PLUGIN_PATHS` Sie `NUGET_NETCORE_PLUGIN_PATHS` und zur Unterstützung der Konfiguration von beiden zur gleichen Zeit bereit [#8151](https://github.com/NuGet/Home/issues/8151)
+* Führen Sie `NUGET_NETFX_PLUGIN_PATHS` und `NUGET_NETCORE_PLUGIN_PATHS` ein, um die Konfiguration von beiden zur gleichen Zeit zu unterstützen [#8151](https://github.com/NuGet/Home/issues/8151)
 
 * Aktivieren mehrerer Versionen für einen packagedownload über das Version-Attribut- [#8074](https://github.com/NuGet/Home/issues/8074)
 
 * Add-SolutionDirectory und-packagedirectory-Optionen zu nuget. exe Pack- [#7163](https://github.com/NuGet/Home/issues/7163)
 
 **[Liste aller Probleme, die in dieser Version behoben wurden: 5,3](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%225.3")**
+
+## <a name="summary-whats-new-in-531"></a>Zusammenfassung: Neues in 5.3.1
+
+* Plug-in: eine Aufgabe wurde abgebrochen. die Kündigung lässt keine Auswirkung auf die Plug [#8648](https://github.com/NuGet/Home/issues/8648) -in-Instanziierung
+
+* Restore-Tasks können nicht auf sichere Weise zweimal in einem Prozess ausgeführt werden (wenn Anmelde Informationsanbieter verwendet werden)- [#8688](https://github.com/NuGet/Home/issues/8688)

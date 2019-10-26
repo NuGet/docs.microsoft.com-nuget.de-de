@@ -1,42 +1,40 @@
 ---
-title: NuGet-Client-SDK
-description: Die API sich entwickelnden und noch nicht dokumentiert, aber Beispiele stehen Dave Glicks-Blog.
+title: Nuget-Client-SDK
+description: Die API wird weiterentwickelt und noch nicht dokumentiert, aber Beispiele sind im Blog von Dave Glick verfügbar.
 author: karann-msft
 ms.author: karann
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8f96bf289e8121fd25262fb95c2f36dfc89045c5
-ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
+ms.openlocfilehash: 873bde467a39653b818b49173d53bc983e99d1b9
+ms.sourcegitcommit: f9645fc5f49c18978e12a292a3f832e162e069d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58911035"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72924607"
 ---
-# <a name="nuget-client-sdk"></a>NuGet-Client-SDK
+# <a name="nuget-client-sdk"></a>Nuget-Client-SDK
+
+Das *nuget-Client-SDK* bezieht sich auf eine Gruppe von nuget-Paketen, die auf [nuget-Befehle](https://www.nuget.org/packages/NuGet.Commands), [nuget. Packaging](https://www.nuget.org/packages/NuGet.Packaging)und [nuget. Protocol](https://www.nuget.org/packages/NuGet.Protocol)zentriert sind. Diese Pakete ersetzen die frühere [nuget. Core](https://www.nuget.org/packages/NuGet.Core/) -Bibliothek.
 
 > [!Note]
-> Nicht zu verwechseln mit der [NuGet *Web* API](https://docs.microsoft.com/en-us/nuget/api/overview)
-
-Die *NuGet-Client-SDK* bezieht sich auf eine Gruppe von Bibliotheken für .NET zentraler Punkt [NuGet.Commands](https://www.nuget.org/packages/NuGet.Commands), [Nuget.Packaging](https://www.nuget.org/packages/NuGet.Packaging), und [NuGet.Protocol](https://www.nuget.org/packages/NuGet.Protocol). Diese Pakete ersetzt die frühere [NuGet.Core](https://www.nuget.org/packages/NuGet.Core/) Bibliothek.
-
-Wir arbeiten, haben Sie eine stabile Oberfläche, die wir in Kürze dokumentiert werden können.
+>  Dokumentation zum nuget-Server Protokoll finden Sie in der [nuget-Server-API](~/api/overview.md).
 
 ## <a name="source-code"></a>Quellcode
 
-Der Quellcode ist im Projekt auf GitHub veröffentlichten [NuGet/NuGet.Client](https://github.com/NuGet/NuGet.Client).
+Der Quellcode wird auf GitHub im Projekt " [nuget/nuget. Client](https://github.com/NuGet/NuGet.Client)" veröffentlicht.
 
-## <a name="third-party-documentation"></a>Drittanbieter-Dokumentation
+## <a name="third-party-documentation"></a>Dokumentation von Drittanbietern
 
-Sie finden Beispiele und Dokumentation für einige der API in den folgenden Blog von Dave Glick, 2016 veröffentlicht:
+Beispiele und Dokumentationen für einige der APIs finden Sie in der folgenden Blog Reihe von Dave Glick, veröffentlicht 2016:
 
-- [Untersuchen die NuGet-v3-Bibliotheken, Teil 1: Einführung und Konzepte](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
-- [Untersuchen die NuGet-v3-Bibliotheken, Teil 2: Pakete werden gesucht](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
-- [Untersuchen die NuGet-v3-Bibliotheken, Teil 3: Installieren von Paketen](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
+- [Erkunden der nuget V3-Bibliotheken, Teil 1: Einführung und Konzepte](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
+- [Erkunden der nuget V3-Bibliotheken, Teil 2: Suchen nach Paketen](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
+- [Erkunden der nuget V3-Bibliotheken, Teil 3: Installieren von Paketen](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
 
 > [!Note]
-> Diese Blogbeiträge wurde kurz nach der **3.4.3** Version des NuGet Client-SDK-Pakete wurden veröffentlicht.
-> Neuere Versionen der Pakete möglicherweise nicht kompatibel mit den Informationen in den Blogbeiträgen.
+> Diese Blogbeiträge wurden kurz nach der Veröffentlichung der **3.4.3** -Version der nuget-Client-SDK-Pakete geschrieben.
+> Neuere Versionen der Pakete sind möglicherweise nicht mit den Informationen in den Blogbeiträgen kompatibel.
 
-Martin Björkström hat einen Blogbeitrag zur nachverfolgung Dave Glicks Blog-Reihe, in denen führt er eines anderen Ansatzes zur Verwendung des NuGet-Client-SDK für die Installation von NuGet-Pakete:
+Martin björkström hat einen nachfolgenden Blogbeitrag zur Blog Reihe von Dave Glick durchgeführt, in dem er einen anderen Ansatz zur Verwendung des nuget-Client-SDK für die Installation von nuget-Paketen einführt:
 
-- [Öffnen Sie erneut die NuGet-v3-Bibliotheken](https://martinbjorkstrom.com/posts/2018-09-19-revisiting-nuget-client-libraries)
+- [Neubesuchen der nuget V3-Bibliotheken](https://martinbjorkstrom.com/posts/2018-09-19-revisiting-nuget-client-libraries)
