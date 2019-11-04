@@ -34,9 +34,9 @@ Gibt an, wo die optionalen Suchbegriffe die angezeigte Liste filtern. Suchbegrif
 | ConfigFile | Die anzuwendende nuget-Konfigurationsdatei. Wenn nichts angegeben ist `%AppData%\NuGet\NuGet.Config` , wird (Windows `~/.nuget/NuGet/NuGet.Config` ) oder (Mac/Linux) verwendet.|
 | ForceEnglishOutput | *(3.5* und höher) Erzwingt, dass "nuget. exe" mit einer invarianten, englischen Kultur ausgeführt wird. |
 | Help | Zeigt Hilfe Informationen für den Befehl an. |
-| Incluentdelisted | *(3.2 +)* Nicht aufgelistete Pakete anzeigen. |
+| IncludeDelisted | *(3.2 +)* Nicht aufgelistete Pakete anzeigen. |
 | NonInteractive | Unterdrückt Eingabe Aufforderungen für Benutzereingaben oder Bestätigungen. |
-| Vorab | Schließt vorab Pakete in die Liste ein. |
+| PreRelease | Schließt vorab Pakete in die Liste ein. |
 | Source | Gibt eine Liste der zu durchsuchenden Paketquellen an. |
 | Verbosity | Gibt den Umfang der in der Ausgabe angezeigten Details an: *Normal*, *quiet*, *ausführlich*. |
 
