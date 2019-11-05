@@ -1,73 +1,73 @@
 ---
-title: Tools.JSON für die Ermittlung von nuget.exe-Versionen
+title: "\"Tools. JSON\" zum Ermitteln von nuget. exe-Versionen"
 description: Der Endpunkt für
 author: jver
 ms.author: jver
 ms.date: 08/16/2018
 ms.topic: conceptual
 ms.reviewer: kraigb
-ms.openlocfilehash: 003139abac7808dbdaef4aa66119e09772db2b4f
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: a186db9727bdfd1b55bf73a1f29283352555dede
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852532"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611023"
 ---
-# <a name="toolsjson-for-discovering-nugetexe-versions"></a>Tools.JSON für die Ermittlung von nuget.exe-Versionen
+# <a name="toolsjson-for-discovering-nugetexe-versions"></a>"Tools. JSON" zum Ermitteln von nuget. exe-Versionen
 
-Heute stehen mehrere Möglichkeiten, um die neueste Version von nuget.exe auf Ihrem Computer in skriptfähiger Weise zu erhalten. Sie können z. B. herunterladen und extrahieren Sie die [ `NuGet.CommandLine` ](https://www.nuget.org/packages/NuGet.CommandLine/) Paket von nuget.org. Dies hat gewisse Komplexität, da sie entweder erfordert, dass Sie bereits nuget.exe (für `nuget.exe install`), oder Sie über Entzippen der NUPKG-Datei mit einem einfachen Unzip-Tool, und suchen den binären inneren.
+Heute gibt es mehrere Möglichkeiten, die neueste Version von "nuget. exe" auf Ihrem Computer in einer Skript fähigen Weise zu erhalten. Beispielsweise können Sie das [`NuGet.CommandLine`](https://www.nuget.org/packages/NuGet.CommandLine/) Paket aus nuget.org herunterladen und extrahieren. Dies hat eine gewisse Komplexität, da es entweder erfordert, dass Sie bereits über "nuget. exe" (für `nuget.exe install`) verfügen, oder Sie müssen die nupkg-Datei mit einem einfachen Entzippen Sie-Tool entzippen und die Binärdatei in suchen.
 
-Wenn Sie bereits nuget.exe verfügen, können Sie auch `nuget.exe update -self`, aber auch dafür müssen eine Kopie von nuget.exe. Dadurch werden auch Sie auf die neueste Version aktualisiert. Es lässt sich nicht auf die Verwendung einer bestimmten Version aus.
+Wenn Sie bereits über "nuget. exe" verfügen, können Sie auch `nuget.exe update -self`verwenden. Dies erfordert jedoch auch eine vorhandene Kopie von "nuget. exe". Bei diesem Ansatz werden Sie auch auf die neueste Version aktualisiert. Die Verwendung einer bestimmten Version ist nicht zulässig.
 
-Die `tools.json` Endpunkt ist verfügbar, um sowohl das bootstrapping Problem lösen, und Steuern der Version von nuget.exe zu können, die Sie herunterladen. Dies dient in der CI/CD-Umgebungen oder benutzerdefinierte Skripts zum Ermitteln und alle endgültigen Produktversion von nuget.exe herunterladen.
+Der `tools.json`-Endpunkt ist verfügbar, um das Bootstrapping-Problem zu lösen und die Kontrolle über die von Ihnen heruntergeladene Version von "nuget. exe" zu erhalten. Dies kann in CI/CD-Umgebungen oder in benutzerdefinierten Skripts verwendet werden, um eine beliebige veröffentlichte Version von "nuget. exe" zu ermitteln und herunterzuladen.
 
-Die `tools.json` Endpunkt mit einer nicht authentifizierten HTTP-Anforderung abgerufen werden (z. B. `Invoke-WebRequest` in PowerShell oder `wget`). Sie können mit einer JSON-Deserialisierung analysiert werden, und nachfolgende nuget.exe-Download, die URLs auch abgerufen werden können, mit nicht authentifizierten HTTP-Anforderungen.
+Der `tools.json`-Endpunkt kann mit einer nicht authentifizierten http-Anforderung abgerufen werden (z. b. `Invoke-WebRequest` in PowerShell oder `wget`). Sie kann mithilfe eines JSON-Deserialisierungsprogramms analysiert werden, und nachfolgende URLs für "nuget. exe" können auch mit nicht authentifizierten HTTP-Anforderungen abgerufen werden.
 
-Der Endpunkt kann abgerufen werden, mithilfe der `GET` Methode:
+Der Endpunkt kann mit der `GET`-Methode abgerufen werden:
 
     GET https://dist.nuget.org/tools.json
 
-Die [JSON-Schema](http://json-schema.org/) für der Endpunkt hier verfügbar ist:
+Das [JSON-Schema](https://json-schema.org/) für den Endpunkt ist hier verfügbar:
 
     GET https://dist.nuget.org/tools.schema.json
 
 ## <a name="response"></a>Antwort
 
-Die Antwort ist ein JSON-Dokument, das alle verfügbaren Versionen der nuget.exe enthält.
+Die Antwort ist ein JSON-Dokument, das alle verfügbaren Versionen von "nuget. exe" enthält.
 
-Die JSON-Stammobjekt hat die folgende Eigenschaft:
+Das JSON-Stamm Objekt hat die folgende Eigenschaft:
 
-name      | Typ             | Erforderlich
+-Name      | Geben Sie Folgendes ein:             | Erforderlich
 --------- | ---------------- | --------
 nuget.exe | Array von Objekten | ja
 
-Jedes Objekt in der `nuget.exe` Array verfügt über die folgenden Eigenschaften:
+Jedes Objekt im `nuget.exe` Array verfügt über die folgenden Eigenschaften:
 
-name     | Typ   | Erforderlich | Hinweise
+-Name     | Geben Sie Folgendes ein:   | Erforderlich | Notizen
 -------- | ------ | -------- | -----
-version  | Zeichenfolge | ja      | Eine Zeichenfolge SemVer 2.0.0
-url      | Zeichenfolge | ja      | Eine absolute URL für das Herunterladen dieser Version von nuget.exe
-Stufe    | Zeichenfolge | ja      | Eine Enum-Zeichenfolge
-hochgeladen | Zeichenfolge | ja      | Eine ungefähre ISO 8601-Zeitstempel, der bei die Version verfügbar gemacht wurde
+Version  | string | ja      | Semver 2.0.0-Zeichenfolge
+url      | string | ja      | Eine absolute URL zum Herunterladen dieser Version von "nuget. exe".
+Inszeniert    | string | ja      | Eine Enumeration-Zeichenfolge
+aufgeladen | string | ja      | Der ungefähre ISO 8601-Zeitstempel, zu dem die Version verfügbar gemacht wurde.
 
-Die Elemente im Array werden in absteigender, SemVer 2.0.0-Reihenfolge sortiert werden. Diese Garantie ist vorgesehen, um die Last eines Clients zu reduzieren, die höchste Versionsnummer interessiert ist. Dies bedeutet jedoch, dass die Liste nicht in chronologischer Reihenfolge sortiert wird. Z. B. wenn eine niedrigere Hauptversion zu einem Zeitpunkt nach einer höheren Hauptversion gewartet wird, wird diese bearbeitete Version, nicht am Anfang der Liste angezeigt. Wenn Sie möchten, dass die neueste Version von veröffentlichten *Zeitstempel*, Sortieren Sie das Array von der `uploaded` Zeichenfolge. Dies funktioniert, da die `uploaded` Zeitstempel wird in der [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) Format, das chronologisch sortiert werden kann, mit der eine lexikografische Sortierung (d. h. eine einfache Zeichenfolge-Sortierung).
+Die Elemente im Array werden in absteigender, semver 2.0.0-Reihenfolge sortiert. Diese Garantie soll die Belastung eines Clients verringern, der an der höchsten Versionsnummer interessiert ist. Dies bedeutet jedoch, dass die Liste nicht in chronologischer Reihenfolge sortiert ist. Wenn z. b. eine niedrigere Hauptversion zu einem späteren Zeitpunkt als eine höhere Hauptversion gewartet wird, wird diese Serviced Version nicht am Anfang der Liste angezeigt. Wenn Sie die neueste Version von *Zeitstempel*veröffentlichen möchten, Sortieren Sie das Array einfach nach der `uploaded` Zeichenfolge. Dies funktioniert, da der `uploaded` Zeitstempel im [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) -Format vorliegt, das mithilfe einer lexikografischen Sortierung (d.h. einer einfachen Zeichen folgen Sortierung) chronologisch sortiert werden kann.
 
-Die `stage` Eigenschaft gibt an, wie überprüfte diese Version des Tools ist. 
+Die `stage`-Eigenschaft gibt an, wie diese Version des Tools überprüft wurde. 
 
 Stufe              | Bedeutung
 ------------------ | ------
-EarlyAccessPreview | Nicht noch sichtbar ist, auf die [Webseite herunterladen](https://www.nuget.org/downloads) und überprüft werden soll, von Partnern
-Freigegeben           | Verfügbar auf der Downloadwebsite aber noch nicht für die umfassende Nutzung empfohlen
-ReleasedAndBlessed | Auf der Downloadwebsite verfügbar und wird empfohlen, für die Nutzung
+Earlyaccesspview | Noch nicht auf der [Download Webseite](https://www.nuget.org/downloads) sichtbar und sollte von Partnern überprüft werden.
+Freigegeben           | Verfügbar auf der Download Website, wird aber noch nicht für den breiten Verbrauch empfohlen.
+Releasedandblessed | Auf der Download Website verfügbar und wird für den Verbrauch empfohlen.
 
-Ein einfacher Ansatz dafür, die neueste empfohlene Version ist, wird von der ersten Version in der Liste, die die `stage` Wert `ReleasedAndBlessed`. Dies funktioniert, da die Versionen, die in SemVer 2.0.0-Reihenfolge sortiert sind.
+Eine einfache Methode zur Verwendung der neuesten empfohlenen Version ist die Verwendung der ersten Version in der Liste mit dem `stage` Wert `ReleasedAndBlessed`. Dies funktioniert, da die Versionen in der semver 2.0.0-Reihenfolge sortiert sind.
 
-Die `NuGet.CommandLine` Pakets auf nuget.org werden in der Regel nur mit aktualisiert `ReleasedAndBlessed` Versionen.
+Das `NuGet.CommandLine`-Paket auf nuget.org wird in der Regel nur mit `ReleasedAndBlessed` Versionen aktualisiert.
 
-### <a name="sample-request"></a>Beispiel für eine Anforderung
+### <a name="sample-request"></a>Beispiel Anforderung
 
     GET https://dist.nuget.org/tools.json
 
-### <a name="sample-response"></a>Beispielantwort
+### <a name="sample-response"></a>Beispiel Antwort
 
 [!code-JSON [tools-json.json](./_data/tools-json.json)]

@@ -6,16 +6,16 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 197f2eaeed1a4a11f0f3ed426534807a0136271e
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 94c4c6524c1870898893b80be914477af5a14e8b
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327537"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610333"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>Befehl "Trusted-Signers" (nuget-CLI)
 
-**Gilt für:** &bullet; **unterstützte Versionen** : 4.9.1 +
+**Gilt für:** Paket Verbrauch &bullet; **unterstützten Versionen:** 4.9.1 +
 
 Ruft vertrauenswürdige Signatur Geber für die nuget-Konfiguration ab oder legt Sie fest. Weitere Informationen finden Sie unter [Allgemeine nuget-Konfigurationen](../../consume-packages/configuring-nuget-behavior.md). Ausführliche Informationen dazu, wie das nuget. config-Schema aussieht, finden Sie in der [nuget-Konfigurationsdatei Referenz](../nuget-config-file.md).
 
@@ -25,11 +25,11 @@ Ruft vertrauenswürdige Signatur Geber für die nuget-Konfiguration ab oder legt
 nuget trusted-signers <list|add|remove|sync> [options]
 ```
 
-Wenn keines von `list|add|remove|sync` angegeben wird, wird der-Befehl Standard `list`mäßig auf festgelegt.
+Wenn keines der `list|add|remove|sync` angegeben wird, wird der Befehl standardmäßig `list`.
 
 ## <a name="nuget-trusted-signers-list"></a>nuget-Liste der vertrauenswürdigen Signaturen
 
-Listet alle vertrauenswürdigen Signatur Geber in der Konfiguration auf. Diese Option umfasst alle Zertifikate (mit Fingerabdruck und Fingerabdruck Algorithmus), die jeder Signatur Geber hat. Wenn ein Zertifikat einen vorangehenden `[U]`hat, bedeutet dies, dass der `allowUntrustedRoot` Zertifikat Eintrag `true`als festgelegt hat.
+Listet alle vertrauenswürdigen Signatur Geber in der Konfiguration auf. Diese Option umfasst alle Zertifikate (mit Fingerabdruck und Fingerabdruck Algorithmus), die jeder Signatur Geber hat. Wenn ein Zertifikat einen vorangehenden `[U]`aufweist, bedeutet dies, dass der Zertifikat Eintrag als `true``allowUntrustedRoot` festgelegt wurde.
 
 Im folgenden finden Sie ein Beispiel für die Ausgabe dieses Befehls:
 
@@ -63,16 +63,16 @@ Fügt der Konfiguration einen vertrauenswürdigen Signatur Geber mit dem angegeb
 nuget trusted-signers add <package(s)> -Name <name> [options]
 ```
 
-Dabei ist eine oder mehrere `.nupkg`Dateien. `<package(s)>`
+wobei `<package(s)>` eine oder mehrere `.nupkg` Dateien ist.
 
 | Option | Beschreibung |
 | --- | --- |
 | Autor | Gibt an, dass der Autor der Signatur des Pakets vertraut werden soll. |
 | Repository | Gibt an, dass die Repository-Signatur oder die gegen Signatur der Pakete als vertrauenswürdig eingestuft werden soll. |
-| AllowUntrustedRoot | Gibt an, ob das Zertifikat für den vertrauenswürdigen Signatur Geber an einen nicht vertrauenswürdigen Stamm verkettet werden darf. |
-| Besitzer | Durch Semikolons getrennte Liste vertrauenswürdiger Besitzer, um die Vertrauenswürdigkeit eines Repository weiter einzuschränken. Nur gültig, wenn die `-Repository` Option verwendet wird. |
+| Zuordnung von "Zuweisung" | Gibt an, ob das Zertifikat für den vertrauenswürdigen Signatur Geber an einen nicht vertrauenswürdigen Stamm verkettet werden darf. |
+| Besitzer | Durch Semikolons getrennte Liste vertrauenswürdiger Besitzer, um die Vertrauenswürdigkeit eines Repository weiter einzuschränken. Nur gültig, wenn die `-Repository`-Option verwendet wird. |
 
-Die Angabe von `-Repository`undzur gleichen Zeit wird nicht unterstützt. `-Author`
+Die gleichzeitig Bereitstellung von `-Author` und `-Repository` wird nicht unterstützt.
 
 ## <a name="options-for-add-based-on-a-service-index"></a>Optionen zum Hinzufügen basierend auf einem Dienst Index
 
@@ -80,12 +80,12 @@ Die Angabe von `-Repository`undzur gleichen Zeit wird nicht unterstützt. `-Auth
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Hinweis:_ Mit dieser Option werden nur vertrauenswürdige Depots hinzugefügt. 
+_Hinweis_: mit dieser Option werden nur vertrauenswürdige Depots hinzugefügt. 
 
 | Option | Beschreibung |
 | --- | --- |
-| ServiceIndex | Gibt den V3-Dienst Index des Repository an, das als vertrauenswürdig eingestuft werden soll. Dieses Repository muss die Repository Signature-Ressource unterstützen. Wenn keine Angabe erfolgt, sucht der Befehl nach einer Paketquelle mit dem gleichen `-Name` und erhält den Dienst Index von dort aus. |
-| AllowUntrustedRoot | Gibt an, ob das Zertifikat für den vertrauenswürdigen Signatur Geber an einen nicht vertrauenswürdigen Stamm verkettet werden darf. |
+| Serviceingedex | Gibt den V3-Dienst Index des Repository an, das als vertrauenswürdig eingestuft werden soll. Dieses Repository muss die Repository Signature-Ressource unterstützen. Wenn keine Angabe erfolgt, sucht der Befehl nach einer Paketquelle mit demselben `-Name` und erhält den Dienst Index von dort aus. |
+| Zuordnung von "Zuweisung" | Gibt an, ob das Zertifikat für den vertrauenswürdigen Signatur Geber an einen nicht vertrauenswürdigen Stamm verkettet werden darf. |
 | Besitzer | Durch Semikolons getrennte Liste vertrauenswürdiger Besitzer, um die Vertrauenswürdigkeit eines Repository weiter einzuschränken. |
 
 ## <a name="options-for-add-based-on-the-certificate-information"></a>Optionen zum Hinzufügen basierend auf den Zertifikat Informationen
@@ -94,32 +94,32 @@ _Hinweis:_ Mit dieser Option werden nur vertrauenswürdige Depots hinzugefügt.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Hinweis:_ Wenn bereits ein vertrauenswürdiger Signatur Geber mit dem angegebenen Namen vorhanden ist, wird das Zertifikat Element diesem Signatur Geber hinzugefügt. Andernfalls wird ein vertrauenswürdiger Autor mit einem Zertifikat Element aus den angegebenen Zertifikat Informationen erstellt.
+_Hinweis_: Wenn bereits ein vertrauenswürdiger Signatur Geber mit dem angegebenen Namen vorhanden ist, wird das Zertifikat Element diesem Signatur Geber hinzugefügt. Andernfalls wird ein vertrauenswürdiger Autor mit einem Zertifikat Element aus den angegebenen Zertifikat Informationen erstellt.
 
 | Option | Beschreibung |
 | --- | --- |
-| CertificateFingerprint | Gibt einen Zertifikat Fingerabdruck eines Zertifikats an, mit dem signierte Pakete signiert werden müssen. Ein Zertifikat Fingerabdruck ist ein Hash des Zertifikats. Der Hash Algorithmus, der zum Berechnen dieses Hashwerts verwendet wird, `FingerprintAlgorithm` sollte in der-Option angegeben werden. |
-| Fingerprintalgorithm | Gibt den Hash Algorithmus an, mit dem der Zertifikat Fingerabdruck berechnet wird. Wird standardmäßig auf `SHA256` festgelegt. Unterstützte Werte `SHA256`sind `SHA384` , und.`SHA512` |
-| AllowUntrustedRoot | Gibt an, ob das Zertifikat für den vertrauenswürdigen Signatur Geber an einen nicht vertrauenswürdigen Stamm verkettet werden darf. |
+| CertificateFingerprint | Gibt einen Zertifikat Fingerabdruck eines Zertifikats an, mit dem signierte Pakete signiert werden müssen. Ein Zertifikat Fingerabdruck ist ein Hash des Zertifikats. Der Hash Algorithmus, der zum Berechnen dieses Hashwerts verwendet wird, sollte in der `FingerprintAlgorithm`-Option angegeben werden. |
+| Fingerprintalgorithm | Gibt den Hash Algorithmus an, mit dem der Zertifikat Fingerabdruck berechnet wird. Wird standardmäßig auf `SHA256` festgelegt. Unterstützte Werte sind `SHA256`, `SHA384` und `SHA512` |
+| Zuordnung von "Zuweisung" | Gibt an, ob das Zertifikat für den vertrauenswürdigen Signatur Geber an einen nicht vertrauenswürdigen Stamm verkettet werden darf. |
 
-## <a name="nuget-trusted-signers-remove--name-name"></a>nuget vertrauenswürdiger Signatur Geber Remove-Name<name>
+## <a name="nuget-trusted-signers-remove--name-name"></a>nuget "Trusted-Signatur ners Remove-Name \<Name\>
 
 Entfernt alle vertrauenswürdigen Signatur Geber, die dem angegebenen Namen entsprechen.
 
-## <a name="nuget-trusted-signers-sync--name-name"></a>nuget-Synchronisierungs Name für vertrauenswürdige Signaturen<name>
+## <a name="nuget-trusted-signers-sync--name-name"></a>nuget-Synchronisierungs Name für vertrauenswürdige Signaturen-Name \<Name\>
 
 Fordert die aktuelle Liste der Zertifikate an, die in einem aktuell vertrauenswürdigen Repository verwendet werden, um die Liste vorhandener Zertifikate im vertrauenswürdigen Signatur Geber zu aktualisieren.
 
-_Hinweis:_ Durch diese Geste wird die aktuelle Liste der Zertifikate gelöscht und durch eine aktuelle Liste aus dem Repository ersetzt.
+_Hinweis_: durch diese Geste wird die aktuelle Liste der Zertifikate gelöscht und durch eine aktuelle Liste aus dem Repository ersetzt.
 
 ## <a name="options"></a>Optionen
 
 | Option | Beschreibung |
 | --- | --- |
-| ConfigFile | Die anzuwendende nuget-Konfigurationsdatei. Wenn nichts angegeben ist `%AppData%\NuGet\NuGet.Config` , wird (Windows `~/.nuget/NuGet/NuGet.Config` ) oder (Mac/Linux) verwendet.|
-| ForceEnglishOutput | Erzwingt, dass "nuget. exe" mit einer invarianten, englischen Kultur ausgeführt wird. |
-| Help | Zeigt Hilfe Informationen für den Befehl an. |
-| Verbosity | Gibt den Umfang der in der Ausgabe angezeigten Details an: *Normal*, *quiet*, *ausführlich*. |
+| ConfigFile | Die anzuwendende nuget-Konfigurationsdatei. Wenn nicht angegeben, wird `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) verwendet.|
+| Forceenglische Output | Erzwingt, dass "nuget. exe" mit einer invarianten, englischen Kultur ausgeführt wird. |
+| Hilfe | Zeigt Hilfe Informationen für den Befehl an. |
+| Ausführlichkeit | Gibt den Umfang der in der Ausgabe angezeigten Details an: *Normal*, *quiet*, *ausführlich*. |
 
 ## <a name="examples"></a>Beispiele
 

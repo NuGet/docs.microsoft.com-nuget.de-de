@@ -6,53 +6,53 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 1a2e98ab36c8dc08e5f14b19b57f5ea0d790524c
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: e98e8d1258377818b3852762d317750a6b3e59ad
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488314"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611036"
 ---
 # <a name="package-metadata"></a>Paketmetadaten
 
-Mithilfe der nuget V3-API können Sie Metadaten zu den Paketen abrufen, die in einer Paketquelle verfügbar sind. Diese Metadaten können mithilfe der `RegistrationsBaseUrl` Ressource abgerufen werden, die im [Dienst Index](service-index.md)gefunden wurde.
+Mithilfe der nuget V3-API können Sie Metadaten zu den Paketen abrufen, die in einer Paketquelle verfügbar sind. Diese Metadaten können mit der `RegistrationsBaseUrl` Ressource abgerufen werden, die im [Dienst Index](service-index.md)gefunden wurde.
 
-Die Sammlung der Dokumente, die unter `RegistrationsBaseUrl` gefunden werden, wird häufig als "Registrierungen" oder "registrierungsblob" bezeichnet. Der Satz von Dokumenten unter einem einzelnen `RegistrationsBaseUrl` wird als "Registrierungs Struktur" bezeichnet. Eine Registrierungs Struktur enthält alle Metadaten zu jedem Paket, das in einer Paketquelle verfügbar ist.
+Die Sammlung der Dokumente, die unter `RegistrationsBaseUrl` gefunden werden, wird häufig als "Registrierungen" oder "registrierungsblob" bezeichnet. Der Satz von Dokumenten in einem einzelnen `RegistrationsBaseUrl` wird als "Registrierungs Struktur" bezeichnet. Eine Registrierungs Struktur enthält alle Metadaten zu jedem Paket, das in einer Paketquelle verfügbar ist.
 
 ## <a name="versioning"></a>Versionskontrolle
 
 Die folgenden `@type` Werte werden verwendet:
 
-@type -Wert                     | Hinweise
+@type -Wert                     | Notizen
 ------------------------------- | -----
-RegistrationsBaseUrl            | Die erste Version
-RegistrationsBaseUrl/3.0.0-beta | Alias von`RegistrationsBaseUrl`
-RegistrationsBaseUrl/3.0.0-rc   | Alias von`RegistrationsBaseUrl`
+Registrationsbaseurl            | Die erste Version
+Registrationsbaseurl/3.0.0-Beta | Alias von `RegistrationsBaseUrl`
+Registrationsbaseurl/3.0.0-RC   | Alias von `RegistrationsBaseUrl`
 Registrationsbaseurl/3.4.0      | Gzip-Antworten
 Registrationsbaseurl/3.6.0      | Umfasst semver 2.0.0-Pakete
 
 Dies stellt drei unterschiedliche Registrierungs Strukturen dar, die für verschiedene Client Versionen verfügbar sind.
 
-### <a name="registrationsbaseurl"></a>RegistrationsBaseUrl
+### <a name="registrationsbaseurl"></a>Registrationsbaseurl
 
-Diese Registrierungen werden nicht komprimiert (was bedeutet, dass `Content-Encoding: identity`Sie einen impliziten verwenden). Semver 2.0.0-Pakete werden aus dieser Hive **ausgeschlossen** .
+Diese Registrierungen werden nicht komprimiert (was bedeutet, dass Sie einen impliziten `Content-Encoding: identity`verwenden). Semver 2.0.0-Pakete werden aus dieser Hive **ausgeschlossen** .
 
 ### <a name="registrationsbaseurl340"></a>Registrationsbaseurl/3.4.0
 
-Diese Registrierungen werden mithilfe `Content-Encoding: gzip`von komprimiert. Semver 2.0.0-Pakete werden aus dieser Hive **ausgeschlossen** .
+Diese Registrierungen werden mithilfe von `Content-Encoding: gzip`komprimiert. Semver 2.0.0-Pakete werden aus dieser Hive **ausgeschlossen** .
 
 ### <a name="registrationsbaseurl360"></a>Registrationsbaseurl/3.6.0
 
-Diese Registrierungen werden mithilfe `Content-Encoding: gzip`von komprimiert. Semver 2.0.0-Pakete sind in dieser Hive **enthalten** .
+Diese Registrierungen werden mithilfe von `Content-Encoding: gzip`komprimiert. Semver 2.0.0-Pakete sind in dieser Hive **enthalten** .
 Weitere Informationen zu semver 2.0.0 finden Sie [unter semver 2.0.0-Unterstützung für nuget.org](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29).
 
 ## <a name="base-url"></a>Basis-URL
 
-Die Basis-URL für die folgenden APIs ist der Wert der `@id` Eigenschaft, die den oben erwähnten `@type` Ressourcen Werten zugeordnet ist. Im folgenden Dokument wird die Platzhalter-Basis- `{@id}` URL verwendet.
+Die Basis-URL für die folgenden APIs ist der Wert der `@id`-Eigenschaft, die mit den oben erwähnten Ressourcen `@type` Werten verknüpft ist. Im folgenden Dokument wird der Platzhalter für die Basis-URL `{@id}` verwendet.
 
 ## <a name="http-methods"></a>HTTP-Methoden
 
-Alle URLs, die in der Registrierungs Ressource gefunden werden, `GET` unter `HEAD`stützen die HTTP-Methoden und.
+Alle URLs, die in der Registrierungs Ressource gefunden werden, unterstützen die HTTP-Methoden `GET` und `HEAD`.
 
 ## <a name="registration-index"></a>Registrierungs Index
 
@@ -62,7 +62,7 @@ Die Registrierungs Ressource gruppiert Paket Metadaten nach Paket-ID. Es ist nic
 - **Seite**: eine Gruppierung von Paketversionen. Die Anzahl der Paketversionen in einer Seite wird durch die Server Implementierung definiert.
 - **Blatt**: ein Dokument, das für eine einzelne Paketversion spezifisch ist.
 
-Die URL des Registrierungs Indexes ist vorhersagbar und kann vom Client festgelegt werden, wenn eine Paket-ID und der `@id` Wert der Registrierungs Ressource aus dem Dienst Index angegeben werden. Die URLs für die Registrierungsseiten und Blätter werden erkannt, indem der Registrierungs Index überprüft wird.
+Die URL des Registrierungs Indexes ist vorhersagbar und kann vom Client festgelegt werden, wenn eine Paket-ID und der `@id` Wert der Registrierungs Ressource aus dem Dienst Index angegeben wird. Die URLs für die Registrierungsseiten und Blätter werden erkannt, indem der Registrierungs Index überprüft wird.
 
 ### <a name="registration-pages-and-leaves"></a>Registrierungsseiten und-Blätter
 
@@ -76,28 +76,28 @@ Die Heuristik, die von nuget.org verwendet wird, lautet wie folgt: Wenn es 128 o
 
 ### <a name="request-parameters"></a>Anforderungs Parameter
 
-name     | In     | Typ    | Erforderlich | Hinweise
+-Name     | In     | Geben Sie Folgendes ein:    | Erforderlich | Notizen
 -------- | ------ | ------- | -------- | -----
-LOWER_ID | URL    | Zeichenfolge  | ja      | Die Paket-ID, Kleinbuchstaben
+LOWER_ID | URL    | string  | ja      | Die Paket-ID, Kleinbuchstaben
 
-Der `LOWER_ID` Wert ist die gewünschte Paket-ID in Kleinbuchstaben unter Verwendung der Regeln, die von implementiert werden. NET- [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) Methode.
+Der `LOWER_ID` Wert ist die gewünschte Paket-ID in Kleinbuchstaben unter Verwendung der Regeln, die von implementiert werden. Die [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) -Methode des Netzes.
 
 ### <a name="response"></a>Antwort
 
 Die Antwort ist ein JSON-Dokument, das ein Root-Objekt mit den folgenden Eigenschaften enthält:
 
-Name  | Typ             | Erforderlich | Hinweise
+-Name  | Geben Sie Folgendes ein:             | Erforderlich | Notizen
 ----- | ---------------- | -------- | -----
 count | Ganze Zahl          | ja      | Die Anzahl der Registrierungsseiten im Index.
 items | Array von Objekten | ja      | Das Array der Registrierungsseiten
 
-Jedes Element im Array des Index Objekts `items` ist ein JSON-Objekt, das eine Registrierungsseite darstellt.
+Jedes Element im `items` Array des Index Objekts ist ein JSON-Objekt, das eine Registrierungsseite darstellt.
 
 #### <a name="registration-page-object"></a>Objekt der Registrierungsseite
 
 Das Registrierungsseiten Objekt im Registrierungs Index verfügt über die folgenden Eigenschaften:
 
-Name   | Typ             | Erforderlich | Hinweise
+-Name   | Geben Sie Folgendes ein:             | Erforderlich | Notizen
 ------ | ---------------- | -------- | -----
 @id    | string           | ja      | Die URL zur Registrierungsseite.
 count  | Ganze Zahl          | ja      | Die Anzahl der Registrierungs Blätter auf der Seite.
@@ -106,96 +106,96 @@ günstigere  | string           | ja      | Die niedrigste semver 2.0.0-Version 
 parent | string           | Nein       | Die URL zum Registrierungs Index.
 weite  | string           | ja      | Die höchste semver 2.0.0-Version auf der Seite (einschließlich)
 
-Die `lower` Begrenzungen `upper` und des Page-Objekts sind nützlich, wenn die Metadaten für eine bestimmte Seiten Version benötigt werden.
-Diese Begrenzungen können verwendet werden, um die einzige erforderliche Registrierungsseite abzurufen. Die Versions Zeichenfolgen entsprechen den [Versions Regeln von nuget](../concepts/package-versioning.md). Die Versions Zeichenfolgen werden normalisiert und enthalten keine buildmetadaten. Wie bei allen Versionen im nuget-Ökosystem wird der Vergleich der Versions Zeichenfolgen mit [den Versions Rang Folge Regeln von semver 2.0.0](http://semver.org/spec/v2.0.0.html#spec-item-11)implementiert.
+Die `lower`-und `upper` Begrenzungen des Page-Objekts sind nützlich, wenn die Metadaten für eine bestimmte Seiten Version benötigt werden.
+Diese Begrenzungen können verwendet werden, um die einzige erforderliche Registrierungsseite abzurufen. Die Versions [Zeichenfolgen entsprechen den Versions Regeln von nuget](../concepts/package-versioning.md). Die Versions Zeichenfolgen werden normalisiert und enthalten keine buildmetadaten. Wie bei allen Versionen im nuget-Ökosystem wird der Vergleich der Versions [Zeichenfolgen mit den Versions Rang Folge Regeln von semver 2.0.0](https://semver.org/spec/v2.0.0.html#spec-item-11)implementiert.
 
-Die `parent` -Eigenschaft wird nur angezeigt, wenn das Registrierungsseiten Objekt `items` über die-Eigenschaft verfügt.
+Die `parent`-Eigenschaft wird nur angezeigt, wenn das Registrierungsseiten Objekt über die `items`-Eigenschaft verfügt.
 
-Wenn die `items` Eigenschaft nicht im Registrierungsseiten Objekt vorhanden ist, `@id` muss die in angegebene URL zum Abrufen von Metadaten zu einzelnen Paketversionen verwendet werden. Das `items` Array wird manchmal als Optimierung vom Seiten Objekt ausgeschlossen. Wenn die Anzahl der Versionen einer einzelnen Paket-ID sehr groß ist, ist das Registrierungs Index Dokument sehr groß und verschwendet für einen Client, der nur eine bestimmte Version oder einen kleinen Bereich von Versionen kümmert, zu verarbeiten.
+Wenn die `items`-Eigenschaft nicht im Registrierungsseiten Objekt vorhanden ist, muss die im `@id` angegebene URL zum Abrufen von Metadaten zu einzelnen Paketversionen verwendet werden. Das `items` Array wird manchmal als Optimierung vom Seiten Objekt ausgeschlossen. Wenn die Anzahl der Versionen einer einzelnen Paket-ID sehr groß ist, ist das Registrierungs Index Dokument sehr groß und verschwendet für einen Client, der nur eine bestimmte Version oder einen kleinen Bereich von Versionen kümmert, zu verarbeiten.
 
-Beachten Sie, dass `items` die `@id` -Eigenschaft nicht verwendet werden muss, wenn die-Eigenschaft vorhanden ist, da alle Seiten Daten bereits in der `items` -Eigenschaft Inline sind.
+Beachten Sie, dass die Eigenschaft `@id` nicht verwendet werden muss, wenn die `items`-Eigenschaft vorhanden ist, da alle Seiten Daten bereits in der `items`-Eigenschaft Inline sind.
 
-Jedes Element im Array des Page- `items` Objekts ist ein JSON-Objekt, das ein Registrierungs Blatt und zugehörige Metadaten darstellt.
+Jedes Element im `items` Array des Page-Objekts ist ein JSON-Objekt, das ein Registrierungs Blatt und zugehörige Metadaten darstellt.
 
 #### <a name="registration-leaf-object-in-a-page"></a>Registrierungs Blatt Objekt in einer Seite
 
 Das Registrierungs Blatt Objekt auf einer Registrierungsseite verfügt über die folgenden Eigenschaften:
 
-Name           | Typ   | Erforderlich | Hinweise
+-Name           | Geben Sie Folgendes ein:   | Erforderlich | Notizen
 -------------- | ------ | -------- | -----
 @id            | string | ja      | Die URL zum Registrierungs Blatt.
 catalogentry   | Objekt | ja      | Der Katalogeintrag, der die Paket Metadaten enthält.
-packageContent | string | ja      | Die URL zum Paket Inhalt (. nupkg).
+packagecontent | string | ja      | Die URL zum Paket Inhalt (. nupkg).
 
 Jedes Registrierungs Blatt Objekt stellt Daten dar, die einer einzelnen Paketversion zugeordnet sind.
 
 #### <a name="catalog-entry"></a>Katalogeintrag
 
-Die `catalogEntry` -Eigenschaft im Blatt "Registrierung" verfügt über die folgenden Eigenschaften:
+Die `catalogEntry`-Eigenschaft im Blatt "Registrierung" verfügt über die folgenden Eigenschaften:
 
-Name                     | Typ                       | Erforderlich | Hinweise
+-Name                     | Geben Sie Folgendes ein:                       | Erforderlich | Notizen
 ------------------------ | -------------------------- | -------- | -----
 @id                      | string                     | ja      | Die URL zum Dokument, mit dem dieses Objekt erzeugt wird.
 authors                  | Zeichenfolge oder Array von Zeichen folgen | Nein       | 
-dependencyGroups         | Array von Objekten           | Nein       | Die Abhängigkeiten des Pakets, gruppiert nach Ziel Framework
+dependencygroups         | Array von Objekten           | Nein       | Die Abhängigkeiten des Pakets, gruppiert nach Ziel Framework
 veraltungs              | Objekt                     | Nein       | Die dem Paket zugeordnete Veraltung
-description              | string                     | Nein       | 
+Beschreibung              | string                     | Nein       | 
 iconUrl                  | string                     | Nein       | 
-id                       | string                     | ja      | Die ID des Pakets.
+ID                       | string                     | ja      | Die ID des Pakets.
 licenseUrl               | string                     | Nein       |
-licenseExpression        | string                     | Nein       | 
+licensexpression        | string                     | Nein       | 
 Liste                   | boolean                    | Nein       | Sollte als "aufgelistet" betrachtet werden, wenn nicht vorhanden
 minClientVersion         | string                     | Nein       | 
 projectUrl               | string                     | Nein       | 
 enes                | string                     | Nein       | Eine Zeichenfolge, die den ISO 8601-Zeitstempel der Veröffentlichung des Pakets enthält.
 requireLicenseAcceptance | boolean                    | Nein       | 
-summary                  | string                     | Nein       | 
-tags                     | Zeichenfolge oder Zeichen folgen Array  | Nein       | 
-title                    | string                     | Nein       | 
-version                  | string                     | ja      | Die vollständige Versions Zeichenfolge nach der Normalisierung
+Zusammenfassung                  | string                     | Nein       | 
+Tags                     | Zeichenfolge oder Zeichen folgen Array  | Nein       | 
+Titel                    | string                     | Nein       | 
+Version                  | string                     | ja      | Die vollständige Versions Zeichenfolge nach der Normalisierung
 
-Die Paket `version` Eigenschaft ist die vollständige Versions Zeichenfolge nach der Normalisierung. Dies bedeutet, dass die Build-Daten von semver 2.0.0 hier eingefügt werden können.
+Die Paket `version`-Eigenschaft ist die vollständige Versions Zeichenfolge nach der Normalisierung. Dies bedeutet, dass die Build-Daten von semver 2.0.0 hier eingefügt werden können.
 
-Die `dependencyGroups` -Eigenschaft ist ein Array von-Objekten, die die Abhängigkeiten des Pakets nach Ziel Framework gruppiert darstellen. Wenn das Paket keine Abhängigkeiten aufweist, fehlt `dependencyGroups` die-Eigenschaft, ein leeres Array, oder die `dependencies` -Eigenschaft aller Gruppen ist leer oder fehlt.
+Die `dependencyGroups`-Eigenschaft ist ein Array von-Objekten, die die Abhängigkeiten des Pakets darstellen, gruppiert nach Ziel Framework. Wenn das Paket keine Abhängigkeiten aufweist, fehlt die `dependencyGroups`-Eigenschaft, ein leeres Array, oder die `dependencies`-Eigenschaft aller Gruppen ist leer oder fehlt.
 
-Der Wert `licenseExpression` der-Eigenschaft entspricht der [Syntax für den nuget-Lizenz Ausdruck](https://docs.microsoft.com/en-us/nuget/reference/nuspec#license).
+Der Wert der `licenseExpression`-Eigenschaft entspricht der [Syntax für den nuget-Lizenz Ausdruck](https://docs.microsoft.com/nuget/reference/nuspec#license).
 
 #### <a name="package-dependency-group"></a>Paket Abhängigkeits Gruppe
 
 Jedes Abhängigkeits Gruppen Objekt verfügt über die folgenden Eigenschaften:
 
-Name            | Typ             | Erforderlich | Hinweise
+-Name            | Geben Sie Folgendes ein:             | Erforderlich | Notizen
 --------------- | ---------------- | -------- | -----
 targetFramework | string           | Nein       | Das Ziel Framework, auf das diese Abhängigkeiten anwendbar sind
-dependencies    | Array von Objekten | Nein       |
+Abhängigkeiten    | Array von Objekten | Nein       |
 
-Die `targetFramework` Zeichenfolge verwendet das Format, das von der .NET-Bibliothek [nuget. Frameworks](https://www.nuget.org/packages/NuGet.Frameworks/)von nuget implementiert wird. Wenn kein `targetFramework` angegeben ist, gilt die Abhängigkeits Gruppe für alle Ziel-Frameworks.
+Die `targetFramework` Zeichenfolge verwendet das Format, das von der .NET-Bibliothek [nuget. Frameworks](https://www.nuget.org/packages/NuGet.Frameworks/)von nuget implementiert wird. Wenn keine `targetFramework` angegeben wird, gilt die Abhängigkeits Gruppe für alle Ziel-Frameworks.
 
-Die `dependencies` -Eigenschaft ist ein Array von-Objekten, die jeweils eine Paketabhängigkeit des aktuellen Pakets darstellen.
+Die `dependencies`-Eigenschaft ist ein Array von-Objekten, die jeweils eine Paketabhängigkeit des aktuellen Pakets darstellen.
 
 #### <a name="package-dependency"></a>Paketabhängigkeit
 
 Jede Paketabhängigkeit verfügt über die folgenden Eigenschaften:
 
-Name         | Typ   | Erforderlich | Hinweise
+-Name         | Geben Sie Folgendes ein:   | Erforderlich | Notizen
 ------------ | ------ | -------- | -----
-id           | string | ja      | Die ID der Paketabhängigkeit.
+ID           | string | ja      | Die ID der Paketabhängigkeit.
 range        | Objekt | Nein       | Der zulässige [Versions Bereich](../concepts/package-versioning.md#version-ranges-and-wildcards) der Abhängigkeit.
 Registrierung | string | Nein       | Die URL zum Registrierungs Index für diese Abhängigkeit.
 
-Wenn die `range` Eigenschaft ausgeschlossen oder eine leere Zeichenfolge ist, sollte der Client standardmäßig den Versions `(, )`Bereich haben. Das heißt, jede Version der Abhängigkeit ist zulässig.
+Wenn die `range`-Eigenschaft ausgeschlossen oder eine leere Zeichenfolge ist, sollte der Client standardmäßig den Versions Bereich `(, )`. Das heißt, jede Version der Abhängigkeit ist zulässig.
 
 #### <a name="package-deprecation"></a>Paket Veraltung
 
 Jedes Paket ist veraltet und verfügt über die folgenden Eigenschaften:
 
-Name             | Typ             | Erforderlich | Hinweise
+-Name             | Geben Sie Folgendes ein:             | Erforderlich | Notizen
 ---------------- | ---------------- | -------- | -----
 rechtlichen          | Array von Zeichen folgen | ja      | Die Gründe, aus denen das Paket veraltet ist
 message          | string           | Nein       | Weitere Details zu dieser Veraltung
 Alternative ACKAGE | Objekt           | Nein       | Die Paketabhängigkeit, die stattdessen verwendet werden soll.
 
-Die `reasons` -Eigenschaft muss mindestens eine Zeichenfolge enthalten und sollte nur Zeichen folgen aus der folgenden Tabelle enthalten:
+Die `reasons`-Eigenschaft muss mindestens eine Zeichenfolge enthalten und sollte nur Zeichen folgen aus der folgenden Tabelle enthalten:
 
 Grund       | Beschreibung             
 ------------ | -----------
@@ -203,7 +203,7 @@ Legacy       | Das Paket wird nicht mehr verwaltet.
 Criticalbugs | Das Paket weist Fehler auf, die für die Verwendung ungeeignet sind.
 Andere        | Das Paket ist aufgrund eines Grunds, der nicht in dieser Liste enthalten ist, veraltet.
 
-Wenn die `reasons` Eigenschaft Zeichen folgen enthält, die nicht aus dem bekannten Satz stammen, sollten Sie ignoriert werden. Bei den Zeichen folgen wird die groß- `legacy` /Kleinschreibung nicht beachtet, `Legacy`sollte daher genauso behandelt werden wie. Es gibt keine Sortier Einschränkung für das Array, sodass die Zeichen folgen in beliebiger Reihenfolge angeordnet werden können. Wenn die Eigenschaft außerdem nur Zeichen folgen enthält, die nicht aus der bekannten Menge stammen, sollte Sie so behandelt werden, als ob Sie nur die "andere" Zeichenfolge enthielt.
+Wenn die `reasons`-Eigenschaft Zeichen folgen enthält, die nicht aus dem bekannten Satz stammen, sollten Sie ignoriert werden. Bei den Zeichen folgen wird die Groß-/Kleinschreibung nicht beachtet, sodass `legacy` wie `Legacy`behandelt werden sollte. Es gibt keine Sortier Einschränkung für das Array, sodass die Zeichen folgen in beliebiger Reihenfolge angeordnet werden können. Wenn die Eigenschaft außerdem nur Zeichen folgen enthält, die nicht aus der bekannten Menge stammen, sollte Sie so behandelt werden, als ob Sie nur die "andere" Zeichenfolge enthielt.
 
 ### <a name="sample-request"></a>Beispiel Anforderung
 
@@ -217,11 +217,11 @@ In diesem speziellen Fall hat der Registrierungs Index die Registrierungsseite I
 
 ## <a name="registration-page"></a>Registrierungsseite
 
-Die Registrierungsseite enthält Registrierungs Blätter. Die URL zum Abrufen einer Registrierungsseite wird von der `@id` -Eigenschaft im oben erwähnten [Registrierungsseiten Objekt](#registration-page-object) bestimmt.
+Die Registrierungsseite enthält Registrierungs Blätter. Die URL zum Abrufen einer Registrierungsseite wird durch die `@id`-Eigenschaft im oben erwähnten [Registrierungsseiten Objekt](#registration-page-object) bestimmt.
 
-Wenn das `items` Array nicht im Registrierungs Index bereitgestellt wird, gibt eine HTTP GET-Anforderung `@id` des Werts ein JSON-Dokument zurück, das ein Objekt als Stamm hat. Das-Objekt verfügt über die folgenden Eigenschaften:
+Wenn das `items` Array nicht im Registrierungs Index bereitgestellt wird, gibt eine HTTP GET-Anforderung des `@id` Werts ein JSON-Dokument zurück, das ein Objekt als Stamm hat. Das-Objekt verfügt über die folgenden Eigenschaften:
 
-Name   | Typ             | Erforderlich | Hinweise
+-Name   | Geben Sie Folgendes ein:             | Erforderlich | Notizen
 ------ | ---------------- | -------- | -----
 @id    | string           | ja      | Die URL zur Registrierungsseite.
 count  | Ganze Zahl          | ja      | Die Anzahl der Registrierungs Blätter auf der Seite.
@@ -244,16 +244,16 @@ Die Form der Registrierungs Blattobjekte ist die gleiche wie im [obigen](#regist
 
 Das Blatt Registrierung enthält Informationen über eine bestimmte Paket-ID und-Version. Die Metadaten für die jeweilige Version sind möglicherweise in diesem Dokument nicht verfügbar. Paket Metadaten sollten aus dem [Registrierungs Index](#registration-index) oder der [Registrierungsseite](#registration-page) abgerufen werden (wird mit dem Registrierungs Index ermittelt).
 
-Die URL zum Abrufen eines Registrierungs Blatts wird aus der `@id` -Eigenschaft eines Registrierungs Blatt Objekts entweder in einem Registrierungs Index oder auf einer Registrierungsseite abgerufen.
+Die URL zum Abrufen eines Registrierungs Blatts wird aus der `@id`-Eigenschaft eines Registrierungs Blatt Objekts entweder in einem Registrierungs Index oder auf einer Registrierungsseite abgerufen.
 
 Das Registrierungs Blatt ist ein JSON-Dokument mit einem Root-Objekt mit den folgenden Eigenschaften:
 
-Name           | Typ    | Erforderlich | Hinweise
+-Name           | Geben Sie Folgendes ein:    | Erforderlich | Notizen
 -------------- | ------- | -------- | -----
 @id            | string  | ja      | Die URL zum Registrierungs Blatt.
 catalogentry   | string  | Nein       | Die URL zum Katalogeintrag, der dieses Blatt erzeugt hat.
 Liste         | boolean | Nein       | Sollte als "aufgelistet" betrachtet werden, wenn nicht vorhanden
-packageContent | string  | Nein       | Die URL zum Paket Inhalt (. nupkg).
+packagecontent | string  | Nein       | Die URL zum Paket Inhalt (. nupkg).
 enes      | string  | Nein       | Eine Zeichenfolge, die den ISO 8601-Zeitstempel der Veröffentlichung des Pakets enthält.
 Registrierung   | string  | Nein       | Die URL zum Registrierungs Index.
 

@@ -1,165 +1,165 @@
 ---
-title: Anmerkungen zu NuGet 5.0 RTM
-description: Anmerkungen zu NuGet-5.0, einschließlich bekannter Probleme, Fehlerbehebungen, neuen Features und DCRs.
+title: Anmerkungen zu dieser Version von nuget 5,0 RTM
+description: Anmerkungen zu dieser Version von nuget 5,0 einschließlich bekannter Probleme, Fehlerbehebungen, neuer Features und dcrs.
 author: karann-msft
 ms.author: karann
 ms.date: 04/02/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7e719a3bb5069c461820c6f884487af1eb04bf86
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: 52c71c6fe1a1854d5aed229abf2ce7ddc2685ae9
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610661"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611342"
 ---
-# <a name="nuget-50-release-notes"></a>Anmerkungen zu NuGet 5.0
+# <a name="nuget-50-release-notes"></a>Anmerkungen zu dieser Version von nuget 5,0
 
 Möglichkeiten der NuGet-Verteilung:
 
 | NuGet-Version | Verfügbar in der Visual Studio-Version| Verfügbar in .NET SDK(s)|
 |:---|:---|:---|
-| [**5.0.0**](https://nuget.org/downloads) | [Visual Studio 2019 Version 16.0](https://visualstudio.microsoft.com/downloads/) | [2.1.602](https://dotnet.microsoft.com/download/dotnet-core/2.1)<sup>1</sup>, [2.2.202](https://dotnet.microsoft.com/download/dotnet-core/2.2)<sup>2</sup> |
-| [**5.0.2**](https://nuget.org/downloads) | [Visual Studio 2019 version 16.0.4](https://visualstudio.microsoft.com/downloads/) | [2.1.60X](https://dotnet.microsoft.com/download/dotnet-core/2.1)<sup>1</sup>, [2.2.20X](https://dotnet.microsoft.com/download/dotnet-core/2.2)<sup>2</sup> |
+| [**verfügbar**](https://nuget.org/downloads) | [Visual Studio 2019, Version 16,0](https://visualstudio.microsoft.com/downloads/) | [2.1.602](https://dotnet.microsoft.com/download/dotnet-core/2.1)<sup>1</sup>, [2.2.202](https://dotnet.microsoft.com/download/dotnet-core/2.2)<sup>2</sup> |
+| [**5.0.2**](https://nuget.org/downloads) | [Visual Studio 2019 Version 16.0.4](https://visualstudio.microsoft.com/downloads/) | [2.1.60 x](https://dotnet.microsoft.com/download/dotnet-core/2.1)<sup>1</sup>, [2.2.20 x](https://dotnet.microsoft.com/download/dotnet-core/2.2)<sup>2</sup> |
 
-<sup>1</sup>mit Visual Studio-2019 mit .NET Core-Workload installiert 
+<sup>1</sup> Installiert mit Visual Studio 2019 mit .net Core-Arbeitsauslastung 
 
-<sup>2</sup>verfügbar als optionale Installation mit Visual Studio-2019 mit .NET Core-Workload
+<sup>2</sup> Verfügbar als optionale Installation mit Visual Studio 2019 mit .net Core-Arbeitsauslastung
 
-## <a name="summary-whats-new-in-50"></a>Zusammenfassung: Neuerungen in 5.0
+## <a name="summary-whats-new-in-50"></a>Zusammenfassung: Neues in 5,0
 
-* Unterstützung für die Wiederherstellung [gefiltert Lösungen](https://docs.microsoft.com/en-us/visualstudio/ide/filtered-solutions?view=vs-2019) in Visual Studio-2019 - [#5820](https://github.com/NuGet/Home/issues/5820)
-* `BuildTransitive` Ordner kann Pakete transitiv targets-und Props zum Hostprojekt mitwirken [#6091](https://github.com/NuGet/Home/issues/6091)
-* Bessere Unterstützung für PackageReference-Szenarien in NuGet IVs-APIs – [#7005](https://github.com/NuGet/Home/issues/7005), [#7493](https://github.com/NuGet/Home/issues/7493)
-* `nuget.exe pack project.json` veraltet - [#7928](https://github.com/NuGet/Home/issues/7928)
-* Gen 1-Anmeldeinformationsanbieter-Plug-in wurde ersetzt durch [Gen 2](https://aka.ms/nuget-cross-platform-authentication-plugin) und wird in Kürze veraltet sein – [#7819](https://github.com/NuGet/Home/issues/7819)
+* Unterstützung für die Wiederherstellung von [gefilterten Lösungen](https://docs.microsoft.com/visualstudio/ide/filtered-solutions?view=vs-2019) in Visual Studio 2019- [#5820](https://github.com/NuGet/Home/issues/5820)
+* mit `BuildTransitive` Ordner können Pakete transitiv Ziele/Eigenschaften zum Host Projekt beitragen [#6091](https://github.com/NuGet/Home/issues/6091)
+* Bessere Unterstützung für packagereferenzierungsszenarien in nuget IVS-APIs- [#7005](https://github.com/NuGet/Home/issues/7005) [#7493](https://github.com/NuGet/Home/issues/7493)
+* `nuget.exe pack project.json` ist veraltet- [#7928](https://github.com/NuGet/Home/issues/7928)
+* Das Plug-in für die Anmelde Informationsanbieter-Plug-in wurde von Generation [2](https://aka.ms/nuget-cross-platform-authentication-plugin) abgelöst und wird in Kürze als veraltet eingestuft- [#7819](https://github.com/NuGet/Home/issues/7819)
 
 ## <a name="issues-fixed-in-this-release"></a>In diesem Release behobene Probleme
 
 **Fehler**
 
-* Wenn eine NoOp-Wiederherstellung durchführen zu können, sollten Sie vermeiden *. dgspec.json schreiben im Verzeichnis "Obj" - [#7854](https://github.com/NuGet/Home/issues/7854)
+* Wenn Sie eine NOOP-Wiederherstellung durchgeführt haben, vermeiden Sie das Schreiben von *. dgspec. JSON in obj-Verzeichnis [#7854](https://github.com/NuGet/Home/issues/7854)
 
-* Berechtigungen für Dateien, die in ~/.nuget erstellt werden, zu open - [#7673](https://github.com/NuGet/Home/issues/7673)
+* Berechtigungen für Dateien, die in ~/.nuget erstellt werden, sind zu offen [#7673](https://github.com/NuGet/Home/issues/7673)
 
-* `dotnet list package --outdated` funktioniert nicht mit Datenquellen, die Authentifizierung – [#7605](https://github.com/NuGet/Home/issues/7605)
+* `dotnet list package --outdated` funktioniert nicht mit Quellen, die Authentifizierung- [#7605](https://github.com/NuGet/Home/issues/7605) benötigen.
 
-* NuGet.VisualStudio.IVsPackageInstaller - Aufruf in einem Projekt mit kein Paket verweist immer auf "Packages.config" verwendet, auch wenn der Standardwert festgelegt ist, zu "packagereference" - [#7005](https://github.com/NuGet/Home/issues/7005)
+* "Nuget. VisualStudio. ivspackageinstaller-Call" für ein Projekt ohne Paket Verweise verwendet immer "Packages. config", auch wenn die Standardeinstellung auf "packagerereferences- [#7005](https://github.com/NuGet/Home/issues/7005)
 
-* PMC: Update-Paket installieren schlägt fehl ("kann nicht gefunden") für die Pakete aus der Liste entfernen. - [#7268](https://github.com/NuGet/Home/issues/7268)
+* PMC: bei der erneuten Installation von Update-Package tritt ein Fehler auf ("das Paket wurde nicht gefunden"). - [#7268](https://github.com/NuGet/Home/issues/7268)
 
-* Fügen Sie in unserem Repository und die VSIX - Hinweis zu Drittanbietern [#7409](https://github.com/NuGet/Home/issues/7409)
+* Hinzufügen eines Drittanbieter Hinweises in unserem Repository und VSIX- [#7409](https://github.com/NuGet/Home/issues/7409)
 
-* NuGet.VisualStudio.IVsPackageInstaller.InstallPackage sollten die neueste Version, wenn keine Version angegeben – installieren [#7493](https://github.com/NuGet/Home/issues/7493)
+* "Nuget. VisualStudio. ivspackageinstaller. INSTALLPACKAGE" sollte die neueste Version installieren, wenn keine Version angegeben ist [#7493](https://github.com/NuGet/Home/issues/7493)
 
-* – Interaktive Unterstützung für Dotnet Nuget Push - [#7519](https://github.com/NuGet/Home/issues/7519)
+* --interaktive Unterstützung für dotnet nuget Push- [#7519](https://github.com/NuGet/Home/issues/7519)
 
-* Wenn Sie mit der Datei wiederherstellen, sollte nicht NU1603 Warnung ausgelöst werden. - [#7529](https://github.com/NuGet/Home/issues/7529)
+* Bei der Wiederherstellung mit der Sperrdatei sollte NU1603 Warning nicht ausgelöst werden. - [#7529](https://github.com/NuGet/Home/issues/7529)
 
-* NuGet sollten Projektpfad nicht drucken, während der Wiederherstellung mit minimaler Protokollierung - [#7647](https://github.com/NuGet/Home/issues/7647)
+* Nuget sollte den Projektpfad während der Wiederherstellung nicht mit minimaler Protokollierung drucken [#7647](https://github.com/NuGet/Home/issues/7647)
 
-* – Interaktive Unterstützung für Dotnet-remove Paket - [#7727](https://github.com/NuGet/Home/issues/7727)
+* --interaktive Unterstützung für dotnet Remove Package- [#7727](https://github.com/NuGet/Home/issues/7727)
 
-* Hinzufügen NuGet.Packaging.Core mit TypeForwardedTo Attrs - später wieder [#7768](https://github.com/NuGet/Home/issues/7768)
+* Fügen Sie "nuget. Packaging. Core" mit typeforwardto attrs- [#7768](https://github.com/NuGet/Home/issues/7768) hinzu.
 
-* Plugins_cache benötigt kürzerer Pfad für eine gute - Lösung [#7770](https://github.com/NuGet/Home/issues/7770)
+* plugins_cache erfordert einen kürzeren Pfad, um gut zu funktionieren [#7770](https://github.com/NuGet/Home/issues/7770)
 
-* Pfad für die Ermittlung von Msbuild bevorzugen, wenn Benutzer bestimmte Msbuild-Version - anfordern nicht [#7786](https://github.com/NuGet/Home/issues/7786)
+* Pfad für MSBuild-Ermittlung bevorzugen, wenn der Benutzer keine bestimmte MSBuild-Version angefordert hat [#7786](https://github.com/NuGet/Home/issues/7786)
 
-* `nuget.exe /?` tragen Sie richtige Msbuild-Versionen – [#7794](https://github.com/NuGet/Home/issues/7794)
+* `nuget.exe /?` sollte die korrekten MSBuild-Versionen auflisten [#7794](https://github.com/NuGet/Home/issues/7794)
 
-* NuGet.targets(498,5): error : Einen Teil des Pfads konnte nicht gefunden "/ Tmp/NuGetScratch - unter Mono - [#7793](https://github.com/NuGet/Home/issues/7793)
+* Nuget. targets (498, 5): Fehler: ein Teil des Pfads "/tmp/NuGetScratch-on Mono- [#7793](https://github.com/NuGet/Home/issues/7793) wurde nicht gefunden.
 
-* Wiederherstellung listet unnötigerweise den Inhalt von allen Versionen von Referenziertes Paket im Cache Machine - [#7639](https://github.com/NuGet/Home/issues/7639)
+* Restore listet den Inhalt aller Versionen des Pakets, auf das verwiesen wird, im Computer Cache auf. [#7639](https://github.com/NuGet/Home/issues/7639)
 
-* Automatische Erkennung von MSBuild wählt immer 16.0, nach der Installation von Visual Studio 2019 Vorschau - [#7621](https://github.com/NuGet/Home/issues/7621)
+* Die automatische MSBuild-Erkennung wählt nach der Installation von vs 2019 Preview- [#7621](https://github.com/NuGet/Home/issues/7621) immer 16,0 aus.
 
-* Dotnet-umgebungsaufgabenlisten-Paket für eine Lösung gibt doppelte Einträge für Framework - [#7607](https://github.com/NuGet/Home/issues/7607)
+* Das dotnet List-Paket für eine Lösung gibt doppelte Einträge für Framework- [#7607](https://github.com/NuGet/Home/issues/7607) aus.
 
-* Ausnahme "ein leerer Pfad ist nicht zulässig." beim aufrufenden IVsPackageInstaller.InstallPackage auf dem alten Projekte und-Pakete Ordner ist nicht vorhanden. - [#5936](https://github.com/NuGet/Home/issues/5936)
+* Ausnahme "leerer Pfadname ist nicht zulässig" beim Aufrufen von ivspackageinstaller. INSTALLPACKAGE für alte Projekte, und der Ordner "Packages" ist nicht vorhanden. - [#5936](https://github.com/NuGet/Home/issues/5936)
 
-* MSBuild/t: Restore Ausführlichkeitsgrad muss funktionalitätsanforderungen - [#4695](https://github.com/NuGet/Home/issues/4695)
+* MSBuild/t: Minimale Ausführlichkeit der Wiederherstellung sollte minimal sein [#4695](https://github.com/NuGet/Home/issues/4695)
 
-* Visual Studio 16.0 NuGet UI enthält unlesbare Registerkarten aufgrund von Problemen mit Farbe - [#7735](https://github.com/NuGet/Home/issues/7735)
+* Die nuget-Benutzeroberfläche von vs 16,0 verfügt über unlesbare Registerkarten aufgrund von Farb Problemen [#7735](https://github.com/NuGet/Home/issues/7735)
 
-* NuGet.Core & NuGet.Clients Dateien "License.txt" Klarstellung - [#7629](https://github.com/NuGet/Home/issues/7629)
+* Nuget. Core & nuget. Clients License. txt-Erläuterung- [#7629](https://github.com/NuGet/Home/issues/7629)
 
-* Wiederherstellung listet globalen Paketordner unnötigerweise beim Versuch, um zu bestimmen, Typ: [#7596](https://github.com/NuGet/Home/issues/7596)
+* Restore listet den globalen Paket Ordner auf, wenn versucht wird, Type- [#7596](https://github.com/NuGet/Home/issues/7596) zu bestimmen.
 
-* Fehler von der Erzwingung der Sperre-Datei sollte angezeigt werden in der Fehlerliste (Fenster) - [#7429](https://github.com/NuGet/Home/issues/7429)
+* Fehler bei der Erzwingung von Sperrdateien sollten in Fehlerliste Fenster angezeigt werden [#7429](https://github.com/NuGet/Home/issues/7429)
 
-* Beheben von Problemen mit NuGet.Configuration - [#7326](https://github.com/NuGet/Home/issues/7326)
+* Beheben von Problemen mit nuget. Configuration- [#7326](https://github.com/NuGet/Home/issues/7326)
 
-* Aktualisieren die Installation von MSBuild anpassen Ort – [#7325](https://github.com/NuGet/Home/issues/7325)
+* Anpassen an MSBuild Aktualisieren des Installations Speicher Orts [#7325](https://github.com/NuGet/Home/issues/7325)
 
-* NuGet.Build.Tasks.Pack muss eine entwicklungsabhängigkeit - [#7249](https://github.com/NuGet/Home/issues/7249)
+* "Nuget. Build. Tasks. Pack" sollte eine Entwicklungs Abhängigkeit [#7249](https://github.com/NuGet/Home/issues/7249)
 
-* Hinzufügen von Pack Erweiterungspunkt zum Einschließen von Debugsymbole - [#7234](https://github.com/NuGet/Home/issues/7234)
+* Hinzufügen des Paket Erweiterungs Punkts zum Einschließen von Debugsymbolen- [#7234](https://github.com/NuGet/Home/issues/7234)
 
-* `dotnet pack` Abhängigkeit Versionsbereich in erstellte NuGet-Paket (auch, wenn die unverankerte Version verwendet wird) - beibehalten soll [#7232](https://github.com/NuGet/Home/issues/7232)
+* `dotnet pack` sollten den Abhängigkeits Versions Bereich in der erstellten nupkg beibehalten (auch wenn die unverankerte Version verwendet wird)- [#7232](https://github.com/NuGet/Home/issues/7232)
 
-* `dotnet restore` nicht authentifizierte Quelle bei der Benutzerebene Config-Quelle – auch verfügt über [#7209](https://github.com/NuGet/Home/issues/7209)
+* `dotnet restore` schlägt bei einer authentifizierten Quelle fehl, wenn die Konfigurationsdatei auf Benutzerebene auch über Quell [#7209](https://github.com/NuGet/Home/issues/7209) verfügt.
 
-* Pack sollten nicht nur BuildActions für Inhaltsdateien - [#7155](https://github.com/NuGet/Home/issues/7155)
+* Paket sollte den Satz von buildactions für Inhalts Dateien nicht einschränken- [#7155](https://github.com/NuGet/Home/issues/7155)
 
-* Verwenden eine "ProjectReference" AssetTargetFallback erfolgreich ausgeführt werden müssen, sollte eine Warnung ausgeben. - [#7137](https://github.com/NuGet/Home/issues/7137)
+* Wenn Sie eine projectreferenzierung verwenden, bei der "assettargetfallback" ausgeführt werden muss, sollte gewarnt werden. - [#7137](https://github.com/NuGet/Home/issues/7137)
 
-* Deadlock aufgrund von Threadingprobleme beim Aufrufen von in CPS (CommonProjectSystem) - [#7103](https://github.com/NuGet/Home/issues/7103)
+* Deadlock aufgrund von Threading Problemen beim Aufrufen von CPS (commonprojectsystem)- [#7103](https://github.com/NuGet/Home/issues/7103)
 
-* `dotnet add package` Verwenden Sie nicht für eine Datenquelle angegeben, in der lokalen Konfiguration - Anmeldeinformationen aus der globalen Konfiguration [#6935](https://github.com/NuGet/Home/issues/6935)
+* `dotnet add package` verwendet keine Anmelde Informationen aus der globalen Konfiguration für eine in der lokalen Konfiguration angegebene Quelle- [#6935](https://github.com/NuGet/Home/issues/6935)
 
-* Threadingprobleme mit MEF, die aufgerufen wird, auf die asynchrone Codepfade - [#6771](https://github.com/NuGet/Home/issues/6771)
+* Threading Probleme mit MEF, die für Async-Codepfade aufgerufen werden- [#6771](https://github.com/NuGet/Home/issues/6771)
 
-* Anmeldung: Fehler zweimal und ohne Aufrufliste - [#6455](https://github.com/NuGet/Home/issues/6455)
+* Signierung: der Fehler wird zweimal und ohne aufrufsstapel [#6455](https://github.com/NuGet/Home/issues/6455) gemeldet.
 
-* Installieren eines signierten Pakets mit nicht vertrauenswürdigen Signaturzertifikat sollte angezeigt werden Fehler: [#6318](https://github.com/NuGet/Home/issues/6318)
+* Beim Installieren eines signierten Pakets mit nicht vertrauenswürdigem Signaturzertifikat sollte Fehler [#6318](https://github.com/NuGet/Home/issues/6318) angezeigt werden.
 
-* NuGet restore noops sind nicht ordnungsgemäß, beim Verzeichnis "Obj" - 2-Projekten gemeinsam [#6114](https://github.com/NuGet/Home/issues/6114)
+* Nuget Restore nicht ordnungsgemäß, wenn zwei Projekte das obj-Verzeichnis gemeinsam nutzen [#6114](https://github.com/NuGet/Home/issues/6114)
 
-* Können keine PAT mit `dotnet restore` unter Linux mit Paketen aus authentifizierte Feeds - [#5651](https://github.com/NuGet/Home/issues/5651)
+* Pat mit `dotnet restore` unter Linux kann nicht mit Paketen aus authentifizierten Feeds verwendet werden [#5651](https://github.com/NuGet/Home/issues/5651)
 
-* Dotnet-Restore versagt, wenn deaktivierte auf den gesamten Computer feed - [#5410](https://github.com/NuGet/Home/issues/5410)
+* DotNet Restore Fehler aufgrund eines deaktivierten Computer weiten Feeds- [#5410](https://github.com/NuGet/Home/issues/5410)
 
 **DCRs**
 
-* Warnhinweis anzeigen, über zukünftige Entfernen von "Dotnet Pack Datei"Project.JSON"" - [#7928](https://github.com/NuGet/Home/issues/7928)
+* Warnung zur zukünftigen Entfernung von "dotnet Pack Project. JSON"- [#7928](https://github.com/NuGet/Home/issues/7928)
  
-* Fügen Sie eine Warnung zu veralteten Gen1-Anmeldeinformationen-Plug-in - [#7819](https://github.com/NuGet/Home/issues/7819)
+* Fügen Sie eine veralnungs Warnung für das Gen1 Anmelde Informationen-Plug-in hinzu [#7819](https://github.com/NuGet/Home/issues/7819)
  
-* Signierung: Aktivierte Repository zum Erzwingen einer Client-Überprüfung von jedem Paket als Repository signiert--über RepositorySignatures/5.0.0-Ressource - [#7759](https://github.com/NuGet/Home/issues/7759)
+* Signieren: aktiviertes Repository, das die Client Überprüfung jedes Pakets als durch das Repository signiertes Repository erfordert, über RepositorySignatures/5.0.0 Resource- [#7759](https://github.com/NuGet/Home/issues/7759)
 
-* Beschränken der Anzahl von HTTP-Anforderung pro Datenquelle über die Datei "NuGet.config" - [#4538](https://github.com/NuGet/Home/issues/4538)
+* Begrenzen der HTTP-Anforderungs Nummer pro Quelle über "nuget. config" [#4538](https://github.com/NuGet/Home/issues/4538)
 
-* NuGet sollten Net472 (um die Bereinigung der 16,0 Build des VSIX-Hilfe) - Ziel [#7143](https://github.com/NuGet/Home/issues/7143)
+* Nuget sollte auf Net472 abzielen (um die Bereinigung des 16,0-Builds der VSIX zu erleichtern)- [#7143](https://github.com/NuGet/Home/issues/7143)
 
-* PMC: Entfernen Sie OpenPackagePage-Befehl – [#7384](https://github.com/NuGet/Home/issues/7384)
+* PMC: openpackagepage-Befehls [#7384](https://github.com/NuGet/Home/issues/7384) entfernen
 
-* Stellen NetCoreApp 3.0-Karte, um NetStandard 2.1 – [#7762](https://github.com/NuGet/Home/issues/7762)
+* Erstellen von netcoreapp 3,0 mit netstandard 2,1- [#7762](https://github.com/NuGet/Home/issues/7762)
 
-* Pakete, NuGet.* netstandard2.0-Unterstützung hinzufügen [#6516](https://github.com/NuGet/Home/issues/6516)
+* Hinzufügen von netstandard 2.0-Unterstützung zu nuget. * Packages- [#6516](https://github.com/NuGet/Home/issues/6516)
 
-* Paketersteller, die zum Definieren von Ressourcen transitive Buildverhalten - ermöglichen [#6091](https://github.com/NuGet/Home/issues/6091)
+* Ermöglicht es Paket Autoren, das transitiv Verhalten von buildassets zu definieren- [#6091](https://github.com/NuGet/Home/issues/6091)
 
-* Visual Studio 2019 Lösungsfilter-Funktion unterstützt. Unterstützt auch das Projekt nicht in der Projektmappe oder entladene Projekte. Vollständige Lösung (per CLI oder Visual Studio) zuerst - wiederherstellen müssen [#5820](https://github.com/NuGet/Home/issues/5820)
+* Unterstützung des vs 2019-Lösungs Filter Features. Unterstützt auch Projekte, die nicht in einer Projekt Mappe oder entladen wurden. Die komplette Lösung (über CLI oder vs) muss zuerst wieder hergestellt werden [#5820](https://github.com/NuGet/Home/issues/5820)
 
-* NuGet-5.0-Assemblys in .NET 4.7.2 (über die Änderung der TFM) - erfordern [#7510](https://github.com/NuGet/Home/issues/7510)
+* Nuget 5,0-Assemblys für die Verwendung von .NET 4.7.2 (über TFM-Änderung): [#7510](https://github.com/NuGet/Home/issues/7510)
 
-* NuGetLicenseData aus NuGet.Packaging sollte ein öffentlicher Typ sein. Aktualisieren Sie die Lizenzmetadaten aus Spdx erfasst. - [#7471](https://github.com/NuGet/Home/issues/7471)
+* Nugetlicencdata aus nuget. Packaging sollte ein öffentlicher Typ sein. Aktualisieren Sie die Lizenz Metadaten, die von spdx erfasst wurden. - [#7471](https://github.com/NuGet/Home/issues/7471)
 
-* Entfernen Sie veraltete APIs für Einstellungen – [#7294](https://github.com/NuGet/Home/issues/7294)
+* Entfernen veralteter Einstellungs-APIs- [#7294](https://github.com/NuGet/Home/issues/7294)
 
-* Problemumgehung Wiederherstellung Timeouts auf Systemen mit 1 cpu - [#6742](https://github.com/NuGet/Home/issues/6742)
+* Problem Umgehung Wiederherstellungs Timeouts für Systeme mit einer CPU- [#6742](https://github.com/NuGet/Home/issues/6742)
 
-* NuGet NTLM-Authentifizierung bevorzugt, auch wenn die Anmeldeinformationen vorhanden sind, in der Datei "NuGet.config" – Filter-Auth-Typen zur Eingabe von Anmeldeinformationen - Option "Config" hinzufügen [#5286](https://github.com/NuGet/Home/issues/5286)
+* Nuget bevorzugt NTLM-Authentifizierung, auch wenn Anmelde Informationen in der Datei "nuget. config-Add config" vorhanden sind, um Authentifizierung-Typen nach Anmelde Informationen zu filtern- [#5286](https://github.com/NuGet/Home/issues/5286)
 
-* Aktivieren Sie EmbedInteropTypes für "packagereference" (übereinstimmende Datei "Packages.config"-Funktion) - [#2365](https://github.com/NuGet/Home/issues/2365)
+* Embedinteroptypes für packagereferenzierung aktivieren (übereinstimmende Pakete. config-Funktion)- [#2365](https://github.com/NuGet/Home/issues/2365)
 
-**[Liste aller in diesem Release - 5.0 RTM behobene Probleme](https://github.com/NuGet/Home/milestone/84?closed=1)**
+**[Liste aller in dieser Version behobene Probleme-5,0 RTM](https://github.com/NuGet/Home/milestone/84?closed=1)**
 
-## <a name="summary-whats-new-in-502"></a>Zusammenfassung: Neuerungen in 5.0.2
+## <a name="summary-whats-new-in-502"></a>Zusammenfassung: Neues in 5.0.2
 
-* Sicherheit (über dotnet.exe "oder" mono.exe Ausführungszeit): der Ordner "Obj" sollten erstellt werden, mit den richtigen Berechtigungen [#7908](https://github.com/NuGet/Home/issues/7908)
+* Sicherheit (wenn Sie über "dotnet. exe" oder "Mono. exe" ausgeführt werden): der Ordner "obj" sollte mit den korrekten Berechtigungen erstellt werden [#7908](https://github.com/NuGet/Home/issues/7908)
 
-* NuGet.exe-Wiederherstellung unter Mono/MacOS ein Fehler auftritt, mit der benutzerdefinierten Datei "NuGet.config" und `PackageSignatureValidity: False` [#8011](https://github.com/NuGet/Home/issues/8011)
+* Fehler bei der Wiederherstellung von nuget. exe in Mono/MacOS mit benutzerdefinierten nuget. config-und `PackageSignatureValidity: False` [#8011](https://github.com/NuGet/Home/issues/8011)
 
 
 ## <a name="known-issues"></a>Bekannte Probleme
@@ -168,8 +168,8 @@ Möglichkeiten der NuGet-Verteilung:
 #### <a name="issue"></a>Problem
 Bei Verwendung von dotnet.exe 2.x zum Wiederherstellen eines Projekts mit mehreren Zielen netcoreapp 1.x und netcoreapp 2.x wird der Fallbackordner als Dateifeed behandelt. Dies bedeutet, dass NuGet bei der Wiederherstellung das Paket aus dem Fallbackordner auswählt und versucht, es im globalen Paketordner zu installieren, und die übliche Signaturüberprüfung durchführt, bei der ein Fehler auftritt.<br>
 #### <a name="workaround"></a>Problemumgehung
-Deaktivieren Sie die Verwendung des Ordners fallback durch Festlegen der `RestoreAdditionalProjectSources` auf nichts verweist:
+Deaktivieren Sie die Verwendung des Fall Back Ordners, indem Sie die `RestoreAdditionalProjectSources` auf "Nothing" festlegen:
 
 `<RestoreAdditionalProjectSources></RestoreAdditionalProjectSources>`
 
-Verwenden Sie dies mit Vorsicht, da Pakete, die aus dem fallback Ordner wiederhergestellt werden soll nun aus "NuGet.org" heruntergeladen werden.
+Verwenden Sie dies mit Vorsicht, da Pakete, die aus dem Fall Back Ordner wieder hergestellt werden, jetzt von NuGet.org heruntergeladen werden.
