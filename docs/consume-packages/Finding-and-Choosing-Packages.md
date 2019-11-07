@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: cbe6fd964e88b054b9e2c5c8ead71d1f9090d63c
-ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
+ms.openlocfilehash: 9947a490e4373bb0b8b7fb0814828ff2a60615a8
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817567"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611072"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Suchen und Auswerten von NuGet-Paketen für Ihr Projekt
 
-Wenn Sie ein .NET-Projekt starten oder bei Ihrer App bzw. Ihrem Dienst eine funktionale Anforderung vorliegt, können Sie viel Zeit und Aufwand sparen, indem Sie vorhandene NuGet-Pakete verwenden, um diese Anforderung zu erfüllen. Diese Pakete können von der öffentlichen Auflistung auf [nuget.org](http://www.nuget.org/packages/) oder von einer privaten Quelle stammen, die von Ihrer Organisation oder einem Drittanbieter bereitgestellt wird.
+Wenn Sie ein .NET-Projekt starten oder bei Ihrer App bzw. Ihrem Dienst eine funktionale Anforderung vorliegt, können Sie viel Zeit und Aufwand sparen, indem Sie vorhandene NuGet-Pakete verwenden, um diese Anforderung zu erfüllen. Diese Pakete können von der öffentlichen Auflistung auf [nuget.org](https://www.nuget.org/packages/) oder von einer privaten Quelle stammen, die von Ihrer Organisation oder einem Drittanbieter bereitgestellt wird.
 
 ## <a name="finding-packages"></a>Suchen von Paketen
 

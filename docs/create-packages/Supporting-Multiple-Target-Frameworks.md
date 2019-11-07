@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4413779361dad3a650da36b3c69bbb55b62804ee
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: 69e12ce1c78f8d4d50cbad7a0237d767064193ab
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380735"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610650"
 ---
 # <a name="support-multiple-net-versions"></a>Unterstützung für mehrere .NET-Versionen
 
@@ -151,8 +151,8 @@ Im folgenden Beispiel werden verschiedene Variationen des `<group>`-Elements dar
 
 Beim Packen von Bibliotheken, die die portable Klassenbibliothek als Ziel verwenden, kann die Bestimmung des in Ihren Ordnernamen und in der `.nuspec`-Datei zu verwendenden NuGet-Ziels schwierig sein, insbesondere dann, wenn sich die Ansteuerung nur auf ein Subset der portablen Klassenbibliothek bezieht. Die folgenden externen Ressourcen helfen Ihnen dabei:
 
-- [Framework-Profile in .NET](http://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephenclearly.com)
-- [Portable Klassenbibliotheksprofile](http://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co): Tabelle, in der portable Klassenbibliotheksprofile und die entsprechenden NuGet-Ziele aufgelistet werden
+- [Framework-Profile in .NET](https://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephenclearly.com)
+- [Portable Klassenbibliotheksprofile](https://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co): Tabelle, in der portable Klassenbibliotheksprofile und die entsprechenden NuGet-Ziele aufgelistet werden
 - [Tool für portable Klassenbibliotheksprofile](https://github.com/StephenCleary/PortableLibraryProfiles) (github.com): Befehlszeilentool zum Bestimmen der auf Ihrem System verfügbaren portablen Klassenbibliotheksprofile
 
 ## <a name="content-files-and-powershell-scripts"></a>Inhaltsdateien und PowerShell-Skripts

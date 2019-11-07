@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 7ebe3c0f75b8de158879119bce4df26217849251
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: c92f6e0c34347ee8555d416140d95ea2df5a3fbb
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488966"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610544"
 ---
 Der Paketbezeichner und die Versionsnummer sind die beiden wichtigsten Werte im Projekt, da sie eindeutig den exakten Code bezeichnen, der im Paket enthalten ist.
 
@@ -21,6 +21,6 @@ Der Paketbezeichner und die Versionsnummer sind die beiden wichtigsten Werte im 
 
 > Weitere Informationen zur Abhängigkeitsauflösung finden Sie unter [Abhängigkeitsauflösung mit PackageReference](../../concepts/dependency-resolution.md#dependency-resolution-with-packagereference). Ältere Informationen, die möglicherweise auch hilfreich sein können, um die Versionierung besser zu verstehen, finden Sie in dieser Reihe von Blog-Einträgen.
 >
-> - [Teil 1: Taking on DLL Hell (Teil 1: DLLs)](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
-> - [Teil 2: The core algorithm (Teil 2: Der Kernalgorithmus)](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
-> - [Part 3: Unification via Binding Redirects (Teil 3: Vereinheitlichung über Bindungsumleitungen)](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
+> - [Teil 1: Taking on DLL Hell (Teil 1: DLLs)](https://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
+> - [Teil 2: The core algorithm (Teil 2: Der Kernalgorithmus)](https://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
+> - [Part 3: Unification via Binding Redirects (Teil 3: Vereinheitlichung über Bindungsumleitungen)](https://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)

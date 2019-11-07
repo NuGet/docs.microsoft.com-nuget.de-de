@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: 522dbbb2a39eb1cb6f0d23f39a48158b07c9076d
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: da8c5a05311c790bf6b873bc0f1a077d3ef1db87
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426851"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610620"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>Erstellen von Benutzeroberflächensteuerelementen als NuGet-Pakete
 
@@ -93,7 +93,7 @@ Als Formate werden `.png`, `.jpg`, `.jpeg`, `.gif` und `.bmp` unterstützt. Das 
 
 ![Beispiel für das Toolbbox-Symbol](https://raw.githubusercontent.com/NuGet/docs.microsoft.com-nuget/live/docs/guides/media/ColorPicker_16x16x24.bmp)
 
-Der rosa Hintergrund wird zur Laufzeit ersetzt. Die Farbe der Symbole wird geändert, wenn das Visual Studio-Design geändert wird und diese Hintergrundfarbe erwartet wird. Weitere Informationen finden Sie unter [Bilder und Symbole für Visual Studio](https://docs.microsoft.com/en-us/visualstudio/extensibility/ux-guidelines/images-and-icons-for-visual-studio).
+Der rosa Hintergrund wird zur Laufzeit ersetzt. Die Farbe der Symbole wird geändert, wenn das Visual Studio-Design geändert wird und diese Hintergrundfarbe erwartet wird. Weitere Informationen finden Sie unter [Bilder und Symbole für Visual Studio](https://docs.microsoft.com/visualstudio/extensibility/ux-guidelines/images-and-icons-for-visual-studio).
 
 Im nachfolgenden Beispiel enthält das Projekt eine Imagedatei mit dem Namen „ManagedPackage.MyCustomControl.png“.
 

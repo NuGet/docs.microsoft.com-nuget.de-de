@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 24e35f4b2c047d5f337a1779e63846b11b0c1011
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: e2b6a64b8010f16d0fc33cca437b348d8f784fd7
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380579"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610500"
 ---
 # <a name="nugetorg-frequently-asked-questions"></a>Häufig gestellte Fragen zu NuGet.org
 
@@ -90,7 +90,7 @@ Stellen Sie zunächst sicher, dass Sie die aktuelle Version von NuGet verwenden.
 
 *Erfassen von Fiddler:*
 
-- Installieren Sie die aktuelle Version von [Fiddler](http://www.telerik.com/download/fiddler).
+- Installieren Sie die aktuelle Version von [Fiddler](https://www.telerik.com/download/fiddler).
 - Starten Sie Fiddler, und deaktivieren Sie die Erfassung des Datenverkehrs mithilfe des Menüs **File > Capture Traffic** (Datei > Datenverkehr erfassen).
 - Entfernen Sie alle Sitzungen, indem Sie alle Elemente in der Liste auswählen und die **ENTF**-Taste drücken.
 - Konfigurieren Sie Fiddler dafür, den HTTPS-Datenverkehr zu erfassen, indem Sie **Decrypt HTTPS traffic** (HTTPS-Datenverkehr entschlüsseln) auf der Registerkarte **HTTPS** des Menüs **Tools > Fiddler Options...** (Tools > Fiddler-Optionen...) überprüfen.
@@ -101,7 +101,7 @@ Stellen Sie zunächst sicher, dass Sie die aktuelle Version von NuGet verwenden.
 
 Hinweis: Es kann erforderlich sein, die Umgebungsvariable `HTTP_PROXY` auf `http://127.0.0.1:8888` festzulegen, um den NuGet-Datenverkehr an Fiddler weiterzuleiten.
 
-Wenn dies fehlschlägt, befolgen Sie die Ratschläge [in diesem StackOverflow-Beitrag](http://stackoverflow.com/questions/21049908/using-fiddler-to-sniff-visual-studio-2013-requests-proxy-firewall).
+Wenn dies fehlschlägt, befolgen Sie die Ratschläge [in diesem StackOverflow-Beitrag](https://stackoverflow.com/questions/21049908/using-fiddler-to-sniff-visual-studio-2013-requests-proxy-firewall).
 
 ## <a name="nugetorg-account-management"></a>Kontoverwaltung auf NuGet.org
 
@@ -228,17 +228,17 @@ Wenn bei der Anmeldung mit Ihrer E-Mail-Kontodomäne (@yourdomain.com) folgender
 
 Ihr Konto wurde als persönliches Microsoft-Konto registriert und hat problemlos funktioniert. Nun wurde Ihr Konto jedoch als Mandant mit dem Status „Nicht verwaltet“ in Azure Active Directory registriert (der Identitätsdienst, der verwendet wird, um Microsoft-Konten zu authentifizieren). 
 
-Dies kann der Fall sein, wenn Sie oder ein Mitglied Ihrer Organisation (mit der E-Mail-Adresse @yourdomain.com) sich bei einem integrierten AAD-Dienst registriert oder die [Self-Service-Registrierung für Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-self-service-signup) eingerichtet haben. Dadurch wird ein Mandant mit dem Status „Nicht verwaltet“ für die verwendete Microsoft-Kontodomäne (in diesem Fall @yourdomain.com) erstellt. 
+Dies kann der Fall sein, wenn Sie oder ein Mitglied Ihrer Organisation (mit der E-Mail-Adresse @yourdomain.com) sich bei einem integrierten AAD-Dienst registriert oder die [Self-Service-Registrierung für Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-self-service-signup) eingerichtet haben. Dadurch wird ein Mandant mit dem Status „Nicht verwaltet“ für die verwendete Microsoft-Kontodomäne (in diesem Fall @yourdomain.com) erstellt. 
 
 **Wie kann ich mein Konto wiederherstellen?**
 
 Derzeit ist es nicht möglich, Konten auf NuGet.org zu authentifizieren, die in Azure Active Directory den Status „Nicht verwaltet“ aufweisen. Es wird jedoch an einer Möglichkeit gearbeitet, solche Konten authentifizieren zu können.
 
-Wenn Sie sich auf NuGet.org mit Ihrem Microsoft-Konto (@yourdomain.com) anmelden möchten, müssen Sie (oder ein Administrator Ihres Unternehmens) den Besitz des AAD-Kontos beanspruchen, indem Sie eine DNS-Überprüfung durchführen, um Benutzer mit der E-Mail-Adresse „@yourdomain.com“ zu authentifizieren. Befolgen Sie die Schritte zur [Übernahme von Domänen durch Administratoren](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/domains-admin-takeover), die in der Dokumentation zu Azure Active Directory beschrieben werden. Anschließend sollten Sie sich mit diesem Konto anmelden können.
+Wenn Sie sich auf NuGet.org mit Ihrem Microsoft-Konto (@yourdomain.com) anmelden möchten, müssen Sie (oder ein Administrator Ihres Unternehmens) den Besitz des AAD-Kontos beanspruchen, indem Sie eine DNS-Überprüfung durchführen, um Benutzer mit der E-Mail-Adresse „@yourdomain.com“ zu authentifizieren. Befolgen Sie die Schritte zur [Übernahme von Domänen durch Administratoren](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover), die in der Dokumentation zu Azure Active Directory beschrieben werden. Anschließend sollten Sie sich mit diesem Konto anmelden können.
 
 **Ich möchte diese Methode nicht anwenden. Gibt es eine andere Möglichkeit, mein Konto wiederherzustellen?**
 
-Sie können ein neues Microsoft-Konto [erstellen](https://www.microsoft.com/en-us/account), dessen E-Mail-Adresse **nicht** zu @yourdomain.com gehört. Befolgen Sie hierfür die Schritte im Abschnitt zum [Wiederherstellen Ihres NuGet.org-Kontos](#unable-to-use-microsoft-login-how-do-i-recover-my-nugetorg-account).
+Sie können ein neues Microsoft-Konto [erstellen](https://www.microsoft.com/account), dessen E-Mail-Adresse **nicht** zu @yourdomain.com gehört. Befolgen Sie hierfür die Schritte im Abschnitt zum [Wiederherstellen Ihres NuGet.org-Kontos](#unable-to-use-microsoft-login-how-do-i-recover-my-nugetorg-account).
 
 ### <a name="how-do-i-change-my-nugetorg-account-username"></a>Wie kann ich den Benutzernamen meines NuGet.org-Kontos ändern?
 
@@ -250,7 +250,7 @@ Befolgen Sie die Schritte im Abschnitt zum [Löschen Ihres NuGet.org-Kontos](#ho
 
 ### <a name="how-to-delete-my-nugetorg-account"></a>Wie kann ich mein NuGet.org-Konto löschen?
 
-Es wird empfohlen, den Besitz aller Pakete, deren alleiniger Besitzer Sie sind, auf ein anderes Konto zu übertragen, bevor Sie Ihr Konto löschen. Weitere Informationen zu diesem Thema finden Sie unter [Verwalten von Paketbesitzern auf nuget.org](https://docs.microsoft.com/en-us/nuget/create-packages/publish-a-package#managing-package-owners-on-nugetorg). Hierdurch können wir Ihre Anforderung schneller verarbeiten.
+Es wird empfohlen, den Besitz aller Pakete, deren alleiniger Besitzer Sie sind, auf ein anderes Konto zu übertragen, bevor Sie Ihr Konto löschen. Weitere Informationen zu diesem Thema finden Sie unter [Verwalten von Paketbesitzern auf nuget.org](https://docs.microsoft.com/nuget/create-packages/publish-a-package#managing-package-owners-on-nugetorg). Hierdurch können wir Ihre Anforderung schneller verarbeiten.
 
 Wenn Sie Ihr Konto auf ein Organisationskonto umstellen möchten, führen Sie die in [Wie kann ich mein NuGet.org-Konto auf ein Organisationskonto umstellen?](#how-to-transform-my-nugetorg-account-to-an-organization) beschriebenen Schritte aus.
 

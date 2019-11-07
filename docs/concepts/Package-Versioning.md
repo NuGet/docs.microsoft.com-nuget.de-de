@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 7c6992d6bf3142eb6aca70f1fa3c46f72efd25a0
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: e0014a812ea591ef40c961e13864652d75ebdf6c
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69520350"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610990"
 ---
 # <a name="package-versioning"></a>Paketversionsverwaltung
 
@@ -32,7 +32,7 @@ Eine bestimmte Versionsnummer wird in der Form *Hauptversion.Nebenversion.Patch[
 - *Hauptversion*: Breaking Changes
 - *Nebenversion*: Neue Funktionen, aber dennoch abwärtskompatibel
 - *Patch*: Nur abwärtskompatible Fehlerkorrekturen
-- *-Suffix* (optional): Ein Bindestrich, gefolgt von einer Zeichenfolge, die eine Vorabversion angibt (gemäß der [Konvention „Semantic Versioning“ bzw. SemVer 1.0](http://semver.org/spec/v1.0.0.html)).
+- *-Suffix* (optional): Ein Bindestrich, gefolgt von einer Zeichenfolge, die eine Vorabversion angibt (gemäß der [Konvention „Semantic Versioning“ bzw. SemVer 1.0](https://semver.org/spec/v1.0.0.html)).
 
 **Beispiele:**
 
@@ -55,7 +55,7 @@ Nichtsdestoweniger befolgen Paketentwickler im Allgemeinen anerkannte Namenskonv
 - `-rc`: Release Candidate (RC); in der Regel ein stabiles Release, das veröffentlicht werden könnte, sofern keine erheblichen Fehler mehr auftreten.
 
 > [!Note]
-> NuGet 4.3.0 und höher unterstützt [SemVer 2.0.0](http://semver.org/spec/v2.0.0.html), die Nummern mit Punktnotation für Vorabversionen unterstützt (z. B. *1.0.1-build.23*). Die Punktnotation wird für NuGet-Versionen vor Version 4.3.0 nicht unterstützt. Sie können eine Form wie *1.0.1-build23* verwenden.
+> NuGet 4.3.0 und höher unterstützt [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html), die Nummern mit Punktnotation für Vorabversionen unterstützt (z. B. *1.0.1-build.23*). Die Punktnotation wird für NuGet-Versionen vor Version 4.3.0 nicht unterstützt. Sie können eine Form wie *1.0.1-build23* verwenden.
 
 Wenn sich Paketverweise und mehrere Paketversionen beim Auflösen nur durch das Suffix unterscheiden, wählt NuGet zuerst eine Version ohne Suffix aus und wendet dann eine Rangfolge für die Vorabversionen in umgekehrter alphabetischer Reihenfolge an. Die folgenden Versionen würden beispielsweise exakt in der hier gezeigten Reihenfolge ausgewählt:
 
@@ -70,7 +70,7 @@ Wenn sich Paketverweise und mehrere Paketversionen beim Auflösen nur durch das 
 
 ## <a name="semantic-versioning-200"></a>Semantic Versioning 2.0.0
 
-Ab NuGet 4.3.0 und höher und Visual Studio 2017 Version 15.3 und höher unterstützt NuGet [Semantic Versioning 2.0.0](http://semver.org/spec/v2.0.0.html).
+Ab NuGet 4.3.0 und höher und Visual Studio 2017 Version 15.3 und höher unterstützt NuGet [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html).
 
 Bestimmte Aspekte von SemVer 2.0.0 werden in älteren Clients nicht unterstützt. NuGet betrachtet eine Paketversion als SemVer 2.0.0-spezifisch, wenn eine der folgenden Aussagen zutrifft:
 

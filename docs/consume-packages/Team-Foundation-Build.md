@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: 0e69491525fce03e504d9d455bee2718510c83c2
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: a86a58f8afb4b0f1affeddd47d6c5606fb465757
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549884"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611004"
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>Einrichten der Paketwiederherstellung mit Team Foundation Build
 
@@ -31,7 +31,7 @@ Wenn Sie Visual Studio Team Services oder Team Foundation Server 2013 mit Buildp
 
 Ein Vorteil beim Verwenden von NuGet besteht darin, dass Sie Binärdateien nicht im Versionskontrollsystem einchecken müssen.
 
-Dies ist besonders dann von Interesse, wenn Sie ein System für die [verteilte Versionskontrolle](http://en.wikipedia.org/wiki/Distributed_revision_control) wie z.B. Git verwenden, da Entwickler das gesamte Repository klonen müssen, der gesamte Verlauf inbegriffen, bevor sie lokal daran arbeiten können. Das Einchecken von Binärdateien kann zu erheblicher Repositoryüberfrachtung führen, da Binärdateien normalerweise ohne Deltakompression gespeichert werden.
+Dies ist besonders dann von Interesse, wenn Sie ein System für die [verteilte Versionskontrolle](https://en.wikipedia.org/wiki/Distributed_revision_control) wie z.B. Git verwenden, da Entwickler das gesamte Repository klonen müssen, der gesamte Verlauf inbegriffen, bevor sie lokal daran arbeiten können. Das Einchecken von Binärdateien kann zu erheblicher Repositoryüberfrachtung führen, da Binärdateien normalerweise ohne Deltakompression gespeichert werden.
 
 NuGet unterstützt das [Wiederherstellen von Paketen](../consume-packages/package-restore.md) im Rahmen eines Builds mittlerweile schon sehr lange. Bei der vorherigen Implementierung bestand ein Henne-Ei-Problem bei Paketen, die den Buildprozess erweitern wollten, da NuGet Pakete während der Erstellung des Projekts wiederhergestellt hat. MSBuild erlaubt jedoch das Erweitern des Builds während des Buildvorgangs nicht. Hier kann man nun sagen, dass es sich um ein Problem in MSBuild handelt, ich bin jedoch der Meinung, dass dies ein inhärentes Problem ist. Je nachdem welchen Aspekt sie erweitern müssen, kann es unter Umständen für die Registrierung zu spät sein, wenn Ihr Paket wiederhergestellt wurde.
 
@@ -50,7 +50,7 @@ In folgendem Beispielprojekt wird gezeigt, wie Sie den Build so einrichten, dass
 
 ## <a name="repository-structure"></a>Repositorystruktur
 
-Das Beispielprojekt ist ein einfaches Befehlszeilentool, in dem Befehlszeilenargumente verwendet werden, um Abfragen in Bing durchzuführen. .NET Framework 4 wird als Ziel verwendet. Darüber hinaus werden [BCL-Pakete](http://www.nuget.org/profiles/dotnetframework/) ([Microsoft.Net.Http](http://www.nuget.org/packages/Microsoft.Net.Http), [Microsoft.Bcl](http://www.nuget.org/packages/Microsoft.Bcl), [Microsoft.Bcl.Async](http://www.nuget.org/packages/Microsoft.Bcl.Async) und [Microsoft.Bcl.Build](http://www.nuget.org/packages/Microsoft.Bcl.Build)) eingesetzt.
+Das Beispielprojekt ist ein einfaches Befehlszeilentool, in dem Befehlszeilenargumente verwendet werden, um Abfragen in Bing durchzuführen. .NET Framework 4 wird als Ziel verwendet. Darüber hinaus werden [BCL-Pakete](https://www.nuget.org/profiles/dotnetframework/) ([Microsoft.Net.Http](https://www.nuget.org/packages/Microsoft.Net.Http), [Microsoft.Bcl](https://www.nuget.org/packages/Microsoft.Bcl), [Microsoft.Bcl.Async](https://www.nuget.org/packages/Microsoft.Bcl.Async) und [Microsoft.Bcl.Build](https://www.nuget.org/packages/Microsoft.Bcl.Build)) eingesetzt.
 
 Die Struktur des Repositorys sieht folgendermaßen aus:
 

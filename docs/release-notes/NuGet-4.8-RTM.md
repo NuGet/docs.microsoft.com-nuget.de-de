@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: f85042b8fe1511934d6a3ac7de34da92c575f6e0
-ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
+ms.openlocfilehash: 6e352fef9fc36646f6feedbc390f847119cb00bf
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58432517"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611365"
 ---
 # <a name="nuget-48-release-notes"></a>Anmerkungen zu NuGet 4.8
 
@@ -36,7 +36,7 @@ Befehlszeilenversionen der gleichen Funktionalität sind ebenfalls verfügbar:
 ### <a name="installing-signed-packages-on-a-ci-machine-or-in-an-offline-environment-takes-longer-than-usual"></a>Das Installieren von signierten Paketen auf einem CI-Computer oder in einer Offlineumgebung dauert länger als gewöhnlich
 
 #### <a name="issue"></a>Problem
-Wenn der Computer eingeschränkten Internetzugriff hat (wie etwa ein Buildcomputer in einem CI/CD-Szenario), wird beim Installieren/Wiederherstellen von signierten NuGet-Paketen eine Warnung ([NU3028](https://docs.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu3028)) angezeigt, da die Sperrserver nicht erreichbar sind. Dabei handelt es sich um das erwartete Verhalten. In manchen Fällen kann dies jedoch unbeabsichtigte Konsequenzen haben, etwa die, dass das Installieren/Wiederherstellen von Paketen länger als gewöhnlich dauert.
+Wenn der Computer eingeschränkten Internetzugriff hat (wie etwa ein Buildcomputer in einem CI/CD-Szenario), wird beim Installieren/Wiederherstellen von signierten NuGet-Paketen eine Warnung ([NU3028](https://docs.microsoft.com/nuget/reference/errors-and-warnings/nu3028)) angezeigt, da die Sperrserver nicht erreichbar sind. Dabei handelt es sich um das erwartete Verhalten. In manchen Fällen kann dies jedoch unbeabsichtigte Konsequenzen haben, etwa die, dass das Installieren/Wiederherstellen von Paketen länger als gewöhnlich dauert.
 
 #### <a name="workaround"></a>Problemumgehung
 Führen Sie ein Update auf Visual Studio 15.8.4 und NuGet.exe 4.8.1 aus, in denen wir eine Umgebungsvariable zum Umschalten des Sperrprüfmodus eingeführt haben.

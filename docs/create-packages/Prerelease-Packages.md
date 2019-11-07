@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: a7d07da30daf3f94db99476b88d9abaad1bb8a07
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 1c19f962dc9e42154c0f4374432548e867e9538a
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488857"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610718"
 ---
 # <a name="building-pre-release-packages"></a>Erstellen von Vorabversionen von Paketen
 
@@ -56,7 +56,7 @@ Beim Arbeiten mit Paketen berücksichtigt NuGet standardmäßig keine Vorabversi
 
 ## <a name="semantic-versioning"></a>Semantische Versionierung
 
-In der [Konvention „Semantische Versionierung bzw. SemVer“](http://semver.org/spec/v1.0.0.html) wird beschrieben, wie bei Versionsnummern Zeichenfolgen verwendet werden können, um die Bedeutung des zugrunde liegenden Codes auszudrücken.
+In der [Konvention „Semantische Versionierung bzw. SemVer“](https://semver.org/spec/v1.0.0.html) wird beschrieben, wie bei Versionsnummern Zeichenfolgen verwendet werden können, um die Bedeutung des zugrunde liegenden Codes auszudrücken.
 
 Diese Konvention besagt, dass jede Version aus den drei Teilen `Major.Minor.Patch` besteht, die die folgenden Bedeutungen besitzen:
 
@@ -73,7 +73,7 @@ In Anbetracht dieser Tatsache empfiehlt es sich meistens, sich an anerkannte Nam
 - `-rc`: Release Candidate (RC); in der Regel ein stabiles Release, das veröffentlicht werden könnte, sofern keine erheblichen Fehler mehr auftreten.
 
 > [!Note]
-> NuGet 4.3.0 und höher unterstützt die [semantische Versionierung V2.0.0](http://semver.org/spec/v2.0.0.html), die die Nummer einer Vorabversion mit eine Punktnotation unterstützt (z.B. `1.0.1-build.23`). Die Punktnotation wird für NuGet-Versionen vor Version 4.3.0 nicht unterstützt. In früheren NuGet-Versionen konnten Sie eine Formulierung wie `1.0.1-build23` verwenden. Dies wurde allerdings stets als Vorabversion angesehen.
+> NuGet 4.3.0 und höher unterstützt die [semantische Versionierung V2.0.0](https://semver.org/spec/v2.0.0.html), die die Nummer einer Vorabversion mit eine Punktnotation unterstützt (z.B. `1.0.1-build.23`). Die Punktnotation wird für NuGet-Versionen vor Version 4.3.0 nicht unterstützt. In früheren NuGet-Versionen konnten Sie eine Formulierung wie `1.0.1-build23` verwenden. Dies wurde allerdings stets als Vorabversion angesehen.
 
 NuGet gewährt den Suffixen jedoch in umgekehrter alphabetischer Reihenfolge Vorrang, unabhängig davon, welche Suffixe Sie verwenden:
 

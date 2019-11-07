@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: dbc3781bd17f815c6b32fc70b275469337148f41
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 83414a824676844f9e44eab874e5eac788d50583
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488831"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610937"
 ---
 # <a name="creating-localized-nuget-packages"></a>Erstellen lokalisierter NuGet-Pakete
 
@@ -71,7 +71,7 @@ Mit diesen Ordnern verweisen Sie in `.nuspec` auf alle Dateien:
 </package>
 ```
 
-Ein Beispielpaket, das diese Vorgehensweise verwendet, ist [Microsoft.Data.OData 5.4.0](http://nuget.org/packages/Microsoft.Data.OData/5.4.0).
+Ein Beispielpaket, das diese Vorgehensweise verwendet, ist [Microsoft.Data.OData 5.4.0](https://nuget.org/packages/Microsoft.Data.OData/5.4.0).
 
 ### <a name="advantages-and-disadvantages-localized-resource-assemblies"></a>Vor- und Nachteile (lokalisierte Ressourcenassemblys)
 
@@ -119,11 +119,11 @@ Wenn all diese Konventionen erfüllt sind, erkennt NuGet das Paket als Satellite
 
 Sie können diese Methode zum Erstellen von zusätzlichen Satellitenassemblys in sämtlichen unterstützten Sprachen nutzen. Weitere Beispiele finden Sie in diesen ASP.NET MVC-Paketen:
 
-- [Microsoft.AspNet.Mvc](http://nuget.org/packages/Microsoft.AspNet.Mvc) (Primärsprache Englisch)
-- [Microsoft.AspNet.Mvc.de](http://nuget.org/packages/Microsoft.AspNet.Mvc.de) (Deutsch)
-- [Microsoft.AspNet.Mvc.de](http://nuget.org/packages/Microsoft.AspNet.Mvc.ja) (Japanisch)
-- [Microsoft.AspNet.Mvc.zh-Hans](http://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hans) (Chinesisch (vereinfacht))
-- [Microsoft.AspNet.Mvc.zh-Hans](http://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hant) (Chinesisch (traditionell))
+- [Microsoft.AspNet.Mvc](https://nuget.org/packages/Microsoft.AspNet.Mvc) (Primärsprache Englisch)
+- [Microsoft.AspNet.Mvc.de](https://nuget.org/packages/Microsoft.AspNet.Mvc.de) (Deutsch)
+- [Microsoft.AspNet.Mvc.de](https://nuget.org/packages/Microsoft.AspNet.Mvc.ja) (Japanisch)
+- [Microsoft.AspNet.Mvc.zh-Hans](https://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hans) (Chinesisch (vereinfacht))
+- [Microsoft.AspNet.Mvc.zh-Hans](https://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hant) (Chinesisch (traditionell))
 
 ### <a name="summary-of-required-conventions"></a>Zusammenfassung der erforderlichen Konventionen
 
