@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 6d183100a8319b517347567f34d276e94eb4e15d
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 937d051ff6dc49e3204f7d0cb22c4f29b99a2a7d
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427185"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610612"
 ---
 # <a name="publishing-packages"></a>Veröffentlichen von Paketen
 
@@ -64,7 +64,7 @@ Sie müssen [nuget.exe v4.1.0 oder höher](https://www.nuget.org/downloads) verw
     nuget setApiKey <your_API_key>
     ```
 
-    Dieser Befehl speichert Ihren API-Schlüssel in Ihrer NuGet-Konfiguration, sodass Sie diesen Schritt auf demselben Computer wiederholen müssen.
+    Dieser Befehl speichert Ihren API-Schlüssel in Ihrer NuGet-Konfiguration, sodass Sie diesen Schritt nicht noch einmal auf demselben Computer wiederholen müssen.
 
 1. Übertragen Sie Ihr Paket mit folgendem Befehl per Push an den NuGet-Katalog:
 
@@ -115,7 +115,7 @@ Hier stehen Ihnen nun verschiedene Optionen zur Verfügung:
 1. Fügen Sie unter **Add Owner** (Besitzer hinzufügen) einen Besitzer hinzu, indem Sie dessen Benutzernamen sowie eine Nachricht eingeben und dann **Add** (Hinzufügen) wählen. Durch diese Aktion wird eine E-Mail mit einem Bestätigungslink an den neuen Mitbesitzer gesendet. Sobald der Benutzer auf den Bestätigungslink geklickt hat, hat er volle Berechtigungen, um andere Besitzer hinzuzufügen und zu entfernen. (Bis zur Bestätigung wird im Abschnitt **Current Owners** (Aktuelle Besitzer) für diese Person „Pending approval“ (Ausstehende Genehmigung) angezeigt.)
 1. Wenn Sie den Besitz abgeben möchten (bei einem Besitzerwechsel oder einem unter dem falschen Konto veröffentlichten Paket), fügen Sie einfach einen neuen Besitzer hinzu. Sobald dieser den Besitz bestätigt hat, kann er Sie aus der Liste der Besitzer entfernen.
 
-Wenn Sie den Besitz einem Unternehmen oder einer Gruppe zuweisen möchten, erstellen Sie auf nuget.org ein Konto mit einem E-Mail-Alias, der eine Weiterleitung an die entsprechenden Teammitglieder durchführt. Es gibt z.B. einige Microsoft ASP.NET-Pakete, deren Besitz auf [microsoft](http://nuget.org/profiles/microsoft)- und auf [aspnet](http://nuget.org/profiles/aspnet)-Konten aufgeteilt ist, die derartige Aliase darstellen.
+Wenn Sie den Besitz einem Unternehmen oder einer Gruppe zuweisen möchten, erstellen Sie auf nuget.org ein Konto mit einem E-Mail-Alias, der eine Weiterleitung an die entsprechenden Teammitglieder durchführt. Es gibt z.B. einige Microsoft ASP.NET-Pakete, deren Besitz auf [microsoft](https://nuget.org/profiles/microsoft)- und auf [aspnet](https://nuget.org/profiles/aspnet)-Konten aufgeteilt ist, die derartige Aliase darstellen.
 
 ### <a name="recovering-package-ownership"></a>Wiederherstellen des Paketbesitzes
 

@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9512899a4086d17d2584f16833aba33efb321eae
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: b45c25a92c0134228fb507ab321cb00ce156527f
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380690"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610554"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>Erstellen eines NuGet-Pakets mit MSBuild
 
-Wenn Sie ein NuGet-Paket aus Ihrem Code erstellen, verpacken Sie diese Funktionalität in eine Komponente, die mit einer beliebigen Anzahl anderer Entwickler geteilt und von diesen verwendet werden kann. In diesem Artikel wird das Erstellen eines Pakets mithilfe von MSBuild beschrieben. MSBuild wird mit allen Visual Studio-Workloads vorinstalliert, die NuGet enthalten. Außerdem können Sie MSBuild über die dotnet-CLI mit [dotnet msbuild](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-msbuild) verwenden.
+Wenn Sie ein NuGet-Paket aus Ihrem Code erstellen, verpacken Sie diese Funktionalität in eine Komponente, die mit einer beliebigen Anzahl anderer Entwickler geteilt und von diesen verwendet werden kann. In diesem Artikel wird das Erstellen eines Pakets mithilfe von MSBuild beschrieben. MSBuild wird mit allen Visual Studio-Workloads vorinstalliert, die NuGet enthalten. Zusätzlich können Sie MSBuild auch über die dotnet-CLI mit [dotnet msbuild](https://docs.microsoft.com/dotnet/core/tools/dotnet-msbuild) verwenden.
 
 Für .NET Core- und .NET Standard-Projekte, die das [SDK-Format](../resources/check-project-format.md) verwenden, und für alle anderen Projekte im SDK-Format verwendet NuGet Informationen in der Projektdatei direkt zum Erstellen eines Pakets.  Für ein Projekt im Nicht-SDK-Stil, das `<PackageReference>` verwendet, verwendet NuGet auch die Projektdatei, um ein Paket zu erstellen.
 
@@ -30,12 +30,12 @@ Der Befehl, mit dem ein Paket erstellt wird (`msbuild -t:pack`), ist funktional 
 Die folgenden Eigenschaften sind für die Erstellung eines Pakets erforderlich.
 
 - `PackageId`, der Paketbezeichner. Dieser muss im Katalog, der das Paket hostet, eindeutig sein. Wenn Sie hier nichts angeben, lautet der Standardwert `AssemblyName`.
-- `Version`, eine bestimmte Versionsnummer in der Schreibweise *Hauptversion.Nebenversion.Patch[-Suffix]* , wobei im *-Suffix* die [Vorabversionen](prerelease-packages.md) angegeben werden. Wenn Sie hier nichts angeben, lautet der Standardwert 1.0.0.
+- `Version`, eine bestimmte Versionsnummer in der Schreibweise *Hauptversion.Nebenversion.Patch[-Suffix]*, wobei im *-Suffix* die [Vorabversionen](prerelease-packages.md) angegeben werden. Wenn Sie hier nichts angeben, lautet der Standardwert 1.0.0.
 - Der Titel des Pakets, so wie er auf dem Host (z.B. „nuget.org“) angezeigt werden sollte
 - `Authors`, Informationen zum Autor und Besitzer. Wenn Sie hier nichts angeben, lautet der Standardwert `AssemblyName`.
 - `Company`, der Firmenname. Wenn Sie hier nichts angeben, lautet der Standardwert `AssemblyName`.
 
-In Visual Studio können Sie diese Werte in den Projekteigenschaften festlegen (Rechtsklick auf das Projekt im Projektmappen-Explorer, wählen Sie **Eigenschaften** und dann die Registerkarte **Paket** aus). Sie können diese Eigenschaften auch direkt in den Projektdateien festlegen ( *.csproj*).
+In Visual Studio können Sie diese Werte in den Projekteigenschaften festlegen (Rechtsklick auf das Projekt im Projektmappen-Explorer, wählen Sie **Eigenschaften** und dann die Registerkarte **Paket** aus). Sie können diese Eigenschaften auch direkt in den Projektdateien festlegen (*.csproj*).
 
 ```xml
 <PropertyGroup>

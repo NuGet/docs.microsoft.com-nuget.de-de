@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7b92d07d19a2e9073ecc38ed37b4ee2491080443
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 89b5fcbd76b85b77489ab36caa215c3a2fedf032
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317770"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610976"
 ---
 # <a name="manage-package-trust-boundaries"></a>Verwalten von Paketvertrauensgrenzen
 
@@ -95,7 +95,7 @@ Es gibt Situationen, in denen Sie eine Überprüfung mithilfe von Zertifikaten a
 
 ### <a name="sync-repository-certificates"></a>Synchronisieren von Repositoryzertifikaten
 
-Paketrepositorys sollten die Zertifikate, die sie verwenden, in ihrem [Dienstindex](../api/service-index.md) bekanntgeben. Das Repository aktualisiert diese Zertifikate im Lauf der Zeit, z.B. dann, wenn ein Zertifikat abläuft. Wenn dies geschieht, muss die Konfiguration von Clients mit bestimmten Richtlinien aktualisiert werden, damit die neu hinzugefügten Zertifikate einbezogen werden. Sie können die vertrauenswürdigen Signaturgeber, die mit einem Repository verknüpft sind, ganz einfach über den `nuget.exe`-Befehl [trusted-signers sync](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-) aktualisieren.
+Paketrepositorys sollten die Zertifikate, die sie verwenden, in ihrem [Dienstindex](../api/service-index.md) bekanntgeben. Das Repository aktualisiert diese Zertifikate im Lauf der Zeit, z.B. dann, wenn ein Zertifikat abläuft. Wenn dies geschieht, muss die Konfiguration von Clients mit bestimmten Richtlinien aktualisiert werden, damit die neu hinzugefügten Zertifikate einbezogen werden. Sie können die einem Repository zugeordneten vertrauenswürdigen Signaturgeber einfach aktualisieren, indem Sie `nuget.exe` [trusted-signers sync command](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-name verwenden.
 
 ### <a name="schema-reference"></a>Schemareferenz
 

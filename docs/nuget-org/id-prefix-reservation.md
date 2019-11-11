@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 09/07/2019
 ms.topic: reference
 ms.reviewer: karann
-ms.openlocfilehash: f6c4a18366b4df20fb210f718d3779e85c08d550
-ms.sourcegitcommit: 188ade66b7ac807ba1667c77cfb9325bf89a8a4a
+ms.openlocfilehash: da464cc44d8c874e13c0cdfab871f31e643b577f
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71248121"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610499"
 ---
 # <a name="package-id-prefix-reservation"></a>Reservierung für Paket-ID-Präfixe
 
@@ -93,7 +93,7 @@ Bei der Prüfung von Anforderungen für ID-Präfixreservierungen prüft das [nug
 
 ## <a name="third-party-feed-provider-scenarios"></a>Szenarios mit externen Feedanbietern
 
-Wenn ein externen Feedanbieter daran interessiert ist, seinen eigenen Dienst zu implementieren, um Präfixreservierungen zu ermöglichen, können Sie dies erreichen, indem Sie den Suchdienst in den NuGet v3-Feedanbieter anpassen. Fügen Sie dazu im Feedsuchdienst die Eigenschaft *verified* mit Beispielen für den v3-Feed hinzu. Der NuGet-Client unterstützt die hinzugefügte Eigenschaft nicht im v2-Feed.
+Wenn ein Drittanbieter für Feeds an der Implementierung eines eigenen Diensts zur Bereitstellung von Präfixreservierungen interessiert ist, kann er dies tun, indem er den Suchdienst in den NuGet v3-Feedanbieter ändert. Die Änderung im Feedsuchdienst besteht darin, die Eigenschaft `verified` hinzuzufügen. Der NuGet-Client unterstützt die hinzugefügte Eigenschaft nicht im v2-Feed.
 
 Weitere Informationen finden Sie in der [Dokumentation zum Suchdienst der API](../api/search-query-service-resource.md).
 

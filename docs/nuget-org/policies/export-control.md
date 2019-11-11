@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/27/2019
 ms.topic: conceptual
-ms.openlocfilehash: 97e7b253bed84fc6e9a97922c19756d138dd0381
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 4ea2d2f23a02088b54982b825a5be3c872e27c37
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426925"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611306"
 ---
 # <a name="export-control-policy"></a>Richtlinie zur Exportkontrolle
 
@@ -28,4 +28,4 @@ Wie in den EAR (Abschnitt 742.15(b) und 734.3(b)(3)) beschrieben, muss die natü
 
 Eine Befreiung des öffentlich zugänglichen Quellcodes von der Exportkontrollgerichtsbarkeit durch den vorstehend beschriebenen Meldeprozess *gilt nicht* für kommerzielle Software, die solche Elemente beinhaltet oder daraus abgeleitet ist.  Sie sind allein verantwortlich für die Einhaltung der Exportgesetze, die für kommerzielle Software gelten, die über NuGet.org gehosteten Quell- oder Objektcode enthält oder daraus abgeleitet ist.
 
-Weitere Informationen zum Export und zu geografiebasierten Exporteinschränkungen finden Sie unter https://www.microsoft.com/en-us/exporting.
+Weitere Informationen zu Exportbeschränkungen und geografischen Exportbeschränkungen finden Sie unter [Microsoft Exporting](https://www.microsoft.com/exporting).
