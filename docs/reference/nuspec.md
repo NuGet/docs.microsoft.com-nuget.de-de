@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 6bd730db16d8e8783f0d949bb04cf3b52c642cd0
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: ff8f988a4d47e18d74945d274be5cca78d3ff8e5
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380550"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096921"
 ---
 # <a name="nuspec-reference"></a>NUSPEC-Referenz
 
@@ -149,7 +149,7 @@ license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
 
 Eine URL für ein 64x64-Bild mit transparentem Hintergrund, das als Symbol für das Paket in der Benutzeroberfläche verwendet wird. Stellen Sie sicher, dass dieses Element die *direkte Bild-URL* und nicht nur die URL einer Webseite enthält, die das Bild enthält. Wenn Sie z. b. ein Image von GitHub verwenden möchten, verwenden Sie die URL der Rohdatendatei wie <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>. 
    
-#### <a name="icon"></a>Angezeigt
+#### <a name="icon"></a>angezeigt
 
 Dabei handelt es sich um einen Pfad zu einer Bilddatei innerhalb des Pakets, die häufig in UIs like nuget.org als Paket Symbol angezeigt wird. Die Größe der Bild Datei ist auf 1 MB beschränkt. Unterstützte Dateiformate sind JPEG und PNG. Wir empfehlen eine Image-Resoulution von 64x64.
 
@@ -173,6 +173,9 @@ Beim Erstellen eines Pakets mithilfe von "nuget. exe" fügen Sie z. b. Folgendes
 [Paket Symbol nuspec-Beispiel.](https://github.com/NuGet/Samples/tree/master/PackageIconNuspecExample)
 
 Wenn Sie die MSBuild-Entsprechung benötigen, sehen Sie sich das [Packen einer Symbolbild Datei](msbuild-targets.md#packing-an-icon-image-file)an.
+
+> [!Tip]
+> Sie können sowohl `icon` als auch `iconUrl` angeben, um die Abwärtskompatibilität mit Quellen zu gewährleisten, die `icon`nicht unterstützen. Visual Studio unterstützt `icon` für Pakete, die in einer zukünftigen Version aus einer Ordner basierten Quelle stammen.
 
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 Ein boolescher Wert, der angibt, ob der Client den Benutzer dazu auffordern muss, die Paketlizenz vor der Installation des Pakets zu akzeptieren.
@@ -315,7 +318,7 @@ Das `<dependencies>`-Element in `<metadata>` enthält eine beliebige Anzahl von 
 | `id` | (Erforderlich) Die Paket-ID der Abhängigkeit, z.B. „EntityFramework“ und „NUnit“, die der Name des Pakets „nuget.org“ ist, wird auf einer Paketseite angezeigt. |
 | `version` | (Erforderlich) Der Bereich an Versionen, die als Abhängigkeiten akzeptiert werden. Die genaue Syntax finden Sie unter [Paketversionsverwaltung](../concepts/package-versioning.md#version-ranges-and-wildcards). Platzhalter Versionen (unverankert) werden nicht unterstützt. |
 | include | Eine durch Kommas abgetrennte Liste mit Include/Exclude-Tags (s. Tabelle unten), in der auf die Abhängigkeit verwiesen wird, die in das endgültige Paket eingefügt werden soll. Der Standardwert ist `all`sein. |
-| exclude | Eine durch Kommas abgetrennte Liste mit Include/Exclude-Tags (s. Tabelle unten), in der auf die Abhängigkeit verwiesen wird, die nicht in das endgültige Paket eingefügt werden soll. Der Standardwert ist `build,analyzers`, der überschrieben werden kann. @No__t-0 werden jedoch auch implizit im endgültigen Paket ausgeschlossen, das nicht überschrieben werden kann. `exclude`-Tags haben Vorrang gegenüber `include`-Tags. Beispielsweise entspricht `include="runtime, compile" exclude="compile"` `include="runtime"`. |
+| exclude | Eine durch Kommas abgetrennte Liste mit Include/Exclude-Tags (s. Tabelle unten), in der auf die Abhängigkeit verwiesen wird, die nicht in das endgültige Paket eingefügt werden soll. Der Standardwert ist `build,analyzers`, der überschrieben werden kann. `content/ ContentFiles` werden jedoch auch implizit im endgültigen Paket ausgeschlossen, das nicht überschrieben werden kann. `exclude`-Tags haben Vorrang gegenüber `include`-Tags. Beispielsweise entspricht `include="runtime, compile" exclude="compile"` `include="runtime"`. |
 
 | Include/Exclude-Tag | Betroffene Ordner im Ziel |
 | --- | --- |

@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: e98e8d1258377818b3852762d317750a6b3e59ad
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: eb8d59e253f85fbbb8546a5f71856df842ce94d6
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611036"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096890"
 ---
 # <a name="package-metadata"></a>Paketmetadaten
 
@@ -70,7 +70,7 @@ Obwohl es nicht unbedingt erforderlich ist, dass eine Server Implementierung Reg
 
 Wenn alle Paketversionen (Blätter) im Registrierungs Index gespeichert werden, wird die Anzahl von HTTP-Anforderungen gespeichert, die zum Abrufen von Paket Metadaten erforderlich sind, aber ein größeres Dokument muss heruntergeladen werden, und es muss mehr Client Arbeitsspeicher zugeordnet werden. Wenn die Server Implementierung hingegen sofort Registrierungs Blätter in separaten Seiten Dokumenten speichert, muss der Client weitere HTTP-Anforderungen ausführen, um die benötigten Informationen zu erhalten.
 
-Die Heuristik, die von nuget.org verwendet wird, lautet wie folgt: Wenn es 128 oder mehr Versionen eines Pakets gibt, unterbrechen Sie die Blätter in Seiten der Größe 64. Wenn weniger als 128 Versionen vorhanden sind, werden alle Blätter in den Registrierungs Index verschoben.
+Die Heuristik, die von nuget.org verwendet wird, lautet wie folgt: Wenn es 128 oder mehr Versionen eines Pakets gibt, unterbrechen Sie die Blätter in Seiten der Größe 64. Wenn weniger als 128 Versionen vorhanden sind, werden alle Blätter in den Registrierungs Index verschoben. Beachten Sie, dass Pakete mit 65-127-Versionen zwei Seiten im Index aufweisen, beide Seiten jedoch Inline sind.
 
     GET {@id}/{LOWER_ID}/index.json
 
@@ -135,7 +135,7 @@ Die `catalogEntry`-Eigenschaft im Blatt "Registrierung" verfügt über die folge
 
 -Name                     | Geben Sie Folgendes ein:                       | Erforderlich | Notizen
 ------------------------ | -------------------------- | -------- | -----
-@id                      | string                     | ja      | Die URL zum Dokument, mit dem dieses Objekt erzeugt wird.
+@id                      | string                     | ja      | Die URL des Dokuments, das zum entwickeln dieses Objekts verwendet wird.
 authors                  | Zeichenfolge oder Array von Zeichen folgen | Nein       | 
 dependencygroups         | Array von Objekten           | Nein       | Die Abhängigkeiten des Pakets, gruppiert nach Ziel Framework
 veraltungs              | Objekt                     | Nein       | Die dem Paket zugeordnete Veraltung
@@ -160,6 +160,9 @@ Die `dependencyGroups`-Eigenschaft ist ein Array von-Objekten, die die Abhängig
 
 Der Wert der `licenseExpression`-Eigenschaft entspricht der [Syntax für den nuget-Lizenz Ausdruck](https://docs.microsoft.com/nuget/reference/nuspec#license).
 
+> [!Note]
+> Auf nuget.org wird der `published` Wert auf Jahr 1900 festgelegt, wenn das Paket nicht aufgelistet ist.
+
 #### <a name="package-dependency-group"></a>Paket Abhängigkeits Gruppe
 
 Jedes Abhängigkeits Gruppen Objekt verfügt über die folgenden Eigenschaften:
@@ -183,7 +186,7 @@ ID           | string | ja      | Die ID der Paketabhängigkeit.
 range        | Objekt | Nein       | Der zulässige [Versions Bereich](../concepts/package-versioning.md#version-ranges-and-wildcards) der Abhängigkeit.
 Registrierung | string | Nein       | Die URL zum Registrierungs Index für diese Abhängigkeit.
 
-Wenn die `range`-Eigenschaft ausgeschlossen oder eine leere Zeichenfolge ist, sollte der Client standardmäßig den Versions Bereich `(, )`. Das heißt, jede Version der Abhängigkeit ist zulässig.
+Wenn die `range`-Eigenschaft ausgeschlossen oder eine leere Zeichenfolge ist, sollte der Client standardmäßig den Versions Bereich `(, )`. Das heißt, jede Version der Abhängigkeit ist zulässig. Der Wert von `*` ist für die `range`-Eigenschaft nicht zulässig.
 
 #### <a name="package-deprecation"></a>Paket Veraltung
 
@@ -193,7 +196,7 @@ Jedes Paket ist veraltet und verfügt über die folgenden Eigenschaften:
 ---------------- | ---------------- | -------- | -----
 rechtlichen          | Array von Zeichen folgen | ja      | Die Gründe, aus denen das Paket veraltet ist
 message          | string           | Nein       | Weitere Details zu dieser Veraltung
-Alternative ACKAGE | Objekt           | Nein       | Die Paketabhängigkeit, die stattdessen verwendet werden soll.
+Alternative ACKAGE | Objekt           | Nein       | Das alternative Paket, das stattdessen verwendet werden soll.
 
 Die `reasons`-Eigenschaft muss mindestens eine Zeichenfolge enthalten und sollte nur Zeichen folgen aus der folgenden Tabelle enthalten:
 
@@ -204,6 +207,16 @@ Criticalbugs | Das Paket weist Fehler auf, die für die Verwendung ungeeignet si
 Andere        | Das Paket ist aufgrund eines Grunds, der nicht in dieser Liste enthalten ist, veraltet.
 
 Wenn die `reasons`-Eigenschaft Zeichen folgen enthält, die nicht aus dem bekannten Satz stammen, sollten Sie ignoriert werden. Bei den Zeichen folgen wird die Groß-/Kleinschreibung nicht beachtet, sodass `legacy` wie `Legacy`behandelt werden sollte. Es gibt keine Sortier Einschränkung für das Array, sodass die Zeichen folgen in beliebiger Reihenfolge angeordnet werden können. Wenn die Eigenschaft außerdem nur Zeichen folgen enthält, die nicht aus der bekannten Menge stammen, sollte Sie so behandelt werden, als ob Sie nur die "andere" Zeichenfolge enthielt.
+
+#### <a name="alternate-package"></a>Alternatives Paket
+
+Das alternative Paket Objekt verfügt über die folgenden Eigenschaften:
+
+-Name         | Geben Sie Folgendes ein:   | Erforderlich | Notizen
+------------ | ------ | -------- | -----
+ID           | string | ja      | Die ID des alternativen Pakets
+range        | Objekt | Nein       | Der zulässige [Versions Bereich](../concepts/package-versioning.md#version-ranges-and-wildcards)oder `*`, wenn eine beliebige Version zulässig ist.
+Registrierung | string | Nein       | Die URL zum Registrierungs Index für dieses Alternative Paket.
 
 ### <a name="sample-request"></a>Beispiel Anforderung
 
@@ -217,7 +230,10 @@ In diesem speziellen Fall hat der Registrierungs Index die Registrierungsseite I
 
 ## <a name="registration-page"></a>Registrierungsseite
 
-Die Registrierungsseite enthält Registrierungs Blätter. Die URL zum Abrufen einer Registrierungsseite wird durch die `@id`-Eigenschaft im oben erwähnten [Registrierungsseiten Objekt](#registration-page-object) bestimmt.
+Die Registrierungsseite enthält Registrierungs Blätter. Die URL zum Abrufen einer Registrierungsseite wird durch die `@id`-Eigenschaft im oben erwähnten [Registrierungsseiten Objekt](#registration-page-object) bestimmt. Die URL ist nicht als vorhersagbar gedacht und sollte immer mithilfe des Index Dokuments erkannt werden.
+
+> [!Warning]
+> Auf nuget.org enthält die URL für das Dokument der Registrierungsseite zufälligerweise die untere und obere Grenze der Seite. Diese Annahme sollte jedoch nie von einem Client vorgenommen werden, da Server Implementierungen die Form der URL ändern können, solange das Index Dokument über einen gültigen Link verfügt.
 
 Wenn das `items` Array nicht im Registrierungs Index bereitgestellt wird, gibt eine HTTP GET-Anforderung des `@id` Werts ein JSON-Dokument zurück, das ein Objekt als Stamm hat. Das-Objekt verfügt über die folgenden Eigenschaften:
 
@@ -244,7 +260,10 @@ Die Form der Registrierungs Blattobjekte ist die gleiche wie im [obigen](#regist
 
 Das Blatt Registrierung enthält Informationen über eine bestimmte Paket-ID und-Version. Die Metadaten für die jeweilige Version sind möglicherweise in diesem Dokument nicht verfügbar. Paket Metadaten sollten aus dem [Registrierungs Index](#registration-index) oder der [Registrierungsseite](#registration-page) abgerufen werden (wird mit dem Registrierungs Index ermittelt).
 
-Die URL zum Abrufen eines Registrierungs Blatts wird aus der `@id`-Eigenschaft eines Registrierungs Blatt Objekts entweder in einem Registrierungs Index oder auf einer Registrierungsseite abgerufen.
+Die URL zum Abrufen eines Registrierungs Blatts wird aus der `@id`-Eigenschaft eines Registrierungs Blatt Objekts entweder in einem Registrierungs Index oder auf einer Registrierungsseite abgerufen. Wie beim Seiten Dokument. die URL ist nicht als vorhersagbar gedacht und sollte immer mithilfe des Registrierungsseiten Objekts ermittelt werden.
+
+> [!Warning]
+> Auf nuget.org enthält die URL für das Registrierungs Blatt Dokument zufälligerweise die Paketversion. Diese Annahme sollte jedoch nie von einem Client vorgenommen werden, da Server Implementierungen die Form der URL ändern können, solange das übergeordnete Dokument über einen gültigen Link verfügt. 
 
 Das Registrierungs Blatt ist ein JSON-Dokument mit einem Root-Objekt mit den folgenden Eigenschaften:
 

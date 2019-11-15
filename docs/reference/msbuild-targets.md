@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6a49e410617c14e22f0d4a67d8bfe280f64f5505
-ms.sourcegitcommit: 8a424829b1f70cf7590e95db61997af6ae2d7a41
+ms.openlocfilehash: 1c2af0b42e88623fa7a1216c17aa269e9b0a58cf
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72510792"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096909"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet pack and restore as MSBuild targets (NuGet-Befehle „pack“ und „restore“ MSBuild-Ziele)
 
@@ -59,11 +59,11 @@ Beachten Sie, dass die Eigenschaften `Owners` und `Summary` aus einer `.nuspec`-
 | Copyright | Copyright | Leer | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | False | |
 | Führer | PackageLicenseExpression | Leer | Entspricht `<license type="expression">` |
-| Führer | PackageLicenseFile | Leer | Entspricht `<license type="file">` Möglicherweise müssen Sie explizit die referenzierte Lizenzdatei verpacken. |
+| Führer | PackageLicenseFile | Leer | Entspricht `<license type="file">` Sie müssen die referenzierte Lizenzdatei explizit verpacken. |
 | LicenseUrl | PackageLicenseUrl | Leer | `PackageLicenseUrl` ist veraltet, verwenden Sie die packagelicenseexpression-oder packagelicensefile-Eigenschaft. |
 | ProjectUrl | PackageProjectUrl | Leer | |
-| Symbol | Packageicon | Leer | Möglicherweise müssen Sie explizit die Symbolbild Datei des referenzierten Symbols verpacken.|
-| IconUrl | PackageIconUrl | Leer | `PackageIconUrl` ist veraltet, verwenden Sie die packageicon-Eigenschaft. |
+| Symbol | Packageicon | Leer | Sie müssen explizit die Symbolbild Datei, auf die verwiesen wird, verpacken.|
+| IconUrl | PackageIconUrl | Leer | Um das beste kompatible zu erzielen, sollten `PackageIconUrl` zusätzlich zu `PackageIcon`angegeben werden. Längerfristig werden `PackageIconUrl` als veraltet markiert. |
 | Tags | PackageTags | Leer | Ziele werden durch Semikolons (;) getrennt. |
 | ReleaseNotes | PackageReleaseNotes | Leer | |
 | Repository/URL | RepositoryUrl | Leer | Die Repository-URL, die zum Klonen oder Abrufen von Quellcode verwendet wird. Beispiel: *https://github.com/NuGet/NuGet.Client.git* |
@@ -118,12 +118,18 @@ Legen Sie `SuppressDependenciesWhenPacking` auf `true` fest, um die Paketabhäng
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
-> [!Important]
-> Packagei-URL ist mit nuget 5.3 + & Visual Studio 2019 Version 16.3 + veraltet. Verwenden Sie stattdessen [packageicon](#packing-an-icon-image-file) .
+`PackageIconUrl` wird zugunsten der neuen [`PackageIcon`](#packageicon) -Eigenschaft als veraltet eingestuft.
 
-### <a name="packing-an-icon-image-file"></a>Packen einer Symbolbild Datei
+Ab nuget 5,3 & Visual Studio 2019 Version 16,3 wird die [NU5048](errors-and-warnings/nu5048) -Warnung ausgegeben `pack`, wenn in den Paket Metadaten nur `PackageIconUrl`angegeben wird.
 
-Beim Packen einer Symbolbild Datei müssen Sie die packageicon-Eigenschaft verwenden, um den Paketpfad relativ zum Stamm des Pakets anzugeben. Außerdem müssen Sie sicherstellen, dass die Datei im Paket enthalten ist. Die Größe der Bild Datei ist auf 1 MB beschränkt. Unterstützte Dateiformate sind JPEG und PNG. Wir empfehlen eine Bildauflösung von 64x64.
+### <a name="packageicon"></a>Packageicon
+
+> [!Tip]
+> Sie sollten sowohl `PackageIcon` als auch `PackageIconUrl` angeben, um die Abwärtskompatibilität mit Clients und Quellen zu gewährleisten, die `PackageIcon`noch nicht unterstützen. Visual Studio unterstützt `PackageIcon` für Pakete, die in einer zukünftigen Version aus einer Ordner basierten Quelle stammen.
+
+#### <a name="packing-an-icon-image-file"></a>Packen einer Symbolbild Datei
+
+Beim Packen einer Symbolbild Datei müssen Sie `PackageIcon`-Eigenschaft verwenden, um den Paketpfad relativ zum Stamm des Pakets anzugeben. Außerdem müssen Sie sicherstellen, dass die Datei im Paket enthalten ist. Die Größe der Bild Datei ist auf 1 MB beschränkt. Unterstützte Dateiformate sind JPEG und PNG. Wir empfehlen eine Bildauflösung von 64x64.
 
 Beispiel:
 
@@ -382,10 +388,10 @@ Weitere Wiederherstellungseigenschaften können aus MSBuild-Eigenschaften in der
 | Restoreuseskipnonexistenttargets  | Wenn die Projekte über MSBuild gesammelt werden, wird ermittelt, ob Sie mit der `SkipNonexistentTargets`-Optimierung gesammelt werden. Wenn nicht festgelegt, wird standardmäßig `true` verwendet. Die Folge ist ein fehlerhafter Verhalten, wenn die Ziele eines Projekts nicht importiert werden können. |
 | MSBuildProjectExtensionsPath | Ausgabeordner, standardmäßig auf `BaseIntermediateOutputPath` und den Ordner `obj`. |
 | Restoreforce | In packagereferenzierungsbasierten Projekten erzwingt, dass alle Abhängigkeiten gelöst werden, auch wenn die letzte Wiederherstellung erfolgreich war. Die Angabe dieses Flags ähnelt dem Löschen der Datei "`project.assets.json`". Dadurch wird der HTTP-Cache nicht umgangen. |
-| Restorepackageswithlockfile | Schaltet die Verwendung einer Sperrdatei ein. |
-| Restorelockedmode | Führen Sie die Wiederherstellung im gesperrten Modus aus. Dies bedeutet, dass bei der Wiederherstellung die Abhängigkeiten nicht neu ausgewertet werden. |
-| Nugetlockfilepath | Ein benutzerdefinierter Speicherort für die Sperrdatei. Der Standard Speicherort befindet sich neben dem Projekt und hat den Namen "`packages.lock.json`". |
-| Restoreforceevaluation | Erzwingt die Wiederherstellung, um die Abhängigkeiten neu zu berechnen und die Sperrdatei ohne Warnung zu aktualisieren. | 
+| RestorePackagesWithLockFile | Ermöglicht die Verwendung einer Sperrdatei. |
+| RestoreLockedMode | Führen Sie die Wiederherstellung im gesperrten Modus aus. Dies bedeutet, dass bei der Wiederherstellung die Abhängigkeiten nicht neu ausgewertet werden. |
+| NuGetLockFilePath | Ein benutzerdefinierter Speicherort für die Sperrdatei. Der Standard Speicherort befindet sich neben dem Projekt und hat den Namen "`packages.lock.json`". |
+| RestoreForceEvaluate | Erzwingt die Wiederherstellung, um die Abhängigkeiten neu zu berechnen und die Sperrdatei ohne Warnung zu aktualisieren. | 
 
 #### <a name="examples"></a>Beispiele
 
