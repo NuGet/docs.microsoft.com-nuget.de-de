@@ -159,7 +159,7 @@ Um Pakete wiederherzustellen, die in der Projektdatei mit PackageReference aufge
 
 ## <a name="restore-using-azure-pipelines"></a>Wiederherstellung mit Azure Pipelines
 
-Fügen Sie bei der Erstellung einer Builddefinition in Azure Pipelines dieser den Task [NuGet-Wiederherstellung](/azure/devops/pipelines/tasks/package/nuget#restore-nuget-packages) oder [.NET Core-Wiederherstellung](/azure/devops/pipelines/tasks/build/dotnet-core-cli?view=azure-devops) hinzu, bevor Sie einen Buildtask ausführen. Einige Buildvorlagen enthalten standardmäßig den Wiederherstellungstask.
+Fügen Sie beim Erstellen einer Builddefinition in Azure Pipelines den [NuGet-](/azure/devops/pipelines/tasks/package/nuget#restore-nuget-packages) oder den [.NET Core-Wiederherstellungstask](/azure/devops/pipelines/tasks/build/dotnet-core-cli?view=azure-devops) vor jeglichen Buildtasks in die Definition ein. Einige Buildvorlagen enthalten standardmäßig den Wiederherstellungstask.
 
 ## <a name="restore-using-azure-devops-server"></a>Wiederherstellung mit Azure DevOps Server
 
