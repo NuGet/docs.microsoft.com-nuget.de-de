@@ -6,12 +6,12 @@ ms.author: anangaur
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.reviewer: karann-msft
-ms.openlocfilehash: 120b463fda856fe9dd407b6eba32d60e0918f763
-ms.sourcegitcommit: 188ade66b7ac807ba1667c77cfb9325bf89a8a4a
+ms.openlocfilehash: 70666ddf9cd7bdc448d29d4235e57bc91e2c003e
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71248882"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096881"
 ---
 # <a name="deprecating-packages"></a>Als veraltet gekennzeichnete Pakete
 
@@ -45,7 +45,7 @@ Sobald ein Paket als veraltet gekennzeichnet worden ist, werden seine Nutzer wie
 ### <a name="visual-studio"></a>Visual Studio 
 *Verfügbar ab Visual Studio 2019, Version 16.3*
 
-Visual Studio warnt auf der `Installed`-Registerkarte vor der Nutzung eines veralteten Pakets. Sie werden zum Paket und den Informationen über dessen Veraltung geführt. Dabei erfahren Sie auch, wieso es als veraltet gekennzeichnet wurde und welches Paket sie alternativ verwenden können, falls eines vorhanden ist.
+Visual Studio warnt auf der Registerkarte `Installed` vor der Nutzung eines veralteten Pakets. Es werden eine Warnung für das Paket und Informationen über dessen Veraltung angezeigt. Dabei erfahren Sie auch, wieso es als veraltet gekennzeichnet wurde und welches Paket sie alternativ verwenden können, falls eines vorhanden ist.
 
    ![Veraltete Pakete auf der Registerkarte „installiert“ des Paket-Managers in Visual Studio](media/deprecation-vs.png)
 

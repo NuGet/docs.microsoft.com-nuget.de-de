@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9947a490e4373bb0b8b7fb0814828ff2a60615a8
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 0691660f20f9b5a1ff0dad110ee87c6e29c0a56e
+ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611072"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74253936"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Suchen und Auswerten von NuGet-Paketen für Ihr Projekt
 
@@ -82,9 +82,12 @@ Allerdings bedeutet das Verwenden eines NuGet-Pakets auch, dass eine Abhängigke
 
     ![Downloadstatistiken auf der Angebotsseite eines Pakets](media/Finding-03-Downloads.png)
 
-- *GitHub-Verwendung*: Auf Seite für Pakete listet der Abschnitt **GitHub Usage** die wichtigsten GitHub-Repositorys auf, die von diesem Paket abhängen. Ein Paket, von dem viele beliebte GitHub-Repositorys abhängig sind, ist in der Regel eine bessere Wahl.
+- *GitHub-Verwendung*: Auf Seite für Pakete listet der Abschnitt **GitHub Usage** die öffentlichen GitHub-Repositorys auf, die von diesem Paket abhängen und viele Sterne auf GitHub besitzen. Die Anzahl von Sternen eines GitHub-Repositorys deutet in der Regel auf die Beliebtheit dieses Repositorys bei GitHub-Benutzern hin (je mehr Sterne desto beliebter das Repository). Besuchen Sie die [Seite für die ersten Schritte auf GitHub](https://help.github.com/en/github/getting-started-with-github/saving-repositories-with-stars#about-stars), um weitere Informationen zum Bewertungssystem mit Sternen und Repositorys auf GitHub zu erhalten.
 
     ![GitHub-Verwendung](media/GitHub-Usage.png)
+
+    > [!Note]
+    > Der Abschnitt zur GitHub-Verwendung wird automatisch und in regelmäßigen Abständen ohne Überprüfung durch Personen für einzelne Repositorys generiert und dient allein zu Informationszwecken, um Ihnen GitHub-Repositorys zu veranschaulichen, die vom Paket abhängig sind und bei GitHub-Benutzern beliebt sind.
 
 - *Versionsverlauf:* Auf der Seite für Pakete wird unter **Info** das Datum des aktuellen Updates angezeigt, außerdem können Sie dort den **Versionsverlauf** überprüfen. Ein gut verwaltetes Paket verfügt über aktuelle Updates und einen umfangreichen Versionsverlauf. Ein schlecht verwaltetes Paket verfügt über wenige Updates bzw. wurde häufig für längere Zeit nicht mehr aktualisiert.
 

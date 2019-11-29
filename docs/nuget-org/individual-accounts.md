@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 63c6b5eb5ad635e436b4d53a5f833af35f72d76f
-ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
+ms.openlocfilehash: 7951b3db0cdcaee0a1eb955a5bf6fedce24c79c9
+ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69999968"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74253955"
 ---
 # <a name="individual-accounts-on-nugetorg"></a>Individuelle Konten auf NuGet.org
 
@@ -48,7 +48,7 @@ Sie besitzen nun ein NuGet.org-Konto. Sie können Ihr Konto über die Seite [acc
 
 ## <a name="enable-two-factor-authentication-2fa"></a>Aktivieren der zweistufigen Authentifizierung (2FA)
 
-Aktivieren Sie die zweistufige Authentifizierung (empfohlen), um Ihr Konto besser zu schützen.
+Die zweistufige Authentifizierung, oder 2FA, stellt eine zusätzliche Sicherheitsebene dar, die bei der Anmeldung auf Websites oder in Apps verwendet wird. Mit der zweistufigen Authentifizierung müssen Sie sich mit Ihrem Microsoft-Konto (MSA) anmelden und eine weitere Authentifizierungsart bereitstellen, die ausschließlich Sie kennen oder auf die ausschließlich Sie zugreifen können. Aktivieren Sie die zweistufige Authentifizierung (empfohlen), um Ihr Konto besser zu schützen.
 
 1. Öffnen Sie nach der Anmeldung bei Ihrem Konto Ihr Profil, und wählen Sie **Aktivieren**unter**Anmeldekonto** aus.
 
@@ -69,6 +69,9 @@ Aktivieren Sie die zweistufige Authentifizierung (empfohlen), um Ihr Konto besse
    ![2FA aktivieren](media/nuget-org-enter-code-2fa.png)
 
 5. Befolgen Sie alle weiteren Anweisungen, um die zweistufige Authentifizierung abzuschließen.
+
+> [!Tip]
+> Die Aktivierung von der 2FA für Ihr NuGet.org-Konto wirkt sich nicht auf die Authentifizierungseinstellungen für andere Konten oder Dienste aus, die möglicherweise mit dem Microsoft-Konto verknüpft sind, das Sie für die Anmeldung bei NuGet.org verwenden.
 
 ## <a name="delete-a-nugetorg-account"></a>Löschen eines NuGet.org-Kontos
 
