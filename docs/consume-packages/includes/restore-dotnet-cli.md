@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 9764479d88cc8d87a9f455e64bd46ae8de15055d
-ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
+ms.openlocfilehash: ef54f102352a3d088181ad6f7c356b8c7eeac166
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68860610"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825173"
 ---
 Verwenden Sie den Befehl [dotnet restore](/dotnet/core/tools/dotnet-restore?tabs=netcore2x), der Pakete wiederherstellt, die in der Projektdatei aufgelistet sind (siehe [PackageReference](../../consume-packages/package-references-in-project-files.md)). In .NET Core 2.0 und höher erfolgt die Wiederherstellung automatisch mit `dotnet build` und `dotnet run`. Ab NuGet 4.0 wird derselbe Code ausgeführt wie für `nuget restore`.
 
@@ -12,6 +12,6 @@ Verwenden Sie den Befehl [dotnet restore](/dotnet/core/tools/dotnet-restore?tabs
 
 Wiederherstellen eines Pakets mit `dotnet restore`:
 
-```cli
+```dotnetcli
 dotnet restore 
 ```

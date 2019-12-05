@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 231947148295e0c06dcec5aa0e1f479d654a8803
-ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
+ms.openlocfilehash: b6a009832430ee08f51ea1028feb878a39f45222
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74096872"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825139"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Paketverweise (PackageReference) in Projektdateien
 
@@ -53,6 +53,7 @@ Im obigen Beispiel steht 3.6.0 für eine beliebige Version >= 3.6.0, wobei die n
 ## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a>Verwenden von PackageReference für ein Projekt ohne PackageReferences
 
 Erweitert: Wenn Sie keine Pakete in einem Projekt installiert haben (keine PackageReferences in der Projektdatei oder der packages.config-Datei), aber das Projekt mit dem Format von PackageReference wiederherstellen möchten, können Sie in der Projektdatei eine RestoreProjectStyle-Projekteigenschaft auf PackageReference festlegen.
+
 ```xml
 <PropertyGroup>
     <!--- ... -->
@@ -60,6 +61,7 @@ Erweitert: Wenn Sie keine Pakete in einem Projekt installiert haben (keine Packa
     <!--- ... -->
 </PropertyGroup>    
 ```
+
 Dies kann sich als nützlich erweisen, wenn Sie auf Projekte verweisen, die das Format von PackageReference aufweisen (vorhandene Projekte im CSPROJ- oder SDK-Format). Dadurch kann Ihr Projekt „transitiv“ auf die Pakete verweisen, auf die diese Projekte verweisen.
 
 ## <a name="packagereference-and-sources"></a>PackageReference und Quellen
@@ -110,7 +112,7 @@ Folgende Werte sind für diese Tags zulässig, wobei mehrere Werte durch ein Sem
 | compile | Inhalt des Ordners `lib` und steuert, ob Ihr Projekt anhand der Assemblys im Ordner kompiliert werden kann |
 | Laufzeit | Inhalt der Ordner `lib` und `runtimes` und steuert, ob diese Assemblys in das Buildausgabeverzeichnis kopiert werden |
 | contentFiles | Inhalte des Ordners `contentfiles` |
-| Build | `.props` und `.targets` im Ordner `build` |
+| build | `.props` und `.targets` im Ordner `build` |
 | buildMultitargeting | *(4.0)* `.props` und `.targets` im Ordner `buildMultitargeting` für frameworkübergreifende Zielplattformen |
 | buildTransitive | *(5.0 und höher)* : `.props` und `.targets` im Ordner `buildTransitive` für Ressourcen, die transitiv in beliebige verarbeitende Projekte eingefügt werden. Weitere Informationen finden Sie auf der Seite [Feature](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior). |
 | Analysetools | .NET-Analystetools |
@@ -206,16 +208,19 @@ Wenn NuGet eine Änderung bei den in den Projektdateien definierten Abhängigkei
 Für CI/CD- und andere Szenarien, in denen Paketabhängigkeiten nicht dynamisch geändert werden dürfen, können Sie dies erreichen, indem Sie `lockedmode` auf `true` festlegen:
 
 Führen Sie für dotnet.exe folgenden Befehl aus:
+
 ```
 > dotnet.exe restore --locked-mode
 ```
 
 Führen Sie für msbuild.exe folgenden Befehl aus:
+
 ```
 > msbuild.exe -t:restore -p:RestoreLockedMode=true
 ```
 
 Sie können diese bedingte MSBuild-Eigenschaft auch in Ihrer Projektdatei festlegen:
+
 ```xml
 <PropertyGroup>
     <!--- ... -->
@@ -232,12 +237,14 @@ Wenn Sie eine Anwendung oder eine ausführbare Datei erstellen und sich das frag
 Wenn es sich bei Ihrem Projekt aber um ein nicht auszulieferndes Bibliotheksprojekt oder ein Projekt mit gemeinsamem Code handelt, von dem andere Projekte abhängig sind, sollten Sie die Sperrdatei **nicht** als Teil Ihres Quellcodes einchecken. Es schadet nicht, die Sperrdatei zu behalten, aber die gesperrten Paketabhängigkeiten für das Projekt mit gemeinsamem Code werden möglicherweise während der Wiederherstellung bzw. Erstellung eines Projekts, das von diesem Projekt mit gemeinsamem Code abhängig ist, nicht wie in der Sperrdatei aufgelistet verwendet.
 
 Beispiel:
+
 ```
 ProjectA
   |------> PackageX 2.0.0
   |------> ProjectB
              |------>PackageX 1.0.0
 ```
+
 Wenn `ProjectA` eine Abhängigkeit von einer `PackageX`-Version `2.0.0` aufweist und auch auf `ProjectB` verweist, das von der `PackageX`-Version `1.0.0` abhängig ist, listet die Sperrdatei für `ProjectB` eine Abhängigkeit von der `PackageX`-Version `1.0.0` auf. Wenn `ProjectA` jedoch erstellt wird, enthält die Sperrdatei eine Abhängigkeit von der `PackageX`-Version **`2.0.0`** und **nicht** von `1.0.0`, wie in der Sperrdatei für `ProjectB` aufgelistet. Daher hat die Sperrdatei eines Projekts mit gemeinsamem Code nur wenig Aussagekraft für die verwendeten Pakete für Projekte, die von diesem Projekt abhängig sind.
 
 ### <a name="lock-file-extensibility"></a>Erweiterbarkeit der Sperrdatei

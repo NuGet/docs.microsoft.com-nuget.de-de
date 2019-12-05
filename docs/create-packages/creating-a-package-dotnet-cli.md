@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: ec37057d40ddc9ed1826b0628aaa573c342b92b6
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: 535d5a16a559cde065ee0277471edfbaf1aea084
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380744"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825268"
 ---
 # <a name="create-a-nuget-package-using-the-dotnet-cli"></a>Erstellen eines NuGet-Pakets mithilfe der dotnet-CLI
 
@@ -76,7 +76,7 @@ Weitere Informationen zum Deklarieren von Abhängigkeiten und zum Angeben von Ve
 
 Um ein NuGet-Paket (eine `.nupkg`-Datei) aus dem Projekt zu erstellen, führen Sie den `dotnet pack`-Befehl aus, der auch das Projekt automatisch erstellt:
 
-```cli
+```dotnetcli
 # Uses the project file in the current folder by default
 dotnet pack
 ```

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 47593cc65ad707b8880d854dc43824b9234fd44a
-ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
+ms.openlocfilehash: 9b6eb012b4bc8135b1648fa9f5e84d7d1c9d6b16
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68833312"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825347"
 ---
 # <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>Schnellstart: Installieren und Verwenden eines Pakets mithilfe der dotnet-CLI
 
@@ -35,7 +35,7 @@ NuGet-Pakete können in beliebigen .NET-Projekten installiert werden. Erstellen 
 
 1. Erstellen Sie das Projekt mithilfe des folgenden Befehls:
 
-    ```cli
+    ```dotnetcli
     dotnet new console
     ```
 
@@ -45,7 +45,7 @@ NuGet-Pakete können in beliebigen .NET-Projekten installiert werden. Erstellen 
 
 1. Verwenden Sie folgenden Befehl, um das `Newtonsoft.json`-Paket zu installieren:
 
-    ```cli
+    ```dotnetcli
     dotnet add package Newtonsoft.Json
     ```
 
