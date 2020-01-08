@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 57e50ed805496b3511bc3b808f89da6f7ad413fc
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: e1bff9d4b7391d8be87afa4b8f2fbd51ae922140
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327267"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384855"
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Update-Package (Paket-Manager-Konsole in Visual Studio)
 
@@ -26,26 +26,26 @@ Update-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [-Ve
     [-DependencyVersion] [-ToHighestPatch] [-ToHighestMinor] [-WhatIf] [<CommonParameters>]
 ```
 
-In nuget 2.8 und `Update-Package` höher können Sie ein vorhandenes Paket in Ihrem Projekt herabstufen. Wenn Sie z. b. Microsoft. Aspnet. MVC 5.1.0-RC1 installiert haben, würde der folgende Befehl das Downgrade auf 5.0.0 durchführt:
+In nuget 2.8 und höher können `Update-Package` zum Herabstufen eines vorhandenen Pakets in Ihrem Projekt verwendet werden. Wenn Sie z. b. Microsoft. Aspnet. MVC 5.1.0-RC1 installiert haben, würde der folgende Befehl das Downgrade auf 5.0.0 durchführt:
 
 ```ps
 Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 ```
 
-## <a name="parameters"></a>Parameter
+## <a name="parameters"></a>Parameters
 
 |  Parameter | Beschreibung |
 | --- | --- |
-| Id | Der Bezeichner des zu aktualisierenden Pakets. Wenn dieser nicht ausgelassen wird, werden alle Pakete aktualisiert. Der Schalter-ID selbst ist optional. |
+| ID | Der Bezeichner des zu aktualisierenden Pakets. Wenn dieser nicht ausgelassen wird, werden alle Pakete aktualisiert. Der Schalter-ID selbst ist optional. |
 | IgnoreDependencies | Überspringt die Aktualisierung der Paketabhängigkeiten. |
 | ProjektName | Der Name des Projekts, das die zu aktualisierenden Pakete enthält, die standardmäßig auf alle Projekte aktualisiert werden. |
 | Version | Die für das Upgrade zu verwendende Version, die standardmäßig die neueste Version verwendet. In nuget 3.0 und höher muss der Versions Wert einer der *niedrigsten, höchsten, highestminor*oder *highestpatch* (äquivalent zu-Safe) sein. |
-| Sauberem | Schränkt Upgrades auf Versionen ein, die die gleiche Haupt-und neben Version wie das aktuell installierte Paket haben. |
-| Source | Die URL oder der Ordner Pfad für die Paketquelle, die durchsucht werden soll. Lokale Ordner Pfade können absolut oder relativ zum aktuellen Ordner sein. Wenn kein Wert `Update-Package` angezeigt wird, wird die aktuell ausgewählte Paketquelle durchsucht. |
+| Safe | Schränkt Upgrades auf Versionen ein, die die gleiche Haupt-und neben Version wie das aktuell installierte Paket haben. |
+| Quelle | Die URL oder der Ordner Pfad für die Paketquelle, die durchsucht werden soll. Lokale Ordner Pfade können absolut oder relativ zum aktuellen Ordner sein. Wenn der Wert weggelassen wird, wird `Update-Package` die aktuell ausgewählte Paketquelle durchsucht. |
 | Incluabprerelease | Schließt vorab Pakete für Updates ein. |
 | Neuinstallation | Gibt Pakete zurück, die Ihre aktuell installierten Versionen verwenden. Informationen dazu finden Sie unter [Neuinstallieren und Aktualisieren von Paketen](../../consume-packages/reinstalling-and-updating-packages.md). |
 | FileConflictAction | Die Aktion, die ausgeführt werden soll, wenn die vom Projekt referenzierten Dateien überschrieben oder ignoriert werden sollen. Mögliche Werte sind " *überschreiben", "ignorieren", "keine", "überschreiben*" und " *IgnoreAll* " (3.0 +). |
-| Dependencyversion | Die Version der zu verwendenden Abhängigkeits Pakete. Dies kann eine der folgenden sein:<br/><ul><li>*Niedrigste* (Standard): die niedrigste Version</li><li>*Highestpatch*: die Version mit dem niedrigsten, niedrigsten, niedrigsten, größten Patch</li><li>*Highestminor*: die Version mit dem niedrigsten Haupt-, höchst-und Höchstwert</li><li>*Höchste* (Standardeinstellung für Update-Package ohne Parameter): die höchste Version</li></ul>Sie können den Standardwert mithilfe der [`dependencyVersion`](../nuget-config-file.md#config-section) -Einstellung in der `Nuget.Config` Datei festlegen. |
+| Dependencyversion | Die Version der zu verwendenden Abhängigkeits Pakete. Dies kann eine der folgenden sein:<br/><ul><li>*Niedrigste* (Standard): die niedrigste Version</li><li>*Highestpatch*: die Version mit dem niedrigsten, niedrigsten, niedrigsten, größten Patch</li><li>*Highestminor*: die Version mit dem niedrigsten Haupt-, höchst-und Höchstwert</li><li>*Höchste* (Standardeinstellung für Update-Package ohne Parameter): die höchste Version</li></ul>Sie können den Standardwert mithilfe der Einstellung [`dependencyVersion`](../nuget-config-file.md#config-section) in der `Nuget.Config`-Datei festlegen. |
 | ToHighestPatch | Äquivalent zu-Safe. |
 | ToHighestMinor | Schränkt Upgrades auf Versionen ein, die dieselbe Hauptversion wie das aktuell installierte Paket haben. |
 | WhatIf | Zeigt, was geschieht, wenn der Befehl ausgeführt wird, ohne die Aktualisierung tatsächlich auszuführen. |
@@ -54,7 +54,7 @@ Keiner dieser Parameter akzeptiert Pipeline Eingabe-oder Platzhalter Zeichen.
 
 ### <a name="common-parameters"></a>Allgemeine Parameter
 
-`Update-Package`unterstützt die folgenden [allgemeinen PowerShell-Parameter](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, pipelinevariable, Verbose, WarningAction und WarningVariable.
+`Update-Package` unterstützt die folgenden [allgemeinen PowerShell-Parameter](https://go.microsoft.com/fwlink/?LinkID=113216): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, pipelinevariable, Verbose, WarningAction und WarningVariable.
 
 ### <a name="examples"></a>Beispiele
 

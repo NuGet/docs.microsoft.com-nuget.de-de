@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 0237c23d81000a1d58264cc0ab48c73d819d0e5a
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 39199ebfc37756ed40158a1c07afca7709067350
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327377"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384427"
 ---
 # <a name="open-packagepage-package-manager-console-in-visual-studio"></a>Open-PackagePage (Paket-Manager-Konsole in Visual Studio)
 
@@ -25,13 +25,13 @@ Open-PackagePage [-Id] <string> [-Version] [-Source] [-License] [-ReportAbuse]
     [-PassThru] [<CommonParameters>]
 ```
 
-## <a name="parameters"></a>Parameter
+## <a name="parameters"></a>Parameters
 
 | Parameter | Beschreibung |
 | --- | --- |
-| Id | Die Paket-ID des gewünschten Pakets. Der Schalter-ID selbst ist optional. |
+| ID | Die Paket-ID des gewünschten Pakets. Der Schalter-ID selbst ist optional. |
 | Version | Die Version des Pakets, standardmäßig auf die neueste Version. |
-| Source | Die Paketquelle, standardmäßig auf die ausgewählte Quelle in der Dropdown-Dropdown-Dropdown-Datei. |
+| Quelle | Die Paketquelle, standardmäßig auf die ausgewählte Quelle in der Dropdown-Dropdown-Dropdown-Datei. |
 | Lizenz | Öffnet den Browser mit der Lizenz-URL des Pakets. Wenn weder-License noch-Report Abuse angegeben ist, öffnet der Browser die Projekt-URL des Pakets. |
 | Report Abuse | Öffnet den Browser mit der Berichts Missbrauch-URL des Pakets. Wenn weder-License noch-Report Abuse angegeben ist, öffnet der Browser die Projekt-URL des Pakets. |
 | PassThru | Zeigt die URL an. Verwenden Sie with-WhatIf, um das Öffnen des Browsers zu unterdrücken. |
@@ -40,7 +40,7 @@ Keiner dieser Parameter akzeptiert Pipeline Eingabe-oder Platzhalter Zeichen.
 
 ## <a name="common-parameters"></a>Allgemeine Parameter
 
-`Open-PackagePage`unterstützt die folgenden [allgemeinen PowerShell-Parameter](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, pipelinevariable, Verbose, WarningAction und WarningVariable.
+`Open-PackagePage` unterstützt die folgenden [allgemeinen PowerShell-Parameter](https://go.microsoft.com/fwlink/?LinkID=113216): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, pipelinevariable, Verbose, WarningAction und WarningVariable.
 
 ## <a name="examples"></a>Beispiele
 

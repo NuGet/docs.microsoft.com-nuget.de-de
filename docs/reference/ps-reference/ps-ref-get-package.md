@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 431e5f292f069ad5eb0c9f7f511d6b06810c8760
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 1c39fea2131b8f4b8a91314347a19366d5a582c2
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327347"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385192"
 ---
 # <a name="get-package-package-manager-console-in-visual-studio"></a>Get-Package (Paket-Manager-Konsole in Visual Studio)
 
@@ -26,19 +26,19 @@ Get-Package -Source <string> [-ListAvailable] [-Updates] [-ProjectName <string>]
     [-PageSize] [<CommonParameters>]
 ```
 
-Ohne Parameter zeigt die `Get-Package` Liste der Pakete an, die im Standard Projekt installiert sind.
+Ohne Parameter zeigt `Get-Package` die Liste der Pakete an, die im Standard Projekt installiert sind.
 
-## <a name="parameters"></a>Parameter
+## <a name="parameters"></a>Parameters
 
 | Parameter | Beschreibung |
 | --- | --- |
-| Source | Die URL oder der Ordner Pfad für das Paket. Lokale Ordner Pfade können absolut oder relativ zum aktuellen Ordner sein. Wenn kein Wert `Get-Package` angezeigt wird, wird die aktuell ausgewählte Paketquelle durchsucht. Bei Verwendung mit-listavailable wird standardmäßig auf nuget.org festgelegt. |
+| Quelle | Die URL oder der Ordner Pfad für das Paket. Lokale Ordner Pfade können absolut oder relativ zum aktuellen Ordner sein. Wenn der Wert weggelassen wird, wird `Get-Package` die aktuell ausgewählte Paketquelle durchsucht. Bei Verwendung mit-listavailable wird standardmäßig auf nuget.org festgelegt. |
 | ListAvailable | Listet die Pakete auf, die in einer Paketquelle verfügbar sind, und standardmäßig nuget.org. Zeigt einen Standardwert von 50-Paketen an, es sei denn, es werden-PageSize und/oder-First angegeben |
 | Updates | Listet Pakete auf, für die ein Update in der Paketquelle verfügbar ist. |
 | ProjektName | Das Projekt, aus dem installierte Pakete zu erhalten sind. Wenn der Wert nicht angezeigt wird, gibt die installierten Projekte für die gesamte Projekt Mappe |
 | Filter | Eine Filter Zeichenfolge, die verwendet wird, um die Liste der Pakete einzugrenzen, indem Sie Sie auf die Paket-ID, die Beschreibung und Tags anwenden. |
 | Erster | Die Anzahl der Pakete, die vom Anfang der Liste zurückgegeben werden sollen. Wenn nicht angegeben, wird standardmäßig 50 verwendet. |
-| Skip | Lässt die ersten &lt;int&gt; -Pakete aus der angezeigten Liste aus.  |
+| Überspringen | Lässt das erste &lt;int&gt; Paketen aus der angezeigten Liste aus.  |
 | AllVersions | Zeigt alle verfügbaren Versionen der einzelnen Pakete anstelle der neuesten Version an. |
 | Incluabprerelease | Schließt vorab Pakete in die Ergebnisse ein. |
 | PageSize | *(3.0* und höher) Bei Verwendung mit-listavailable (erforderlich) die Anzahl der Pakete, die aufgelistet werden sollen, bevor eine Aufforderung zum Fortfahren angezeigt wird. |
@@ -47,7 +47,7 @@ Keiner dieser Parameter akzeptiert Pipeline Eingabe-oder Platzhalter Zeichen.
 
 ## <a name="common-parameters"></a>Allgemeine Parameter
 
-`Get-Package`unterstützt die folgenden [allgemeinen PowerShell-Parameter](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, pipelinevariable, Verbose, WarningAction und WarningVariable.
+`Get-Package` unterstützt die folgenden [allgemeinen PowerShell-Parameter](https://go.microsoft.com/fwlink/?LinkID=113216): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, pipelinevariable, Verbose, WarningAction und WarningVariable.
 
 ## <a name="examples"></a>Beispiele
 

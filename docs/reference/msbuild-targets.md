@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: ed3545454a811c311190a191c566d9e9192f3fcc
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.openlocfilehash: 2c2b5b21569e2644154670d502146f1e0f9c4c81
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825070"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385013"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet pack and restore as MSBuild targets (NuGet-Befehle „pack“ und „restore“ MSBuild-Ziele)
 
@@ -48,11 +48,11 @@ Beachten Sie, dass die Eigenschaften `Owners` und `Summary` aus einer `.nuspec`-
 
 | Attribut/NuSpec-Wert | MSBuild-Eigenschaft | Default | Hinweise |
 |--------|--------|--------|--------|
-| Id | PackageId | AssemblyName | $(AssemblyName) aus MSBuild |
+| ID | PackageId | AssemblyName | $(AssemblyName) aus MSBuild |
 | Version | PackageVersion | Version | Diese Eigenschaft ist mit „semver“ kompatibel, z.B. „1.0.0“, „1.0.0-beta“ oder „1.0.0-beta-00345“ |
 | VersionPrefix | PackageVersionPrefix | Leer | Durch das Festlegen von PackageVersion wird PackageVersionPrefix überschrieben |
 | VersionSuffix | PackageVersionSuffix | Leer | $(VersionSuffix) aus MSBuild. Durch das Festlegen von PackageVersion wird PackageVersionSuffix überschrieben |
-| Authors | Authors | Name des aktuellen Benutzers | |
+| Autoren | Autoren | Name des aktuellen Benutzers | |
 | Besitzer | Nicht zutreffend | In NuSpec nicht vorhanden | |
 | Title | Title | Die PackageId| |
 | Beschreibung | Beschreibung | „Paketbeschreibung“ | |
@@ -64,7 +64,7 @@ Beachten Sie, dass die Eigenschaften `Owners` und `Summary` aus einer `.nuspec`-
 | ProjectUrl | PackageProjectUrl | Leer | |
 | Symbol | Packageicon | Leer | Sie müssen explizit die Symbolbild Datei, auf die verwiesen wird, verpacken.|
 | IconUrl | PackageIconUrl | Leer | Um das beste kompatible zu erzielen, sollten `PackageIconUrl` zusätzlich zu `PackageIcon`angegeben werden. Längerfristig werden `PackageIconUrl` als veraltet markiert. |
-| Kategorien | PackageTags | Leer | Ziele werden durch Semikolons (;) getrennt. |
+| Tags | PackageTags | Leer | Ziele werden durch Semikolons (;) getrennt. |
 | ReleaseNotes | PackageReleaseNotes | Leer | |
 | Repository/URL | RepositoryUrl | Leer | Die Repository-URL, die zum Klonen oder Abrufen von Quellcode verwendet wird. Beispiel: *https://github.com/NuGet/NuGet.Client.git* |
 | Repository/Typ | RepositoryType | Leer | Der Repository-Typ. Beispiele: *git*, *TFS*. |
@@ -79,7 +79,7 @@ Beachten Sie, dass die Eigenschaften `Owners` und `Summary` aus einer `.nuspec`-
 - SuppressDependenciesWhenPacking
 - PackageVersion
 - PackageId
-- Authors
+- Autoren
 - Beschreibung
 - Copyright
 - PackageRequireLicenseAcceptance
@@ -120,7 +120,7 @@ Um Paketabhängigkeiten aus generierten nuget-Paketen zu unterdrücken, legen Si
 
 `PackageIconUrl` wird zugunsten der neuen [`PackageIcon`](#packageicon) -Eigenschaft als veraltet eingestuft.
 
-Ab nuget 5,3 & Visual Studio 2019 Version 16,3 wird die [NU5048](errors-and-warnings/nu5048) -Warnung ausgegeben `pack`, wenn in den Paket Metadaten nur `PackageIconUrl`angegeben wird.
+Ab nuget 5,3 & Visual Studio 2019 Version 16,3 wird die [NU5048](./errors-and-warnings/nu5048.md) -Warnung ausgegeben `pack`, wenn in den Paket Metadaten nur `PackageIconUrl`angegeben wird.
 
 ### <a name="packageicon"></a>Packageicon
 
@@ -371,7 +371,7 @@ Das `restore` Ziel funktioniert **nur** für Projekte, die das packagereferenzie
 
 Weitere Wiederherstellungseigenschaften können aus MSBuild-Eigenschaften in der Projektdatei stammen. Werte können auch mithilfe des `-p:`-Switch über die Befehlszeile festgelegt werden (siehe nachfolgende Beispiele).
 
-| property | Beschreibung |
+| Die Eigenschaften- | Beschreibung |
 |--------|--------|
 | RestoreSources | Eine durch Semikolons (;) getrennte Liste mit Paketquellen. |
 | RestorePackagesPath | Ordnerpfad der Pakete für Benutzer. |
