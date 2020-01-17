@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 1053a18926f63e02f0b1c100e7cc1cd293654ced
-ms.sourcegitcommit: e4b0ff4460865db6dc7bc9f20e9f644d98493011
+ms.openlocfilehash: 00fe1d5fa81132b5d6826203a0d26e56aa8d4755
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71307215"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383981"
 ---
 # <a name="signing-nuget-packages"></a>Signieren von NuGet-Paketen
 
@@ -19,7 +19,7 @@ Signierte Pakete ermöglichen die Überprüfung der Integrität von Inhalten, um
 
 ## <a name="get-a-code-signing-certificate"></a>Abrufen eines Codesignaturzertifikats
 
-Gültige Zertifikate können von öffentlichen Zertifizierungsstellen wie [Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3), [DigiCert](https://www.digicert.com/code-signing/), [Go Daddy](https://www.godaddy.com/web-security/code-signing-certificate), [Global Sign](https://www.globalsign.com/en/code-signing-certificate/), [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php), [Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml) usw. abgerufen werden. Die vollständige Liste aller von Windows als vertrauenswürdig eingestuften Zertifizierungsstellen finden Sie unter [http://aka.ms/trustcertpartners](http://aka.ms/trustcertpartners).
+Gültige Zertifikate können von öffentlichen Zertifizierungsstellen wie [Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3), [DigiCert](https://www.digicert.com/code-signing/), [Go Daddy](https://www.godaddy.com/web-security/code-signing-certificate), [Global Sign](https://www.globalsign.com/en/code-signing-certificate/), [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php), [Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml) usw. abgerufen werden. Die vollständige Liste aller von Windows als vertrauenswürdig eingestuften Zertifizierungsstellen finden Sie unter [http://aka.ms/trustcertpartners](https://aka.ms/trustcertpartners).
 
 Sie können selbst ausgestellte Zertifikate für Testzwecke verwenden. Pakete, die mit selbst ausgestellten Zertifikaten signiert wurde, werden allerdings von NuGet.org nicht akzeptiert. Weitere Informationen zum [Erstellen einer variablen Gruppe](#create-a-test-certificate)
 

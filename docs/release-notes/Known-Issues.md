@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: b104eb39ddeacd9ca1ea45937cf98ad57531112a
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 8f2b33a7290301bd16db3b1979ae496eee602f55
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317142"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383657"
 ---
 # <a name="known-issues-with-nuget"></a>Bekannte Probleme mit NuGet
 
@@ -75,7 +75,7 @@ Weitere Informationen zu diesem Fehler finden Sie in diesem [Arbeitselement](htt
 
 ## <a name="build-failure-after-package-update-in-vs-2012"></a>Buildfehler nach dem Aktualisieren des Pakets in Visual Studio 2012
 
-Die Problematik: Sie verwenden Visual Studio 2012 RTM. Beim Aktualisieren von NuGet-Paketen erhalten Sie die folgende Meldung: „Mindestens ein Paket konnte nicht deinstalliert werden.“ Sie werden außerdem dazu aufgefordert, Visual Studio neu zu starten. Nach dem Neustart von Visual Studio erhalten Sie merkwürdige Buildfehler.
+Das Problem: Sie verwenden Visual Studio 2012 RTM. Beim Aktualisieren von NuGet-Paketen erhalten Sie die folgende Meldung: „Mindestens ein Paket konnte nicht deinstalliert werden.“ Sie werden außerdem dazu aufgefordert, Visual Studio neu zu starten. Nach dem Neustart von Visual Studio erhalten Sie merkwürdige Buildfehler.
 
 Dies wird durch bestimmte Dateien in alten Paketen verursacht, die durch einen MSBuild-Hintergrundprozess gesperrt sind. Auch nach dem Neustart von Visual Studio verwendet der MSBuild-Hintergrundprozess diese Dateien noch in den alten Paketen, wodurch die Buildfehler verursacht werden.
 
@@ -90,7 +90,7 @@ Wenn Sie Visual Studio 2010 SP1 ausführen, wird Ihnen möglicherweise folgende 
 In den Protokollen wird möglicherweise `SignatureMismatchException` angezeigt.
 
 Es gibt einen [Visual Studio 2010 SP1 hotfix (Hotfix für Visual Studio 2010 SP1)](http://bit.ly/vsixcertfix), den Sie installieren können, um dies zu vermeiden.
-Alternativ können Sie das Problem einfach umgehen, indem Sie NuGet zuerst deinstallieren (während Visual Studio als Administrator ausgeführt wird) und dann über den Erweiterungskatalog von Visual Studio erneut installieren.  Weitere Informationen finden Sie unter [http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019).
+Alternativ können Sie das Problem einfach umgehen, indem Sie NuGet zuerst deinstallieren (während Visual Studio als Administrator ausgeführt wird) und dann über den Erweiterungskatalog von Visual Studio erneut installieren. Weitere Informationen finden Sie unter <https://support.microsoft.com/kb/2581019>.
 
 ## <a name="package-manager-console-throws-an-exception-when-the-reflector-visual-studio-add-in-is-also-installed"></a>Die Konsole des Paket-Managers löst eine Ausnahme aus, wenn das Visual Studio-Add-In „Reflector“ ebenfalls installiert ist.
 
@@ -134,7 +134,7 @@ oder
 
 Der Autor des Add-Ins wurde in der Hoffnung kontaktiert, dass dieser eine Lösung dafür ausarbeiten kann.
 
-<p class="info">Aktualisieren: Es wurde festgestellt, dass die aktuelle Version von Reflector (6.5) diese Ausnahme nicht mehr in der Konsole auslöst.</p>
+<p class="info">Update: Es wurde festgestellt, dass die aktuelle Version von Reflector (6.5) diese Ausnahme nicht mehr in der Konsole auslöst.</p>
 
 ## <a name="opening-package-manager-console-fails-with-objectsecurity-exception"></a>Das Öffnen der Konsole des Paket-Managers schlägt mit der Ausnahme „ObjectSecurity“ fehl
 
@@ -159,7 +159,7 @@ Wenn Sie versuchen, NuGet über den Erweiterungs-Manager in Visual Studio zu dei
 
 ## <a name="the-package-manager-console-crashes-when-i-open-it-in-windows-xp-whats-wrong"></a>Die Konsole des Paket-Managers stürzt ab, wenn sie in Windows XP geöffnet wird. Wo liegt der Fehler?
 
-NuGet erfordert die Runtime von PowerShell 2.0. Windows XP verfügt standardmäßig nicht über PowerShell 2.0. Sie können die PowerShell 2.0-Runtime unter [http://support.microsoft.com/kb/968929](http://support.microsoft.com/kb/968929) herunterladen. Starten Sie Visual Studio nach der Installation neu. Es sollte dann möglich sein, die Konsole des Paket-Managers zu öffnen.
+NuGet erfordert die Runtime von PowerShell 2.0. Windows XP verfügt standardmäßig nicht über PowerShell 2.0. Sie können die PowerShell 2.0-Runtime unter <https://support.microsoft.com/kb/968929> herunterladen. Starten Sie Visual Studio nach der Installation neu. Es sollte dann möglich sein, die Konsole des Paket-Managers zu öffnen.
 
 ## <a name="visual-studio-2010-sp1-beta-crashes-on-exit-if-the-package-manager-console-is-open"></a>Die Betaversion von Visual Studio 2010 SP1 stürzt beim Beenden ab, wenn die Konsole des Paket-Managers geöffnet ist.
 
