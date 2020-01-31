@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/16/2019
 ms.topic: quickstart
-ms.openlocfilehash: ef1bda19c5ca3c6b5a4bd9b9d4e3ef41d7dadb53
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: fe551dfa7f2322e6677c9c0b972c79c9df2e7695
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610634"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813558"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Schnellstart: Erstellen und Veröffentlichen eines NuGet-Pakets mithilfe von Visual Studio (.NET Standard, nur Windows)
 
@@ -19,7 +19,7 @@ Ein NuGet-Paket kann problemlos über eine .NET Standard-Klassenbibliothek in Vi
 > [!Note]
 > Wenn Sie Visual Studio für Mac verwenden, lesen Sie [diese Informationen](/xamarin/cross-platform/app-fundamentals/nuget-multiplatform-libraries/existing-library) zum Erstellen eines NuGet-Pakets, oder verwenden Sie die [dotnet-CLI-Tools](create-and-publish-a-package-using-the-dotnet-cli.md).
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Voraussetzungen
 
 1. Installieren Sie über [visualstudio.com](https://www.visualstudio.com/) eine beliebige Edition von Visual Studio 2019 mit einer .NET-bezogenen Workload.
 
@@ -30,7 +30,7 @@ Ein NuGet-Paket kann problemlos über eine .NET Standard-Klassenbibliothek in Vi
    > [!Important]
    > Wenn Sie mit einem Projekt im Nicht-SDK-Format arbeiten, befolgen Sie die Anweisungen unter [Erstellen und Veröffentlichen eines .NET Framework-Pakets (Visual Studio)](create-and-publish-a-package-using-visual-studio-net-framework.md), um das Paket zu erstellen und zu veröffentlichen. In diesem Artikel wird die `dotnet`-CLI empfohlen. Sie können zwar mit der `nuget.exe`-CLI jedes NuGet-Paket veröffentlichen, jedoch gelten einige der Schritte in diesem Artikel speziell für Projekte im SDK-Format und die dotnet-CLI. Die nuget.exe-CLI wird für [Projekte im Nicht-SDK-Format](../resources/check-project-format.md) (in der Regel .NET Framework) verwendet.
 
-1. [Registrieren Sie sich für ein kostenloses Konto auf nuget.org](https://docs.microsoft.com/nuget/nuget-org/individual-accounts#add-a-new-individual-account), falls Sie noch kein Konto haben. Wenn Sie ein neues Konto erstellen, wird Ihnen eine Bestätigungs-E-Mail gesendet. Sie müssen das Konto bestätigen, bevor Sie ein Paket hochladen können.
+1. [Registrieren Sie sich für ein kostenloses Konto auf nuget.org](../nuget-org/individual-accounts.md#add-a-new-individual-account), falls Sie noch kein Konto haben. Wenn Sie ein neues Konto erstellen, wird Ihnen eine Bestätigungs-E-Mail gesendet. Sie müssen das Konto bestätigen, bevor Sie ein Paket hochladen können.
 
 ## <a name="create-a-class-library-project"></a>Erstellen eines Klassenbibliotheksprojekts
 

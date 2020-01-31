@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 3/1/2019
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 3102cb9a20f354e92a0da8bba6457dc2ad0f0f2d
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 1b84c6e88a56216e5747d5bc602219af6695c305
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610955"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76812934"
 ---
 # <a name="package-details-url-template"></a>Paket Details-URL-Vorlage
 
@@ -23,9 +23,9 @@ Die Ressource, die zum aufbauen dieser URL verwendet wird, ist die `PackageDetai
 
 Die folgenden `@type` Werte werden verwendet:
 
-@type -Wert                     | Notizen
+@type-Wert                     | Hinweise
 ------------------------------- | -----
-Packagedetailsuritemplate/5.1.0 | Die erste Version
+PackageDetailsUriTemplate/5.1.0 | Die erste Version
 
 ## <a name="url-template"></a>URL-Vorlage
 
@@ -45,12 +45,12 @@ Der Wert der `@id` im Dienst Index ist eine URL-Zeichenfolge, die eines der folg
 
 ### <a name="url-placeholders"></a>URL-Platzhalter
 
--Name        | Geben Sie Folgendes ein:    | Erforderlich | Notizen
+-Name        | Typ    | Erforderlich | Hinweise
 ----------- | ------- | -------- | -----
-`{id}`      | string  | Nein       | Die Paket-ID, für die Details zu erhalten sind.
-`{version}` | string  | Nein       | Die Paketversion, für die Details zu erhalten sind
+`{id}`      | string  | no       | Die Paket-ID, für die Details zu erhalten sind.
+`{version}` | string  | no       | Die Paketversion, für die Details zu erhalten sind
 
-Der Server sollte `{id}` und `{version}` Werte in beliebiger Groß-/Kleinschreibung akzeptieren. Außerdem sollte der Server nicht darauf achten, ob die Version [normalisiert](https://docs.microsoft.com/nuget/concepts/package-versioning#normalized-version-numbers)ist. Das heißt, der Server sollte auch akzeptieren, dass nicht normalisierte Versionen akzeptiert werden.
+Der Server sollte `{id}` und `{version}` Werte in beliebiger Groß-/Kleinschreibung akzeptieren. Außerdem sollte der Server nicht darauf achten, ob die Version [normalisiert](../concepts/package-versioning.md#normalized-version-numbers)ist. Das heißt, der Server sollte auch akzeptieren, dass nicht normalisierte Versionen akzeptiert werden.
 
 Beispielsweise sieht die Paket Detail Vorlage von nuget. org wie folgt aus:
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: d2294ef0acb9053e74543204ae6f68b9fbc6fb0a
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: c6f50e6eb21826afebcdcd4045c7ab8b6e6489e3
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611066"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813324"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Auflösung von Paketabhängigkeiten durch NuGet
 
@@ -24,7 +24,7 @@ Wenn mehrere Pakete über dieselbe Abhängigkeit verfügen, kann in dem Diagramm
 
 Bei der Installation von Paketen in Projekte, die das PackageReference-Format verwenden, fügt NuGet Verweise auf ein flaches Paketdiagramm in der entsprechenden Datei hinzu und löst Konflikte auf, bevor sie entstehen. Dieser Vorgang wird als *transitive Wiederherstellung* bezeichnet. Für die erneute Installation oder die Wiederherstellung müssen dann nur noch die in dem Diagramm aufgeführten Pakete heruntergeladen werden, wodurch schnellere und zuverlässigere Builds erstellt werden. Sie können auch Platzhalterversionen (unverankert) wie 2.8.\* nutzen, um speicherintensive und fehlernanfällige Aufrufe von `nuget update` auf den Clientcomputern und Buildservern zu vermeiden.
 
-Wenn der Wiederherstellungsprozess von NuGet vor einem Buildvorgang ausgeführt wird, löst dieser zuerst Abhängigkeiten im Arbeitsspeicher aus und schreibt das resultierende Diagramm dann in eine Datei mit der Bezeichnung `project.assets.json`. Außerdem werden die aufgelösten Abhängigkeiten in eine Sperrdatei mit dem Namen `packages.lock.json` geschrieben, wenn die Funktion [ der Sperrdatei aktiviert ist](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files#locking-dependencies).
+Wenn der Wiederherstellungsprozess von NuGet vor einem Buildvorgang ausgeführt wird, löst dieser zuerst Abhängigkeiten im Arbeitsspeicher aus und schreibt das resultierende Diagramm dann in eine Datei mit der Bezeichnung `project.assets.json`. Außerdem werden die aufgelösten Abhängigkeiten in eine Sperrdatei mit dem Namen `packages.lock.json` geschrieben, wenn die Funktion [ der Sperrdatei aktiviert ist](../consume-packages/package-references-in-project-files.md#locking-dependencies).
 Die Ressourcendatei befindet sich unter `MSBuildProjectExtensionsPath`, was standardmäßig der Objektordner des Projekts ist. MSBuild liest diese Datei und übersetzt sie in mehrere Ordner, in denen sich mögliche Verweise befinden, und fügt diese dann der Projektstruktur im Arbeitsspeicher hinzu.
 
 Die `project.assets.json`-Datei dient nur als temporäre Datei und sollte nicht der Quellcodeverwaltung hinzugefügt werden. Sie wird standardmäßig sowohl in `.gitignore` als auch in `.tfignore` aufgeführt. Weitere Informationen finden Sie unter [Packages and source control (Pakete und Quellcodeverwaltung)](../consume-packages/packages-and-source-control.md).
@@ -156,4 +156,3 @@ Führen Sie die folgenden Schritte aus, um Inkompatibilitäten aufzulösen:
 
 - Richten Sie Ihr Projekt auf ein anderes Framework aus, das von den Paketen unterstützt wird, die Sie verwenden möchten.
 - Kontaktieren Sie den Autor der Pakete, und arbeiten Sie mit diesem zusammen, um die Unterstützung des ausgewählten Frameworks hinzuzufügen. Dafür verfügt jede Seite mit Auflistungen von Paketen auf [nuget.org](https://www.nuget.org/) über den Link **Besitzer kontaktieren**.
-

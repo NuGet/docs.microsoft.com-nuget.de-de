@@ -1,5 +1,5 @@
 ---
-title: Begrenzung der Datenübertragungsrate, NuGet-API
+title: Begrenzung der Datenübertragungs Rate, nuget-API
 description: Die NuGet-APIs haben Ratenbegrenzungen, um Missbrauch zu verhindern.
 author: cmanu
 ms.author: cmanu
@@ -9,12 +9,12 @@ ms.reviewer:
 - skofman
 - anangaur
 - kraigb
-ms.openlocfilehash: 70b478ae17cd10b17f9d6ecb0f5776c1effcea58
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 9e60c0236bd4e6f1374b50a236447faf80dddb38
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548676"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813194"
 ---
 # <a name="rate-limits"></a>Begrenzung der Bandbreite
 
@@ -41,19 +41,18 @@ Die folgenden Tabellen enthalten die Begrenzungen für die nuget.org-API.
 ## <a name="package-search"></a>Paketsuche
 
 > [!Note]
-> Es wird empfohlen, die [V3-APIs](https://docs.microsoft.com/nuget/api/search-query-service-resource) von nuget.org für die Suche zu verwenden. Diese sind leistungsfähig und haben momentan kein Limit. Für die V1- und V2-Such-APIs gelten die folgenden Limits:
+> Es wird empfohlen, die [V3-Suche-APIs](search-query-service-resource.md) von nuget. org zu verwenden, da es derzeit keine Raten Beschränkung gibt. Für v1-und v2-Such-APIs gelten die folgenden Grenzwerte:
 
-
-| API | Limittyp | Grenzwert | API-Anwendungsfall |
+| API | Limit-Typ | Limit-Wert | API-UseCase |
 |:---|:---|:---|:---|
-**GET** `/api/v1/Packages` | IP | 1000 / Minute | Abfragen von NuGet-Paketmetadaten über die v1-OData-Auflistung `Packages` |
-**GET** `/api/v1/Search()` | IP | 3000 / Minute | Suche nach NuGet-Paketen über den v1-Suche-Endpunkt | 
-**GET** `/api/v2/Packages` | IP | 20000 / Minute | Abfragen von NuGet-Paketmetadaten über die v2-OData-Auflistung `Packages` | 
-**GET** `/api/v2/Packages/$count` | IP | 100 / Minute | Anzahl der NuGet-Pakete über die v2-OData-Auflistung `Packages` | 
+**GET** `/api/v1/Packages` | IP | 1000/Minute | Abfragen von NuGet-Paketmetadaten über die v1-OData-Auflistung `Packages` |
+**GET** `/api/v1/Search()` | IP | 3000/Minute | Suche nach NuGet-Paketen über den v1-Suche-Endpunkt | 
+**GET** `/api/v2/Packages` | IP | 20000/Minute | Abfragen von NuGet-Paketmetadaten über die v2-OData-Auflistung `Packages` | 
+**GET** `/api/v2/Packages/$count` | IP | 100/Minute | Anzahl der NuGet-Pakete über die v2-OData-Auflistung `Packages` | 
 
-## <a name="package-push-and-unlist"></a>Paket mithilfe von Push übertragen und aus der Liste entfernen
+## <a name="package-push-and-unlist"></a>Package Push und Unlist
 
-| API | Limittyp | Grenzwert | API-Anwendungsfall | 
+| API | Limit-Typ | Limit-Wert | API-UseCase | 
 |:---|:---|:---|:--- |
-**PUT** `/api/v2/package` | API-Schlüssel | 250 / Stunde | Hochladen eines neuen NuGet-Pakets (Version) per v2-Push-Endpunkt 
-**DELETE** `/api/v2/package/{id}/{version}` | API-Schlüssel | 250 / Stunde | Entfernen eines NuGet-Pakets oder einer Paketversion über den v2-Endpunkt 
+**Put** -`/api/v2/package` | API-Schlüssel | 350/Stunde | Hochladen eines neuen NuGet-Pakets (Version) per v2-Push-Endpunkt 
+**DELETE** `/api/v2/package/{id}/{version}` | API-Schlüssel | 250/Stunde | Entfernen eines NuGet-Pakets oder einer Paketversion über den v2-Endpunkt 
