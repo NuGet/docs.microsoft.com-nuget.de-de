@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: e2b6a64b8010f16d0fc33cca437b348d8f784fd7
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 915f6e4cfc0b21d2b10006c62e8230720d07ce74
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610500"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813740"
 ---
 # <a name="nugetorg-frequently-asked-questions"></a>Häufig gestellte Fragen zu NuGet.org
 
@@ -242,7 +242,7 @@ Sie können ein neues Microsoft-Konto [erstellen](https://www.microsoft.com/acco
 
 ### <a name="how-do-i-change-my-nugetorg-account-username"></a>Wie kann ich den Benutzernamen meines NuGet.org-Kontos ändern?
 
-Sie können den Benutzernamen nicht ändern. Gemäß unseren Richtlinien ist eine Änderung des Benutzernamens derzeit nicht zulässig. Sie können Ihren Benutzernamen lediglich ändern, indem Sie ein neues Konto mit dem gewünschten Benutzernamen erstellen. Es wird empfohlen, Ihr bestehendes Konto zu löschen, bevor Sie ein neues erstellen. Andernfalls können Sie Ihr registriertes Microsoft-Konto nicht für das neue Konto verwenden.
+Sie können den Benutzernamen nicht ändern. Gemäß der Richtlinien von Microsoft ist eine Änderung des Benutzernamens nicht zulässig. Eine Änderung des Benutzernamens wäre ein Breaking Change für Benutzer, die [auf dem Paketbesitzer basierende Vertrauensrichtlinien für Pakete](../consume-packages/installing-signed-packages.md#trust-package-owners) definiert haben. Sie können Ihren Benutzernamen lediglich ändern, indem Sie ein neues Konto mit dem gewünschten Benutzernamen erstellen. Es wird empfohlen, Ihr bestehendes Konto zu löschen, bevor Sie ein neues erstellen. Andernfalls können Sie Ihr registriertes Microsoft-Konto nicht für das neue Konto verwenden.
 > [!Important]
 > Durch das Löschen des Kontos bleibt der `username` dennoch **reserviert**. Sie können den gleichen Benutzernamen nicht noch einmal verwenden, auch dann nicht, wenn Sie **die Groß- und Kleinschreibung ändern**. Wenn Sie beispielsweise ein Konto mit dem Benutzernamen `mycoolname` erstellt haben und diesen in `MyCoolName` (geänderte Groß- und Kleinschreibung) ändern möchten, ist dieser Vorgang auch nach dem Löschen des Kontos nicht möglich.
 
@@ -250,7 +250,7 @@ Befolgen Sie die Schritte im Abschnitt zum [Löschen Ihres NuGet.org-Kontos](#ho
 
 ### <a name="how-to-delete-my-nugetorg-account"></a>Wie kann ich mein NuGet.org-Konto löschen?
 
-Es wird empfohlen, den Besitz aller Pakete, deren alleiniger Besitzer Sie sind, auf ein anderes Konto zu übertragen, bevor Sie Ihr Konto löschen. Weitere Informationen zu diesem Thema finden Sie unter [Verwalten von Paketbesitzern auf nuget.org](https://docs.microsoft.com/nuget/create-packages/publish-a-package#managing-package-owners-on-nugetorg). Hierdurch können wir Ihre Anforderung schneller verarbeiten.
+Es wird empfohlen, den Besitz aller Pakete, deren alleiniger Besitzer Sie sind, auf ein anderes Konto zu übertragen, bevor Sie Ihr Konto löschen. Weitere Informationen zu diesem Thema finden Sie unter [Verwalten von Paketbesitzern auf nuget.org](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg). Hierdurch können wir Ihre Anforderung schneller verarbeiten.
 
 Wenn Sie Ihr Konto auf ein Organisationskonto umstellen möchten, führen Sie die in [Wie kann ich mein NuGet.org-Konto auf ein Organisationskonto umstellen?](#how-to-transform-my-nugetorg-account-to-an-organization) beschriebenen Schritte aus.
 
