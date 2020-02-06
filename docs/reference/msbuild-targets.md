@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2c2b5b21569e2644154670d502146f1e0f9c4c81
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 922fc0b25664dede59e33c6cd012dfeedcad0397
+ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385013"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77036928"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet pack and restore as MSBuild targets (NuGet-Befehle „pack“ und „restore“ MSBuild-Ziele)
 
@@ -46,32 +46,32 @@ In der folgenden Tabelle werden die MSBuild-Eigenschaften beschrieben, die im er
 
 Beachten Sie, dass die Eigenschaften `Owners` und `Summary` aus einer `.nuspec`-Datei in MSBuild nicht unterstützt werden.
 
-| Attribut/NuSpec-Wert | MSBuild-Eigenschaft | Default | Hinweise |
+| Attribut/NuSpec-Wert | MSBuild-Eigenschaft | Standard | Notizen |
 |--------|--------|--------|--------|
-| ID | PackageId | AssemblyName | $(AssemblyName) aus MSBuild |
+| Id | PackageId | AssemblyName | $(AssemblyName) aus MSBuild |
 | Version | PackageVersion | Version | Diese Eigenschaft ist mit „semver“ kompatibel, z.B. „1.0.0“, „1.0.0-beta“ oder „1.0.0-beta-00345“ |
-| VersionPrefix | PackageVersionPrefix | Leer | Durch das Festlegen von PackageVersion wird PackageVersionPrefix überschrieben |
-| VersionSuffix | PackageVersionSuffix | Leer | $(VersionSuffix) aus MSBuild. Durch das Festlegen von PackageVersion wird PackageVersionSuffix überschrieben |
-| Autoren | Autoren | Name des aktuellen Benutzers | |
-| Besitzer | Nicht zutreffend | In NuSpec nicht vorhanden | |
-| Title | Title | Die PackageId| |
-| Beschreibung | Beschreibung | „Paketbeschreibung“ | |
-| Copyright | Copyright | Leer | |
+| VersionPrefix | PackageVersionPrefix | empty | Durch das Festlegen von PackageVersion wird PackageVersionPrefix überschrieben |
+| VersionSuffix | PackageVersionSuffix | empty | $(VersionSuffix) aus MSBuild. Durch das Festlegen von PackageVersion wird PackageVersionSuffix überschrieben |
+| Authors | Authors | Name des aktuellen Benutzers | |
+| Besitzer | – | In NuSpec nicht vorhanden | |
+| Titel | Titel | Die PackageId| |
+| BESCHREIBUNG | BESCHREIBUNG | „Paketbeschreibung“ | |
+| Copyright | Copyright | empty | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
-| Lizenz | PackageLicenseExpression | Leer | Entspricht `<license type="expression">` |
-| Lizenz | PackageLicenseFile | Leer | Entspricht `<license type="file">` Sie müssen die referenzierte Lizenzdatei explizit verpacken. |
-| LicenseUrl | PackageLicenseUrl | Leer | `PackageLicenseUrl` ist veraltet, verwenden Sie die packagelicenseexpression-oder packagelicensefile-Eigenschaft. |
-| ProjectUrl | PackageProjectUrl | Leer | |
-| Symbol | Packageicon | Leer | Sie müssen explizit die Symbolbild Datei, auf die verwiesen wird, verpacken.|
-| IconUrl | PackageIconUrl | Leer | Um das beste kompatible zu erzielen, sollten `PackageIconUrl` zusätzlich zu `PackageIcon`angegeben werden. Längerfristig werden `PackageIconUrl` als veraltet markiert. |
-| Tags | PackageTags | Leer | Ziele werden durch Semikolons (;) getrennt. |
-| ReleaseNotes | PackageReleaseNotes | Leer | |
-| Repository/URL | RepositoryUrl | Leer | Die Repository-URL, die zum Klonen oder Abrufen von Quellcode verwendet wird. Beispiel: *https://github.com/NuGet/NuGet.Client.git* |
-| Repository/Typ | RepositoryType | Leer | Der Repository-Typ. Beispiele: *git*, *TFS*. |
-| Repository/Verzweigung | RepositoryBranch | Leer | Optionale Informationen zum Repository-Branch. *RepositoryUrl* muss auch angegeben werden, damit diese Eigenschaft eingeschlossen wird. Beispiel: *Master* (nuget 4.7.0 +) |
-| Repository/Commit | RepositoryCommit | Leer | Optionaler Repositorycommit oder ein Changeset, um anzugeben, für welches Quellpaket die Erstellung erfolgt ist. *RepositoryUrl* muss auch angegeben werden, damit diese Eigenschaft eingeschlossen wird. Beispiel: *0e4d1b598f 350 b3dc675018d539114d1328189ef* (nuget 4.7.0 +) |
+| license | PackageLicenseExpression | empty | Entspricht `<license type="expression">` |
+| license | PackageLicenseFile | empty | Entspricht `<license type="file">` Sie müssen die referenzierte Lizenzdatei explizit verpacken. |
+| LicenseUrl | PackageLicenseUrl | empty | `PackageLicenseUrl` ist veraltet, verwenden Sie die packagelicenseexpression-oder packagelicensefile-Eigenschaft. |
+| ProjectUrl | PackageProjectUrl | empty | |
+| Symbol | Packageicon | empty | Sie müssen explizit die Symbolbild Datei, auf die verwiesen wird, verpacken.|
+| IconUrl | PackageIconUrl | empty | Um das beste kompatible zu erzielen, sollten `PackageIconUrl` zusätzlich zu `PackageIcon`angegeben werden. Längerfristig werden `PackageIconUrl` als veraltet markiert. |
+| `Tags` | PackageTags | empty | Ziele werden durch Semikolons (;) getrennt. |
+| ReleaseNotes | PackageReleaseNotes | empty | |
+| Repository/URL | RepositoryUrl | empty | Die Repository-URL, die zum Klonen oder Abrufen von Quellcode verwendet wird. Beispiel: *https://github.com/NuGet/NuGet.Client.git* |
+| Repository/Typ | RepositoryType | empty | Der Repository-Typ. Beispiele: *git*, *TFS*. |
+| Repository/Verzweigung | RepositoryBranch | empty | Optionale Informationen zum Repository-Branch. *RepositoryUrl* muss auch angegeben werden, damit diese Eigenschaft eingeschlossen wird. Beispiel: *Master* (nuget 4.7.0 +) |
+| Repository/Commit | RepositoryCommit | empty | Optionaler Repositorycommit oder ein Changeset, um anzugeben, für welches Quellpaket die Erstellung erfolgt ist. *RepositoryUrl* muss auch angegeben werden, damit diese Eigenschaft eingeschlossen wird. Beispiel: *0e4d1b598f 350 b3dc675018d539114d1328189ef* (nuget 4.7.0 +) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
-| Summary | Nicht unterstützt | | |
+| Zusammenfassung | Nicht unterstützt | | |
 
 ### <a name="pack-target-inputs"></a>Eingaben für das Ziel „pack“
 
@@ -79,8 +79,8 @@ Beachten Sie, dass die Eigenschaften `Owners` und `Summary` aus einer `.nuspec`-
 - SuppressDependenciesWhenPacking
 - PackageVersion
 - PackageId
-- Autoren
-- Beschreibung
+- Authors
+- BESCHREIBUNG
 - Copyright
 - PackageRequireLicenseAcceptance
 - DevelopmentDependency
@@ -129,7 +129,7 @@ Ab nuget 5,3 & Visual Studio 2019 Version 16,3 wird die [NU5048](./errors-and-wa
 
 #### <a name="packing-an-icon-image-file"></a>Packen einer Symbolbild Datei
 
-Beim Packen einer Symbolbild Datei müssen Sie `PackageIcon`-Eigenschaft verwenden, um den Paketpfad relativ zum Stamm des Pakets anzugeben. Außerdem müssen Sie sicherstellen, dass die Datei im Paket enthalten ist. Die Größe der Bild Datei ist auf 1 MB beschränkt. Unterstützte Dateiformate sind JPEG und PNG. Wir empfehlen eine Bildauflösung von 64x64.
+Beim Packen einer Symbolbild Datei müssen Sie `PackageIcon`-Eigenschaft verwenden, um den Paketpfad relativ zum Stamm des Pakets anzugeben. Außerdem müssen Sie sicherstellen, dass die Datei im Paket enthalten ist. Die Größe der Bild Datei ist auf 1 MB beschränkt. Unterstützte Dateiformate sind JPEG und PNG. Wir empfehlen eine Bildauflösung von 128 x 128.
 
 Beispiel:
 
@@ -336,7 +336,7 @@ Schreiben Sie ein benutzerdefiniertes Ziel, und geben Sie es als Wert der `$(Tar
 - `PackagePath`: der Pfad, in den die Datei im Paket ausgegeben werden soll. Nuget gibt eine Warnung aus, wenn demselben Paketpfad mehr als eine Datei hinzugefügt wird.
 - `BuildAction`: die Buildaktion, die der Datei zugewiesen werden soll, ist nur erforderlich, wenn sich der Paketpfad im Ordner `contentFiles` befindet. Der Standardwert ist "None".
 
-Dazu ein Beispiel:
+Beispiel:
 ```xml
 <PropertyGroup>
   <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CustomContentTarget</TargetsForTfmSpecificContentInPackage>
@@ -371,7 +371,7 @@ Das `restore` Ziel funktioniert **nur** für Projekte, die das packagereferenzie
 
 Weitere Wiederherstellungseigenschaften können aus MSBuild-Eigenschaften in der Projektdatei stammen. Werte können auch mithilfe des `-p:`-Switch über die Befehlszeile festgelegt werden (siehe nachfolgende Beispiele).
 
-| Die Eigenschaften- | Beschreibung |
+| Eigenschaft | BESCHREIBUNG |
 |--------|--------|
 | RestoreSources | Eine durch Semikolons (;) getrennte Liste mit Paketquellen. |
 | RestorePackagesPath | Ordnerpfad der Pakete für Benutzer. |
@@ -413,7 +413,7 @@ Projektdatei:
 
 Bei der Wiederherstellung werden die folgenden Dateien im `obj`-Buildordner erstellt:
 
-| File | Beschreibung |
+| Datei | BESCHREIBUNG |
 |--------|--------|
 | `project.assets.json` | Enthält das Abhängigkeits Diagramm aller Paket Verweise. |
 | `{projectName}.projectFileExtension.nuget.g.props` | Verweist auf in Paketen enthaltene MSBuild-Eigenschaften |
