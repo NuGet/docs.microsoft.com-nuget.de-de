@@ -1,4 +1,4 @@
-# [Dokumentation im Überblick](index.md)
+# [Dokumentation im Überblick](index.yml)
 # [Was ist NuGet?](what-is-nuget.md)
 # Erste Schritte
 ## [Installieren von NuGet-Clienttools](install-nuget-client-tools.md)
