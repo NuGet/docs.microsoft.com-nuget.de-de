@@ -12,24 +12,24 @@ keywords: NuGet-Symbolpakete, Debugging von NuGet-Paketen, Unterstützung von Nu
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 0109aea95ec255b3e0abcdff4cf51b4bfeafbb8c
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: 839c38ec165372bab9b93dec25e5c8e8e9439bfa
+ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813480"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77036889"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Erstellen von Symbolpaketen (.snupkg)
 
-Mithilfe von Symbolpaketen kann das Debuggen von NuGet-Paketen verbessert werden.
+Für ein benutzerfreundliches Debugging sind Debugsymbole erforderlich, weil diese wichtige Informationen anzeigen, wie z. B. die Zuordnung des kompilierten Codes zum Quellcode, die Namen lokaler Variablen und Stapelüberwachungen. Mithilfe von Symbolpaketen (.snupkg) können Sie diese Symbole verteilen und das Debugging Ihrer NuGet-Pakete optimieren.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-[nuget.exe v4.9.0 oder höher](https://www.nuget.org/downloads) oder [dotnet.exe v2.2.0 oder höher](https://www.microsoft.com/net/download/dotnet-core/2.2), die die erforderlichen [NuGet-Protokolle](../api/nuget-protocols.md) implementieren.
+[nuget.exe, Version 4.9.0 oder höher](https://www.nuget.org/downloads) oder die [.NET-CLI, Version 2.2.0 oder höher](https://www.microsoft.com/net/download/dotnet-core/2.2), da diese die erforderlichen [NuGet-Protokolle](../api/nuget-protocols.md) implementieren.
 
 ## <a name="creating-a-symbol-package"></a>Erstellen eines Symbolpakets
 
-Wenn Sie „dotnet.exe“ oder MSBuild verwenden, müssen Sie die Eigenschaften `IncludeSymbols` und `SymbolPackageFormat` festlegen, um zusätzlich zur NUPKG-Datei eine SNUPKG-Datei zu erstellen.
+Wenn Sie die .NET-CLI oder MSBuild verwenden, müssen Sie die Eigenschaften `IncludeSymbols` und `SymbolPackageFormat` festlegen, um zusätzlich zur NUPKG-Datei eine SNUPKG-Datei zu erstellen.
 
 * Fügen Sie entweder die folgenden Eigenschaften zur CSPROJ-Datei hinzu:
 
@@ -108,17 +108,17 @@ Bei Symbol Paketen, die auf NuGet.org veröffentlicht werden, tritt bei der Übe
 
 Per Push an [NuGet.org](https://www.nuget.org/) übertragene Symbolpakete werden verschiedenen Prüfungen unterzogen, darunter eine Prüfung auf Schadsoftware. Wenn bei einem Paket ein Fehler bei der Überprüfung auftritt, wird auf dessen Paketdetailseite eine Fehlermeldung angezeigt. Darüber hinaus erhalten die Besitzer des Pakets eine E-Mail mit Anweisungen zum Beheben der erkannten Probleme.
 
-Wenn das Symbolpaket alle Überprüfungen bestanden hat, werden die Symbole von den Symbolservern von NuGet.org indiziert. Nach der Indizierung steht ein Symbol dann für die Verwendung durch die NuGet.org-Symbolserver zur Verfügung.
+Wenn das Symbolpaket alle Überprüfungen bestanden hat, werden die Symbole von den Symbolservern von nuget.org indiziert und sind für die Verwendung verfügbar.
 
-Die Validierung und Indizierung eines Pakets nimmt für gewöhnlich unter 15 Minuten in Anspruch. Wenn das Veröffentlichen des Pakets längere Zeit als erwartet in Anspruch nimmt, besuchen Sie [status.nuget.org](https://status.nuget.org/), um zu überprüfen, ob gerade eine Störung auf nuget.org vorliegt. Wenn alle Systeme in Betrieb sind und das Paket innerhalb einer Stunde nicht erfolgreich veröffentlicht wurde, melden Sie sich auf nuget.org an, und informieren Sie uns über den Link zum Support auf der Paketdetailseite.
+Die Validierung und Indizierung eines Pakets nimmt für gewöhnlich unter 15 Minuten in Anspruch. Wenn das Veröffentlichen des Pakets länger als erwartet dauert, besuchen Sie [status.nuget.org](https://status.nuget.org/), um zu überprüfen, ob gerade eine Störung auf nuget.org vorliegt. Wenn alle Systeme in Betrieb sind und das Paket innerhalb einer Stunde nicht erfolgreich veröffentlicht wurde, melden Sie sich auf nuget.org an, und informieren Sie uns über den Link zum Support auf der Paketdetailseite.
 
 ## <a name="symbol-package-structure"></a>Symbolpaketstruktur
 
-Die NUPKG-Datei wäre genau dieselbe wie heute, die SNUPKG-Datei würde jedoch folgende Eigenschaften aufweisen:
+Das Symbolpaket (.snupkg) weist die folgenden Eigenschaften auf:
 
-1) Die SNUPKG-Datei besitzt dieselbe ID und Version wie die entsprechende NUPKG-Datei.
-2) Für jede DLL- oder EXE-Datei enthält die SNUPKG-Datei dann dieselbe Ordnerstruktur wie die NUPKG-Datei, mit dem einzigen Unterschied, dass die entsprechenden PDB-Dateien in der gleichen Ordnerhierarchie eingeschlossen werden würden (anstelle der DLL-/EXE-Dateien). Dateien und Ordner mit anderen Erweiterungen als PDB werden aus der SNUPKG-Datei ausgeschlossen.
-3) Die NUSPEC-Datei im SNUPKG-Paket gibt auch einen neuen PackageType an, so wie unten dargestellt. Dieser sollte der einzige angegebene PackageType sein.
+1) Die SNUPKG-Datei hat dieselbe ID und Version wie das entsprechende NuGet-Paket (.nupkg).
+2) Das Symbolpaket (.snupkg) weist bei allen DLL- oder EXE-Dateien dieselbe Ordnerstruktur wie die das NuGet-Paket (.nupkg) auf. Der einzige Unterschied ist, dass anstelle der DLL-/EXE-Dateien die entsprechenden PDB-Dateien in dieselbe Ordnerhierarchie aufgenommen werden. Dateien und Ordner mit anderen Erweiterungen als PDB werden aus der SNUPKG-Datei ausgeschlossen.
+3) Die NUSPEC-Datei des Symbolpakets ist vom Pakettyp `SymbolsPackage`:
 
    ```xml
    <packageTypes>
