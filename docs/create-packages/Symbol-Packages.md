@@ -1,34 +1,34 @@
 ---
-title: 'Gewusst wie: Erstellen von NuGet-Symbolpaketen'
+title: Erstellen von Legacysymbolpaketen (.symbols.nupkg)
 description: Vorgehensweise bei der Erstellung von NuGet-Paketen, die nur Symbole für die Unterstützung des Debuggings anderer NuGet-Pakete in Visual Studio enthalten.
 author: karann-msft
 ms.author: karann
 ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 97a533171d698792d66a78550dacfe8eaf29a440
-ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
+ms.openlocfilehash: 374e9ccfc01cd06508e76529765db3f849342222
+ms.sourcegitcommit: 1799d4ac23c8aacee7498fdc72c40dd1646d267b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74253915"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77476268"
 ---
-# <a name="creating-symbol-packages-legacy"></a>Erstellen von Symbolpaketen (Legacy)
+# <a name="creating-legacy-symbol-packages-symbolsnupkg"></a>Erstellen von Legacysymbolpaketen (.symbols.nupkg)
 
 > [!Important]
 > Das neue empfohlene Format für Symbolpakete ist „.snupkg“. Weitere Informationen finden Sie unter [Erstellen von Symbolpaketen (.snupkg)](Symbol-Packages-snupkg.md). </br>
 > Das Format „.symbols.nupkg“ wird aus Kompatibilitätsgründen noch immer unterstützt.
 
-Neben der Erstellung von Paketen für nuget.org oder anderen Quellen, unterstützt NuGet auch die Erstellung zugehöriger Symbolpakete sowie die Veröffentlichung dieser Pakete im SymbolSource-Repository.
+Neben der Erstellung von Paketen für nuget.org oder andere Quellen unterstützt NuGet auch die Erstellung zugehöriger Symbolpakete, die auf Symbolservern veröffentlicht werden können. Das Legacyformat für Symbolpakete – .symbols.nupkg – kann per Pushübertragung an das SymbolSource-Repository übermittelt werden.
 
 Paketverbraucher können anschließend `https://nuget.smbsrc.net` zu ihren Symbolquellen in Visual Studio hinzufügen, wodurch Paketcode im Visual Studio Debugger schrittweise verwendet werden kann. Weitere Einzelheiten zu diesem Prozess finden Sie unter [Angeben von Symbol- (PDB) und Quelldateien im Visual Studio Debugger](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger).
 
-## <a name="creating-a-symbol-package"></a>Erstellen eines Symbolpakets
+## <a name="creating-a-legacy-symbol-package"></a>Erstellen eines Legacysymbolpakets
 
-Folgen Sie den folgenden Konventionen, um ein Symbolpaket zu erstellen:
+Folgen Sie diesen Konventionen, wenn Sie ein Legacysymbolpaket erstellen:
 
 - Geben Sie dem Primärpaket (mit Ihrem Code) den Namen `{identifier}.nupkg`, und schließen Sie alle Dateien außer `.pdb` ein.
-- Geben Sie dem Symbolpaket den Namen `{identifier}.symbols.nupkg`, und schließen Sie Ihre Assembly-DLL, `.pdb`-Dateien, XML DOC-Dateien und Quelldateien ein (siehe die folgenden Abschnitte).
+- Geben Sie dem Symbolpaket den Namen `{identifier}.symbols.nupkg`, und schließen Sie Ihre Assembly-DLL, `.pdb`-Dateien, XMLDOC-Dateien und Quelldateien ein (siehe die folgenden Abschnitte).
 
 Sie können beide Pakete mit der Option `-Symbols` aus einer `.nuspec`-Datei oder einer Projektdatei erstellen:
 
@@ -40,11 +40,11 @@ nuget pack MyProject.csproj -Symbols
 
 Beachten Sie, dass für `pack` Mono 4.4.2 unter Mac OS X erforderlich ist und dass dieser Befehl auf Linux-Systemen nicht funktioniert. Auf einem Mac müssen Sie ebenfalls Windows-Pfadnamen in der `.nuspec`-Datei in Pfade im Unix-Format konvertieren.
 
-## <a name="symbol-package-structure"></a>Symbolpaketstruktur
+## <a name="legacy-symbol-package-structure"></a>Struktur von Legacysymbolpaketen
 
-Ein Symbolpaket kann auf die gleiche Weise wie ein Bibliothekspaket auf mehrere Zielframeworks abzielen. Die Struktur des Ordners `lib` müsste demnach mit dem Primärpaket identisch sein, darin inbegriffen sind neben der DLL lediglich `.pdb`-Dateien.
+Ein Symbolpaket kann für mehrere Zielframeworks verwendet werden, genau wie ein Bibliothekspaket. Die Struktur des Ordners `lib` muss demnach mit dem primären Paket identisch sein und darf neben der DLL lediglich `.pdb`-Dateien enthalten.
 
-Ein Symbolpaket, das .NET 4.0 und Silverlight 4 ansteuert, würde beispielsweise folgendes Layout aufweisen:
+Ein Legacysymbolpaket für .NET 4.0 und Silverlight 4 würde beispielsweise folgendes Layout aufweisen:
 
     \lib
         \net40
@@ -70,7 +70,7 @@ Quelldateien werden dann in einem separaten speziellen Ordner mit dem Namen `src
                 \MySilverlightExtensions.cs
                 \MyAssembly.csproj (producing \lib\sl4\MyAssembly.dll)
 
-Neben dem Ordner `lib` müsste ein Symbolpaket folgendes Layout enthalten:
+Neben dem Ordner `lib` muss ein Legacysymbolpaket dann folgendes Layout enthalten:
 
     \src
         \Common
@@ -85,7 +85,7 @@ Neben dem Ordner `lib` müsste ein Symbolpaket folgendes Layout enthalten:
 
 ## <a name="referring-to-files-in-the-nuspec"></a>Verweisen auf Dateien in der NUSPEC-Datei
 
-Ein Symbolpaket kann, wie im vorherigen Abschnitt beschrieben, nach Konventionen aus einer Ordnerstruktur erstellt werden oder durch Angabe der zugehörigen Inhalte im Abschnitt `files` des Manifests. Verwenden Sie für die Erstellung des im vorherigen Abschnitts angezeigten Pakets beispielsweise Folgendes in der `.nuspec`-Datei:
+Ein Legacysymbolpaket kann, wie im vorherigen Abschnitt beschrieben, gemäß Konventionen aus einer Ordnerstruktur oder durch Angabe der Inhalte im Abschnitt `files` des Manifests erstellt werden. Verwenden Sie für die Erstellung des im vorherigen Abschnitts angezeigten Pakets beispielsweise Folgendes in der `.nuspec`-Datei:
 
 ```xml
 <files>
@@ -97,7 +97,7 @@ Ein Symbolpaket kann, wie im vorherigen Abschnitt beschrieben, nach Konventionen
 </files>
 ```
 
-## <a name="publishing-a-symbol-package"></a>Veröffentlichen eines Symbolpakets
+## <a name="publishing-a-legacy-symbol-package"></a>Veröffentlichen eines Legacysymbolpakets
 
 > [!Important]
 > Sie müssen [nuget.exe v4.9.1 oder höher](https://www.nuget.org/downloads) verwenden, um Pakete per Push an nuget.org übertragen zu können, da so die erforderlichen [NuGet-Protokolle](../api/nuget-protocols.md) implementiert werden.
@@ -108,13 +108,13 @@ Ein Symbolpaket kann, wie im vorherigen Abschnitt beschrieben, nach Konventionen
     nuget SetApiKey Your-API-Key
     ```
 
-2. Nachdem Sie Ihr primäres Paket auf nuget.org veröffentlicht haben, übertragen Sie das Symbolpaket wie folgt mithilfe von Push, wobei symbolsource.org automatisch als Ziel verwendet wird, da `.symbols` im Dateinamen enthalten ist:
+2. Nachdem Sie Ihr primäres Paket auf nuget.org veröffentlicht haben, übertragen Sie das Legacysymbolpaket wie folgt per Push, wobei symbolsource.org automatisch als Ziel verwendet wird, da `.symbols` im Dateinamen enthalten ist:
 
     ```cli
     nuget push MyPackage.symbols.nupkg
     ```
 
-3. Verwenden Sie die Option `-Source`, um ein anderes Symbolrepository zu veröffentlichen oder um ein Symbolpaket per Push zu übertragen, das nicht den Namenskonventionen folgt:
+3. Verwenden Sie die Option `-Source`, um ein Paket in einem anderen Symbolrepository zu veröffentlichen oder um ein Legacysymbolpaket per Push zu übertragen, das nicht den Namenskonventionen folgt:
 
     ```cli
     nuget push MyPackage.symbols.nupkg -source https://nuget.smbsrc.net/
@@ -133,4 +133,5 @@ In diesem Fall veröffentlicht NuGet `MyPackage.symbols.nupkg`, falls vorhanden,
 
 ## <a name="see-also"></a>Siehe auch
 
-[Moving to the new SymbolSource engine (Umstieg auf die neue SymbolSource-Engine)](https://tripleemcoder.com/2015/10/04/moving-to-the-new-symbolsource-engine/) (symbolsource.org)
+* [Erstellen von Symbolpaketen (.snupkg)](Symbol-Packages-snupkg.md) – das neue empfohlene Format für Symbolpakete
+* [Moving to the new SymbolSource engine (Umstieg auf die neue SymbolSource-Engine)](https://tripleemcoder.com/2015/10/04/moving-to-the-new-symbolsource-engine/) (symbolsource.org)
