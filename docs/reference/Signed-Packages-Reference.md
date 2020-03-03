@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: e02b2a241008b1b7096f20b351173fd3df7ed172
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 7384e8b30cb2ec5fe53ea0fe485858bc1f7b3c43
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317519"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231252"
 ---
 # <a name="signed-packages"></a>Signierte Pakete
 
@@ -26,9 +26,9 @@ Signierte Pakete bieten die stärkste End-to-End-Validierung. Es gibt zwei versc
 Weitere Informationen zum Erstellen eines signierten Pakets mit Vorzeichen finden Sie [unter Signieren von Paketen](../create-packages/Sign-a-package.md) und [nuget](../reference/cli-reference/cli-ref-sign.md)-Signierungs Befehl.
 
 > [!Important]
-> Die Paket Signierung wird derzeit nur unterstützt, wenn "nuget. exe" unter Windows verwendet wird. Die Überprüfung von signierten Paketen wird derzeit nur unterstützt, wenn Sie "nuget. exe" oder Visual Studio unter Windows verwenden.
+> Die Paket Signierung wird derzeit nur unterstützt, wenn "nuget. exe" unter Windows verwendet wird. Die über [Prüfung von signierten Paketen wird derzeit nur unterstützt, wenn Sie "nuget. exe](../reference/cli-reference/cli-ref-verify.md) " oder Visual Studio unter Windows verwenden.
 
-## <a name="certificate-requirements"></a>Zertifikat Anforderungen
+## <a name="certificate-requirements"></a>Zertifikatanforderungen
 
 Zum Signieren von Paketen ist ein Code Signaturzertifikat erforderlich, bei dem es sich um einen speziellen Zertifikattyp handelt, der für den `id-kp-codeSigning` Zweck [[RFC 5280 section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)] gültig ist. Außerdem muss das Zertifikat eine öffentliche RSA-Schlüssellänge von 2048 Bits oder höher aufweisen.
 

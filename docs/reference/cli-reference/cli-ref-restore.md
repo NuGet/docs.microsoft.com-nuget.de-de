@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 8ba61fa87118108c36e9dc73f30d964380d02dab
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: d1768a741e3f1c48e94d854fa7d365ebfa3513ea
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380454"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231148"
 ---
 # <a name="restore-command-nuget-cli"></a>Restore-Befehl (nuget-CLI)
 
@@ -26,18 +26,22 @@ Unter Mac OSX und Linux mit der CLI in Mono wird das Wiederherstellen von Pakete
 nuget restore <projectPath> [options]
 ```
 
-Dabei gibt `<projectPath>` den Speicherort einer Projekt Mappe oder einer `packages.config` Datei an. Weitere Informationen zum Verhalten finden Sie in den [Hinweisen](#remarks).
+Dabei gibt `<projectPath>` den Speicherort einer Projekt Mappe oder einer `packages.config` Datei an. Informationen zu den Verhaltens [Details finden Sie unten in](#remarks) den hinweisen.
 
-## <a name="options"></a>Optionen
+## <a name="options"></a>Tastatur
 
-| Option | Beschreibung |
+| Option | BESCHREIBUNG |
 | --- | --- |
 | ConfigFile | Die anzuwendende nuget-Konfigurationsdatei. Wenn nicht angegeben, wird `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) verwendet.|
 | DirectDownload | *(4.0* und höher) Pakete werden direkt heruntergeladen, ohne dass Caches mit Binärdateien oder Metadaten aufgefüllt werden. |
 | DisableParallelProcessing | Deaktiviert die parallele Wiederherstellung mehrerer Pakete. |
 | FallbackSource | *(3.2 +)* Eine Liste von Paketquellen, die als Fallbacks verwendet werden sollen, falls das Paket nicht in der primären oder der Standard Quelle gefunden wurde. Verwenden Sie zum Trennen von Listeneinträgen ein Semikolon. |
+| Force | In packagereferenzierungsbasierten Projekten erzwingt, dass alle Abhängigkeiten gelöst werden, auch wenn die letzte Wiederherstellung erfolgreich war. Die Angabe dieses Flags ähnelt dem Löschen der `project.assets.json` Datei. Dadurch wird der HTTP-Cache nicht umgangen. |
 | ForceEnglishOutput | *(3.5* und höher) Erzwingt, dass "nuget. exe" mit einer invarianten, englischen Kultur ausgeführt wird. |
-| ? | Zeigt Hilfe Informationen für den Befehl an. |
+| Forceevaluation | Erzwingt die Wiederherstellung, um alle Abhängigkeiten neu auszuwerten, auch wenn bereits eine Sperrdatei vorhanden ist. |
+| Hilfe | Zeigt Hilfe Informationen für den Befehl an. |
+| Lockfilepath | Ausgabe Speicherort, in den die projektsperrdatei geschrieben wird. Standardmäßig ist dies "PROJECT_ROOT \packages.Lock.JSON". |
+| Lockedmode | Aktualisieren Sie die Projekt Sperrdatei nicht. |
 | MSBuildPath | *(4.0* und höher) Gibt den Pfad von MSBuild an, der mit dem Befehl verwendet werden soll, und hat Vorrang vor `-MSBuildVersion`. |
 | MSBuildVersion | *(3.2 +)* Gibt die Version von MSBuild an, die mit diesem Befehl verwendet werden soll. Unterstützte Werte sind 4, 12, 14, 15,1, 15,3, 15,4, 15,5, 15,6, 15,7, 15,8, 15,9. Standardmäßig wird der MSBuild in Ihrem Pfad ausgewählt; andernfalls wird standardmäßig die höchste installierte Version von MSBuild verwendet. |
 | NoCache | Verhindert, dass nuget zwischengespeicherte Pakete verwendet. Weitere Informationen finden Sie [unter Verwalten der globalen Pakete und Cache Ordner](../../consume-packages/managing-the-global-packages-and-cache-folders.md). |
@@ -46,16 +50,16 @@ Dabei gibt `<projectPath>` den Speicherort einer Projekt Mappe oder einer `packa
 | PackageSaveMode | Gibt die Dateitypen an, die nach der Paketinstallation gespeichert werden sollen: eine der `nuspec`, `nupkg`oder `nuspec;nupkg`. |
 | PackagesDirectory | Identisch mit `OutputDirectory`. Erforderlich, wenn eine `packages.config` Datei wieder hergestellt wird, es sei denn, `OutputDirectory` oder `SolutionDirectory` wird verwendet. |
 | Project2ProjectTimeOut | Timeout in Sekunden für das Auflösen von Projekt-zu-Projekt-verweisen. |
-| Rekursive | *(4.0* und höher) Stellt alle Referenzprojekte für UWP-und .net Core-Projekte wieder her. Gilt nicht für Projekte, die `packages.config`verwenden. |
+| RECURSIVE | *(4.0* und höher) Stellt alle Referenzprojekte für UWP-und .net Core-Projekte wieder her. Gilt nicht für Projekte, die `packages.config`verwenden. |
 | RequireConsent | Überprüft, ob das Wiederherstellen von Paketen aktiviert ist, bevor die Pakete heruntergeladen und installiert werden. Weitere Informationen finden Sie unter [Paket Wiederherstellung](../../consume-packages/package-restore.md). |
 | Projektmappenverzeichnis | Gibt den Projektmappenordner an. Ungültig beim Wiederherstellen von Paketen für eine Projekt Mappe. Erforderlich, wenn eine `packages.config` Datei wieder hergestellt wird, es sei denn, `PackagesDirectory` oder `OutputDirectory` wird verwendet. |
-| Quelle | Gibt die Liste der Paketquellen (als URLs) an, die für die Wiederherstellung verwendet werden sollen. Wenn der Befehl weggelassen wird, verwendet der Befehl die in den Konfigurationsdateien bereitgestellten Quellen, siehe [Konfigurieren des nuget-Verhaltens](../../consume-packages/configuring-nuget-behavior.md). Verwenden Sie zum Trennen von Listeneinträgen ein Semikolon. |
-| Geltende | In packagereferenzierungsbasierten Projekten erzwingt, dass alle Abhängigkeiten gelöst werden, auch wenn die letzte Wiederherstellung erfolgreich war. Die Angabe dieses Flags ähnelt dem Löschen der `project.assets.json` Datei. Dadurch wird der HTTP-Cache nicht umgangen. |
+| `Source` | Gibt die Liste der Paketquellen (als URLs) an, die für die Wiederherstellung verwendet werden sollen. Wenn der Befehl weggelassen wird, verwendet der Befehl die in den Konfigurationsdateien bereitgestellten Quellen, siehe [Konfigurieren des nuget-Verhaltens](../../consume-packages/configuring-nuget-behavior.md). Verwenden Sie zum Trennen von Listeneinträgen ein Semikolon. |
+| Uselockfile | Ermöglicht die Generierung und Verwendung von projektsperrdateien mit Restore. |
 | Ausführlichkeit | Gibt den Umfang der in der Ausgabe angezeigten Details an: *Normal*, *quiet*, *ausführlich*. |
 
 Siehe auch [Umgebungsvariablen](cli-ref-environment-variables.md)
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 Der Restore-Befehl führt die folgenden Schritte aus:
 

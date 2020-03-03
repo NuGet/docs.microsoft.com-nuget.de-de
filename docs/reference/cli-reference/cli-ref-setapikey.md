@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 0e2119953e6d07cd3571f156fa0b2665de49f963
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: e06cfb5b355dfae8104090db7babdecdf9e9fec1
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383968"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231226"
 ---
 # <a name="setapikey-command-nuget-cli"></a>Befehl "stapikey" (nuget-CLI)
 
@@ -18,20 +18,21 @@ ms.locfileid: "75383968"
 
 Speichert einen API-Schlüssel für eine angegebene Server-URL in `NuGet.Config`, sodass er nicht für nachfolgende Befehle eingegeben werden muss.
 
-## <a name="usage"></a>Verwendungs-
+## <a name="usage"></a>Verwendung
 
 ```cli
 nuget setapikey <key> -Source <url> [options]
 ```
 
-Dabei identifiziert `<source>` den Server, und `<key>` ist der Schlüssel oder das Kennwort, das gespeichert werden soll. Wenn `<source>` weggelassen wird, wird nuget.org angenommen.
+Wenn `<source>` den Server identifiziert und `<key>` der Schlüssel ist, der gespeichert werden soll. Wenn `<source>` weggelassen wird, wird nuget.org angenommen. 
 
 > [!NOTE]
 > Der API-Schlüssel wird nicht für die Authentifizierung mit dem privaten Feed verwendet. Informationen zum Verwalten von Anmelde Informationen für die Authentifizierung bei der Quelle finden Sie unter [`nuget sources`-Befehl](../cli-reference/cli-ref-sources.md) .
+> API-Schlüssel können von den einzelnen nuget-Servern abgerufen werden. Informationen zum Erstellen und Verwalten von apikeys für nuget.org finden Sie unter [Publish-API-Key](../../quickstart/includes/publish-api-key.md) .
 
-## <a name="options"></a>Options
+## <a name="options"></a>Tastatur
 
-| -Option | Beschreibung |
+| Option | BESCHREIBUNG |
 | --- | --- |
 | ConfigFile | Die anzuwendende nuget-Konfigurationsdatei. Wenn nicht angegeben, wird `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) verwendet.|
 | ForceEnglishOutput | *(3.5* und höher) Erzwingt, dass "nuget. exe" mit einer invarianten, englischen Kultur ausgeführt wird. |

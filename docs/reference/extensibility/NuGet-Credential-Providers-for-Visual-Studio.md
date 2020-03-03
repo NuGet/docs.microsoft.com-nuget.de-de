@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: 906d07eb22599eb423b00300954ff2601dd33369
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 13b6f5abe93a17c809564265990f86f6780aa67e
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383550"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230810"
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>Authentifizieren von Feeds in Visual Studio mit nuget-Anmelde Informationsanbietern
 
@@ -19,6 +19,8 @@ Nachdem Sie einen nuget-Anmelde Informationsanbieter für Visual Studio installi
 
 Eine Beispiel Implementierung finden Sie im [vscredentialprovider-Beispiel](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider).
 
+In Visual Studio verwendet nuget einen internen `VsCredentialProviderImporter`, der auch nach Plug-in-Anmelde Informationsanbietern sucht. Diese Plug-in-Anmelde Informationsanbieter müssen als MEF-Export vom Typ `IVsCredentialProvider`erkennbar sein.
+
 Ab 4.8 + nuget in Visual Studio unterstützt auch die neuen plattformübergreifenden Authentifizierungs-Plug-ins, aber Sie sind aus Leistungsgründen nicht empfehlenswert.
 
 > [!Note]
@@ -26,16 +28,6 @@ Ab 4.8 + nuget in Visual Studio unterstützt auch die neuen plattformübergreife
 >
 > Nuget-Anmelde Informationsanbieter für Visual Studio funktionieren nur in Visual Studio (nicht in dotnet Restore oder nuget. exe). Informationen zu Anmelde Informationsanbietern mit nuget. exe finden [Sie unter nuget. exe](nuget-exe-Credential-providers.md)-Anmelde Informationsanbieter.
 > Informationen zu Anmelde Informationsanbietern in dotnet und MSBuild finden [Sie unter nuget-plattformübergreifende](nuget-cross-platform-authentication-plugin.md) Plug-ins
-
-## <a name="available-nuget-credential-providers-for-visual-studio"></a>Verfügbare nuget-Anmelde Informationsanbieter für Visual Studio
-
-In der nuget-Erweiterung von Visual Studio ist ein Anmelde Informationsanbieter integriert, um Visual Studio Team Services zu unterstützen.
-
-Die nuget Visual Studio-Erweiterung verwendet einen internen `VsCredentialProviderImporter`, der auch nach Plug-in-Anmelde Informationsanbietern sucht. Diese Plug-in-Anmelde Informationsanbieter müssen als MEF-Export vom Typ `IVsCredentialProvider`erkennbar sein.
-
-Folgende Plug-in-Anmelde Informationsanbieter sind verfügbar:
-
-- [Myget-Anmelde Informationsanbieter für Visual Studio](http://docs.myget.org/docs/reference/credential-provider-for-visual-studio)
 
 ## <a name="creating-a-nuget-credential-provider-for-visual-studio"></a>Erstellen eines nuget-Anmelde Informationsanbieters für Visual Studio
 
@@ -77,7 +69,7 @@ Ein benutzerdefinierter nuget-Anmelde Informationsanbieter für Visual Studio mu
 
 #### <a name="getcredentialasync"></a>Getkredentialasync
 
-| Eingabeparameter |Beschreibung|
+| Eingabeparameter |BESCHREIBUNG|
 | ----------------|-----------|
 | URI-URI | Der Paketquellen-URI, für den Anmelde Informationen angefordert werden.|
 | IWebProxy-Proxy | Der WebProxy, der für die Kommunikation im Netzwerk verwendet werden soll. NULL, wenn keine Proxy Authentifizierung konfiguriert ist. |

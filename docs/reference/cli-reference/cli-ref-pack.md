@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 00e2ee760698afd8591909570d76e4bfe475a682
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 2358cedc05520a3ec82a39aef34b6d467e44460b
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383994"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231161"
 ---
 # <a name="pack-command-nuget-cli"></a>Der Befehl „pack“ (NuGet-CLI)
 
@@ -22,21 +22,21 @@ Erstellt ein nuget-Paket auf der Grundlage der angegebenen [. nuspec](../nuspec.
 > Verwenden Sie [`dotnet pack`](../dotnet-Commands.md) oder [`msbuild -t:pack`](../msbuild-targets.md) für Projekte, die auf [packagereferenzierung](../../consume-packages/package-references-in-project-files.md) basieren.
 > Unter Mono wird das Erstellen eines Pakets aus einer Projektdatei nicht unterstützt. Außerdem müssen Sie nicht lokale Pfade in der `.nuspec`-Datei an Pfade im Unix-Stil anpassen, da "nuget. exe" keine Windows-Pfadnamen selbst konvertiert.
 
-## <a name="usage"></a>Verwendungs-
+## <a name="usage"></a>Verwendung
 
 ```cli
 nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
 ```
 
-wobei `<nuspecPath>` und `<projectPath>` angeben der `.nuspec` oder Projektdatei bzw.
+Gibt an, wo `<nuspecPath>` und `<projectPath>` die `.nuspec` bzw. Projektdatei angeben.
 
-## <a name="options"></a>Options
+## <a name="options"></a>Tastatur
 
-| -Option | Beschreibung |
+| Option | BESCHREIBUNG |
 | --- | --- |
 | BasePath | Legt den Basispfad der in der [nuspec](../nuspec.md) -Datei definierten Dateien fest. |
-| Erstellen | Gibt an, dass das Projekt erstellt werden soll, bevor das Paket erstellt wird. |
-| Ausschließen | Gibt ein oder mehrere Platzhalter Muster an, die beim Erstellen eines Pakets ausgeschlossen werden sollen. Wenn Sie mehr als ein Muster angeben möchten, wiederholen Sie das Flag-Exclude. Weitere Informationen finden Sie im nachfolgenden Beispiel. |
+| Entwickeln | Gibt an, dass das Projekt erstellt werden soll, bevor das Paket erstellt wird. |
+| Exclude | Gibt ein oder mehrere Platzhalter Muster an, die beim Erstellen eines Pakets ausgeschlossen werden sollen. Wenn Sie mehr als ein Muster angeben möchten, wiederholen Sie das Flag-Exclude. Weitere Informationen finden Sie im nachfolgenden Beispiel. |
 | Excludeemptydirectories | Verhindert die Einbindung leerer Verzeichnisse beim Paket Erstellung. |
 | ForceEnglishOutput | *(3.5* und höher) Erzwingt, dass "nuget. exe" mit einer invarianten, englischen Kultur ausgeführt wird. |
 | ConfigFile | Geben Sie die Konfigurationsdatei für den Befehl Pack an. |
@@ -48,9 +48,9 @@ wobei `<nuspecPath>` und `<projectPath>` angeben der `.nuspec` oder Projektdatei
 | NoDefaultExcludes | Verhindert, dass nuget-Paketdateien und-Dateien und-Ordner standardmäßig mit einem Punkt beginnen, z. b. `.svn` und `.gitignore`. |
 | NoPackageAnalysis | Gibt an, dass der Packvorgang keine Paketanalyse nach dem Erstellen des Pakets ausführen sollte. |
 | OutputDirectory | Gibt den Ordner an, in dem das erstellte Paket gespeichert ist. Wenn kein Ordner angegeben wird, wird der aktuelle Ordner verwendet. |
-| Eigenschaften | Sollte zuletzt in der Befehlszeile nach anderen Optionen angezeigt werden. Gibt eine Liste von Eigenschaften an, die Werte in der Projektdatei überschreiben. Weitere Informationen finden Sie unter [allgemeine MSBuild-Projekteigenschaften für Eigenschaften](/visualstudio/msbuild/common-msbuild-project-properties) Namen. Das Properties-Argument hier ist eine Liste von Token = Wert-Paaren, die durch Semikolons getrennt sind, wobei jedes Vorkommen von `$token$` in der `.nuspec` Datei durch den angegebenen Wert ersetzt wird. Werte können Zeichen folgen in Anführungszeichen sein. Beachten Sie, dass für die Eigenschaft "Configuration" der Standardwert "Debug" lautet. Verwenden Sie `-Properties Configuration=Release`, um zu einer Releasekonfiguration zu wechseln. |
+| Eigenschaften | Sollte zuletzt in der Befehlszeile nach anderen Optionen angezeigt werden. Gibt eine Liste von Eigenschaften an, die Werte in der Projektdatei überschreiben. Weitere Informationen finden Sie unter [allgemeine MSBuild-Projekteigenschaften für Eigenschaften](/visualstudio/msbuild/common-msbuild-project-properties) Namen. Das Properties-Argument hier ist eine Liste von Token = Wert-Paaren, die durch Semikolons getrennt sind, wobei jedes Vorkommen von `$token$` in der `.nuspec` Datei durch den angegebenen Wert ersetzt wird. Werte können Zeichen folgen in Anführungszeichen sein. Beachten Sie, dass für die Eigenschaft "Configuration" der Standardwert "Debug" lautet. Verwenden Sie `-Properties Configuration=Release`, um zu einer Releasekonfiguration zu wechseln. **Im allgemeinen**sollten Eigenschaften identisch sein, die während der entsprechenden `nuget build`verwendet wurden, um potenziell merkwürdiges Verhalten zu vermeiden. |
 | Suffix | *(3.4.4 +)* Fügt ein Suffix an die intern generierte Versionsnummer an, die in der Regel zum Anhängen von Builds oder anderen vorab-releasebezeichnerids verwendet wird. Beispielsweise wird mit `-suffix nightly` ein Paket mit einer Versionsnummer wie `1.2.3-nightly`erstellt. Suffixe müssen mit einem Buchstaben beginnen, um Warnungen, Fehler und mögliche Inkompatibilitäten mit verschiedenen Versionen von nuget und dem nuget-Paket-Manager zu vermeiden. |
-| Symbole | Gibt an, dass das Paketquellen und Symbole enthält. Bei Verwendung mit einer `.nuspec`-Datei werden dadurch eine reguläre nuget-Paketdatei und das entsprechende Symbol Paket erstellt. Standardmäßig wird ein [Legacy Symbol Paket](../../create-packages/Symbol-Packages.md)erstellt. Das neue empfohlene Format für Symbolpakete ist „.snupkg“. Weitere Informationen finden Sie unter [Erstellen von Symbolpaketen (.snupkg)](../../create-packages/Symbol-Packages-snupkg.md). |
+| Symbols | Gibt an, dass das Paketquellen und Symbole enthält. Bei Verwendung mit einer `.nuspec`-Datei werden dadurch eine reguläre nuget-Paketdatei und das entsprechende Symbol Paket erstellt. Standardmäßig wird ein [Legacy Symbol Paket](../../create-packages/Symbol-Packages.md)erstellt. Das neue empfohlene Format für Symbolpakete ist „.snupkg“. Weitere Informationen finden Sie unter [Erstellen von Symbolpaketen (.snupkg)](../../create-packages/Symbol-Packages-snupkg.md). |
 | Tool | Gibt an, dass die Ausgabedateien des Projekts in den `tool` Ordner eingefügt werden sollen. |
 | Ausführlichkeit | Gibt den Umfang der in der Ausgabe angezeigten Details an: *Normal*, *quiet*, *ausführlich*. |
 | Version | Überschreibt die Versionsnummer aus der `.nuspec` Datei. |
@@ -75,6 +75,14 @@ Sehen Sie sich beispielsweise die folgende `packages.config` Datei im Quell Proj
 ```
 
 Für dieses Projekt hat das von `nuget pack` erstellte Paket eine Abhängigkeit von `jQuery` und `microsoft-web-helpers`, aber nicht `netfx-Guard`.
+
+## <a name="suppressing-pack-warnings"></a>Unterdrücken von Paket Warnungen
+
+Es wird empfohlen, dass Sie alle nuget-Warnungen während der Paket Vorgänge auflösen, in bestimmten Situationen, in denen Sie unterdrückt werden.
+
+Dies kann auf folgende Weise erreicht werden: 
+
+> nuget. exe Pack Package. nuspec-Properties nowarn = NU5104
 
 ## <a name="examples"></a>Beispiele
 

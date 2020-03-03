@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: caa1509fd996c54f7de17e86559ea62ef67f749f
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: 995f15ae2ad823d9c814cb7e78facddee713cc8f
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380485"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230511"
 ---
 # <a name="target-frameworks"></a>Zielframeworks
 
@@ -31,11 +31,11 @@ NuGet verwendet Zielframeworkverweise an vielen Stellen, um die Framework-abhän
 
 Auf ein Framework wird in der Regel durch einen kurzen Zielframeworkmoniker (Target Framework Moniker, TFM) verwiesen. In .NET Standard dies auch in *txm* generalisiert, um einen einzelnen Verweis auf mehrere Frameworks zu ermöglichen.
 
-Die NuGet-Clients unterstützen die in der folgenden Tabelle aufgelisteten Frameworks. Äquivalente werden in eckigen Klammern angegeben. Beachten Sie, dass einige Tools (z.B. `dotnet`) möglicherweise Variationen von kanonischen TFMs in einigen Dateien verwenden. `dotnet pack` verwendet beispielsweise `.NETCoreApp2.0` statt `netcoreapp2.0` in einer `.nuspec`-Datei. Die verschiedenen NuGet-Clienttools verarbeiten diese Variationen ordnungsgemäß, Sie sollten jedoch immer kanonische TFMs verwenden, wenn Sie Dateien direkt bearbeiten.
+Die NuGet-Clients unterstützen die in der folgenden Tabelle aufgelisteten Frameworks. Äquivalente werden in eckigen Klammern angegeben. Beachten Sie, dass einige Tools (z.B. `dotnet`) möglicherweise Variationen von kanonischen TFMs in einigen Dateien verwenden. `dotnet pack` verwendet beispielsweise `.NETCoreApp2.0` statt `.nuspec` in einer `netcoreapp2.0`-Datei. Die verschiedenen NuGet-Clienttools verarbeiten diese Variationen ordnungsgemäß, Sie sollten jedoch immer kanonische TFMs verwenden, wenn Sie Dateien direkt bearbeiten.
 
-| -Name | Abkürzung | TFMs/TxMs |
+| Name | Abkürzung | TFMs/TxMs |
 | ------------- | ------------ | --------- |
-|.NET Framework | net | net11 |
+|.NET Framework | net | net11 |
 | | | net20 |
 | | | net35 |
 | | | net40 |
@@ -70,7 +70,7 @@ Windows Phone (UWP) | | wpa81 |
 Universelle Windows-Plattform | uap | uap [uap10.0] |
 | | | uap10.0 |
 | | | UAP 10.0. xxxxx (wobei 10.0. xxxxx die Zielplattform für die Mindestversion der verwendeten APP ist) |
-.NET-Standard | netstandard | netstandard1.0 |
+.NET Standard | netstandard | netstandard1.0 |
 | | | netstandard1.1 |
 | | | netstandard1.2 |
 | | | netstandard1.3 |
@@ -78,12 +78,14 @@ Universelle Windows-Plattform | uap | uap [uap10.0] |
 | | | netstandard1.5 |
 | | | netstandard1.6 |
 | | | netstandard2.0 |
+| | | netstandard2.1 |
 .NET Core-App | netcoreapp | netcoreapp1.0 |
 | | | netcoreapp1.1 |
 | | | netcoreapp2.0 |
 | | | netcoreapp2.1 |
 | | | netcoreapp2.2 |
 | | | netcoreapp3.0 |
+| | | netcoreapp3.1 |
 Tizen | tizen | tizen3 |
 | | | tizen4 |
 
@@ -91,7 +93,7 @@ Tizen | tizen | tizen3 |
 
 Die folgenden Frameworks sind veraltet. Pakete, die für diese Frameworks ausgelegt sind, sollten zur jeweiligen Ersetzung migriert werden.
 
-| Veraltetes Framework | Ersetzung
+| Veraltetes Framework | Ersatz
 | --- | ---
 | aspnet50 | netcoreapp |
 | aspnetcore50 |
@@ -139,7 +141,7 @@ Verwenden Sie zum Definieren eines Zielframeworks, das auf mehrere untergeordnet
 
 Zusätzliche Frameworks, die von Drittanbietern definiert wurden, sind mit anderen Umgebungen kompatibel, auf die auf diese Weise zugegriffen werden kann. Darüber hinaus gibt es Kurzformen für verfügbare Profilnummern, die auf diese Kombinationen von verknüpften Frameworks als `Profile#` verweisen. Es wird jedoch nicht empfohlen, diese Nummern zu verwenden, da dadurch die Lesbarkeit der Ordner und `.nuspec`-Dateien reduziert wird.
 
-| Profil # | Frameworks | Vollständiger Name | .NET-Standard |
+| Profil # | Frameworks | Vollständiger Name | .NET Standard |
  --- | --- | --- | ---
  Profile2 | .NETFramework 4.0 | portable-net40+win8+sl4+wp7 |
  | | Windows 8.0 | |
@@ -284,7 +286,7 @@ Zusätzliche Frameworks, die von Drittanbietern definiert wurden, sind mit ander
 
 Darüber hinaus können NuGet-Pakete, die Xamarin anzielen, zusätzliche für Xamarin definierte Frameworks verwenden. Weitere Informationen finden Sie unter [Creating NuGet packages for Xamarin (Erstellen von NuGet-Paketen für Xamarin)](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/).
 
-| -Name | Beschreibung | .NET-Standard |
+| Name | BESCHREIBUNG | .NET Standard |
 | --- | --- | ---
 | monoandroid | Mono-Unterstützung für Android | netstandard1.4 |
 | monotouch | Mono-Unterstützung für iOS | netstandard1.4 |

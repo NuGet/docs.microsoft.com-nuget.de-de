@@ -6,12 +6,12 @@ ms.author: dtivel
 ms.date: 03/06/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 746f7a421bd855b77716388b4af2fecbd5cf5a68
-ms.sourcegitcommit: 96aab8a1ad35eca0c029679d0158d9cc93d66009
+ms.openlocfilehash: e596fd5eb3de8ca4802d9b7b8e7cb623568e3dcb
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75676405"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231122"
 ---
 # <a name="sign-command-nuget-cli"></a>Der Befehl „sign“ (NuGet CLI)
 
@@ -22,7 +22,7 @@ Signiert alle Pakete, die mit dem ersten Argument übereinstimmen, mit einem Zer
 > [!Note]
 > Die Paket Signierung wird in .net Core, unter Mono oder auf nicht-Windows-Plattformen noch nicht unterstützt.
 
-## <a name="usage"></a>Verwendungs-
+## <a name="usage"></a>Verwendung
 
 ```cli
 nuget sign <package(s)> [options]
@@ -30,9 +30,9 @@ nuget sign <package(s)> [options]
 
 wobei `<package(s)>` eine oder mehrere `.nupkg` Dateien ist.
 
-## <a name="options"></a>Options
+## <a name="options"></a>Tastatur
 
-| -Option | Beschreibung |
+| Option | BESCHREIBUNG |
 | --- | --- |
 | CertificateFingerprint | Gibt den SHA-1-Fingerabdruck des Zertifikats an, das zum Durchsuchen eines lokalen Zertifikat Speicher für das Zertifikat verwendet wird. |
 | CertificatePassword | Gibt ggf. das Zertifikat Kennwort an. Wenn ein Zertifikat Kenn Wort geschützt ist, aber kein Kennwort angegeben wird, fordert der Befehl zur Laufzeit zur Eingabe eines Kennworts auf, es sei denn, die Option "-noninteractive" wird übermittelt. |
@@ -42,11 +42,11 @@ wobei `<package(s)>` eine oder mehrere `.nupkg` Dateien ist.
 | CertificateSubjectName | Gibt den Antragsteller Namen des Zertifikats an, das zum Durchsuchen eines lokalen Zertifikat Speicher für das Zertifikat verwendet wird.  Bei der Suche handelt es sich um einen Zeichen folgen Vergleich ohne Berücksichtigung der Groß-/Kleinschreibung unter Verwendung des angegebenen Werts, der alle Zertifikate mit dem Antragsteller Namen enthält, die diese Zeichenfolge enthalten, unabhängig von anderen  Der Zertifikat Speicher kann durch die Optionen-certifikatestorename und-certifikatestoreloation angegeben werden. |
 | ConfigFile | Die anzuwendende nuget-Konfigurationsdatei. Wenn nicht angegeben, wird `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) verwendet.|
 | ForceEnglishOutput | Erzwingt, dass "nuget. exe" mit einer invarianten, englischen Kultur ausgeführt wird. |
-| HashAlgorithm | Hash Algorithmus, der zum Signieren des Pakets verwendet werden soll. Der Standardwert ist SHA256. |
+| HashAlgorithm | Hash Algorithmus, der zum Signieren des Pakets verwendet werden soll. Der Standardwert ist SHA256. Mögliche Werte sind SHA256, SHA384 und SHA512. |
 | Hilfe | Zeigt Hilfe Informationen für den Befehl an. |
 | NonInteractive | Unterdrückt Eingabe Aufforderungen für Benutzereingaben oder Bestätigungen. |
 | OutputDirectory | Gibt das Verzeichnis an, in dem das signierte Paket gespeichert werden soll. Standardmäßig wird das ursprüngliche Paket durch das signierte Paket überschrieben. |
-| Überschreiben | Wechseln Sie zu, um anzugeben, ob die aktuelle Signatur überschrieben werden soll. Standardmäßig schlägt der Befehl fehl, wenn das Paket bereits über eine Signatur verfügt. |
+| Overwrite | Wechseln Sie zu, um anzugeben, ob die aktuelle Signatur überschrieben werden soll. Standardmäßig schlägt der Befehl fehl, wenn das Paket bereits über eine Signatur verfügt. |
 | Timestamper | URL zu einem RFC 3161-Zeitstempel Server. |
 | Timestamphashalgorithm | Hash Algorithmus, der vom RFC 3161-Zeitstempel Server verwendet werden soll. Der Standardwert ist SHA256. |
 | Ausführlichkeit | Gibt den Umfang der in der Ausgabe angezeigten Details an: *Normal*, *quiet*, *ausführlich*. |
