@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 12ecfb8374c43a04d57d32575556adebc991d053
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: b3e6f0efc9e2e12de186ffd4ce29d496d07d5fc4
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610702"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230953"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>Erstellen eines Pakets mithilfe der „nuget.exe“-CLI
 
@@ -77,7 +77,7 @@ Im folgenden Beispiel sehen Sie eine typische, aber fiktive `.nuspec`-Datei mit 
 
 ```xml
 <?xml version="1.0"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <!-- The identifier that must be unique within the hosting gallery -->
         <id>Contoso.Utility.UsefulStuff</id>
@@ -177,7 +177,7 @@ Der Vorteil dieses Ansatzes ist, dass Sie nicht wie weiter unten in diesem Thema
 
 Die Ordnerkonventionen lauten folgendermaßen:
 
-| Ordner | BESCHREIBUNG | Aktion bei der Paketinstallation |
+| Ordner | Beschreibung | Aktion bei der Paketinstallation |
 | --- | --- | --- |
 | (Stammverzeichnis) | Speicherort für „readme.txt“ | In Visual Studio wird die Datei „readme.txt“ im Stammverzeichnis des Pakets angezeigt, wenn das Paket installiert wird. |
 | lib/{tfm} | Assembly- (`.dll`), Dokumentations- (`.xml`) und Symboldateien (`.pdb`) für den angegebenen Zielframeworkmoniker (Target Framework Moniker, TFM) | Assemblys werden als Verweise für die Kompilierzeit ebenso wie für die Laufzeit hinzugefügt, und `.xml` sowie `.pdb` werden in Projektordner kopiert. Informationen zum Erstellen von für das Zielframework spezifischen Unterordnern finden Sie unter [Supporting multiple .NET framework versions (Unterstützen mehrerer .NET Framework-Versionen)](supporting-multiple-target-frameworks.md). |
@@ -286,7 +286,7 @@ Verwenden Sie den `<files>`-Knoten in der `.nuspec`-Datei, die dem `<metadata>`-
 
 ```xml
 <?xml version="1.0"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
     <!-- ... -->
     </metadata>
