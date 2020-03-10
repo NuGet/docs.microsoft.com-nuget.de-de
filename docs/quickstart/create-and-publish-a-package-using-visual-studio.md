@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/16/2019
 ms.topic: quickstart
-ms.openlocfilehash: fe551dfa7f2322e6677c9c0b972c79c9df2e7695
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: 32dcc1d233154463e2950b1ce46554b1cb89956e
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813558"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231291"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Schnellstart: Erstellen und Veröffentlichen eines NuGet-Pakets mithilfe von Visual Studio (.NET Standard, nur Windows)
 
@@ -132,7 +132,7 @@ Sobald Sie eine `.nupkg`-Datei haben, können Sie diese gemeinsam mit einem API-
 
 Wählen Sie die Registerkarte für Ihr CLI-Tool aus: **.NET Core-CLI** (dotnet-CLI) oder **NuGet** (nuget.exe-CLI).
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core-CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core-CLI](#tab/netcore-cli)
 
 Dieser Schritt ist die empfohlene Alternative zur Verwendung von `nuget.exe`.
 
@@ -140,7 +140,7 @@ Bevor Sie das Paket veröffentlichen können, müssen Sie eine Befehlszeile öff
 
 [!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
 
-# <a name="nugettabnuget"></a>[NuGet](#tab/nuget)
+# <a name="nuget"></a>[NuGet](#tab/nuget)
 
 Dieser Schritt ist eine Alternative zur Verwendung von `dotnet.exe`.
 
@@ -192,6 +192,12 @@ Dies schließt eine Datei namens `readme.txt` im Stammverzeichnis ein. Visual St
 
 > [!Note]
 > Wenn Sie die Datei „readme.txt“ lediglich im Stammverzeichnis hinzufügen, wird diese nicht im resultierenden Paket eingeschlossen.
+
+## <a name="related-video"></a>Zugehörige Videos
+
+> [!Video https://channel9.msdn.com/Series/NuGet-101/Create-and-Publish-a-NuGet-Package-with-Visual-Studio-4-of-5/player]
+
+Auf [Channel 9](https://channel9.msdn.com/Series/NuGet-101) und auf [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_) finden Sie weitere Videos zu NuGet.
 
 ## <a name="related-topics"></a>Verwandte Themen
 

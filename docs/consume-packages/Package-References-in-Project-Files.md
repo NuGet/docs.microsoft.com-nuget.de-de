@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: b6a009832430ee08f51ea1028feb878a39f45222
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.openlocfilehash: a5833df60c5f7905359f421141347b1237f45d86
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825139"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230615"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Paketverweise (PackageReference) in Projektdateien
 
@@ -48,7 +48,7 @@ Die Konvention für die Angabe der Version eines Pakets entspricht der Verwendun
 </ItemGroup>
 ```
 
-Im obigen Beispiel steht 3.6.0 für eine beliebige Version >= 3.6.0, wobei die niedrigste Version bevorzugt wird, wie unter [Paketversionsverwaltung](../concepts/package-versioning.md#version-ranges-and-wildcards) beschrieben.
+Im obigen Beispiel steht 3.6.0 für eine beliebige Version >= 3.6.0, wobei die niedrigste Version bevorzugt wird, wie unter [Paketversionsverwaltung](../concepts/package-versioning.md#version-ranges) beschrieben.
 
 ## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a>Verwenden von PackageReference für ein Projekt ohne PackageReferences
 
@@ -99,7 +99,7 @@ Sie verwenden eine Abhängigkeit möglicherweise rein als Entwicklungsumgebung u
 
 Mit den folgenden Metadatentags werden Abhängigkeitsobjekte gesteuert:
 
-| Tag | BESCHREIBUNG | Standardwert |
+| Tag | Beschreibung | Standardwert |
 | --- | --- | --- |
 | IncludeAssets | Diese Objekte werden verbraucht | alle |
 | ExcludeAssets | Diese Objekte werden nicht verbraucht | Keine |
@@ -107,14 +107,14 @@ Mit den folgenden Metadatentags werden Abhängigkeitsobjekte gesteuert:
 
 Folgende Werte sind für diese Tags zulässig, wobei mehrere Werte durch ein Semikolon (;) getrennt sind; eine Ausnahme stellen `all` und `none` dar, die nur alleine dargestellt werden dürfen:
 
-| Wert | BESCHREIBUNG |
+| Wert | Beschreibung |
 | --- | ---
 | compile | Inhalt des Ordners `lib` und steuert, ob Ihr Projekt anhand der Assemblys im Ordner kompiliert werden kann |
 | Laufzeit | Inhalt der Ordner `lib` und `runtimes` und steuert, ob diese Assemblys in das Buildausgabeverzeichnis kopiert werden |
 | contentFiles | Inhalte des Ordners `contentfiles` |
 | build | `.props` und `.targets` im Ordner `build` |
 | buildMultitargeting | *(4.0)* `.props` und `.targets` im Ordner `buildMultitargeting` für frameworkübergreifende Zielplattformen |
-| buildTransitive | *(5.0 und höher)* : `.props` und `.targets` im Ordner `buildTransitive` für Ressourcen, die transitiv in beliebige verarbeitende Projekte eingefügt werden. Weitere Informationen finden Sie auf der Seite [Feature](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior). |
+| buildTransitive | *(5.0 und höher)* `.props` und `.targets` im Ordner `buildTransitive` für Ressourcen, die transitiv in beliebige verarbeitende Projekte eingefügt werden. Weitere Informationen finden Sie auf der Seite [Feature](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior). |
 | Analysetools | .NET-Analystetools |
 | Systemeigen | Inhalte des Ordners `native` |
 | Keine | Keiner der obigen Werte wird verwendet. |
@@ -170,10 +170,110 @@ Bedingungen können auch auf der `ItemGroup`-Ebene angewendet werden und gelten 
 </ItemGroup>
 ```
 
+## <a name="generatepathproperty"></a>GeneratePathProperty
+
+Dieses Feature ist mit NuGet **5.0** oder höher und mit Visual Studio 2019 **16.0** oder höher verfügbar.
+
+Manchmal ist es wünschenswert, von einem MSBuild-Ziel aus auf Dateien in einem Paket zu verweisen.
+In `packages.config`-basierten Projekten werden die Pakete in einem Ordner mit Bezug zur Projektdatei installiert. Bei PackageReference werden die Pakete hingegen aus dem Ordner *global-packages* [verwendet](../concepts/package-installation-process.md), der von Computer zu Computer variieren kann.
+
+Um diese Lücke zu schließen, wurde in NuGet eine Eigenschaft eingeführt, die auf den Speicherort verweist, von dem aus das Paket verwendet wird.
+
+Beispiel:
+
+```xml
+  <ItemGroup>
+      <PackageReference Include="Some.Package" Version="1.0.0" GeneratePathProperty="true" />
+  </ItemGroup>
+
+  <Target Name="TakeAction" AfterTargets="Build">
+    <Exec Command="$(PkgSome_Package)\something.exe" />
+  </Target>
+````
+
+Zusätzlich werden von NuGet automatisch Eigenschaften für Pakete generiert, die einen Tools-Ordner enthalten.
+
+```xml
+  <ItemGroup>
+      <PackageReference Include="Package.With.Tools" Version="1.0.0" />
+  </ItemGroup>
+
+  <Target Name="TakeAction" AfterTargets="Build">
+    <Exec Command="$(PkgPackage_With_Tools)\tools\tool.exe" />
+  </Target>
+````
+
+MSBuild-Eigenschaften und Paketidentitäten haben nicht die gleichen Einschränkungen, sodass die Paketidentität in einen MSBuild-Anzeigenamen geändert werden muss, dem das Wort `Pkg` vorangestellt ist.
+Beachten Sie die generierte [nuget.g.props](../reference/msbuild-targets.md#restore-outputs)-Datei, um den genauen Namen der generierten Eigenschaft zu überprüfen.
+
+## <a name="nuget-warnings-and-errors"></a>NuGet-Warnungen und -Fehler
+
+*Dieses Feature ist mit NuGet **4.3** oder höher und mit Visual Studio 2017 **15.3** oder höher verfügbar.*
+
+Für viele Pack- und Wiederherstellungsszenarios werden alle NuGet-Warnungen und -Fehler codiert, und sie beginnen mit `NU****`. Alle NuGet-Warnungen und -Fehler sind in der [Referenz](../reference/errors-and-warnings.md)-Dokumentation aufgeführt.
+
+NuGet beachtet die folgenden Warnungseigenschaften:
+
+- `TreatWarningsAsErrors`, alle Warnungen als Fehler behandeln
+- `WarningsAsErrors`, bestimmte Warnungen als Fehler behandeln
+- `NoWarn`, bestimmte Warnungen ausblenden, entweder projekt- oder paketweit.
+
+Beispiele:
+
+```xml
+<PropertyGroup>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+</PropertyGroup>
+...
+<PropertyGroup>
+    <WarningsAsErrors>$(WarningsAsErrors);NU1603;NU1605</WarningsAsErrors>
+</PropertyGroup>
+...
+<PropertyGroup>
+    <NoWarn>$(NoWarn);NU5124</NoWarn>
+</PropertyGroup>
+...
+<ItemGroup>
+    <PackageReference Include="Contoso.Package" Version="1.0.0" NoWarn="NU1605" />
+</ItemGroup>
+```
+
+### <a name="suppressing-nuget-warnings"></a>Unterdrücken von NuGet-Warnungen
+
+Es wird empfohlen, alle NuGet-Warnungen während der Pack- und Wiederherstellungsvorgänge aufzulösen; in bestimmten Situationen wird deren Auflösung verlangt.
+Für die projektweite Unterdrückung einer Warnung sollten Sie Folgendes in Erwägung ziehen:
+
+```xml
+<PropertyGroup>
+    <PackageVersion>5.0.0</PackageVersion>
+    <NoWarn>$(NoWarn);NU5104</NoWarn>
+</PropertyGroup>
+<ItemGroup>
+    <PackageReference Include="Contoso.Package" Version="1.0.0-beta.1"/>
+</ItemGroup>
+```
+
+Gelegentlich beziehen sich Warnungen nur auf ein bestimmtes Paket im Graph. Sie können eine solche Warnung selektiv unterdrücken, indem Sie im PackageReference-Element `NoWarn` hinzufügen. 
+
+```xml
+<PropertyGroup>
+    <PackageVersion>5.0.0</PackageVersion>
+</PropertyGroup>
+<ItemGroup>
+    <PackageReference Include="Contoso.Package" Version="1.0.0-beta.1" NoWarn="NU1603" />
+</ItemGroup>
+```
+
+#### <a name="suppressing-nuget-package-warnings-in-visual-studio"></a>Unterdrücken von Warnungen für NuGet-Pakete in Visual Studio
+
+In Visual Studio ist das [Unterdrücken von Warnungen](/visualstudio/ide/how-to-suppress-compiler-warnings#suppress-warnings-for-nuget-packages
+) auch über die IDE möglich.
+
 ## <a name="locking-dependencies"></a>Sperren von Abhängigkeiten
+
 *Dieses Feature ist mit NuGet **4.9** oder höher und mit Visual Studio 2017 **15.9** oder höher verfügbar.*
 
-Die Eingabe für die NuGet-Wiederherstellung ist ein Satz mit Paketverweisen aus der Projektdatei (oberste Ebene oder direkte Abhängigkeiten). Die Ausgabe ist der vollständige Abschluss aller Paketabhängigkeiten einschließlich transitiver Abhängigkeiten. NuGet versucht immer, den gleichen vollständigen Abschluss von Paketabhängigkeiten zu erzeugen, wenn sich die PackageReference-Eingabeliste nicht geändert hat. Es gibt jedoch einige Szenarien, in denen dies nicht möglich ist. Beispiel:
+Die Eingabe für die NuGet-Wiederherstellung ist ein Satz mit Paketverweisen aus der Projektdatei (oberste Ebene oder direkte Abhängigkeiten). Die Ausgabe ist der vollständige Abschluss aller Paketabhängigkeiten einschließlich transitiver Abhängigkeiten. NuGet versucht immer, den gleichen vollständigen Abschluss von Paketabhängigkeiten zu erzeugen, wenn sich die PackageReference-Eingabeliste nicht geändert hat. Es gibt jedoch einige Szenarien, in denen dies nicht möglich ist. Zum Beispiel:
 
 * Beim Verwenden von unverankerten Versionen wie `<PackageReference Include="My.Sample.Lib" Version="4.*"/>`. Während die Absicht hierbei darin liegt, bei jeder Wiederherstellung die neueste Version zu verwenden, gibt es Szenarien, in denen Benutzer anfordern, dass der Paketgraph auf eine bestimmte neueste Version festgelegt und zu einem späteren Zeitpunkt ggf. explizit eine höhere Version geändert werden kann.
 * Eine neuere Version des Pakets, die den Anforderungen an die PackageReference-Version entspricht, wird veröffentlicht. Beispiel: 
@@ -185,6 +285,7 @@ Die Eingabe für die NuGet-Wiederherstellung ist ein Satz mit Paketverweisen aus
 * Eine bestimmte Paketversion wird aus dem Repository entfernt. Auch wenn nuget.org das Löschen von Paketen nicht erlaubt, weisen nicht alle Paketrepositorys diese Einschränkung auf. Daher sucht NuGet nach der besten Übereinstimmung, wenn die gelöschte Version nicht verwendet werden kann.
 
 ### <a name="enabling-lock-file"></a>Aktivieren einer Sperrdatei
+
 Um den vollständigen Abschluss von Paketabhängigkeiten beizubehalten, können Sie die Funktion einer Sperrdatei einrichten, indem Sie die MSBuild-Eigenschaft `RestorePackagesWithLockFile` für Ihr Projekt festlegen:
 
 ```xml
@@ -251,9 +352,9 @@ Wenn `ProjectA` eine Abhängigkeit von einer `PackageX`-Version `2.0.0` aufweist
 
 Sie können mit einer Sperrdatei verschiedene Verhaltensweisen der Wiederherstellung steuern, wie im Folgenden beschrieben:
 
-| Option | Entsprechende MSBuild-Option | BESCHREIBUNG|
-|:---  |:--- |:--- |
-| `--use-lock-file` | RestorePackagesWithLockFile | Ermöglicht die Verwendung einer Sperrdatei. | 
-| `--locked-mode` | RestoreLockedMode | Ermöglicht den Sperrmodus für die Wiederherstellung. Dies ist nützlich in CI/CD-Szenarien, in denen Sie wiederholbare Builds wünschen.|   
-| `--force-evaluate` | RestoreForceEvaluate | Diese Option ist nützlich bei Paketen, bei denen im Projekt unverankerte Versionen definiert sind. Standardmäßig aktualisiert die NuGet-Wiederherstellung die Paketversion nicht automatisch bei jedem Wiederherstellungsvorgang, wenn Sie diesen Vorgang nicht mit dieser Option ausführen. |
-| `--lock-file-path` | NuGetLockFilePath | Definiert einen benutzerdefinierten Speicherort der Sperrdatei für ein Projekt. Standardmäßig unterstützt NuGet `packages.lock.json` im Stammverzeichnis. Wenn Sie über mehrere Projekte im gleichen Verzeichnis verfügen, unterstützt NuGet die projektspezifische Sperrdatei `packages.<project_name>.lock.json`. |
+| NuGet.exe-Option | dotnet-Option | Entsprechende MSBuild-Option | Beschreibung |
+|:--- |:--- |:--- |:--- |
+| `-UseLockFile` |`--use-lock-file` | RestorePackagesWithLockFile | Ermöglicht die Verwendung einer Sperrdatei. |
+| `-LockedMode` | `--locked-mode` | RestoreLockedMode | Ermöglicht den Sperrmodus für die Wiederherstellung. Dies ist nützlich in CI/CD-Szenarien, in denen Sie wiederholbare Builds wünschen.|   
+| `-ForceEvaluate` | `--force-evaluate` | RestoreForceEvaluate | Diese Option ist nützlich bei Paketen, bei denen im Projekt unverankerte Versionen definiert sind. Standardmäßig aktualisiert die NuGet-Wiederherstellung die Paketversion nicht automatisch bei jedem Wiederherstellungsvorgang, wenn Sie diesen Vorgang nicht mit dieser Option ausführen. |
+| `-LockFilePath` | `--lock-file-path` | NuGetLockFilePath | Definiert einen benutzerdefinierten Speicherort der Sperrdatei für ein Projekt. Standardmäßig unterstützt NuGet `packages.lock.json` im Stammverzeichnis. Wenn Sie über mehrere Projekte im gleichen Verzeichnis verfügen, unterstützt NuGet die projektspezifische Sperrdatei `packages.<project_name>.lock.json`. |

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: c6f50e6eb21826afebcdcd4045c7ab8b6e6489e3
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: 4b95251e4b055523a9533b4125589b2650be932d
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813324"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231083"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Auflösung von Paketabhängigkeiten durch NuGet
 
@@ -22,7 +22,7 @@ Wenn mehrere Pakete über dieselbe Abhängigkeit verfügen, kann in dem Diagramm
 
 ## <a name="dependency-resolution-with-packagereference"></a>Abhängigkeitsauflösung mit PackageReference
 
-Bei der Installation von Paketen in Projekte, die das PackageReference-Format verwenden, fügt NuGet Verweise auf ein flaches Paketdiagramm in der entsprechenden Datei hinzu und löst Konflikte auf, bevor sie entstehen. Dieser Vorgang wird als *transitive Wiederherstellung* bezeichnet. Für die erneute Installation oder die Wiederherstellung müssen dann nur noch die in dem Diagramm aufgeführten Pakete heruntergeladen werden, wodurch schnellere und zuverlässigere Builds erstellt werden. Sie können auch Platzhalterversionen (unverankert) wie 2.8.\* nutzen, um speicherintensive und fehlernanfällige Aufrufe von `nuget update` auf den Clientcomputern und Buildservern zu vermeiden.
+Bei der Installation von Paketen in Projekte, die das PackageReference-Format verwenden, fügt NuGet Verweise auf ein flaches Paketdiagramm in der entsprechenden Datei hinzu und löst Konflikte auf, bevor sie entstehen. Dieser Vorgang wird als *transitive Wiederherstellung* bezeichnet. Für die erneute Installation oder die Wiederherstellung müssen dann nur noch die in dem Diagramm aufgeführten Pakete heruntergeladen werden, wodurch schnellere und zuverlässigere Builds erstellt werden. Sie können auch die Vorteile unverankerter Versionen nutzen, beispielsweise 2.8.\*, um zu vermeiden, dass das Projekt für die Verwendung der neuesten Version eines Pakets geändert wird.
 
 Wenn der Wiederherstellungsprozess von NuGet vor einem Buildvorgang ausgeführt wird, löst dieser zuerst Abhängigkeiten im Arbeitsspeicher aus und schreibt das resultierende Diagramm dann in eine Datei mit der Bezeichnung `project.assets.json`. Außerdem werden die aufgelösten Abhängigkeiten in eine Sperrdatei mit dem Namen `packages.lock.json` geschrieben, wenn die Funktion [ der Sperrdatei aktiviert ist](../consume-packages/package-references-in-project-files.md#locking-dependencies).
 Die Ressourcendatei befindet sich unter `MSBuildProjectExtensionsPath`, was standardmäßig der Objektordner des Projekts ist. MSBuild liest diese Datei und übersetzt sie in mehrere Ordner, in denen sich mögliche Verweise befinden, und fügt diese dann der Projektstruktur im Arbeitsspeicher hinzu.
@@ -53,16 +53,16 @@ Wenn eine Anwendung eine genaue Versionsnummer wie 1.2 angibt, die auf dem Feed 
 
 <a name="floating-versions"></a>
 
-#### <a name="floating-wildcard-versions"></a>Platzhalterversionen (unverankert)
+#### <a name="floating-versions"></a>Unverankerte Versionen
 
-Eine Platzhalterabhängigkeitsversion bzw. eine unverankerte Abhängigkeitsversion wird wie in Version 6.0.\* mit dem Platzhalterzeichen \* angegeben. Diese Versionsspezifikation legt fest, dass die neuste 6.0.x-Version verwendet werden soll, und 4.\* legt fest, dass die neuste 4.x-Version verwendet werden soll. Wenn ein Platzhalterzeichen verwendet wird, kann ein Abhängigkeitspaket weiterentwickelt werden, ohne dass eine Änderung an der verarbeitenden Anwendung (oder dem verarbeitenden Projekt) erforderlich ist.
+Eine unverankerte Abhängigkeitsversion wird mit dem Zeichen \* angegeben. Beispielsweise `6.0.*`. Diese Versionsspezifikation legt fest, dass die neueste 6.0.x-Version verwendet werden soll; `4.*` legt hingegen fest, dass die neueste 4.x-Version verwendet werden soll. Durch die Verwendung einer unverankerten Version werden Änderungen an der Projektdatei reduziert, während gleichzeitig die neueste Version einer Abhängigkeit auf dem neuesten Stand gehalten wird.
 
-Wenn ein Platzhalterzeichen verwendet wird, löst NuGet die höchste Version eines Pakets auf, die dem Versionsmuster entspricht. Beispielsweise wird für 6.0.\* die höchste Version eines Pakets abgerufen, die mit 6.0 beginnt:
+Wenn eine unverankerte Version verwendet wird, löst NuGet die höchste Version eines Pakets auf, die dem Versionsmuster entspricht. Beispielsweise wird für `6.0.*` die höchste Version eines Pakets abgerufen, die mit 6.0 beginnt:
 
 ![Auswählen der Version 6.0.1, wenn die unverankerte Version 6.0.* angefordert ist.](media/projectJson-dependency-4.png)
 
 > [!Note]
-> Informationen zum Verhalten von Patzhalterzeichen und zu Vorabversionen finden Sie unter [Paketversionsverwaltung](package-versioning.md#version-ranges-and-wildcards).
+> Informationen zum Verhalten von unverankerten Versionen und zu Vorabversionen finden Sie unter [Paketversionsverwaltung](package-versioning.md#version-ranges).
 
 
 <a name="nearest-wins"></a>

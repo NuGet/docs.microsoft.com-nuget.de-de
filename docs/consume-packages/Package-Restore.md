@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 93a94a5468b48179d27b89825cebf2447657c8f2
-ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
+ms.openlocfilehash: c1f1957c58839ac763238938b476eb0882c56a59
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69999980"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231206"
 ---
 # <a name="restore-packages-using-package-restore"></a>Wiederherstellen von Paketen mithilfe der Paketwiederherstellung
 
@@ -120,6 +120,17 @@ Ein Entwickler oder ein Unternehmen kann die Konfigurationen der globalen `nuget
 > [!Important]
 > Sie müssen Visual Studio neu starten, wenn Sie die `packageRestore`-Einstellungen direkt in `nuget.config` bearbeiten, damit im Dialogfeld **Optionen** die richtigen Werte angezeigt werden.
 
+### <a name="choose-default-package-management-format"></a>Auswählen des Standardformats für die Paketverwaltung
+
+![Standardformat für Paketverwaltung über das NuGet-Paket-Manager-Format steuern](media/Restore-02-PackageFormatOptions.png)
+
+In NuGet gibt es zwei Formate, in denen ein Projekt Pakete verwenden kann: [`PackageReference`](package-references-in-project-files.md) und [`packages.config`](../reference/packages-config.md). Das Standardformat kann in der Dropdownliste unter der Überschrift **Paketverwaltung** ausgewählt werden. Eine Option, die angezeigt werden soll, wenn das erste Paket in einem Projekt installiert wird, ist ebenfalls verfügbar.
+
+> [!Note]
+> Wenn ein Projekt nicht beide Paketverwaltungsformate unterstützt, wird das Paketverwaltungsformat verwendet, das mit dem Projekt kompatibel ist. Hierbei handelt es sich daher möglicherweise nicht um die Standardeinstellung in den Optionen. Außerdem werden Sie von NuGet bei der ersten Paketinstallation nicht zur Auswahl aufgefordert, selbst wenn diese Option im Optionsfenster ausgewählt ist.
+>
+> Wenn die Paket-Manager-Konsole verwendet wird, um das erste Paket in einem Projekt zu installieren, werden Sie von NuGet nicht zur Auswahl des Formats aufgefordert, selbst wenn diese Option im Optionsfenster ausgewählt ist.
+
 ## <a name="restore-using-the-dotnet-cli"></a>Wiederherstellung mithilfe der dotnet-CLI
 
 [!INCLUDE [restore-dotnet-cli](includes/restore-dotnet-cli.md)]
@@ -169,13 +180,13 @@ In Azure DevOps Server und TFS 2013 und höher werden Pakete automatisch beim Bu
 
 Wenn NuGet Pakete über eine beliebige Methode wiederherstellt, berücksichtigt es alle in `packages.config` oder der Projektdatei angegebenen Einschränkungen:
 
-- Sie können in `packages.config` einen Versionsbereich in der `allowedVersion`-Eigenschaft der Abhängigkeit angeben. Weitere Informationen finden Sie unter [Neuinstallieren und Aktualisieren von Paketen](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions). Beispiel:
+- Sie können in `packages.config` einen Versionsbereich in der `allowedVersion`-Eigenschaft der Abhängigkeit angeben. Weitere Informationen finden Sie unter [Neuinstallieren und Aktualisieren von Paketen](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions). Zum Beispiel:
 
     ```xml
     <package id="Newtonsoft.json" version="6.0.4" allowedVersions="[6,7)" />
     ```
 
-- Sie können in einer Projektdatei PackageReference verwenden, um den Bereich einer Abhängigkeit direkt anzugeben. Beispiel:
+- Sie können in einer Projektdatei PackageReference verwenden, um den Bereich einer Abhängigkeit direkt anzugeben. Zum Beispiel:
 
     ```xml
     <PackageReference Include="Newtonsoft.json" Version="[6, 7)" />

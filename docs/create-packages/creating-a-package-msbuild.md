@@ -3,14 +3,14 @@ title: Erstellen eines NuGet-Pakets mit MSBuild
 description: Eine ausführliche Anleitung zum Entwerfen und Erstellen eines NuGet-Pakets, einschließlich der wichtigsten Entscheidungspunkte wie Dateien und Versionsverwaltung
 author: karann-msft
 ms.author: karann
-ms.date: 08/05/2019
+ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: b45c25a92c0134228fb507ab321cb00ce156527f
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 7166d622ef9d3975fc1c931d30caf570a765a6da
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610554"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231317"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>Erstellen eines NuGet-Pakets mit MSBuild
 
@@ -30,12 +30,16 @@ Der Befehl, mit dem ein Paket erstellt wird (`msbuild -t:pack`), ist funktional 
 Die folgenden Eigenschaften sind für die Erstellung eines Pakets erforderlich.
 
 - `PackageId`, der Paketbezeichner. Dieser muss im Katalog, der das Paket hostet, eindeutig sein. Wenn Sie hier nichts angeben, lautet der Standardwert `AssemblyName`.
-- `Version`, eine bestimmte Versionsnummer in der Schreibweise *Hauptversion.Nebenversion.Patch[-Suffix]*, wobei im *-Suffix* die [Vorabversionen](prerelease-packages.md) angegeben werden. Wenn Sie hier nichts angeben, lautet der Standardwert 1.0.0.
+- `Version`, eine bestimmte Versionsnummer in der Schreibweise *Hauptversion.Nebenversion.Patch[-Suffix]* , wobei im *-Suffix* die [Vorabversionen](prerelease-packages.md) angegeben werden. Wenn Sie hier nichts angeben, lautet der Standardwert 1.0.0.
 - Der Titel des Pakets, so wie er auf dem Host (z.B. „nuget.org“) angezeigt werden sollte
 - `Authors`, Informationen zum Autor und Besitzer. Wenn Sie hier nichts angeben, lautet der Standardwert `AssemblyName`.
 - `Company`, der Firmenname. Wenn Sie hier nichts angeben, lautet der Standardwert `AssemblyName`.
 
-In Visual Studio können Sie diese Werte in den Projekteigenschaften festlegen (Rechtsklick auf das Projekt im Projektmappen-Explorer, wählen Sie **Eigenschaften** und dann die Registerkarte **Paket** aus). Sie können diese Eigenschaften auch direkt in den Projektdateien festlegen (*.csproj*).
+Wenn Sie Nicht-SDK-Projekte packen, die PackageReference verwenden, ist außerdem Folgendes erforderlich:
+
+- `PackageOutputPath`, der Ausgabeordner für das Paket, das beim Paketaufruf generiert wird.
+
+In Visual Studio können Sie diese Werte in den Projekteigenschaften festlegen (Rechtsklick auf das Projekt im Projektmappen-Explorer, wählen Sie **Eigenschaften** und dann die Registerkarte **Paket** aus). Sie können diese Eigenschaften auch direkt in den Projektdateien festlegen ( *.csproj*).
 
 ```xml
 <PropertyGroup>
@@ -69,6 +73,10 @@ Sie können auch die optionalen Eigenschaften wie `Title`, `PackageDescription` 
 > Bei Paketen für die öffentliche Nutzung sollten Sie besonders auf die **PackageTags**-Eigenschaft achten, da Tags anderen dabei helfen, Ihr Paket zu finden und dessen Funktion zu verstehen.
 
 Weitere Informationen zum Deklarieren von Abhängigkeiten und zum Angeben von Versionsnummern finden Sie unter [Paketverweise in Projektdateien](../consume-packages/package-references-in-project-files.md) und [Paketversionsverwaltung](../concepts/package-versioning.md). Es ist auch möglich, Ressourcen aus Abhängigkeiten mithilfe der Attribute `<IncludeAssets>` und `<ExcludeAssets>` direkt im Paket verfügbar zu machen. Weitere Informationen finden Sie unter [Steuern von Abhängigkeitsobjekten](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
+
+## <a name="add-an-optional-description-field"></a>Hinzufügen eines optionalen Beschreibungsfelds
+
+[!INCLUDE [add description to package](includes/add-description.md)]
 
 ## <a name="choose-a-unique-package-identifier-and-set-the-version-number"></a>Auswählen eines eindeutigen Paketbezeichners und Festlegen der Versionsnummer
 

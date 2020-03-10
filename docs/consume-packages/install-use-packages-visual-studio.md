@@ -10,12 +10,12 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 7e4ea59b9954e787e7ab060adc964f3097a8240b
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: 3adceac8c725d9ea1610aea090753c9c1d8bc818
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419976"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231006"
 ---
 # <a name="install-and-manage-packages-in-visual-studio-using-the-nuget-package-manager"></a>Installieren und Verwalten von Paketen in Visual Studio mit dem NuGet-Paket-Manager
 
@@ -42,6 +42,9 @@ ms.locfileid: "68419976"
 
 > [!Tip]
 > Um Vorabversionen in die Suche einzubeziehen und Vorabversionen in der Dropdownliste „Version2 verfügbar zu machen, wählen Sie die Option **Vorabversion einbeziehen** aus.
+
+> [!Note]
+> In NuGet gibt es zwei Formate, in denen ein Projekt Pakete verwenden kann: [`PackageReference`](package-references-in-project-files.md) und [`packages.config`](../reference/packages-config.md). [Der Standard kann im Optionsfenster von Visual Studio ](Package-Restore.md#choose-default-package-management-format) festgelegt werden.
 
 ## <a name="uninstall-a-package"></a>Deinstallieren eines Pakets
 

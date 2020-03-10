@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: e0014a812ea591ef40c961e13864652d75ebdf6c
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 912c0d015e2f499bc7386483bc6c35ecd765d3d4
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610990"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230862"
 ---
 # <a name="package-versioning"></a>Paketversionsverwaltung
 
@@ -22,7 +22,7 @@ Beim Erstellen eines Pakets weisen Sie eine bestimmte Versionsnummer und optiona
 In diesem Thema:
 
 - [Grundlagen zu Versionen](#version-basics) einschließlich Suffixe für Vorabversionen.
-- [Versionsbereiche und Platzhalter](#version-ranges-and-wildcards)
+- [Versionsbereiche](#version-ranges)
 - [Normalisierte Versionsnummern](#normalized-version-numbers)
 
 ## <a name="version-basics"></a>Grundlagen zu Versionen
@@ -98,11 +98,11 @@ Drittanbieterclients:
 <!-- For compatibility with previous dependency-versions page -->
 <a name="version-ranges"></a>
 
-## <a name="version-ranges-and-wildcards"></a>Versionsbereiche und Platzhalter
+## <a name="version-ranges"></a>Versionsbereiche
 
 In Bezug auf Paketabhängigkeiten unterstützt NuGet die Verwendung einer Intervallnotation zur Angabe von Versionsbereichen, die wie folgt zusammengefasst werden kann:
 
-| Notation | Angewendete Regel | BESCHREIBUNG |
+| Notation | Angewendete Regel | Beschreibung |
 |----------|--------------|-------------|
 | 1.0 | x ≥ 1.0 | Mindestversion, einschließlich |
 | (1.0,) | x > 1.0 | Mindestversion, ausschließlich |
@@ -114,7 +114,7 @@ In Bezug auf Paketabhängigkeiten unterstützt NuGet die Verwendung einer Interv
 | [1.0,2.0) | 1.0 ≤ x < 2.0 | Kombination aus Minimalversion (einschließlich) und Maximalversion (ausschließlich) |
 | (1.0)    | Ungültig | Ungültig |
 
-Wenn das PackageReference-Format verwendet wird, unterstützt NuGet auch die Verwendung der Notation mit Platzhalterzeichen (\*) für das Suffix bei Haupt-, Neben-, Patch- und Vorabversionen. Platzhalter werden beim Format `packages.config` nicht unterstützt.
+Wenn das PackageReference-Format verwendet wird, unterstützt NuGet auch die Verwendung einer unverankerten Notation (\*) für das Suffix bei Haupt-, Neben-, Patch- und Vorabversionen. Unverankerte Versionen werden beim `packages.config`-Format nicht unterstützt.
 
 > [!Note]
 > Versionsbereiche in PackageReference umfassen Vorabversionen. Standardmäßig lösen Versionen mit übergreifenden Rechten keine Vorabversionen auf, sofern dies nicht abonniert wurde. Informationen zum Status der zugehörigen Featureanforderung finden Sie in [Issue 6434](https://github.com/NuGet/Home/issues/6434#issuecomment-358782297).

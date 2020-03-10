@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 937d051ff6dc49e3204f7d0cb22c4f29b99a2a7d
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 02c6c8f3018bfd063c2d16a10381f88b54cac840
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610612"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231343"
 ---
 # <a name="publishing-packages"></a>Veröffentlichen von Paketen
 
@@ -65,6 +65,10 @@ Sie müssen [nuget.exe v4.1.0 oder höher](https://www.nuget.org/downloads) verw
     ```
 
     Dieser Befehl speichert Ihren API-Schlüssel in Ihrer NuGet-Konfiguration, sodass Sie diesen Schritt nicht noch einmal auf demselben Computer wiederholen müssen.
+
+    > [!NOTE]
+    > Der API-Schlüssel wird nicht für die Authentifizierung bei dem privaten Feed verwendet. Informationen zum Verwalten von Anmeldeinformationen für die Authentifizierung bei der Quelle finden Sie unter dem [`nuget sources`-Befehl](../reference/cli-reference/cli-ref-sources.md).
+    > API-Schlüssel können von den einzelnen NuGet-Servern abgerufen werden. Informationen zum Erstellen und Verwalten von APIKeys für nuget.org finden Sie unter [publish-api-key](../quickstart/includes/publish-api-key.md).
 
 1. Übertragen Sie Ihr Paket mit folgendem Befehl per Push an den NuGet-Katalog:
 

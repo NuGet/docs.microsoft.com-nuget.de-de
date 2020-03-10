@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: overview
-ms.openlocfilehash: a08ac24ce6b1d64496c9fc1b20604850e9711dd6
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: c326cf184ff20fb798a5770f0a4cf9bf42bed3f5
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380674"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230693"
 ---
 # <a name="an-introduction-to-nuget"></a>Eine Einführung in NuGet
 
@@ -43,7 +43,7 @@ Im Gegensatz dazu erstellen Paketentwickler, die APIs außerhalb von .NET Standa
 
 Zusätzlich zur Unterstützung für das Hosting bietet NuGet außerdem eine Vielzahl von Tools, die vom Ersteller und Benutzer verwendet werden. Informationen dazu, wie Sie bestimmte Tools erhalten, finden Sie unter [Installieren von NuGet-Clienttools](install-nuget-client-tools.md).
 
-| Tool | Plattformen | Anwendbare Szenarios | BESCHREIBUNG |
+| Tool | Plattformen | Anwendbare Szenarios | Beschreibung |
 | --- | --- | --- | --- |
 | [dotnet-CLI](consume-packages/install-use-packages-dotnet-cli.md) | Alle | Erstellung, Verbrauch | CLI-Tool für .NET Core- und .NET Standard-Bibliotheken und für Projekte im SDK-Stil für .NET Framework (Informationen finden Sie unter [SDK-Attribut](/dotnet/core/tools/csproj#additions)). Stellt bestimmte NuGet-CLI-Funktionen direkt in der .NET Core-Toolkette bereit. Ähnlich wie `nuget.exe`-CLI interagiert die dotnet-CLI nicht mit Visual Studio-Projekten. |
 | [nuget.exe-CLI](consume-packages/install-use-packages-nuget-cli.md) | Alle | Erstellung, Verbrauch | CLI-Tool für .NET Framework-Bibliotheken und Nicht-SDK-Projekte, die auf .NET Standard-Bibliotheken abzielen. Bietet alle NuGet-Funktionen, mit einigen Befehlen, die speziell für Paketersteller bestimmt sind, anderen Befehlen, die nur für Benutzer, und wieder anderen, die für beide bestimmt sind. Beispielsweise verwenden Paketersteller den Befehl `nuget pack` zum Erstellen eines Pakets aus verschiedenen Assemblys und zugehörigen Dateien, Paketverbraucher verwenden `nuget install`, um Pakete in einen Projektordner einzubinden, und alle verwenden `nuget config`, um NuGet-Konfigurationsvariablen festzulegen. Als ein plattformunabhängiges Tool interagiert die NuGet-CLI nicht mit Visual Studio-Projekten. |
@@ -76,7 +76,7 @@ Stattdessen verwaltet NuGet eine einfach Verweisliste der Pakete von denen ein P
 
 ![Eine NuGet-Verweisliste wird bei Paketinstallation erstellt und kann zum Wiederherstellen von Paketen an einem anderen Ort verwendet werden.](media/nuget-restore.png)
 
-Mit der Verweisliste kann NuGet anschließend alle Pakete zu einem späteren Zeitpunkt neu installieren &mdash; also *wiederherstellen* &mdash; die von öffentlichen und bzw. oder privaten Hosts stammen. Wenn Sie ein Projekt auf die Quellcodeverwaltung committen oder auf andere Weise freigeben, muss nur die Verweisliste enthalten sein. Es müssen keine Paketbinärdateien eingeschlossen werden (Näheres finden Sie unter [Pakete und Quellcodeverwaltung](consume-packages/packages-and-source-control.md)).
+Mit der Verweisliste kann NuGet anschließend alle Pakete zu einem späteren Zeitpunkt neu installieren &mdash; also *wiederherstellen*&mdash; die von öffentlichen und bzw. oder privaten Hosts stammen. Wenn Sie ein Projekt auf die Quellcodeverwaltung committen oder auf andere Weise freigeben, muss nur die Verweisliste enthalten sein. Es müssen keine Paketbinärdateien eingeschlossen werden (Näheres finden Sie unter [Pakete und Quellcodeverwaltung](consume-packages/packages-and-source-control.md)).
 
 Der Computer, der ein Projekt, z.B. einen Buildserver, erhält, der eine Kopie des Projekts als Teil eines automatisierten Bereitstellungssystems empfängt, fordert NuGet einfach auf, Abhängigkeiten wiederherzustellen, wenn sie benötigt werden. Buildsysteme, wie Azure DevOps, stellen „NuGet restore“-Schritte für exakt diesen Zweck bereit. Auf ähnliche Weise können Entwickler einen Befehl wie `nuget restore` (NuGet-CLI), `dotnet restore` (dotnet-CLI) oder `Install-Package` (Paket-Manager-Konsole) aufrufen, wenn sie eine Kopie eines Projekts erhalten (z.B. beim Kopieren eines Repositorys), um alle benötigten Pakete zu erhalten. Visual Studio seinerseits stellt Pakete beim Erstellen eines Projekts automatisch wieder her (vorausgesetzt, die automatische Wiederherstellung ist aktiviert, wie unter [Paketwiederherstellung](consume-packages/package-restore.md) beschrieben).
 
@@ -105,9 +105,15 @@ Damit diese Prozesse effizient arbeiten, führt NuGet einige Optimierungen im Hi
 
 Innerhalb eines individuellen Projekts verwaltet NuGet den gesamten Abhängigkeitsdiagramm, was die Auflösung mehrerer Verweise auf verschiedene Versionen des selben Pakets enthält. Es ist üblich, dass ein Projekt eine Abhängigkeit von ein oder mehreren Paketen annimmt, die über die gleichen Abhängigkeiten verfügen. Einige der nützlichsten Hilfsprogrammpakete auf nuget.org werden von vielen anderen Paketen verwendet. Im gesamten Abhängigkeitsdiagramm, können dann sehr leicht zehn unterschiedliche Verweise auf verschiedene Versionen desselben Pakets vorkommen. NuGet sortiert aus, welche Version von allen Verbrauchern verwendet werden kann, um zu verhindern, dass mehrere Versionen eines Pakets in die Anwendung selbst platziert werden. (Weitere Informationen finden Sie unter [Auflösung von Abhängigkeiten](concepts/dependency-resolution.md).)
 
-Darüber hinaus behält NuGet alle Spezifikationen im Zusammenhang mit der Struktur von Paketen (einschließlich [Lokalisierung](create-packages/creating-localized-packages.md) und [Debugsymbole](create-packages/symbol-packages-snupkg.md)) und wie auf sie [verwiesen](consume-packages/package-references-in-project-files.md) wird (einschließlich [Versionsbereiche](concepts/package-versioning.md#version-ranges-and-wildcards) und [Vorabversionen](create-packages/prerelease-packages.md)) bei. NuGet stellt auch verschiedene APIs für die programmgesteuerte Arbeit mit seinen Diensten bereit und unterstützt Entwickler, die Visual Studio-Erweiterungen und Projektvorlagen.
+Darüber hinaus behält NuGet alle Spezifikationen im Zusammenhang mit der Struktur von Paketen (einschließlich [Lokalisierung](create-packages/creating-localized-packages.md) und [Debugsymbole](create-packages/symbol-packages-snupkg.md)) und wie auf sie [verwiesen](consume-packages/package-references-in-project-files.md) wird (einschließlich [Versionsbereiche](concepts/package-versioning.md#version-ranges) und [Vorabversionen](create-packages/prerelease-packages.md)) bei. NuGet stellt auch verschiedene APIs für die programmgesteuerte Arbeit mit seinen Diensten bereit und unterstützt Entwickler, die Visual Studio-Erweiterungen und Projektvorlagen.
 
 Im Inhaltsverzeichnis dieser Dokumentation finden Sie alle hier dargestellten Funktionen und Versionshinweise, die bis zu den Anfängen von NuGet zurückgehen.
+
+## <a name="related-video"></a>Zugehörige Videos
+
+> [!Video https://channel9.msdn.com/Series/NuGet-101/What-is-NuGet-1-of-5/player]
+
+Auf [Channel 9](https://channel9.msdn.com/Series/NuGet-101) und auf [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_) finden Sie weitere Videos zu NuGet.
 
 ## <a name="comments-contributions-and-issues"></a>Kommentare, Beiträge und Probleme
 
