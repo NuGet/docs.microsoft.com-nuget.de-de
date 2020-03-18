@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
 ms.openlocfilehash: 940582d5173f5a53dcd04cf1258fc02a2439af4e
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825284"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428294"
 ---
 # <a name="nuget-25-release-notes"></a>Anmerkungen zu dieser Version von nuget 2,5
 
@@ -18,7 +18,7 @@ Anmerkungen zu dieser [Version von nuget 2.2.1](../release-notes/nuget-2.2.1.md)
 
 Nuget 2,5 wurde am 25. April 2013 veröffentlicht. Diese Version war so groß, wir waren gezwungen, die Versionen 2,3 und 2,4 zu überspringen! Bis heute ist dies die größte Version, die wir für nuget verwendet haben, mit mehr als [160 Arbeits Elementen](https://nuget.codeplex.com/workitem/list/advanced?release=NuGet%202.5&status=all) in der Version.
 
-## <a name="acknowledgements"></a>Danksagungen
+## <a name="acknowledgements"></a>Danksagung
 
 Wir danken den folgenden externen Mitwirkenden bei ihren bedeutenden Beiträgen zu nuget 2,5:
 
@@ -36,7 +36,7 @@ Wir danken den folgenden externen Mitwirkenden bei ihren bedeutenden Beiträgen 
     - [#1511](https://nuget.codeplex.com/workitem/1511) änderter XML-Behandlungs Code zur Beibehaltung der Formatierung.
 7. [Adam Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
     - Dem Benutzerwörterbuch wurden erkannte Wörter hinzugefügt, damit Build. cmd erfolgreich ausgeführt werden kann.
-8. [Bruno Roggeri](https://www.codeplex.com/site/users/view/broggeri)
+8. [Bruno roggeri](https://www.codeplex.com/site/users/view/broggeri)
     - Korrektur von Komponententests bei der Ausführung in lokalisierten und
 9. [Gareth Evans](https://www.codeplex.com/site/users/view/garethevans)
     - Extrahierte Schnittstelle aus packageservice
