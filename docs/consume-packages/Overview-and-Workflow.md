@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
 ms.openlocfilehash: ddd1d163e18ed4ce1e7cbf41ed152acc40c1c423
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488781"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428516"
 ---
 # <a name="package-consumption-workflow"></a>Workflow der Nutzung von Paketen
 
@@ -45,7 +45,7 @@ Das Verhalten von NuGet wird von den `Nuget.Config`-Dateien gesteuert. Mehrere D
 
 NuGet-Pakete werden über eine beliebige der Methoden heruntergeladen und installiert, die in der folgenden Tabelle beschrieben werden.
 
-| Tool | BESCHREIBUNG |
+| Tool | Beschreibung |
 | --- | --- |
 | [dotnet.exe-CLI](install-use-packages-dotnet-cli.md) | (Alle Plattformen) CLI-Tool für .NET Core- und .NET Standard-Bibliotheken und für Projekte im SDK-Stil für .NET Framework (siehe [SDK-Attribut](/dotnet/core/tools/csproj#additions)). Ruft das über \<package_name\> angegebene Paket ab und fügt einen Verweis in die Projektdatei ein. Ruft auch Abhängigkeiten ab und installiert sie. |
 | Visual Studio | (Windows und Mac) Bietet eine Benutzeroberfläche, über die Sie die Liste der Pakete durchsuchen, Pakete auswählen und diese Pakete und ihre Abhängigkeiten in ein Projekt aus einer angegebenen Paketquelle installieren können. Fügt der Projektdatei Verweise auf installierte Pakete zu.<ul><li>[Installieren und Verwalten von Paketen mit Visual Studio](install-use-packages-visual-studio.md)</li><li>[Einschließen eines NuGet-Pakets in Ihr Projekt (Mac)](/visualstudio/mac/nuget-walkthrough)</li></ul> |
