@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: 96e138561390984d9def495ba5e091c43023cc92
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.openlocfilehash: 10bc34653d294cf70b5c91ce79a79cf6532fba1b
+ms.sourcegitcommit: 1a63a84da2719c8141823ac89a20bf507fd22b00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231330"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80147486"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>Schnellstart: Installieren und Verwenden eines Pakets in Visual Studio (nur Windows)
 
-NuGet-Pakete enthalten wiederverwendbaren Code, der von anderen Entwicklern für die Verwendung in Ihren Projekten verfügbar gemacht wird. Unter [Was ist NuGet?](../What-is-NuGet.md) finden Sie weitere Informationen. Pakete werden über den NuGet-Paket-Manager oder die Paket-Manager-Konsole in einem Visual Studio-Projekt installiert. Dieser Artikel zeigt den Prozess mit dem beliebten [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)-Paket und einem WPF-Projekt (Windows Presentation Foundation). Derselbe Prozess ist auch auf jedes andere .NET oder .NET Core-Projekt anwendbar.
+NuGet-Pakete enthalten wiederverwendbaren Code, der von anderen Entwicklern für die Verwendung in Ihren Projekten verfügbar gemacht wird. Unter [Was ist NuGet?](../What-is-NuGet.md) finden Sie weitere Informationen. Pakete werden über den NuGet-Paket-Manager, die [Paket-Manager-Konsole](../consume-packages/install-use-packages-powershell) oder über [Dotnet-CLI](install-and-use-a-package-using-the-dotnet-cli.md) in einem Visual Studio-Projekt installiert. Dieser Artikel zeigt den Prozess mit dem beliebten [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)-Paket und einem WPF-Projekt (Windows Presentation Foundation). Derselbe Prozess ist auch auf jedes andere .NET oder .NET Core-Projekt anwendbar.
 
 Beziehen Sie sich nach der Installation mit `using <namespace>` auf das Paket im Code, wobei \<Namespace\> für das von Ihnen verwendete Paket spezifisch ist. Nachdem der Verweis erfolgt ist, können Sie das Paket über die zugehörige API aufrufen.
 

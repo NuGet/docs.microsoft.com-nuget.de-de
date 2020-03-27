@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 912c0d015e2f499bc7386483bc6c35ecd765d3d4
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.openlocfilehash: c79976c2f4ded2fba3796fb847d3c90807d7b86c
+ms.sourcegitcommit: 1a63a84da2719c8141823ac89a20bf507fd22b00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/16/2020
-ms.locfileid: "79428474"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80147447"
 ---
 # <a name="package-versioning"></a>Paketversionsverwaltung
 
@@ -221,6 +221,10 @@ Wenn während eines Installations-, Neuinstallations- oder Wiederherstellungsvor
 
         1.0.0.0 is treated as 1.0.0
         1.0.01.0 is treated as 1.0.1
+        
+- Die Metadaten des Builds 2.0.0 der semantischen Versionierung werden entfernt
+
+        1.0.7+r3456 is treated as 1.0.7
 
 `pack`- und `restore`-Vorgänge normalisieren Versionen nach Möglichkeit immer. Bei bereits erstellten Paketen wirkt sich diese Normalisierung nicht auf die Versionsnummern in den Paketen selbst aus; sie hat nur Auswirkungen darauf, wie NuGet Versionen beim Auflösen von Abhängigkeiten abgleicht.
 
