@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 12/07/2017
 ms.topic: conceptual
 ms.openlocfilehash: 101c6d6b9d93da912f60c40b27559e80327154b8
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79428426"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Neuinstallieren und Aktualisieren von Paketen
@@ -20,7 +20,7 @@ In Visual Studio bietet die Paket-Manager-Konsole zahlreiche flexible Optionen f
 
 Das Aktualisieren und die Neuinstallation von Paketen erfolgt wie im Folgenden dargestellt:
 
-| Methode | Update | Neuinstallation |
+| Methode | Aktualisieren | Neuinstallation |
 | --- | --- | --- |
 | Paket-Manager-Konsole (beschrieben unter [Verwenden des Updatepakets](#using-update-package)) | `Update-Package`-Befehl | `Update-Package -reinstall`-Befehl |
 | Benutzeroberfläche des Paket-Managers | Wählen Sie auf der Registerkarte **Updates** mindestens ein Paket aus, und klicken Sie auf **Update** (Aktualisieren). | Wählen Sie auf der Registerkarte **Installiert** ein Paket aus, dokumentieren Sie dessen Namen, und klicken Sie dann auf **Deinstallieren**. Wechseln Sie zur Registerkarte **Durchsuchen**, suchen Sie nach dem Paketnamen, wählen Sie ihn aus, und klicken Sie dann auf **Installieren**. |
@@ -29,18 +29,18 @@ Das Aktualisieren und die Neuinstallation von Paketen erfolgt wie im Folgenden d
 > [!NOTE]
 > Für die dotnet-CLI ist das entsprechende Verfahren nicht erforderlich. In einem ähnlichen Szenario können Sie [Pakete mit der dotnet-CLI wiederherstellen](package-restore.md#restore-using-the-dotnet-cli).
 
-In diesem Artikel:
+Inhalt dieses Artikels:
 
 - [Wann ein Paket neu installiert werden sollte](#when-to-reinstall-a-package)
 - [Einschränken von Updateversionen](#constraining-upgrade-versions)
 
 ## <a name="when-to-reinstall-a-package"></a>Wann ein Paket neu installiert werden sollte
 
-1. **Fehlerhafte Verweise nach der Paketwiederherstellung**: Wenn Sie ein Projekt geöffnet und NuGet-Pakete wiederhergestellt haben, jedoch noch immer fehlerhafte Verweise angezeigt werden, versuchen Sie, jedes einzelne Paket wiederherzustellen.
-1. **Beschädigtes Projekt aufgrund von gelöschten Dateien**: NuGet verhindert nicht das Löschen von Elementen, die aus Paketen hinzugefügt wurden. Es kann also passieren, dass versehentlich die von einem Paket installierten Inhalte geändert werden und so Ihr Projekt beschädigt wird. Installieren Sie die betroffenen Pakete erneut, um das Projekt wiederherzustellen.
-1. **Das Paketupdate hat das Projekt zerstört**: Wenn ein Update für ein Paket ein Projekt zerstört, wurde der Fehler in der Regel von einem Abhängigkeitspaket verursacht, das möglicherweise auch aktualisiert wurde. Installieren Sie das spezifische Paket neu, um den Zustand der Abhängigkeit wiederherzustellen.
-1. **Erneutes Zuweisen oder Upgrade eines Projekts**: Dies kann hilfreich sein, wenn ein Projekt erneut zugewiesen oder ein Upgrade für dieses durchgeführt wurde, und wenn das Paket eine Neuinstallation aufgrund der Änderung im Zielframework erfordert. NuGet zeigt in solchen Fällen sofort nach der Projektneuzuweisung einen Buildfehler an, und in nachfolgenden Buildwarnungen wird Ihnen mitgeteilt, dass das Paket möglicherweise neu installiert werden muss. Für das Projektupgrade zeigt NuGet einen Fehler im Projektupgradeprotokoll an.
-1. **Neuinstallation eines Pakets während der Entwicklung**: Paketautoren müssen häufig dieselbe Version des entwickelten Pakets neu installieren, um das Verhalten zu testen. Der `Install-Package`-Befehl bietet keine Option zum Erzwingen einer Neuinstallation an. Verwenden Sie deshalb stattdessen `Update-Package -reinstall`.
+1. **Fehlerhafte Verweise nach der Paketwiederherstellung:** Wenn Sie ein Projekt geöffnet und NuGet-Pakete wiederhergestellt haben, jedoch noch immer fehlerhafte Verweise angezeigt werden, versuchen Sie, jedes einzelne Paket wiederherzustellen.
+1. **Projekt ist aufgrund gelöschter Dateien fehlerhaft:** NuGet hält Sie nicht davon ab, Elemente zu löschen, die aus Paketen hinzugefügt wurden. Es ist also einfach, versehentlich die aus einem Paket installierten Inhalte zu verändern und Ihr Projekt so zu zerstören. Installieren Sie die betroffenen Pakete erneut, um das Projekt wiederherzustellen.
+1. **Das Paketupdate hat zu einem Fehler im Projekt geführt:** Wenn ein Update für ein Paket einen Fehler in einem Projekt verursacht, wurde dieser in der Regel von einem Abhängigkeitspaket ausgelöst, das möglicherweise auch aktualisiert wurde. Installieren Sie das spezifische Paket neu, um den Zustand der Abhängigkeit wiederherzustellen.
+1. **Erneutes Zuweisen oder Upgrade eines Projekts:** Dies kann hilfreich sein, wenn ein Projekt erneut zugewiesen oder ein Upgrade für dieses durchgeführt wurde, und wenn das Paket eine Neuinstallation aufgrund der Änderung im Zielframework erfordert. NuGet zeigt in solchen Fällen sofort nach der Projektneuzuweisung einen Buildfehler an, und in nachfolgenden Buildwarnungen wird Ihnen mitgeteilt, dass das Paket möglicherweise neu installiert werden muss. Für das Projektupgrade zeigt NuGet einen Fehler im Projektupgradeprotokoll an.
+1. **Neuinstallation eines Pakets während der Entwicklung:** Paketautoren müssen oft dieselbe Version des Pakets neu installieren, das Sie entwickeln, um das Verhalten zu testen. Der `Install-Package`-Befehl bietet keine Option zum Erzwingen einer Neuinstallation an. Verwenden Sie deshalb stattdessen `Update-Package -reinstall`.
 
 ## <a name="constraining-upgrade-versions"></a>Einschränken von Updateversionen
 
@@ -101,7 +101,7 @@ Mit einem Update von Paketen in einem Projekt oder einer Projektmappe mithilfe v
 
 Ausführliche Informationen zu dem Befehl finden Sie unter [Updatepaket](../reference/ps-reference/ps-ref-update-package.md).
 
-### <a name="considerations"></a>Weitere Überlegungen
+### <a name="considerations"></a>Überlegungen
 
 Folgendes kann bei der Neuinstallation eines Pakets beeinträchtigt werden:
 

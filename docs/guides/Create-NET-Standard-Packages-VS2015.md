@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 02/02/2018
 ms.topic: tutorial
 ms.openlocfilehash: b16bf422e2627be3b8516a875d749639734064a9
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "72380723"
 ---
 # <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>Erstellen von .NET Standard- und .NET Framework-Paketen mit Visual Studio 2015
@@ -20,7 +20,7 @@ Die [.NET-Standardbibliothek](/dotnet/articles/standard/library) ist eine formal
 
 Dieser Leitfaden begleitet Sie durch das Erstellen eines NuGet-Pakets für die .NET Standard 1.4-Bibliothek oder für .NET Framework 4.6. Eine .NET Standard 1.4-Bibliothek gilt für .NET Framework 4.6.1, Universelle Windows-Plattform 10, .NET Core und Mono/Xamarin. Weitere Informationen finden Sie unter [.NET Standard mapping table (.NET Standard-Zuordnungstabelle)](/dotnet/standard/net-standard#net-implementation-support) (.NET-Dokumentation). Wenn Sie möchten, können Sie auch eine andere Version der .NET Standard-Bibliothek wählen.
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Voraussetzungen
 
 1. Visual Studio 2015 Update 3
 1. (nur .NET Standard) [.NET Core SDK](https://www.microsoft.com/net/download/)

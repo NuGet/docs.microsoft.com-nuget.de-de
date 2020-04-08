@@ -6,10 +6,10 @@ ms.author: jomatthi
 ms.date: 08/14/2019
 ms.topic: quickstart
 ms.openlocfilehash: 6f3fd4f2ffec0037a48aec845fddee258b5c1e7f
-ms.sourcegitcommit: ac9a00ccaf90e539a381e92b650074910b21eb0d
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/03/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "70238476"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio-for-mac"></a>Schnellstart: Installieren und Verwenden eines Pakets in Visual Studio für Mac
@@ -21,7 +21,7 @@ Beziehen Sie sich nach der Installation mit `using <namespace>` auf das Paket im
 > [!Tip]
 > **Einstieg in nuget.org**: .NET-Entwickler finden Komponenten für die Verwendung in ihren eigenen Anwendungen üblicherweise durch das Durchsuchen von *nuget.org*. Sie können *nuget.org* direkt durchsuchen oder in Visual Studio nach Paketen suchen und diese installieren, wie in diesem Artikel dargestellt wird. Allgemeine Informationen finden Sie [Suchen und Auswerten von NuGet-Paketen](../consume-packages/finding-and-choosing-packages.md).
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Voraussetzungen
 
 - Visual Studio 2019 für Mac.
 

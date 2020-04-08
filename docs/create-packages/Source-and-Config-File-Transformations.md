@@ -7,10 +7,10 @@ ms.date: 04/24/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
 ms.openlocfilehash: 2fefd9cff4d151111023521c31d58878743775bf
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "78231174"
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>Transformieren von Quellcode und Konfigurationsdateien
@@ -75,7 +75,7 @@ Angenommen, das Projekt weist zu Beginn folgende Inhalte in der Datei `web.confi
 </configuration>
 ```
 
-Wenn Sie ein `MyNuModule`-Element während der Paketinstallation zum Abschnitt `modules` hinzufügen möchten, erstellen Sie im Ordner `content` des Pakets eine Datei vom Typ `web.config.transform`, die wie folgt aussieht:
+Wenn Sie ein `MyNuModule`-Element während der Paketinstallation zum Abschnitt `modules` hinzufügen möchten, erstellen Sie im Ordner `web.config.transform` des Pakets eine Datei vom Typ `content`, die wie folgt aussieht:
 
 ```xml
 <configuration>
@@ -117,7 +117,7 @@ Erstellen Sie ein neues ASP.NET-Projekt in Visual Studio (die Vorlage ist unter 
 
 Sie können Konfigurationsdateien über die [XDT-Syntax](https://msdn.microsoft.com/library/dd465326.aspx) ändern. Sie können auch veranlassen, dass NuGet Token über [Projekteigenschaften](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) ersetzt, indem der Eigenschaftenname innerhalb der Trennzeichen `$` (ohne Berücksichtigung der Groß-/Kleinschreibung) eingeschlossen wird.
 
-In der folgenden Datei `app.config.install.xdt` wird beispielsweise ein `appSettings`-Element mit den Werten `FullPath`, `FileName`, und `ActiveConfigurationSettings` des Projekts in `app.config` eingefügt:
+In der folgenden Datei `app.config.install.xdt` wird beispielsweise ein `appSettings`-Element mit den Werten `app.config`, `FullPath`, und `FileName` des Projekts in `ActiveConfigurationSettings` eingefügt:
 
 ```xml
 <?xml version="1.0"?>

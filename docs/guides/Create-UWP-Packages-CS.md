@@ -6,10 +6,10 @@ ms.author: rrelyea
 ms.date: 02/28/2020
 ms.topic: tutorial
 ms.openlocfilehash: 61f46f2623769927f881877cfe3f96132211b442
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "78231752"
 ---
 # <a name="create-uwp-packages-c"></a>Erstellen von UWP-Paketen (C#)
@@ -85,7 +85,7 @@ Befolgen Sie folgende drei Schritte, um die erste `.nuspec`-Datei zu erstellen. 
 
 Eine Komponente für Windows-Runtime erfordert Metadaten, die alle öffentlich verfügbaren Typen beschreibt. Dadurch wird es anderen Apps und Bibliotheken ermöglicht, die Komponente zu nutzen. Die Metadaten sind in einer WINMD-Datei enthalten. Diese wird erstellt, wenn Sie das Projekt kompilieren und muss in Ihrem NuGet-Paket enthalten sein. Gleichzeitig wird außerdem eine XML-Datei mit IntelliSense-Daten erstellt, die ebenfalls enthalten sein sollte.
 
-Fügen Sie der `.nuspec`-Datei folgenden `<files>`-Knoten hinzu:
+Fügen Sie der `<files>`-Datei folgenden `.nuspec`-Knoten hinzu:
 
 ```xml
 <package>

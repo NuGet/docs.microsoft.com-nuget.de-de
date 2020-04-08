@@ -9,10 +9,10 @@
 ## [Veraltetes Paket](deprecate-packages.md)
 # Richtlinien
 ## [Datenanforderungen](policies/Data-requests.md)
-## [Konfliktlösung](policies/dispute-resolution.md)
+## [Beilegung von Streitigkeiten](policies/dispute-resolution.md)
 ## [Löschen von Paketen](policies/deleting-packages.md)
 ## [Exportieren von Steuerelementen](policies/export-control.md)
-# Referenz
+# Verweis
 ## [NuGet-API](../api/overview.md)
 ## [licenses.nuget.org](licenses.nuget.org.md)
 # Ressourcen

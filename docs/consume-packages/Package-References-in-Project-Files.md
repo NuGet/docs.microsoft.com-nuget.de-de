@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: a5833df60c5f7905359f421141347b1237f45d86
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79428504"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Paketverweise (PackageReference) in Projektdateien
@@ -99,15 +99,15 @@ Sie verwenden eine Abhängigkeit möglicherweise rein als Entwicklungsumgebung u
 
 Mit den folgenden Metadatentags werden Abhängigkeitsobjekte gesteuert:
 
-| Tag | Beschreibung | Standardwert |
+| Tag | BESCHREIBUNG | Standardwert |
 | --- | --- | --- |
-| IncludeAssets | Diese Objekte werden verbraucht | alle |
-| ExcludeAssets | Diese Objekte werden nicht verbraucht | Keine |
+| IncludeAssets | Diese Objekte werden verbraucht | all |
+| ExcludeAssets | Diese Objekte werden nicht verbraucht | none |
 | PrivateAssets | Diese Objekte werden verbraucht, aber nicht in das übergeordnete Projekt übertragen | contentfiles;analyzers;build |
 
 Folgende Werte sind für diese Tags zulässig, wobei mehrere Werte durch ein Semikolon (;) getrennt sind; eine Ausnahme stellen `all` und `none` dar, die nur alleine dargestellt werden dürfen:
 
-| Wert | Beschreibung |
+| value | BESCHREIBUNG |
 | --- | ---
 | compile | Inhalt des Ordners `lib` und steuert, ob Ihr Projekt anhand der Assemblys im Ordner kompiliert werden kann |
 | Laufzeit | Inhalt der Ordner `lib` und `runtimes` und steuert, ob diese Assemblys in das Buildausgabeverzeichnis kopiert werden |
@@ -117,8 +117,8 @@ Folgende Werte sind für diese Tags zulässig, wobei mehrere Werte durch ein Sem
 | buildTransitive | *(5.0 und höher)* `.props` und `.targets` im Ordner `buildTransitive` für Ressourcen, die transitiv in beliebige verarbeitende Projekte eingefügt werden. Weitere Informationen finden Sie auf der Seite [Feature](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior). |
 | Analysetools | .NET-Analystetools |
 | Systemeigen | Inhalte des Ordners `native` |
-| Keine | Keiner der obigen Werte wird verwendet. |
-| alle | Alle oben genannten Werte (mit Ausnahme von `none`) |
+| none | Keiner der obigen Werte wird verwendet. |
+| all | Alle oben genannten Werte (mit Ausnahme von `none`) |
 
 Im folgenden Beispiel wird im Projekt bis auf die Inhaltsdateien aus dem Paket alles verwendet, und alles bis auf die Inhaltsdateien und Analysetools wird in das übergeordnete Projekt übertragen.
 
@@ -139,7 +139,7 @@ Im folgenden Beispiel wird im Projekt bis auf die Inhaltsdateien aus dem Paket a
 Beachten Sie Folgendes: Da `build` nicht in `PrivateAssets` enthalten ist, *werden* Ziele und Eigenschaften an das übergeordnete Projekt übergeben. Angenommen, der obenstehende Verweis wird in einem Projekt verwendet, in dem ein NuGet-Paket mit dem Namen AppLogger erstellt wird. AppLogger kann die Ziele und Eigenschaften aus `Contoso.Utility.UsefulStuff` verarbeiten, wie Projekte, die AppLogger verarbeiten.
 
 > [!NOTE]
-> Wenn `developmentDependency` in einer `.nuspec`-Datei auf `true` festgelegt ist, kennzeichnet dies ein Paket mit einer Abhängigkeit, die nur für die Entwicklung gilt. Dadurch wird vermieden, dass das Paket als Abhängigkeit in andere Pakete eingefügt wird. Bei PackageReference *(NuGet 4.8+)* bedeutet dieses Flag auch, dass Objekte zur Kompilierzeit von der Kompilierung ausgeschlossen werden. Weitere Informationen finden Sie unter [DevelopmentDependency support for PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference) (DevelopmentDependency-Unterstützung für PackageReference).
+> Wenn `developmentDependency` in einer `true`-Datei auf `.nuspec` festgelegt ist, kennzeichnet dies ein Paket mit einer Abhängigkeit, die nur für die Entwicklung gilt. Dadurch wird vermieden, dass das Paket als Abhängigkeit in andere Pakete eingefügt wird. Bei PackageReference *(NuGet 4.8+)* bedeutet dieses Flag auch, dass Objekte zur Kompilierzeit von der Kompilierung ausgeschlossen werden. Weitere Informationen finden Sie unter [DevelopmentDependency support for PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference) (DevelopmentDependency-Unterstützung für PackageReference).
 
 ## <a name="adding-a-packagereference-condition"></a>Hinzufügen einer PackageReference-Bedingung
 
@@ -175,7 +175,7 @@ Bedingungen können auch auf der `ItemGroup`-Ebene angewendet werden und gelten 
 Dieses Feature ist mit NuGet **5.0** oder höher und mit Visual Studio 2019 **16.0** oder höher verfügbar.
 
 Manchmal ist es wünschenswert, von einem MSBuild-Ziel aus auf Dateien in einem Paket zu verweisen.
-In `packages.config`-basierten Projekten werden die Pakete in einem Ordner mit Bezug zur Projektdatei installiert. Bei PackageReference werden die Pakete hingegen aus dem Ordner *global-packages* [verwendet](../concepts/package-installation-process.md), der von Computer zu Computer variieren kann.
+In `packages.config`-basierten Projekten werden die Pakete in einem Ordner mit Bezug zur Projektdatei installiert. Bei PackageReference werden die Pakete hingegen aus dem Ordner [global-packages](../concepts/package-installation-process.md) *verwendet*, der von Computer zu Computer variieren kann.
 
 Um diese Lücke zu schließen, wurde in NuGet eine Eigenschaft eingeführt, die auf den Speicherort verweist, von dem aus das Paket verwendet wird.
 
@@ -273,14 +273,14 @@ In Visual Studio ist das [Unterdrücken von Warnungen](/visualstudio/ide/how-to-
 
 *Dieses Feature ist mit NuGet **4.9** oder höher und mit Visual Studio 2017 **15.9** oder höher verfügbar.*
 
-Die Eingabe für die NuGet-Wiederherstellung ist ein Satz mit Paketverweisen aus der Projektdatei (oberste Ebene oder direkte Abhängigkeiten). Die Ausgabe ist der vollständige Abschluss aller Paketabhängigkeiten einschließlich transitiver Abhängigkeiten. NuGet versucht immer, den gleichen vollständigen Abschluss von Paketabhängigkeiten zu erzeugen, wenn sich die PackageReference-Eingabeliste nicht geändert hat. Es gibt jedoch einige Szenarien, in denen dies nicht möglich ist. Zum Beispiel:
+Die Eingabe für die NuGet-Wiederherstellung ist ein Satz mit Paketverweisen aus der Projektdatei (oberste Ebene oder direkte Abhängigkeiten). Die Ausgabe ist der vollständige Abschluss aller Paketabhängigkeiten einschließlich transitiver Abhängigkeiten. NuGet versucht immer, den gleichen vollständigen Abschluss von Paketabhängigkeiten zu erzeugen, wenn sich die PackageReference-Eingabeliste nicht geändert hat. Es gibt jedoch einige Szenarien, in denen dies nicht möglich ist. Beispiel:
 
 * Beim Verwenden von unverankerten Versionen wie `<PackageReference Include="My.Sample.Lib" Version="4.*"/>`. Während die Absicht hierbei darin liegt, bei jeder Wiederherstellung die neueste Version zu verwenden, gibt es Szenarien, in denen Benutzer anfordern, dass der Paketgraph auf eine bestimmte neueste Version festgelegt und zu einem späteren Zeitpunkt ggf. explizit eine höhere Version geändert werden kann.
 * Eine neuere Version des Pakets, die den Anforderungen an die PackageReference-Version entspricht, wird veröffentlicht. Beispiel: 
 
   * Tag 1: Sie haben `<PackageReference Include="My.Sample.Lib" Version="4.0.0"/>` angegeben, aber die in den NuGet-Repositorys verfügbaren Versionen waren 4.1.0, 4.2.0 und 4.3.0. In diesem Fall verwendet NuGet die Version 4.1.0 (die nächste verfügbare Mindestversion).
 
-  * Tag 2: Version 4.0.0 wird veröffentlicht. NuGet findet jetzt die exakte Übereinstimmung und beginnt mit der Verwendung von 4.0.0.
+  * Tag 2: Version 4.0.0 wird veröffentlicht. NuGet findet jetzt die exakte Übereinstimmung und beginnt mit der Verwendung von 4.0.0.
 
 * Eine bestimmte Paketversion wird aus dem Repository entfernt. Auch wenn nuget.org das Löschen von Paketen nicht erlaubt, weisen nicht alle Paketrepositorys diese Einschränkung auf. Daher sucht NuGet nach der besten Übereinstimmung, wenn die gelöschte Version nicht verwendet werden kann.
 
@@ -352,7 +352,7 @@ Wenn `ProjectA` eine Abhängigkeit von einer `PackageX`-Version `2.0.0` aufweist
 
 Sie können mit einer Sperrdatei verschiedene Verhaltensweisen der Wiederherstellung steuern, wie im Folgenden beschrieben:
 
-| NuGet.exe-Option | dotnet-Option | Entsprechende MSBuild-Option | Beschreibung |
+| NuGet.exe-Option | dotnet-Option | Entsprechende MSBuild-Option | BESCHREIBUNG |
 |:--- |:--- |:--- |:--- |
 | `-UseLockFile` |`--use-lock-file` | RestorePackagesWithLockFile | Ermöglicht die Verwendung einer Sperrdatei. |
 | `-LockedMode` | `--locked-mode` | RestoreLockedMode | Ermöglicht den Sperrmodus für die Wiederherstellung. Dies ist nützlich in CI/CD-Szenarien, in denen Sie wiederholbare Builds wünschen.|   

@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 01/03/2018
 ms.topic: conceptual
 ms.openlocfilehash: be7c10fb6ce60375f77e38f9b604ec33063e52fc
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550509"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64498237"
 ---
 # <a name="packages-in-visual-studio-templates"></a>Pakete in Visual Studio-Vorlagen
 
@@ -23,7 +23,7 @@ Weitere Informationen zum Erstellen von Vorlagen selbst finden Sie unter [Vorgeh
 Der übrige Teil dieses Abschnitts beschreibt die konkreten Schritte, die beim Erstellen einer Vorlage erforderlich sind, um NuGet-Pakete ordnungsgemäß einzubinden.
 
 - [Hinzufügen von Paketen zu einer Vorlage](#adding-packages-to-a-template)
-- [Bewährte Methoden](#best-practices)
+- [bewährten Methoden](#best-practices)
 
 Ein Beispiel finden Sie unter [NuGetInVsTemplates sample (NuGetInVsTemplates-Beispiel)](https://bitbucket.org/marcind/nugetinvstemplates).
 
@@ -78,7 +78,7 @@ VSIX selbst kann als Quelle für die von der Vorlage benötigten Pakete dienen:
 
 1. Speichern Sie Ihre `nupkg`-Dateien in einem Ordner namens `Packages` im VSIX-Projekt.
 
-1. Fügen Sie die erforderlichen Paketdateien Ihrer `vsixmanifest`-Datei als `<Asset>` hinzu (Informationen hierzu finden Sie in der [Referenz zum VSIX-Erweiterungsschema 2.0](/visualstudio/extensibility/vsix-extension-schema-2-0-reference)):
+1. Fügen Sie die erforderlichen Paketdateien Ihrer `<Asset>`-Datei als `vsixmanifest` hinzu (Informationen hierzu finden Sie in der [Referenz zum VSIX-Erweiterungsschema 2.0](/visualstudio/extensibility/vsix-extension-schema-2-0-reference)):
 
     ```xml
     <Asset Type="Moq.4.0.10827.nupkg" d:Source="File" Path="Packages\Moq.4.0.10827.nupkg" d:VsixSubPath="Packages" />

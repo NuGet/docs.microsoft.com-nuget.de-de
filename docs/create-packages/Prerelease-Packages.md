@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.openlocfilehash: 1c19f962dc9e42154c0f4374432548e867e9538a
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "73610718"
 ---
 # <a name="building-pre-release-packages"></a>Erstellen von Vorabversionen von Paketen
@@ -24,7 +24,7 @@ Damit die Phasen des Softwareveröffentlichungsprozesses unterstützt werden kö
 
 Solche Versionen können Sie über eine der folgenden Vorgehensweisen angeben:
 
-- **Wenn in Ihrem Projekt [`PackageReference`](../consume-packages/package-references-in-project-files.md)** verwendet wird, schließen Sie das Suffix der semantischen Versionierung im [`PackageVersion`](/dotnet/core/tools/csproj.md#packageversion)-Element der `.csproj`-Datei ein:
+- **Wenn in Ihrem Projekt [`PackageReference`](../consume-packages/package-references-in-project-files.md)** verwendet wird, schließen Sie das Suffix der semantischen Versionierung im `.csproj`[`PackageVersion`-Element der ](/dotnet/core/tools/csproj.md#packageversion)-Datei ein:
 
     ```xml
     <PropertyGroup>
@@ -32,7 +32,7 @@ Solche Versionen können Sie über eine der folgenden Vorgehensweisen angeben:
     </PropertyGroup>
     ```
 
-- **Wenn in Ihrem Projekt eine [`packages.config`](../reference/packages-config.md)-Datei** verwendet wird, schließen Sie das Suffix der semantischen Versionierung im [`version`](../reference/nuspec.md#version)-Element der [`.nuspec`](../reference/nuspec.md)-Datei ein:
+- **Wenn in Ihrem Projekt eine [`packages.config`](../reference/packages-config.md)-Datei** verwendet wird, schließen Sie das Suffix der semantischen Versionierung im [`.nuspec`](../reference/nuspec.md)-Element der [`version`](../reference/nuspec.md#version)-Datei ein:
 
     ```xml
     <version>1.0.1-alpha</version>
@@ -44,23 +44,23 @@ Wenn Sie eine stabile Version freigeben möchten, entfernen Sie einfach das Suff
 
 Beim Arbeiten mit Paketen berücksichtigt NuGet standardmäßig keine Vorabversionen. Das können Sie jedoch wie folgt ändern:
 
-- **Benutzeroberfläche des Paket-Managers in Visual Studio**: Aktivieren Sie in der Benutzeroberfläche **NuGet-Pakete verwalten** das Kontrollkästchen **Vorabversion einbeziehen**:
+- **Benutzeroberfläche des Paket-Managers in Visual Studio**: Wählen Sie auf der **NuGet-Pakete verwalten**-Benutzeroberfläche das Kontrollkästchen **Vorabversion einbeziehen** aus:
 
     ![Kontrollkästchen „Vorabversion einbeziehen“ in Visual Studio](media/Prerelease_02-CheckPrerelease.png)
 
     Wenn Sie dieses Kontrollkästchen aktivieren oder deaktivieren, wird die Benutzeroberfläche des Paket-Managers sowie die Liste der verfügbaren Versionen aktualisiert, deren Installation möglich ist.
 
-- **Paket-Manager-Konsole**: Verwenden Sie den Schalter `-IncludePrerelease` zusammen mit den Befehlen `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` und `Update-Package`. Lesen Sie hierzu die [PowerShell-Referenz](../reference/powershell-reference.md).
+- **Paket-Manager-Konsole**: Verwenden Sie den Parameter `-IncludePrerelease` zusammen mit den Befehlen `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` und `Update-Package`. Lesen Sie hierzu die [PowerShell-Referenz](../reference/powershell-reference.md).
 
-- **NuGet-CLI**: Verwenden Sie den Schalter `-prerelease` zusammen mit den Befehlen `install`, `update`, `delete` und `mirror`. Weitere Informationen finden Sie in der [NuGet CLI reference (Referenz für die NuGet-CLI)](../reference/nuget-exe-cli-reference.md).
+- **NuGet-Befehlszeilenschnittstelle**: Verwenden Sie den Parameter `-prerelease` zusammen mit den Befehlen `install`, `update`, `delete` und `mirror`. Weitere Informationen finden Sie in der [NuGet CLI reference (Referenz für die NuGet-CLI)](../reference/nuget-exe-cli-reference.md).
 
-## <a name="semantic-versioning"></a>Semantische Versionierung
+## <a name="semantic-versioning"></a>Semantische Versionsverwaltung
 
 In der [Konvention „Semantische Versionierung bzw. SemVer“](https://semver.org/spec/v1.0.0.html) wird beschrieben, wie bei Versionsnummern Zeichenfolgen verwendet werden können, um die Bedeutung des zugrunde liegenden Codes auszudrücken.
 
 Diese Konvention besagt, dass jede Version aus den drei Teilen `Major.Minor.Patch` besteht, die die folgenden Bedeutungen besitzen:
 
-- `Major`: Breaking Changes
+- `Major`: Wichtige Änderungen
 - `Minor`: Neue Funktionen, aber dennoch abwärtskompatibel
 - `Patch`: Nur abwärtskompatible Fehlerkorrekturen
 
@@ -68,9 +68,9 @@ Vorabversionen werden anschließend durch Anfügen eines Bindestrichs und einer 
 
 In Anbetracht dieser Tatsache empfiehlt es sich meistens, sich an anerkannte Namenskonventionen zu halten, z.B. die folgenden:
 
-- `-alpha`: Alpha-Release, wird typischerweise für die laufende Entwicklung und Experimente verwendet.
-- `-beta`: Beta-Release; in der Regel ein Release, das alle Features des nächsten geplanten Releases besitzt, aber womöglich bereits bekannte Fehler enthält.
-- `-rc`: Release Candidate (RC); in der Regel ein stabiles Release, das veröffentlicht werden könnte, sofern keine erheblichen Fehler mehr auftreten.
+- `-alpha`: Alpha-Release, in der Regel noch in Arbeit, wird zum Experimentieren verwendet
+- `-beta`: Beta-Release; in der Regel ein Release, das alle Features des nächsten geplanten Releases besitzt, aber womöglich bereits bekannte Fehler enthält
+- `-rc`: Release Candidate (RC); in der Regel ein stabiles Release, das veröffentlicht werden könnte, sofern keine erheblichen Fehler mehr auftreten
 
 > [!Note]
 > NuGet 4.3.0 und höher unterstützt die [semantische Versionierung V2.0.0](https://semver.org/spec/v2.0.0.html), die die Nummer einer Vorabversion mit eine Punktnotation unterstützt (z.B. `1.0.1-build.23`). Die Punktnotation wird für NuGet-Versionen vor Version 4.3.0 nicht unterstützt. In früheren NuGet-Versionen konnten Sie eine Formulierung wie `1.0.1-build23` verwenden. Dies wurde allerdings stets als Vorabversion angesehen.

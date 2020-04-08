@@ -12,12 +12,12 @@ keywords: NuGet-Symbolpakete, Debugging von NuGet-Paketen, Unterstützung von Nu
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 839c38ec165372bab9b93dec25e5c8e8e9439bfa
-ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
+ms.openlocfilehash: c42032f1869f4be0af44ffa8fbd5ad522f73c459
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77036889"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80380417"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Erstellen von Symbolpaketen (.snupkg)
 
@@ -99,7 +99,7 @@ NuGet.org unterstützt das eigene Symbolserverrepository und akzeptiert ausschli
 NuGet.org weist die folgenden Einschränkungen für Symbolpakete auf:
 
 - Nur die folgenden Dateierweiterungen sind in Symbolpaketen zulässig: `.pdb`, `.nuspec`, `.xml`, `.psmdcp`, `.rels`, `.p7s`
-- Auf dem NuGet-Symbolserver werden nur verwaltete [Portable PDB-Dateien](https://github.com/dotnet/corefx/blob/master/src/System.Reflection.Metadata/specs/PortablePdb-Metadata.md) unterstützt.
+- Auf dem NuGet-Symbolserver werden nur verwaltete [Portable PDB-Dateien](https://github.com/dotnet/runtime/blob/87572a799bfd37779c079faf28544e3f9a16be58/src/libraries/System.Reflection.Metadata/specs/PortablePdb-Metadata.md) unterstützt.
 - Die PDB-Dateien und ihre zugehörigen NUPKG-DLLs müssen mit dem Compiler in Visual Studio 15.9 oder höher erstellt worden sein (weitere Informationen unter [PDB crypto hash (Kryptografiehash für PDB-Dateien)](https://github.com/dotnet/roslyn/issues/24429)).
 
 Bei Symbol Paketen, die auf NuGet.org veröffentlicht werden, tritt bei der Überprüfung ein Fehler auf, wenn diese Bedingungen nicht erfüllt sind. 
@@ -130,7 +130,7 @@ Das Symbolpaket (.snupkg) weist die folgenden Eigenschaften auf:
 5) Die folgenden Felder werden aus der NUSPEC-Datei von SNUPKG ausgeschlossen: ```authors```, ```owners```, ```requireLicenseAcceptance```, ```license type```, ```licenseUrl``` und ```icon```.
 6) Verwenden Sie nicht das ```<license>```-Element. Eine SNUPKG-Datei wird von der gleichen Lizenz abgedeckt wie die entsprechende NUPKG-Datei.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 Erwägen Sie die Verwendung von SourceLink, um das Debuggen des Quellcodes von .NET-Assemblys zu aktivieren. Weitere Informationen finden Sie in der [SourceLink-Anleitung](/dotnet/standard/library-guidance/sourcelink).
 

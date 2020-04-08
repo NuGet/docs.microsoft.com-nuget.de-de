@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 07/27/2017
 ms.topic: reference
 ms.openlocfilehash: 5ecbcd4855de8ea7b6301a5e307779216baf96fc
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/15/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "69488284"
 ---
 # <a name="projectjson-reference"></a>project.json-Verweis
@@ -73,12 +73,12 @@ Welche Objekte von Abhängigkeiten in das Projekt der obersten Ebene eingefügt 
 | contentFiles | Inhalt  |
 | Laufzeit | Runtime, Ressourcen und Frameworkassemblys  |
 | compile | lib |
-| Build | Build (MSBuild-Eigenschaften und -Ziele) |
+| build | Build (MSBuild-Eigenschaften und -Ziele) |
 | Systemeigen | Systemeigen |
-| Keine | Keine Ordner |
-| alle | Alle Ordner |
+| none | Keine Ordner |
+| all | Alle Ordner |
 
-`exclude`-Tags haben Vorrang gegenüber `include`-Tags. `include="runtime, compile" exclude="compile"` entspricht beispielsweise `include="runtime"`.
+`exclude`-Tags haben Vorrang gegenüber `include`-Tags. Beispielsweise entspricht `include="runtime, compile" exclude="compile"``include="runtime"`.
 
 Wenn Sie die Ordner `build` und `native` einer Abhängigkeit einschließen möchten, müssen Sie folgende Tags verwenden:
 
@@ -136,7 +136,7 @@ Listet die Betriebssysteme und Architekturen auf, für die Ihre App ausgeführt 
 In einem Paket mit einer PCL, die in einer beliebigen Laufzeit ausgeführt werden kann, muss keine Laufzeit angegeben werden. Bei allen Abhängigkeiten muss dies auch auf „TRUE“festgelegt werden, andernfalls müssen Sie die Laufzeiten angeben.
 
 
-## <a name="supports"></a>Supports
+## <a name="supports"></a>Unterstützt
 
 Definiert eine Reihe von Überprüfungen für Paketabhängigkeiten. Sie können definieren, wo die PCL oder App ausgeführt werden soll. Die Definitionen sind nicht restriktiv, Ihr Code kann auch anderswo ausgeführt werden. Eine Angabe dieser Überprüfungen führt jedoch dazu, dass NuGet überprüft, ob alle Abhängigkeiten in den aufgeführten TxMs erfüllt wurden. Beispiele für die Werte hierfür sind: `net46.app`, `uwp.10.0.app` usw.
 
@@ -149,7 +149,7 @@ Dieser Abschnitt sollte automatisch gefüllt werden, wenn Sie im Dialogfeld mit 
 }
 ```
 
-## <a name="imports"></a>Imports
+## <a name="imports"></a>Importe
 
 Imports-Tags werden entwickelt, damit Pakete, in denen das `dotnet` TxM verwendet wird, mit Paketen funktionieren, in denen kein .NET TxM deklariert ist. Wird in Ihrem Projekt das `dotnet` TxM verwendet, müssen alle Pakete, zu denen es eine Abhängigkeit gibt, ebenfalls über ein `dotnet` TxM verfügen. Dies trifft nur dann nicht zu, wenn Sie Folgendes zu Ihrer `project.json` hinzufügen, sodass Nicht-`dotnet`-Plattformen mit `dotnet` kompatibel sein können:
 
@@ -176,6 +176,6 @@ In NuGet 3 und höher wird nicht erwartet, dass Entwickler `project.json` manuel
 
 ## <a name="projectlockjson"></a>project.lock.json
 
-Die Datei `project.lock.json` wird bei der Wiederherstellung der NuGet-Pakete in Projekten generiert, die `project.json` verwenden. Sie enthält eine Momentaufnahme aller Informationen, die generiert werden, wenn NuGet das Diagramm mit den Paketen durchgeht, und enthält die Version, Inhalte sowie Abhängigkeiten aller Pakete in Ihrem Projekt. Das Buildsystem wählt anhand dieser Momentaufnahme Pakete aus einem globalen Pfad aus, die bei der Erstellung des Projekts relevant sind, und ist so nicht von einem lokalen Paketordner im Projekt selbst abhängig. Dies führt zu einer schnelleren Buildleistung, da statt vieler separater `.nuspec`-Dateien nur `project.lock.json` gelesen werden muss.
+Die Datei `project.lock.json` wird bei der Wiederherstellung der NuGet-Pakete in Projekten generiert, die `project.json` verwenden. Sie enthält eine Momentaufnahme aller Informationen, die generiert werden, wenn NuGet das Diagramm mit den Paketen durchgeht, und enthält die Version, Inhalte sowie Abhängigkeiten aller Pakete in Ihrem Projekt. Das Buildsystem wählt anhand dieser Momentaufnahme Pakete aus einem globalen Pfad aus, die bei der Erstellung des Projekts relevant sind, und ist so nicht von einem lokalen Paketordner im Projekt selbst abhängig. Dies führt zu einer schnelleren Buildleistung, da statt vieler separater `project.lock.json`-Dateien nur `.nuspec` gelesen werden muss.
 
 `project.lock.json` wird bei der Paketwiederherstellung automatisch generiert. Folglich kann die Datei bei der Quellcodeverwaltung ausgelassen werden, indem sie zu den `.gitignore`- und `.tfignore`-Dateien hinzugefügt wird (siehe [Packages and source control](../consume-packages/packages-and-source-control.md) (Pakete und Quellcodeverwaltung). Wenn Sie die Datei in die Quellcodeverwaltung einschließen, werden im Änderungsverlauf Änderungen der Abhängigkeiten angezeigt, die im Verlauf der Zeit aufgelöst wurden.

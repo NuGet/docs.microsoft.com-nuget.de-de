@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
 ms.openlocfilehash: 8f2b33a7290301bd16db3b1979ae496eee602f55
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "75383657"
 ---
 # <a name="known-issues-with-nuget"></a>Bekannte Probleme mit NuGet
@@ -75,7 +75,7 @@ Weitere Informationen zu diesem Fehler finden Sie in diesem [Arbeitselement](htt
 
 ## <a name="build-failure-after-package-update-in-vs-2012"></a>Buildfehler nach dem Aktualisieren des Pakets in Visual Studio 2012
 
-Das Problem: Sie verwenden Visual Studio 2012 RTM. Beim Aktualisieren von NuGet-Paketen erhalten Sie die folgende Meldung: „Mindestens ein Paket konnte nicht deinstalliert werden.“ Sie werden außerdem dazu aufgefordert, Visual Studio neu zu starten. Nach dem Neustart von Visual Studio erhalten Sie merkwürdige Buildfehler.
+Das Problem: Sie verwenden Visual Studio 2012 RTM. Wenn Sie NuGet-Pakete aktualisieren, wird Ihnen folgende Meldung angezeigt: „Mindestens ein Paket konnte nicht vollständig deinstalliert werden.“ Sie werden außerdem dazu aufgefordert, Visual Studio neu zu starten. Nach dem Neustart von Visual Studio erhalten Sie merkwürdige Buildfehler.
 
 Dies wird durch bestimmte Dateien in alten Paketen verursacht, die durch einen MSBuild-Hintergrundprozess gesperrt sind. Auch nach dem Neustart von Visual Studio verwendet der MSBuild-Hintergrundprozess diese Dateien noch in den alten Paketen, wodurch die Buildfehler verursacht werden.
 
@@ -171,7 +171,7 @@ Wenn Sie Pakete installiert haben, die mit einer Vorabversion von NuGet erstellt
 
 ## <a name="attempting-to-install-or-uninstall-results-in-the-error-cannot-create-a-file-when-that-file-already-exists"></a>Beim Versuch einer Installation oder Deinstallation wird die Fehlermeldung „Eine Datei kann nicht erstellt werden, wenn sie bereits vorhanden ist.“ angezeigt.
 
-Aus unbekannten Gründen können Visual Studio-Erweiterungen einen merkwürdigen Status aufweisen, bei dem die Erweiterung für VSIX zwar deinstalliert wurde, aber einige Dateien verbleiben. So umgehen Sie dieses Problem:
+Aus unbekannten Gründen können Visual Studio-Erweiterungen einen merkwürdigen Status aufweisen, bei dem die Erweiterung für VSIX zwar deinstalliert wurde, aber einige Dateien verbleiben. So können Sie dieses Problem umgehen:
 
 1. Visual Studio beenden
 1. Öffnen Sie folgenden Ordner (dieser könnte sich auf Ihrem Computer auf einem anderen Laufwerk befinden):

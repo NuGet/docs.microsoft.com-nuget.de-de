@@ -6,11 +6,11 @@ ms.author: anangaur
 ms.date: 3/7/2018
 ms.topic: conceptual
 ms.openlocfilehash: eacd29d4c9340a0f015fcdf6c5b9dd41bf781419
-ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58432555"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64498685"
 ---
 # <a name="nuget-46-release-notes"></a>Anmerkungen zu NuGet 4.6
 

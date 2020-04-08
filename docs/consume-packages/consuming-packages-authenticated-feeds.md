@@ -6,10 +6,10 @@ ms.author: nikolev
 ms.date: 02/28/2020
 ms.topic: conceptual
 ms.openlocfilehash: bb624ec6987dd5c6ee38d5bb7e01200487dd4bed
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "78231740"
 ---
 # <a name="consuming-packages-from-authenticated-feeds"></a>Nutzen von Paketen aus authentifizierten Feeds
@@ -42,7 +42,7 @@ Folgende Plug-In-Anmeldeinformationsanbieter sind verfügbar:
 
 ### <a name="nugetexe"></a>nuget.exe
 
-Wenn `nuget.exe` Anmeldeinformationen für die Authentifizierung bei einem Feed benötigt, werden diese Informationen wie folgt gesucht:
+Wenn `nuget.exe` Anmeldeinformationen für die Authentifizierung bei einem Feed benötigt, werden diese wie folgt gesucht:
 
 1. Suchen nach Anmeldeinformationen in `NuGet.config`-Dateien.
 1. Verwenden von V2-Plug-In-Anmeldeinformationsanbietern

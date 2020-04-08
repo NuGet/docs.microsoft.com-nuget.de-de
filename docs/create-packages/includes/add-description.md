@@ -1,14 +1,14 @@
 ---
 ms.openlocfilehash: b615bcb78ad2eaf8524bfbf17864d4652e546ff1
-ms.sourcegitcommit: 1a63a84da2719c8141823ac89a20bf507fd22b00
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "80151056"
 ---
 Die optionale Beschreibung des Pakets, die auf der Seite NuGet.org des Pakets angezeigt wird, wird entweder aus der `<description></description>` abgerufen, die in der `.csproj`-Datei verwendet wird, oder sie wird über die `$description` in der [.nuspec-Datei](../../reference/nuspec.md) abgerufen.
 
-Der folgende XML-Text der `.csproj`-Datei für ein .NET-Paket zeigt ein Beispiel für ein Feld _Beschreibung_:
+Der folgende XML-Text der _-Datei für ein .NET-Paket zeigt ein Beispiel für ein Feld_ Beschreibung`.csproj`:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">

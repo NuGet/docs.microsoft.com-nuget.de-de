@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.openlocfilehash: 712e4c7159aa9719052330d8e45f63e18e390325
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "78230578"
 ---
 # <a name="create-a-nuget-package-using-the-dotnet-cli"></a>Erstellen eines NuGet-Pakets mithilfe der dotnet-CLI
@@ -104,7 +104,7 @@ Um automatisch `dotnet pack` auszuführen, wenn Sie `dotnet build` ausführen, f
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 ```
 
-Wenn Sie `dotnet pack` für eine Projektmappe ausführen, werden alle Projekte in der Projektmappe verpackt, die verpackt werden können (die Eigenschaft [<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) wird auf `true` festgelegt).
+Wenn Sie `dotnet pack` für eine Lösung ausführen, werden alle Projekte in der Lösung verpackt, die verpackt werden können (die Eigenschaft [<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) wird auf `true` festgelegt).
 
 > [!NOTE]
 > Wenn Sie das Paket automatisch generieren, erhöht die Zeit zum Verpacken die Erstellungszeit für Ihr Projekt.

@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: 034b9dd9699af529e4d82d6ee5b1c42214673341
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79428600"
 ---
 # <a name="manage-package-trust-boundaries"></a>Verwalten von Paketvertrauensgrenzen
@@ -24,7 +24,7 @@ Für die Installation von signierten Paketen sind keine besonderen Aktionen erfo
 > [!Note]
 > Erfordert NuGet 4.9.0+ und Visual Studio Version 15.9 oder höher unter Windows.
 
-Sie können konfigurieren, wie NuGet-Clients Paketsignaturen überprüfen, indem Sie mithilfe des [`nuget config`](../reference/cli-reference/cli-ref-config.md)-Befehls den `signatureValidationMode` in der [nuget.config](../reference/nuget-config-file.md)-Datei auf `require` festlegen.
+Sie können konfigurieren, wie NuGet-Clients Paketsignaturen überprüfen, indem Sie mithilfe des `signatureValidationMode``require`[-Befehls den ](../reference/nuget-config-file.md) in der [nuget.config`nuget config`-Datei auf ](../reference/cli-reference/cli-ref-config.md) festlegen.
 
 ```cmd
 nuget.exe config -set signatureValidationMode=require
@@ -40,7 +40,7 @@ Dieser Modus überprüft, ob alle Pakete mit einem der in der Datei „`nuget.co
 
 ### <a name="trust-package-author"></a>Einstufen des Paketerstellers als vertrauenswürdig
 
-Um Pakete basierend auf der Signatur des Erstellers als vertrauenswürdig einzustufen, legen Sie die `author`-Eigenschaft mithilfe des [`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md)-Befehls in der nuget.config-Datei fest.
+Um Pakete basierend auf der Signatur des Erstellers als vertrauenswürdig einzustufen, legen Sie die [-Eigenschaft mithilfe des `trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md)`author`-Befehls in der nuget.config-Datei fest.
 
 ```cmd
 nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE40881FF5F0AD3E58965DA20A9F571EF1651A56933748E1BF1C99E537C4E039 -FingerprintAlgorithm SHA256

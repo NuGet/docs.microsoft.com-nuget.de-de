@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 11/05/2019
 ms.topic: tutorial
 ms.openlocfilehash: 0cb653bad9e853d908039b3f7a94e1dd7eefdde5
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "78230901"
 ---
 # <a name="create-packages-for-xamarin-with-visual-studio-2017-or-2019"></a>Erstellen von Paketen für Xamarin mit Visual Studio 2017 oder 2019
@@ -18,7 +18,7 @@ Ein Paket für Xamarin enthält Code, der native APIs unter iOS, Android und Win
 
 In dieser exemplarischen Vorgehensweise erstellen Sie mit Visual Studio 2017 oder 2019 ein plattformübergreifendes NuGet-Paket, das in mobilen Projekten unter iOS, Android und Windows verwendet werden kann.
 
-1. [Erforderliche Komponenten](#prerequisites)
+1. [Voraussetzungen](#prerequisites)
 1. [Erstellen der Projektstruktur und abstrakten Codes](#create-the-project-structure-and-abstraction-code)
 1. [Schreiben von plattformspezifischem Code](#write-your-platform-specific-code)
 1. [Erstellen und Aktualisieren der NUSPEC-Datei](#create-and-update-the-nuspec-file)
@@ -265,7 +265,7 @@ Mithilfe der vollständigen `.nuspec`-Datei, die auf alle Dateien verweist, die 
 nuget pack LoggingLibrary.nuspec
 ```
 
-Dadurch wird `LoggingLibrary.YOUR_NAME.1.0.0.nupkg` generiert. Wenn Sie diese Datei in einem Tool wie dem [NuGet-Paket-Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) öffnen und alle Knoten erweitern, werden Ihnen folgende Inhalte angezeigt:
+`LoggingLibrary.YOUR_NAME.1.0.0.nupkg` wird generiert. Wenn Sie diese Datei in einem Tool wie dem [NuGet-Paket-Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) öffnen und alle Knoten erweitern, werden Ihnen folgende Inhalte angezeigt:
 
 ![NuGet-Paket-Explorer zeigt das LoggingLibrary-Paket an](media/Cross-Platform-PackageExplorer.png)
 

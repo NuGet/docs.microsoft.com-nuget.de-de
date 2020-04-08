@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
 ms.openlocfilehash: a86a58f8afb4b0f1affeddd47d6c5606fb465757
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "73611004"
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>Einrichten der Paketwiederherstellung mit Team Foundation Build
@@ -94,7 +94,7 @@ Der Quellcode befindet sich im Ordner `src`. Obwohl in unserem Beispiel nur eine
 </configuration>
 ```
 
-Es wurden auch IGNORE-Dateien für Git (`.gitignore`) und Team Foundation-Versionskontrolle (`.tfignore`) hinzugefügt, um der Versionskontrolle mitzuteilen, dass der **packages**-Ordner nicht eingecheckt werden sollen. Diese Dateien beschreiben Dateimuster, die Sie nicht einchecken möchten.
+Es wurden auch IGNORE-Dateien für Git ( **) und Team Foundation-Versionskontrolle (** ) hinzugefügt, um der Versionskontrolle mitzuteilen, dass der `.gitignore`packages`.tfignore`-Ordner nicht eingecheckt werden sollen. Diese Dateien beschreiben Dateimuster, die Sie nicht einchecken möchten.
 
 Die `.gitignore`-Datei sieht folgendermaßen aus:
 

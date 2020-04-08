@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.openlocfilehash: 4b95251e4b055523a9533b4125589b2650be932d
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79428468"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Auflösung von Paketabhängigkeiten durch NuGet
@@ -55,7 +55,7 @@ Wenn eine Anwendung eine genaue Versionsnummer wie 1.2 angibt, die auf dem Feed 
 
 #### <a name="floating-versions"></a>Unverankerte Versionen
 
-Eine unverankerte Abhängigkeitsversion wird mit dem Zeichen \* angegeben. Beispielsweise `6.0.*`. Diese Versionsspezifikation legt fest, dass die neueste 6.0.x-Version verwendet werden soll; `4.*` legt hingegen fest, dass die neueste 4.x-Version verwendet werden soll. Durch die Verwendung einer unverankerten Version werden Änderungen an der Projektdatei reduziert, während gleichzeitig die neueste Version einer Abhängigkeit auf dem neuesten Stand gehalten wird.
+Eine unverankerte Abhängigkeitsversion wird mit dem Zeichen \* angegeben. Beispiel: `6.0.*`. Diese Versionsspezifikation legt fest, dass die neueste 6.0.x-Version verwendet werden soll; `4.*` legt hingegen fest, dass die neueste 4.x-Version verwendet werden soll. Durch die Verwendung einer unverankerten Version werden Änderungen an der Projektdatei reduziert, während gleichzeitig die neueste Version einer Abhängigkeit auf dem neuesten Stand gehalten wird.
 
 Wenn eine unverankerte Version verwendet wird, löst NuGet die höchste Version eines Pakets auf, die dem Versionsmuster entspricht. Beispielsweise wird für `6.0.*` die höchste Version eines Pakets abgerufen, die mit 6.0 beginnt:
 

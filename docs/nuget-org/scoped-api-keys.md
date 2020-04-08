@@ -6,17 +6,17 @@ ms.author: mikejo
 ms.date: 06/04/2019
 ms.topic: conceptual
 ms.openlocfilehash: 12d12d5294a474c4d3e4f5d3cad468bb515d21d5
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "67426945"
 ---
 # <a name="scoped-api-keys"></a>Bereichsbezogene API-Schlüssel
 
 Sie können API-Schlüssel anhand von Bereichen einschränken, um NuGet eine sicherere Umgebung zur Verteilung von Paketen zu machen.
 
-Wenn Sie Bereiche für Ihre API-Schlüssel festlegen können, können Sie Ihre APIs besser kontrollieren. Sie haben folgende Möglichkeiten:
+Wenn Sie Bereiche für Ihre API-Schlüssel festlegen können, können Sie Ihre APIs besser kontrollieren. Ihre Möglichkeiten:
 
 - Sie können API-Schlüssel mit mehreren Bereichen erstellen, die für unterschiedliche Pakete mit verschiedenen Ablauffristen erstellt werden können.
 - Sie können API-Schlüssel sicher erhalten.
@@ -29,7 +29,7 @@ Bereiche für API-Schlüssel werden unterstützt, damit Sie genauere Berechtigun
 
 - **Ein API-Schlüssel für alle Pakete:** Mit einem API-Schlüssel zum Verwalten aller Pakete ist es schwer, den Schlüssel sicher zu teilen, wenn mehrere Entwickler mit verschiedenen Paketen involviert sind und ein Herausgeberkonto gemeinsam verwenden.
 - **Entweder alle oder keine Berechtigungen:** Jeder Benutzer mit Zugriffsberechtigungen für den API-Schlüssel hat alle Berechtigungen (Veröffentlichen, Pushen und Aufheben der Auflistung). Das ist in Umgebungen mit mehreren Teams oft unerwünscht.
-- **Single Point of Failure:** Ein einziger API-Schlüssel bedeutet auch ein Single Point of Failure. Wenn der Schlüssel kompromittiert wird, sind auch alle Pakete, die mit dem Konto verknüpft sind, potenziell kompromittiert. Diese Bedrohung kann nur durch eine Änderung des API-Schlüssels behoben werden. Zudem kann nur so eine Unterbrechung Ihres CI/CD-Workflows vermieden werden. Darüber hinaus kann es Fälle geben, in denen Sie den Zugriff auf den API-Schlüssel für eine Einzelperson widerrufen möchten (wenn z. B. ein Angestellter die Organisation verlässt). Das kann momentan noch nicht unkompliziert gelöst werden.
+- **Einzelne Fehlerquelle**. Ein einziger API-Schlüssel bedeutet auch ein Single Point of Failure. Wenn der Schlüssel kompromittiert wird, sind auch alle Pakete, die mit dem Konto verknüpft sind, potenziell kompromittiert. Diese Bedrohung kann nur durch eine Änderung des API-Schlüssels behoben werden. Zudem kann nur so eine Unterbrechung Ihres CI/CD-Workflows vermieden werden. Darüber hinaus kann es Fälle geben, in denen Sie den Zugriff auf den API-Schlüssel für eine Einzelperson widerrufen möchten (wenn z. B. ein Angestellter die Organisation verlässt). Das kann momentan noch nicht unkompliziert gelöst werden.
 
 Mit bereichsbezogenen API-Schlüsseln möchten wir diese Probleme beheben und gleichzeitig sicherstellen, dass keine der bestehenden Workflows beeinträchtigt werden.
 
@@ -73,7 +73,7 @@ Der Kontobesitzer kann den Schlüssel aktualisieren. In diesem Fall bleiben die 
 
 Sie können diese Schlüssel auch löschen, wenn Sie sie nicht mehr benötigen. Wenn Sie den Schlüssel löschen, kann er nicht mehr verwendet werden.
 
-## <a name="faqs"></a>Häufig gestellte Fragen (FAQs)
+## <a name="faqs"></a>Häufig gestellte Fragen
 
 ### <a name="what-happens-to-my-old-legacy-api-key"></a>Was geschieht mit meinem alten (Legacy-)API-Schlüssel?
 
