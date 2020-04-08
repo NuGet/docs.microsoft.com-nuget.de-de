@@ -15,19 +15,19 @@
         - name: Erstellen von Paketen
           tocHref: /nuget/create-packages/
           topicHref: /nuget/create-packages/overview-and-workflow
-        - name: Führungslinien
+        - name: Anleitungen
           tocHref: /nuget/guides/
           topicHref: /nuget/guides/create-net-standard-packages-vs2017
         - name: Konzepte
           tocHref: /nuget/concepts/
           topicHref: /nuget/concepts/package-installation-process
-        - name: Referenz
+        - name: Verweis
           tocHref: /nuget/reference/
           topicHref: /nuget/reference/nuspec
         - name: API
           tocHref: /nuget/api/
           topicHref: /nuget/api/overview
-        - name: Erweiterungen
+        - name: Erweiterbarkeit
           tocHref: /nuget/reference/extensibility
           topicHref: /nuget/reference/extensibility/nuget-cross-platform-plugins
         - name: Visual Studio-Erweiterbarkeit
@@ -39,7 +39,7 @@
         - name: Richtlinien
           tocHref: /nuget/policies/
           topicHref: /nuget/policies/governance
-        - name: Anmerkungen zu diesem Release
+        - name: Versionshinweise
           tocHref: /nuget/release-notes/
           topicHref: /nuget/release-notes/known-issues
         - name: Ressourcen
