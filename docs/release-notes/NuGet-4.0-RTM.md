@@ -6,11 +6,11 @@ ms.author: anangaur
 ms.date: 03/03/2017
 ms.topic: conceptual
 ms.openlocfilehash: c27d0aa2e5c9af9cb15d2f487b93e93aca666214
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547760"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64496609"
 ---
 # <a name="nuget-40-rtm-release-notes"></a>Anmerkungen zu Version 4.0 RTM von NuGet
 
@@ -163,13 +163,13 @@ In den [Anmerkungen zu Version 4.0 RC von NuGet](../release-notes/nuget-4.0-RC.m
 
 - Die Option des Selektors für das Paketformat standardmäßig deaktivieren ([#4468](https://github.com/NuGet/Home/issues/4468))
 
-- Leistung: Das Projekt „CreateUAP_CSharp_VS.01.1.Create“ wurde zurückgesetzt, „Duration_TotalElapsedTime“ liegt bei 3.153,570 ms (149,1%) –  Baseline 26129,02 ([#4452](https://github.com/NuGet/Home/issues/4452))
+- Leistung: Das Projekt „CreateUAP_CSharp_VS.01.1.Create“ hat „Duration_TotalElapsedTime“ um 3.153,570 ms verschlechtert (149,1 %). Baseline 26129,02 ([#4452](https://github.com/NuGet/Home/issues/4452))
 
-- Leistung: Die Projektmappe „ManagedLangs_CS_DDRIT.0300.Rebuild“ wurde zurückgesetzt, „Duration_TotalElapsedTime“ liegt bei 1,5 Sekunden –  Baseline 26105 ([#4441](https://github.com/NuGet/Home/issues/4441))
+- Leistung: Die Projektmappe „ManagedLangs_CS_DDRIT.0300.Rebuild“ hat „Duration_TotalElapsedTime“ um 1,5 Sekunden verschlechtert. Baseline 26105 ([#4441](https://github.com/NuGet/Home/issues/4441))
 
 - Die Nominierung schlägt in Projekten mit mehreren TFMs fehl ([#4419](https://github.com/NuGet/Home/issues/4419))
 
-- Leistung: Die Projektmappe „WebForms_DDRIT.1200.Close“ wurde zurückgesetzt, „VM_ImagesInMemory_Total_devenv“ liegt bei 3,000 (0,5%) –  Baseline 26123,04 ([#4408](https://github.com/NuGet/Home/issues/4408))
+- Leistung: Die Projektmappe „WebForms_DDRIT.1200.Close“ hat „VM_ImagesInMemory_Total_devenv“ um 3.000 verschlechtert (0,5 %). Baseline 26123,04 ([#4408](https://github.com/NuGet/Home/issues/4408))
 
 - vsfeedback: Warnungen beim Packen, wenn netcoreapp1.1 angezielt wird ([#4397](https://github.com/NuGet/Home/issues/4397))
 
@@ -229,7 +229,7 @@ In den [Anmerkungen zu Version 4.0 RC von NuGet](../release-notes/nuget-4.0-RC.m
 
 - „Install-Package“ führt zu einer Fehlermeldung in Visual Studio 2017 RC ([#4127](https://github.com/NuGet/Home/issues/4127))
 
-- Das Aktualisieren eines Pakets für .NET Core-Projekte scheint nicht zu funktionieren, da die Benutzeroberfläche das CPS-Update nicht erhält ([#4035](https://github.com/NuGet/Home/issues/4035))
+- Das Aktualisieren eines Pakets für .NET Core-Projekte scheint nicht zu funktionieren, da die Benutzeroberfläche das CPS-Update nicht erhält([#4035](https://github.com/NuGet/Home/issues/4035))
 
 - Verbesserung der Warnung für nicht aufgelöste Verweise ([#3955](https://github.com/NuGet/Home/issues/3955))
 
@@ -238,7 +238,7 @@ In den [Anmerkungen zu Version 4.0 RC von NuGet](../release-notes/nuget-4.0-RC.m
 
 - Regression der insgesamt verstrichenen Zeit von „Erstellen einer UWP-App“, „Erstellen eines Projekts“ und „Neuerstellen“ ([#3873](https://github.com/NuGet/Home/issues/3873))
 
-- Die Meldung für die erfolgreiche Wiederherstellung wird auch angezeigt, wenn während der Wiederherstellung ein Fehler auftritt ([#3799](https://github.com/NuGet/Home/issues/3799))
+- Die Meldung für die erfolgreiche Wiederherstellung wird auch angezeigt, wenn während der Wiederherstellung ein Fehler auftritt([#3799](https://github.com/NuGet/Home/issues/3799))
 
 - Erneutes Veröffentlichen von Nuget.CommandLine 3.4.4 auf nuget.org ([#2931](https://github.com/NuGet/Home/issues/2931))
 
@@ -252,23 +252,23 @@ In den [Anmerkungen zu Version 4.0 RC von NuGet](../release-notes/nuget-4.0-RC.m
 
 - Die Fehlerliste enthält einen Fehler nach dem Erstellen der Projektmappe, der das Projekt entlädt, auf das verwiesen wird ([#4208](https://github.com/NuGet/Home/issues/4208))
 
-- MSB4057: „Das Ziel ‚_GenerateRestoreGraphProjectEntry‘ ist im Projekt nicht vorhanden.“ ([#4194](https://github.com/NuGet/Home/issues/4194))
+- MSB4057: Das Ziel „_GenerateRestoreGraphProjectEntry“ ist im Projekt nicht vorhanden. -  ([#4194](https://github.com/NuGet/Home/issues/4194))
 
 - vsfeedback: Die Benutzeroberfläche des NuGet-Managers für Projektmappen stürzt ab, wenn alle Projekte ausgewählt werden ([#4191](https://github.com/NuGet/Home/issues/4191))
 
 - „MSBuildPath“ von „nuget.exe“ schlägt fehl, wenn ein nachgestellter Schrägstrich vorhanden ist ([#4180](https://github.com/NuGet/Home/issues/4180))
 
-- vsfeedback: Die Wiederherstellung von NuGet gibt für das LinqToTwitter-Projekt mehrere Warnungen für Projektverweise aus ([#4156](https://github.com/NuGet/Home/issues/4156))
+- VS-Feedback: NuGet-Wiederherstellung gibt für das Projekt „LinqToTwitter“ mehrere Warnungen für Projektverweise aus ([#4156](https://github.com/NuGet/Home/issues/4156))
 
 - Beim Packen von `.csproj` aus wird das Attribut „minClientVersion“ nicht eingeschlossen ([#4135](https://github.com/NuGet/Home/issues/4135))
 
 - „NuGet.Build.Tasks.Pack.dll“ wird in Visual Studio 2017 als verzögert signiert (d15rel 26014.00) ([#4122](https://github.com/NuGet/Home/issues/4122))
 
-- VSFeedback: Wiederherstellung eines Visual Studio 2015-Projekts, das mit CMake 3.7.1 generiert wurde, schlägt fehl ([#4114](https://github.com/NuGet/Home/issues/4114))
+- VS-Feedback: Fehler bei der Wiederherstellung eines Visual Studio 2015-Projekts, das mit CMake 3.7.1 generiert wurde ([#4114](https://github.com/NuGet/Home/issues/4114))
 
-- VSFeedback: Fehler bei der Wiederherstellung können die umfangreicheren Fehlermeldungen des Builds verdecken ([#4113](https://github.com/NuGet/Home/issues/4113))
+- VS-Feedback: Fehlermeldungen bei der Wiederherstellung können die umfangreicheren Fehlermeldungen des Builds verbergen ([#4113](https://github.com/NuGet/Home/issues/4113))
 
-- [VSFeedback] Fehler beim Wiederherstellen von NuGet-Paketen für das Websiteprojekt: „Der Wert darf nicht NULL sein.“ ([#4092](https://github.com/NuGet/Home/issues/4092))
+- [VS-Feedback] Fehler beim Wiederherstellen von NuGet-Paketen für ein Websiteprojekt: Wert darf nicht NULL sein. -  ([#4092](https://github.com/NuGet/Home/issues/4092))
 
 - Bei der Migration wird eine Ausnahme beim Objektverweis in „NuGet.PackageManagement.VisualStudio.SolutionRestoreWorker“ ausgelöst ([#4067](https://github.com/NuGet/Home/issues/4067))
 
@@ -308,7 +308,7 @@ In den [Anmerkungen zu Version 4.0 RC von NuGet](../release-notes/nuget-4.0-RC.m
 
 - Der lokale Hilfetexte in NuGet erwähnt weiterhin den Paketcache ([#3592](https://github.com/NuGet/Home/issues/3592))
 
-- „Restore3“ koppelt „PackageReferences“ mit „TargetFrameworks“ ([#3504](https://github.com/NuGet/Home/issues/3504))
+- „Restore3“ koppelt „PackageReferences“ mit „TargetFrameworks“([#3504](https://github.com/NuGet/Home/issues/3504))
 
 - NuGet wählt in der Eingabeaufforderung von VS „15“ Developer (Vorschauversion 4) eine unerwartete Version von MSBuild aus ([#3408](https://github.com/NuGet/Home/issues/3408))
 

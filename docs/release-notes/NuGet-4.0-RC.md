@@ -7,11 +7,11 @@ ms.date: 02/03/2017
 ms.topic: conceptual
 ms.reviewer: ananguar
 ms.openlocfilehash: 2d0bb6356c0a20843bdc884b68f5f61838b82e73
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549245"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64496641"
 ---
 # <a name="nuget-40-rc-release-notes"></a>Anmerkungen zu Version 4.0 RC von NuGet
 
@@ -27,7 +27,7 @@ ms.locfileid: "43549245"
 
 - „Datei > Neues Projekt“ in .NET Core sollte den Build während der Wiederherstellung blockieren ([#3780](https://github.com/NuGet/Home/issues/3780))
 
-- ASP.NET Core-Apps, die von Visual Studio 2015 zu VS „15“ migriert wurden, können nicht wiederhergestellt werden ([#3773](https://github.com/NuGet/Home/issues/3773))
+- ASP.NET Core-Apps, die von Visual Studio 2015 zu VS „15“ migriert wurden, können nicht wiederhergestellt werden([#3773](https://github.com/NuGet/Home/issues/3773))
 
 - [Testfehler] Das Paket „jQuery Validation“ kann über die PM-Benutzeroberfläche nicht deinstalliert werden ([#3755](https://github.com/NuGet/Home/issues/3755))
 
@@ -54,7 +54,7 @@ ms.locfileid: "43549245"
 
 - Durch das Eingeben von „nuget <packagename>“ in das Suchfeld des Visual Studio-Schnellstarts wird das Präfix „nuget“ beibehalten ([#2719](https://github.com/NuGet/Home/issues/2719))
 
-- System.Xml.XmlException: Unbekanntes Stammelement im Bereich der Kerneigenschaften. Zeile 2, Position 2 ([#2718](https://github.com/NuGet/Home/issues/2718))
+- System.Xml.XmlException: Unbekanntes Stammelement im Core Properties-Teil. Zeile 2, Position 2([#2718](https://github.com/NuGet/Home/issues/2718))
 
 - Die `.nuspec`-Datei mit &lt;- oder &gt;-Escapezeichen in Textfeldern führt keine Builds mehr aus ([#2651](https://github.com/NuGet/Home/issues/2651))
 
@@ -73,7 +73,7 @@ ms.locfileid: "43549245"
 
 - Die Pushbenachrichtigung für ein Timeout von „nuget.exe“ benötigt eine bessere Fehlermeldung ([#2503](https://github.com/NuGet/Home/issues/2503))
 
-- Die Toolwiederherstellung schlägt ohne die richtigen Importe ohne Warnung fehl ([#2462](https://github.com/NuGet/Home/issues/2462))
+- Die Toolwiederherstellung schlägt ohne die richtigen Importe ohne Warnung fehl([#2462](https://github.com/NuGet/Home/issues/2462))
 
 - NuGet fordert dazu auf, Anmeldeinformationen einzugeben, wenn ein privater Feed vorhanden ist, auch wenn die Installation über nuget.org vorgenommen wird ([#2346](https://github.com/NuGet/Home/issues/2346))
 
@@ -83,7 +83,7 @@ ms.locfileid: "43549245"
 
 - Das erste OnBuild-Ereignis für die Wiederherstellung fehlt während des Builds für UWP ([#3489](https://github.com/NuGet/Home/issues/3489))
 
-- PowerShell 5 beschädigt die Installation von Entity Framework? ([#3312](https://github.com/NuGet/Home/issues/3312))
+- PowerShell 5 beschädigt die Installation von Entity Framework?([#3312](https://github.com/NuGet/Home/issues/3312))
 
 - Quelle zur ausführlichen Protokollierung hinzufügen (für 3.5 berücksichtigen) ([#3294](https://github.com/NuGet/Home/issues/3294))
 
@@ -129,7 +129,7 @@ ms.locfileid: "43549245"
 
 - Das C++-Paket für das UWP-C++-Projekt in VS „15“ (Vorschauversion) kann nicht installiert werden ([#2369](https://github.com/NuGet/Home/issues/2369))
 
-- Die NUPKG-Datei muss den Ordner „\buildCrossTargeting\“ unterstützen und `.targets` / `.props` für den zielübergreifenden MSBuild-Bereich importieren ([#3499](https://github.com/NuGet/Home/issues/3499))
+- Die NUPKG-Datei muss den Ordner „\buildCrossTargeting\“ unterstützen und `.targets` / `.props` für den zielübergreifenden MSBuild-Bereich importieren([#3499](https://github.com/NuGet/Home/issues/3499))
 
 - Entwurf von ToolsReference ([#3462](https://github.com/NuGet/Home/issues/3462))
 
@@ -139,11 +139,11 @@ ms.locfileid: "43549245"
 
 ## <a name="dcrs"></a>DCRs
 
-- Die Wiederherstellung von Projektmappen sollte während der automatischen Wiederherstellung blockiert werden ([#3797](https://github.com/NuGet/Home/issues/3797))
+- Die Wiederherstellung von Projektmappen sollte während der automatischen Wiederherstellung blockiert werden([#3797](https://github.com/NuGet/Home/issues/3797))
 
 - Die Installation von .NET Core über die Benutzeroberfläche des NuGet-Paket-Managers wird für jeden TFM statt nur für diejenigen durchgeführt, die vom Paket unterstützt werden ([#3721](https://github.com/NuGet/Home/issues/3721))
 
-- Die Wiederherstellung der Nominierungs-API muss ebenfalls DotNetCliToolsReferences unterstützen ([#3702](https://github.com/NuGet/Home/issues/3702))
+- Die Wiederherstellung der Nominierungs-API muss ebenfalls DotNetCliToolsReferences unterstützen([#3702](https://github.com/NuGet/Home/issues/3702))
 
 - VSIX (VS „15“) als Systemkomponente markieren ([#3700](https://github.com/NuGet/Home/issues/3700))
 
@@ -154,7 +154,7 @@ ms.locfileid: "43549245"
 - Die Wiederherstellung des Projekts mit einem einzelnen Zielframework sollte keine Eigenschaften erfordern ([#3588](https://github.com/NuGet/Home/issues/3588))
 
 - dotnet
-  - „dotnet restore3 foo.csproj“ muss „projectref“-Abhängigkeiten befolgen und diese auch wiederherstellen. wie bei „dotnet build“ den Abhängigkeiten der Projektverweise folgen und diese ebenfalls wiederherstellen ([#3577](https://github.com/NuGet/Home/issues/3577))
+  - „dotnet restore3 foo.csproj“ muss „projectref“-Abhängigkeiten befolgen und diese auch wiederherstellen. wie bei „dotnet build“ den Abhängigkeiten der Projektverweise folgen und diese ebenfalls wiederherstellen([#3577](https://github.com/NuGet/Home/issues/3577))
 
 - "type": "platform": Abhängigkeiten werden als "type":"package" in der Sperrdatei dargestellt ([#2695](https://github.com/NuGet/Home/issues/2695))
 
