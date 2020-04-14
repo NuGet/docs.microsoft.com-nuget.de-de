@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 833f4a67bc75c5d650e85180b52ecd8f69218f15
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 3abe809d76e75801c2f936aba129d27ba7b64913
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426975"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80581264"
 ---
 # <a name="deleting-packages"></a>Löschen von Paketen
 
 Das dauerhafte Löschen von Paketen wird von nuget.org nicht unterstützt. Andernfalls würden sämtliche Projekte nicht mehr funktionieren, je nach Verfügbarkeit des Pakets. Dies trifft insbesondere bei Buildworkflows zu, die mit der Paketwiederherstellung arbeiten.
 
-Nuget.org unterstützt jedoch das *Aufheben der Auflistung* eines Pakets. Dieser Vorgang kann auf der Website über die Seite zur Paketverwaltung durchgeführt werden. Nicht aufgelistete Pakete werden weder auf nuget.org noch auf der Benutzeroberfläche von Visual Studio angezeigt. Sie erscheinen auch nicht in den Suchergebnissen. Nicht aufgelistete Pakete können jedoch weiterhin mithilfe einer genauen Versionsnummer, die die Paketwiederherstellung unterstützt, heruntergeladen und installiert werden. Darüber hinaus können nicht aufgelistete Pakete in folgenden spezifischen Szenarios ggf. noch gefunden werden:
+Nuget.org unterstützt jedoch das [Aufheben der Auflistung eines Pakets](#unlisting-a-package). Dieser Vorgang kann auf der Website über die Seite zur Paketverwaltung durchgeführt werden. Nicht aufgelistete Pakete werden weder auf nuget.org noch auf der Benutzeroberfläche von Visual Studio angezeigt. Sie erscheinen auch nicht in den Suchergebnissen. Nicht aufgelistete Pakete können jedoch weiterhin mithilfe einer genauen Versionsnummer, die die Paketwiederherstellung unterstützt, heruntergeladen und installiert werden. Darüber hinaus können nicht aufgelistete Pakete in folgenden spezifischen Szenarios ggf. noch gefunden werden:
 
 - Bei Paketwiederherstellung mithilfe von übergreifenden Versionen (z.B. `1.0.0-*`), wenn das neueste verfügbare Paket, das den Versions- oder Abhängigkeitseinschränkungen entspricht, ein nicht aufgelistetes Paket ist
 - Replikation von Paketen durch den Katalog, da der Katalog ebenfalls nicht aufgelistete Pakete enthält
@@ -39,3 +39,17 @@ Pakete, auf die eines der folgenden Kriterien zutrifft, sind im öffentlichen Nu
 Wenn Sie bei einem Paket feststellen, dass ein Verstoß gegen einen oder mehrere dieser Punkte vorliegt, können Sie auf der Seite „Paketdetails“ auf den Link **Missbrauch melden** klicken und dies melden.
 
 Beachten Sie, dass sich das NuGet-Team und .NET Foundation das Recht vorbehalten, diese Kriterien jederzeit zu ändern.
+
+## <a name="unlisting-a-package"></a>Aufheben der Auflistung eines Pakets
+Durch das Aufheben der Auflistung einer Paketversion wird diese bei der Suche und auf der Detailseite des Pakets auf nuget.org ausgeblendet. Dies ermöglicht es bestehenden Benutzern des Pakets, dieses weiterhin zu verwenden, reduziert aber die Anzahl neuer Benutzer des Pakets, da es bei der Suche nicht angezeigt wird.
+
+Schritte zum Aufheben der Auflistung eines Pakets:
+
+1. Klicken `Your account name` (Sie auf Ihren Kontonamen) (rechts oben in der Ecke) und anschließend auf `Manage packages` (Pakete verwalten) > `Published packages` (Veröffentlichte Pakete).
+1. Klicken Sie auf das Symbol für „Manage package“ (Paket verwalten).
+1. Klappen Sie den Bereich „Listing“ (Auflistung) auf, und klicken Sie auf die gewünschte Paketversion.
+1. Deaktivieren Sie „List in search results“ (In Suchergebnissen aufführen), und klicken Sie auf „Speichern“.
+
+Die Auflistung der ausgewählten Paketversion wurde nun aufgehoben. Melden Sie sich aus Ihrem Konto ab, und navigieren Sie zur Paketseite (ohne den Versionsteil), z. B. https://www.nuget.org/packages/YOUR-PACKAGE-NAME/, um dies zu überprüfen. Ihnen werden alle Versionen des Pakets angezeigt, für die die Auflistung **nicht** aufgehoben wurde. Der Paketbesitzer kann, wenn er angemeldet ist, allerdings alle Versionen und deren Auflistungsstatus sehen.
+
+Es ist auch möglich, eine Paketversion als veraltet zu kennzeichnen (falls Sie diese nicht löschen können). Weitere Informationen zur Kennzeichnung von Paketversionen als veraltet finden Sie unter [Als veraltet gekennzeichnete Pakete](../deprecate-packages.md).
