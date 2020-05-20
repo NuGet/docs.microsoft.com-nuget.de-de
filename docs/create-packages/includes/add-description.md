@@ -6,9 +6,9 @@ ms.contentlocale: de-DE
 ms.lasthandoff: 04/07/2020
 ms.locfileid: "80151056"
 ---
-<span data-ttu-id="0bcf2-101">Die optionale Beschreibung des Pakets, die auf der Seite NuGet.org des Pakets angezeigt wird, wird entweder aus der `<description></description>` abgerufen, die in der `.csproj`-Datei verwendet wird, oder sie wird über die `$description` in der [.nuspec-Datei](../../reference/nuspec.md) abgerufen.</span><span class="sxs-lookup"><span data-stu-id="0bcf2-101">The package's optional description, displayed on the package's NuGet.org page, is either pulled in from the `<description></description>` used in the `.csproj` file or pulled in via the `$description` in the [.nuspec file](../../reference/nuspec.md).</span></span>
+<span data-ttu-id="8455c-101">Die optionale Beschreibung des Pakets, die auf der Seite NuGet.org des Pakets angezeigt wird, wird entweder aus der `<description></description>` abgerufen, die in der `.csproj`-Datei verwendet wird, oder sie wird über die `$description` in der [.nuspec-Datei](../../reference/nuspec.md) abgerufen.</span><span class="sxs-lookup"><span data-stu-id="8455c-101">The package's optional description, displayed on the package's NuGet.org page, is either pulled in from the `<description></description>` used in the `.csproj` file or pulled in via the `$description` in the [.nuspec file](../../reference/nuspec.md).</span></span>
 
-<span data-ttu-id="0bcf2-102">Der folgende XML-Text der _-Datei für ein .NET-Paket zeigt ein Beispiel für ein Feld_ Beschreibung`.csproj`:</span><span class="sxs-lookup"><span data-stu-id="0bcf2-102">An example of a _description_ field is shown in the following XML text of the `.csproj` file for a .NET package:</span></span>
+<span data-ttu-id="8455c-102">Der folgende XML-Text der `.csproj`-Datei für ein .NET-Paket zeigt ein Beispiel für ein Feld _Beschreibung_:</span><span class="sxs-lookup"><span data-stu-id="8455c-102">An example of a _description_ field is shown in the following XML text of the `.csproj` file for a .NET package:</span></span>
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
