@@ -50,7 +50,7 @@ Sie besitzen nun ein NuGet.org-Konto. Sie können Ihr Konto über die Seite [acc
 
 Die zweistufige Authentifizierung, oder 2FA, stellt eine zusätzliche Sicherheitsebene dar, die bei der Anmeldung auf Websites oder in Apps verwendet wird. Mit der zweistufigen Authentifizierung müssen Sie sich mit Ihrem Microsoft-Konto (MSA) anmelden und eine weitere Authentifizierungsart bereitstellen, die ausschließlich Sie kennen oder auf die ausschließlich Sie zugreifen können. Aktivieren Sie die zweistufige Authentifizierung (empfohlen), um Ihr Konto besser zu schützen.
 
-1. Öffnen Sie nach der Anmeldung bei Ihrem Konto Ihr Profil, und wählen Sie **Aktivieren** unter **Anmeldekonto** aus.
+1. Öffnen Sie nach der Anmeldung bei Ihrem Konto Ihr Profil, und wählen Sie **Aktivieren**unter**Anmeldekonto** aus.
 
    ![2FA aktivieren](media/nuget-org-register-2fa.png)
 
