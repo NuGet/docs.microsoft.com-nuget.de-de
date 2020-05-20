@@ -85,7 +85,7 @@ Befolgen Sie folgende drei Schritte, um die erste `.nuspec`-Datei zu erstellen. 
 
 Eine Komponente für Windows-Runtime erfordert Metadaten, die alle öffentlich verfügbaren Typen beschreibt. Dadurch wird es anderen Apps und Bibliotheken ermöglicht, die Komponente zu nutzen. Die Metadaten sind in einer WINMD-Datei enthalten. Diese wird erstellt, wenn Sie das Projekt kompilieren und muss in Ihrem NuGet-Paket enthalten sein. Gleichzeitig wird außerdem eine XML-Datei mit IntelliSense-Daten erstellt, die ebenfalls enthalten sein sollte.
 
-Fügen Sie der `<files>`-Datei folgenden `.nuspec`-Knoten hinzu:
+Fügen Sie der `.nuspec`-Datei folgenden `<files>`-Knoten hinzu:
 
 ```xml
 <package>

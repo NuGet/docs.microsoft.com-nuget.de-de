@@ -75,7 +75,7 @@ Angenommen, das Projekt weist zu Beginn folgende Inhalte in der Datei `web.confi
 </configuration>
 ```
 
-Wenn Sie ein `MyNuModule`-Element während der Paketinstallation zum Abschnitt `modules` hinzufügen möchten, erstellen Sie im Ordner `web.config.transform` des Pakets eine Datei vom Typ `content`, die wie folgt aussieht:
+Wenn Sie ein `MyNuModule`-Element während der Paketinstallation zum Abschnitt `modules` hinzufügen möchten, erstellen Sie im Ordner `content` des Pakets eine Datei vom Typ `web.config.transform`, die wie folgt aussieht:
 
 ```xml
 <configuration>
@@ -117,7 +117,7 @@ Erstellen Sie ein neues ASP.NET-Projekt in Visual Studio (die Vorlage ist unter 
 
 Sie können Konfigurationsdateien über die [XDT-Syntax](https://msdn.microsoft.com/library/dd465326.aspx) ändern. Sie können auch veranlassen, dass NuGet Token über [Projekteigenschaften](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) ersetzt, indem der Eigenschaftenname innerhalb der Trennzeichen `$` (ohne Berücksichtigung der Groß-/Kleinschreibung) eingeschlossen wird.
 
-In der folgenden Datei `app.config.install.xdt` wird beispielsweise ein `appSettings`-Element mit den Werten `app.config`, `FullPath`, und `FileName` des Projekts in `ActiveConfigurationSettings` eingefügt:
+In der folgenden Datei `app.config.install.xdt` wird beispielsweise ein `appSettings`-Element mit den Werten `FullPath`, `FileName`, und `ActiveConfigurationSettings` des Projekts in `app.config` eingefügt:
 
 ```xml
 <?xml version="1.0"?>

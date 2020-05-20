@@ -24,7 +24,7 @@ Damit die Phasen des Softwareveröffentlichungsprozesses unterstützt werden kö
 
 Solche Versionen können Sie über eine der folgenden Vorgehensweisen angeben:
 
-- **Wenn in Ihrem Projekt [`PackageReference`](../consume-packages/package-references-in-project-files.md)** verwendet wird, schließen Sie das Suffix der semantischen Versionierung im `.csproj`[`PackageVersion`-Element der ](/dotnet/core/tools/csproj.md#packageversion)-Datei ein:
+- **Wenn in Ihrem Projekt [`PackageReference`](../consume-packages/package-references-in-project-files.md)** verwendet wird, schließen Sie das Suffix der semantischen Versionierung im [`PackageVersion`](/dotnet/core/tools/csproj.md#packageversion)-Element der `.csproj`-Datei ein:
 
     ```xml
     <PropertyGroup>
@@ -32,7 +32,7 @@ Solche Versionen können Sie über eine der folgenden Vorgehensweisen angeben:
     </PropertyGroup>
     ```
 
-- **Wenn in Ihrem Projekt eine [`packages.config`](../reference/packages-config.md)-Datei** verwendet wird, schließen Sie das Suffix der semantischen Versionierung im [`.nuspec`](../reference/nuspec.md)-Element der [`version`](../reference/nuspec.md#version)-Datei ein:
+- **Wenn in Ihrem Projekt eine [`packages.config`](../reference/packages-config.md)-Datei** verwendet wird, schließen Sie das Suffix der semantischen Versionierung im [`version`](../reference/nuspec.md#version)-Element der [`.nuspec`](../reference/nuspec.md)-Datei ein:
 
     ```xml
     <version>1.0.1-alpha</version>

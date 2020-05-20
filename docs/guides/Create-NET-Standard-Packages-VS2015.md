@@ -37,7 +37,7 @@ Dieser Leitfaden begleitet Sie durch das Erstellen eines NuGet-Pakets für die .
 
 1. Wählen Sie im angezeigten Dialogfeld **Portable Klassenbibliothek hinzufügen** die Optionen für `.NET Framework 4.6` und `ASP.NET Core 1.0` aus. (Für .NET Framework können Sie die entsprechenden Optionen auswählen.)
 
-1. Für .NET Standard klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf `AppLogger (Portable)`, und wählen Sie dann unter **Eigenschaften** die Registerkarte **Bibliothek**. Wählen Sie dort im Abschnitt **Ziel** die Option **Ziel: .NET-Plattform (Standard)** . Sie werden aufgefordert, diese Aktion zu bestätigen. Anschließend können Sie `.NET Standard 1.4` (oder eine andere verfügbare Version) aus der Dropdownliste auswählen:
+1. Für .NET Standard klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf `AppLogger (Portable)`, und wählen Sie dann unter **Eigenschaften** die Registerkarte **Bibliothek**. Wählen Sie dort im Abschnitt **Ziel** die Option **Ziel: .NET-Plattform (Standard)**. Sie werden aufgefordert, diese Aktion zu bestätigen. Anschließend können Sie `.NET Standard 1.4` (oder eine andere verfügbare Version) aus der Dropdownliste auswählen:
 
     ![Festlegen des Ziels auf .NET Standard 1.4](media/NetStandard-ChangeTarget.png)
 

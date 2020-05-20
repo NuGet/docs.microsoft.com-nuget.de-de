@@ -8,7 +8,7 @@ ms.locfileid: "80151056"
 ---
 Die optionale Beschreibung des Pakets, die auf der Seite NuGet.org des Pakets angezeigt wird, wird entweder aus der `<description></description>` abgerufen, die in der `.csproj`-Datei verwendet wird, oder sie wird über die `$description` in der [.nuspec-Datei](../../reference/nuspec.md) abgerufen.
 
-Der folgende XML-Text der _-Datei für ein .NET-Paket zeigt ein Beispiel für ein Feld_ Beschreibung`.csproj`:
+Der folgende XML-Text der `.csproj`-Datei für ein .NET-Paket zeigt ein Beispiel für ein Feld _Beschreibung_:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">

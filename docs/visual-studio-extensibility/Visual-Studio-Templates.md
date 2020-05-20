@@ -78,7 +78,7 @@ VSIX selbst kann als Quelle für die von der Vorlage benötigten Pakete dienen:
 
 1. Speichern Sie Ihre `nupkg`-Dateien in einem Ordner namens `Packages` im VSIX-Projekt.
 
-1. Fügen Sie die erforderlichen Paketdateien Ihrer `<Asset>`-Datei als `vsixmanifest` hinzu (Informationen hierzu finden Sie in der [Referenz zum VSIX-Erweiterungsschema 2.0](/visualstudio/extensibility/vsix-extension-schema-2-0-reference)):
+1. Fügen Sie die erforderlichen Paketdateien Ihrer `vsixmanifest`-Datei als `<Asset>` hinzu (Informationen hierzu finden Sie in der [Referenz zum VSIX-Erweiterungsschema 2.0](/visualstudio/extensibility/vsix-extension-schema-2-0-reference)):
 
     ```xml
     <Asset Type="Moq.4.0.10827.nupkg" d:Source="File" Path="Packages\Moq.4.0.10827.nupkg" d:VsixSubPath="Packages" />

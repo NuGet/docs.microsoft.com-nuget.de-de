@@ -19,7 +19,7 @@ Mit dem CLI-Tool können Sie auf einfache Weise NuGet-Pakete in Projekten und Pr
 Die `nuget.exe`-CLI ist für .NET Framework-Projekte und Projekte im Nicht-SDK-Format vorgesehen (z.B. Projekte im Nicht-SDK-Format, die auf .NET-Standardbibliotheken ausgerichtet sind). Wenn Sie ein Nicht-SDK-Projekt verwenden, das zu `PackageReference` migriert wurde, verwenden Sie stattdessen die `dotnet`-CLI. Die `nuget.exe`-CLI erfordert eine Datei [packages.config](../reference/packages-config.md) für Paketverweise.
 
 > [!NOTE]
-> In den meisten Szenarien wird empfohlen, [Nicht-SDK-Projekte mit Verwendung von ](../consume-packages/migrate-packages-config-to-package-reference.md) zu PackageReference zu migrieren`packages.config`. Anschließend können Sie anstelle der `dotnet`-CLI die `nuget.exe`-CLI verwenden. Für C++- und ASP.NET-Projekte ist momentan keine Migration verfügbar.
+> In den meisten Szenarien wird empfohlen, [Nicht-SDK-Projekte mit Verwendung von `packages.config` zu PackageReference zu migrieren](../consume-packages/migrate-packages-config-to-package-reference.md). Anschließend können Sie anstelle der `dotnet`-CLI die `nuget.exe`-CLI verwenden. Für C++- und ASP.NET-Projekte ist momentan keine Migration verfügbar.
 
 Dieser Artikel zeigt die grundlegende Verwendung einiger der gängigsten `nuget.exe`-CLI-Befehle. Bei den meisten dieser Befehle sucht das CLI-Tool nach einer Projektdatei im aktuellen Verzeichnis, sofern keine Projektdatei im Befehl angegeben ist. Eine vollständige Liste der verfügbaren Befehle und Argumente finden Sie in der [Referenz zur nuget.exe-CLI](../reference/nuget-exe-cli-reference.md).
 

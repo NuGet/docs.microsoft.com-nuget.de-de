@@ -139,7 +139,7 @@ Im folgenden Beispiel wird im Projekt bis auf die Inhaltsdateien aus dem Paket a
 Beachten Sie Folgendes: Da `build` nicht in `PrivateAssets` enthalten ist, *werden* Ziele und Eigenschaften an das übergeordnete Projekt übergeben. Angenommen, der obenstehende Verweis wird in einem Projekt verwendet, in dem ein NuGet-Paket mit dem Namen AppLogger erstellt wird. AppLogger kann die Ziele und Eigenschaften aus `Contoso.Utility.UsefulStuff` verarbeiten, wie Projekte, die AppLogger verarbeiten.
 
 > [!NOTE]
-> Wenn `developmentDependency` in einer `true`-Datei auf `.nuspec` festgelegt ist, kennzeichnet dies ein Paket mit einer Abhängigkeit, die nur für die Entwicklung gilt. Dadurch wird vermieden, dass das Paket als Abhängigkeit in andere Pakete eingefügt wird. Bei PackageReference *(NuGet 4.8+)* bedeutet dieses Flag auch, dass Objekte zur Kompilierzeit von der Kompilierung ausgeschlossen werden. Weitere Informationen finden Sie unter [DevelopmentDependency support for PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference) (DevelopmentDependency-Unterstützung für PackageReference).
+> Wenn `developmentDependency` in einer `.nuspec`-Datei auf `true` festgelegt ist, kennzeichnet dies ein Paket mit einer Abhängigkeit, die nur für die Entwicklung gilt. Dadurch wird vermieden, dass das Paket als Abhängigkeit in andere Pakete eingefügt wird. Bei PackageReference *(NuGet 4.8+)* bedeutet dieses Flag auch, dass Objekte zur Kompilierzeit von der Kompilierung ausgeschlossen werden. Weitere Informationen finden Sie unter [DevelopmentDependency support for PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference) (DevelopmentDependency-Unterstützung für PackageReference).
 
 ## <a name="adding-a-packagereference-condition"></a>Hinzufügen einer PackageReference-Bedingung
 
@@ -175,7 +175,7 @@ Bedingungen können auch auf der `ItemGroup`-Ebene angewendet werden und gelten 
 Dieses Feature ist mit NuGet **5.0** oder höher und mit Visual Studio 2019 **16.0** oder höher verfügbar.
 
 Manchmal ist es wünschenswert, von einem MSBuild-Ziel aus auf Dateien in einem Paket zu verweisen.
-In `packages.config`-basierten Projekten werden die Pakete in einem Ordner mit Bezug zur Projektdatei installiert. Bei PackageReference werden die Pakete hingegen aus dem Ordner [global-packages](../concepts/package-installation-process.md) *verwendet*, der von Computer zu Computer variieren kann.
+In `packages.config`-basierten Projekten werden die Pakete in einem Ordner mit Bezug zur Projektdatei installiert. Bei PackageReference werden die Pakete hingegen aus dem Ordner *global-packages*[verwendet](../concepts/package-installation-process.md), der von Computer zu Computer variieren kann.
 
 Um diese Lücke zu schließen, wurde in NuGet eine Eigenschaft eingeführt, die auf den Speicherort verweist, von dem aus das Paket verwendet wird.
 

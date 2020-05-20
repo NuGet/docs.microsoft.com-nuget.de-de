@@ -94,7 +94,7 @@ Der Quellcode befindet sich im Ordner `src`. Obwohl in unserem Beispiel nur eine
 </configuration>
 ```
 
-Es wurden auch IGNORE-Dateien für Git ( **) und Team Foundation-Versionskontrolle (** ) hinzugefügt, um der Versionskontrolle mitzuteilen, dass der `.gitignore`packages`.tfignore`-Ordner nicht eingecheckt werden sollen. Diese Dateien beschreiben Dateimuster, die Sie nicht einchecken möchten.
+Es wurden auch IGNORE-Dateien für Git (`.gitignore`) und Team Foundation-Versionskontrolle (`.tfignore`) hinzugefügt, um der Versionskontrolle mitzuteilen, dass der **packages**-Ordner nicht eingecheckt werden sollen. Diese Dateien beschreiben Dateimuster, die Sie nicht einchecken möchten.
 
 Die `.gitignore`-Datei sieht folgendermaßen aus:
 

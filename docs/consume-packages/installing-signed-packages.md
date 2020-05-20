@@ -24,7 +24,7 @@ Für die Installation von signierten Paketen sind keine besonderen Aktionen erfo
 > [!Note]
 > Erfordert NuGet 4.9.0+ und Visual Studio Version 15.9 oder höher unter Windows.
 
-Sie können konfigurieren, wie NuGet-Clients Paketsignaturen überprüfen, indem Sie mithilfe des `signatureValidationMode``require`[-Befehls den ](../reference/nuget-config-file.md) in der [nuget.config`nuget config`-Datei auf ](../reference/cli-reference/cli-ref-config.md) festlegen.
+Sie können konfigurieren, wie NuGet-Clients Paketsignaturen überprüfen, indem Sie mithilfe des [`nuget config`](../reference/cli-reference/cli-ref-config.md)-Befehls den `signatureValidationMode` in der [nuget.config](../reference/nuget-config-file.md)-Datei auf `require` festlegen.
 
 ```cmd
 nuget.exe config -set signatureValidationMode=require
@@ -40,7 +40,7 @@ Dieser Modus überprüft, ob alle Pakete mit einem der in der Datei „`nuget.co
 
 ### <a name="trust-package-author"></a>Einstufen des Paketerstellers als vertrauenswürdig
 
-Um Pakete basierend auf der Signatur des Erstellers als vertrauenswürdig einzustufen, legen Sie die [-Eigenschaft mithilfe des `trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md)`author`-Befehls in der nuget.config-Datei fest.
+Um Pakete basierend auf der Signatur des Erstellers als vertrauenswürdig einzustufen, legen Sie die `author`-Eigenschaft mithilfe des [`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md)-Befehls in der nuget.config-Datei fest.
 
 ```cmd
 nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE40881FF5F0AD3E58965DA20A9F571EF1651A56933748E1BF1C99E537C4E039 -FingerprintAlgorithm SHA256
