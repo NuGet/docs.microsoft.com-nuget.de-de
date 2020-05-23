@@ -69,7 +69,7 @@
 ## [Paketinstallationsprozess](concepts/package-installation-process.md)
 ## [Paketversionsverwaltung](concepts/package-versioning.md)
 ## [Abhängigkeitsauflösung](concepts/dependency-resolution.md)
-# Verweis
+# Referenz
 ## [.nuspec](reference/nuspec.md)
 ## [Datei „nuget.config“](reference/nuget-config-file.md)
 ## [Zielframeworks](reference/target-frameworks.md)
@@ -81,7 +81,7 @@
 ### [delete](reference/cli-reference/cli-ref-delete.md)
 ### [help or ?](reference/cli-reference/cli-ref-help.md)
 ### [init](reference/cli-reference/cli-ref-init.md)
-### [Installieren](reference/cli-reference/cli-ref-install.md)
+### [install](reference/cli-reference/cli-ref-install.md)
 ### [list](reference/cli-reference/cli-ref-list.md)
 ### [locals](reference/cli-reference/cli-ref-locals.md)
 ### [mirror](reference/cli-reference/cli-ref-mirror.md)
@@ -119,10 +119,10 @@
 #### [Push-Symbolpaketen](api/symbol-package-publish-resource.md)
 #### [URL für das Melden von Missbrauch](api/report-abuse-resource.md)
 #### [Repository-Signaturen](api/repository-signatures-resource.md)
-#### [Suchen,](api/search-query-service-resource.md)
+#### [Suchen](api/search-query-service-resource.md)
 #### [Dienstindex](api/service-index.md)
 ### [Gewusst wie: Abfrage für alle Pakete mithilfe der API](guides/api/query-for-all-published-packages.md)
-### [Ratenbegrenzungen](api/rate-limits.md)
+### [Begrenzung der Bandbreite](api/rate-limits.md)
 ### [nuget.org-Protokolle](api/nuget-protocols.md)
 ### [tools.json](api/tools-json.md)
 ## [NuGet-Client SDK](reference/nuget-client-sdk.md)
@@ -271,7 +271,7 @@
 ### [project.json-Verwaltungsformat](archive/project-json.md)
 ### [„project.json“ und UWP](archive/project-json-and-uwp.md)
 ### [Auswirkungen von „project.json“](archive/project-json-impact.md)
-# Erweiterbarkeit
+# Erweiterungen
 ## Erweiterbarkeit: NuGet-Plug-Ins
 ### [Plattformübergreifende NuGet-Plug-Ins](reference/extensibility/NuGet-Cross-Platform-Plugins.md)
 ### [Plattformübergreifendes Authentifizierungs-Plug-In für NuGet](reference/extensibility/nuget-cross-platform-authentication-plugin.md)
@@ -286,9 +286,10 @@
 ### [Governance](policies/governance.md)
 ### [Ökosystem](policies/ecosystem.md)
 ### [NuGet.org-Richtlinien](nuget-org/policies/data-requests.md)
-## Versionshinweise
+## Anmerkungen zu diesem Release
 ### [Bekannte Probleme](release-notes/known-issues.md)
 ### NuGet 5.x
+#### [NuGet 5.6](release-notes/NuGet-5.6.md)
 #### [NuGet 5.5](release-notes/NuGet-5.5.md)
 #### [NuGet 5.4](release-notes/NuGet-5.4.md)
 #### [NuGet 5.3](release-notes/NuGet-5.3.md)
@@ -357,6 +358,6 @@
 #### [NuGet 1.3](release-notes/NuGet-1.3.md)
 #### [NuGet 1.2](release-notes/NuGet-1.2.md)
 #### [NuGet 1.1](release-notes/NuGet-1.1.md)
-## [Häufig gestellte Fragen](resources/nuget-faq.md)
+## [Häufig gestellte Fragen (FAQs)](resources/nuget-faq.md)
 ## [Projektformat](resources/check-project-format.md)
 # [NuGet.org](nuget-org/overview-nuget-org.md)
