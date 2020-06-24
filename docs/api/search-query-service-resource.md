@@ -6,34 +6,38 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: be25e9bf72b9115de8ae55f6296195fed3152f10
-ms.sourcegitcommit: ac9a00ccaf90e539a381e92b650074910b21eb0d
+ms.openlocfilehash: aed591ceba00f1820a573eacf312112db0a1c69e
+ms.sourcegitcommit: 7e9c0630335ef9ec1e200e2ee9065f702e52a8ec
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70235127"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85292272"
 ---
-# <a name="search"></a>Suchen
+# <a name="search"></a>Suchen,
 
-Es ist möglich, mithilfe der V3-API nach Paketen zu suchen, die in einer Paketquelle verfügbar sind. Die Ressource, die für die Suche `SearchQueryService` verwendet wird, ist die im [Dienst Index](service-index.md)gefundene Ressource.
+Es ist möglich, mithilfe der V3-API nach Paketen zu suchen, die in einer Paketquelle verfügbar sind. Die Ressource, die für die Suche verwendet wird, ist die `SearchQueryService` im [Dienst Index](service-index.md)gefundene Ressource.
 
 ## <a name="versioning"></a>Versionskontrolle
 
 Die folgenden `@type` Werte werden verwendet:
 
-@type -Wert                   | Hinweise
+@type-Wert                   | Notizen
 ----------------------------- | -----
-SearchQueryService            | Die erste Version
-SearchQueryService/3.0.0-beta | Alias von`SearchQueryService`
-SearchQueryService/3.0.0-rc   | Alias von`SearchQueryService`
+Searchqueryservice            | Die erste Version
+Searchqueryservice/3.0.0-Beta | Alias von`SearchQueryService`
+Searchqueryservice/3.0.0-RC   | Alias von`SearchQueryService`
+Searchqueryservice/3.5.0      | Enthält Unterstützung für `packageType` Abfrage Parameter.
+
+### <a name="searchqueryservice350"></a>Searchqueryservice/3.5.0
+Diese Version führt die Unterstützung für den `packageType` Abfrage Parameter und die Response-Eigenschaft ein und `packageTypes` ermöglicht das Filtern nach Autor definierten Pakettypen. Es ist vollständig abwärts kompatibel mit Abfragen an `SearchQueryService` .
 
 ## <a name="base-url"></a>Basis-URL
 
-Die Basis-URL für die folgende API ist der Wert der `@id` Eigenschaft, die mit einem der oben erwähnten `@type` Ressourcen Werte verknüpft ist. Im folgenden Dokument wird die Platzhalter-Basis- `{@id}` URL verwendet.
+Die Basis-URL für die folgende API ist der Wert der `@id` Eigenschaft, die mit einem der oben erwähnten Ressourcen Werte verknüpft ist `@type` . Im folgenden Dokument wird die Platzhalter-Basis-URL `{@id}` verwendet.
 
 ## <a name="http-methods"></a>HTTP-Methoden
 
-Alle URLs, die in der Registrierungs Ressource gefunden werden, `GET` unter `HEAD`stützen die HTTP-Methoden und.
+Alle URLs, die in der Registrierungs Ressource gefunden werden, unterstützen die HTTP `GET` -Methoden und `HEAD` .
 
 ## <a name="search-for-packages"></a>Nach Paketen suchen
 
@@ -41,23 +45,24 @@ Die Such-API ermöglicht einem Client, eine Seite von Paketen abzufragen, die mi
 
 Ein nicht aufgelistetes Paket sollte nie in den Suchergebnissen angezeigt werden.
 
-    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
+    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}&packageType={PACKAGETYPE}
 
-### <a name="request-parameters"></a>Anforderungs Parameter
+### <a name="request-parameters"></a>Anforderungsparameter
 
-name        | In     | Typ    | Erforderlich | Hinweise
+Name        | In     | type    | Erforderlich | Notizen
 ----------- | ------ | ------- | -------- | -----
 q           | URL    | Zeichenfolge  | Nein       | Die Suchbegriffe, die zum Filtern von Paketen verwendet werden.
-überspringen        | URL    | Ganze Zahl | Nein       | Die Anzahl der zu über springenden Ergebnisse für die Paginierung.
-Rechnung        | URL    | Ganze Zahl | Nein       | Die Anzahl der zurück zugebende Ergebnisse für die Paginierung.
-vorab  | URL    | boolean | Nein       | `true`oder `false` feststellen, ob [vorab Pakete](../create-packages/prerelease-packages.md) eingeschlossen werden sollen
-semVerLevel | URL    | Zeichenfolge  | Nein       | Eine Versions Zeichenfolge für semver 1.0.0 
+skip        | URL    | integer | Nein       | Die Anzahl der zu über springenden Ergebnisse für die Paginierung.
+take        | URL    | integer | Nein       | Die Anzahl der zurück zugebende Ergebnisse für die Paginierung.
+prerelease  | URL    | boolean | Nein       | `true`oder `false` feststellen, ob [vorab Pakete](../create-packages/prerelease-packages.md) eingeschlossen werden sollen
+semverlevel | URL    | Zeichenfolge  | Nein       | Eine Versions Zeichenfolge für semver 1.0.0 
+packageType | URL    | Zeichenfolge  | Nein       | Der Pakettyp, der zum Filtern von Paketen verwendet wird (in hinzugefügt `SearchQueryService/3.5.0` ).
 
 Die Suchabfrage `q` wird auf eine Weise analysiert, die durch die Server Implementierung definiert wird. nuget.org unterstützt die grundlegende Filterung für [verschiedene Felder](../consume-packages/finding-and-choosing-packages.md#search-syntax). Wenn kein `q` angegeben wird, sollten alle Pakete innerhalb der durch Skip und Take vorgegebenen Grenzen zurückgegeben werden. Dadurch wird die Registerkarte "Durchsuchen" in der nuget Visual Studio-Funktion aktiviert.
 
-Der `skip` -Parameter hat den Standardwert 0.
+Der-Parameter hat den `skip` Standardwert 0.
 
-Der `take` -Parameter muss eine ganze Zahl größer als 0 (null) sein. Die Server Implementierung kann einen maximalen Wert erzwingen.
+Der- `take` Parameter muss eine ganze Zahl größer als 0 (null) sein. Die Server Implementierung kann einen maximalen Wert erzwingen.
 
 Wenn `prerelease` nicht angegeben wird, werden vorab Versionen von Paketen ausgeschlossen.
 
@@ -65,54 +70,65 @@ Der `semVerLevel` -Abfrage Parameter wird verwendet, um [semver 2.0.0-Pakete](ht
 Wenn dieser Abfrage Parameter ausgeschlossen wird, werden nur Pakete mit mit semver 1.0.0 kompatiblen Versionen zurückgegeben (mit der [standardmäßigen nuget-Versions](../concepts/package-versioning.md) Kontrolle, z. b. Versions Zeichenfolgen mit vier ganzzahligen teilen).
 Wenn `semVerLevel=2.0.0` angegeben wird, werden sowohl das semver 1.0.0-als auch das semver 2.0.0-kompatible Paket zurückgegeben. Weitere Informationen finden Sie [unter der semver 2.0.0-Unterstützung für nuget.org](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29) .
 
+Der- `packageType` Parameter wird verwendet, um die Suchergebnisse auf Pakete zu filtern, die mindestens einen Pakettyp aufweisen, der mit dem Pakettyp Namen übereinstimmt.
+Wenn es sich bei dem bereitgestellten Pakettyp nicht um einen gültigen Pakettyp handelt, wie vom [Pakettyp Dokument](https://github.com/NuGet/Home/wiki/Package-Type-%5BPacking%5D)definiert, wird ein leeres Ergebnis zurückgegeben.
+Wenn der bereitgestellte Pakettyp leer ist, wird kein Filter angewendet. Anders ausgedrückt: das Übergeben von No Value an den PackageType-Parameter verhält sich so, als ob der Parameter nicht übergeben würde.
+
 ### <a name="response"></a>Antwort
 
-Die Antwort ist das JSON-Dokument, `take` das die Suchergebnisse enthält. Die Suchergebnisse werden nach der Paket-ID gruppiert.
+Die Antwort ist das JSON-Dokument, das die `take` Suchergebnisse enthält. Die Suchergebnisse werden nach der Paket-ID gruppiert.
 
 Das JSON-Stamm Objekt verfügt über die folgenden Eigenschaften:
 
-Name      | Typ             | Erforderlich | Hinweise
+Name      | type             | Erforderlich | Notizen
 --------- | ---------------- | -------- | -----
-totalhits | Ganze Zahl          | ja      | Die Gesamtanzahl der Übereinstimmungen, `skip` wobei und ignoriert werden.`take`
-Daten      | Array von Objekten | ja      | Die Suchergebnisse, die mit der Anforderung übereinstimmen.
+totalhits | integer          | Ja      | Die Gesamtanzahl der Übereinstimmungen, wobei und ignoriert werden. `skip``take`
+data      | Array von Objekten | Ja      | Die Suchergebnisse, die mit der Anforderung übereinstimmen.
 
 ### <a name="search-result"></a>Suchergebnis
 
 Jedes Element im `data` Array ist ein JSON-Objekt, das aus einer Gruppe von Paketversionen besteht, die dieselbe Paket-ID nutzen.
-Das-Objekt verfügt über die folgenden Eigenschaften:
+Das Objekt hat die folgenden Eigenschaften:
 
-Name           | Typ                       | Erforderlich | Hinweise
+Name           | type                       | Erforderlich | Notizen
 -------------- | -------------------------- | -------- | -----
-id             | string                     | ja      | Die ID des übereinstimmenden Pakets.
-version        | string                     | ja      | Die vollständige semver 2.0.0-Versions Zeichenfolge des Pakets (kann buildmetadaten enthalten)
-description    | string                     | Nein       | 
-Versionen       | Array von Objekten           | ja      | Alle Versionen des Pakets, die dem `prerelease` Parameter entsprechen
-authors        | Zeichenfolge oder Array von Zeichen folgen | Nein       | 
-iconUrl        | string                     | Nein       | 
-licenseUrl     | string                     | Nein       | 
-owners         | Zeichenfolge oder Array von Zeichen folgen | Nein       | 
-projectUrl     | string                     | Nein       | 
-Registrierung   | string                     | Nein       | Die absolute URL zum zugeordneten [Registrierungs Index](registration-base-url-resource.md#registration-index) .
-summary        | string                     | Nein       | 
-tags           | Zeichenfolge oder Array von Zeichen folgen | Nein       | 
-title          | string                     | Nein       | 
-totalDownloads | Ganze Zahl                    | Nein       | Dieser Wert kann durch die Summe der Downloads im `versions` Array abgeleitet werden.
+id             | Zeichenfolge                     | Ja      | Die ID des übereinstimmenden Pakets.
+version        | Zeichenfolge                     | Ja      | Die vollständige semver 2.0.0-Versions Zeichenfolge des Pakets (kann buildmetadaten enthalten)
+description    | Zeichenfolge                     | Nein       | 
+versions       | Array von Objekten           | Ja      | Alle Versionen des Pakets, die dem Parameter entsprechen `prerelease`
+authors        | Zeichenfolge oder Array von Zeichenfolgen | Nein       | 
+iconUrl        | Zeichenfolge                     | Nein       | 
+licenseUrl     | Zeichenfolge                     | Nein       | 
+owners         | Zeichenfolge oder Array von Zeichenfolgen | Nein       | 
+projectUrl     | Zeichenfolge                     | Nein       | 
+Registrierung   | Zeichenfolge                     | Nein       | Die absolute URL zum zugeordneten [Registrierungs Index](registration-base-url-resource.md#registration-index) .
+summary        | Zeichenfolge                     | Nein       | 
+tags           | Zeichenfolge oder Array von Zeichenfolgen | Nein       | 
+title          | Zeichenfolge                     | Nein       | 
+totaldownloads | integer                    | Nein       | Dieser Wert kann durch die Summe der Downloads im Array abgeleitet werden. `versions`
 Zier       | boolean                    | Nein       | Ein JSON-boolescher Wert, der angibt, ob das Paket [überprüft](../nuget-org/id-prefix-reservation.md) wird.
+packageTypes   | Array von Objekten           | Ja      | Die vom Paket Ersteller definierten Pakettypen (in hinzugefügt `SearchQueryService/3.5.0` ).
 
 In nuget.org ist ein verifiziertes Paket ein überprüftes Paket, das über eine Paket-ID verfügt, die mit einem reservierten ID-Präfix übereinstimmt und im Besitz eines der reservierten Präfix Weitere Informationen finden Sie in der [Dokumentation zur ID-Präfix Reservierung](../reference/id-prefix-reservation.md).
 
 Die Metadaten, die im Suchergebnis Objekt enthalten sind, stammen aus der aktuellen Paketversion. Jedes Element im `versions` Array ist ein JSON-Objekt mit den folgenden Eigenschaften:
 
-Name      | Typ    | Erforderlich | Hinweise
+Name      | type    | Erforderlich | Notizen
 --------- | ------- | -------- | -----
-@id       | string  | ja      | Die absolute URL zum zugeordneten [Registrierungs Blatt](registration-base-url-resource.md#registration-leaf) .
-version   | string  | ja      | Die vollständige semver 2.0.0-Versions Zeichenfolge des Pakets (kann buildmetadaten enthalten)
-lädt | Ganze Zahl | ja      | Die Anzahl der Downloads für diese bestimmte Paketversion.
+@id       | Zeichenfolge  | Ja      | Die absolute URL zum zugeordneten [Registrierungs Blatt](registration-base-url-resource.md#registration-leaf) .
+version   | Zeichenfolge  | Ja      | Die vollständige semver 2.0.0-Versions Zeichenfolge des Pakets (kann buildmetadaten enthalten)
+Downloads | integer | Ja      | Die Anzahl der Downloads für diese bestimmte Paketversion.
 
-### <a name="sample-request"></a>Beispiel Anforderung
+Das `packageTypes` Array besteht immer aus mindestens einem (1) Element. Der Pakettyp für eine bestimmte Paket-ID wird als die von der aktuellen Version des Pakets definierten Pakettypen in Bezug auf die anderen Suchparameter betrachtet. Jedes Element im `packageTypes` Array ist ein JSON-Objekt mit den folgenden Eigenschaften:
+
+Name      | type    | Erforderlich | Notizen
+--------- | ------- | -------- | -----
+name      | Zeichenfolge  | Ja      | Der Name des Pakettyps.
+
+### <a name="sample-request"></a>Beispiel für eine Anforderung
 
     GET https://azuresearch-usnc.nuget.org/query?q=NuGet.Versioning&prerelease=false&semVerLevel=2.0.0
 
-### <a name="sample-response"></a>Beispiel Antwort
+### <a name="sample-response"></a>Beispiel für eine Antwort
 
 [!code-JSON [search-result.json](./_data/search-result.json)]

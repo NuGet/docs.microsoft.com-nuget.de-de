@@ -1,256 +1,264 @@
 ---
-title: Katalogressource, Version 3 von NuGet-API
-description: Der Katalog ist ein Index für alle Pakete erstellt und auf nuget.org gelöscht.
+title: Katalog Ressource, nuget V3-API
+description: Der Katalog ist ein Index für alle Pakete, die auf nuget.org erstellt und gelöscht werden.
 author: joelverhagen
 ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 8e4fb376e471a207333d241aeb414da7d5c3571e
-ms.sourcegitcommit: 2a9d149bc6f5ff76b0b657324820bd0429cddeef
+ms.openlocfilehash: ffbcb8dc18542f39c32a6d84b279c8eccaf98fc3
+ms.sourcegitcommit: 7e9c0630335ef9ec1e200e2ee9065f702e52a8ec
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67496536"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85292311"
 ---
-# <a name="catalog"></a>Catalog
+# <a name="catalog"></a>Katalog
 
-Die **Katalog** ist eine Ressource, die auf eine Paketquelle an, wie, wann alle Paketvorgängen erfasst. Die Katalogressource hat die `Catalog` Geben Sie in der [dienstindex](service-index.md). Sie können diese Ressource zu verwenden, [Abfragen für alle Pakete veröffentlicht](../guides/api/query-for-all-published-packages.md).
-
-> [!Note]
-> Da der Katalog nicht von der offiziellen NuGet-Client verwendet wird, implementieren Sie nicht alle Paketquellen des Katalogs.
+Der- **Katalog** ist eine Ressource, die alle Paket Vorgänge in einer Paketquelle aufzeichnet, wie z. b. Erstellungen und Löschungen. Die Katalog Ressource weist den `Catalog` Typ im [Dienst Index](service-index.md)auf. Sie können diese Ressource verwenden, um [alle veröffentlichten Pakete abzufragen](../guides/api/query-for-all-published-packages.md).
 
 > [!Note]
-> Derzeit ist der Katalog von nuget.org nicht in China verfügbar. Weitere Informationen finden Sie unter [NuGet/NuGetGallery #4949](https://github.com/NuGet/NuGetGallery/issues/4949).
+> Da der Katalog nicht vom offiziellen nuget-Client verwendet wird, implementieren nicht alle Paketquellen den Katalog.
+
+> [!Note]
+> Der nuget.org-Katalog ist in China zurzeit nicht verfügbar. Weitere Informationen finden Sie unter [nuget/nugetgallery # 4949](https://github.com/NuGet/NuGetGallery/issues/4949).
 
 ## <a name="versioning"></a>Versionskontrolle
 
-Die folgenden `@type` Wert wird verwendet:
+Der folgende `@type` Wert wird verwendet:
 
-@type -Wert   | Hinweise
+@type-Wert   | Notizen
 ------------- | -----
 Catalog/3.0.0 | Die erste Version
 
 ## <a name="base-url"></a>Basis-URL
 
-Der Eintrag-Zugriffspunkt-URL für die folgenden APIs ist der Wert des der `@id` -Eigenschaft zusammen mit den oben genannten Ressourcen `@type` Werte. In diesem Thema verwendet die Platzhalter-URL `{@id}`.
+Die Einstiegspunkt-URL für die folgenden APIs ist der Wert der `@id` Eigenschaft, die den oben erwähnten Ressourcen Werten zugeordnet ist `@type` . In diesem Thema wird die Platzhalter-URL verwendet `{@id}` .
 
 ## <a name="http-methods"></a>HTTP-Methoden
 
-Alle URLs finden Sie in der Unterstützung des Katalogs Ressource nur für die HTTP-Methoden `GET` und `HEAD`.
+Alle URLs, die in der Katalog Ressource gefunden werden, unterstützen nur die HTTP `GET` -Methoden und `HEAD` .
 
-## <a name="catalog-index"></a>Katalogindex
+## <a name="catalog-index"></a>Katalog Index
 
-Der Katalogindex ist ein Dokument in einem bekannten Speicherort, der eine Liste von Katalogelementen, Migrationen chronologisch angeordnet hat. Es ist der Einstiegspunkt der Katalogressource.
+Der Katalog Index ist ein Dokument an einem bekannten Speicherort, das eine Liste von Katalog Elementen enthält. Dies ist der Einstiegspunkt der-Katalog Ressource.
 
-Der Index besteht Katalogseiten. Jede Katalogseite enthält Katalogelemente. Jede Katalogelement stellt ein Ereignis zu einem einzelnen Paket zu einem bestimmten Zeitpunkt dar. Ein Katalogelement kann es sich um ein Paket darstellen, die nicht aufgeführte, neu erstellt, oder gelöschten aus der Paketquelle wurde. Durch die Verarbeitung von Katalogelementen in chronologischer Reihenfolge, kann der Client eine aktuelle Ansicht der jedes Paket, das vorhanden ist, auf die Paketquelle V3 erstellen.
+Der Index besteht aus Katalogseiten. Jede Katalogseite enthält Katalog Elemente. Jedes Katalog Element stellt ein Ereignis für ein einzelnes Paket zu einem bestimmten Zeitpunkt dar. Ein Katalog Element kann ein Paket darstellen, das erstellt, nicht aufgelistet, erneut erstellt oder aus der Paketquelle gelöscht wurde. Wenn die Katalog Elemente in chronologischer Reihenfolge verarbeitet werden, kann der Client eine aktuelle Ansicht jedes Pakets erstellen, das in der V3-Paketquelle vorhanden ist.
 
-Kurz gesagt, haben die Katalog-Blobs die folgende hierarchische Struktur:
+Kurz gesagt, haben Katalog-blobdie folgende hierarchische Struktur:
 
 - **Index**: der Einstiegspunkt für den Katalog.
-- **Seite**: eine Gruppierung von Katalogelementen.
-- **Blattelemente**: ein Dokument, das ein Katalogelement, wird eine Momentaufnahme des Status eines einzelnen Pakets darstellt.
+- **Page**: eine Gruppierung von Katalog Elementen.
+- **Blatt**: ein Dokument, das ein Katalog Element darstellt, bei dem es sich um eine Momentaufnahme des Zustands eines einzelnen Pakets handelt.
 
-Jede Katalogobjekt verfügt über eine Eigenschaft mit dem Namen der `commitTimeStamp` darstellen, wenn das Element im Katalog hinzugefügt wurde. Ein Katalogseite in Batches, die als Commits bezeichnet werden Katalogelemente hinzugefügt. Alle Katalogelemente im selben Commit haben den gleichen commitzeitstempel (`commitTimeStamp`) und commit-ID (`commitId`). Katalogelemente, die im selben Commit platziert darstellen, Ereignisse, die gleiche Punktmenge rechtzeitig auf die Paketquelle aufgetreten sind. Es gibt keine Reihenfolge in einem Katalog Commit.
+Jedes Katalog Objekt verfügt über eine Eigenschaft mit dem Namen `commitTimeStamp` , die beim Hinzufügen des Elements zum Katalog darstellt. Katalog Elemente werden einer Katalogseite in Batches hinzugefügt, die als Commits bezeichnet werden. Alle Katalog Elemente im gleichen Commit weisen denselben Commit-Zeitstempel ( `commitTimeStamp` ) und die Commit-ID ( `commitId` ) auf. Katalog Elemente, die im gleichen Commit abgelegt werden, stellen Ereignisse dar, die um denselben Zeitpunkt in der Paketquelle aufgetreten sind. Es gibt keine Reihenfolge innerhalb eines Katalog Commit.
 
-Da jede Paket-ID und Version eindeutig ist, werden es nie mehr als ein Element des Katalogs in einem Commit. Dadurch wird sichergestellt, dass die Katalogelemente, die für ein einzelnes Paket immer eindeutig in Bezug auf Commit-Timestamps sortiert werden können.
+Da alle Paket-IDs und-Versionen eindeutig sind, gibt es nie mehr als ein Katalog Element in einem Commit. Dadurch wird sichergestellt, dass Katalog Elemente für ein einzelnes Paket in Bezug auf den Commit-Zeitstempel immer eindeutig angeordnet werden können.
 
-Es ist nie mehr als ein Commit für den Katalog pro `commitTimeStamp`. Das heißt, die `commitId` ist redundant, mit der `commitTimeStamp`.
+Es ist nie mehr als ein Commit für den Katalog pro vorhanden `commitTimeStamp` . Das heißt, die `commitId` ist mit dem redundant `commitTimeStamp` .
 
-Im Gegensatz zu den [paketmetadatenressource](registration-base-url-resource.md), die von Paket-ID indiziert ist, wird der Katalog wird indiziert (und abgefragt werden) nur nach Zeit.
+Im Gegensatz zur [Paket Metadaten-Ressource](registration-base-url-resource.md), die mit der Paket-ID indiziert ist, wird der Katalog nur nach Zeit indiziert (und abgefragt).
 
-Katalogelemente werden immer im Katalog in einer monoton ansteigende, chronologischer Reihenfolge hinzugefügt. Dies bedeutet, dass kein Commit Katalog je hinzugefügt werden, wenn ein Katalog-Commit, zum Zeitpunkt X hinzugefügt wird wird mit einer Zeit, die kleiner als oder gleich X.
+Katalog Elemente werden dem Katalog immer in einer monoton zunehmenden, chronologischen Reihenfolge hinzugefügt. Dies bedeutet Folgendes: Wenn ein Katalog Commit zum Zeitpunkt x hinzugefügt wird, wird nie ein Katalog Commit mit einer Zeit kleiner oder gleich x hinzugefügt.
 
-Die folgende Anforderung Ruft den Katalogindex ab.
+Die folgende Anforderung Ruft den Katalog Index ab.
 
     GET {@id}
 
-Der Katalogindex ist ein JSON-Dokument, das ein Objekt mit den folgenden Eigenschaften enthält:
+Der Katalog Index ist ein JSON-Dokument, das ein-Objekt mit den folgenden Eigenschaften enthält:
 
-Name            | Typ             | Erforderlich | Hinweise
+Name            | type             | Erforderlich | Notizen
 --------------- | ---------------- | -------- | -----
-commitId        | Zeichenfolge           | ja      | Eine eindeutige ID zugewiesen, mit dem aktuellsten commit
-commitTimeStamp | Zeichenfolge           | ja      | Ein Zeitstempel des letzten Commits
-count           | Ganze Zahl          | ja      | Die Anzahl der Seiten im index
-items           | Array von Objekten | ja      | Ein Array von Objekten, jedes Objekt, das eine Seite darstellt.
+commitId        | Zeichenfolge           | Ja      | Eine eindeutige ID, die mit dem letzten Commit verknüpft ist.
+committimestamp | Zeichenfolge           | Ja      | Ein Zeitstempel des letzten Commit
+count           | integer          | Ja      | Die Anzahl der Seiten im Index.
+items           | Array von Objekten | Ja      | Ein Array von-Objekten, jedes Objekt, das eine Seite darstellt.
 
-Jedes Element in der `items` Array ist ein Objekt mit einigen minimale Details zu den einzelnen Seiten. Diese Seitenobjekte enthalten nicht die Katalogblättern (Elemente). Die Reihenfolge der Elemente im Array ist nicht definiert. Seiten können sortiert werden, vom Client in den Arbeitsspeicher mit ihren `commitTimeStamp` Eigenschaft.
+Jedes Element im `items` Array ist ein Objekt mit einigen minimalen Details zu jeder Seite. Diese Seiten Objekte enthalten keine Katalog Blätter (Elemente). Die Reihenfolge der Elemente in diesem Array ist nicht definiert. Seiten können vom Client im Arbeitsspeicher mithilfe ihrer-Eigenschaft geordnet werden `commitTimeStamp` .
 
-Wenn neue Seiten eingeführt werden, die `count` erhöht und neue Objekte werden angezeigt, der `items` Array.
+Wenn neue Seiten eingeführt werden, wird der `count` inkrementiert, und neue Objekte werden im `items` Array angezeigt.
 
-Hinzufügen von Elementen im Katalog, der Index des `commitId` ändert und die `commitTimeStamp` erhöht. Diese beiden Eigenschaften sind im Wesentlichen eine Zusammenfassung über die Seite "alle" `commitId` und `commitTimeStamp` Werte in der `items` Array.
+Wenn dem Katalog Elemente hinzugefügt werden, ändert sich der Index, `commitId` und `commitTimeStamp` erhöht sich. Diese beiden Eigenschaften sind im Wesentlichen eine Zusammenfassung über alle Seiten `commitId` und `commitTimeStamp` Werte im `items` Array.
 
-### <a name="catalog-page-object-in-the-index"></a>Katalog-Page-Objekt im index
+### <a name="catalog-page-object-in-the-index"></a>Katalogseiten Objekt im Index
 
-Die Seite Katalogobjekten finden Sie in des Katalogindex `items` Eigenschaft haben die folgenden Eigenschaften:
+Die Katalogseiten Objekte, die in der-Eigenschaft des Katalog Indexes gefunden werden, `items` haben die folgenden Eigenschaften:
 
-Name            | Typ    | Erforderlich | Hinweise
+Name            | type    | Erforderlich | Notizen
 --------------- | ------- | -------- | -----
-@id             | Zeichenfolge  | ja      | Die URL, Fetch-Seite "Sicherungskatalog"
-commitId        | Zeichenfolge  | ja      | Eine eindeutige ID, die mit dem aktuellsten Commit auf dieser Seite verknüpft ist
-commitTimeStamp | Zeichenfolge  | ja      | Ein Zeitstempel des letzten Commits auf dieser Seite
-count           | Ganze Zahl | ja      | Die Anzahl der Elemente in der Seite "Katalog"
+@id             | Zeichenfolge  | Ja      | Die URL zum Abrufen der Katalogseite
+commitId        | Zeichenfolge  | Ja      | Eine eindeutige ID, die dem letzten Commit auf dieser Seite zugeordnet ist.
+committimestamp | Zeichenfolge  | Ja      | Ein Zeitstempel des letzten Commit auf dieser Seite
+count           | integer | Ja      | Die Anzahl der Elemente auf der Seite "Katalog".
 
-Im Gegensatz zu den [paketmetadatenressource](registration-base-url-resource.md) in einigen Situationen wird in den Index verlässt, Katalogseiten werden nie inline in den Index und müssen immer abgerufen werden, mithilfe der Seite `@id` URL.
+Im Gegensatz zur [paketmetadatenressource](registration-base-url-resource.md) , die in einigen Fällen in den Index verschoben wird, werden Katalog Blätter nie in den Index eingebettet und müssen immer mithilfe der URL der Seite abgerufen werden `@id` .
 
 ### <a name="sample-request"></a>Beispiel für eine Anforderung
 
     GET https://api.nuget.org/v3/catalog0/index.json
 
-### <a name="sample-response"></a>Beispielantwort
+### <a name="sample-response"></a>Beispiel für eine Antwort
 
 [!code-JSON [catalog-index.json](./_data/catalog-index.json)]
 
-## <a name="catalog-page"></a>Seite "Sicherungskatalog"
+## <a name="catalog-page"></a>Katalogseite
 
-Die Seite "Katalog" ist eine Sammlung von Katalogelementen. Es ist ein Dokument mithilfe eines der `@id` finden Sie in den Katalogindex. Die URL zu einer Katalogseite sollte nicht vorhersehbar sein und sollte nur den Katalogindex mithilfe ermittelt werden.
+Die Seite Katalog ist eine Sammlung von Katalog Elementen. Es handelt sich um ein Dokument, das mit einem der `@id` im Katalog Index gefundenen Werte abgerufen wird. Die URL zu einer Katalogseite ist nicht als vorhersagbar gedacht und sollte nur mit dem Katalog Index erkannt werden.
 
-Neuen Katalogelemente werden auf der Seite in den Katalogindex nur mit der höchsten Commit-Timestamps oder auf eine neue Seite hinzugefügt. Sobald eine Seite mit einem höheren commitzeitstempel im Katalog hinzugefügt wurde, werden ältere Seiten nicht hinzugefügt oder geändert.
+Neue Katalog Elemente werden der Seite im Katalog Index nur mit dem höchsten Commit-Zeitstempel oder einer neuen Seite hinzugefügt. Nachdem eine Seite mit einem Zeitstempel mit höherem Commit zum Katalog hinzugefügt wurde, werden ältere Seiten niemals hinzugefügt oder geändert.
 
-Das Katalog-Seite-Dokument ist ein JSON-Objekt mit den folgenden Eigenschaften:
+Das Katalogseiten Dokument ist ein JSON-Objekt mit den folgenden Eigenschaften:
 
-Name            | Typ             | Erforderlich | Hinweise
+Name            | type             | Erforderlich | Notizen
 --------------- | ---------------- | -------- | -----
-commitId        | Zeichenfolge           | ja      | Eine eindeutige ID, die mit dem aktuellsten Commit auf dieser Seite verknüpft ist
-commitTimeStamp | Zeichenfolge           | ja      | Ein Zeitstempel des letzten Commits auf dieser Seite
-count           | Ganze Zahl          | ja      | Die Anzahl der Elemente auf der Seite
-items           | Array von Objekten | ja      | Die Katalogelemente auf dieser Seite
-parent          | Zeichenfolge           | ja      | Eine URL zu den Katalogindex
+commitId        | Zeichenfolge           | Ja      | Eine eindeutige ID, die dem letzten Commit auf dieser Seite zugeordnet ist.
+committimestamp | Zeichenfolge           | Ja      | Ein Zeitstempel des letzten Commit auf dieser Seite
+count           | integer          | Ja      | Die Anzahl der Elemente auf der Seite.
+items           | Array von Objekten | Ja      | Die Katalog Elemente auf dieser Seite
+parent          | Zeichenfolge           | Ja      | Eine URL zum Katalog Index.
 
-Jedes Element in der `items` Array ist ein Objekt mit einigen minimale Details über das Katalogelement. Diese Objekte enthalten nicht alle Daten für das Katalogelement. Die Reihenfolge der Elemente in der Seite `items` Array ist nicht definiert. Elemente können sortiert werden, vom Client in den Arbeitsspeicher mit ihren `commitTimeStamp` Eigenschaft.
+Jedes Element im `items` Array ist ein Objekt mit minimalen Details zum Katalog Element. Diese Element Objekte enthalten nicht alle Daten des Katalog Elements. Die Reihenfolge der Elemente im Seiten `items` Array ist nicht definiert. Elemente können vom Client im Arbeitsspeicher mithilfe ihrer-Eigenschaft geordnet werden `commitTimeStamp` .
 
-Die Anzahl von Katalogelementen in einer Seite wird durch die Implementierung definiert. Für "nuget.org" sind es höchstens 550 Elemente auf jeder Seite, obwohl die tatsächliche Anzahl rechtzeitig für einige Seiten abhängig von der Größe des nächsten Commits Batches an dem Punkt kleiner sein kann.
+Die Anzahl der Katalog Elemente in einer Seite wird durch die Server Implementierung definiert. Für nuget.org gibt es höchstens 550 Elemente auf jeder Seite, obwohl die tatsächliche Anzahl je nach Größe des nächsten Commit-Batches zu dem Zeitpunkt kleiner sein kann.
 
-Wenn neue Elemente eingeführt werden, die `count` wird erhöht und der neue Katalogobjekte angezeigt werden, der `items` Array.
+Wenn neue Elemente eingeführt werden, `count` wird der inkrementiert und neue Katalog Element Objekte im `items` Array angezeigt.
 
-Hinzufügen von Elementen auf der Seite die `commitId` Änderungen und die `commitTimeStamp` erhöht. Diese beiden Eigenschaften sind im Wesentlichen eine Übersicht über alle `commitId` und `commitTimeStamp` Werte in der `items` Array.
+Beim Hinzufügen von Elementen zur Seite werden die `commitId` Änderungen und die `commitTimeStamp` vergrößert. Diese beiden Eigenschaften sind im Wesentlichen eine Zusammenfassung über alle `commitId` -und- `commitTimeStamp` Werte im- `items` Array.
 
-### <a name="catalog-item-object-in-a-page"></a>Katalogobjekt Element auf einer Seite
+### <a name="catalog-item-object-in-a-page"></a>Katalog Element Objekt in einer Seite
 
-Die Elementobjekte Katalog finden Sie in der Katalogseite `items` Eigenschaft haben die folgenden Eigenschaften:
+Die Katalog Element Objekte in der-Eigenschaft der-Katalogseite `items` haben die folgenden Eigenschaften:
 
-Name            | Typ    | Erforderlich | Hinweise
+Name            | type    | Erforderlich | Notizen
 --------------- | ------- | -------- | -----
-@id             | Zeichenfolge  | ja      | Die URL zum Abrufen des Katalogelements
-@type           | Zeichenfolge  | ja      | Der Typ des Katalogelements
-commitId        | Zeichenfolge  | ja      | Die Commit-ID, die diesem Katalogelement zugeordnet
-commitTimeStamp | Zeichenfolge  | ja      | Der commitzeitstempel, der dieses Katalogelement
-nuget:id        | Zeichenfolge  | ja      | Die Paket-ID, die auf diesem Blatt beziehen
-nuget:version   | Zeichenfolge  | ja      | Die Paketversion, der auf diesem Blatt beziehen
+@id             | Zeichenfolge  | Ja      | Die URL zum Abrufen des Katalog Elements.
+@type           | Zeichenfolge  | Ja      | Der Typ des Katalog Elements.
+commitId        | Zeichenfolge  | Ja      | Die diesem Katalog Element zugeordnete Commit-ID.
+committimestamp | Zeichenfolge  | Ja      | Der Commit-Zeitstempel dieses Katalog Elements.
+nuget: ID        | Zeichenfolge  | Ja      | Die Paket-ID, mit der dieses Blatt verknüpft ist.
+nuget: Version   | Zeichenfolge  | Ja      | Die Paketversion, mit der dieses Blatt verknüpft ist.
 
-Die `@type` Wert wird einer der beiden folgenden Werte sein:
+Der `@type` Wert ist einer der folgenden beiden Werte:
 
-1. `nuget:PackageDetails`: Dies entspricht `PackageDetails` Geben Sie die katalogblattdokument.
-1. `nuget:PackageDelete`: Dies entspricht der `PackageDelete` Geben Sie die katalogblattdokument.
+1. `nuget:PackageDetails`: Dies entspricht `PackageDetails` dem Typ im Blatt Dokument des Katalogs.
+1. `nuget:PackageDelete`: Dies entspricht dem- `PackageDelete` Typ im Katalog Blatt Dokument.
 
-Weitere Informationen finden Sie unter jeder Art bedeutet die [entsprechende Elemente Typ](#item-types) unten.
+Weitere Informationen zur Bedeutung der einzelnen Typen finden Sie unten unter dem [entsprechenden Elementtyp](#item-types) .
 
 ### <a name="sample-request"></a>Beispiel für eine Anforderung
 
     GET https://api.nuget.org/v3/catalog0/page2926.json
 
-### <a name="sample-response"></a>Beispielantwort
+### <a name="sample-response"></a>Beispiel für eine Antwort
 
 [!code-JSON [catalog-page.json](./_data/catalog-page.json)]
 
-## <a name="catalog-leaf"></a>Katalog-Blatt
+## <a name="catalog-leaf"></a>Katalog Blatt
 
-Das Katalog-Blatt enthält Metadaten zu einem bestimmten Paket-ID und Version an einem bestimmten Punkt in-Time an. Es ist ein Dokument mithilfe der `@id` Wert in eine Seite "Katalog" gefunden. Die URL zu einem Blattknoten Katalog sollte nicht vorhersehbar sein und sollte mit nur einer Katalogseite ermittelt werden.
+Das Blatt "Katalog" enthält Metadaten über eine bestimmte Paket-ID und-Version zu einem bestimmten Zeitpunkt. Es handelt sich um ein Dokument, das mit dem `@id` in einer Katalogseite gefundenen Wert abgerufen wird. Die URL zu einem Katalog Blatt ist nicht als vorhersagbar gedacht und sollte nur mit einer Katalogseite erkannt werden.
 
-Die katalogblattdokument ist ein JSON-Objekt mit den folgenden Eigenschaften:
+Das Katalog Blatt Dokument ist ein JSON-Objekt mit den folgenden Eigenschaften:
 
-Name                    | Typ                       | Erforderlich | Hinweise
+Name                    | type                       | Erforderlich | Notizen
 ----------------------- | -------------------------- | -------- | -----
-@type                   | Zeichenfolge oder Array von Zeichenfolgen | ja      | Die Typen des Katalogelements
-catalog:commitId        | Zeichenfolge                     | ja      | Eine Commit-ID, die diesem Katalogelement zugeordnet
-catalog:commitTimeStamp | Zeichenfolge                     | ja      | Der commitzeitstempel, der dieses Katalogelement
-id                      | Zeichenfolge                     | ja      | Die Paket-ID des Katalogelements
-Veröffentlicht               | Zeichenfolge                     | ja      | Das Datum der Veröffentlichung des Pakets Katalogelement
-version                 | Zeichenfolge                     | ja      | Die Paketversion des Katalogelements
+@type                   | Zeichenfolge oder Array von Zeichenfolgen | Ja      | Der Typ (n) des Katalog Elements.
+Katalog: comentschärd        | Zeichenfolge                     | Ja      | Eine Commit-ID, die diesem Katalog Element zugeordnet ist.
+Katalog: committimestamp | Zeichenfolge                     | Ja      | Der Commit-Zeitstempel dieses Katalog Elements.
+id                      | Zeichenfolge                     | Ja      | Die Paket-ID des Katalog Elements.
+published               | Zeichenfolge                     | Ja      | Das veröffentlichte Datum des Paket Katalog Elements.
+version                 | Zeichenfolge                     | Ja      | Die Paketversion des Katalog Elements.
 
 ### <a name="item-types"></a>Elementtypen
 
-Die `@type` -Eigenschaft ist eine Zeichenfolge oder ein Array von Zeichenfolgen. Der Einfachheit halber Wenn die `@type` Wert ist eine Zeichenfolge, die es als ein Array der Größe eines behandelt werden soll. Nicht alle möglichen Werte für `@type` dokumentiert sind. Jede Katalogelement weist jedoch genau einem der beiden folgenden geben Zeichenfolgenwerte:
+Die- `@type` Eigenschaft ist eine Zeichenfolge oder ein Array von Zeichen folgen. Der Vorteil, wenn der `@type` Wert eine Zeichenfolge ist, sollte er als beliebiges Array der Größe 1 behandelt werden. Nicht alle möglichen Werte für `@type` sind dokumentiert. Jedes Katalog Element weist jedoch genau einen der beiden folgenden Zeichen Folgentyp Werte auf:
 
-1. `PackageDetails`: stellt eine Momentaufnahme der Metadaten von Paketen
-1. `PackageDelete`: Stellt ein Paket, das gelöscht wurde
+1. `PackageDetails`: stellt eine Momentaufnahme der Paket Metadaten dar.
+1. `PackageDelete`: stellt ein gelöschtes Paket dar.
 
-### <a name="package-details-catalog-items"></a>Paketdetails Katalogobjekte
+### <a name="package-details-catalog-items"></a>Paket Details-Katalog Elemente
 
-Katalogobjekte mit dem Typ `PackageDetails` enthalten eine Momentaufnahme der Metadaten von Paketen für ein bestimmtes Paket (Kombination aus ID und Version). Ein Paket-Details-Katalogelement wird immer dann ausgelöst, wenn eine Paketquelle, eines der folgenden Szenarien auftritt:
+Katalog Elemente mit dem-Typ `PackageDetails` enthalten eine Momentaufnahme der Paket Metadaten für ein bestimmtes Paket (ID-und Versions Kombination). Ein Paket Details-Katalog Element wird erstellt, wenn eine Paketquelle eines der folgenden Szenarien erkennt:
 
-1. Ein Paket ist **mithilfe von Push übertragen**.
-1. Ein Paket ist **aufgeführten**.
-1. Ein Paket ist **nicht aufgeführte**.
-1. Ein Paket ist **solche**.
+1. Ein Paket wird per **pushübertragung**gesendet.
+1. Ein Paket wird **aufgelistet**.
+1. Das **auflisten**eines Pakets wird aufgehoben.
+1. Ein Paket wird **erneut**übertragen.
 
-Ein Paket geräteauflösung ist eine administrative Aktion, die im Wesentlichen einen gefälschten Push von einem vorhandenen Paket ohne Änderungen auf das Paket selbst generiert. Auf nuget.org wird eine geänderte flussrichtung verwendet, nach dem Beheben eines Fehlers in einem der Hintergrundaufträge, die Verarbeiten des Katalogs.
+Bei einem paketflow handelt es sich um eine administrative Geste, bei der im Grunde ein gefälschter Push eines vorhandenen Pakets ohne Änderungen an dem Paket selbst generiert wird. Auf nuget.org wird ein Umbruch verwendet, nachdem ein Fehler in einem der Hintergrund Aufträge behoben wurde, die den Katalog nutzen.
 
-Nutzen die Katalogelemente Clients sollten nicht versuchen, um zu bestimmen, welche dieser Szenarien das Katalogelement erstellt. Stattdessen sollte der Client einfach jede Verwaltete Sicht oder den Index mit den im Katalogelement enthaltenen Metadaten aktualisieren. Darüber hinaus doppelte oder redundante Katalogelemente sollte nicht erfolgreich behandelt werden (Wiederholungsversuche).
+Clients, die die Katalog Elemente nutzen, sollten nicht versuchen, zu bestimmen, welche dieser Szenarien das Katalog Element erzeugt hat. Stattdessen sollte der Client einfach alle verwalteten Sichten oder Indizes mit den Metadaten aktualisieren, die im Katalog Element enthalten sind. Außerdem sollten doppelte oder redundante Katalog Elemente ordnungsgemäß (idemisch) behandelt werden.
 
-Paket-Details-Katalogelemente haben die folgenden Eigenschaften zusätzlich zu den [enthalten alle Katalogseiten](#catalog-leaf).
+Paket Details-Katalog Elemente haben zusätzlich zu den in [allen Katalog blättern enthaltenen](#catalog-leaf)Eigenschaften die folgenden Eigenschaften:
 
-Name                    | Typ                       | Erforderlich | Hinweise
+Name                    | type                       | Erforderlich | Notizen
 ----------------------- | -------------------------- | -------- | -----
 authors                 | Zeichenfolge                     | Nein       |
-created                 | Zeichenfolge                     | Nein       | Ein Zeitstempel, wann das Paket zuerst erstellt wurde. Fallback-Eigenschaft: `published`.
-dependencyGroups        | Array von Objekten           | Nein       | Die Abhängigkeiten des Pakets nach Zielframework gruppiert ([dasselbe Format wie die Ressource "Package" Metadaten](registration-base-url-resource.md#package-dependency-group))
-als veraltet             | object                     | Nein       | Die Einstellung, die dem Paket zugeordneten ([dasselbe Format wie die Ressource "Package" Metadaten](registration-base-url-resource.md#package-deprecation))
+created                 | Zeichenfolge                     | Nein       | Ein Zeitstempel, zu dem das Paket erstmalig erstellt wurde. Fallback-Eigenschaft: `published` .
+dependencygroups        | Array von Objekten           | Nein       | Die Abhängigkeiten des Pakets, gruppiert nach Ziel Framework ([Gleiches Format wie die Paket Metadaten-Ressource](registration-base-url-resource.md#package-dependency-group))
+veraltungs             | Objekt (object)                     | Nein       | Die dem Paket zugeordnete Veraltung ([Gleiches Format wie die Paket Metadaten-Ressource](registration-base-url-resource.md#package-deprecation))
 description             | Zeichenfolge                     | Nein       |
 iconUrl                 | Zeichenfolge                     | Nein       |
-isPrerelease            | boolean                    | Nein       | Unabhängig davon, ob die Paketversion Vorabversion ist. Erkannt werden können, von `version`.
+IsPreRelease            | boolean                    | Nein       | Gibt an, ob die Paketversion Vorabversion ist. Kann von erkannt werden `version` .
 language                | Zeichenfolge                     | Nein       |
 licenseUrl              | Zeichenfolge                     | Nein       |
-Liste                  | boolean                    | Nein       | Unabhängig davon, ob das Paket aufgeführt ist
+Liste                  | boolean                    | Nein       | Gibt an, ob das Paket aufgelistet ist.
 minClientVersion        | Zeichenfolge                     | Nein       |
-packageHash             | Zeichenfolge                     | ja      | Der Hash des Pakets, Codierung mit [base-64-standard](https://tools.ietf.org/html/rfc4648#section-4)
-packageHashAlgorithm    | Zeichenfolge                     | ja      |
-packageSize             | Ganze Zahl                    | ja      | Die Größe der Paket-NUPKG-Datei in Byte
+packagehash             | Zeichenfolge                     | Ja      | Der Hashwert des Pakets, Codierung mit [Standardbasis 64](https://tools.ietf.org/html/rfc4648#section-4)
+packageHashAlgorithm    | Zeichenfolge                     | Ja      |
+PackageSize             | integer                    | Ja      | Die Größe der Datei "Package. nupkg" in Bytes.
+packageTypes            | Array von Objekten           | Nein       | Die vom Autor angegebenen Pakettypen.
 projectUrl              | Zeichenfolge                     | Nein       |
 releaseNotes            | Zeichenfolge                     | Nein       |
-requireLicenseAgreement | boolean                    | Nein       | Angenommen `false` ausgeschlossen
+requirelicensagreement | boolean                    | Nein       | `false`Bei Ausschluss ausschließen
 summary                 | Zeichenfolge                     | Nein       |
-tags                    | Array von Zeichenfolgen           | Nein       |
+tags                    | array of strings           | Nein       |
 title                   | Zeichenfolge                     | Nein       |
-verbatimVersion         | Zeichenfolge                     | Nein       | Die Versionszeichenfolge, wie sie wurde ursprünglich in der NuSpec gefunden.
+verbatimversion         | Zeichenfolge                     | Nein       | Die Versions Zeichenfolge, wie Sie ursprünglich in der. nuspec-Datei gefunden wurde.
 
-Das Paket `version` Eigenschaft ist die vollständige Versionszeichenfolge nach der Normalisierung. Dies bedeutet, dass SemVer 2.0.0-Builddaten hier aufgenommen werden können.
+Die Paket `version` Eigenschaft ist die vollständige Versions Zeichenfolge nach der Normalisierung. Dies bedeutet, dass die Build-Daten von semver 2.0.0 hier eingefügt werden können.
 
-Die `created` Zeitstempel ist, wenn das Paket zuerst von der Paketquelle empfangen wurde, in der Regel eine kurze Zeit vor dem Commit-Timestamps für das Katalogelement.
+Der `created` Zeitstempel ist der Zeitpunkt, an dem das Paket zum ersten Mal von der Paketquelle empfangen wurde. Dies ist in der Regel eine kurze Zeit vor dem Commit-Zeitstempel des Katalog Elements.
 
-Die `packageHashAlgorithm` ist eine Zeichenfolge, die durch die serverimplementierung, die die hashing-Algorithmus verwendet, um erzeugen darstellt definiert die `packageHash`. NuGet.org verwendet immer die `packageHashAlgorithm` Wert `SHA512`.
+`packageHashAlgorithm`Ist eine durch die Server Implementierung definierte Zeichenfolge, die den Hash Algorithmus darstellt, mit dem der erzeugt wird `packageHash` . nuget.org hat immer den `packageHashAlgorithm` Wert von verwendet `SHA512` .
 
-Die `published` Zeitstempel ist die Zeit, wenn das Paket zuletzt aufgeführt.
+Die- `packageTypes` Eigenschaft ist nur vorhanden, wenn vom Autor ein Pakettyp angegeben wurde. Wenn Sie vorhanden ist, verfügt sie immer über mindestens einen Eintrag (1). Jedes Element im `packageTypes` Array ist ein JSON-Objekt mit den folgenden Eigenschaften:
+
+Name      | type    | Erforderlich | Notizen
+--------- | ------- | -------- | -----
+name      | Zeichenfolge  | Ja      | Der Name des Pakettyps.
+version    | Zeichenfolge  | Nein       | Die Version des Pakettyps. Nur vorhanden, wenn der Autor explizit eine Version in der nuspec angegeben hat.
+
+Der `published` Zeitstempel ist der Zeitpunkt, zu dem das Paket zuletzt aufgelistet wurde.
 
 > [!Note]
-> Auf nuget.org die `published` Wert wird festgelegt, um das Jahr 1900, wenn das Paket nicht aufgelistet ist.
+> Auf nuget.org wird der `published` Wert auf das Jahr 1900 festgelegt, wenn das Paket nicht aufgelistet ist.
 
 #### <a name="sample-request"></a>Beispiel für eine Anforderung
 
-ERHALTEN https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
+GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
 
-#### <a name="sample-response"></a>Beispielantwort
+#### <a name="sample-response"></a>Beispiel für eine Antwort
 
 [!code-JSON [catalog-package-details.json](./_data/catalog-package-details.json)]
 
-### <a name="package-delete-catalog-items"></a>Paket löschen Katalogelemente
+### <a name="package-delete-catalog-items"></a>Katalog Elemente zum Löschen von Paketen
 
-Katalogobjekte mit dem Typ `PackageDelete` enthalten einen minimalen Satz von Informationen, die für Katalog-Clients, dass ein Paket aus der Paketquelle gelöscht wurde und nicht mehr verfügbar ist, für jeden Paket-Vorgang (z. B. Wiederherstellung ist).
+Katalog Elemente mit dem `PackageDelete` -Typ enthalten einen minimalen Satz von Informationen, die den Katalog Clients zeigen, dass ein Paket aus der Paketquelle gelöscht wurde und nicht mehr für einen Paket Vorgang (z. b. die Wiederherstellung) verfügbar ist.
 
 > [!NOTE]
-> Es ist möglich, dass ein Paket gelöscht werden und später erneut veröffentlichten mithilfe der gleichen Paket-ID und Version. Auf nuget.org entspricht dies einer seltenen Fall des Clients, auf der offiziellen Annahme unterbrochen wird, die ein Paket-ID und eine Version einer bestimmten Paketinhalt implizieren. Weitere Informationen zum Löschen des Pakets auf nuget.org finden Sie unter [unsere Richtlinie](../nuget-org/policies/deleting-packages.md).
+> Es ist möglich, dass ein Paket gelöscht und später mit der gleichen Paket-ID und Version erneut veröffentlicht wird. Auf nuget.org handelt es sich hierbei um einen sehr seltenen Fall, da die Annahme, dass eine Paket-ID und Version einen bestimmten Paket Inhalt impliziert, die offizielle Client Annahme unterbricht. Weitere Informationen zum Löschen von Paketen auf nuget.org finden Sie in [unserer Richtlinie](../nuget-org/policies/deleting-packages.md).
 
-Paket löschen Katalogelemente verfügen nicht über zusätzlichen Eigenschaften zusätzlich zu den [enthalten alle Katalogseiten](#catalog-leaf).
+Katalog Elemente zum Löschen von Paketen haben neben den in [allen Katalog blättern enthaltenen](#catalog-leaf)Eigenschaften keine zusätzlichen Eigenschaften.
 
-Die `version` Eigenschaft ist die ursprüngliche Versionszeichenfolge finden Sie in der im Paket-Abschnitt.
+Die- `version` Eigenschaft ist die ursprüngliche Versions Zeichenfolge in der Datei "Package. nuspec".
 
-Die `published` Eigenschaft ist der Zeitpunkt, wenn Paket gelöscht wurde, in der Regel als kurz vor dem Commit-Timestamps für das Katalogelement.
+Die- `published` Eigenschaft ist die Uhrzeit, zu der das Paket gelöscht wurde. Dies ist in der Regel der kurze Zeitpunkt vor dem Commit-Zeitstempel des Katalog Elements.
 
 #### <a name="sample-request"></a>Beispiel für eine Anforderung
 
-ERHALTEN https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
+GET https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
 
-#### <a name="sample-response"></a>Beispielantwort
+#### <a name="sample-response"></a>Beispiel für eine Antwort
 
 [!code-JSON [catalog-package-delete.json](./_data/catalog-package-delete.json)]
 
@@ -258,72 +266,72 @@ ERHALTEN https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1
 
 ### <a name="overview"></a>Übersicht
 
-In diesem Abschnitt wird beschrieben, ein Client-Konzept, die zwar nicht notwendigerweise vom Netzwerkprotokoll beauftragt wird von der Implementierung einer praktischen Katalog-Client angehören soll.
+In diesem Abschnitt wird ein Client Konzept beschrieben, das, obwohl nicht notwendigerweise durch das-Protokoll vorgeschrieben ist, Teil einer praktischen Implementierung des-Katalog Clients sein sollte.
 
-Der Client sollte speichern, da der Katalog eine nur-anfügen-Datenstruktur Zeitindex wird, eine **Cursor** lokal darstellt, auf was den Client einem bestimmten Zeitpunkt verarbeitet hat Katalogelemente. Beachten Sie, dass dieser Cursorwert nie dem Client-Computer-Format generiert werden soll. In diesem Fall stammt der Wert sollte ein Katalogobjekt `commitTimestamp` Wert.
+Da es sich bei dem Katalog um eine nur anfügende Datenstruktur handelt, die von Zeit zu Zeit indiziert ist, sollte der Client einen **Cursor** lokal speichern und so bis zu dem Zeitpunkt, zu dem der Client Katalog Elemente verarbeitet hat, darstellen. Beachten Sie, dass dieser Cursor Wert nie mit der Computeruhr des Clients generiert werden sollte. Stattdessen sollte der Wert aus dem Wert eines Katalog Objekts stammen `commitTimestamp` .
 
-Jedes Mal, wenn neue Ereignisse in der Paketquelle zu verarbeiten, ist der Client möchte, sie benötigen nur die Abfrage den Katalog für alle Katalogelemente mit einem commitzeitstempel größer als der gespeicherte Cursor. Nachdem der Client alle neuen Katalogelemente erfolgreich verarbeitet wurde, zeichnet sie neueste commitzeitstempel von Katalogelementen nur als seine neuen Cursorwert verarbeitet.
+Jedes Mal, wenn der Client neue Ereignisse in der Paketquelle verarbeiten möchte, muss er nur den Katalog für alle Katalog Elemente Abfragen, deren Commit-Zeitstempel größer als der gespeicherte Cursor ist. Nachdem der Client alle neuen Katalog Elemente erfolgreich verarbeitet hat, wird der aktuelle Commit-Zeitstempel von Katalog Elementen aufgezeichnet, die gerade als neuer Cursor Wert verarbeitet wurden.
 
-Mit diesem Ansatz kann der Client werden Sie sicher, dass verpassen Sie nie paketereignisse wieder, die auf die Paketquelle aufgetreten sind.
-Darüber hinaus muss der Client nicht erneut verarbeiten, alte Ereignisse vor der aufgezeichneten commitzeitstempel des Cursors.
+Bei dieser Vorgehensweise kann der Client sicher sein, dass keine Paket Ereignisse auf der Paketquelle übersehen werden.
+Außerdem muss der Client niemals alte Ereignisse vor dem aufgezeichneten Commit-Zeitstempel des Cursors erneut verarbeiten.
 
-Dieses leistungsfähige Konzept der Cursor wird verwendet, für viele der nuget.org-Hintergrundaufträge und wird verwendet, um die V3-API selbst auf dem neuesten Stand zu halten. 
+Dieses leistungsfähige cursorkonzept wird für viele der nuget.org-Hintergrund Aufträge verwendet und wird verwendet, um die V3-API selbst auf dem neuesten Stand zu halten. 
 
 ### <a name="initial-value"></a>Anfangswert
 
-Wenn der Katalog-Client zum ersten Mal gestartet wird (und daher keine Cursorwert hat), sollten sie den Cursor Standardwert verwenden. NET `System.DateTimeOffset.MinValue` oder eine solche Analog ansatzweise mindestzeitstempel dargestellt werden kann.
+Wenn der Katalog Client zum ersten Mal gestartet wird (und daher keinen Cursor Wert hat), sollte er einen Standard Cursor Wert von verwenden. NET es `System.DateTimeOffset.MinValue` oder ein ähnliches entsprechendes Konzept eines minimalen darstellbaren Zeitstempels.
 
-### <a name="iterating-over-catalog-items"></a>Durchlaufen von Katalogelementen
+### <a name="iterating-over-catalog-items"></a>Iteration über Katalog Elemente
 
-Um den nächsten Satz von Katalogelementen verarbeiten abzufragen, sollten der Client:
+Zum Abfragen der nächsten zu verarbeitenden Katalog Elemente sollte der Client folgende Aktionen ausführen:
 
-1. Rufen Sie die aufgezeichneten Cursorwert aus einem lokalen Speicher.
-1. Laden und Deserialisieren des Katalogindexes.
-1. Suchen, die alle Seiten mit einem commitzeitstempel Katalog *größer als* des Cursors.
-1. Deklarieren Sie eine leere Liste von Katalogelementen verarbeiten.
-1. Jede Katalogseite abgeglichen, die in Schritt 3:
-   1. Herunterladen und deserialisiert die Seite "Katalog".
-   1. Suchen, die alle Katalogobjekte mit einem commitzeitstempel *größer als* des Cursors.
-   1. Fügen Sie alle übereinstimmenden Katalogelemente der Liste, die deklariert, die in Schritt 4 hinzu.
-1. Sortieren Sie die Liste der Katalog-Element, nach dem commitzeitstempel.
-1. Verarbeiten Sie jede Katalogelement nacheinander aus:
-   1. Laden Sie und Deserialisieren Sie das Katalogelement.
-   1. Angemessen zu reagieren auf das Katalogelement-Typ.
-   1. Das Katalogdokument-Element in einer Client-spezifische Weise zu verarbeiten.
-1. Notieren Sie das letzte Katalogelement commitzeitstempel als den neuen Cursorwert.
+1. Abrufen des aufgezeichneten Cursor Werts aus einem lokalen Speicher.
+1. Laden Sie den Katalog Index herunter, und Deserialisieren Sie ihn.
+1. Sucht alle Katalogseiten mit einem Commit-Zeitstempel, der *größer ist als* der Cursor.
+1. Deklarieren Sie eine leere Liste der zu verarbeitenden Katalog Elemente.
+1. Für jede Katalogseite, die in Schritt 3 übereinstimmt:
+   1. Herunterladen und Deserialisieren der Katalogseite.
+   1. Sucht alle Katalog Elemente mit einem Commit-Zeitstempel, der *größer ist als* der Cursor.
+   1. Fügen Sie alle übereinstimmenden Katalog Elemente der Liste hinzu, die in Schritt 4 deklariert wurde.
+1. Sortiert die Katalog Elementliste nach dem Commit-Zeitstempel.
+1. Verarbeiten Sie jedes Katalog Element nacheinander:
+   1. Laden Sie das Katalog Element herunter, und Deserialisieren Sie es.
+   1. Reagieren Sie entsprechend auf den Typ des Katalog Elements.
+   1. Verarbeiten Sie das Katalog Element Dokument auf eine Client spezifische Weise.
+1. Notieren Sie den Commit-Zeitstempel des letzten Katalog Elements als neuen Cursor Wert.
 
-Die Clientimplementierung kann mit diesem einfachen Algorithmus einen vollständigen Überblick über alle verfügbaren Pakete auf die Paketquelle erstellen. Der Client muss diesen Algorithmus in regelmäßigen Abständen, um immer die neuesten Änderungen an der Paketquelle achten nur ausgeführt werden.
+Mit diesem grundlegenden Algorithmus kann die Client Implementierung eine vollständige Ansicht aller Pakete erstellen, die in der Paketquelle verfügbar sind. Der Client muss diesen Algorithmus nur in regelmäßigen Abständen ausführen, um stets die neuesten Änderungen an der Paketquelle zu beachten.
 
 > [!Note]
-> Dies ist der Algorithmus, nuget.org verwendet wird, zu der [Paketmetadaten](registration-base-url-resource.md), [Paketinhalt](package-base-address-resource.md), [Suche](search-query-service-resource.md) und [AutoVervollständigen](search-autocomplete-service-resource.md) Ressourcen, die auf dem neuesten Stand sind.
+> Dies ist der Algorithmus, den nuget.org verwendet, um die [Paket Metadaten](registration-base-url-resource.md), den [Paket Inhalt](package-base-address-resource.md), die [Suche](search-query-service-resource.md) und die [Auto Vervollständigen](search-autocomplete-service-resource.md) -Ressourcen auf dem neuesten Stand zu halten.
 
 ### <a name="dependent-cursors"></a>Abhängige Cursor
 
-Angenommen Sie, es gibt zwei Katalog-Clients, die eine inhärente Abhängigkeit verfügen, hängt, in denen ein Client-Ausgabe in einem anderen Client-Ausgabe. 
+Angenommen, es gibt zwei Katalog Clients, die eine inhärente Abhängigkeit aufweisen, bei der die Ausgabe eines Clients von der Ausgabe eines anderen Clients abhängig ist. 
 
 #### <a name="example"></a>Beispiel
 
-Beispielsweise sollte auf nuget.org ein neu veröffentlichtes Paket nicht in der Ressource suchen angezeigt werden, bevor er in den Metadatenressource "Package" angezeigt wird. Dies ist, da Sie der Vorgang "Restore" von der offiziellen NuGet-Client die Ressource "Package" Metadaten verwendet. Wenn ein Kunde ein Paket mit der Search-Dienst erkennt, sollten sie sich, dieses Paket mit der Ressource "Package" Metadaten erfolgreich wiederherstellen können. Die Ressource "Package" Metadaten also abhängig Suche Ressource. Jede Ressource weist einen Katalog Client Hintergrundauftrag aktualisieren diese Ressource. Jeder Client verfügt über eine eigene Cursor.
+Beispielsweise sollte ein neu veröffentlichtes Paket unter nuget.org nicht in der Ressource Search angezeigt werden, bevor es in der Paket Metadaten-Ressource angezeigt wird. Dies liegt daran, dass der "Restore"-Vorgang, der vom offiziellen nuget-Client ausgeführt wird, die Paket Metadaten-Ressource verwendet. Wenn ein Kunde ein Paket mithilfe des Such Dienstanbieter ermittelt, sollte er in der Lage sein, das Paket mithilfe der paketmetadatenressource erfolgreich wiederherzustellen. Das heißt, die Ressource Search hängt von der Paket Metadaten-Ressource ab. Jede Ressource verfügt über einen Katalog Client-Hintergrund Auftrag, der diese Ressource aktualisiert. Jeder Client verfügt über einen eigenen Cursor.
 
-Da beide Ressourcen aus dem Katalog, der den Cursor über den Katalog-Client erstellt werden, die die Suche ressourcenupdates *muss nicht hinausgehen* den Cursor über dem Paket Metadaten Katalog-Client.
+Da beide Ressourcen aus dem Katalog erstellt wurden, darf der Cursor des Katalog Clients, der die Such Ressource aktualisiert, nicht über den Cursor des paketmetadatenkatalog-Clients *hinausgehen* .
 
 #### <a name="algorithm"></a>Algorithmus
 
-Um diese Einschränkung zu implementieren, ändern Sie einfach den Algorithmus aus, um die werden:
+Um diese Einschränkung zu implementieren, ändern Sie einfach den obigen Algorithmus, um Folgendes zu erhalten:
 
-1. Rufen Sie die aufgezeichneten Cursorwert aus einem lokalen Speicher.
-1. Laden und Deserialisieren des Katalogindexes.
-1. Suchen, die alle Seiten mit einem commitzeitstempel Katalog *größer als* des Cursors **kleiner oder gleich der Abhängigkeit Cursor.**
-1. Deklarieren Sie eine leere Liste von Katalogelementen verarbeiten.
-1. Jede Katalogseite abgeglichen, die in Schritt 3:
-   1. Herunterladen und deserialisiert die Seite "Katalog".
-   1. Suchen, die alle Katalogobjekte mit einem commitzeitstempel *größer als* des Cursors **kleiner oder gleich der Abhängigkeit Cursor.**
-   1. Fügen Sie alle übereinstimmenden Katalogelemente der Liste, die deklariert, die in Schritt 4 hinzu.
-1. Sortieren Sie die Liste der Katalog-Element, nach dem commitzeitstempel.
-1. Verarbeiten Sie jede Katalogelement nacheinander aus:
-   1. Laden Sie und Deserialisieren Sie das Katalogelement.
-   1. Angemessen zu reagieren auf das Katalogelement-Typ.
-   1. Das Katalogdokument-Element in einer Client-spezifische Weise zu verarbeiten.
-1. Notieren Sie das letzte Katalogelement commitzeitstempel als den neuen Cursorwert.
+1. Abrufen des aufgezeichneten Cursor Werts aus einem lokalen Speicher.
+1. Laden Sie den Katalog Index herunter, und Deserialisieren Sie ihn.
+1. Sucht alle Katalogseiten, deren Commitzeit Stempel *größer als* der Cursor **ist, der kleiner oder gleich dem Cursor der Abhängigkeit ist.**
+1. Deklarieren Sie eine leere Liste der zu verarbeitenden Katalog Elemente.
+1. Für jede Katalogseite, die in Schritt 3 übereinstimmt:
+   1. Herunterladen und Deserialisieren der Katalogseite.
+   1. Sucht alle Katalog Elemente, deren Commitzeit Stempel *größer als* der Cursor **ist, der kleiner oder gleich dem Cursor der Abhängigkeit ist.**
+   1. Fügen Sie alle übereinstimmenden Katalog Elemente der Liste hinzu, die in Schritt 4 deklariert wurde.
+1. Sortiert die Katalog Elementliste nach dem Commit-Zeitstempel.
+1. Verarbeiten Sie jedes Katalog Element nacheinander:
+   1. Laden Sie das Katalog Element herunter, und Deserialisieren Sie es.
+   1. Reagieren Sie entsprechend auf den Typ des Katalog Elements.
+   1. Verarbeiten Sie das Katalog Element Dokument auf eine Client spezifische Weise.
+1. Notieren Sie den Commit-Zeitstempel des letzten Katalog Elements als neuen Cursor Wert.
 
-Mit diesem geänderten Algorithmus können Sie ein System von abhängigen Katalog Clients erstellen, eigene bestimmte Indizes, Artefakte usw. alle erzeugt.
+Mithilfe dieses geänderten Algorithmus können Sie ein System abhängiger Katalog Clients erstellen, die alle Ihre eigenen spezifischen Indizes, Artefakte usw. erstellen.
