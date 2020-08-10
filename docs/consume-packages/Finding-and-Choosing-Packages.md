@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9f427005251bc2bf7a8a79285e39b4bd49062dbf
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 45928e60033959bc8b4f43d1ef3e4c943e7ec057
+ms.sourcegitcommit: e02482e15c0cef63153086ed50d14f5b2a38f598
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428492"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87473871"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Suchen und Auswerten von NuGet-Paketen für Ihr Projekt
 
@@ -18,19 +18,31 @@ Wenn Sie ein .NET-Projekt starten oder bei Ihrer App bzw. Ihrem Dienst eine funk
 
 ## <a name="finding-packages"></a>Suchen von Paketen
 
-Wenn Sie nuget.org besuchen oder die Benutzeroberfläche des Paket-Managers in Visual Studio öffnen, wird Ihnen eine Liste der Pakete angezeigt, die nach der Gesamtanzahl der Downloads sortiert ist. Dadurch werden Ihnen sofort die für Millionen von .NET-Projekten am häufigsten verwendeten Pakete angezeigt. Es bestehen gute Chancen, dass mindestens eins der auf den ersten Seiten aufgelisteten Pakete für Ihre Projekte nützlich ist.
+Wenn Sie nuget.org besuchen oder die Benutzeroberfläche des Paket-Managers in Visual Studio öffnen, wird Ihnen eine Liste der Pakete angezeigt, die nach der Relevanz der Downloads sortiert ist. Dadurch werden Ihnen die in allen .NET-Projekten am häufigsten verwendeten Pakete angezeigt. Es ist gut möglich, dass einige dieser Pakete für Ihre eigenen Projekte nützlich sein könnten!
 
 ![Die Standardansicht von nuget.org/packages zeigt die beliebtesten Pakete an](media/Finding-01-Popularity.png)
 
-Beachten Sie die Option **Vorabversion einbeziehen** in der oberen rechten Ecke der Seite. Wenn diese ausgewählt ist, zeigt nuget.org alle Version von Paketen an, einschließlich Betaversionen und anderen frühen Releases. Deaktivieren Sie diese Option, um nur stabile Releases anzuzeigen.
-
-Bei besonderen Anforderungen ist das Suchen mithilfe von Tags (im Paket-Manager von Visual Studio oder in einem Portal wie nuget.org) die am häufigsten verwendete Vorgehensweise, um geeignete Pakete zu ermitteln. Wenn Sie beispielsweise nach „json“ suchen, werden alle NuGet-Pakete aufgelistet, die mit diesem Schlüsselwort kategorisiert sind und daher einen Bezug zum JSON-Datenformat aufweisen.
+Beachten Sie auf nuget.org die Schaltfläche **Filter** oben rechts auf der Seite. Wenn Sie darauf klicken, wird der Bereich „Erweiterte Suche“ erweitert, um Sortier- und Filteroptionen bereitzustellen.
 
 ![Suchergebnisse für „json“ auf nuget.org](media/Finding-02-SearchResults.png)
 
-Sie können ebenfalls mithilfe der Paket-ID suchen, falls Ihnen diese bekannt ist. Weitere Informationen finden Sie unter[Syntax der Suche](#search-syntax).
+Sie können den Filter **Package type** (Pakettyp) verwenden, um Pakete eines bestimmten Typs anzuzeigen:
+- **`All types`** : Dies ist das Standardverhalten. Es werden alle Pakete unabhängig von ihrem Typ angezeigt.
+- **`Dependency`** : Reguläre NuGet-Pakete, die in Ihrem Projekt installiert werden können.
+- **`.NET tool`** : Filtert [.NET tools](/dotnet/core/tools/global-tools), ein NuGet-Paket, das eine Konsolenanwendung enthält.
+- **`Template`** : Filtert [.NET templates](/dotnet/core/install/templates) (.NET-Vorlagen), die zum Erstellen neuer Projekte mit dem [`dotnet new`](/dotnet/core/tools/dotnet-new)-Befehl verwendet werden können.
 
-Derzeit sind die Suchergebnisse nur nach Relevanz sortiert, sodass Sie die ersten Seiten der Ergebnisse nach Paketen durchsuchen sollten, die Ihren Anforderungen entsprechen. Alternativ können Sie Ihre Suchbegriffe präzisieren, um spezifischere Ergebnisse zu erhalten.
+Sie können die Option **Sort by** (Sortieren nach) verwenden, um die Suchergebnisse zu sortieren:
+- **`Relevance`** : Dies ist das Standardverhalten. Ergebnisse werden nach einem internen Bewertungsalgorithmus sortiert.
+- **`Downloads`** : Sortiert die Suchergebnisse nach der Gesamtzahl der Downloads (in absteigender Reihenfolge).
+- **`Recently updated`** : Sortiert die Suchergebnisse nach dem Erstellungsdatum der neuesten Version (in absteigender chronologischer Reihenfolge).
+
+Im Abschnitt **Options** (Optionen) finden Sie das Kontrollkästchen **`Include prerelease`** .
+Wenn dieses aktiviert ist, zeigt nuget.org alle Version von Paketen an, einschließlich Vorabversionen. Deaktivieren Sie diese Option, um nur stabile Versionen anzuzeigen.
+
+Wenn Sie die Suchfilter anwenden möchten, klicken Sie auf die Schaltfläche **`Apply`** . Sie können jederzeit zum Standardverhalten zurückkehren, indem Sie auf die Schaltfläche **`Reset`** klicken.
+
+Sie können auch die [Suchsyntax](#search-syntax) verwenden, um nach Tags, Besitzern und Paket-IDs zu filtern.
 
 ### <a name="does-the-package-support-my-projects-target-framework"></a>Unterstützt das Paket das Zielframework des Projekts?
 
@@ -48,13 +60,13 @@ Es stehen jedoch zwei andere Möglichkeiten zur Verfügung, um unterstützte Fra
 
 Viele Paketersteller stellen Vorschau- und Betaversionen bereit, da weiterhin Verbesserungen vorgenommen werden und Feedback zu den aktuellen Revisionen gewünscht wird.
 
-Standardmäßig zeigt nuget.org auch Vorabversionen von Paketen in den Suchergebnissen an. Deaktivieren Sie die Option **Vorabversion einbeziehen** in der oberen rechten Ecke der Seite, um ausschließlich nach stabilen Releases zu suchen.
+Standardmäßig zeigt nuget.org auch Vorabversionen von Paketen in den Suchergebnissen an. Um nur nach stabilen Releases zu suchen, deaktivieren Sie die Option **Include prerelease** (Vorveröffentlichung einbeziehen) im Bereich „Advanced Search“ (Erweiterte Suche), auf den über die Schaltfläche **Filter** oben rechts auf der Seite zugegriffen werden kann.
 
 ![Kontrollkästchen „Vorabversion einbeziehen“ auf nuget.org](media/Finding-06-include-prerelease.png)
 
 Wenn Sie Visual Studio und die NuGet- und dotnet-CLI-Tools verwenden, enthält NuGet standardmäßig keine Vorabversionen. Führen Sie folgende Schritte aus, um dieses Verhalten zu ändern:
 
-- **Benutzeroberfläche des Paket-Managers in Visual Studio**: Aktivieren Sie in der Benutzeroberfläche **NuGet-Pakete verwalten** das Kontrollkästchen **Vorabversion einbeziehen**. Wenn Sie dieses Kontrollkästchen aktivieren oder deaktivieren, wird die Benutzeroberfläche des Paket-Managers sowie die Liste der verfügbaren Versionen aktualisiert, die Sie installieren können.
+- **Benutzeroberfläche des Paket-Managers in Visual Studio:** Aktivieren Sie in der Benutzeroberfläche **NuGet-Pakete verwalten** das Kontrollkästchen **Vorabversion einbeziehen**. Wenn Sie dieses Kontrollkästchen aktivieren oder deaktivieren, wird die Benutzeroberfläche des Paket-Managers sowie die Liste der verfügbaren Versionen aktualisiert, die Sie installieren können.
 
     ![Kontrollkästchen „Vorabversion einbeziehen“ in Visual Studio](media/Prerelease_02-CheckPrerelease.png)
 
