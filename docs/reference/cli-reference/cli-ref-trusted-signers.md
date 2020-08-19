@@ -1,23 +1,23 @@
 ---
 title: Befehl für die nuget-CLI für vertrauenswürdige Signaturen
-description: Referenz für den "nuget. exe"-Befehl "Trusted-Signers"
+description: Referenz für den nuget.exe Befehl "Trusted-Signers"
 author: patbel
 ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 94c4c6524c1870898893b80be914477af5a14e8b
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 2753f92601b3d8b43593762cc07cd8384646feea
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610333"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622667"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>Befehl "Trusted-Signers" (nuget-CLI)
 
-**Gilt für:** Paket Verbrauch &bullet; **unterstützten Versionen:** 4.9.1 +
+**Gilt für:** &bullet; **unterstützte Versionen** von Paket Verbrauch: 4.9.1 +
 
-Ruft vertrauenswürdige Signatur Geber für die nuget-Konfiguration ab oder legt Sie fest. Weitere Informationen finden Sie unter [Allgemeine nuget-Konfigurationen](../../consume-packages/configuring-nuget-behavior.md). Ausführliche Informationen dazu, wie das nuget. config-Schema aussieht, finden Sie in der [nuget-Konfigurationsdatei Referenz](../nuget-config-file.md).
+Ruft vertrauenswürdige Signatur Geber für die nuget-Konfiguration ab oder legt Sie fest. Weitere Informationen finden Sie unter [Allgemeine nuget-Konfigurationen](../../consume-packages/configuring-nuget-behavior.md). Ausführliche Informationen dazu, wie das nuget.config Schema aussieht, finden Sie in der [nuget-Konfigurationsdatei Referenz](../nuget-config-file.md).
 
 ## <a name="usage"></a>Verwendung
 
@@ -25,11 +25,11 @@ Ruft vertrauenswürdige Signatur Geber für die nuget-Konfiguration ab oder legt
 nuget trusted-signers <list|add|remove|sync> [options]
 ```
 
-Wenn keines der `list|add|remove|sync` angegeben wird, wird der Befehl standardmäßig `list`.
+Wenn keines von `list|add|remove|sync` angegeben wird, wird der-Befehl standardmäßig auf festgelegt `list` .
 
 ## <a name="nuget-trusted-signers-list"></a>nuget-Liste der vertrauenswürdigen Signaturen
 
-Listet alle vertrauenswürdigen Signatur Geber in der Konfiguration auf. Diese Option umfasst alle Zertifikate (mit Fingerabdruck und Fingerabdruck Algorithmus), die jeder Signatur Geber hat. Wenn ein Zertifikat einen vorangehenden `[U]`aufweist, bedeutet dies, dass der Zertifikat Eintrag als `true``allowUntrustedRoot` festgelegt wurde.
+Listet alle vertrauenswürdigen Signatur Geber in der Konfiguration auf. Diese Option umfasst alle Zertifikate (mit Fingerabdruck und Fingerabdruck Algorithmus), die jeder Signatur Geber hat. Wenn ein Zertifikat einen vorangehenden hat `[U]` , bedeutet dies, dass der Zertifikat Eintrag `allowUntrustedRoot` als festgelegt hat `true` .
 
 Im folgenden finden Sie ein Beispiel für die Ausgabe dieses Befehls:
 
@@ -63,16 +63,25 @@ Fügt der Konfiguration einen vertrauenswürdigen Signatur Geber mit dem angegeb
 nuget trusted-signers add <package(s)> -Name <name> [options]
 ```
 
-wobei `<package(s)>` eine oder mehrere `.nupkg` Dateien ist.
+dabei `<package(s)>` ist eine oder mehrere `.nupkg` Dateien.
 
-| Option | Beschreibung |
-| --- | --- |
-| Autor | Gibt an, dass der Autor der Signatur des Pakets vertraut werden soll. |
-| Repository | Gibt an, dass die Repository-Signatur oder die gegen Signatur der Pakete als vertrauenswürdig eingestuft werden soll. |
-| Zuordnung von "Zuweisung" | Gibt an, ob das Zertifikat für den vertrauenswürdigen Signatur Geber an einen nicht vertrauenswürdigen Stamm verkettet werden darf. |
-| Besitzer | Durch Semikolons getrennte Liste vertrauenswürdiger Besitzer, um die Vertrauenswürdigkeit eines Repository weiter einzuschränken. Nur gültig, wenn die `-Repository`-Option verwendet wird. |
+- **`-Author`**
 
-Die gleichzeitig Bereitstellung von `-Author` und `-Repository` wird nicht unterstützt.
+  Gibt an, dass der Autor der Signatur des Pakets vertraut werden soll.
+
+- **`-AllowUntrustedRoot`**
+
+  Gibt an, ob das Zertifikat für den vertrauenswürdigen Signatur Geber an einen nicht vertrauenswürdigen Stamm verkettet werden darf.
+
+- **`-Owners`**
+
+  Durch Semikolons getrennte Liste vertrauenswürdiger Besitzer, um die Vertrauenswürdigkeit eines Repository weiter einzuschränken. Nur gültig, wenn die `-Repository` Option verwendet wird.
+
+- **`-Repository`**
+
+  Gibt an, dass die Repository-Signatur oder die gegen Signatur der Pakete als vertrauenswürdig eingestuft werden soll.
+
+Die Angabe von `-Author` und `-Repository` zur gleichen Zeit wird nicht unterstützt.
 
 ## <a name="options-for-add-based-on-a-service-index"></a>Optionen zum Hinzufügen basierend auf einem Dienst Index
 
@@ -82,11 +91,17 @@ nuget trusted-signers add -Name <name> [options]
 
 _Hinweis_: mit dieser Option werden nur vertrauenswürdige Depots hinzugefügt. 
 
-| Option | Beschreibung |
-| --- | --- |
-| Serviceingedex | Gibt den V3-Dienst Index des Repository an, das als vertrauenswürdig eingestuft werden soll. Dieses Repository muss die Repository Signature-Ressource unterstützen. Wenn keine Angabe erfolgt, sucht der Befehl nach einer Paketquelle mit demselben `-Name` und erhält den Dienst Index von dort aus. |
-| Zuordnung von "Zuweisung" | Gibt an, ob das Zertifikat für den vertrauenswürdigen Signatur Geber an einen nicht vertrauenswürdigen Stamm verkettet werden darf. |
-| Besitzer | Durch Semikolons getrennte Liste vertrauenswürdiger Besitzer, um die Vertrauenswürdigkeit eines Repository weiter einzuschränken. |
+- **`-AllowUntrustedRoot`**
+
+  Gibt an, ob das Zertifikat für den vertrauenswürdigen Signatur Geber an einen nicht vertrauenswürdigen Stamm verkettet werden darf.
+
+- **`-Owners`**
+
+  Durch Semikolons getrennte Liste vertrauenswürdiger Besitzer, um die Vertrauenswürdigkeit eines Repository weiter einzuschränken.
+
+- **`-ServiceIndex`**
+
+  Gibt den V3-Dienst Index des Repository an, das als vertrauenswürdig eingestuft werden soll. Dieses Repository muss die Repository Signature-Ressource unterstützen. Wenn keine Angabe erfolgt, sucht der Befehl nach einer Paketquelle mit dem gleichen `-Name` und erhält den Dienst Index von dort aus.
 
 ## <a name="options-for-add-based-on-the-certificate-information"></a>Optionen zum Hinzufügen basierend auf den Zertifikat Informationen
 
@@ -96,17 +111,24 @@ nuget trusted-signers add -Name <name> [options]
 
 _Hinweis_: Wenn bereits ein vertrauenswürdiger Signatur Geber mit dem angegebenen Namen vorhanden ist, wird das Zertifikat Element diesem Signatur Geber hinzugefügt. Andernfalls wird ein vertrauenswürdiger Autor mit einem Zertifikat Element aus den angegebenen Zertifikat Informationen erstellt.
 
-| Option | Beschreibung |
-| --- | --- |
-| CertificateFingerprint | Gibt einen Zertifikat Fingerabdruck eines Zertifikats an, mit dem signierte Pakete signiert werden müssen. Ein Zertifikat Fingerabdruck ist ein Hash des Zertifikats. Der Hash Algorithmus, der zum Berechnen dieses Hashwerts verwendet wird, sollte in der `FingerprintAlgorithm`-Option angegeben werden. |
-| Fingerprintalgorithm | Gibt den Hash Algorithmus an, mit dem der Zertifikat Fingerabdruck berechnet wird. Wird standardmäßig auf `SHA256` festgelegt. Unterstützte Werte sind `SHA256`, `SHA384` und `SHA512` |
-| Zuordnung von "Zuweisung" | Gibt an, ob das Zertifikat für den vertrauenswürdigen Signatur Geber an einen nicht vertrauenswürdigen Stamm verkettet werden darf. |
 
-## <a name="nuget-trusted-signers-remove--name-name"></a>nuget "Trusted-Signatur ners Remove-Name \<Name\>
+- **`-AllowUntrustedRoot`**
+
+  Gibt an, ob das Zertifikat für den vertrauenswürdigen Signatur Geber an einen nicht vertrauenswürdigen Stamm verkettet werden darf.
+
+- **`-CertificateFingerprint`**
+
+  Gibt einen Zertifikat Fingerabdruck eines Zertifikats an, mit dem signierte Pakete signiert werden müssen. Ein Zertifikat Fingerabdruck ist ein Hash des Zertifikats. Der Hash Algorithmus, der zum Berechnen dieses Hashwerts verwendet wird, sollte in der-Option angegeben werden `FingerprintAlgorithm` .
+
+- **`-FingerprintAlgorithm`**
+
+  Gibt den Hash Algorithmus an, mit dem der Zertifikat Fingerabdruck berechnet wird. Wird standardmäßig auf `SHA256` festgelegt. Unterstützte Werte sind `SHA256` , `SHA384` und `SHA512` .
+
+## <a name="nuget-trusted-signers-remove--name-name"></a>nuget vertrauenswürdiger Signatur Geber Remove-Name \<name\>
 
 Entfernt alle vertrauenswürdigen Signatur Geber, die dem angegebenen Namen entsprechen.
 
-## <a name="nuget-trusted-signers-sync--name-name"></a>nuget-Synchronisierungs Name für vertrauenswürdige Signaturen-Name \<Name\>
+## <a name="nuget-trusted-signers-sync--name-name"></a>nuget-Synchronisierungs Name für vertrauenswürdige Signaturen \<name\>
 
 Fordert die aktuelle Liste der Zertifikate an, die in einem aktuell vertrauenswürdigen Repository verwendet werden, um die Liste vorhandener Zertifikate im vertrauenswürdigen Signatur Geber zu aktualisieren.
 
@@ -114,12 +136,30 @@ _Hinweis_: durch diese Geste wird die aktuelle Liste der Zertifikate gelöscht u
 
 ## <a name="options"></a>Optionen
 
-| Option | Beschreibung |
-| --- | --- |
-| ConfigFile | Die anzuwendende nuget-Konfigurationsdatei. Wenn nicht angegeben, wird `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) verwendet.|
-| Forceenglische Output | Erzwingt, dass "nuget. exe" mit einer invarianten, englischen Kultur ausgeführt wird. |
-| Hilfe | Zeigt Hilfe Informationen für den Befehl an. |
-| Ausführlichkeit | Gibt den Umfang der in der Ausgabe angezeigten Details an: *Normal*, *quiet*, *ausführlich*. |
+- **`-ConfigFile`**
+
+  Die anzuwendende nuget-Konfigurationsdatei. Wenn nichts angegeben ist, `%AppData%\NuGet\NuGet.Config` wird (Windows) `~/.nuget/NuGet/NuGet.Config` oder `~/.config/NuGet/NuGet.Config` (Mac/Linux) verwendet.
+
+- **`-ForceEnglishOutput`**
+
+  Erzwingt das Ausführen von nuget.exe mit einer invarianten, englischen Kultur.
+
+- **`-?|-help`**
+
+  Zeigt Hilfe Informationen für den Befehl an.
+
+- **`-Name`**
+
+  Der Name des vertrauenswürdigen Signatur Gebers.
+
+- **`-NonInteractive`**
+
+  Unterdrückt Eingabe Aufforderungen für Benutzereingaben oder Bestätigungen.
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  Gibt den Umfang der in der Ausgabe angezeigten Details an: `normal` (Standard), `quiet` oder `detailed` .
+
 
 ## <a name="examples"></a>Beispiele
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: 760bf09cb03608275e2c5406474f572a407a7379
-ms.sourcegitcommit: f29fa9b93fd59e679fab50d7413bbf67da3ea5b3
+ms.openlocfilehash: 28fae46a65bd4c2b7050e12568c21123fc8658c1
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86451124"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88623161"
 ---
 # <a name="nugetconfig-reference"></a>nuget.config Referenz
 
@@ -27,7 +27,7 @@ Das nuget-Verhalten wird durch Einstellungen in unterschiedlichen- `NuGet.Config
 
 Enthält verschiedene Konfigurationseinstellungen, die mit dem- [ `nuget config` Befehl](../reference/cli-reference/cli-ref-config.md)festgelegt werden können.
 
-`dependencyVersion`und `repositoryPath` gelten nur für Projekte, die verwenden `packages.config` . `globalPackagesFolder`gilt nur für Projekte, die das packagereferenzierungsformat verwenden.
+`dependencyVersion` und `repositoryPath` gelten nur für Projekte, die verwenden `packages.config` . `globalPackagesFolder` gilt nur für Projekte, die das packagereferenzierungsformat verwenden.
 
 | Schlüssel | Wert |
 | --- | --- |
@@ -132,12 +132,14 @@ Listet alle bekannte Paketquellen auf. Die Reihenfolge wird bei Wiederherstellun
 ### <a name="packagesourcecredentials"></a>packageSourceCredentials
 
 Speichert Benutzernamen und Kennwörter für Quellen, die in der Regel mit den `-username`- und `-password`-Switches mit `nuget sources` angegeben werden. Kennwörter werden standardmäßig verschlüsselt, sofern die Option `-storepasswordincleartext` nicht ebenfalls verwendet wird.
+Optional können Sie mit dem-Schalter gültige Authentifizierungs Typen angeben `-validauthenticationtypes` .
 
 | Schlüssel | Wert |
 | --- | --- |
 | username | Der Benutzername für die Quelle in Nur-Text. |
 | password | Das verschlüsselte Kennwort für die Quelle. Verschlüsselte Kenn Wörter werden nur unter Windows unterstützt und können nur entschlüsselt werden, wenn Sie auf demselben Computer und über denselben Benutzer wie die ursprüngliche Verschlüsselung verwendet werden. |
 | cleartextpassword | Das unverschlüsselte Kennwort für die Quelle. Hinweis: Umgebungsvariablen können verwendet werden, um die Sicherheit zu verbessern. |
+| validauthenticationtypes | Durch Trennzeichen getrennte Liste mit gültigen Authentifizierungstypen für diese Quelle. Legen Sie diese Option auf `basic` fest, wenn der Server NTLM oder eine Aushandlung ankündigt und Ihre Anmeldedaten über den Basismechanismus gesendet werden müssen, z. B. bei Verwendung eines persönlichen Zugriffstokens (PAT) mit einer lokalen Azure DevOps Server-Instanz. Andere gültige Werte sind `negotiate`, `kerberos`, `ntlm` und `digest`, aber diese Werte sind wahrscheinlich nicht sinnvoll. |
 
 **Beispiel:**
 
@@ -182,6 +184,23 @@ Bei der Verwendung unverschlüsselter Kennwörter:
     <Test_x0020_Source>
         <add key="Username" value="user" />
         <add key="ClearTextPassword" value="hal+9ooo_da!sY" />
+    </Test_x0020_Source>
+</packageSourceCredentials>
+```
+
+Außerdem können gültige Authentifizierungsmethoden bereitgestellt werden:
+
+```xml
+<packageSourceCredentials>
+    <Contoso>
+        <add key="Username" value="user@contoso.com" />
+        <add key="Password" value="..." />
+        <add key="ValidAuthenticationTypes" value="basic" />
+    </Contoso>
+    <Test_x0020_Source>
+        <add key="Username" value="user" />
+        <add key="ClearTextPassword" value="hal+9ooo_da!sY" />
+        <add key="ValidAuthenticationTypes" value="basic, negotiate" />
     </Test_x0020_Source>
 </packageSourceCredentials>
 ```
@@ -306,7 +325,7 @@ Legt das Standardformat für die Paketverwaltung fest, entweder *packages.config
 | Schlüssel | Wert |
 | --- | --- |
 | format | Ein boolescher Wert, der das Standardformat für die Paketverwaltung angibt. Gibt an, dass das `1` Format packagereferenziert wird. Wenn der Wert ist `0` , wird das Format *packages.config*. |
-| deaktiviert | Ein boolescher Wert, der angibt, ob die Eingabeaufforderung zum Auswählen eines Standardpaket Formats bei der ersten Paketinstallation angezeigt werden soll. `False`Blendet die Eingabeaufforderung aus. |
+| deaktiviert | Ein boolescher Wert, der angibt, ob die Eingabeaufforderung zum Auswählen eines Standardpaket Formats bei der ersten Paketinstallation angezeigt werden soll. `False` Blendet die Eingabeaufforderung aus. |
 
 **Beispiel:**
 
@@ -323,9 +342,21 @@ Sie können Umgebungsvariablen in `nuget.config`-Werten (NuGet 3.4 und höher) v
 
 Wenn die Umgebungsvariable `HOME` unter Windows beispielsweise auf `c:\users\username` festgelegt ist, wird der Wert von `%HOME%\NuGetRepository` in der Konfigurationsdatei in `c:\users\username\NuGetRepository` aufgelöst.
 
-Beachten Sie, dass Sie Umgebungsvariablen im Windows-Stil verwenden müssen (beginnt und endet mit%). auch unter Mac/Linux. Das vorhanden sein `$HOME/NuGetRepository` einer Konfigurationsdatei wird nicht aufgelöst. Unter Mac/Linux wird der Wert von `%HOME%\NuGetRepository` in aufgelöst `/home/myStuff/NuGetRepository` .
+Beachten Sie, dass Sie Umgebungsvariablen im Windows-Stil verwenden müssen (beginnt und endet mit%). auch unter Mac/Linux. Das vorhanden sein `$HOME/NuGetRepository` einer Konfigurationsdatei wird nicht aufgelöst. Unter Mac/Linux wird der Wert von `%HOME%/NuGetRepository` in aufgelöst `/home/myStuff/NuGetRepository` .
 
-Wenn eine Umgebungsvariable nicht gefunden werden kann, verwendet NuGet den Literalwert aus der Konfigurationsdatei.
+Wenn eine Umgebungsvariable nicht gefunden werden kann, verwendet NuGet den Literalwert aus der Konfigurationsdatei. Beispielsweise `%MY_UNDEFINED_VAR%/NuGetRepository` wird aufgelöst als `path/to/current_working_dir/$MY_UNDEFINED_VAR/NuGetRepository`
+
+In der folgenden Tabelle sind die Umgebungsvariablen Syntax und Pfad Trennzeichen für NuGet.Config Dateien aufgeführt.
+
+### <a name="nugetconfig-environment-variable-support"></a>Unterstützung der NuGet.Config-Umgebungsvariablen
+
+| Syntax | Dir-Trennzeichen | Windows-nuget.exe | Windows-dotnet.exe | Mac-nuget.exe (in Mono) | Mac-dotnet.exe |
+|---|---|---|---|---|---|
+| `%MY_VAR%` | `/`  | Ja | Ja | Ja | Ja |
+| `%MY_VAR%` | `\`  | Ja | Ja | Nein | Nein |
+| `$MY_VAR` | `/`  | Nein | Nein | Nein | Nein |
+| `$MY_VAR` | `\`  | Nein | Nein | Nein | Nein |
+
 
 ## <a name="example-config-file"></a>Beispielkonfigurationsdatei
 
@@ -340,10 +371,10 @@ Im folgenden finden Sie eine Beispiel `nuget.config` Datei, die eine Reihe von E
             See: nuget.exe help install
             See: nuget.exe help update
 
-            In this example, %PACKAGEHOME% is an environment variable. On Mac/Linux,
-            use $PACKAGE_HOME/External as the value.
+            In this example, %PACKAGEHOME% is an environment variable.
+            This syntax works on Windows/Mac/Linux
         -->
-        <add key="repositoryPath" value="%PACKAGEHOME%\External" />
+        <add key="repositoryPath" value="%PACKAGEHOME%/External" />
 
         <!--
             Used to specify default source for the push command.

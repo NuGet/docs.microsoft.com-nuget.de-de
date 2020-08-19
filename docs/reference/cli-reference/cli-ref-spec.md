@@ -1,22 +1,22 @@
 ---
 title: Befehl "nuget CLI-Spezifikation"
-description: Referenz für den Befehl "nuget. exe"
+description: Referenz für den nuget.exe spec-Befehl
 author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: be6e4fdfe127d5582ecf9983a753a41e6760afe2
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 17603fa30a75c7906f867c96c5d77f31732eaa59
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327567"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622563"
 ---
 # <a name="spec-command-nuget-cli"></a>spec-Befehl (nuget-CLI)
 
-**Gilt für: von** der &bullet; Paket Erstellung **unterstützte Versionen:** alle
+**Gilt für: von** der Paket Erstellung &bullet; **unterstützte Versionen:** alle
 
-Generiert eine `.nuspec` Datei für ein neues Paket. Wenn Sie im selben Ordner wie eine Projektdatei (`.csproj`, `.vbproj`, `.fsproj`) ausgeführt wird `spec` , erstellt eine `.nuspec` Tokendatei. Weitere Informationen finden Sie unter [Erstellen eines Pakets](../../create-packages/creating-a-package.md).
+Generiert eine `.nuspec` Datei für ein neues Paket. Wenn Sie im selben Ordner wie eine Projektdatei ( `.csproj` , `.vbproj` ,) ausgeführt `.fsproj` wird, `spec` erstellt eine Tokendatei `.nuspec` . Weitere Informationen finden Sie unter [Erstellen eines Pakets](../../create-packages/creating-a-package.md).
 
 ## <a name="usage"></a>Verwendung
 
@@ -24,18 +24,34 @@ Generiert eine `.nuspec` Datei für ein neues Paket. Wenn Sie im selben Ordner w
 nuget spec [<packageID>] [options]
 ```
 
-Dabei ist ein optionaler Paket Bezeichner, der `.nuspec` in der Datei gespeichert werden soll. `<packageID>`
+`<packageID>`dabei ist ein optionaler Paket Bezeichner, der in der Datei gespeichert werden soll `.nuspec` .
 
 ## <a name="options"></a>Optionen
 
-| Option | Beschreibung |
-| --- | --- |
-| AssemblyPath | Gibt den Pfad zu der Assembly an, die für Metadaten verwendet werden soll. |
-| Geltende | Überschreibt eine vorhandene `.nuspec` Datei. |
-| ForceEnglishOutput | *(3.5* und höher) Erzwingt, dass "nuget. exe" mit einer invarianten, englischen Kultur ausgeführt wird. |
-| Help | Zeigt Hilfe Informationen für den Befehl an. |
-| NonInteractive | Unterdrückt Eingabe Aufforderungen für Benutzereingaben oder Bestätigungen. |
-| Verbosity | Gibt den Umfang der in der Ausgabe angezeigten Details an: *Normal*, *quiet*, *ausführlich*. |
+- **`-AssemblyPath`**
+
+  Gibt den Pfad zu der Assembly an, die für Metadaten verwendet werden soll.
+
+- **`-Force`**
+
+  Überschreibt eine vorhandene `.nuspec` Datei.
+
+
+- **`-ForceEnglishOutput`**
+
+  *(3.5* und höher) Erzwingt das Ausführen von nuget.exe mit einer invarianten, englischen Kultur.
+
+- **`-?|-help`**
+
+  Zeigt Hilfe Informationen für den Befehl an.
+
+- **`-NonInteractive`**
+
+  Unterdrückt Eingabe Aufforderungen für Benutzereingaben oder Bestätigungen.
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  Gibt den Umfang der in der Ausgabe angezeigten Details an: `normal` (Standard), `quiet` oder `detailed` .
 
 Siehe auch [Umgebungsvariablen](cli-ref-environment-variables.md)
 

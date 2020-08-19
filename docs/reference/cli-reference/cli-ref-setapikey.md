@@ -1,22 +1,22 @@
 ---
 title: Befehl "nuget CLI-Befehl" | tapikey
-description: Referenz für den Befehl "nuget. exe" "".
+description: Referenz für den Befehl "nuget.exe".
 author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: e06cfb5b355dfae8104090db7babdecdf9e9fec1
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.openlocfilehash: b84d4257c580f6e734c26ebfc589be27bea10c82
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231226"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622810"
 ---
 # <a name="setapikey-command-nuget-cli"></a>Befehl "stapikey" (nuget-CLI)
 
-**Gilt für:** Paket Verbrauch, Veröffentlichung &bullet; **unterstützten Versionen:** alle
+**Gilt für:** Paket Verbrauch, &bullet; **unterstützte Versionen** werden veröffentlicht: alle
 
-Speichert einen API-Schlüssel für eine angegebene Server-URL in `NuGet.Config`, sodass er nicht für nachfolgende Befehle eingegeben werden muss.
+Speichert einen API-Schlüssel für eine angegebene Server-URL in `NuGet.Config` , sodass er nicht für nachfolgende Befehle eingegeben werden muss.
 
 ## <a name="usage"></a>Verwendung
 
@@ -24,21 +24,37 @@ Speichert einen API-Schlüssel für eine angegebene Server-URL in `NuGet.Config`
 nuget setapikey <key> -Source <url> [options]
 ```
 
-Wenn `<source>` den Server identifiziert und `<key>` der Schlüssel ist, der gespeichert werden soll. Wenn `<source>` weggelassen wird, wird nuget.org angenommen. 
+dabei `<source>` identifiziert den Server und `<key>` den Schlüssel, der gespeichert werden soll. Wenn `<source>` weggelassen wird, wird nuget.org angenommen. 
 
 > [!NOTE]
-> Der API-Schlüssel wird nicht für die Authentifizierung mit dem privaten Feed verwendet. Informationen zum Verwalten von Anmelde Informationen für die Authentifizierung bei der Quelle finden Sie unter [`nuget sources`-Befehl](../cli-reference/cli-ref-sources.md) .
-> API-Schlüssel können von den einzelnen nuget-Servern abgerufen werden. Informationen zum Erstellen und Verwalten von apikeys für nuget.org finden Sie unter [Publish-API-Key](../../quickstart/includes/publish-api-key.md) .
+> Der API-Schlüssel wird nicht für die Authentifizierung mit dem privaten Feed verwendet. Informationen zum Verwalten von Anmelde Informationen für die Authentifizierung bei der Quelle finden Sie unter [ `nuget sources` Befehl](../cli-reference/cli-ref-sources.md) .
+> API-Schlüssel können von den einzelnen nuget-Servern abgerufen werden. Informationen zum Erstellen und Verwalten von apikeys für nuget.org finden Sie unter "Abruf [-an-API-Schlüssel](../../nuget-org/scoped-api-keys.md#acquire-an-api-key) ".
 
-## <a name="options"></a>Tastatur
+## <a name="options"></a>Optionen
 
-| Option | BESCHREIBUNG |
-| --- | --- |
-| ConfigFile | Die anzuwendende nuget-Konfigurationsdatei. Wenn nicht angegeben, wird `%AppData%\NuGet\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) verwendet.|
-| ForceEnglishOutput | *(3.5* und höher) Erzwingt, dass "nuget. exe" mit einer invarianten, englischen Kultur ausgeführt wird. |
-| Hilfe | Zeigt Hilfe Informationen für den Befehl an. |
-| NonInteractive | Unterdrückt Eingabe Aufforderungen für Benutzereingaben oder Bestätigungen. |
-| Ausführlichkeit | Gibt den Umfang der in der Ausgabe angezeigten Details an: *Normal*, *quiet*, *ausführlich*. |
+- **`-ConfigFile`**
+
+  Die anzuwendende nuget-Konfigurationsdatei. Wenn nichts angegeben ist, `%AppData%\NuGet\NuGet.Config` wird (Windows) `~/.nuget/NuGet/NuGet.Config` oder `~/.config/NuGet/NuGet.Config` (Mac/Linux) verwendet.
+
+- **`-ForceEnglishOutput`**
+
+  *(3.5* und höher) Erzwingt das Ausführen von nuget.exe mit einer invarianten, englischen Kultur.
+
+- **`-?|-help`**
+
+  Zeigt Hilfe Informationen für den Befehl an.
+
+- **`-NonInteractive`**
+
+  Unterdrückt Eingabe Aufforderungen für Benutzereingaben oder Bestätigungen.
+
+- **`-src|-Source`**
+
+  Server-URL, bei der der API-Schlüssel gültig ist.
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  Gibt den Umfang der in der Ausgabe angezeigten Details an: `normal` (Standard), `quiet` oder `detailed` .
 
 Siehe auch [Umgebungsvariablen](cli-ref-environment-variables.md)
 
