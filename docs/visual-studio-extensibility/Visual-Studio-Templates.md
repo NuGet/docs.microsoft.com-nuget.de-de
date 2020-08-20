@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: be7c10fb6ce60375f77e38f9b604ec33063e52fc
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 2dfbd793eee05169f051d9c8943bc065945b92da
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64498237"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622641"
 ---
 # <a name="packages-in-visual-studio-templates"></a>Pakete in Visual Studio-Vorlagen
 
@@ -93,7 +93,7 @@ Wenn Sie nur eine einzelne Projekt-/Elementvorlage verteilen und nicht unterschi
 1. Ändern Sie das `<packages>`-Element in der `.vstemplate`-Datei wie folgt:
 
     ```xml
-    <packages repository="template"">
+    <packages repository="template">
         <!-- ... -->
     </packages>
     ```
@@ -129,7 +129,7 @@ SDKs, die mit MSI installiert werden, können direkt auf dem Computer des Entwic
         </packages>
         ```
 
-## <a name="best-practices"></a>Bewährte Methoden
+## <a name="best-practices"></a>Empfehlungen
 
 1. Deklarieren Sie eine Abhängigkeit in NuGet-VSIX, indem Sie im VSIX-Manifest einen Verweis darauf hinzufügen:
 

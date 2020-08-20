@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: 67cca81c48970c7f2e2cf0a64ee5ba57704a31e2
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 38455e61bd91f115df9f27df090ba47a029f6877
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "74825157"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622940"
 ---
 # <a name="install-and-manage-packages-using-the-dotnet-cli"></a>Installieren und Verwalten von Paketen mit der dotnet-CLI
 
@@ -57,13 +57,13 @@ Dieser Artikel zeigt die grundlegende Verwendung einiger der gängigsten dotnet-
 Wenn keine Version angegeben wird, installiert NuGet die neueste Version des Pakets. Sie können den Befehl [dotnet add package](/dotnet/core/tools/dotnet-add-package?tabs=netcore2x) verwenden, um eine bestimmte Version eines NuGet-Pakets zu installieren:
 
 ```dotnetcli
-dotnet add package <PACKAGE_NAME> -v <VERSION>
+dotnet add package <PACKAGE_NAME> --version <VERSION>
 ```
 
 Verwenden Sie beispielsweise diesen Befehl, um Version 12.0.1 des `Newtonsoft.Json`-Pakets hinzuzufügen:
 
 ```dotnetcli
-dotnet add package Newtonsoft.Json -v 12.0.1
+dotnet add package Newtonsoft.Json --version 12.0.1
 ```
 
 ## <a name="list-package-references"></a>Auflisten von Paketverweisen

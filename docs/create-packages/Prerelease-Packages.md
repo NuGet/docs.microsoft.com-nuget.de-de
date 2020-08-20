@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 1c19f962dc9e42154c0f4374432548e867e9538a
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 5dda56ccd4c959bcbcbd12b7a4771ddff1fe7530
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "73610718"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88623005"
 ---
 # <a name="building-pre-release-packages"></a>Erstellen von Vorabversionen von Paketen
 
@@ -24,7 +24,7 @@ Damit die Phasen des Softwareveröffentlichungsprozesses unterstützt werden kö
 
 Solche Versionen können Sie über eine der folgenden Vorgehensweisen angeben:
 
-- **Wenn in Ihrem Projekt [`PackageReference`](../consume-packages/package-references-in-project-files.md)** verwendet wird, schließen Sie das Suffix der semantischen Versionierung im [`PackageVersion`](/dotnet/core/tools/csproj.md#packageversion)-Element der `.csproj`-Datei ein:
+- **Wenn in Ihrem Projekt [`PackageReference`](../consume-packages/package-references-in-project-files.md)** verwendet wird, schließen Sie das Suffix der semantischen Versionierung im [`PackageVersion`](/dotnet/core/tools/csproj#packageversion)-Element der `.csproj`-Datei ein:
 
     ```xml
     <PropertyGroup>
