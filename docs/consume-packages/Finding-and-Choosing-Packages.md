@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 45928e60033959bc8b4f43d1ef3e4c943e7ec057
-ms.sourcegitcommit: e02482e15c0cef63153086ed50d14f5b2a38f598
+ms.openlocfilehash: feb21ae1e70144491a5c0fe8f6a7be36e61d9b32
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87473871"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622984"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Suchen und Auswerten von NuGet-Paketen für Ihr Projekt
 
@@ -90,32 +90,41 @@ Am besten bewerten Sie, ob ein Paket nützlich ist, indem Sie es herunterladen u
 
 Allerdings bedeutet das Verwenden eines NuGet-Pakets auch, dass eine Abhängigkeit davon entsteht. Darum sollten Sie sicherstellen, dass das Paket robust und zuverlässig ist. Da es sehr zeitaufwändig ist, ein Paket zu installieren und direkt zu testen, können Sie ebenfalls die Informationen auf der Angebotsseite eines Pakets verwenden, um mehr über die Qualität des Pakets zu erfahren.
 
-- *Downloadstatistiken:* Der Abschnitt **Statistiken** auf der Seite für Pakete auf nuget.org zeigt die Gesamtanzahl der Downloads, die Anzahl von Downloads der aktuellen Version und die durchschnittliche Anzahl von Downloads pro Tag. Eine hohe Zahl gibt hierbei an, dass viele andere Entwickler eine Abhängigkeit von diesem Paket erstellt haben. Das bedeutet, dass das Paket sich bewiesen hat.
+- **Downloadstatistiken:** Der Abschnitt **Statistiken** auf der Seite für Pakete auf nuget.org zeigt die Gesamtanzahl der Downloads, die Anzahl von Downloads der aktuellen Version und die durchschnittliche Anzahl von Downloads pro Tag. Eine hohe Zahl gibt hierbei an, dass viele andere Entwickler eine Abhängigkeit von diesem Paket erstellt haben. Das bedeutet, dass das Paket sich bewiesen hat.
 
     ![Downloadstatistiken auf der Angebotsseite eines Pakets](media/Finding-03-Downloads.png)
 
-- *GitHub-Verwendung*: Auf Seite für Pakete listet der Abschnitt **GitHub Usage** die öffentlichen GitHub-Repositorys auf, die von diesem Paket abhängen und viele Sterne auf GitHub besitzen. Die Anzahl von Sternen eines GitHub-Repositorys deutet in der Regel auf die Beliebtheit dieses Repositorys bei GitHub-Benutzern hin (je mehr Sterne desto beliebter das Repository). Besuchen Sie die [Seite für die ersten Schritte auf GitHub](https://help.github.com/en/github/getting-started-with-github/saving-repositories-with-stars#about-stars), um weitere Informationen zum Bewertungssystem mit Sternen und Repositorys auf GitHub zu erhalten.
+- **Used By**: Auf der Paketseite listet der Abschnitt **Used By** (Verwendet von) die 5 beliebtesten NuGet.org-Pakete und die beliebtesten GitHub-Repositorys auf, die von diesem Paket abhängen. Pakete und Repositorys, die von diesem Paket abhängig sind, können als „abhängige Elemente“ dieses Pakets bezeichnet werden. Abhängige Pakete und Repositorys können als „Bestätigungen“ dieses Pakets angesehen werden, da sich die Paketautoren dafür entschieden haben, ihm zu vertrauen und sich auf das Paket zu verlassen.
+  - Ein abhängiges Paket muss von einer *beliebigen Version* dieses Pakets in seiner *neuesten stabilen aufgelisteten Version* abhängen. Diese Definition stellt sicher, dass die angezeigten abhängigen Pakete ein aktuelles Abbild der Entscheidung des Paketautors sind, diesem Paket zu vertrauen und von ihm abhängig zu sein. Abhängige Vorabversionen werden nicht aufgeführt, da sie noch nicht als vollwertige Bestätigungen betrachtet werden. Die folgende Tabelle enthält einige Beispiele:
 
-    ![GitHub-Verwendung](media/GitHub-Usage.png)
+    | Versionen von Paket A | Paket A wird als abhängig von Paket B aufgeführt? |
+    |-|-|
+    | v1.0.0<br>v1.1.0 (neueste stabile Version) --> Paket B<br>v1.2.0-preview | WAHR, die neueste stabile Version hängt von Paket B ab. |
+    | v1.0.0 --> Paket B<br>v1.1.0 (neueste stabile Version)<br>v1.2.0-preview | FALSCH, die neueste stabile Version ist nicht von Paket B abhängig. |
+    | v1.0.0 --> Paket B<br>v1.1.0 (neueste stabile Version)<br>v 1.2.0-preview --> Paket B | FALSCH, die neueste stabile Version ist nicht von Paket B abhängig. |
+
+  - Die Anzahl von Sternen eines GitHub-Repositorys deutet in der Regel auf die Beliebtheit dieses Repositorys bei GitHub-Benutzern hin (je mehr Sterne desto beliebter das Repository). Besuchen Sie die [Seite für die ersten Schritte auf GitHub](https://help.github.com/en/github/getting-started-with-github/saving-repositories-with-stars#about-stars), um weitere Informationen zum Bewertungssystem mit Sternen und Repositorys auf GitHub zu erhalten.
+
+    ![Verwendet von](media/Used-By-section-Humanizer.png)
 
     > [!Note]
-    > Der Abschnitt zur GitHub-Verwendung wird automatisch und in regelmäßigen Abständen ohne Überprüfung durch Personen für einzelne Repositorys generiert und dient allein zu Informationszwecken, um Ihnen GitHub-Repositorys zu veranschaulichen, die vom Paket abhängig sind und bei GitHub-Benutzern beliebt sind.
+    > Der Abschnitt „Used By“ (Verwendet von) eines Pakets wird automatisch und in regelmäßigen Abständen ohne Überprüfung durch Personen für einzelne Repositorys generiert und dient allein zu Informationszwecken, um Ihnen NuGet.org-Pakete und beliebte GitHub-Repositorys aufzuzeigen, die vom Paket abhängig sind.
 
-- *Versionsverlauf:* Auf der Seite für Pakete wird unter **Info** das Datum des aktuellen Updates angezeigt, außerdem können Sie dort den **Versionsverlauf** überprüfen. Ein gut verwaltetes Paket verfügt über aktuelle Updates und einen umfangreichen Versionsverlauf. Ein schlecht verwaltetes Paket verfügt über wenige Updates bzw. wurde häufig für längere Zeit nicht mehr aktualisiert.
+- **Versionsverlauf:** Auf der Seite für Pakete wird unter **Info** das Datum des aktuellen Updates angezeigt, außerdem können Sie dort den **Versionsverlauf** überprüfen. Ein gut verwaltetes Paket verfügt über aktuelle Updates und einen umfangreichen Versionsverlauf. Ein schlecht verwaltetes Paket verfügt über wenige Updates bzw. wurde häufig für längere Zeit nicht mehr aktualisiert.
 
     ![Versionsverlauf auf der Angebotsseite eines Pakets](media/Finding-04-VersionHistory.png)
 
-- *Aktuelle Installationen:* Klicken Sie auf der Seite für Pakete unter **Statistiken** auf **View full stats** (Vollständige Statistiken anzeigen). Die Seite „Vollständige Statistiken“ zeigt die Installationen des Pakets in den letzten sechs Wochen nach Versionsnummer geordnet an. Ein Paket, das aktiv von anderen Entwicklern verwendet wird, ist häufig eine bessere Wahl als eines, das nicht aktiv verwendet wird.
+- **Aktuelle Installationen:** Klicken Sie auf der Seite für Pakete unter **Statistiken** auf **View full stats** (Vollständige Statistiken anzeigen). Die Seite „Vollständige Statistiken“ zeigt die Installationen des Pakets in den letzten sechs Wochen nach Versionsnummer geordnet an. Ein Paket, das aktiv von anderen Entwicklern verwendet wird, ist häufig eine bessere Wahl als eines, das nicht aktiv verwendet wird.
 
-- *Support:* Klicken Sie auf der Seite für Pakete unter **Info** auf **Projektwebsite** (falls vorhanden), um die vom Autor angegebenen Supportoptionen anzuzeigen. Ein Projekt mit einer dedizierten Website wird üblicherweise besser unterstützt.
+- **Support:** Klicken Sie auf der Seite für Pakete unter **Info** auf **Projektwebsite** (falls vorhanden), um die vom Autor angegebenen Supportoptionen anzuzeigen. Ein Projekt mit einer dedizierten Website wird üblicherweise besser unterstützt.
 
-- *Entwicklerverlauf:* Wählen Sie auf der Seite für Pakete unter **Besitzer** einen Besitzer aus, um anzuzeigen, welche anderen Pakete dieser veröffentlicht hat. Bei Entwicklern, die mehrere Pakete veröffentlicht haben, ist es wahrscheinlicher, dass diese ihre Arbeit auch zukünftig fortsetzen.
+- **Entwicklerverlauf:** Wählen Sie auf der Seite für Pakete unter **Besitzer** einen Besitzer aus, um anzuzeigen, welche anderen Pakete dieser veröffentlicht hat. Bei Entwicklern, die mehrere Pakete veröffentlicht haben, ist es wahrscheinlicher, dass diese ihre Arbeit auch zukünftig fortsetzen.
 
-- *Open Source-Beiträge:* Manche Pakete befinden sich in Open Source-Repositorys. Dadurch wird es Entwicklern ermöglicht, die von diesen abhängig sind, Problembehebungen und Verbesserungen von Features direkt beizutragen. Der Beitragsverlauf eines Pakets zeigt ebenfalls an, wie viele Entwickler sich aktiv am Paket beteiligen.
+- **Open Source-Beiträge:** Manche Pakete befinden sich in Open Source-Repositorys. Dadurch wird es Entwicklern ermöglicht, die von diesen abhängig sind, Problembehebungen und Verbesserungen von Features direkt beizutragen. Der Beitragsverlauf eines Pakets zeigt ebenfalls an, wie viele Entwickler sich aktiv am Paket beteiligen.
 
-- *Kontaktieren der Besitzer:* Neue Entwickler können gleichermaßen dazu fähig sein, für Sie nützliche Pakete zu erstellen. Es ist daher ratsam, diesen eine Chance zu geben, NuGet mit neuen Inhalten zu bereichern. Nutzen Sie deshalb die Option **Contact Owners** (Besitzer kontaktieren), die sich auf der Angebotsseite unter **Info** befindet, um Paketentwickler direkt zu kontaktieren. Diese arbeiten sicherlich gerne mit Ihnen zusammen, um Ihre Vorstellungen umzusetzen.
+- **Kontaktieren der Besitzer:** Neue Entwickler können gleichermaßen dazu fähig sein, für Sie nützliche Pakete zu erstellen. Es ist daher ratsam, diesen eine Chance zu geben, NuGet mit neuen Inhalten zu bereichern. Nutzen Sie deshalb die Option **Contact Owners** (Besitzer kontaktieren), die sich auf der Angebotsseite unter **Info** befindet, um Paketentwickler direkt zu kontaktieren. Diese arbeiten sicherlich gerne mit Ihnen zusammen, um Ihre Vorstellungen umzusetzen.
 
-- *Reservierte Paket-ID-Präfixe*: Viele Paketbesitzer haben ein [reserviertes Paket-ID-Präfix](../nuget-org/id-prefix-reservation.md) beantragt und erhalten. Wenn Sie auf [nuget.org](https://www.nuget.org/) oder in Visual Studio das Häkchen neben einer Paket-ID sehen, bedeutet dies, dass der Paketbesitzer unsere [Kriterien](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria) für die ID-Präfixreservierung erfüllt hat. Dies bedeutet, dass der Paketbesitzer sich und sein Paket eindeutig identifizieren kann.
+- **Reservierte Paket-ID-Präfixe**: Viele Paketbesitzer haben ein [reserviertes Paket-ID-Präfix](../nuget-org/id-prefix-reservation.md) beantragt und erhalten. Wenn Sie auf [nuget.org](https://www.nuget.org/) oder in Visual Studio das Häkchen neben einer Paket-ID sehen, bedeutet dies, dass der Paketbesitzer unsere [Kriterien](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria) für die ID-Präfixreservierung erfüllt hat. Dies bedeutet, dass der Paketbesitzer sich und sein Paket eindeutig identifizieren kann.
 
 > [!Note]
 > Sie sollten stets die Lizenzbedingungen eines Pakets beachten. Diese können Sie anzeigen, indem Sie auf der Angebotsseite eines Pakets auf nuget.org auf **License Info** (Lizenzinformationen) klicken. Wenn ein Paket keine Lizenzbedingungen angibt, kontaktieren Sie den Paketbesitzer direkt, indem Sie den Link **Contact owners** (Besitzer kontaktieren) auf der Seite für Pakete verwenden. Microsoft lizenziert kein geistiges Eigentum von Drittanbietern für Pakete und ist nicht verantwortlich für die durch Drittanbieter bereitgestellten Inhalte.

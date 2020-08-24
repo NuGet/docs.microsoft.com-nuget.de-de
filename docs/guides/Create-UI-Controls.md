@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: da8c5a05311c790bf6b873bc0f1a077d3ef1db87
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: e1ebf5042597693ee55d986a4f93e797c27ad30a
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "73610620"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622706"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>Erstellen von Benutzeroberflächensteuerelementen als NuGet-Pakete
 
@@ -46,7 +46,7 @@ Die Struktur der Datei lautet wie folgt:
 ```xml
 <FileList>
   <File Reference = "your_package_file">
-    <ToolboxItems VSCategory="vs_category" BlendCategory="blend_category">
+    <ToolboxItems UIFramework="WPF" VSCategory="vs_category" BlendCategory="blend_category">
       <Item Type="type_full_name_1" />
 
       <!-- Any number of additional Items -->
@@ -61,8 +61,9 @@ Dabei gilt:
 
 - *your_package_file*: Der Name Ihrer Steuerungsdatei, wie z.B. `ManagedPackage.winmd` („ManagedPackage“ ist ein beliebiger, in diesem Beispiel verwendeter Name und hat keine andere Bedeutung).
 - *vs_category*: Die Beschriftung der Gruppe, in der das Steuerelement in der Toolbox des Visual Studio-Designers angezeigt werden soll. Damit das Steuerelement in der Toolbox angezeigt wird, ist ein `VSCategory` erforderlich.
-- *blend_category*: Die Beschriftung der Gruppe, in der das Steuerelement im Bereich „Objekte“ des Blend-Designers angezeigt werden soll. Damit das Steuerelement unter „Objekte“ angezeigt wird, ist `BlendCategory` erforderlich.
-- *type_full_name_n*: Der vollqualifizierte Name der einzelnen Steuerelemente, einschließlich des Namespace, z.B. `ManagedPackage.MyCustomControl`. Beachten Sie, dass das Format mit Punkt für verwaltete und native Typen verwendet wird.
+*ui_framework*: Der Name des Frameworks, z. B. „WPF“'. Beachten Sie, dass das Attribut `UIFramework` für ToolboxItems-Knoten in Visual Studio 16.7 Vorschau 3 oder höher erforderlich ist, damit das Steuerelement in der Toolbox angezeigt wird.
+- *blend_category*: Die Bezeichnung der Gruppe, in der das Steuerelement im Bereich „Objekte“ des Blend-Designers angezeigt werden sollte. Damit das Steuerelement unter „Objekte“ angezeigt wird, ist `BlendCategory` erforderlich.
+- *type_full_name_n*: Der vollständig qualifizierte Name der einzelnen Steuerelemente, einschließlich des Namespace, z.B. `ManagedPackage.MyCustomControl`. Beachten Sie, dass das Format mit Punkt für verwaltete und native Typen verwendet wird.
 
 In erweiterten Szenarios können Sie auch mehrere `<File>`-Elemente innerhalb von `<FileList>` einschließen, wenn ein einzelnes Paket mehrere Steuerelementassemblys enthält. Es können auch mehrere `<ToolboxItems>`-Knoten in einem einzelnen `<File>`-Element enthalten sein, wenn Sie Ihre Steuerelemente in separaten Kategorien organisieren möchten.
 
@@ -71,7 +72,7 @@ Im folgenden Beispiel wird das in `ManagedPackage.winmd` angezeigte Steuerelemen
 ```xml
 <FileList>
   <File Reference = "ManagedPackage.winmd">
-    <ToolboxItems VSCategory="Managed Package" BlendCategory="Managed Package">
+    <ToolboxItems UIFramework="WPF" VSCategory="Managed Package" BlendCategory="Managed Package">
       <Item Type="ManagedPackage.MyCustomControl" />
     </ToolboxItems>
   </File>
@@ -153,7 +154,7 @@ Ein entsprechendes Beispiel finden Sie unter [MyCustomControl.cs](https://github
 > [!Note]
 > Dies gilt nur für UWP-Steuerelemente.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 - [Erstellen von UWP-Paketen](create-uwp-packages.md)
 - [Beispiel „ExtensionSDKasNuGetPackage“](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage)

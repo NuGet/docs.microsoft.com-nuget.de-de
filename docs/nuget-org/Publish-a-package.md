@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 02c6c8f3018bfd063c2d16a10381f88b54cac840
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: dc20e43bfb43a4b6e47297fb3446319860034d46
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428636"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88623024"
 ---
 # <a name="publishing-packages"></a>Veröffentlichen von Paketen
 
@@ -46,7 +46,8 @@ Als Nächstes können Sie entweder das Paket über das Webportal von nuget.org h
 
 ### <a name="command-line"></a>Befehlszeile
 
-Sie müssen [nuget.exe v4.1.0 oder höher](https://www.nuget.org/downloads) verwenden, um Pakete per Push an nuget.org übertragen zu können, da so die erforderlichen [NuGet-Protokolle](../api/nuget-protocols.md) implementiert werden. Außerdem benötigen Sie einen API-Schlüssel, der auf nuget.org erstellt wird.
+Um Pakete auf nuget.org zu pushen, benötigen Sie zunächst einen API-Schlüssel, der auf nuget.org erstellt wird. Sie müssen entweder „dotnet.exe“ (.NET Core) oder „nuget.exe v4.1.0“ oder höher verwenden, die die erforderlichen NuGet-Protokolle implementieren.
+Weitere Informationen finden Sie unter [.NET Core](https://docs.microsoft.com/dotnet/core/install/), [nuget.exe](https://www.nuget.org/downloads) und [NuGet-Protokolle](../api/nuget-protocols.md).
 
 #### <a name="create-api-keys"></a>Erstellen von API-Schlüsseln
 
@@ -68,7 +69,7 @@ Sie müssen [nuget.exe v4.1.0 oder höher](https://www.nuget.org/downloads) verw
 
     > [!NOTE]
     > Der API-Schlüssel wird nicht für die Authentifizierung bei dem privaten Feed verwendet. Informationen zum Verwalten von Anmeldeinformationen für die Authentifizierung bei der Quelle finden Sie unter dem [`nuget sources`-Befehl](../reference/cli-reference/cli-ref-sources.md).
-    > API-Schlüssel können von den einzelnen NuGet-Servern abgerufen werden. Informationen zum Erstellen und Verwalten von APIKeys für nuget.org finden Sie unter [publish-api-key](../quickstart/includes/publish-api-key.md).
+    > API-Schlüssel können von den einzelnen NuGet-Servern abgerufen werden. Informationen zum Erstellen und Verwalten von APIKeys für nuget.org finden Sie unter [Erstellen von API-Schlüsseln](#create-api-keys).
 
 1. Übertragen Sie Ihr Paket mit folgendem Befehl per Push an den NuGet-Katalog:
 
