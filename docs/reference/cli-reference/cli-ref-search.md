@@ -5,12 +5,12 @@ author: advay26
 ms.author: t-adtand
 ms.date: 08/17/2020
 ms.topic: reference
-ms.openlocfilehash: 35e4906960534299418cb2a17c190476708b2634
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 8d63efefb8f14c03fbe3986d8d7eebcc3eb5bcac
+ms.sourcegitcommit: 6cda91f135e58cf57a2471b0c7c4a2f748f40024
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623252"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89359681"
 ---
 # <a name="search-command-nuget-cli"></a>Suchbefehl (nuget-CLI)
 
@@ -33,18 +33,16 @@ Wenn die Suchbegriffe auf die Namen von Paketen, Tags und Paketbeschreibungen an
 | Vorab | Vorab Versionen von Paketen sind nicht standardmäßig enthalten, können jedoch mithilfe dieses Arguments eingefügt werden. | -Vorabversion |
 | `Source` | Bestimmte Paketquellen, die durchsucht werden sollen, anstatt die Standard Quellen in __nuget.config__ zu Abfragen | -Quelle `<Source URL>`|
 | Take | Die Anzahl der zurück zugebende Ergebnisse. Der Standardwert lautet 20. | -Take `<positive integer>` |
-| Ausführlichkeit | Die Detailebene, die in der Ausgabe angezeigt werden soll. Der Standardwert ist " _Normal_". (Siehe Hinweis unten)  | -Ausführlichkeit `<quiet\|normal\|detailed>` |
+| Ausführlichkeit | Die Detailebene, die in der Ausgabe angezeigt werden soll. Der Standardwert ist " _Normal_". (Siehe Hinweis unten)  | -Ausführlichkeit `<quiet|normal|detailed>` |
 | Hilfe | Zeigt Hilfe Informationen für den Befehl an | -Hilfe |
 
 Siehe auch [Umgebungsvariablen](cli-ref-environment-variables.md)
 
-__HINWEIS__
-
-Ausführlichkeits Grade:
-
-* _quiet_ -Paket-ID, Version
-* _Normal_ -Paket-ID, Version, Downloads, Vorschau der Beschreibung
-* _ausführlich_ : Paket-ID, Version, Downloads, vollständige Beschreibung, andere Informationen, wie z. b. die Abfrage-URL
+> [!NOTE] 
+> Ausführlichkeits Grade:
+> * _quiet_ -Paket-ID, Version
+> * _Normal_ -Paket-ID, Version, Downloads, Vorschau der Beschreibung
+> * _ausführlich_ : Paket-ID, Version, Downloads, vollständige Beschreibung, andere Informationen, wie z. b. die Abfrage-URL
 
 ## <a name="examples"></a>Beispiele
 
