@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: b615bcb78ad2eaf8524bfbf17864d4652e546ff1
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: c604d20c6358b7da5b1294ae48d9b7452794102f
+ms.sourcegitcommit: 6cda91f135e58cf57a2471b0c7c4a2f748f40024
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80151056"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89359648"
 ---
 Die optionale Beschreibung des Pakets, die auf der Seite NuGet.org des Pakets angezeigt wird, wird entweder aus der `<description></description>` abgerufen, die in der `.csproj`-Datei verwendet wird, oder sie wird über die `$description` in der [.nuspec-Datei](../../reference/nuspec.md) abgerufen.
 
@@ -25,5 +25,5 @@ Der folgende XML-Text der `.csproj`-Datei für ein .NET-Paket zeigt ein Beispiel
       REST API Reference for Blob Service - https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api
     </Description>
   </PropertyGroup>
-</PropertyGroup>
+</Project>
 ```
