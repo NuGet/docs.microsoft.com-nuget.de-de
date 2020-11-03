@@ -6,38 +6,38 @@ ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
 ms.openlocfilehash: 98b8b7334738306e6d40ba7c455409a87c4bb822
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/16/2020
-ms.locfileid: "79428354"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237020"
 ---
 # <a name="nuget-28-release-notes"></a>Anmerkungen zu dieser Version von nuget 2,8
 
-Anmerkungen zu dieser [Version von nuget 2.7.2](../release-notes/nuget-2.7.2.md) Anmerkungen zu dieser Version | [nuget 2.8.1](../release-notes/nuget-2.8.1.md)
+[Nuget 2.7.2 Anmerkungen](../release-notes/nuget-2.7.2.md)  |  zu dieser Version [Anmerkungen zu dieser Version von nuget 2.8.1](../release-notes/nuget-2.8.1.md)
 
 Nuget 2,8 wurde am 29. Januar 2014 veröffentlicht.
 
 ## <a name="acknowledgements"></a>Danksagung
 
-1. [Llewellyn Pritchard](https://www.codeplex.com/site/users/view/leppie) ([@leppie](https://twitter.com/leppie))
+1. [Llewellyn Pritchard](https://www.codeplex.com/site/users/view/leppie) ( [@leppie](https://twitter.com/leppie) )
     - [#3466](https://nuget.codeplex.com/workitem/3466) : beim Packen von Paketen wird die ID der Abhängigkeits Pakete überprüft.
-2. [Maarten balliauw](https://www.codeplex.com/site/users/view/maartenba) ([@maartenballiauw](https://twitter.com/maartenballiauw))
+2. [Maarten balliauw](https://www.codeplex.com/site/users/view/maartenba) ( [@maartenballiauw](https://twitter.com/maartenballiauw) )
     - Entfernen Sie das $Metadata Suffix [#2379](https://nuget.codeplex.com/workitem/2379) , wenn Sie Feed-Anmelde Informationen persistat.
-3. [Filip de Vos](https://www.codeplex.com/site/users/view/FilipDeVos) ([@foxtricks](https://twitter.com/foxtricks))
-    - [#3538](http://nuget.codeplex.com/workitem/3538) -Unterstützung für die Angabe der Projektdatei für den Befehl "nuget. exe Update".
+3. [Filip de Vos](https://www.codeplex.com/site/users/view/FilipDeVos) ( [@foxtricks](https://twitter.com/foxtricks) )
+    - [#3538](http://nuget.codeplex.com/workitem/3538) -Unterstützung für die Angabe der Projektdatei für den nuget.exe Update-Befehl.
 4. [Juan Gonzalez](https://www.codeplex.com/site/users/view/jjgonzalez)
     - [#3536](http://nuget.codeplex.com/workitem/3536) Ersatz Token, die nicht mit-includereferencedprojects übergebenen werden.
-5. [David Poole](https://www.codeplex.com/site/users/view/Sarkie) ([@Sarkie_Dave](https://twitter.com/Sarkie_Dave))
+5. [David Poole](https://www.codeplex.com/site/users/view/Sarkie) ( [@Sarkie_Dave](https://twitter.com/Sarkie_Dave) )
     - [#3677](http://nuget.codeplex.com/workitem/3677) -Korrektur nuget. Push löst OutOfMemoryException aus, wenn das große Paket per Push übertragen wird.
 6. [Wouter-Ouwens](https://www.codeplex.com/site/users/view/Despotes)
-    - [#3666](http://nuget.codeplex.com/workitem/3666) Korrektur eines falschen Zielpfades, wenn das Projekt auf eineC++ andere CLI/ein anderes Projekt verweist.
-7. [Adam Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
+    - [#3666](http://nuget.codeplex.com/workitem/3666) Korrektur eines falschen Zielpfads, wenn das Projekt auf ein anderes CLI/C++-Projekt verweist.
+7. [Adam Ralph](http://www.codeplex.com/site/users/view/adamralph) ( [@adamralph](https://twitter.com/adamralph) )
     - [#3639](https://nuget.codeplex.com/workitem/3639) zulassen, dass Pakete standardmäßig als Entwicklungs Abhängigkeiten installiert werden
-8. [David Fowler](https://www.codeplex.com/site/users/view/dfowler) ([@davidfowl](https://twitter.com/davidfowl))
+8. [David Fowler](https://www.codeplex.com/site/users/view/dfowler) ( [@davidfowl](https://twitter.com/davidfowl) )
     - [#3717](https://nuget.codeplex.com/workitem/3717) entfernen impliziter Upgrades auf die neueste Patchversion
 9. [Gregory vandumbrouck](https://www.codeplex.com/site/users/view/vdbg)
-    - Verschiedene Fehlerbehebungen und Verbesserungen für "nuget. Server", "nuget. exe"-Spiegel Befehl und andere.
+    - Verschiedene Fehlerbehebungen und Verbesserungen für "nuget. Server", den Befehl "nuget.exe Spiegelung" und andere.
     - Diese Arbeit wurde über mehrere Monate durchgeführt, und Gregory arbeitete mit uns am richtigen Zeitpunkt für die Integration in Master für 2,8.
 
 ## <a name="patch-resolution-for-dependencies"></a>Patchauflösung für Abhängigkeiten
@@ -52,7 +52,7 @@ Beim Auflösen von Paketabhängigkeiten hat nuget in der Vergangenheit eine Stra
 
     Developer2 installs PackageA@1.0.0: installed PackageA@1.0.0 and PackageB@1.0.1
 
-In diesem Beispiel, obwohl Developer1 und Developer2 installiert PackageA@1.0.0, hat jede Version eine andere Version von packageb. Mit nuget 2,8 wird dieses Standardverhalten geändert, sodass das Verhalten der Abhängigkeitsauflösung für Patchversionen mit dem Verhalten für die Haupt-und neben Versionen konsistent ist. Im obigen Beispiel wird PackageB@1.0.0 als Ergebnis der Installation von PackageA@1.0.0installiert, unabhängig von der neueren Patchversion.
+In diesem Beispiel hat die Installation von Developer1 und Developer2 PackageA@1.0.0 jeweils eine andere Version von packageb. Mit nuget 2,8 wird dieses Standardverhalten geändert, sodass das Verhalten der Abhängigkeitsauflösung für Patchversionen mit dem Verhalten für die Haupt-und neben Versionen konsistent ist. Im obigen Beispiel PackageB@1.0.0 wird dann als Ergebnis der Installation von installiert PackageA@1.0.0 , unabhängig von der neueren Patchversion.
 
 ## <a name="-dependencyversion-switch"></a>-Dependencyversion-Schalter
 
@@ -62,7 +62,7 @@ Obwohl nuget 2,8 das _Standard_ Verhalten für das Auflösen von Abhängigkeiten
 
 ## <a name="dependencyversion-attribute"></a>Dependencyversion-Attribut
 
-Zusätzlich zum oben beschriebenen Schalter "-dependencyversion" hat nuget auch die Möglichkeit, ein neues Attribut in der Datei "nuget. config" festzulegen, wobei der Standardwert festgelegt ist, wenn der Schalter "-dependencyversion" nicht in einem Aufruf von angegeben ist. Install-Package. Dieser Wert wird auch vom Dialog Feld nuget-Paket-Manager für alle Installationspaket Vorgänge beachtet. Fügen Sie der Datei "nuget. config" das unten angegebene-Attribut hinzu, um diesen Wert festzulegen:
+Zusätzlich zum oben beschriebenen Schalter "-dependencyversion" hat nuget auch die Möglichkeit, ein neues Attribut in der Nuget.Config Datei festzulegen, die den Standardwert definiert, wenn der Schalter "-dependencyversion" bei einem Aufruf von "Install-Package" nicht angegeben ist. Dieser Wert wird auch vom Dialog Feld nuget-Paket-Manager für alle Installationspaket Vorgänge beachtet. Um diesen Wert festzulegen, fügen Sie das unten angegebene-Attribut ihrer Nuget.Config-Datei hinzu:
 
     <config>
         <add key="dependencyversion" value="Highest" />
@@ -70,7 +70,7 @@ Zusätzlich zum oben beschriebenen Schalter "-dependencyversion" hat nuget auch 
 
 ## <a name="preview-nuget-operations-with--whatif"></a>Vorschau von nuget-Vorgängen mit-WhatIf
 
-Einige nuget-Pakete können über Deep-Abhängigkeits Diagramme verfügen. Daher kann es bei einem Installations-, Deinstallations-oder Update Vorgang hilfreich sein, um zuerst zu sehen, was passiert. Nuget 2,8 fügt den standardmäßigen PowerShell-WhatIf-Switch zu den Befehlen install-Package, uninstall-Package und Update-Package hinzu, um die Visualisierung des gesamten Abschlusses von Paketen zu ermöglichen, auf die der Befehl angewendet wird. Wenn beispielsweise `install-package Microsoft.AspNet.WebApi -whatif` in einer leeren ASP.NET-Webanwendung ausgeführt wird, ergibt sich Folgendes.
+Einige nuget-Pakete können über Deep-Abhängigkeits Diagramme verfügen. Daher kann es bei einem Installations-, Deinstallations-oder Update Vorgang hilfreich sein, um zuerst zu sehen, was passiert. Nuget 2,8 fügt den standardmäßigen PowerShell-WhatIf-Switch zu den Befehlen install-Package, uninstall-Package und Update-Package hinzu, um die Visualisierung des gesamten Abschlusses von Paketen zu ermöglichen, auf die der Befehl angewendet wird. Beispielsweise `install-package Microsoft.AspNet.WebApi -whatif` ergibt die Ausführung in einer leeren ASP.NET-Webanwendung Folgendes:
 
     PM> install-package Microsoft.AspNet.WebApi -whatif
     Attempting to resolve dependency 'Microsoft.AspNet.WebApi.WebHost (≥ 5.0.0)'.
@@ -89,13 +89,13 @@ Es ist nicht ungewöhnlich, eine Vorabversion eines Pakets zu installieren, um n
 
 ## <a name="development-dependencies"></a>Entwicklungs Abhängigkeiten
 
-Viele verschiedene Arten von Funktionen können als nuget-Pakete übermittelt werden, einschließlich Tools, die zur Optimierung des Entwicklungsprozesses verwendet werden. Diese Komponenten, während Sie für die Entwicklung eines neuen Pakets wichtig sein können, sollten beim späteren veröffentlichen nicht als Abhängigkeit des neuen Pakets angesehen werden. Mit nuget 2,8 kann ein Paket sich selbst in der `.nuspec`-Datei als developmentabhängigkeiten identifizieren. Bei der Installation werden diese Metadaten auch der `packages.config`-Datei des Projekts hinzugefügt, in dem das Paket installiert wurde. Wenn diese `packages.config` Datei später für nuget-Abhängigkeiten während `nuget.exe pack`analysiert wird, werden diese Abhängigkeiten ausgeschlossen, die als Entwicklungs Abhängigkeiten gekennzeichnet sind.
+Viele verschiedene Arten von Funktionen können als nuget-Pakete übermittelt werden, einschließlich Tools, die zur Optimierung des Entwicklungsprozesses verwendet werden. Diese Komponenten, während Sie für die Entwicklung eines neuen Pakets wichtig sein können, sollten beim späteren veröffentlichen nicht als Abhängigkeit des neuen Pakets angesehen werden. Mit nuget 2,8 kann ein Paket sich in der `.nuspec` Datei als developmentdependenz identifizieren. Bei der Installation werden diese Metadaten auch der `packages.config` Datei des Projekts hinzugefügt, in dem das Paket installiert wurde. Wenn diese `packages.config` Datei später für nuget-Abhängigkeiten analysiert wird `nuget.exe pack` , werden diese Abhängigkeiten ausgeschlossen, die als Entwicklungs Abhängigkeiten gekennzeichnet sind.
 
-## <a name="individual-packagesconfig-files-for-different-platforms"></a>Einzelne Packages. config-Dateien für verschiedene Plattformen
+## <a name="individual-packagesconfig-files-for-different-platforms"></a>Einzelne packages.config Dateien für verschiedene Plattformen
 
-Beim Entwickeln von Anwendungen für mehrere Zielplattformen ist es üblich, dass für jede der jeweiligen Buildumgebungen verschiedene Projektdateien vorhanden sind. Es ist auch üblich, dass unterschiedliche nuget-Pakete in verschiedenen Projektdateien verwendet werden, da Pakete unterschiedliche Ebenen der Unterstützung für verschiedene Plattformen aufweisen. Nuget 2,8 bietet eine verbesserte Unterstützung für dieses Szenario, indem unterschiedliche `packages.config` Dateien für verschiedene plattformspezifische Projektdateien erstellt werden.
+Beim Entwickeln von Anwendungen für mehrere Zielplattformen ist es üblich, dass für jede der jeweiligen Buildumgebungen verschiedene Projektdateien vorhanden sind. Es ist auch üblich, dass unterschiedliche nuget-Pakete in verschiedenen Projektdateien verwendet werden, da Pakete unterschiedliche Ebenen der Unterstützung für verschiedene Plattformen aufweisen. Nuget 2,8 bietet eine verbesserte Unterstützung für dieses Szenario, indem verschiedene `packages.config` Dateien für verschiedene plattformspezifische Projektdateien erstellt werden.
 
-![Mehrere "Package. config"-Dateien](./media/NuGet-2.8/multiple-packageconfigs.png)
+![Mehrere package.config Dateien](./media/NuGet-2.8/multiple-packageconfigs.png)
 
 ## <a name="fallback-to-local-cache"></a>Fallback zum lokalen Cache
 
@@ -124,7 +124,7 @@ So aktualisieren Sie die nuget-Paket-Manager-Erweiterung in webmatrix 3:
 
 Dies ist die erste Version der nuget-Paket-Manager-Erweiterung für webmatrix.  Der Code wurde vor kurzem von Microsoft im Open-Source-nuget-Projekt bereitgestellt. Zuvor wurde die nuget-Integration in webmatrix integriert und konnte nicht von webmatrix out of Band aktualisiert werden.  Wir haben nun die Möglichkeit, Sie neben den restlichen Client Tools von nuget zu aktualisieren.
 
-## <a name="bug-fixes"></a>Fehlerbehebungen
+## <a name="bug-fixes"></a>Fehlerkorrekturen
 
 Eine der wichtigsten Fehlerbehebungen war die Leistungsverbesserung im Befehl Update-Package-REINSTALL.
 

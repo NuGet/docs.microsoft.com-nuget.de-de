@@ -6,12 +6,12 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 2753f92601b3d8b43593762cc07cd8384646feea
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 9e25f439617a76d30880bea3c10a5d063e681a41
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622667"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238152"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>Befehl "Trusted-Signers" (nuget-CLI)
 
@@ -19,7 +19,7 @@ ms.locfileid: "88622667"
 
 Ruft vertrauenswürdige Signatur Geber für die nuget-Konfiguration ab oder legt Sie fest. Weitere Informationen finden Sie unter [Allgemeine nuget-Konfigurationen](../../consume-packages/configuring-nuget-behavior.md). Ausführliche Informationen dazu, wie das nuget.config Schema aussieht, finden Sie in der [nuget-Konfigurationsdatei Referenz](../nuget-config-file.md).
 
-## <a name="usage"></a>Verwendung
+## <a name="usage"></a>Verbrauch
 
 ```cli
 nuget trusted-signers <list|add|remove|sync> [options]
@@ -46,6 +46,7 @@ Registered trusted signers:
  2.   microsoft [author]
       Certificate fingerprint(s):
         SHA256 - 3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE
+        SHA256 - AA12DA22A49BCE7D5C1AE64CC1F3D892F150DA76140F210ABD2CBFFCA2C18A27
 
  3.   myUntrustedAuthorSignature [author]
       Certificate fingerprint(s):
@@ -89,7 +90,7 @@ Die Angabe von `-Author` und `-Repository` zur gleichen Zeit wird nicht unterst�
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Hinweis_: mit dieser Option werden nur vertrauenswürdige Depots hinzugefügt. 
+_Hinweis_ : mit dieser Option werden nur vertrauenswürdige Depots hinzugefügt. 
 
 - **`-AllowUntrustedRoot`**
 
@@ -109,7 +110,7 @@ _Hinweis_: mit dieser Option werden nur vertrauenswürdige Depots hinzugefügt.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Hinweis_: Wenn bereits ein vertrauenswürdiger Signatur Geber mit dem angegebenen Namen vorhanden ist, wird das Zertifikat Element diesem Signatur Geber hinzugefügt. Andernfalls wird ein vertrauenswürdiger Autor mit einem Zertifikat Element aus den angegebenen Zertifikat Informationen erstellt.
+_Hinweis_ : Wenn bereits ein vertrauenswürdiger Signatur Geber mit dem angegebenen Namen vorhanden ist, wird das Zertifikat Element diesem Signatur Geber hinzugefügt. Andernfalls wird ein vertrauenswürdiger Autor mit einem Zertifikat Element aus den angegebenen Zertifikat Informationen erstellt.
 
 
 - **`-AllowUntrustedRoot`**
@@ -132,7 +133,7 @@ Entfernt alle vertrauenswürdigen Signatur Geber, die dem angegebenen Namen ents
 
 Fordert die aktuelle Liste der Zertifikate an, die in einem aktuell vertrauenswürdigen Repository verwendet werden, um die Liste vorhandener Zertifikate im vertrauenswürdigen Signatur Geber zu aktualisieren.
 
-_Hinweis_: durch diese Geste wird die aktuelle Liste der Zertifikate gelöscht und durch eine aktuelle Liste aus dem Repository ersetzt.
+_Hinweis_ : durch diese Geste wird die aktuelle Liste der Zertifikate gelöscht und durch eine aktuelle Liste aus dem Repository ersetzt.
 
 ## <a name="options"></a>Optionen
 

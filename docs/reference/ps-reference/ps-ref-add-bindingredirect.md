@@ -1,18 +1,18 @@
 ---
-title: PowerShell-Referenz zu nuget-bindingRedirect
-description: Referenz für den PowerShell-Befehl "Add-bindingRedirect" in der nuget-Paket-Manager-Konsole in Visual Studio.
+title: Nuget-Add-BindingRedirect PowerShell-Referenz
+description: Referenz für Add-BindingRedirect PowerShell-Befehl in der nuget-Paket-Manager-Konsole in Visual Studio.
 author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: f5ba4bd8140fa8cac7da8bf1351ad5448671b768
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 382ba9b179428c70e3eb16db86a363e095207d61
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623122"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237256"
 ---
-# <a name="add-bindingredirect-package-manager-console-in-visual-studio"></a>Add-bindingRedirect (Paket-Manager-Konsole in Visual Studio)
+# <a name="add-bindingredirect-package-manager-console-in-visual-studio"></a>Add-BindingRedirect (Paket-Manager-Konsole in Visual Studio)
 
 *Nur in der [Paket-Manager-Konsole](../../consume-packages/install-use-packages-powershell.md) in Visual Studio unter Windows verfügbar.*
 
@@ -39,7 +39,7 @@ Keiner dieser Parameter akzeptiert Pipeline Eingabe-oder Platzhalter Zeichen.
 
 ## <a name="common-parameters"></a>Allgemeine Parameter
 
-`Add-BindingRedirect` unterstützt die folgenden [allgemeinen PowerShell-Parameter](https://go.microsoft.com/fwlink/?LinkID=113216): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, pipelinevariable, Verbose, WarningAction und WarningVariable.
+`Add-BindingRedirect` unterstützt die folgenden [allgemeinen PowerShell-Parameter](/powershell/module/microsoft.powershell.core/about/about_commonparameters): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, pipelinevariable, Verbose, WarningAction und WarningVariable.
 
 ## <a name="examples"></a>Beispiele
 

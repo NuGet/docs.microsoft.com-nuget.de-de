@@ -1,20 +1,20 @@
 ---
-title: PowerShell-Referenz zu nuget-PowerShell-Paketen
-description: Referenz für den PowerShell-Befehl "Find-Package" in der nuget-Paket-Manager-Konsole in Visual Studio.
+title: Nuget-Find-Package PowerShell-Referenz
+description: Referenz für Find-Package PowerShell-Befehl in der nuget-Paket-Manager-Konsole in Visual Studio.
 author: karann-msft
 ms.author: karann
 ms.date: 6/1/2017
 ms.topic: reference
-ms.openlocfilehash: 4118b5a38f80a2300b3945738315d56bda096f9a
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 267dd3eb501cae6e419386a5ca5e0c1ab659f807
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384632"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238087"
 ---
 # <a name="find-package-package-manager-console-in-visual-studio"></a>Find-Package (Paket-Manager-Konsole in Visual Studio)
 
-*Version 3.0 und höher in diesem Thema wird der Befehl in der [Paket-Manager-Konsole](../../consume-packages/install-use-packages-powershell.md) in Visual Studio unter Windows beschrieben. Den allgemeinen PowerShell-Befehl "Find-Package" finden Sie in der [Referenz zu PowerShell packagemanagement](/powershell/module/packagemanagement/?view=powershell-6).*
+*Version 3.0 und höher in diesem Thema wird der Befehl in der [Paket-Manager-Konsole](../../consume-packages/install-use-packages-powershell.md) in Visual Studio unter Windows beschrieben. Den allgemeinen PowerShell-Find-Package Befehl finden Sie in der [Referenz zu PowerShell packagemanagement](/powershell/module/packagemanagement/?view=powershell-6).*
 
 Ruft den Satz von Remote Paketen mit der angegebenen ID oder den angegebenen Schlüsselwörtern aus der Paketquelle ab.
 
@@ -25,24 +25,24 @@ Find-Package [-Id] <keywords> -Source <string> [-AllVersions] [-First [<int>]]
     [-Skip <int>] [-IncludePrerelease] [-ExactMatch] [-StartWith] [<CommonParameters>]
 ```
 
-## <a name="parameters"></a>Parameters
+## <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --- | --- |
-| ID &lt;Schlüsselwörter&gt; | Benötigten Schlüsselwörter, die beim Durchsuchen der Paketquelle verwendet werden sollen. Verwenden Sie-exactMatch, um nur Pakete zurückzugeben, deren Paket-ID mit den Schlüsselwörtern übereinstimmt. Wenn keine Schlüsselwörter angegeben werden, gibt `Find-Package` eine Liste mit den ersten 20 Paketen nach Downloads oder die durch-First angegebene Zahl zurück. Beachten Sie, dass-ID optional und ein No-op-Wert ist. |
-| Quelle | Die URL oder der Ordner Pfad für die Paketquelle, die durchsucht werden soll. Lokale Ordner Pfade können absolut oder relativ zum aktuellen Ordner sein. Wenn der Wert weggelassen wird, wird `Find-Package` die aktuell ausgewählte Paketquelle durchsucht. |
+| ID- &lt; Schlüsselwörter&gt; | Benötigten Schlüsselwörter, die beim Durchsuchen der Paketquelle verwendet werden sollen. Verwenden Sie-exactMatch, um nur Pakete zurückzugeben, deren Paket-ID mit den Schlüsselwörtern übereinstimmt. Wenn keine Schlüsselwörter angegeben werden, wird `Find-Package` von eine Liste mit den Top 20 Paketen nach Downloads oder der durch-First angegebenen Zahl zurückgegeben. Beachten Sie, dass-ID optional und ein No-op-Wert ist. |
+| `Source` | Die URL oder der Ordner Pfad für die Paketquelle, die durchsucht werden soll. Lokale Ordner Pfade können absolut oder relativ zum aktuellen Ordner sein. Wenn kein Wert angezeigt wird, wird `Find-Package` die aktuell ausgewählte Paketquelle durchsucht. |
 | AllVersions | Zeigt alle verfügbaren Versionen der einzelnen Pakete anstelle der neuesten Version an. |
-| Erster | Die Anzahl der Pakete, die ab dem Anfang der Liste zurückgegeben werden sollen. der Standardwert ist 20. |
-| Überspringen | Lässt das erste &lt;int&gt; Paketen aus der angezeigten Liste aus.  |
+| First | Die Anzahl der Pakete, die ab dem Anfang der Liste zurückgegeben werden sollen. der Standardwert ist 20. |
+| Überspringen | Lässt die ersten &lt; int- &gt; Pakete aus der angezeigten Liste aus.  |
 | Incluabprerelease | Schließt vorab Pakete in die Ergebnisse ein. |
-| ExactMatch | Gibt an, dass &lt;Schlüsselwörter&gt; als Paket-ID verwendet werden soll |
-| StartWith | Gibt Pakete zurück, deren Paket-ID mit &lt;Schlüsselwörtern&gt;beginnt. |
+| ExactMatch | Wird angegeben, um &lt; Schlüsselwörter &gt; als Paket-ID zu verwenden |
+| Startmit | Gibt Pakete zurück, deren Paket-ID mit &lt; Schlüsselwörtern beginnt &gt; . |
 
 Keiner dieser Parameter akzeptiert Pipeline Eingabe-oder Platzhalter Zeichen.
 
 ## <a name="common-parameters"></a>Allgemeine Parameter
 
-`Find-Package` unterstützt die folgenden [allgemeinen PowerShell-Parameter](https://go.microsoft.com/fwlink/?LinkID=113216): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, pipelinevariable, Verbose, WarningAction und WarningVariable.
+`Find-Package` unterstützt die folgenden [allgemeinen PowerShell-Parameter](/powershell/module/microsoft.powershell.core/about/about_commonparameters): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, pipelinevariable, Verbose, WarningAction und WarningVariable.
 
 ## <a name="examples"></a>Beispiele
 

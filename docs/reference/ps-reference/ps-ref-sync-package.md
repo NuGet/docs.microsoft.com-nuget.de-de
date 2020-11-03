@@ -1,16 +1,16 @@
 ---
-title: Nuget-Synchronisierungs Paket PowerShell-Referenz
-description: Referenz für den PowerShell-Befehl "Sync-Package" in der nuget-Paket-Manager-Konsole in Visual Studio.
+title: Nuget-Sync-Package PowerShell-Referenz
+description: Referenz für Sync-Package PowerShell-Befehl in der nuget-Paket-Manager-Konsole in Visual Studio.
 author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 12a3d5f32056539a75da9e17b15d67e72a8a42c2
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: fc4c875b5dcb0b90e4d048daf5984ed265370090
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384902"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238048"
 ---
 # <a name="sync-package-package-manager-console-in-visual-studio"></a>Sync-Package (Paket-Manager-Konsole in Visual Studio)
 
@@ -26,25 +26,25 @@ Sync-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [[-Ver
     [-WhatIf] [<CommonParameters>]
 ```
 
-## <a name="parameters"></a>Parameters
+## <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --- | --- |
-| ID | Benötigten Der Bezeichner des zu synchronisierenden Pakets. Der Schalter-ID selbst ist optional. |
-| IgnoreDependencies | Installieren Sie nur dieses Paket und nicht seine Abhängigkeiten. |
-| ProjektName | Das Projekt, von dem das Paket synchronisiert wird, und standardmäßig das Standard Projekt. |
+| Id | Benötigten Der Bezeichner des zu synchronisierenden Pakets. Der Schalter-ID selbst ist optional. |
+| Ignoreabhängigkeiten | Installieren Sie nur dieses Paket und nicht seine Abhängigkeiten. |
+| ProjectName | Das Projekt, von dem das Paket synchronisiert wird, und standardmäßig das Standard Projekt. |
 | Version | Die Version des zu synchronisierenden Pakets, wobei die aktuell installierte Version standardmäßig installiert ist. |
-| Quelle | Die URL oder der Ordner Pfad für die Paketquelle, die durchsucht werden soll. Lokale Ordner Pfade können absolut oder relativ zum aktuellen Ordner sein. Wenn der Wert weggelassen wird, wird `Sync-Package` die aktuell ausgewählte Paketquelle durchsucht. |
+| `Source` | Die URL oder der Ordner Pfad für die Paketquelle, die durchsucht werden soll. Lokale Ordner Pfade können absolut oder relativ zum aktuellen Ordner sein. Wenn kein Wert angezeigt wird, wird `Sync-Package` die aktuell ausgewählte Paketquelle durchsucht. |
 | Incluabprerelease | Schließt vorab Pakete in die Synchronisierung ein. |
-| FileConflictAction | Die Aktion, die ausgeführt werden soll, wenn die vom Projekt referenzierten Dateien überschrieben oder ignoriert werden sollen. Mögliche Werte sind " *überschreiben", "ignorieren", "keine", "überschreiben*" und " *(3.0 +)* *IgnoreAll*". |
-| Dependencyversion | Die Version der zu verwendenden Abhängigkeits Pakete. Dies kann eine der folgenden sein:<br/><ul><li>*Niedrigste* (Standard): die niedrigste Version</li><li>*Highestpatch*: die Version mit dem niedrigsten, niedrigsten, niedrigsten, größten Patch</li><li>*Highestminor*: die Version mit dem niedrigsten Haupt-, höchst-und Höchstwert</li><li>*Höchste* (Standardeinstellung für Update-Package ohne Parameter): die höchste Version</li></ul>Sie können den Standardwert mithilfe der Einstellung [`dependencyVersion`](../nuget-config-file.md#config-section) in der `Nuget.Config`-Datei festlegen. |
+| Fileconflictaction | Die Aktion, die ausgeführt werden soll, wenn die vom Projekt referenzierten Dateien überschrieben oder ignoriert werden sollen. Mögliche Werte sind " *überschreiben", "ignorieren", "keine", "überschreiben* " und " *(3.0 +)* *IgnoreAll* ". |
+| Dependencyversion | Die Version der zu verwendenden Abhängigkeits Pakete. Dies kann eine der folgenden sein:<br/><ul><li>*Niedrigste* (Standard): die niedrigste Version</li><li>*Highestpatch* : die Version mit dem niedrigsten, niedrigsten, niedrigsten, größten Patch</li><li>*Highestminor* : die Version mit dem niedrigsten Haupt-, höchst-und Höchstwert</li><li>*Höchste* (Standardeinstellung für Update-Package ohne Parameter): die höchste Version</li></ul>Sie können den Standardwert mithilfe der- [`dependencyVersion`](../nuget-config-file.md#config-section) Einstellung in der `Nuget.Config` Datei festlegen. |
 | WhatIf | Zeigt, was geschehen würde, wenn der Befehl ausgeführt wird, ohne die Synchronisierung tatsächlich auszuführen. |
 
 Keiner dieser Parameter akzeptiert Pipeline Eingabe-oder Platzhalter Zeichen.
 
 ## <a name="common-parameters"></a>Allgemeine Parameter
 
-`Sync-Package` unterstützt die folgenden [allgemeinen PowerShell-Parameter](https://go.microsoft.com/fwlink/?LinkID=113216): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, pipelinevariable, Verbose, WarningAction und WarningVariable.
+`Sync-Package` unterstützt die folgenden [allgemeinen PowerShell-Parameter](/powershell/module/microsoft.powershell.core/about/about_commonparameters): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, pipelinevariable, Verbose, WarningAction und WarningVariable.
 
 ## <a name="examples"></a>Beispiele
 

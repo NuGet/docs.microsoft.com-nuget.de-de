@@ -1,16 +1,16 @@
 ---
-title: Nuget-Update-Paket-PowerShell-Referenz
-description: Referenz für den PowerShell-Befehl "Update-Package" in der nuget-Paket-Manager-Konsole in Visual Studio.
+title: Nuget-Update-Package PowerShell-Referenz
+description: Referenz für Update-Package PowerShell-Befehl in der nuget-Paket-Manager-Konsole in Visual Studio.
 author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: e1bff9d4b7391d8be87afa4b8f2fbd51ae922140
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: af918d11e8f976be962d52084c5eda4d53e382c6
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384855"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238035"
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Update-Package (Paket-Manager-Konsole in Visual Studio)
 
@@ -26,35 +26,35 @@ Update-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [-Ve
     [-DependencyVersion] [-ToHighestPatch] [-ToHighestMinor] [-WhatIf] [<CommonParameters>]
 ```
 
-In nuget 2.8 und höher können `Update-Package` zum Herabstufen eines vorhandenen Pakets in Ihrem Projekt verwendet werden. Wenn Sie z. b. Microsoft. Aspnet. MVC 5.1.0-RC1 installiert haben, würde der folgende Befehl das Downgrade auf 5.0.0 durchführt:
+In nuget 2.8 und höher `Update-Package` können Sie ein vorhandenes Paket in Ihrem Projekt herabstufen. Wenn Sie z. b. Microsoft. Aspnet. MVC 5.1.0-RC1 installiert haben, würde der folgende Befehl das Downgrade auf 5.0.0 durchführt:
 
 ```ps
 Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 ```
 
-## <a name="parameters"></a>Parameters
+## <a name="parameters"></a>Parameter
 
-|  Parameter | Beschreibung |
+|  Parameter | BESCHREIBUNG |
 | --- | --- |
-| ID | Der Bezeichner des zu aktualisierenden Pakets. Wenn dieser nicht ausgelassen wird, werden alle Pakete aktualisiert. Der Schalter-ID selbst ist optional. |
-| IgnoreDependencies | Überspringt die Aktualisierung der Paketabhängigkeiten. |
-| ProjektName | Der Name des Projekts, das die zu aktualisierenden Pakete enthält, die standardmäßig auf alle Projekte aktualisiert werden. |
-| Version | Die für das Upgrade zu verwendende Version, die standardmäßig die neueste Version verwendet. In nuget 3.0 und höher muss der Versions Wert einer der *niedrigsten, höchsten, highestminor*oder *highestpatch* (äquivalent zu-Safe) sein. |
+| Id | Der Bezeichner des zu aktualisierenden Pakets. Wenn dieser nicht ausgelassen wird, werden alle Pakete aktualisiert. Der Schalter-ID selbst ist optional. |
+| Ignoreabhängigkeiten | Überspringt die Aktualisierung der Paketabhängigkeiten. |
+| ProjectName | Der Name des Projekts, das die zu aktualisierenden Pakete enthält, die standardmäßig auf alle Projekte aktualisiert werden. |
+| Version | Die für das Upgrade zu verwendende Version, die standardmäßig die neueste Version verwendet. In nuget 3.0 und höher muss der Versions Wert einer der *niedrigsten, höchsten, highestminor* oder *highestpatch* (äquivalent zu-Safe) sein. |
 | Safe | Schränkt Upgrades auf Versionen ein, die die gleiche Haupt-und neben Version wie das aktuell installierte Paket haben. |
-| Quelle | Die URL oder der Ordner Pfad für die Paketquelle, die durchsucht werden soll. Lokale Ordner Pfade können absolut oder relativ zum aktuellen Ordner sein. Wenn der Wert weggelassen wird, wird `Update-Package` die aktuell ausgewählte Paketquelle durchsucht. |
+| `Source` | Die URL oder der Ordner Pfad für die Paketquelle, die durchsucht werden soll. Lokale Ordner Pfade können absolut oder relativ zum aktuellen Ordner sein. Wenn kein Wert angezeigt wird, wird `Update-Package` die aktuell ausgewählte Paketquelle durchsucht. |
 | Incluabprerelease | Schließt vorab Pakete für Updates ein. |
-| Neuinstallation | Gibt Pakete zurück, die Ihre aktuell installierten Versionen verwenden. Informationen dazu finden Sie unter [Neuinstallieren und Aktualisieren von Paketen](../../consume-packages/reinstalling-and-updating-packages.md). |
-| FileConflictAction | Die Aktion, die ausgeführt werden soll, wenn die vom Projekt referenzierten Dateien überschrieben oder ignoriert werden sollen. Mögliche Werte sind " *überschreiben", "ignorieren", "keine", "überschreiben*" und " *IgnoreAll* " (3.0 +). |
-| Dependencyversion | Die Version der zu verwendenden Abhängigkeits Pakete. Dies kann eine der folgenden sein:<br/><ul><li>*Niedrigste* (Standard): die niedrigste Version</li><li>*Highestpatch*: die Version mit dem niedrigsten, niedrigsten, niedrigsten, größten Patch</li><li>*Highestminor*: die Version mit dem niedrigsten Haupt-, höchst-und Höchstwert</li><li>*Höchste* (Standardeinstellung für Update-Package ohne Parameter): die höchste Version</li></ul>Sie können den Standardwert mithilfe der Einstellung [`dependencyVersion`](../nuget-config-file.md#config-section) in der `Nuget.Config`-Datei festlegen. |
-| ToHighestPatch | Äquivalent zu-Safe. |
-| ToHighestMinor | Schränkt Upgrades auf Versionen ein, die dieselbe Hauptversion wie das aktuell installierte Paket haben. |
+| Neuinstallation | Gibt Pakete zurück, die Ihre aktuell installierten Versionen verwenden. Weitere Informationen finden Sie unter [Neuinstallieren und Aktualisieren von Paketen](../../consume-packages/reinstalling-and-updating-packages.md). |
+| Fileconflictaction | Die Aktion, die ausgeführt werden soll, wenn die vom Projekt referenzierten Dateien überschrieben oder ignoriert werden sollen. Mögliche Werte sind " *überschreiben", "ignorieren", "keine", "überschreiben* " und " *IgnoreAll* " (3.0 +). |
+| Dependencyversion | Die Version der zu verwendenden Abhängigkeits Pakete. Dies kann eine der folgenden sein:<br/><ul><li>*Niedrigste* (Standard): die niedrigste Version</li><li>*Highestpatch* : die Version mit dem niedrigsten, niedrigsten, niedrigsten, größten Patch</li><li>*Highestminor* : die Version mit dem niedrigsten Haupt-, höchst-und Höchstwert</li><li>*Höchste* (Standardeinstellung für Update-Package ohne Parameter): die höchste Version</li></ul>Sie können den Standardwert mithilfe der- [`dependencyVersion`](../nuget-config-file.md#config-section) Einstellung in der `Nuget.Config` Datei festlegen. |
+| "Thighestpatch" | Äquivalent zu-Safe. |
+| "" Zu "" | Schränkt Upgrades auf Versionen ein, die dieselbe Hauptversion wie das aktuell installierte Paket haben. |
 | WhatIf | Zeigt, was geschieht, wenn der Befehl ausgeführt wird, ohne die Aktualisierung tatsächlich auszuführen. |
 
 Keiner dieser Parameter akzeptiert Pipeline Eingabe-oder Platzhalter Zeichen.
 
 ### <a name="common-parameters"></a>Allgemeine Parameter
 
-`Update-Package` unterstützt die folgenden [allgemeinen PowerShell-Parameter](https://go.microsoft.com/fwlink/?LinkID=113216): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, pipelinevariable, Verbose, WarningAction und WarningVariable.
+`Update-Package` unterstützt die folgenden [allgemeinen PowerShell-Parameter](/powershell/module/microsoft.powershell.core/about/about_commonparameters): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, pipelinevariable, Verbose, WarningAction und WarningVariable.
 
 ### <a name="examples"></a>Beispiele
 
@@ -81,11 +81,11 @@ Update-Package Elmah -ProjectName MvcApplication1 -Safe
 # (subject to version constraints). If this command rolls a dependency back to an earlier version,
 # use Update-Package <dependency_name> to reinstall that one dependency without affecting the
 # dependent package.
-Update-Package ELmah –reinstall 
+Update-Package Elmah –reinstall 
 
 # Reinstall the Elmah package in just MyProject
 Update-Package Elmah -ProjectName MyProject -reinstall
 
 # Reinstall the same version of the original package without touching dependencies.
-Update-Package ELmah –reinstall -ignoreDependencies
+Update-Package Elmah –reinstall -ignoreDependencies
 ```

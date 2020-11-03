@@ -1,16 +1,16 @@
 ---
-title: PowerShell-Referenz für nuget-Open-packagepage
-description: Referenz für den PowerShell-Befehl "Open-packagepage" in der nuget-Paket-Manager-Konsole in Visual Studio.
+title: Nuget-Open-PackagePage PowerShell-Referenz
+description: Referenz für Open-PackagePage PowerShell-Befehl in der nuget-Paket-Manager-Konsole in Visual Studio.
 author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 39199ebfc37756ed40158a1c07afca7709067350
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: ba90e09c017ec66d73c35a60025474bc77cf65a7
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384427"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238061"
 ---
 # <a name="open-packagepage-package-manager-console-in-visual-studio"></a>Open-PackagePage (Paket-Manager-Konsole in Visual Studio)
 
@@ -25,13 +25,13 @@ Open-PackagePage [-Id] <string> [-Version] [-Source] [-License] [-ReportAbuse]
     [-PassThru] [<CommonParameters>]
 ```
 
-## <a name="parameters"></a>Parameters
+## <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --- | --- |
-| ID | Die Paket-ID des gewünschten Pakets. Der Schalter-ID selbst ist optional. |
+| Id | Die Paket-ID des gewünschten Pakets. Der Schalter-ID selbst ist optional. |
 | Version | Die Version des Pakets, standardmäßig auf die neueste Version. |
-| Quelle | Die Paketquelle, standardmäßig auf die ausgewählte Quelle in der Dropdown-Dropdown-Dropdown-Datei. |
+| `Source` | Die Paketquelle, standardmäßig auf die ausgewählte Quelle in der Dropdown-Dropdown-Dropdown-Datei. |
 | Lizenz | Öffnet den Browser mit der Lizenz-URL des Pakets. Wenn weder-License noch-Report Abuse angegeben ist, öffnet der Browser die Projekt-URL des Pakets. |
 | Report Abuse | Öffnet den Browser mit der Berichts Missbrauch-URL des Pakets. Wenn weder-License noch-Report Abuse angegeben ist, öffnet der Browser die Projekt-URL des Pakets. |
 | PassThru | Zeigt die URL an. Verwenden Sie with-WhatIf, um das Öffnen des Browsers zu unterdrücken. |
@@ -40,7 +40,7 @@ Keiner dieser Parameter akzeptiert Pipeline Eingabe-oder Platzhalter Zeichen.
 
 ## <a name="common-parameters"></a>Allgemeine Parameter
 
-`Open-PackagePage` unterstützt die folgenden [allgemeinen PowerShell-Parameter](https://go.microsoft.com/fwlink/?LinkID=113216): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, pipelinevariable, Verbose, WarningAction und WarningVariable.
+`Open-PackagePage` unterstützt die folgenden [allgemeinen PowerShell-Parameter](/powershell/module/microsoft.powershell.core/about/about_commonparameters): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, pipelinevariable, Verbose, WarningAction und WarningVariable.
 
 ## <a name="examples"></a>Beispiele
 

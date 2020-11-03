@@ -7,11 +7,11 @@ ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: ananguar
 ms.openlocfilehash: 7384e8b30cb2ec5fe53ea0fe485858bc1f7b3c43
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/16/2020
-ms.locfileid: "79428282"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238178"
 ---
 # <a name="signed-packages"></a>Signierte Pakete
 
@@ -20,13 +20,13 @@ ms.locfileid: "79428282"
 Nuget-Pakete können eine digitale Signatur enthalten, die Schutz vor Manipulations Inhalten bietet. Diese Signatur wird von einem X. 509-Zertifikat erzeugt, das dem eigentlichen Ursprung des Pakets auch Authentizitäts Nachweise hinzufügt.
 
 Signierte Pakete bieten die stärkste End-to-End-Validierung. Es gibt zwei verschiedene Arten von nuget-Signaturen:
-- **Signatur des Autors**. Eine Autoren Signatur garantiert, dass das Paket nicht geändert wurde, seit der Autor das Paket signiert hat, unabhängig davon, welches Repository oder welche Transportmethode das Paket übermittelt. Außerdem bieten Autor-signierte Pakete einen zusätzlichen Authentifizierungsmechanismus für die nuget.org-Veröffentlichungs Pipeline, da das Signaturzertifikat vorab registriert werden muss. Weitere Informationen finden Sie unter [Registrieren von Zertifikaten](#signature-requirements-on-nugetorg).
-- **Repository-Signatur**. Repository-Signaturen stellen eine Integritäts Garantie für **alle** Pakete in einem Repository dar, unabhängig davon, ob Sie Autor signiert sind oder nicht, auch wenn diese Pakete von einem anderen Speicherort als dem ursprünglichen Repository abgerufen werden, in dem Sie signiert wurden.   
+- **Signatur des Autors** . Eine Autoren Signatur garantiert, dass das Paket nicht geändert wurde, seit der Autor das Paket signiert hat, unabhängig davon, welches Repository oder welche Transportmethode das Paket übermittelt. Außerdem bieten Autor-signierte Pakete einen zusätzlichen Authentifizierungsmechanismus für die nuget.org-Veröffentlichungs Pipeline, da das Signaturzertifikat vorab registriert werden muss. Weitere Informationen finden Sie unter [Registrieren von Zertifikaten](#signature-requirements-on-nugetorg).
+- **Repository-Signatur** . Repository-Signaturen stellen eine Integritäts Garantie für **alle** Pakete in einem Repository dar, unabhängig davon, ob Sie Autor signiert sind oder nicht, auch wenn diese Pakete von einem anderen Speicherort als dem ursprünglichen Repository abgerufen werden, in dem Sie signiert wurden.   
 
 Weitere Informationen zum Erstellen eines signierten Pakets mit Vorzeichen finden Sie [unter Signieren von Paketen](../create-packages/Sign-a-package.md) und [nuget](../reference/cli-reference/cli-ref-sign.md)-Signierungs Befehl.
 
 > [!Important]
-> Die Paket Signierung wird derzeit nur unterstützt, wenn "nuget. exe" unter Windows verwendet wird. Die über [Prüfung von signierten Paketen wird derzeit nur unterstützt, wenn Sie "nuget. exe](../reference/cli-reference/cli-ref-verify.md) " oder Visual Studio unter Windows verwenden.
+> Die Paket Signierung wird derzeit nur unterstützt, wenn Sie nuget.exe unter Windows verwenden. Die über [Prüfung von signierten Paketen wird derzeit nur unterstützt, wenn Sie nuget.exe](../reference/cli-reference/cli-ref-verify.md) oder Visual Studio unter Windows verwenden.
 
 ## <a name="certificate-requirements"></a>Zertifikatanforderungen
 

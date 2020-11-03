@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: 28fae46a65bd4c2b7050e12568c21123fc8658c1
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 371f0d934fcd3c1f111d277131553c1eed0200be
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623161"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238100"
 ---
 # <a name="nugetconfig-reference"></a>nuget.config Referenz
 
@@ -56,7 +56,7 @@ Konfiguriert, ob NuGet bei der Installation eines Pakets automatische Bindungsum
 
 | Schlüssel | Wert |
 | --- | --- |
-| skip | Ein boolescher Wert, der angibt, ob automatische Bindungsumleitungen übersprungen werden sollen. Die Standardeinstellung ist „false“. |
+| skip | Ein boolescher Wert, der angibt, ob automatische Bindungsumleitungen übersprungen werden sollen. Der Standardwert ist false. |
 
 **Beispiel:**
 
@@ -90,7 +90,7 @@ Steuert, ob der Ordner `packages` einer Projektmappe in der Quellcodeverwaltung 
 
 | Schlüssel | Wert |
 | --- | --- |
-| disableSourceControlIntegration | Ein boolescher Wert, der angibt, ob der Paketordner während der Arbeit mit der Quellcodeverwaltung ignoriert werden soll. Der Standardwert ist „FALSE“. |
+| disableSourceControlIntegration | Ein boolescher Wert, der angibt, ob der Paketordner während der Arbeit mit der Quellcodeverwaltung ignoriert werden soll. Der Standardwert ist false. |
 
 **Beispiel:**
 
@@ -268,7 +268,7 @@ Speichert vertrauenswürdige Signatur Geber, die beim Installieren oder Wiederhe
 
 Dieser Abschnitt kann mit dem- [ `nuget trusted-signers` Befehl](../reference/cli-reference/cli-ref-trusted-signers.md)aktualisiert werden.
 
-**Schema**:
+**Schema:**
 
 Ein vertrauenswürdiger Signatur Geber verfügt über eine `certificate` Auflistung von Elementen, die alle Zertifikate eintragen, mit denen ein bestimmter Signatur Geber identifiziert wird. Ein vertrauenswürdiger Signatur Geber kann entweder ein `Author` oder ein sein `Repository` .
 
@@ -284,6 +284,7 @@ Die unterstützten Hash Algorithmen für einen Zertifikat Fingerabdruck sind `SH
 <trustedSigners>
     <author name="microsoft">
         <certificate fingerprint="3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+        <certificate fingerprint="AA12DA22A49BCE7D5C1AE64CC1F3D892F150DA76140F210ABD2CBFFCA2C18A27" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
     </author>
     <repository name="nuget.org" serviceIndex="https://api.nuget.org/v3/index.json">
         <certificate fingerprint="0E5F38F57DC1BCC806D8494F4F90FBCEDD988B46760709CBEEC6F4219AA6157D" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
@@ -324,7 +325,7 @@ Legt das Standardformat für die Paketverwaltung fest, entweder *packages.config
 
 | Schlüssel | Wert |
 | --- | --- |
-| format | Ein boolescher Wert, der das Standardformat für die Paketverwaltung angibt. Gibt an, dass das `1` Format packagereferenziert wird. Wenn der Wert ist `0` , wird das Format *packages.config*. |
+| format | Ein boolescher Wert, der das Standardformat für die Paketverwaltung angibt. Gibt an, dass das `1` Format packagereferenziert wird. Wenn der Wert ist `0` , wird das Format *packages.config* . |
 | deaktiviert | Ein boolescher Wert, der angibt, ob die Eingabeaufforderung zum Auswählen eines Standardpaket Formats bei der ersten Paketinstallation angezeigt werden soll. `False` Blendet die Eingabeaufforderung aus. |
 
 **Beispiel:**
@@ -431,6 +432,7 @@ Im folgenden finden Sie eine Beispiel `nuget.config` Datei, die eine Reihe von E
     <trustedSigners>
         <author name="microsoft">
             <certificate fingerprint="3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+            <certificate fingerprint="AA12DA22A49BCE7D5C1AE64CC1F3D892F150DA76140F210ABD2CBFFCA2C18A27" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
         </author>
         <repository name="nuget.org" serviceIndex="https://api.nuget.org/v3/index.json">
             <certificate fingerprint="0E5F38F57DC1BCC806D8494F4F90FBCEDD988B46760709CBEEC6F4219AA6157D" hashAlgorithm="SHA256" allowUntrustedRoot="false" />

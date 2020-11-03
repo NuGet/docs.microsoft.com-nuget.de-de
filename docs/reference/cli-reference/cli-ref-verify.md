@@ -6,12 +6,12 @@ ms.author: dtivel
 ms.date: 03/06/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 2c501753a16820c5d027441001561c6b637ccda9
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 7ce08f11195437e94bfe69883ff525e9ad3a73f0
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622602"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238139"
 ---
 # <a name="verify-command-nuget-cli"></a>Befehl "überprüfen" (nuget-CLI)
 
@@ -19,9 +19,9 @@ ms.locfileid: "88622602"
 
 Überprüft ein Paket.
 
-Die Überprüfung von signierten Paketen wird in .net Core, unter Mono oder auf nicht-Windows-Plattformen noch nicht unterstützt.
+Die Überprüfung von signierten Paketen wird unter Mono noch nicht unterstützt.
 
-## <a name="usage"></a>Verwendung
+## <a name="usage"></a>Verbrauch
 
 ```cli
 nuget verify <-All|-Signatures> <package(s)> [options]
@@ -31,7 +31,7 @@ dabei `<package(s)>` ist eine oder mehrere `.nupkg` Dateien.
 
 ## <a name="nuget-verify--all"></a>nuget-Überprüfung-alle
 
-Gibt an, dass alle Überprüfungen, die für die Pakete ausgeführt werden können, ausgeführt werden sollen.
+Hiermit wird angegeben, dass alle Überprüfungen für die Pakete ausgeführt werden sollen, die möglich sind.
 
 ## <a name="nuget-verify--signatures"></a>nuget-Überprüfung-Signaturen
 

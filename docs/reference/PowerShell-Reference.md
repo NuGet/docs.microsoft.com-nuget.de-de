@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/02/2017
 ms.topic: reference
-ms.openlocfilehash: 2a82b1977265a8f8a15247759bc3de80a5efe228
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 4f8b42847cbc155393fe6d2afbe2e0857b619da3
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385342"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93236879"
 ---
 # <a name="powershell-reference"></a>PowerShell-Referenz
 
@@ -22,19 +22,19 @@ Die Paket-Manager-Konsole bietet eine PowerShell-Schnittstelle in Visual Studio 
 > [!Important]
 > Die hier aufgeführten Befehle sind spezifisch für die Paket-Manager-Konsole in Visual Studio und unterscheiden sich von den [Paketverwaltung Module-Befehlen](/powershell/module/packagemanagement/?view=powershell-6) , die in einer allgemeinen PowerShell-Umgebung verfügbar sind. Insbesondere weist jede Umgebung Befehle auf, die in der anderen nicht verfügbar sind, und Befehle mit demselben Namen können sich auch in ihren spezifischen Argumenten unterscheiden. Wenn Sie die Paketverwaltung-Konsole in Visual Studio verwenden, gelten die in diesem Thema dokumentierten Befehle und Argumente.
 
-| Allgemeine Befehle | Beschreibung | NuGet-Version |
+| Allgemeine Befehle | BESCHREIBUNG | NuGet-Version |
 | --- | --- | --- |
 | [Install-Package](ps-reference/ps-ref-install-package.md) | Installiert ein Paket und seine Abhängigkeiten im Projekt. | Alle |
 | [Update-Package](ps-reference/ps-ref-update-package.md) | Aktualisiert ein Paket und seine Abhängigkeiten oder alle Pakete in einem Projekt. | Alle |
 | [Find-Package](ps-reference/ps-ref-find-package.md) | Durchsucht eine Paketquelle mithilfe einer Paket-ID oder eines Schlüssel Worts. | 3.0+ |
 | [Get-Package](ps-reference/ps-ref-get-package.md) | Ruft die Liste der im lokalen Repository installierten Pakete ab oder listet die Pakete auf, die in einer Paketquelle verfügbar sind. | Alle |
 
-| Sekundäre Befehle | Beschreibung | NuGet-Version |
+| Sekundäre Befehle | BESCHREIBUNG | NuGet-Version |
 | --- | --- | --- |
-| [Add-BindingRedirect](ps-reference/ps-ref-add-bindingredirect.md) | Untersucht alle Assemblys im Ausgabepfad für ein Projekt und fügt bei Bedarf Bindungs Umleitungen an den `app.config` oder `web.config` hinzu. | Alle |
+| [Add-BindingRedirect](ps-reference/ps-ref-add-bindingredirect.md) | Untersucht alle Assemblys im Ausgabepfad für ein Projekt und fügt bei Bedarf Bindungs Umleitungen zu `app.config` oder hinzu `web.config` . | Alle |
 | [Get-Project](ps-reference/ps-ref-get-project.md) | Zeigt Informationen zum Standard-oder angegebenen Projekt an. | 3.0+ |
 | [Open-PackagePage](ps-reference/ps-ref-open-packagepage.md) | Hiermit wird der Standardbrowser mit der URL für das Projekt, die Lizenz oder den Berichts Missbrauch für das angegebene Paket gestartet. | Veraltet in 3.0 und höher |
-| [Register-TabExpansion](ps-reference/ps-ref-register-tabexpansion.md) | Registriert eine Registerkarten Erweiterung für die Parameter eines Befehls, sodass Sie angepasste Erweiterungen für häufig verwendete Parameterwerte erstellen können. | Alle |
+| [Register-tabexpansion](ps-reference/ps-ref-register-tabexpansion.md) | Registriert eine Registerkarten Erweiterung für die Parameter eines Befehls, sodass Sie angepasste Erweiterungen für häufig verwendete Parameterwerte erstellen können. | Alle |
 | [Sync-Package](ps-reference/ps-ref-sync-package.md) | Die Version des installierten Pakets aus dem angegebenen Projekt erhalten und die Version mit den restlichen Projekten in der Projekt Mappe synchronisieren. | 3.0+ |
 | [Uninstall-Package](ps-reference/ps-ref-uninstall-package.md) | Entfernt ein Paket aus einem Projekt und entfernt optional seine Abhängigkeiten. | Alle |
 
@@ -44,16 +44,16 @@ Um eine ausführliche Hilfe zu diesen Befehlen in der-Konsole zu erhalten, führ
 Get-Help <command> -full
 ```
 
-Alle Befehle der Paket-Manager-Konsole unterstützen die folgenden [allgemeinen PowerShell-Parameter](https://go.microsoft.com/fwlink/?LinkID=113216):
+Alle Befehle der Paket-Manager-Konsole unterstützen die folgenden [allgemeinen PowerShell-Parameter](/powershell/module/microsoft.powershell.core/about/about_commonparameters):
 
-- Debug
+- Debuggen
 - ErrorAction
 - ErrorVariable
 - OutBuffer
 - OutVariable
-- PipelineVariable
+- Pipeline Variable
 - Ausführlich
 - WarningAction
 - WarningVariable
 
-Weitere Informationen finden Sie in der Dokumentation zu [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216) in der PowerShell-Dokumentation.
+Weitere Informationen finden Sie in der Dokumentation zu [about_CommonParameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters) in der PowerShell-Dokumentation.

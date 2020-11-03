@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 84f939188ac190f6d539f8ee2b422049a274f178
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 106c4027f03d8e8c1d19545b3ca9b6cd5263830e
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622576"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93236788"
 ---
 # <a name="update-command-nuget-cli"></a>Befehl Aktualisieren (nuget-CLI)
 
@@ -24,7 +24,7 @@ Der `update` Befehl aktualisiert außerdem Assemblyverweise in der Projektdatei,
 
 Dieser Befehl kann auch verwendet werden, um nuget.exe mit dem *-Self-* Flag zu aktualisieren.
 
-## <a name="usage"></a>Verwendung
+## <a name="usage"></a>Verbrauch
 
 ```cli
 nuget update <configPath> [options]
@@ -37,6 +37,10 @@ dabei `<configPath>` identifiziert entweder eine `packages.config` oder eine Pro
 - **`-ConfigFile`**
 
   Die anzuwendende nuget-Konfigurationsdatei. Wenn nichts angegeben ist, `%AppData%\NuGet\NuGet.Config` wird (Windows) `~/.nuget/NuGet/NuGet.Config` oder `~/.config/NuGet/NuGet.Config` (Mac/Linux) verwendet.
+  
+- **`-DependencyVersion [Lowest, HighestPatch, HighestMinor, Highest, Ignore]`**
+
+  Gibt die Version der zu verwendenden Abhängigkeits Pakete an. dabei kann es sich um einen der folgenden handeln:<br/><ul><li>*Niedrigste* (Standard): die niedrigste Version</li><li>*Highestpatch* : die Version mit dem niedrigsten, niedrigsten, niedrigsten, größten Patch</li><li>*Highestminor* : die Version mit dem niedrigsten Haupt-, höchst-und Höchstwert</li><li>*Höchste* Version: die höchste Version</li><li>*Ignore* : Es werden keine Abhängigkeits Pakete verwendet.</li></ul>
 
 - **`-FileConflictAction [PromptUser, Overwrite, Ignore]`**
 

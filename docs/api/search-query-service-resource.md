@@ -6,26 +6,26 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: aed591ceba00f1820a573eacf312112db0a1c69e
-ms.sourcegitcommit: 7e9c0630335ef9ec1e200e2ee9065f702e52a8ec
+ms.openlocfilehash: 86c9d07cf90b84fffd09b04847d41772dd633b98
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85292272"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237873"
 ---
-# <a name="search"></a>Suchen,
+# <a name="search"></a>Suche
 
 Es ist möglich, mithilfe der V3-API nach Paketen zu suchen, die in einer Paketquelle verfügbar sind. Die Ressource, die für die Suche verwendet wird, ist die `SearchQueryService` im [Dienst Index](service-index.md)gefundene Ressource.
 
-## <a name="versioning"></a>Versionskontrolle
+## <a name="versioning"></a>Versionsverwaltung
 
 Die folgenden `@type` Werte werden verwendet:
 
-@type-Wert                   | Notizen
+Wert vom Typ @type                   | Notizen
 ----------------------------- | -----
 Searchqueryservice            | Die erste Version
-Searchqueryservice/3.0.0-Beta | Alias von`SearchQueryService`
-Searchqueryservice/3.0.0-RC   | Alias von`SearchQueryService`
+Searchqueryservice/3.0.0-Beta | Alias von `SearchQueryService`
+Searchqueryservice/3.0.0-RC   | Alias von `SearchQueryService`
 Searchqueryservice/3.5.0      | Enthält Unterstützung für `packageType` Abfrage Parameter.
 
 ### <a name="searchqueryservice350"></a>Searchqueryservice/3.5.0
@@ -51,12 +51,12 @@ Ein nicht aufgelistetes Paket sollte nie in den Suchergebnissen angezeigt werden
 
 Name        | In     | type    | Erforderlich | Notizen
 ----------- | ------ | ------- | -------- | -----
-q           | URL    | Zeichenfolge  | Nein       | Die Suchbegriffe, die zum Filtern von Paketen verwendet werden.
-skip        | URL    | integer | Nein       | Die Anzahl der zu über springenden Ergebnisse für die Paginierung.
-take        | URL    | integer | Nein       | Die Anzahl der zurück zugebende Ergebnisse für die Paginierung.
-prerelease  | URL    | boolean | Nein       | `true`oder `false` feststellen, ob [vorab Pakete](../create-packages/prerelease-packages.md) eingeschlossen werden sollen
-semverlevel | URL    | Zeichenfolge  | Nein       | Eine Versions Zeichenfolge für semver 1.0.0 
-packageType | URL    | Zeichenfolge  | Nein       | Der Pakettyp, der zum Filtern von Paketen verwendet wird (in hinzugefügt `SearchQueryService/3.5.0` ).
+q           | URL    | Zeichenfolge  | nein       | Die Suchbegriffe, die zum Filtern von Paketen verwendet werden.
+skip        | URL    | integer | nein       | Die Anzahl der zu über springenden Ergebnisse für die Paginierung.
+take        | URL    | integer | nein       | Die Anzahl der zurück zugebende Ergebnisse für die Paginierung.
+prerelease  | URL    | boolean | nein       | `true`oder `false` feststellen, ob [vorab Pakete](../create-packages/prerelease-packages.md) eingeschlossen werden sollen
+semverlevel | URL    | Zeichenfolge  | nein       | Eine Versions Zeichenfolge für semver 1.0.0 
+packageType | URL    | Zeichenfolge  | nein       | Der Pakettyp, der zum Filtern von Paketen verwendet wird (in hinzugefügt `SearchQueryService/3.5.0` ).
 
 Die Suchabfrage `q` wird auf eine Weise analysiert, die durch die Server Implementierung definiert wird. nuget.org unterstützt die grundlegende Filterung für [verschiedene Felder](../consume-packages/finding-and-choosing-packages.md#search-syntax). Wenn kein `q` angegeben wird, sollten alle Pakete innerhalb der durch Skip und Take vorgegebenen Grenzen zurückgegeben werden. Dadurch wird die Registerkarte "Durchsuchen" in der nuget Visual Studio-Funktion aktiviert.
 
@@ -82,8 +82,8 @@ Das JSON-Stamm Objekt verfügt über die folgenden Eigenschaften:
 
 Name      | type             | Erforderlich | Notizen
 --------- | ---------------- | -------- | -----
-totalhits | integer          | Ja      | Die Gesamtanzahl der Übereinstimmungen, wobei und ignoriert werden. `skip``take`
-data      | Array von Objekten | Ja      | Die Suchergebnisse, die mit der Anforderung übereinstimmen.
+totalhits | integer          | ja      | Die Gesamtanzahl der Übereinstimmungen, wobei und ignoriert werden. `skip``take`
+Daten      | Array von Objekten | ja      | Die Suchergebnisse, die mit der Anforderung übereinstimmen.
 
 ### <a name="search-result"></a>Suchergebnis
 
@@ -92,38 +92,38 @@ Das Objekt hat die folgenden Eigenschaften:
 
 Name           | type                       | Erforderlich | Notizen
 -------------- | -------------------------- | -------- | -----
-id             | Zeichenfolge                     | Ja      | Die ID des übereinstimmenden Pakets.
-version        | Zeichenfolge                     | Ja      | Die vollständige semver 2.0.0-Versions Zeichenfolge des Pakets (kann buildmetadaten enthalten)
-description    | Zeichenfolge                     | Nein       | 
-versions       | Array von Objekten           | Ja      | Alle Versionen des Pakets, die dem Parameter entsprechen `prerelease`
-authors        | Zeichenfolge oder Array von Zeichenfolgen | Nein       | 
-iconUrl        | Zeichenfolge                     | Nein       | 
-licenseUrl     | Zeichenfolge                     | Nein       | 
-owners         | Zeichenfolge oder Array von Zeichenfolgen | Nein       | 
-projectUrl     | Zeichenfolge                     | Nein       | 
-Registrierung   | Zeichenfolge                     | Nein       | Die absolute URL zum zugeordneten [Registrierungs Index](registration-base-url-resource.md#registration-index) .
-summary        | Zeichenfolge                     | Nein       | 
-tags           | Zeichenfolge oder Array von Zeichenfolgen | Nein       | 
-title          | Zeichenfolge                     | Nein       | 
-totaldownloads | integer                    | Nein       | Dieser Wert kann durch die Summe der Downloads im Array abgeleitet werden. `versions`
-Zier       | boolean                    | Nein       | Ein JSON-boolescher Wert, der angibt, ob das Paket [überprüft](../nuget-org/id-prefix-reservation.md) wird.
-packageTypes   | Array von Objekten           | Ja      | Die vom Paket Ersteller definierten Pakettypen (in hinzugefügt `SearchQueryService/3.5.0` ).
+id             | Zeichenfolge                     | ja      | Die ID des übereinstimmenden Pakets.
+version        | Zeichenfolge                     | ja      | Die vollständige semver 2.0.0-Versions Zeichenfolge des Pakets (kann buildmetadaten enthalten)
+description    | Zeichenfolge                     | nein       | 
+versions       | Array von Objekten           | ja      | Alle Versionen des Pakets, die dem Parameter entsprechen `prerelease`
+authors        | Zeichenfolge oder Array von Zeichenfolgen | nein       | 
+iconUrl        | Zeichenfolge                     | nein       | 
+licenseUrl     | Zeichenfolge                     | nein       | 
+owners         | Zeichenfolge oder Array von Zeichenfolgen | nein       | 
+projectUrl     | Zeichenfolge                     | nein       | 
+Registrierung   | Zeichenfolge                     | nein       | Die absolute URL zum zugeordneten [Registrierungs Index](registration-base-url-resource.md#registration-index) .
+Zusammenfassung        | Zeichenfolge                     | nein       | 
+tags           | Zeichenfolge oder Array von Zeichenfolgen | nein       | 
+title          | Zeichenfolge                     | nein       | 
+totaldownloads | integer                    | nein       | Dieser Wert kann durch die Summe der Downloads im Array abgeleitet werden. `versions`
+Zier       | boolean                    | nein       | Ein JSON-boolescher Wert, der angibt, ob das Paket [überprüft](../nuget-org/id-prefix-reservation.md) wird.
+packageTypes   | Array von Objekten           | ja      | Die vom Paket Ersteller definierten Pakettypen (in hinzugefügt `SearchQueryService/3.5.0` ).
 
-In nuget.org ist ein verifiziertes Paket ein überprüftes Paket, das über eine Paket-ID verfügt, die mit einem reservierten ID-Präfix übereinstimmt und im Besitz eines der reservierten Präfix Weitere Informationen finden Sie in der [Dokumentation zur ID-Präfix Reservierung](../reference/id-prefix-reservation.md).
+In nuget.org ist ein verifiziertes Paket ein überprüftes Paket, das über eine Paket-ID verfügt, die mit einem reservierten ID-Präfix übereinstimmt und im Besitz eines der reservierten Präfix Weitere Informationen finden Sie in der [Dokumentation zur ID-Präfix Reservierung](../nuget-org/id-prefix-reservation.md).
 
 Die Metadaten, die im Suchergebnis Objekt enthalten sind, stammen aus der aktuellen Paketversion. Jedes Element im `versions` Array ist ein JSON-Objekt mit den folgenden Eigenschaften:
 
 Name      | type    | Erforderlich | Notizen
 --------- | ------- | -------- | -----
-@id       | Zeichenfolge  | Ja      | Die absolute URL zum zugeordneten [Registrierungs Blatt](registration-base-url-resource.md#registration-leaf) .
-version   | Zeichenfolge  | Ja      | Die vollständige semver 2.0.0-Versions Zeichenfolge des Pakets (kann buildmetadaten enthalten)
-Downloads | integer | Ja      | Die Anzahl der Downloads für diese bestimmte Paketversion.
+@id       | string  | ja      | Die absolute URL zum zugeordneten [Registrierungs Blatt](registration-base-url-resource.md#registration-leaf) .
+version   | Zeichenfolge  | ja      | Die vollständige semver 2.0.0-Versions Zeichenfolge des Pakets (kann buildmetadaten enthalten)
+Downloads | integer | ja      | Die Anzahl der Downloads für diese bestimmte Paketversion.
 
 Das `packageTypes` Array besteht immer aus mindestens einem (1) Element. Der Pakettyp für eine bestimmte Paket-ID wird als die von der aktuellen Version des Pakets definierten Pakettypen in Bezug auf die anderen Suchparameter betrachtet. Jedes Element im `packageTypes` Array ist ein JSON-Objekt mit den folgenden Eigenschaften:
 
 Name      | type    | Erforderlich | Notizen
 --------- | ------- | -------- | -----
-name      | Zeichenfolge  | Ja      | Der Name des Pakettyps.
+name      | Zeichenfolge  | ja      | Der Name des Pakettyps.
 
 ### <a name="sample-request"></a>Beispiel für eine Anforderung
 

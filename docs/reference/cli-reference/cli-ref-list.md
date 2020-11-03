@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 91886dbbdcdb24648289d6f6efbe1f87e4099fff
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: a6a4ee434c43ad4865dba12f039b5d545a90d3c4
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623070"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238165"
 ---
 # <a name="list-command-nuget-cli"></a>List-Befehl (nuget-CLI)
 
@@ -18,13 +18,13 @@ ms.locfileid: "88623070"
 
 Zeigt eine Liste von Paketen aus einer angegebenen Quelle an. Wenn keine Quellen angegeben werden, werden alle Quellen verwendet, die in der globalen Konfigurationsdatei `%AppData%\NuGet\NuGet.Config` (Windows) oder definiert sind `~/.nuget/NuGet/NuGet.Config` . Wenn `NuGet.Config` keine Quellen angibt, `list` verwendet den Standard-Feed (nuget.org).
 
-## <a name="usage"></a>Verwendung
+## <a name="usage"></a>Verbrauch
 
 ```cli
 nuget list [search terms] [options]
 ```
 
-Gibt an, wo die optionalen Suchbegriffe die angezeigte Liste filtern. [Suchbegriffe](/nuget/consume-packages/finding-and-choosing-packages#search-syntax) werden auf die Namen von Paketen, Tags und Paketbeschreibungen angewendet, genauso wie Sie Sie auf nuget.org verwenden. 
+Gibt an, wo die optionalen Suchbegriffe die angezeigte Liste filtern. [Suchbegriffe](../../consume-packages/finding-and-choosing-packages.md#search-syntax) werden auf die Namen von Paketen, Tags und Paketbeschreibungen angewendet, genauso wie Sie Sie auf nuget.org verwenden. 
 
 ## <a name="options"></a>Optionen
 
