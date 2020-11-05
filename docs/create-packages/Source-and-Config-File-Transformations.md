@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 04/24/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 2fefd9cff4d151111023521c31d58878743775bf
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 8e3eade14c70782563ba82894f072f9b3a611923
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "78231174"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237983"
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>Transformieren von Quellcode und Konfigurationsdateien
 
@@ -52,7 +52,7 @@ Das Token `$rootnamespace$` stellt die am häufigsten verwendete Projekteigensch
 Wie in den nachfolgenden Abschnitten beschrieben, können Konfigurationsdateitransformationen auf zwei Arten erfolgen:
 
 - Schließen Sie die Dateien `app.config.transform` und `web.config.transform` in den Ordner `content` Ihres Pakets ein. Dabei erkennt NuGet an der `.transform`-Erweiterung, dass diese Dateien den XML-Code enthalten, der bei der Installation des Pakets mit vorhandenen Konfigurationsdateien zusammengeführt werden soll. Bei der Deinstallation eines Pakets wird derselbe XML-Code entfernt.
-- Schließen Sie die Dateien `app.config.install.xdt` und `web.config.install.xdt` in den Ordner `content` Ihres Pakets ein, und verwenden Sie dabei [XDT-Syntax](https://msdn.microsoft.com/library/dd465326.aspx) zur Beschreibung der gewünschten Änderungen. Mit dieser Option können Sie auch eine Datei vom Typ `.uninstall.xdt` einschließen, um Änderungen zurückzusetzen, wenn das Paket aus dem Projekt entfernt wird.
+- Schließen Sie die Dateien `app.config.install.xdt` und `web.config.install.xdt` in den Ordner `content` Ihres Pakets ein, und verwenden Sie dabei [XDT-Syntax](/previous-versions/aspnet/dd465326(v=vs.110)) zur Beschreibung der gewünschten Änderungen. Mit dieser Option können Sie auch eine Datei vom Typ `.uninstall.xdt` einschließen, um Änderungen zurückzusetzen, wenn das Paket aus dem Projekt entfernt wird.
 
 > [!Note]
 > Transformationen gelten nicht für `.config`-Dateien, auf die ein Link in Visual Studio verweist.
@@ -115,7 +115,7 @@ Erstellen Sie ein neues ASP.NET-Projekt in Visual Studio (die Vorlage ist unter 
 > [!Note]
 > Wie im [Abschnitt „Probleme mit der Paketkompatibilität“ der Dokumentation für das Migrieren von `packages.config` zu `PackageReference`](../consume-packages/migrate-packages-config-to-package-reference.md#package-compatibility-issues) erwähnt wird, werden XDT-Transformationen wie unten beschrieben nur von `packages.config` unterstützt. Wenn Sie Ihrem Paket die folgenden Dateien hinzufügen, werden bei Anwendern, die Ihr Paket mit `PackageReference` verwenden, die Transformationen nicht angewendet. (Beachten Sie [dieses Beispiel](https://github.com/NuGet/Samples/tree/master/XDTransformExample), damit XDT-Transformationen mit `PackageReference` funktionieren.)
 
-Sie können Konfigurationsdateien über die [XDT-Syntax](https://msdn.microsoft.com/library/dd465326.aspx) ändern. Sie können auch veranlassen, dass NuGet Token über [Projekteigenschaften](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) ersetzt, indem der Eigenschaftenname innerhalb der Trennzeichen `$` (ohne Berücksichtigung der Groß-/Kleinschreibung) eingeschlossen wird.
+Sie können Konfigurationsdateien über die [XDT-Syntax](/previous-versions/aspnet/dd465326(v=vs.110)) ändern. Sie können auch veranlassen, dass NuGet Token über [Projekteigenschaften](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) ersetzt, indem der Eigenschaftenname innerhalb der Trennzeichen `$` (ohne Berücksichtigung der Groß-/Kleinschreibung) eingeschlossen wird.
 
 In der folgenden Datei `app.config.install.xdt` wird beispielsweise ein `appSettings`-Element mit den Werten `FullPath`, `FileName`, und `ActiveConfigurationSettings` des Projekts in `app.config` eingefügt:
 

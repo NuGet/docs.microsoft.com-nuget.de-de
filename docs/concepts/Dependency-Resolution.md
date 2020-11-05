@@ -6,17 +6,17 @@ ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.openlocfilehash: 4b95251e4b055523a9533b4125589b2650be932d
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428468"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237743"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Auflösung von Paketabhängigkeiten durch NuGet
 
 Bei jeder Installation oder Neuinstallation eines Pakets, was auch die Installation als Bestandteil eines [Wiederherstellungsprozesses](../consume-packages/package-restore.md) umfasst, installiert NuGet außerdem zusätzliche Pakete, von denen das ursprüngliche Paket abhängig ist.
 
-Diese unmittelbaren Abhängigkeiten verfügen möglicherweise ebenfalls über Abhängigkeiten, die über weitere Abhängigkeiten verfügen, usw. Dadurch entsteht ein sogenanntes *Abhängigkeitsdiagramm*, das die Beziehungen zwischen den Paketen auf sämtlichen Ebenen darstellt.
+Diese unmittelbaren Abhängigkeiten verfügen möglicherweise ebenfalls über Abhängigkeiten, die über weitere Abhängigkeiten verfügen, usw. Dadurch entsteht ein sogenanntes *Abhängigkeitsdiagramm* , das die Beziehungen zwischen den Paketen auf sämtlichen Ebenen darstellt.
 
 Wenn mehrere Pakete über dieselbe Abhängigkeit verfügen, kann in dem Diagramm auch mehrmals dieselbe Paket-ID angezeigt werden, möglicherweise mit verschiedenen Versionseinschränkungen. Trotzdem kann nur eine Version eines vorhandenen Pakets in einem Projekt verwendet werden, sodass NuGet auswählen muss, welche Version verwendet wird. Der genaue Prozess ist abhängig vom verwendeten Paketverwaltungsformat.
 

@@ -7,12 +7,12 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 42031f7b5fe4d3c1b4dbe5e1bfbf9197014e0e88
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 8b23b6cc22eff5413e317fbe619edd3d4f4716ee
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428576"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237399"
 ---
 # <a name="install-and-manage-packages-with-the-package-manager-console-in-visual-studio-powershell"></a>Installieren und Verwalten von Paketen mit der Paket-Manager-Konsole in Visual Studio (PowerShell)
 
@@ -56,7 +56,7 @@ Beispielsweise erfolgt das Suchen und Installieren eines Pakets in drei einfache
 
 1. Die Auswahl einer anderen Paketquelle und/oder eines anderen Projekts ändert diese Standardwerte für nachfolgende Befehle. Um diese Einstellungen zu überschreiben, ohne die Standardeinstellungen zu ändern, unterstützen die meisten Befehle die Optionen `-Source` und `-ProjectName`.
 
-1. Wählen Sie zum Verwalten von Paketquellen das Zahnradsymbol aus. Dies ist eine Verknüpfung zum Dialogfeld **Tools > Optionen > NuGet-Paket-Manager > Paketquellen**, wie auf der Seite [Benutzeroberfläche von Paket-Manager](install-use-packages-visual-studio.md#package-sources) beschrieben. Außerdem löscht das Steuerelement rechts neben der Projektauswahl den Inhalt der Konsole:
+1. Wählen Sie zum Verwalten von Paketquellen das Zahnradsymbol aus. Dies ist eine Verknüpfung zum Dialogfeld **Tools > Optionen > NuGet-Paket-Manager > Paketquellen** , wie auf der Seite [Benutzeroberfläche von Paket-Manager](install-use-packages-visual-studio.md#package-sources) beschrieben. Außerdem löscht das Steuerelement rechts neben der Projektauswahl den Inhalt der Konsole:
 
     ![Einstellungen und Steuerelemente zum Löschen in der Paket-Manager-Konsole](media/PackageManagerConsoleControls2.png)
 
@@ -168,7 +168,7 @@ $profile
 C:\Users\<user>\Documents\WindowsPowerShell\NuGet_profile.ps1
 ```
 
-Weitere Informationen finden Sie unter [Windows PowerShell-Profile.](https://technet.microsoft.com/library/bb613488.aspx)
+Weitere Informationen finden Sie unter [Windows PowerShell-Profile.](/previous-versions//bb613488(v=vs.85))
 
 ## <a name="use-the-nugetexe-cli-in-the-console"></a>Verwenden der nuget.exe-CLI in der-Konsole
 

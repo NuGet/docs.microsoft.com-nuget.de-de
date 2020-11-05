@@ -6,11 +6,11 @@ ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: 7951b3db0cdcaee0a1eb955a5bf6fedce24c79c9
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428630"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237613"
 ---
 # <a name="individual-accounts-on-nugetorg"></a>Individuelle Konten auf NuGet.org
 
@@ -32,7 +32,7 @@ Sie müssen ein persönliches Microsoft-Konto (Managed Service Account, MSA) ode
 
 1. Geben Sie die Details zu Ihrem Microsoft- oder Azure Active Directory-Konto ein.
 
-1. Klicken Sie auf **Yes** (Ja), um der Berechtigungserteilung für die *NuGet.org*-Anwendung zuzustimmen.
+1. Klicken Sie auf **Yes** (Ja), um der Berechtigungserteilung für die *NuGet.org* -Anwendung zuzustimmen.
 
    ![Erteilen von Berechtigungen für NuGet.org](media/nuget-org-permissions.png)
 
@@ -50,7 +50,7 @@ Sie besitzen nun ein NuGet.org-Konto. Sie können Ihr Konto über die Seite [acc
 
 Die zweistufige Authentifizierung, oder 2FA, stellt eine zusätzliche Sicherheitsebene dar, die bei der Anmeldung auf Websites oder in Apps verwendet wird. Mit der zweistufigen Authentifizierung müssen Sie sich mit Ihrem Microsoft-Konto (MSA) anmelden und eine weitere Authentifizierungsart bereitstellen, die ausschließlich Sie kennen oder auf die ausschließlich Sie zugreifen können. Aktivieren Sie die zweistufige Authentifizierung (empfohlen), um Ihr Konto besser zu schützen.
 
-1. Öffnen Sie nach der Anmeldung bei Ihrem Konto Ihr Profil, und wählen Sie **Aktivieren**unter**Anmeldekonto** aus.
+1. Öffnen Sie nach der Anmeldung bei Ihrem Konto Ihr Profil, und wählen Sie **Aktivieren **unter** Anmeldekonto** aus.
 
    ![2FA aktivieren](media/nuget-org-register-2fa.png)
 

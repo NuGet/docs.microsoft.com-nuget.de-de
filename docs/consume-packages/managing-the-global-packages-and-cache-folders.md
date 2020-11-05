@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 03/19/2018
 ms.topic: conceptual
 ms.openlocfilehash: e2672aa0bf57242526364639f0df74f9d1adb934
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428588"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237321"
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>Verwalten von globalen Pakete-, Cache- und temporären Ordnern
 
@@ -24,11 +24,11 @@ Wann immer Sie ein Paket installieren, aktualisieren oder wiederherstellen, verw
 | plugins-cache **4.8 und höher** | Ein Ordner, in den NuGet die Ergebnisse aus der Vorgangsanspruchsanforderung speichert.<br/><ul><li>Windows: `%localappdata%\NuGet\plugins-cache`</li><li>Mac/Linux: `~/.local/share/NuGet/plugins-cache`</li><li>Überschreiben mit der Umgebungsvariable NUGET_PLUGINS_CACHE_PATH.</li></ul> |
 
 > [!Note]
-> NuGet 3.5 und Vorgängerversionen verwenden *packages-cache* anstelle von *http-cache*, der sich unter `%localappdata%\NuGet\Cache` befindet.
+> NuGet 3.5 und Vorgängerversionen verwenden *packages-cache* anstelle von *http-cache* , der sich unter `%localappdata%\NuGet\Cache` befindet.
 
 Durch die Verwendung des Cacheordners und des Ordners *global-packages* vermeidet NuGet im Allgemeinen das Herunterladen von Paketen, die bereits auf dem Computer vorhanden sind. Dadurch wird die Leistung von Installations-, Update- und Wiederherstellungsvorgängen verbessert. Bei der Verwendung von PackageReference wird durch den Ordner *global-packages* ebenfalls vermieden, dass heruntergeladene Pakete in Projektordnern aufbewahrt werden, wo sie versehentlich zur Quellcodeverwaltung hinzugefügt werden. Auf diese Weise belegt NuGet noch weniger Computerspeicher.
 
-Wenn Sie aufgefordert werden, ein Paket abzurufen, sucht NuGet zuerst im Ordner *global-packages*. Wenn die genaue Version des Pakets nicht vorhanden ist, prüft NuGet alle Nicht-HTTP-Paketquellen. Wenn das Paket immer noch nicht gefunden wird, sucht NuGet nach dem Paket im *http-cache*, es sei denn, Sie geben `--no-cache` mit `dotnet.exe`-Befehlen oder `-NoCache` mit `nuget.exe`-Befehlen an. Wenn sich das Paket nicht im Cache befindet oder der Cache nicht verwendet wird, ruft NuGet das Paket über HTTP ab.
+Wenn Sie aufgefordert werden, ein Paket abzurufen, sucht NuGet zuerst im Ordner *global-packages*. Wenn die genaue Version des Pakets nicht vorhanden ist, prüft NuGet alle Nicht-HTTP-Paketquellen. Wenn das Paket immer noch nicht gefunden wird, sucht NuGet nach dem Paket im *http-cache* , es sei denn, Sie geben `--no-cache` mit `dotnet.exe`-Befehlen oder `-NoCache` mit `nuget.exe`-Befehlen an. Wenn sich das Paket nicht im Cache befindet oder der Cache nicht verwendet wird, ruft NuGet das Paket über HTTP ab.
 
 Weitere Informationen finden Sie unter [Was geschieht bei der Paketinstallation?](../concepts/package-installation-process.md).
 
@@ -100,7 +100,7 @@ nuget locals all -clear
 
 Alle Pakete, die von Projekten verwendet werden, die derzeit in Visual Studio geöffnet sind, werden nicht aus dem Ordner *global-packages* gelöscht.
 
-Ab Visual Studio 2017 verwenden Sie den Menübefehl **Extras > NuGet-Paket-Manager > Paket-Manager-Einstellungen**, und wählen Sie dann **Alle NuGet-Caches leeren**. Die Verwaltung des Caches ist derzeit nicht über die Paket-Manager-Konsole möglich. Verwenden Sie in Visual Studio 2015 stattdessen die CLI-Befehle.
+Ab Visual Studio 2017 verwenden Sie den Menübefehl **Extras > NuGet-Paket-Manager > Paket-Manager-Einstellungen** , und wählen Sie dann **Alle NuGet-Caches leeren**. Die Verwaltung des Caches ist derzeit nicht über die Paket-Manager-Konsole möglich. Verwenden Sie in Visual Studio 2015 stattdessen die CLI-Befehle.
 
 ![NuGet-Optionsbefehl zum Bereinigen des Caches](media/options-clear-caches.png)
 

@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 915f6e4cfc0b21d2b10006c62e8230720d07ce74
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 7076378b53c439eef51a243fa6efcfb01b8cfa73
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428534"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237905"
 ---
 # <a name="nugetorg-frequently-asked-questions"></a>Häufig gestellte Fragen zu NuGet.org
 
@@ -92,12 +92,12 @@ Stellen Sie zunächst sicher, dass Sie die aktuelle Version von NuGet verwenden.
 
 - Installieren Sie die aktuelle Version von [Fiddler](https://www.telerik.com/download/fiddler).
 - Starten Sie Fiddler, und deaktivieren Sie die Erfassung des Datenverkehrs mithilfe des Menüs **File > Capture Traffic** (Datei > Datenverkehr erfassen).
-- Entfernen Sie alle Sitzungen, indem Sie alle Elemente in der Liste auswählen und die **ENTF**-Taste drücken.
+- Entfernen Sie alle Sitzungen, indem Sie alle Elemente in der Liste auswählen und die **ENTF** -Taste drücken.
 - Konfigurieren Sie Fiddler dafür, den HTTPS-Datenverkehr zu erfassen, indem Sie **Decrypt HTTPS traffic** (HTTPS-Datenverkehr entschlüsseln) auf der Registerkarte **HTTPS** des Menüs **Tools > Fiddler Options...** (Tools > Fiddler-Optionen...) überprüfen.
 - Schließen Sie Visual Studio.
 - Aktivieren Sie das Menü **File > Capture Traffic** (Datei > Datenverkehr erfassen).
 - Starten Sie Visual Studio oder „nuget.exe“, und führen Sie die Aktionen aus, die nicht funktionieren. Der Datenverkehr, der durch diese Aktionen generiert wird, sollte in Fiddler angezeigt werden.
-- Sobald die Aktionen ausgeführt wurden, verwenden Sie **Tools > Speichern > Alle Sitzungen**, um die erfassten Sitzungen zu speichern.
+- Sobald die Aktionen ausgeführt wurden, verwenden Sie **Tools > Speichern > Alle Sitzungen** , um die erfassten Sitzungen zu speichern.
 
 Hinweis: Es kann erforderlich sein, die Umgebungsvariable `HTTP_PROXY` auf `http://127.0.0.1:8888` festzulegen, um den NuGet-Datenverkehr an Fiddler weiterzuleiten.
 
@@ -192,7 +192,7 @@ Wenn Sie die Anleitung zur [Hilfe bei der Anmeldung](#which-microsoft-account-is
 2. Wenn Sie Ihren Benutzernamen und das Kennwort für Ihr NuGet.org-Konto vergessen haben, befolgen Sie die [Schritte zum Wiederherstellen Ihres Kennworts](#how-to-recover-nugetorg-password-login).
 3. [Melden Sie sich mit Ihrem Benutzernamen und Kennwort auf NuGet.org an](https://www.nuget.org/users/account/LogOnNuGetAccount).
 4. Nach der Anmeldung wird ein Popupfenster angezeigt. In diesem Dialogfeld werden Sie über die Aufhebung des Kennworts informiert.
-5. **HINWEIS**: Ignorieren Sie die Anweisung, sich mit dem angegebenen Microsoft-Konto anzumelden. Sie können Ihr NuGet.org-Konto nun mit einem anderen Microsoft-Konto verknüpfen.
+5. **HINWEIS** : Ignorieren Sie die Anweisung, sich mit dem angegebenen Microsoft-Konto anzumelden. Sie können Ihr NuGet.org-Konto nun mit einem anderen Microsoft-Konto verknüpfen.
 6. Klicken Sie auf **Sign in with Microsoft** (Mit Microsoft anmelden), und melden Sie sich wie in Schritt 1 erläutert mit dem Microsoft-Konto an, auf das Sie zugreifen können.
 7. Ihr Konto wird nun mit dem neuen Microsoft-Konto verknüpft, und Sie können sich jetzt mit diesem Konto auf NuGet.org anmelden.
 
@@ -228,13 +228,13 @@ Wenn bei der Anmeldung mit Ihrer E-Mail-Kontodomäne (@yourdomain.com) folgender
 
 Ihr Konto wurde als persönliches Microsoft-Konto registriert und hat problemlos funktioniert. Nun wurde Ihr Konto jedoch als Mandant mit dem Status „Nicht verwaltet“ in Azure Active Directory registriert (der Identitätsdienst, der verwendet wird, um Microsoft-Konten zu authentifizieren). 
 
-Dies kann der Fall sein, wenn Sie oder ein Mitglied Ihrer Organisation (mit der E-Mail-Adresse @yourdomain.com) sich bei einem integrierten AAD-Dienst registriert oder die [Self-Service-Registrierung für Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-self-service-signup) eingerichtet haben. Dadurch wird ein Mandant mit dem Status „Nicht verwaltet“ für die verwendete Microsoft-Kontodomäne (in diesem Fall @yourdomain.com) erstellt. 
+Dies kann der Fall sein, wenn Sie oder ein Mitglied Ihrer Organisation (mit der E-Mail-Adresse @yourdomain.com) sich bei einem integrierten AAD-Dienst registriert oder die [Self-Service-Registrierung für Azure Active Directory](/azure/active-directory/users-groups-roles/directory-self-service-signup) eingerichtet haben. Dadurch wird ein Mandant mit dem Status „Nicht verwaltet“ für die verwendete Microsoft-Kontodomäne (in diesem Fall @yourdomain.com) erstellt. 
 
 **Wie kann ich mein Konto wiederherstellen?**
 
 Derzeit ist es nicht möglich, Konten auf NuGet.org zu authentifizieren, die in Azure Active Directory den Status „Nicht verwaltet“ aufweisen. Es wird jedoch an einer Möglichkeit gearbeitet, solche Konten authentifizieren zu können.
 
-Wenn Sie sich auf NuGet.org mit Ihrem Microsoft-Konto (@yourdomain.com) anmelden möchten, müssen Sie (oder ein Administrator Ihres Unternehmens) den Besitz des AAD-Kontos beanspruchen, indem Sie eine DNS-Überprüfung durchführen, um Benutzer mit der E-Mail-Adresse „@yourdomain.com“ zu authentifizieren. Befolgen Sie die Schritte zur [Übernahme von Domänen durch Administratoren](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover), die in der Dokumentation zu Azure Active Directory beschrieben werden. Anschließend sollten Sie sich mit diesem Konto anmelden können.
+Wenn Sie sich auf NuGet.org mit Ihrem Microsoft-Konto (@yourdomain.com) anmelden möchten, müssen Sie (oder ein Administrator Ihres Unternehmens) den Besitz des AAD-Kontos beanspruchen, indem Sie eine DNS-Überprüfung durchführen, um Benutzer mit der E-Mail-Adresse „@yourdomain.com“ zu authentifizieren. Befolgen Sie die Schritte zur [Übernahme von Domänen durch Administratoren](/azure/active-directory/users-groups-roles/domains-admin-takeover), die in der Dokumentation zu Azure Active Directory beschrieben werden. Anschließend sollten Sie sich mit diesem Konto anmelden können.
 
 **Ich möchte diese Methode nicht anwenden. Gibt es eine andere Möglichkeit, mein Konto wiederherzustellen?**
 

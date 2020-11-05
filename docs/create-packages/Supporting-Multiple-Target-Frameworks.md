@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 34f7c6132ba6050e20114642932ccf29a5ec088d
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 7c0da38ab4059b89c9693ecbece2bc8ed1a775ec
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428624"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237944"
 ---
 # <a name="support-multiple-net-versions"></a>Unterstützung für mehrere .NET-Versionen
 
 Viele Bibliotheken sind auf eine bestimmte Version von .NET Framework ausgerichtet. So müssen Sie möglicherweise über eine für die UWP spezifische Version Ihrer Bibliothek sowie über eine weitere Version verfügen, die die Features in .NET Framework 4.6 nutzt. Dafür unterstützt NuGet das Platzieren mehrerer Versionen derselben Bibliothek in einem einzelnen Paket.
 
-Dieser Artikel beschreibt das Layout eines NuGet-Pakets, unabhängig davon, wie das Paket oder die Assemblys aufgebaut sind (d. h. das Layout ist das gleiche, unabhängig davon, ob mehrere *.csproj*-Dateien im Nicht-SDK-Stil und eine benutzerdefinierte *.nuspec*-Datei oder eine einzelne *.csproj*-Datei im SDK-Stil mit mehreren Zielen verwendet werden). Für ein Projekt im SDK-Stil weiß NuGet-[pack targets](../reference/msbuild-targets.md), wie das Paket gestaltet sein muss, und automatisiert das Einfügen der Assemblys in die richtigen lib-Ordner und das Erstellen von Abhängigkeitsgruppen für jedes Zielframework (TFM). Ausführliche Anweisungen finden Sie unter [Unterstützung mehrerer .NET Framework-Versionen in der Projektdatei](multiple-target-frameworks-project-file.md).
+Dieser Artikel beschreibt das Layout eines NuGet-Pakets, unabhängig davon, wie das Paket oder die Assemblys aufgebaut sind (d. h. das Layout ist das gleiche, unabhängig davon, ob mehrere *.csproj* -Dateien im Nicht-SDK-Stil und eine benutzerdefinierte *.nuspec* -Datei oder eine einzelne *.csproj* -Datei im SDK-Stil mit mehreren Zielen verwendet werden). Für ein Projekt im SDK-Stil weiß NuGet-[pack targets](../reference/msbuild-targets.md), wie das Paket gestaltet sein muss, und automatisiert das Einfügen der Assemblys in die richtigen lib-Ordner und das Erstellen von Abhängigkeitsgruppen für jedes Zielframework (TFM). Ausführliche Anweisungen finden Sie unter [Unterstützung mehrerer .NET Framework-Versionen in der Projektdatei](multiple-target-frameworks-project-file.md).
 
 Sie müssen das Paket manuell gestalten, wie in diesem Artikel beschrieben, wenn Sie die unter [Erstellen eines Pakets](../create-packages/creating-a-package.md#from-a-convention-based-working-directory) beschriebene konventionsbasierte Arbeitsverzeichnismethode verwenden. Für ein Projekt im SDK-Stil wird die automatisierte Methode empfohlen. Sie können das Paket aber auch manuell gestalten, wie in diesem Artikel beschrieben.
 
@@ -71,7 +71,7 @@ Beachten Sie Folgendes: NuGet wählt diese Ressourcen für die Kompilier- oder L
 
 Unter [Create UWP Packages (Erstellen von UWP-Paketen)](../guides/create-uwp-packages.md) finden Sie ein Beispiel für den Verweis auf diese Dateien im `.nuspec`-Manifest.
 
-Weitere Informationen finden Sie auch unter [Packing a Windows store app component with NuGet](https://blogs.msdn.microsoft.com/mim/2013/09/02/packaging-a-windows-store-apps-component-with-nuget-part-2) (Packen einer Windows Store-App-Komponente mit NuGet).
+Weitere Informationen finden Sie auch unter [Packing a Windows store app component with NuGet](/archive/blogs/mim/packaging-a-windows-store-apps-component-with-nuget-part-2) (Packen einer Windows Store-App-Komponente mit NuGet).
 
 ## <a name="matching-assembly-versions-and-the-target-framework-in-a-project"></a>Abgleichen von Assemblyversionen und dem Zielframework in einem Projekt
 
@@ -123,9 +123,9 @@ Die unterstützten Profile lauten wie folgt:
 
 ## <a name="declaring-dependencies-advanced"></a>Deklarieren von Abhängigkeiten (Erweitert)
 
-Beim Packen einer Projektdatei versucht NuGet, die Abhängigkeiten aus dem Projekt automatisch zu generieren. Die Informationen in diesem Abschnitt zur Verwendung einer *NUSPEC*-Datei zum Deklarieren von Abhängigkeiten sind in der Regel nur für erweiterte Szenarien erforderlich.
+Beim Packen einer Projektdatei versucht NuGet, die Abhängigkeiten aus dem Projekt automatisch zu generieren. Die Informationen in diesem Abschnitt zur Verwendung einer *NUSPEC* -Datei zum Deklarieren von Abhängigkeiten sind in der Regel nur für erweiterte Szenarien erforderlich.
 
-*(Version 2.0 und höher)* : Sie können Paketabhängigkeiten in der *NUSPEC*-Datei deklarieren, die dem Zielframework des Zielprojekts entspricht, indem Sie `<group>`-Elemente innerhalb des `<dependencies>`-Elements verwenden. Weitere Informationen finden Sie unter [dependencies-Element](../reference/nuspec.md#dependencies-element).
+*(Version 2.0 und höher)* : Sie können Paketabhängigkeiten in der *NUSPEC* -Datei deklarieren, die dem Zielframework des Zielprojekts entspricht, indem Sie `<group>`-Elemente innerhalb des `<dependencies>`-Elements verwenden. Weitere Informationen finden Sie unter [dependencies-Element](../reference/nuspec.md#dependencies-element).
 
 Jede Gruppe verfügt über ein Attribut mit dem Namen `targetFramework` und enthält entweder kein `<dependency>`-Element oder mindestens eins. Diese Abhängigkeiten werden zusammen installiert, wenn das Zielframework kompatibel mit dem Frameworkprofil des Projekts ist. Die genauen Frameworkbezeichner finden Sie unter [Zielframeworks](../reference/target-frameworks.md).
 

@@ -5,12 +5,12 @@ author: rrelyea
 ms.author: rrelyea
 ms.date: 02/28/2020
 ms.topic: tutorial
-ms.openlocfilehash: 61f46f2623769927f881877cfe3f96132211b442
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 6f8037f439d627af158b6d5b7746a633b053e514
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "78231752"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238009"
 ---
 # <a name="create-uwp-packages-c"></a>Erstellen von UWP-Paketen (C#)
 
@@ -22,19 +22,19 @@ In dieser exemplarischen Vorgehensweise erstellen Sie ein NuGet-Paket mit einer 
 
 1. Visual Studio 2019: Sie können die 2019 Community Edition kostenlos über [visualstudio.com](https://www.visualstudio.com/) installieren oder die Professional bzw. Enterprise-Edition verwenden.
 
-1. NuGet-CLI. Laden Sie die neuste Version von `nuget.exe` unter [nuget.org/downloads](https://nuget.org/downloads) herunter, und speichern Sie diese an einem beliebigen Ort (dies ist der direkte Download für die `.exe`). Fügen Sie diesen Speicherort, falls erforderlich, anschließend der Umgebungsvariable „PATH“ hinzu. [Weitere Informationen](/nuget/reference/nuget-exe-cli-reference#windows)
+1. NuGet-CLI. Laden Sie die neuste Version von `nuget.exe` unter [nuget.org/downloads](https://nuget.org/downloads) herunter, und speichern Sie diese an einem beliebigen Ort (dies ist der direkte Download für die `.exe`). Fügen Sie diesen Speicherort, falls erforderlich, anschließend der Umgebungsvariable „PATH“ hinzu. [Weitere Informationen](../reference/nuget-exe-cli-reference.md#windows)
 
 ## <a name="create-a-uwp-windows-runtime-component"></a>Erstellen einer UWP-Komponente für Windows-Runtime
 
-1. Klicken Sie in Visual Studio auf **Datei > Neu > Projekt**, und suchen Sie nach „uwp c#“. Wählen Sie die Vorlage **Komponente für Windows-Runtime (Universal Windows)** aus, klicken Sie auf „Weiter“, ändern Sie den Namen in ImageEnhancer, und klicken Sie auf „Erstellen“. Übernehmen Sie die Standardwerte für „Zielversion“ und „Mindestens erforderliche Version“, wenn Sie dazu aufgefordert werden.
+1. Klicken Sie in Visual Studio auf **Datei > Neu > Projekt** , und suchen Sie nach „uwp c#“. Wählen Sie die Vorlage **Komponente für Windows-Runtime (Universal Windows)** aus, klicken Sie auf „Weiter“, ändern Sie den Namen in ImageEnhancer, und klicken Sie auf „Erstellen“. Übernehmen Sie die Standardwerte für „Zielversion“ und „Mindestens erforderliche Version“, wenn Sie dazu aufgefordert werden.
 
     ![Erstellen eines neuen UWP-Projekts für eine Komponente für Windows-Runtime](media/UWP-NewProject-CS.png)
 
-1. Klicken Sie mit der rechten Maustaste auf das Projekt in Projektmappen-Explorer, und klicken Sie auf **Hinzufügen > Neues Element**. Klicken Sie auf **Steuerelement mit Vorlagen**, ändern Sie den Namen in „AwesomeImageControl.cs“, und klicken Sie auf **Hinzufügen**:
+1. Klicken Sie mit der rechten Maustaste auf das Projekt in Projektmappen-Explorer, und klicken Sie auf **Hinzufügen > Neues Element**. Klicken Sie auf **Steuerelement mit Vorlagen** , ändern Sie den Namen in „AwesomeImageControl.cs“, und klicken Sie auf **Hinzufügen** :
 
     ![Hinzufügen eines neuen XAML-Steuerelements mit Vorlagen zum Projekt](media/UWP-NewXAMLControl-CS.png)
 
-1. Klicken Sie in Projektmappen-Explorer mit der rechten Maustaste auf das Projekt, und wählen Sie **Eigenschaften** aus. Wählen Sie auf der Seite „Eigenschaften“ die Registerkarte **Erstellen** aus, und aktivieren Sie **XML-Dokumentationsdatei**:
+1. Klicken Sie in Projektmappen-Explorer mit der rechten Maustaste auf das Projekt, und wählen Sie **Eigenschaften** aus. Wählen Sie auf der Seite „Eigenschaften“ die Registerkarte **Erstellen** aus, und aktivieren Sie **XML-Dokumentationsdatei** :
 
     ![„XML-Dokumentationsdatei generieren“ auf „Ja“ einstellen](media/UWP-GenerateXMLDocFiles-CS.png)
 
@@ -42,7 +42,7 @@ In dieser exemplarischen Vorgehensweise erstellen Sie ein NuGet-Paket mit einer 
 
     ![Batcherstellung](media/UWP-BatchBuild-CS.png)
 
-1. Klicken Sie im Dialogfeld „Batcherstellung“ auf **Erstellen**, um das Projekt zu überprüfen und die Ausgabedateien zu erstellen, die für das NuGet-Paket erforderlich sind.
+1. Klicken Sie im Dialogfeld „Batcherstellung“ auf **Erstellen** , um das Projekt zu überprüfen und die Ausgabedateien zu erstellen, die für das NuGet-Paket erforderlich sind.
 
 > [!Note]
 > In dieser exemplarischen Vorgehensweise werden die Debugartefakte für das Paket verwendet. Überprüfen Sie für Nichtdebugpakete stattdessen die Releaseoptionen im Dialogfeld „Batcherstellung“, und verwenden Sie in den folgenden Schritten die als Ergebnis angezeigten Ordner für Releases.
@@ -52,7 +52,7 @@ In dieser exemplarischen Vorgehensweise erstellen Sie ein NuGet-Paket mit einer 
 Befolgen Sie folgende drei Schritte, um die erste `.nuspec`-Datei zu erstellen. In den folgenden Schritten werden weitere erforderliche Updates erläutert.
 
 1. Öffnen Sie die Eingabeaufforderung, und navigieren Sie zu dem Ordner, der `ImageEnhancer.csproj` enthält. Dabei handelt es sich um einen Unterordner des Speicherorts der Projektmappendatei.
-1. Führen Sie den [`NuGet spec`](/nuget/reference/cli-reference/cli-ref-spec)-Befehl aus, um `ImageEnhancer.nuspec` zu generieren (der Name der Datei wird dem Namen der `.csroj`-Datei entnommen):
+1. Führen Sie den [`NuGet spec`](../reference/cli-reference/cli-ref-spec.md)-Befehl aus, um `ImageEnhancer.nuspec` zu generieren (der Name der Datei wird dem Namen der `.csroj`-Datei entnommen):
 
     ```cli
     nuget spec
@@ -197,7 +197,7 @@ Die endgültige `.nuspec`-Datei sollte nun folgendermaßen aussehen, wobei Sie e
 
 ## <a name="package-the-component"></a>Packen der Komponente
 
-Mithilfe der vollständigen `.nuspec`-Datei, die auf alle Dateien verweist, die Sie in das Paket einfügen müssen, können Sie jetzt den Befehl [`nuget pack`](/nuget/reference/cli-reference/cli-ref-pack) ausführen:
+Mithilfe der vollständigen `.nuspec`-Datei, die auf alle Dateien verweist, die Sie in das Paket einfügen müssen, können Sie jetzt den Befehl [`nuget pack`](../reference/cli-reference/cli-ref-pack.md) ausführen:
 
 ```cli
 nuget pack ImageEnhancer.nuspec

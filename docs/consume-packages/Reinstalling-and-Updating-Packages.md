@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 12/07/2017
 ms.topic: conceptual
 ms.openlocfilehash: 101c6d6b9d93da912f60c40b27559e80327154b8
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428426"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237730"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Neuinstallieren und Aktualisieren von Paketen
 
@@ -23,7 +23,7 @@ Das Aktualisieren und die Neuinstallation von Paketen erfolgt wie im Folgenden d
 | Methode | Aktualisieren | Neuinstallation |
 | --- | --- | --- |
 | Paket-Manager-Konsole (beschrieben unter [Verwenden des Updatepakets](#using-update-package)) | `Update-Package`-Befehl | `Update-Package -reinstall`-Befehl |
-| Benutzeroberfläche des Paket-Managers | Wählen Sie auf der Registerkarte **Updates** mindestens ein Paket aus, und klicken Sie auf **Update** (Aktualisieren). | Wählen Sie auf der Registerkarte **Installiert** ein Paket aus, dokumentieren Sie dessen Namen, und klicken Sie dann auf **Deinstallieren**. Wechseln Sie zur Registerkarte **Durchsuchen**, suchen Sie nach dem Paketnamen, wählen Sie ihn aus, und klicken Sie dann auf **Installieren**. |
+| Benutzeroberfläche des Paket-Managers | Wählen Sie auf der Registerkarte **Updates** mindestens ein Paket aus, und klicken Sie auf **Update** (Aktualisieren). | Wählen Sie auf der Registerkarte **Installiert** ein Paket aus, dokumentieren Sie dessen Namen, und klicken Sie dann auf **Deinstallieren**. Wechseln Sie zur Registerkarte **Durchsuchen** , suchen Sie nach dem Paketnamen, wählen Sie ihn aus, und klicken Sie dann auf **Installieren**. |
 | nuget.exe-CLI | `nuget update`-Befehl | Löschen Sie für alle Pakete den Paketordner, und führen Sie dann `nuget install` aus. Löschen Sie für ein einzelnes Paket den Paketordner, und verwenden Sie `nuget install <id>`, um den gleichen Ordner neu zu installieren. |
 
 > [!NOTE]
@@ -63,7 +63,7 @@ Verwenden Sie in jedem Fall die unter [Paketversionsverwaltung](../concepts/pack
 
 ## <a name="using-update-package"></a>Verwenden eines Updatepakets
 
-Unter Berücksichtigung der nachfolgend beschriebenen [Überlegungen](#considerations) können Sie einfach beliebige Pakete neu installieren, indem Sie den [Befehl Update-Package](../reference/ps-reference/ps-ref-update-package.md) in der Paket-Manager-Konsole von Visual Studio verwenden (**Extras** > **NuGet-Paket-Manager** > **Paket-Manager-Konsole**).
+Unter Berücksichtigung der nachfolgend beschriebenen [Überlegungen](#considerations) können Sie einfach beliebige Pakete neu installieren, indem Sie den [Befehl Update-Package](../reference/ps-reference/ps-ref-update-package.md) in der Paket-Manager-Konsole von Visual Studio verwenden ( **Extras** > **NuGet-Paket-Manager** > **Paket-Manager-Konsole** ).
 
 ```ps
 Update-Package -Id <package_name> –reinstall

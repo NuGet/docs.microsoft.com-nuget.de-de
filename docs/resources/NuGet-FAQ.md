@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 937a0083ca47ba5668059736a7e99f7ca88e8908
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: aae6f0474cc6e8e8aa5c269b79be6fd949d9184c
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622615"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237996"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Häufig gestellte Fragen zu NuGet
 
@@ -41,13 +41,13 @@ Weitere Informationen finden Sie unter [Finding and choosing packages (Suchen un
 - Visual Studio unter Windows unterstützt die [Benutzeroberfläche des Paket-Managers](../consume-packages/install-use-packages-visual-studio.md) und die [Konsole des Paket-Managers](../consume-packages/install-use-packages-powershell.md).
 - Visual Studio für Mac verfügt wie unter [Including a NuGet package in your project (Einschließen eines NuGet-Pakets in Ihr Projekt)](/visualstudio/mac/nuget-walkthrough) beschrieben über integrierte NuGet-Funktionen.
 - Visual Studio Code (alle Plattformen) verfügt nicht über eine direkte NuGet-Integration. Verwenden Sie die [NuGet-CLI](../reference/nuget-exe-cli-reference.md) oder die [dotnet-CLI](../reference/dotnet-commands.md).
-- Azure DevOps stellt [einen Buildschritt für das Wiederherstellen von NuGet-Paketen](/vsts/build-release/tasks/package/nuget) bereit. Sie können auch [private NuGet-Paketfeeds auf Azure DevOps hosten](https://docs.microsoft.com/azure/devops/artifacts/nuget/publish).
+- Azure DevOps stellt [einen Buildschritt für das Wiederherstellen von NuGet-Paketen](/vsts/build-release/tasks/package/nuget) bereit. Sie können auch [private NuGet-Paketfeeds auf Azure DevOps hosten](/azure/devops/artifacts/nuget/publish).
 
 **Wie kann überprüft werden, ob die richtige Version der NuGet-Tools installiert ist?**
 
-Verwenden Sie in Visual Studio den Befehl **Hilfe > Info**, und achten Sie auf die Version, die neben dem **NuGet-Paket-Manager** angezeigt wird.
+Verwenden Sie in Visual Studio den Befehl **Hilfe > Info** , und achten Sie auf die Version, die neben dem **NuGet-Paket-Manager** angezeigt wird.
 
-Führen Sie alternativ die Konsole des Paket-Managers (**Tools > NuGet-Paket-Manager > Paket-Manager-Konsole**) aus, und geben Sie `$host` ein, um Informationen über NuGet anzuzeigen, die ebenfalls die Version enthalten.
+Führen Sie alternativ die Konsole des Paket-Managers ( **Tools > NuGet-Paket-Manager > Paket-Manager-Konsole** ) aus, und geben Sie `$host` ein, um Informationen über NuGet anzuzeigen, die ebenfalls die Version enthalten.
 
 **Welche Programmiersprachen werden von NuGet unterstützt?**
 
@@ -103,7 +103,7 @@ Bei `Get-Interface` handelt es sich um eine Hilfsfunktionen, die vom PowerShell-
 
 **Wie kann ein Paket in einem Feed aufgeführt werden?**
 
-Weitere Informationen finden Sie unter [Creating and publishing a package (Erstellen und Veröffentlichen von Paketen)](../quickstart/create-and-publish-a-package.md).
+Weitere Informationen finden Sie unter [Creating and publishing a package (Erstellen und Veröffentlichen von Paketen)](../quickstart/create-and-publish-a-package-using-visual-studio.md).
 
 **Es gibt mehrere Versionen meiner Bibliothek, die verschiedene Versionen von .NET-Framework anzielen. Wie kann ein einziges Paket erstellt werden, das dies unterstützt?**
 

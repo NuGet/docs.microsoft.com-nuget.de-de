@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7166d622ef9d3975fc1c931d30caf570a765a6da
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 47a20c5566affec1cdc7772c86d8101dab162d85
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "78231317"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237970"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>Erstellen eines NuGet-Pakets mit MSBuild
 
-Wenn Sie ein NuGet-Paket aus Ihrem Code erstellen, verpacken Sie diese Funktionalität in eine Komponente, die mit einer beliebigen Anzahl anderer Entwickler geteilt und von diesen verwendet werden kann. In diesem Artikel wird das Erstellen eines Pakets mithilfe von MSBuild beschrieben. MSBuild wird mit allen Visual Studio-Workloads vorinstalliert, die NuGet enthalten. Zusätzlich können Sie MSBuild auch über die dotnet-CLI mit [dotnet msbuild](https://docs.microsoft.com/dotnet/core/tools/dotnet-msbuild) verwenden.
+Wenn Sie ein NuGet-Paket aus Ihrem Code erstellen, verpacken Sie diese Funktionalität in eine Komponente, die mit einer beliebigen Anzahl anderer Entwickler geteilt und von diesen verwendet werden kann. In diesem Artikel wird das Erstellen eines Pakets mithilfe von MSBuild beschrieben. MSBuild wird mit allen Visual Studio-Workloads vorinstalliert, die NuGet enthalten. Zusätzlich können Sie MSBuild auch über die dotnet-CLI mit [dotnet msbuild](/dotnet/core/tools/dotnet-msbuild) verwenden.
 
 Für .NET Core- und .NET Standard-Projekte, die das [SDK-Format](../resources/check-project-format.md) verwenden, und für alle anderen Projekte im SDK-Format verwendet NuGet Informationen in der Projektdatei direkt zum Erstellen eines Pakets.  Für ein Projekt im Nicht-SDK-Stil, das `<PackageReference>` verwendet, verwendet NuGet auch die Projektdatei, um ein Paket zu erstellen.
 
@@ -39,7 +39,7 @@ Wenn Sie Nicht-SDK-Projekte packen, die PackageReference verwenden, ist außerde
 
 - `PackageOutputPath`, der Ausgabeordner für das Paket, das beim Paketaufruf generiert wird.
 
-In Visual Studio können Sie diese Werte in den Projekteigenschaften festlegen (Rechtsklick auf das Projekt im Projektmappen-Explorer, wählen Sie **Eigenschaften** und dann die Registerkarte **Paket** aus). Sie können diese Eigenschaften auch direkt in den Projektdateien festlegen ( *.csproj*).
+In Visual Studio können Sie diese Werte in den Projekteigenschaften festlegen (Rechtsklick auf das Projekt im Projektmappen-Explorer, wählen Sie **Eigenschaften** und dann die Registerkarte **Paket** aus). Sie können diese Eigenschaften auch direkt in den Projektdateien festlegen ( *.csproj* ).
 
 ```xml
 <PropertyGroup>
@@ -70,7 +70,7 @@ Das folgende Beispiel zeigt eine einfache, vollständige Projektdatei, in der di
 Sie können auch die optionalen Eigenschaften wie `Title`, `PackageDescription` und `PackageTags` festlegen, wie in [MSBuild-Paketziele](../reference/msbuild-targets.md#pack-target), [Steuern von Abhängigkeitsobjekten](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets) und [NuGet-Metadateneigenschaften](/dotnet/core/tools/csproj#nuget-metadata-properties) beschrieben.
 
 > [!NOTE]
-> Bei Paketen für die öffentliche Nutzung sollten Sie besonders auf die **PackageTags**-Eigenschaft achten, da Tags anderen dabei helfen, Ihr Paket zu finden und dessen Funktion zu verstehen.
+> Bei Paketen für die öffentliche Nutzung sollten Sie besonders auf die **PackageTags** -Eigenschaft achten, da Tags anderen dabei helfen, Ihr Paket zu finden und dessen Funktion zu verstehen.
 
 Weitere Informationen zum Deklarieren von Abhängigkeiten und zum Angeben von Versionsnummern finden Sie unter [Paketverweise in Projektdateien](../consume-packages/package-references-in-project-files.md) und [Paketversionsverwaltung](../concepts/package-versioning.md). Es ist auch möglich, Ressourcen aus Abhängigkeiten mithilfe der Attribute `<IncludeAssets>` und `<ExcludeAssets>` direkt im Paket verfügbar zu machen. Weitere Informationen finden Sie unter [Steuern von Abhängigkeitsobjekten](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
 
