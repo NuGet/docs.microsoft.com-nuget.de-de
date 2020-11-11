@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 8c09d6d5662ed6ff0deffa5d45b823ad0992f399
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: a67c8cd92304c6c4abcffbb79ddbe964664d08fb
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "78231304"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237483"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Schnellstart: Erstellen und Veröffentlichen eines Pakets (.NET CLI)
 
@@ -53,7 +53,7 @@ Jedes NuGet-Paket benötigt ein Manifest, das die Inhalte und Abhängigkeiten de
 1. Fügen Sie optionale Eigenschaften wie unter [NuGet-Metadateneigenschaften](/dotnet/core/tools/csproj#nuget-metadata-properties) beschrieben hinzu.
 
     > [!Note]
-    > Bei Paketen für die öffentliche Nutzung sollten Sie besonders auf die **PackageTags**-Eigenschaft achten, da Tags anderen dabei helfen, Ihr Paket zu finden und dessen Funktion zu verstehen.
+    > Bei Paketen für die öffentliche Nutzung sollten Sie besonders auf die **PackageTags** -Eigenschaft achten, da Tags anderen dabei helfen, Ihr Paket zu finden und dessen Funktion zu verstehen.
 
 ## <a name="run-the-pack-command"></a>Ausführen des Befehls pack
 
@@ -124,6 +124,7 @@ Klicken Sie für weitere Informationen zu den Features von NuGet auf folgende Li
 - [Vorabversionen von Paketen](../create-packages/Prerelease-Packages.md)
 - [Unterstützung mehrerer Zielframeworks](../create-packages/multiple-target-frameworks-project-file.md)
 - [Paketversionsverwaltung](../concepts/package-versioning.md)
+- [Hinzufügen eines Lizenzausdrucks oder einer Datei](../reference/msbuild-targets#packing-a-license-expression-or-a-license-file)
 - [Erstellen von lokalisierten Paketen](../create-packages/creating-localized-packages.md)
 - [Erstellen von Symbolpaketen](../create-packages/symbol-packages-snupkg.md)
 - [Signieren von Paketen](../create-packages/Sign-a-package.md)

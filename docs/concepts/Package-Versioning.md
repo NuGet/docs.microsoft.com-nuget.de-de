@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: c79976c2f4ded2fba3796fb847d3c90807d7b86c
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 4cb12f439d796d583f52d657225c39418d5a4836
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80147447"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237360"
 ---
 # <a name="package-versioning"></a>Paketversionsverwaltung
 
@@ -29,9 +29,9 @@ In diesem Thema:
 
 Eine bestimmte Versionsnummer wird in der Form *Hauptversion.Nebenversion.Patch[-Suffix]* angegeben. Die Bestandteile haben folgende Bedeutungen:
 
-- *Hauptversion*: Breaking Changes
-- *Nebenversion*: Neue Funktionen, aber dennoch abwärtskompatibel
-- *Patch*: Nur abwärtskompatible Fehlerkorrekturen
+- *Hauptversion* : Breaking Changes
+- *Nebenversion* : Neue Funktionen, aber dennoch abwärtskompatibel
+- *Patch* : Nur abwärtskompatible Fehlerkorrekturen
 - *-Suffix* (optional): Ein Bindestrich, gefolgt von einer Zeichenfolge, die eine Vorabversion angibt (gemäß der [Konvention „Semantic Versioning“ bzw. SemVer 1.0](https://semver.org/spec/v1.0.0.html)).
 
 **Beispiele:**
@@ -55,7 +55,7 @@ Nichtsdestoweniger befolgen Paketentwickler im Allgemeinen anerkannte Namenskonv
 - `-rc`: Release Candidate (RC); in der Regel ein stabiles Release, das veröffentlicht werden könnte, sofern keine erheblichen Fehler mehr auftreten.
 
 > [!Note]
-> NuGet 4.3.0 und höher unterstützt [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html), die Nummern mit Punktnotation für Vorabversionen unterstützt (z. B. *1.0.1-build.23*). Die Punktnotation wird für NuGet-Versionen vor Version 4.3.0 nicht unterstützt. Sie können eine Form wie *1.0.1-build23* verwenden.
+> NuGet 4.3.0 und höher unterstützt [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html), die Nummern mit Punktnotation für Vorabversionen unterstützt (z. B. *1.0.1-build.23* ). Die Punktnotation wird für NuGet-Versionen vor Version 4.3.0 nicht unterstützt. Sie können eine Form wie *1.0.1-build23* verwenden.
 
 Wenn sich Paketverweise und mehrere Paketversionen beim Auflösen nur durch das Suffix unterscheiden, wählt NuGet zuerst eine Version ohne Suffix aus und wendet dann eine Rangfolge für die Vorabversionen in umgekehrter alphabetischer Reihenfolge an. Die folgenden Versionen würden beispielsweise exakt in der hier gezeigten Reihenfolge ausgewählt:
 
@@ -114,7 +114,7 @@ In Bezug auf Paketabhängigkeiten unterstützt NuGet die Verwendung einer Interv
 | [1.0,2.0) | 1.0 ≤ x < 2.0 | Kombination aus Minimalversion (einschließlich) und Maximalversion (ausschließlich) |
 | (1.0)    | Ungültig | Ungültig |
 
-Wenn das PackageReference-Format verwendet wird, unterstützt NuGet auch die Verwendung einer unverankerten Notation (\*) für das Suffix bei Haupt-, Neben-, Patch- und Vorabversionen. Unverankerte Versionen werden beim `packages.config`-Format nicht unterstützt.
+Wenn das PackageReference-Format verwendet wird, unterstützt NuGet auch die Verwendung einer unverankerten Notation (\*) für das Suffix bei Haupt-, Neben-, Patch- und Vorabversionen. Unverankerte Versionen werden beim `packages.config`-Format nicht unterstützt. Wenn eine unverankerte Version angegeben wird, muss eine Auflösung in die höchste vorhandene Version erfolgen, die mit der Versionsbeschreibung übereinstimmt. Beispiele für unverankerte Versionen und die Auflösungen finden Sie unten.
 
 > [!Note]
 > Versionsbereiche in PackageReference umfassen Vorabversionen. Standardmäßig lösen Versionen mit übergreifenden Rechten keine Vorabversionen auf, sofern dies nicht abonniert wurde. Informationen zum Status der zugehörigen Featureanforderung finden Sie in [Issue 6434](https://github.com/NuGet/Home/issues/6434#issuecomment-358782297).
@@ -126,28 +126,43 @@ Geben Sie in Projektdateien, `packages.config`-Dateien und `.nuspec`-Dateien imm
 #### <a name="references-in-project-files-packagereference"></a>Verweise in Projektdateien (PackageReference)
 
 ```xml
-<!-- Accepts any version 6.1 and above. -->
+<!-- Accepts any version 6.1 and above.
+     Will resolve to the smallest acceptable stable version.-->
 <PackageReference Include="ExamplePackage" Version="6.1" />
 
-<!-- Accepts any 6.x.y version. -->
+<!-- Accepts any 6.x.y version.
+     Will resolve to the highest acceptable stable version.-->
 <PackageReference Include="ExamplePackage" Version="6.*" />
-<PackageReference Include="ExamplePackage" Version="[6,7)" />
 
 <!-- Accepts any version above, but not including 4.1.3. Could be
-     used to guarantee a dependency with a specific bug fix. -->
+     used to guarantee a dependency with a specific bug fix. 
+     Will resolve to the smallest acceptable stable version.-->
 <PackageReference Include="ExamplePackage" Version="(4.1.3,)" />
 
 <!-- Accepts any version up below 5.x, which might be used to prevent pulling in a later
      version of a dependency that changed its interface. However, this form is not
-     recommended because it can be difficult to determine the lowest version. -->
+     recommended because it can be difficult to determine the lowest version. 
+     Will resolve to the smallest acceptable stable version.
+     -->
 <PackageReference Include="ExamplePackage" Version="(,5.0)" />
 
-<!-- Accepts any 1.x or 2.x version, but not 0.x or 3.x and higher. -->
+<!-- Accepts any 1.x or 2.x version, but not 0.x or 3.x and higher.
+     Will resolve to the smallest acceptable stable version.-->
 <PackageReference Include="ExamplePackage" Version="[1,3)" />
 
-<!-- Accepts 1.3.2 up to 1.4.x, but not 1.5 and higher. -->
+<!-- Accepts 1.3.2 up to 1.4.x, but not 1.5 and higher.
+     Will resolve to the smallest acceptable stable version. -->
 <PackageReference Include="ExamplePackage" Version="[1.3.2,1.5)" />
 ```
+
+#### <a name="floating-version-resolutions"></a>Auflösung von unverankerten Versionen 
+
+| Version | Auf dem Server vorhandene Versionen | Lösung | `Reason` | Notizen |
+|----------|--------------|-------------|-------------|-------------|
+| * | 1.1.0 <br> 1.1.1 <br> 1.2.0 <br> 1.3.0-alpha  | 1.2.0 | Dies ist die höchste stabile Version. |
+| 1.1.* | 1.1.0 <br> 1.1.1 <br> 1.1.2-alpha <br> 1.2.0-alpha | 1.1.1 | Dies ist die höchste stabile Version, die das angegebene Muster einhält.|
+| * - * | 1.1.0 <br> 1.1.1 <br> 1.1.2-alpha <br> 1.3.0-beta  | 1.3.0-beta | Dies ist die höchste Version (einschließlich der nicht stabilen Versionen). | Sie ist in Visual Studio-Version 16.6, NuGet-Version 5.6 und .NET Core SDK-Version 3.1.300 verfügbar. |
+| 1.1.* - * | 1.1.0 <br> 1.1.1 <br> 1.1.2-alpha <br> 1.1.2-beta <br> 1.3.0-beta  | 1.1.2-beta | Dies ist die höchste Version, die das Muster einhält (einschließlich der nicht stabilen Versionen). | Sie ist in Visual Studio-Version 16.6, NuGet-Version 5.6 und .NET Core SDK-Version 3.1.300 verfügbar. |
 
 **Verweise in `packages.config`:**
 
