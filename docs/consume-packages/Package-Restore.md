@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0edfa1f61e6b18ef38689ed2272b2c5992a46ae6
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 05fa68ad3a0b353117a14e2b3e1cdf13dc806127
+ms.sourcegitcommit: 0cc6ac680c3202d0b036c0bed7910f6709215682
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237847"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94550387"
 ---
 # <a name="restore-packages-using-package-restore"></a>Wiederherstellen von Paketen mithilfe der Paketwiederherstellung
 
@@ -169,7 +169,7 @@ Um Pakete wiederherzustellen, die in der Projektdatei mit PackageReference aufge
    Stellen Sie sicher, dass die MSBuild-Ausgabe angibt, dass der Build erfolgreich abgeschlossen wurde.
    
 > [!Note]
-> MSBuild verfügt über einen `-restore`-Switch, der `Restore` ausführt, das Projekt erneut lädt und dann erstellt. Weitere Informationen finden Sie unter [Wiederherstellen und Erstellen mit einem MSBuild-Befehl](/nuget/reference/msbuild-targets#restoring-and-building-with-one-msbuild-command).
+> MSBuild verfügt über einen `-restore`-Switch, der `Restore` ausführt, das Projekt erneut lädt und dann erstellt. Weitere Informationen finden Sie unter [Wiederherstellen und Erstellen mit einem MSBuild-Befehl](../reference/msbuild-targets.md#restoring-and-building-with-one-msbuild-command).
 
 ```cmd
 # Will restore the project, then build, since build is the default target.
