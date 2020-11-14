@@ -5,12 +5,12 @@ author: dominofire
 ms.author: feaguila
 ms.date: 11/9/2020
 ms.topic: conceptual
-ms.openlocfilehash: 86e173b9d760578454df8f5f817533f64e193996
-ms.sourcegitcommit: 0cc6ac680c3202d0b036c0bed7910f6709215682
+ms.openlocfilehash: 09fb98eec79ee4ed08d85a1c557a420d6b265f11
+ms.sourcegitcommit: f4b74b500e3db9e468f11142df48d87880382267
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94550741"
+ms.locfileid: "94572830"
 ---
 # <a name="nuget-58-release-notes"></a>Anmerkungen zu dieser Version von nuget 5,8
 
@@ -28,6 +28,8 @@ Möglichkeiten der NuGet-Verteilung:
 
 ## <a name="summary-whats-new-in-58"></a>Zusammenfassung: Neues in 5,8
 🎉 **Dies ist die erste Version, die die Unterstützung für das Erstellen und Wiederherstellen von nuget-Paketen für .net 5,0 bietet** 🎉
+
+* Beschleunigen Sie die nupkg-Extraktion mithilfe von mmap/kreatefilemapping- [#9807](https://github.com/NuGet/Home/issues/9807)
 
 * Details zu Paket Sicherheitsrisiken im Detailbereich des Paket-Managers Benutzeroberflächen Paket anzeigen- [#9850](https://github.com/NuGet/Home/issues/9850)
 
@@ -129,7 +131,7 @@ Möglichkeiten der NuGet-Verteilung:
 
 Vielen Dank für alle Mitwirkenden, die dazu beigetragen haben, dass diese nuget-Version großartig ist!
 
-|Wer|PRS|Probleme|
+|Wer|PRS|Issues|
 |----|----|----|
 [omajid](https://github.com/omajid) | [3437](https://github.com/NuGet/NuGet.Client/pull/3437) | Typo in Fehlermeldung. "Administration" anstelle von "Administrator"- [#9662](https://github.com/NuGet/Home/issues/9662)
 [odalet](https://github.com/odalet) | [3341](https://github.com/NuGet/NuGet.Client/pull/3341) | Das nuget-Paket mit ungültigen AssemblyInformationalVersion-Berichten "Beschreibung ist erforderlich"- [#5548](https://github.com/NuGet/Home/issues/5548)
