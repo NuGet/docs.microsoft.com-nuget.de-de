@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 16fd7b9103ef5ac335f0b2e5493dd2983b182f50
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 4a04c6dd7993fc47bcf7a6fe46236ed700a0d105
+ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623174"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96738928"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet pack and restore as MSBuild targets (NuGet-Befehle „pack“ und „restore“ MSBuild-Ziele)
 
@@ -46,15 +46,15 @@ In der folgenden Tabelle werden die MSBuild-Eigenschaften beschrieben, die im er
 
 Beachten Sie, dass die Eigenschaften `Owners` und `Summary` aus einer `.nuspec`-Datei in MSBuild nicht unterstützt werden.
 
-| Attribut/NuSpec-Wert | MSBuild-Eigenschaft | Standard | Notizen |
+| Attribut/NuSpec-Wert | MSBuild-Eigenschaft | Standard | Hinweise |
 |--------|--------|--------|--------|
 | Id | PackageId | AssemblyName | $(AssemblyName) aus MSBuild |
 | Version | PackageVersion | Version | Diese Eigenschaft ist mit „semver“ kompatibel, z.B. „1.0.0“, „1.0.0-beta“ oder „1.0.0-beta-00345“ |
 | VersionPrefix | PackageVersionPrefix | empty | Durch das Festlegen von PackageVersion wird PackageVersionPrefix überschrieben |
 | VersionSuffix | PackageVersionSuffix | empty | $(VersionSuffix) aus MSBuild. Durch das Festlegen von PackageVersion wird PackageVersionSuffix überschrieben |
 | Authors | Authors | Name des aktuellen Benutzers | |
-| Besitzer | – | In NuSpec nicht vorhanden | |
-| Title | Title | Die PackageId| |
+| Besitzer | N/V | In NuSpec nicht vorhanden | |
+| Titel | Titel | Die PackageId| |
 | BESCHREIBUNG | BESCHREIBUNG | „Paketbeschreibung“ | |
 | Copyright | Copyright | empty | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
@@ -64,7 +64,7 @@ Beachten Sie, dass die Eigenschaften `Owners` und `Summary` aus einer `.nuspec`-
 | ProjectUrl | PackageProjectUrl | empty | |
 | Symbol | PackageIcon | empty | Sie müssen explizit die Symbolbild Datei, auf die verwiesen wird, verpacken.|
 | IconUrl | PackageIconUrl | empty | Um das beste kompatible zu erzielen, `PackageIconUrl` sollte zusätzlich zu angegeben werden `PackageIcon` . Längerfristig `PackageIconUrl` wird als veraltet markiert. |
-| `Tags` | PackageTags | empty | Ziele werden durch Semikolons (;) getrennt. |
+| Tags | PackageTags | empty | Ziele werden durch Semikolons (;) getrennt. |
 | ReleaseNotes | PackageReleaseNotes | empty | |
 | Repository/URL | RepositoryUrl | empty | Die Repository-URL, die zum Klonen oder Abrufen von Quellcode verwendet wird. Beispiel *https://github.com/NuGet/NuGet.Client.git* |
 | Repository/Typ | RepositoryType | empty | Der Repository-Typ. Beispiele: *git*, *TFS*. |
@@ -131,7 +131,7 @@ Ab nuget 5,3 & Visual Studio 2019 Version 16,3 `pack` wird [NU5048](./errors-and
 
 Beim Packen einer Symbolbild Datei müssen Sie die-Eigenschaft verwenden, `PackageIcon` um den Paketpfad relativ zum Stamm des Pakets anzugeben. Außerdem müssen Sie sicherstellen, dass die Datei im Paket enthalten ist. Die Größe der Bild Datei ist auf 1 MB beschränkt. Unterstützte Dateiformate sind JPEG und PNG. Wir empfehlen eine Bildauflösung von 128 x 128.
 
-Beispiel:
+Zum Beispiel:
 
 ```xml
 <PropertyGroup>
@@ -242,7 +242,7 @@ Wenn Sie einen Lizenz Ausdruck verwenden, sollte die packagelicenseexpression-Ei
 
 [Erfahren Sie mehr über Lizenz Ausdrücke und Lizenzen, die von NuGet.org akzeptiert werden](nuspec.md#license).
 
-Beim Verpacken einer Lizenzdatei müssen Sie den Paketpfad relativ zum Stamm des Pakets mit der packagelicensefile-Eigenschaft angeben. Außerdem müssen Sie sicherstellen, dass die Datei im Paket enthalten ist. Beispiel:
+Beim Verpacken einer Lizenzdatei müssen Sie den Paketpfad relativ zum Stamm des Pakets mit der packagelicensefile-Eigenschaft angeben. Außerdem müssen Sie sicherstellen, dass die Datei im Paket enthalten ist. Zum Beispiel:
 
 ```xml
 <PropertyGroup>
@@ -365,7 +365,8 @@ Das Ziel `MSBuild -t:restore` (das von `nuget restore` und `dotnet restore` in .
 1. Herunterladen von Paketen
 1. Schreiben von Assetdatei, Zielen und Eigenschaften
 
-Das `restore` Ziel funktioniert **nur** für Projekte, die das packagereferenzierungsformat verwenden. Es funktioniert **nicht** für Projekte, die das `packages.config` Format verwenden. verwenden Sie stattdessen die [nuget-Wiederherstellung](../reference/cli-reference/cli-ref-restore.md) .
+Das `restore` Ziel funktioniert für Projekte, die das packagereferenzierungsformat verwenden.
+`MSBuild 16.5+` bietet auch eine [Opt-in-Unterstützung](#restoring-packagereference-and-packages.config-with-msbuild) für das- `packages.config` Format.
 
 ### <a name="restore-properties"></a>Wiederherstellen von Eigenschaften
 
@@ -391,7 +392,8 @@ Weitere Wiederherstellungseigenschaften können aus MSBuild-Eigenschaften in der
 | RestorePackagesWithLockFile | Ermöglicht die Verwendung einer Sperrdatei. |
 | RestoreLockedMode | Führen Sie die Wiederherstellung im gesperrten Modus aus. Dies bedeutet, dass bei der Wiederherstellung die Abhängigkeiten nicht neu ausgewertet werden. |
 | NuGetLockFilePath | Ein benutzerdefinierter Speicherort für die Sperrdatei. Der Standard Speicherort ist neben dem Projekt und hat den Namen `packages.lock.json` . |
-| RestoreForceEvaluate | Erzwingt die Wiederherstellung, um die Abhängigkeiten neu zu berechnen und die Sperrdatei ohne Warnung zu aktualisieren. | 
+| RestoreForceEvaluate | Erzwingt die Wiederherstellung, um die Abhängigkeiten neu zu berechnen und die Sperrdatei ohne Warnung zu aktualisieren. |
+| Restorepackagesconfig | Ein Opt-in-Switch, mit dem Projekte mit packages.config wieder hergestellt werden. Unterstützung `MSBuild -t:restore` nur mit. |
 
 #### <a name="examples"></a>Beispiele
 
@@ -435,6 +437,17 @@ msbuild -t:build -restore
 ```
 
 Die gleiche Logik gilt für andere Ziele ähnlich wie `build` .
+
+### <a name="restoring-packagereference-and-packagesconfig-with-msbuild"></a>Wiederherstellen von packagereferenzierungen und packages.config mit MSBuild
+
+Mit MSBuild 16.5 + werden packages.config auch für unterstützt `msbuild -t:restore` .
+
+```cli
+msbuild -t:restore -p:RestorePackagesConfig=true
+```
+
+> [!NOTE]
+> `packages.config` Restore ist nur mit verfügbar `MSBuild 16.5+` , nicht mit `dotnet.exe`
 
 ### <a name="packagetargetfallback"></a>PackageTargetFallback
 
