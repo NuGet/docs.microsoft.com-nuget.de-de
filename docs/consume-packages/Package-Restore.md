@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 05fa68ad3a0b353117a14e2b3e1cdf13dc806127
-ms.sourcegitcommit: 0cc6ac680c3202d0b036c0bed7910f6709215682
+ms.openlocfilehash: be68d3bd1c7dfcc5661276c0b62d46722af61a00
+ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94550387"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96738954"
 ---
 # <a name="restore-packages-using-package-restore"></a>Wiederherstellen von Paketen mithilfe der Paketwiederherstellung
 
-Die NuGet- **Paketwiederherstellung** installiert alle Abhängigkeiten eines Projekts, die in der Projektdatei oder `packages.config` aufgelistet sind, um eine übersichtlichere Entwicklungsumgebung zu gewährleisten und die Größe des Repositorys zu reduzieren. Die Befehle `dotnet build` und `dotnet run` in .NET Core 2.0 und höher führen eine automatische Paketwiederherstellung durch. Visual Studio kann Pakete automatisch wiederherstellen, wenn es ein Projekt erstellt. Sie können Pakete jederzeit über Visual Studio, `nuget restore`. `dotnet restore` und xbuild von Mono wiederherstellen.
+Die NuGet-**Paketwiederherstellung** installiert alle Abhängigkeiten eines Projekts, die in der Projektdatei oder `packages.config` aufgelistet sind, um eine übersichtlichere Entwicklungsumgebung zu gewährleisten und die Größe des Repositorys zu reduzieren. Die Befehle `dotnet build` und `dotnet run` in .NET Core 2.0 und höher führen eine automatische Paketwiederherstellung durch. Visual Studio kann Pakete automatisch wiederherstellen, wenn es ein Projekt erstellt. Sie können Pakete jederzeit über Visual Studio, `nuget restore`. `dotnet restore` und xbuild von Mono wiederherstellen.
 
 Die Paketwiederherstellung stellt sicher, dass alle Abhängigkeiten eines Projekts verfügbar sind, ohne dass diese Pakete in der Quellcodeverwaltung gespeichert werden müssen. Informationen zur Konfiguration Ihres Repositorys zum Ausschließen von Paketbinärdateien finden Sie unter [Überspringen von NuGet-Paketen in Quellcodeverwaltungssystemen](../consume-packages/packages-and-source-control.md). 
 
@@ -29,7 +29,7 @@ Wenn ein Paket noch nicht installiert ist, versucht NuGet erst, das Paket aus de
 
 ## <a name="restore-packages"></a>Pakete wiederherstellen
 
-Die Paketwiederherstellung versucht, alle Paketabhängigkeiten im richtigen Zustand zu installieren, der den Paketverweisen in Ihrer Projektdatei ( *.csproj* ) oder Ihrer Datei *packages.config* entspricht. (In Visual Studio werden die Verweise im Projektmappen-Explorer unter dem Knoten **Dependencies\NuGet** oder **References** angezeigt.)
+Die Paketwiederherstellung versucht, alle Paketabhängigkeiten im richtigen Zustand zu installieren, der den Paketverweisen in Ihrer Projektdatei ( *.csproj*) oder Ihrer Datei *packages.config* entspricht. (In Visual Studio werden die Verweise im Projektmappen-Explorer unter dem Knoten **Dependencies\NuGet** oder **References** angezeigt.)
 
 1. Wenn die Paketverweise in der Projektdatei richtig sind, verwenden Sie Ihr bevorzugtes Tool zum Wiederherstellen von Paketen.
 
@@ -40,7 +40,7 @@ Die Paketwiederherstellung versucht, alle Paketabhängigkeiten im richtigen Zust
    - [Azure Pipelines](#restore-using-azure-pipelines)
    - [Azure DevOps Server](#restore-using-azure-devops-server)
 
-   Wenn die Paketverweise in Ihrer Projektdatei ( *.csproj* ) oder Ihrer Datei *packages.config* falsch sind (sie stimmen nach der Paketwiederherstellung nicht mit dem gewünschten Zustand überein), müssen Sie stattdessen Pakete installieren oder aktualisieren.
+   Wenn die Paketverweise in Ihrer Projektdatei ( *.csproj*) oder Ihrer Datei *packages.config* falsch sind (sie stimmen nach der Paketwiederherstellung nicht mit dem gewünschten Zustand überein), müssen Sie stattdessen Pakete installieren oder aktualisieren.
 
    Bei Projekten, die PackageReference verwenden, sollte sich das Paket nach einer erfolgreichen Wiederherstellung im Ordner *global-packages* befinden, und die Datei `obj/project.assets.json` wird neu erstellt. Bei Projekten, die `packages.config` verwenden, sollte das Paket im Ordner `packages` des Projekts angezeigt werden. Das Projekt sollte jetzt erfolgreich erstellt werden. 
 
@@ -66,7 +66,7 @@ Die Paketwiederherstellung erfolgt automatisch beim Erstellen eines Projekts üb
 
 1. Erstellen Sie das Projekt.
 
-   Wenn mindestens ein Paket immer noch nicht ordnungsgemäß installiert wurde, wird im **Projektmappen-Explorer** ein Fehlersymbol angezeigt. Öffnen Sie das Kontextmenü, und wählen Sie **NuGet-Pakete verwalten** aus. Deinstallieren Sie anschließend die betreffenden Pakete über den **Paket-Manager** , und installieren Sie sie neu. Weitere Informationen finden Sie unter [Neuinstallieren und Aktualisieren von Paketen](../consume-packages/reinstalling-and-updating-packages.md).
+   Wenn mindestens ein Paket immer noch nicht ordnungsgemäß installiert wurde, wird im **Projektmappen-Explorer** ein Fehlersymbol angezeigt. Öffnen Sie das Kontextmenü, und wählen Sie **NuGet-Pakete verwalten** aus. Deinstallieren Sie anschließend die betreffenden Pakete über den **Paket-Manager**, und installieren Sie sie neu. Weitere Informationen finden Sie unter [Neuinstallieren und Aktualisieren von Paketen](../consume-packages/reinstalling-and-updating-packages.md).
 
    Wenn die Fehlermeldungen „Dieses Projekt verweist auf mindestens ein NuGet-Paket, das auf diesem Computer fehlt.“ oder „One or more NuGet packages need to be restored but couldn't be because consent has not been granted.“ („Mindestens ein NuGet-Paket muss wiederhergestellt werden, dies wurde allerdings aufgrund der fehlenden Zustimmung verhindert.“) angezeigt werden, [aktivieren Sie die automatische Wiederherstellung](#enable-and-disable-package-restore-in-visual-studio). Weitere Informationen zu älteren Projekten finden Sie auch unter [Migrieren zur automatischen Paketwiederherstellung](#migrate-to-automatic-package-restore-visual-studio). Weitere Informationen finden Sie unter [Problembehandlung bei der Paketwiederherstellung](Package-restore-troubleshooting.md).
 
@@ -76,7 +76,7 @@ Die Paketwiederherstellung erfolgt automatisch beim Erstellen eines Projekts üb
 
 1. Klicken Sie im **Projektmappen-Explorer** mit der rechten Maustaste auf die Projektmappe, und wählen Sie dann **NuGet-Pakete wiederherstellen** aus.
 
-   Wenn mindestens ein Paket immer noch nicht ordnungsgemäß installiert wurde, wird im **Projektmappen-Explorer** ein Fehlersymbol angezeigt. Öffnen Sie das Kontextmenü, und wählen Sie **NuGet-Pakete verwalten** aus. Deinstallieren Sie anschließend die betreffenden Pakete über den **Paket-Manager** , und installieren Sie sie erneut. Weitere Informationen finden Sie unter [Neuinstallieren und Aktualisieren von Paketen](../consume-packages/reinstalling-and-updating-packages.md).
+   Wenn mindestens ein Paket immer noch nicht ordnungsgemäß installiert wurde, wird im **Projektmappen-Explorer** ein Fehlersymbol angezeigt. Öffnen Sie das Kontextmenü, und wählen Sie **NuGet-Pakete verwalten** aus. Deinstallieren Sie anschließend die betreffenden Pakete über den **Paket-Manager**, und installieren Sie sie erneut. Weitere Informationen finden Sie unter [Neuinstallieren und Aktualisieren von Paketen](../consume-packages/reinstalling-and-updating-packages.md).
 
    Wenn die Fehlermeldungen „Dieses Projekt verweist auf mindestens ein NuGet-Paket, das auf diesem Computer fehlt.“ oder „One or more NuGet packages need to be restored but couldn't be because consent has not been granted.“ („Mindestens ein NuGet-Paket muss wiederhergestellt werden, dies wurde allerdings aufgrund der fehlenden Zustimmung verhindert.“) angezeigt werden, [aktivieren Sie die automatische Wiederherstellung](#enable-and-disable-package-restore-in-visual-studio). Weitere Informationen zu älteren Projekten finden Sie auch unter [Migrieren zur automatischen Paketwiederherstellung](#migrate-to-automatic-package-restore-visual-studio). Weitere Informationen finden Sie unter [Problembehandlung bei der Paketwiederherstellung](Package-restore-troubleshooting.md).
 
@@ -147,7 +147,10 @@ In NuGet gibt es zwei Formate, in denen ein Projekt Pakete verwenden kann: [`Pac
 
 ## <a name="restore-using-msbuild"></a>Wiederherstellung mit MSBuild
 
-Um Pakete wiederherzustellen, die in der Projektdatei mit PackageReference aufgelistet werden, verwenden Sie den Befehl [msbuild -t:restore](../reference/msbuild-targets.md#restore-target). Diese Befehl ist nur in NuGet 4.x und höher und MSBuild 15.1 und höher verfügbar. Diese Versionen sind in Visual Studio 2017 und höher enthalten. Sowohl `nuget restore` als auch `dotnet restore` verwenden diesen Befehl für betreffende Projekte.
+Verwenden Sie den Befehl [msbuild -t:restore](../reference/msbuild-targets.md#restore-target), um Pakete wiederherzustellen, die in der Projektdatei aufgelistet sind (siehe [PackageReference](../../consume-packages/package-references-in-project-files.md)). Ab MSBuild 16.5 können Sie auch Projekte wiederherstellen, die in `packages.config` aufgelistet sind.
+
+ Diese Befehl ist nur in NuGet 4.x und höher und MSBuild 15.1 und höher verfügbar. Diese Versionen sind in Visual Studio 2017 und höher enthalten.
+Ab MSBuild 16.5 kann dieser Befehl auch `packages.config`-basierte Projekte wiederherstellen, wenn diese mit `-p:RestorePackagesConfig=true` ausgeführt werden.
 
 1. Öffnen Sie eine Developer-Eingabeaufforderung (geben Sie **Developer-Eingabeaufforderung** im **Suchfeld** ein).
 
@@ -224,7 +227,7 @@ Um die Verwendung des Caches für HTTP-Quellen zu vermeiden, gehen Sie wie folgt
 
 Für NuGet 2.6 und früher wurde die in MSBuild integrierte Paketwiederherstellung unterstützt; dies ist jedoch nicht mehr der Fall. (Die Aktivierung erfolgte in der Regel durch Klicken mit der rechten Maustaste auf eine Projektpappe in Visual Studio und Auswählen von **NuGet-Paketwiederherstellung aktivieren**.) Wenn in Ihrem Projekt die veraltete in MSBuild integrierte Paketwiederherstellung verwendet wird, migrieren Sie zur automatischen Paketwiederherstellung.
 
-Projekte, in denen die in MSBuild integrierte Paketwiederherstellung verwendet wird, enthalten in der Regel den Ordner *.nuget* mit drei Dateien: *NuGet.config* , *nuget.exe* und *NuGet.targets*. Wenn die Datei *NuGet.targets* vorhanden ist, wird in NuGet weiterhin versucht, die in MSBuild integrierte Paketwiederherstellung zu verwenden. Deshalb muss diese Datei während der Migration entfernt werden.
+Projekte, in denen die in MSBuild integrierte Paketwiederherstellung verwendet wird, enthalten in der Regel den Ordner *.nuget* mit drei Dateien: *NuGet.config*, *nuget.exe* und *NuGet.targets*. Wenn die Datei *NuGet.targets* vorhanden ist, wird in NuGet weiterhin versucht, die in MSBuild integrierte Paketwiederherstellung zu verwenden. Deshalb muss diese Datei während der Migration entfernt werden.
 
 So migrieren Sie zur automatischen Paketwiederherstellung:
 
