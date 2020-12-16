@@ -5,12 +5,12 @@ author: dominofire
 ms.author: feaguila
 ms.date: 11/9/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09fb98eec79ee4ed08d85a1c557a420d6b265f11
-ms.sourcegitcommit: f4b74b500e3db9e468f11142df48d87880382267
+ms.openlocfilehash: 329fdf6479d0799ae4b15cc3493848ba2d999853
+ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94572830"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97523444"
 ---
 # <a name="nuget-58-release-notes"></a>Anmerkungen zu dieser Version von nuget 5,8
 
@@ -131,7 +131,7 @@ Möglichkeiten der NuGet-Verteilung:
 
 Vielen Dank für alle Mitwirkenden, die dazu beigetragen haben, dass diese nuget-Version großartig ist!
 
-|Wer|PRS|Issues|
+|Wer|PRS|Probleme|
 |----|----|----|
 [omajid](https://github.com/omajid) | [3437](https://github.com/NuGet/NuGet.Client/pull/3437) | Typo in Fehlermeldung. "Administration" anstelle von "Administrator"- [#9662](https://github.com/NuGet/Home/issues/9662)
 [odalet](https://github.com/odalet) | [3341](https://github.com/NuGet/NuGet.Client/pull/3341) | Das nuget-Paket mit ungültigen AssemblyInformationalVersion-Berichten "Beschreibung ist erforderlich"- [#5548](https://github.com/NuGet/Home/issues/5548)
@@ -144,5 +144,5 @@ Vielen Dank für alle Mitwirkenden, die dazu beigetragen haben, dass diese nuget
 
 ## <a name="feedback-welcome"></a>Feedback Willkommen
 
-Ihr Feedback ist uns sehr wichtig.  Wenn bei diesem Release Probleme auftreten, überprüfen Sie unsere [GitHub-Probleme](https://github.com/NuGet/Home/issues) und die [Visual Studio-Entwickler Community](https://developercommunity.visualstudio.com/) auf vorhandene Probleme.  Melden Sie sich bei neuen Problemen in nuget an einem [GitHub-Problem](hhttps://github.com/NuGet/Home/issues/new).
+Ihr Feedback ist uns sehr wichtig.  Wenn bei diesem Release Probleme auftreten, überprüfen Sie unsere [GitHub-Probleme](https://github.com/NuGet/Home/issues) und die [Visual Studio-Entwickler Community](https://developercommunity.visualstudio.com/) auf vorhandene Probleme.  Melden Sie sich bei neuen Problemen in nuget an einem [GitHub-Problem](https://github.com/NuGet/Home/issues/new).
 Wenn Sie allgemeine Probleme mit der nuget-Umgebung haben, informieren Sie uns über die Option " [Problem melden](https://docs.microsoft.com/visualstudio/ide/how-to-report-a-problem-with-visual-studio) " in Ihrer bevorzugten IDE unter **Hilfe > melden Sie ein Problem**.
