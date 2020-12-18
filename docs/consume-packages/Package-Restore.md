@@ -1,16 +1,16 @@
 ---
 title: NuGet-Paketwiederherstellung
 description: Übersicht über die Wiederherstellung von Paketen mit NuGet, von denen ein Projekt abhängig ist, die auch die Deaktivierung von Wiederherstellungsversionen sowie von eingeschränkten Versionen umfasst.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: be68d3bd1c7dfcc5661276c0b62d46722af61a00
-ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
+ms.openlocfilehash: bac4d88c29539f9fbe7b33b44ce11d350920d365
+ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738954"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97523532"
 ---
 # <a name="restore-packages-using-package-restore"></a>Wiederherstellen von Paketen mithilfe der Paketwiederherstellung
 
@@ -147,7 +147,7 @@ In NuGet gibt es zwei Formate, in denen ein Projekt Pakete verwenden kann: [`Pac
 
 ## <a name="restore-using-msbuild"></a>Wiederherstellung mit MSBuild
 
-Verwenden Sie den Befehl [msbuild -t:restore](../reference/msbuild-targets.md#restore-target), um Pakete wiederherzustellen, die in der Projektdatei aufgelistet sind (siehe [PackageReference](../../consume-packages/package-references-in-project-files.md)). Ab MSBuild 16.5 können Sie auch Projekte wiederherstellen, die in `packages.config` aufgelistet sind.
+Verwenden Sie den Befehl [msbuild -t:restore](../reference/msbuild-targets.md#restore-target), um Pakete wiederherzustellen, die in der Projektdatei aufgelistet sind (siehe [PackageReference](package-references-in-project-files.md)). Mit MSBuild 16.5+ können Sie auch Projekte wiederherstellen, die in `packages.config` aufgelistet sind.
 
  Diese Befehl ist nur in NuGet 4.x und höher und MSBuild 15.1 und höher verfügbar. Diese Versionen sind in Visual Studio 2017 und höher enthalten.
 Ab MSBuild 16.5 kann dieser Befehl auch `packages.config`-basierte Projekte wiederherstellen, wenn diese mit `-p:RestorePackagesConfig=true` ausgeführt werden.

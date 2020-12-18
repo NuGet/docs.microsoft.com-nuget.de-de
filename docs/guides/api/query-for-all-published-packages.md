@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 11/02/2017
 ms.topic: tutorial
 ms.reviewer: kraigb
-ms.openlocfilehash: 0bd21c427b5b89ae9e5f1500d75e1bf63a96e828
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 749d9466976d51c7cb65332c8b149e3a30862e63
+ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64498233"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97523395"
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>Abfrage für alle auf nuget.org veröffentlichten Pakete
 
@@ -110,13 +110,13 @@ git clone https://github.com/NuGet/Samples.git
 
 ### <a name="catalog-sdk"></a>Katalog-SDK
 
-Die einfachste Möglichkeit zur Nutzung des Katalogs ist die Verwendung der Vorabversion des SDK-Pakets für den .NET-Katalog: [NuGet.Protocol.Catalog](https://dotnet.myget.org/feed/nuget-build/package/nuget/NuGet.Protocol.Catalog). Dieses Paket ist unter dem Feed „`nuget-build` MyGet“ verfügbar, für den Sie die Quell-URL für das NuGet-Paket verwenden: `https://dotnet.myget.org/F/nuget-build/api/v3/index.json`.
+Die einfachste Möglichkeit, den Katalog zu nutzen, ist die Verwendung der Vorabversion des .NET-Katalog SDK-Pakets `NuGet.Protocol.Catalog`, die über die folgende NuGet-Paketquellen-URL auf Azure Artifacts verfügbar ist: `https://pkgs.dev.azure.com/dnceng/public/_packaging/nuget-build/nuget/v3/index.json`.
 
 Sie können dieses Paket in einem Projekt installieren, das mit `netstandard1.3` oder höher kompatibel ist (z.B. .NET Framework 4.6).
 
 Ein Beispiel, in dem dieses Paket verwendet wird, finden Sie auf GitHub unter [NuGet.Protocol.Catalog.Sample-Projekt](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample/NuGet.Protocol.Catalog.Sample).
 
-#### <a name="sample-output"></a>Beispielausgabe:
+#### <a name="sample-output"></a>Beispielausgabe
 
 ```output
 2017-11-10T22:16:44.8689025+00:00: Found package details leaf for xSkrape.APIWrapper.REST 1.0.2.
@@ -156,7 +156,7 @@ Ein Beispiel mit weniger Abhängigkeiten, in dem die Interaktion mit dem Katalog
 
 Die Hauptlogik des Codes wird in der [Datei „Program.cs“](https://github.com/NuGet/Samples/blob/master/CatalogReaderExample/CatalogReaderExample/Program.cs) sichtbar.
 
-#### <a name="sample-output"></a>Beispielausgabe:
+#### <a name="sample-output"></a>Beispielausgabe
 
 ```output
 No cursor found. Defaulting to 11/2/2017 9:41:28 PM.
