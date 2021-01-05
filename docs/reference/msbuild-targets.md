@@ -1,16 +1,16 @@
 ---
 title: NuGet pack and restore as MSBuild targets (NuGet-Befehle „pack“ und „restore“ MSBuild-Ziele)
 description: Die NuGet-Befehle „pack“ und „restore“ können direkt als MSBuild-Ziele mit NuGet 4.0 und höher arbeiten.
-author: karann-msft
-ms.author: karann
+author: nkolev92
+ms.author: nikolev
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4a04c6dd7993fc47bcf7a6fe46236ed700a0d105
-ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
+ms.openlocfilehash: 66df4e0e4739300608fd5f9e44eea5bcd00079c8
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738928"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699886"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet pack and restore as MSBuild targets (NuGet-Befehle „pack“ und „restore“ MSBuild-Ziele)
 
@@ -46,14 +46,14 @@ In der folgenden Tabelle werden die MSBuild-Eigenschaften beschrieben, die im er
 
 Beachten Sie, dass die Eigenschaften `Owners` und `Summary` aus einer `.nuspec`-Datei in MSBuild nicht unterstützt werden.
 
-| Attribut/NuSpec-Wert | MSBuild-Eigenschaft | Standard | Hinweise |
+| Attribut/NuSpec-Wert | MSBuild-Eigenschaft | Standard | Notizen |
 |--------|--------|--------|--------|
 | Id | PackageId | AssemblyName | $(AssemblyName) aus MSBuild |
 | Version | PackageVersion | Version | Diese Eigenschaft ist mit „semver“ kompatibel, z.B. „1.0.0“, „1.0.0-beta“ oder „1.0.0-beta-00345“ |
 | VersionPrefix | PackageVersionPrefix | empty | Durch das Festlegen von PackageVersion wird PackageVersionPrefix überschrieben |
 | VersionSuffix | PackageVersionSuffix | empty | $(VersionSuffix) aus MSBuild. Durch das Festlegen von PackageVersion wird PackageVersionSuffix überschrieben |
 | Authors | Authors | Name des aktuellen Benutzers | |
-| Besitzer | N/V | In NuSpec nicht vorhanden | |
+| Besitzer | – | In NuSpec nicht vorhanden | |
 | Titel | Titel | Die PackageId| |
 | BESCHREIBUNG | BESCHREIBUNG | „Paketbeschreibung“ | |
 | Copyright | Copyright | empty | |
@@ -256,6 +256,23 @@ Beim Verpacken einer Lizenzdatei müssen Sie den Paketpfad relativ zum Stamm des
 
 [Beispiel für eine Lizenzdatei](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
 
+### <a name="packing-a-file-without-an-extension"></a>Packen einer Datei ohne Erweiterung
+
+In einigen Szenarien, wie z. b. beim Verpacken einer Lizenzdatei, empfiehlt es sich, eine Datei ohne Erweiterung aufzunehmen.
+Aus historischen Gründen werden von nuget & MSBuild Pfade ohne Erweiterung als Verzeichnisse behandelt.
+
+```xml
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="LICENSE" Pack="true" PackagePath=""/>
+  </ItemGroup>  
+```
+
+[Datei ohne Erweiterungs Beispiel](https://github.com/NuGet/Samples/blob/master/PackageLicenseFileExtensionlessExample/).
 ### <a name="istool"></a>IsTool
 
 Bei Verwendung von `MSBuild -t:pack -p:IsTool=true` werden alle Ausgabedateien entsprechend den Angaben im Szenario [Ausgabeassemblys](#output-assemblies) in den Ordner `tools` und nicht in den Ordner `lib` kopiert. Beachten Sie, dass sich dies von einem `DotNetCliTool` unterscheidet, das durch Festlegen von `PackageType` in der `.csproj`-Datei angegeben wird.
@@ -366,7 +383,10 @@ Das Ziel `MSBuild -t:restore` (das von `nuget restore` und `dotnet restore` in .
 1. Schreiben von Assetdatei, Zielen und Eigenschaften
 
 Das `restore` Ziel funktioniert für Projekte, die das packagereferenzierungsformat verwenden.
-`MSBuild 16.5+` bietet auch eine [Opt-in-Unterstützung](#restoring-packagereference-and-packages.config-with-msbuild) für das- `packages.config` Format.
+`MSBuild 16.5+` bietet auch eine [Opt-in-Unterstützung](#restoring-packagereference-and-packagesconfig-with-msbuild) für das- `packages.config` Format.
+
+> [!NOTE]
+> Das `restore` Ziel [sollte nicht](#restoring-and-building-with-one-msbuild-command) in Kombination mit dem Ziel ausgeführt werden `build` .
 
 ### <a name="restore-properties"></a>Wiederherstellen von Eigenschaften
 
