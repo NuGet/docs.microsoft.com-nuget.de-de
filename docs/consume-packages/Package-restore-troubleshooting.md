@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: b162990eae2160961f560b6c6ee73e47cb4121d6
-ms.sourcegitcommit: f29fa9b93fd59e679fab50d7413bbf67da3ea5b3
+ms.openlocfilehash: 9f680a714717d1bde0472f2e1266cacfd8bd4d5f
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86451150"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699715"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Problembehandlung bei der Paketwiederherstellung
 
@@ -46,7 +46,7 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 
 Dieser Fehler tritt auf, wenn Sie versuchen, ein Projekt zu erstellen, das Verweise auf mindestens ein NuGet-Paket enthält, das Paket zu diesem Zeitpunkt jedoch nicht auf dem Computer oder in dem Projekt vorhanden ist.
 
-- Bei Verwendung des [PackageReference](package-references-in-project-files.md)-Verwaltungsformats bedeutet der Fehler, dass das Paket nicht wie unter [Verwalten der globalen Pakete und Cacheordner](managing-the-global-packages-and-cache-folders.md) beschrieben im Ordner *global-packages* installiert ist.
+- Wenn das [PackageReference](package-references-in-project-files.md)-Verwaltungsformat verwendet wird, kann dieser Fehler einer Migration von packages.config zu PackageReference geschuldet sein. Er muss aus der Projektdatei [manuell entfernt](../resources/NuGet-FAQ.md#working-with-packages) werden.
 - Bei Verwendung von [packages.config](../reference/packages-config.md) bedeutet der Fehler, dass das Paket nicht im Ordner `packages` des Stammverzeichnisses der Projektmappe installiert ist.
 
 Diese Situation tritt häufig auf, wenn Sie den Quellcode des Projekts über die Quellcodeverwaltung oder einen anderen Download erhalten. Pakete werden in der Regel von Quellcode oder Downloads ausgeschlossen, da sie aus Paketfeeds wie nuget.org wiederhergestellt werden (Informationen dazu finden Sie unter [Überspringen von NuGet-Paketen in Quellcodeverwaltungssystemen](Packages-and-Source-Control.md)). Wenn diese Pakete darin enthalten wären, würde dies ggf. es zu einer Überfrachtung des Repositorys oder zum Erstellen von unnötig großen ZIP-Dateien führen.

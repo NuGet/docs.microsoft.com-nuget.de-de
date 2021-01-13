@@ -1,16 +1,16 @@
 ---
 title: Erstellen eines NuGet-Pakets mithilfe der „nuget.exe“-CLI
-description: Eine ausführliche Anleitung zum Entwerfen und Erstellen eines NuGet-Pakets, einschließlich der wichtigsten Entscheidungspunkte wie Dateien und Versionsverwaltung
+description: Bei diesem Artikel handelt es sich um eine ausführliche Anleitung für das Entwerfen und Erstellen eines NuGet-Pakets. Außerdem finden Sie Informationen zu Dateien und zur Versionsverwaltung.
 author: karann-msft
-ms.author: karann
+ms.author: feaguila
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: b3e6f0efc9e2e12de186ffd4ce29d496d07d5fc4
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: ec06a8f721b7b67ddc5d72323305b9b22f292de6
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428570"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699791"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>Erstellen eines Pakets mithilfe der „nuget.exe“-CLI
 
@@ -68,8 +68,8 @@ Allgemeine optionale Eigenschaften:
 - Eine kurze Beschreibung der [Paket-Manager-UI in Visual Studio](../consume-packages/install-use-packages-visual-studio.md)
 - Eine Gebietsschema-ID
 - Projekt-URL
-- Eine Lizenz als Ausdruck oder Datei (`licenseUrl` wird als veraltet markiert. Nutzen Sie das [Nuspec-Metadatenelement `license`](../reference/nuspec.md#license))
-- Eine URL für das Symbol
+- Eine Lizenz als Ausdruck oder Datei (`licenseUrl` wird als veraltet markiert. Nutzen Sie stattdessen das [Nuspec-Metadatenelement `license`](../reference/nuspec.md#license).)
+- Eine Symboldatei (`iconUrl` wird als veraltet markiert. Nutzen Sie stattdessen das [Nuspec-Metadatenelement `icon`](../reference/nuspec.md#icon).)
 - Listen der Abhängigkeiten und Verweise
 - Tags für die Katalogsuche
 
@@ -79,11 +79,11 @@ Im folgenden Beispiel sehen Sie eine typische, aber fiktive `.nuspec`-Datei mit 
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
-        <!-- The identifier that must be unique within the hosting gallery -->
+        <!-- Identifier that must be unique within the hosting gallery -->
         <id>Contoso.Utility.UsefulStuff</id>
 
-        <!-- The package version number that is used when resolving dependencies -->
-        <version>1.8.3-beta</version>
+        <!-- Package version number that is used when resolving dependencies -->
+        <version>1.8.3</version>
 
         <!-- Authors contain text that appears directly on the gallery -->
         <authors>Dejana Tesic, Rajeev Dey</authors>
@@ -101,8 +101,8 @@ Im folgenden Beispiel sehen Sie eine typische, aber fiktive `.nuspec`-Datei mit 
         <license type="expression">Apache-2.0</license>
         
 
-        <!-- The icon is used in Visual Studio's package manager UI -->
-        <iconUrl>http://github.com/contoso/UsefulStuff/nuget_icon.png</iconUrl>
+        <!-- Icon is used in Visual Studio's package manager UI -->
+        <icon>icon.png</icon>
 
         <!-- 
             If true, this value prompts the user to accept the license when
@@ -134,6 +134,7 @@ Im folgenden Beispiel sehen Sie eine typische, aber fiktive `.nuspec`-Datei mit 
     <!-- A readme.txt to display when the package is installed -->
     <files>
         <file src="readme.txt" target="" />
+        <file src="icon.png" target="" />
     </files>
 </package>
 ```
@@ -255,7 +256,7 @@ Mit dem folgenden Befehl wird ein Standardmanifest mit Platzhaltern erstellt, da
 nuget spec [<package-name>]
 ```
 
-Wenn Sie \<package-name\> weglassen, lautet die Ergebnisdatei `Package.nuspec`. Wenn Sie einen Namen wie `Contoso.Utility.UsefulStuff` angeben, lautet die Datei `Contoso.Utility.UsefulStuff.nuspec`.
+Wenn Sie \<package-name\> auslassen, ergibt sich daraus die Datei `Package.nuspec`. Wenn Sie einen Namen wie `Contoso.Utility.UsefulStuff` angeben, lautet die Datei `Contoso.Utility.UsefulStuff.nuspec`.
 
 Die resultierende `.nuspec`-Datei enthält Platzhalter für Werte wie `projectUrl`. Denken Sie daran, die Datei zu bearbeiten, bevor Sie mit ihr die endgültige `.nupkg`-Datei erstellen.
 
@@ -316,6 +317,7 @@ In einigen Fällen (z.B. beim Ausführen eines benutzerdefinierten Tools oder Pr
 
 Dateien im `\build`-Stammverzeichnis gelten als für alle Zielframeworks geeignet. Um frameworkspezifische Dateien bereitzustellen, platzieren Sie zuerst Dateien wie die folgenden in den entsprechenden Unterordnern:
 
+```
     \build
         \netstandard1.4
             \Contoso.Utility.UsefulStuff.props
@@ -323,6 +325,7 @@ Dateien im `\build`-Stammverzeichnis gelten als für alle Zielframeworks geeigne
         \net462
             \Contoso.Utility.UsefulStuff.props
             \Contoso.Utility.UsefulStuff.targets
+```
 
 Verweisen Sie dann in der `.nuspec`-Datei im `<files>`-Knoten auf diese Dateien:
 

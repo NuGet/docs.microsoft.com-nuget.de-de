@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1ae030c308b14b8884fb608c1683c8c46000b0bd
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 634c421499b06f6b62d88a95f8703614dec5ace8
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "77036902"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699760"
 ---
 # <a name="what-happens-when-a-nuget-package-is-installed"></a>Was geschieht beim Installieren eines NuGet-Pakets?
 
@@ -26,6 +26,9 @@ Im Allgemeinen läuft der Prozess wie folgt ab:
    - Überprüfen Sie, ob das Paket (mit exaktem Bezeichner und Versionsnummer) bereits im Ordner *global-packages* installiert ist, wie unter [Verwalten der globalen Paketordner und Cacheordner](../consume-packages/managing-the-global-packages-and-cache-folders.md) beschrieben.
 
    - Wenn sich das Paket nicht im Ordner *global-packages* befindet, versuchen Sie, es aus den in den [Konfigurationsdateien](../consume-packages/Configuring-NuGet-Behavior.md) aufgelisteten Quellen abzurufen. Bei Onlinequellen wird zunächst versucht, das Paket aus dem HTTP-Cache abzurufen, es sei denn, `-NoCache` wird mit `nuget.exe`-Befehlen oder `--no-cache` mit `dotnet restore` angegeben. (Visual Studio und `dotnet add package` verwenden immer den Cache.) Wenn ein Paket aus dem Cache verwendet wird, erscheint „CACHE“ in der Ausgabe. Die Ablaufzeit des Caches beträgt 30 Minuten.
+
+   - Wenn das Paket mithilfe einer [unverankerten Version](../consume-packages/Package-References-in-Project-Files.md#floating-versions) angegeben wurde oder ohne Mindestversion, *kontaktiert NuGet* alle Quellen, um die beste Übereinstimmung zu finden.
+   Beispiel: `1.*`, `(, 2.0.0]`.
 
    - Wenn sich das Paket nicht im HTTP-Cache befindet, wird versucht, es aus den in der Konfiguration aufgeführten Quellen herunterzuladen. Wird ein Paket heruntergeladen, erscheinen „GET“ und „OK“ in der Ausgabe. NuGet protokolliert den HTTP-Datenverkehr mit normaler Ausführlichkeit.
 

@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: aae6f0474cc6e8e8aa5c269b79be6fd949d9184c
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: be24660d05f34242e45f223e2248b943ecc38616
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237996"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699648"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Häufig gestellte Fragen zu NuGet
 
@@ -45,9 +45,9 @@ Weitere Informationen finden Sie unter [Finding and choosing packages (Suchen un
 
 **Wie kann überprüft werden, ob die richtige Version der NuGet-Tools installiert ist?**
 
-Verwenden Sie in Visual Studio den Befehl **Hilfe > Info** , und achten Sie auf die Version, die neben dem **NuGet-Paket-Manager** angezeigt wird.
+Verwenden Sie in Visual Studio den Befehl **Hilfe > Info**, und achten Sie auf die Version, die neben dem **NuGet-Paket-Manager** angezeigt wird.
 
-Führen Sie alternativ die Konsole des Paket-Managers ( **Tools > NuGet-Paket-Manager > Paket-Manager-Konsole** ) aus, und geben Sie `$host` ein, um Informationen über NuGet anzuzeigen, die ebenfalls die Version enthalten.
+Führen Sie alternativ die Konsole des Paket-Managers (**Tools > NuGet-Paket-Manager > Paket-Manager-Konsole**) aus, und geben Sie `$host` ein, um Informationen über NuGet anzuzeigen, die ebenfalls die Version enthalten.
 
 **Welche Programmiersprachen werden von NuGet unterstützt?**
 
@@ -149,3 +149,10 @@ Dies stellt kein Problem dar, wenn Sie PackageReference verwenden, da jede Proje
 
 - Fügen Sie `https://api.nuget.org/v3/index.json` zur Liste der Quellen hinzu, oder
 - Löschen Sie `%appdata%\.nuget\NuGet.Config` (Windows) oder `~/.nuget/NuGet/NuGet.Config` (Mac/Linux), damit NuGet diese Dateien neu erstellen kann.
+
+**Ich habe eine Migration zu PackageReference durchgeführt, warum tritt für meinen Build ein Fehler auf`This project references NuGet package(s) that are missing on this computer.`?**
+
+In packages.config-Projekten wird bei Installation eines Pakets mit `build`-Eigenschaften oder -Zielen von NuGet ein `EnsureNuGetPackageBuildImports`-Ziel hinzugefügt, um zu überprüfen, ob die MSBuild-Inhalte des Pakets vor der Erstellung importiert wurden.
+Wenn `target` manuell bearbeitet wurde, kann NuGet möglicherweise nicht erkennen, dass das Ziel bei der Migration entfernt werden muss.
+
+Wenn es sich bei Ihrem Projekt um `PackageReference` handelt und sich dieses Ziel noch in der Projektdatei befindet, sollte es sicher entfernt werden können.

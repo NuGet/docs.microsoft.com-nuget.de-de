@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: a5833df60c5f7905359f421141347b1237f45d86
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 1127e7aee27d57abd5f14dd3bea82dfff3ba6d93
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237639"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699790"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Paketverweise (PackageReference) in Projektdateien
 
@@ -201,10 +201,42 @@ Zusätzlich werden von NuGet automatisch Eigenschaften für Pakete generiert, di
   <Target Name="TakeAction" AfterTargets="Build">
     <Exec Command="$(PkgPackage_With_Tools)\tools\tool.exe" />
   </Target>
-````
+```
 
 MSBuild-Eigenschaften und Paketidentitäten haben nicht die gleichen Einschränkungen, sodass die Paketidentität in einen MSBuild-Anzeigenamen geändert werden muss, dem das Wort `Pkg` vorangestellt ist.
 Beachten Sie die generierte [nuget.g.props](../reference/msbuild-targets.md#restore-outputs)-Datei, um den genauen Namen der generierten Eigenschaft zu überprüfen.
+
+## <a name="packagereference-aliases"></a>PackageReference-Aliasse
+
+In einigen seltenen Fällen enthalten verschiedene Pakete Klassen im selben Namespace. Ab NuGet 5.7 und Visual Studio 2019 Update 7 unterstützt PackageReference ebenso wie ProjectReference [`Aliases`](/dotnet/api/microsoft.codeanalysis.projectreference.aliases).
+Standardmäßig stehen keine Aliasse zur Verfügung. Wenn ein Alias angegeben wird, muss mit dem Alias auf *alle* Assemblys verwiesen werden, die aus dem kommentierten Paket stammen.
+
+Eine Beispielverwendung finden Sie unter [NuGet\Samples](https://github.com/NuGet/Samples/tree/master/PackageReferenceAliasesExample).
+
+In der Projektdatei können Sie die Aliasse folgendermaßen angeben:
+
+```xml
+  <ItemGroup>
+    <PackageReference Include="NuGet.Versioning" Version="5.8.0" Aliases="ExampleAlias" />
+  </ItemGroup>
+```
+
+Die Verwendung im Code erfolgt folgendermaßen:
+
+```cs
+extern alias ExampleAlias;
+
+namespace PackageReferenceAliasesExample
+{
+...
+        {
+            var version = ExampleAlias.NuGet.Versioning.NuGetVersion.Parse("5.0.0");
+            Console.WriteLine($"Version : {version}");
+        }
+...
+}
+
+```
 
 ## <a name="nuget-warnings-and-errors"></a>NuGet-Warnungen und -Fehler
 

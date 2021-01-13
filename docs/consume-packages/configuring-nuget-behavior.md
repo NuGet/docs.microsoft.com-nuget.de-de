@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: 89127203df0aa1eb24f36b8ec64c5bb4a4d59319
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: e81c380eab3f1a8635e50e62811c7ae463ec3653
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428540"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699773"
 ---
 # <a name="common-nuget-configurations"></a>Gängige NuGet-Konfigurationen
 
@@ -21,8 +21,8 @@ Das Verhalten von NuGet wird durch die Eigenschaften gesteuert, die in einer ode
 | Bereich | Speicherort der NuGet.Config-Datei | Beschreibung |
 | --- | --- | --- |
 | Lösung | Aktueller Ordner (bzw. Projektmappenordner) oder ein beliebiger anderer Ordner im Stammlaufwerk.| In einem Projektmappenordner gelten die Einstellungen für alle Projekte in sämtlichen Unterordnern. Beachten Sie, dass eine Konfigurationsdatei, die in einem Projektordner gespeichert wird, keine Auswirkungen auf das Projekt hat. |
-| Benutzer | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.config/NuGet/NuGet.Config` oder `~/.nuget/NuGet/NuGet.Config` (je nach Betriebssystemverteilung) | Die Einstellungen gelten für alle Vorgänge, werden jedoch durch sämtliche Einstellungen auf Projektebene überschrieben. |
-| Computer | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME`. Wenn `$XDG_DATA_HOME` NULL oder leer ist, wird `~/.local/share` oder `/usr/local/share` verwendet (je nach Betriebssystemverteilung)  | Die Einstellungen gelten für alle Vorgänge auf dem Computer, werden jedoch von allen Einstellungen auf Benutzer- oder Projektebene überschrieben. |
+| Benutzer | **Windows:** `%appdata%\NuGet\NuGet.Config`<br/>**Mac/Linux:** `~/.config/NuGet/NuGet.Config` oder `~/.nuget/NuGet/NuGet.Config` (je nach Betriebssystemdistribution) <br/>Zusätzliche Konfigurationen werden auf allen Plattformen unterstützt. Diese Konfigurationen können von den Tools nicht bearbeitet werden. </br> **Windows:** `%appdata%\NuGet\config\*.Config` <br/>**Mac/Linux:** `~/.config/NuGet/config/*.config` oder `~/.nuget/config/*.config` | Die Einstellungen gelten für alle Vorgänge, werden jedoch durch sämtliche Einstellungen auf Projektebene überschrieben. |
+| Computer | **Windows:** `%ProgramFiles(x86)%\NuGet\Config`<br/>**Mac/Linux:** `$XDG_DATA_HOME` Wenn `$XDG_DATA_HOME` NULL oder leer ist, wird `~/.local/share` oder `/usr/local/share` verwendet (je nach Betriebssystemverteilung)  | Die Einstellungen gelten für alle Vorgänge auf dem Computer, werden jedoch von allen Einstellungen auf Benutzer- oder Projektebene überschrieben. |
 
 Hinweise für frühere Versionen von NuGet:
 - In NuGet 3.3 und früher wurde ein `.nuget`-Ordner für projektmappenweite Einstellungen verwendet. Dieser Ordner wird in NuGet 3.4 oder höher nicht verwendet.
@@ -186,13 +186,25 @@ Datei D (disk_drive_2/Project2/NuGet.Config):
 
 Je nachdem, wo aus NuGet aufgerufen wird, werden die Einstellungen folgendermaßen geladen und angewendet:
 
-- **Aufgerufen von disk_drive_1/users aus**: Es wird nur das Standardrepository verwendet, das in der Konfigurationsdatei auf Benutzerebene (A) aufgeführt wird, da dies die einzige Datei ist, die auf disk_drive_1 gefunden wurde.
+- **Aufruf von disk_drive_1/users aus:** Nur die Standardrepository, die in der Konfigurationsdatei auf Benutzerebene (A) aufgeführt wird, wird verwendet, da dies die einzige Datei ist, die auf disk_drive_1 gefunden wurde.
 
-- **Aufgerufen von disk_drive_2/ oder disk_drive_/tmp aus**: Die Datei auf Benutzerebene (A) wird zuerst geladen, dann sucht NuGet im Stamm von disk_drive_2 und findet Datei (B). NuGet sucht ebenfalls in /tmp nach einer Konfigurationsdatei, findet jedoch keine. Deshalb wird das Standardrepository auf nuget.org verwendet, außerdem wird die Paketwiederherstellung aktiviert und Pakete werden in disk_drive_2/tmp erweitert.
+- **Aufruf von disk_drive_2/ oder disk_drive_/tmp aus:** Die Datei auf Benutzerebene (A) wird zuerst geladen, dann sucht NuGet im Stamm von disk_drive_2 und findet Datei B. NuGet sucht ebenfalls in /tmp nach einer Konfigurationsdatei, findet jedoch keine. Deshalb wird das Standardrepository auf nuget.org verwendet, außerdem wird die Paketwiederherstellung aktiviert und Pakete werden in disk_drive_2/tmp erweitert.
 
-- **Aufgerufen von disk_drive_2/Project1 oder disk_drive_2/Project1/Source aus**: Die Datei auf Benutzerebene (A) wird zuerst geladen, dann lädt NuGet aus dem Stamm von disk_drive_2 zunächst Datei (B) und anschließend Datei (C). Die Einstellungen in Datei C überschreiben die in Datei A und B. Pakete werden deshalb im `repositoryPath` disk_drive_2/Project1/External/Packages statt in *disk_drive_2/tmp* installiert. Da `<packageSources>` durch Datei C gelöscht wird, ist nuget.org nicht mehr als Quelle verfügbar, sondern nur noch `https://MyPrivateRepo/ES/nuget`.
+- **Aufruf von disk_drive_2/Project1 oder disk_drive_2/Project1/Source aus:** Die Datei auf Benutzerebene (A) wird zuerst geladen, dann lädt NuGet Datei B aus dem Stamm von disk_drive_2 und schließlich Datei C. Die Einstellungen in Datei C überschreiben die in Datei A und B. Pakete werden deshalb im `repositoryPath` disk_drive_2/Project1/External/Packages statt in *disk_drive_2/tmp* installiert. Da `<packageSources>` durch Datei C gelöscht wird, ist nuget.org nicht mehr als Quelle verfügbar, sondern nur noch `https://MyPrivateRepo/ES/nuget`.
 
-- **Aufgerufen von disk_drive_2/Project2 oder disk_drive_2/Project2/Source aus**: Die Datei auf Benutzerebene (A) wird zuerst geladen, anschließend folgen Datei (B) und Datei (D). Da `packageSources` nicht gelöscht wurde, sind `nuget.org` und `https://MyPrivateRepo/DQ/nuget` als Quellen verfügbar. Die Pakete werden wie in Datei B angegeben in disk_drive_2/tmp erweitert.
+- **Aufruf von disk_drive_2/Project2 oder disk_drive_2/Project2/Source aus:** Die Datei auf Benutzerebene (A) wird zuerst geladen, anschließend werden Datei B und D geladen. Da `packageSources` nicht gelöscht wurde, sind `nuget.org` und `https://MyPrivateRepo/DQ/nuget` als Quellen verfügbar. Die Pakete werden wie in Datei B angegeben in disk_drive_2/tmp erweitert.
+
+## <a name="additional-user-wide-configuration"></a>Zusätzliche benutzerübergreifende Konfigurationen
+
+Ab 5.7 bietet NuGet Unterstützung für weitere benutzerübergreifende Konfigurationsdateien. Dies ermöglicht es Drittanbietern, ohne Rechteerweiterungen weitere Benutzerkonfigurationsdateien hinzuzufügen.
+Diese Konfigurationsdateien befinden sich im Standardordner für benutzerübergreifende Konfigurationen in einem Unterordner `config`.
+Alle Dateien, die auf `.config` oder `.Config` enden, werden berücksichtigt.
+Diese Dateien können mit den Standardtools nicht bearbeitet werden.
+
+| Betriebssystemplattform  | Zusätzliche Konfigurationen |
+| --- | --- |
+| Windows      | `%appdata%\NuGet\config\*.Config` |
+| Mac/Linux    | `~/.config/NuGet/config/*.config` oder `~/.nuget/config/*.config` |
 
 ## <a name="nuget-defaults-file"></a>NuGet-Standarddatei
 
@@ -209,7 +221,7 @@ In der folgenden Tabelle wird beschrieben, wo die `NuGetDefaults.Config`-Datei g
 
 | Betriebssystemplattform  | Speicherort von NuGetDefaults.Config |
 | --- | --- |
-| Windows      | **Visual Studio 2017 oder NuGet 4.x und höher:** `%ProgramFiles(x86)%\NuGet\Config` <br />**Visual Studio 2015 und früher oder NuGet 3.x und früher:** `%PROGRAMDATA%\NuGet` |
+| Windows      | **Visual Studio 2017 oder NuGet 4.x und höher:** `%ProgramFiles(x86)%\NuGet\Config` <br />**Visual Studio 2015 und niedriger oder NuGet 3.x und niedriger:** `%PROGRAMDATA%\NuGet` |
 | Mac/Linux    | `$XDG_DATA_HOME` (in der Regel `~/.local/share` oder `/usr/local/share`, abhängig von der Betriebssystemverteilung)|
 
 ### <a name="nugetdefaultsconfig-settings"></a>Einstellungen von NuGetDefaults.Config

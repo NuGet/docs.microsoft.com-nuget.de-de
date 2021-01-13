@@ -7,18 +7,21 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 8b23b6cc22eff5413e317fbe619edd3d4f4716ee
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 31fa51bc017eaaf9306d5f267e5d4b0d7a15ec9c
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237399"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699839"
 ---
 # <a name="install-and-manage-packages-with-the-package-manager-console-in-visual-studio-powershell"></a>Installieren und Verwalten von Paketen mit der Paket-Manager-Konsole in Visual Studio (PowerShell)
 
 Mit der NuGet-Paket-Manager-Konsole können Sie die [NuGet PowerShell-Befehle](../reference/powershell-reference.md) verwenden, um NuGet-Pakete zu suchen, zu installieren, zu deinstallieren und zu aktualisieren. Die Verwendung der Konsole ist dann erforderlich, wenn es mit der Benutzeroberfläche des Paket-Managers nicht möglich ist, einen Vorgang durchzuführen. Informationen zur Verwendung von `nuget.exe`-CLI-Befehlen in der Konsole finden Sie unter [Verwenden der nuget.exe-CLI in der Konsole](#use-the-nugetexe-cli-in-the-console).
 
 Die Konsole ist in Visual Studio unter Windows integriert. Sie ist nicht in Visual Studio für Mac oder Visual Studio Code integriert.
+
+> [!Important]
+> Die hier aufgeführten Befehle sind spezifisch für die Paket-Manager-Konsole in Visual Studio und unterscheiden sich von den [Befehlen für das Paket-Manager-Modul](/powershell/module/packagemanagement/), die in einer allgemeinen PowerShell-Umgebung zur Verfügung stehen. Genau genommen verfügt jede Umgebung über Befehle, die in der jeweils anderen nicht verfügbar sind. Außerdem können sich Befehle mit identischem Namen in Bezug auf ihre spezifischen Argumente unterscheiden. Wenn die Paket-Manager-Konsole in Visual Studio verwendet wird, gelten nur die in diesem Thema erläuterten Befehle und Argumente.
 
 ## <a name="find-and-install-a-package"></a>Suchen und Installieren eines Pakets
 
@@ -56,7 +59,7 @@ Beispielsweise erfolgt das Suchen und Installieren eines Pakets in drei einfache
 
 1. Die Auswahl einer anderen Paketquelle und/oder eines anderen Projekts ändert diese Standardwerte für nachfolgende Befehle. Um diese Einstellungen zu überschreiben, ohne die Standardeinstellungen zu ändern, unterstützen die meisten Befehle die Optionen `-Source` und `-ProjectName`.
 
-1. Wählen Sie zum Verwalten von Paketquellen das Zahnradsymbol aus. Dies ist eine Verknüpfung zum Dialogfeld **Tools > Optionen > NuGet-Paket-Manager > Paketquellen** , wie auf der Seite [Benutzeroberfläche von Paket-Manager](install-use-packages-visual-studio.md#package-sources) beschrieben. Außerdem löscht das Steuerelement rechts neben der Projektauswahl den Inhalt der Konsole:
+1. Wählen Sie zum Verwalten von Paketquellen das Zahnradsymbol aus. Dies ist eine Verknüpfung zum Dialogfeld **Tools > Optionen > NuGet-Paket-Manager > Paketquellen**, wie auf der Seite [Benutzeroberfläche von Paket-Manager](install-use-packages-visual-studio.md#package-sources) beschrieben. Außerdem löscht das Steuerelement rechts neben der Projektauswahl den Inhalt der Konsole:
 
     ![Einstellungen und Steuerelemente zum Löschen in der Paket-Manager-Konsole](media/PackageManagerConsoleControls2.png)
 
@@ -120,7 +123,7 @@ Update-Package
 
 Siehe [Get-Package](../reference/ps-reference/ps-ref-get-package.md) und [Update-Package](../reference/ps-reference/ps-ref-update-package.md).
 
-## <a name="find-a-package"></a>Suchen eines Pakets
+## <a name="find-a-package"></a>Suchen nach einem Paket
 
 ```ps
 # Find packages containing keywords
@@ -143,7 +146,7 @@ Siehe [Find-Package](../reference/ps-reference/ps-ref-find-package.md). Verwende
 
 Ab Visual Studio 2017 werden NuGet und der NuGet-Paket-Manager automatisch installiert, wenn Sie .NET-bezogene Workloads auswählen. Sie können sie auch einzeln installieren, indem Sie die Option **Einzelne Komponenten > Codetools > NuGet-Paket-Manager** im Visual Studio-Installationsprogramm aktivieren.
 
-Wenn der NuGet-Paket-Manager in Visual Studio 2015 und früher fehlt, aktivieren Sie **Tools > Erweiterungen und Updates...** , und suchen Sie nach der Erweiterung für den NuGet-Paket-Manager. Wenn Sie das Installationsprogramm für Erweiterungen in Visual Studio nicht verwenden können, können Sie die Erweiterung direkt von [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html) herunterladen.
+Wenn der NuGet-Paket-Manager in Visual Studio 2015 und früher fehlt, aktivieren Sie **Tools > Erweiterungen und Updates...**, und suchen Sie nach der Erweiterung für den NuGet-Paket-Manager. Wenn Sie das Installationsprogramm für Erweiterungen in Visual Studio nicht verwenden können, können Sie die Erweiterung direkt von [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html) herunterladen.
 
 Die Paket-Manager-Konsole ist derzeit nicht in Visual Studio für Mac verfügbar. Die entsprechenden Befehle sind jedoch über die [NuGet-CLI](../reference/nuget-exe-CLI-reference.md) verfügbar. Visual Studio für Mac verfügt über eine Benutzeroberfläche zum Verwalten von NuGet-Paketen. Siehe [Einschließen eines NuGet-Pakets in Ihr Projekt](/visualstudio/mac/nuget-walkthrough).
 
