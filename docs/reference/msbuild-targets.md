@@ -5,12 +5,12 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 66df4e0e4739300608fd5f9e44eea5bcd00079c8
-ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
+ms.openlocfilehash: 7de3f0f1133a89848e9268d489751293fb3cbf25
+ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97699886"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98235697"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet pack and restore as MSBuild targets (NuGet-Befehle „pack“ und „restore“ MSBuild-Ziele)
 
@@ -80,7 +80,7 @@ Beachten Sie, dass die Eigenschaften `Owners` und `Summary` aus einer `.nuspec`-
 - PackageVersion
 - PackageId
 - Authors
-- BESCHREIBUNG
+- Beschreibung
 - Copyright
 - PackageRequireLicenseAcceptance
 - DevelopmentDependency
@@ -131,7 +131,7 @@ Ab nuget 5,3 & Visual Studio 2019 Version 16,3 `pack` wird [NU5048](./errors-and
 
 Beim Packen einer Symbolbild Datei müssen Sie die-Eigenschaft verwenden, `PackageIcon` um den Paketpfad relativ zum Stamm des Pakets anzugeben. Außerdem müssen Sie sicherstellen, dass die Datei im Paket enthalten ist. Die Größe der Bild Datei ist auf 1 MB beschränkt. Unterstützte Dateiformate sind JPEG und PNG. Wir empfehlen eine Bildauflösung von 128 x 128.
 
-Zum Beispiel:
+Beispiel:
 
 ```xml
 <PropertyGroup>
@@ -242,7 +242,7 @@ Wenn Sie einen Lizenz Ausdruck verwenden, sollte die packagelicenseexpression-Ei
 
 [Erfahren Sie mehr über Lizenz Ausdrücke und Lizenzen, die von NuGet.org akzeptiert werden](nuspec.md#license).
 
-Beim Verpacken einer Lizenzdatei müssen Sie den Paketpfad relativ zum Stamm des Pakets mit der packagelicensefile-Eigenschaft angeben. Außerdem müssen Sie sicherstellen, dass die Datei im Paket enthalten ist. Zum Beispiel:
+Beim Verpacken einer Lizenzdatei müssen Sie den Paketpfad relativ zum Stamm des Pakets mit der packagelicensefile-Eigenschaft angeben. Außerdem müssen Sie sicherstellen, dass die Datei im Paket enthalten ist. Beispiel:
 
 ```xml
 <PropertyGroup>
@@ -392,7 +392,7 @@ Das `restore` Ziel funktioniert für Projekte, die das packagereferenzierungsfor
 
 Weitere Wiederherstellungseigenschaften können aus MSBuild-Eigenschaften in der Projektdatei stammen. Werte können auch mithilfe des `-p:`-Switch über die Befehlszeile festgelegt werden (siehe nachfolgende Beispiele).
 
-| Eigenschaft | BESCHREIBUNG |
+| Eigenschaft | Beschreibung |
 |--------|--------|
 | RestoreSources | Eine durch Semikolons (;) getrennte Liste mit Paketquellen. |
 | RestorePackagesPath | Ordnerpfad der Pakete für Benutzer. |
@@ -414,6 +414,7 @@ Weitere Wiederherstellungseigenschaften können aus MSBuild-Eigenschaften in der
 | NuGetLockFilePath | Ein benutzerdefinierter Speicherort für die Sperrdatei. Der Standard Speicherort ist neben dem Projekt und hat den Namen `packages.lock.json` . |
 | RestoreForceEvaluate | Erzwingt die Wiederherstellung, um die Abhängigkeiten neu zu berechnen und die Sperrdatei ohne Warnung zu aktualisieren. |
 | Restorepackagesconfig | Ein Opt-in-Switch, mit dem Projekte mit packages.config wieder hergestellt werden. Unterstützung `MSBuild -t:restore` nur mit. |
+| Restoreueinstaticgraphevaluation | Ein Opt-in-Switch zur Verwendung statischer Graph-MSBuild-Auswertung anstelle der Standard Auswertung. Die statische Graph-Auswertung ist ein experimentelles Feature, das für große Repositorys und Lösungen erheblich schneller ist. |
 
 #### <a name="examples"></a>Beispiele
 
@@ -435,7 +436,7 @@ Projektdatei:
 
 Bei der Wiederherstellung werden die folgenden Dateien im `obj`-Buildordner erstellt:
 
-| Datei | BESCHREIBUNG |
+| Datei | Beschreibung |
 |--------|--------|
 | `project.assets.json` | Enthält das Abhängigkeits Diagramm aller Paket Verweise. |
 | `{projectName}.projectFileExtension.nuget.g.props` | Verweist auf in Paketen enthaltene MSBuild-Eigenschaften |
@@ -469,25 +470,40 @@ msbuild -t:restore -p:RestorePackagesConfig=true
 > [!NOTE]
 > `packages.config` Restore ist nur mit verfügbar `MSBuild 16.5+` , nicht mit `dotnet.exe`
 
-### <a name="packagetargetfallback"></a>PackageTargetFallback
+### <a name="restoring-with-msbuild-static-graph-evaluation"></a>Wiederherstellen mit der MSBuild static Graph-Auswertung
 
-Das `PackageTargetFallback`-Element ermöglicht die Angabe eines Satzes von kompatiblen Zielen, die verwendet werden sollen, wenn Pakete wiederhergestellt werden. Dies soll ermöglichen, dass Pakete, in denen ein dotnet [TxM](../reference/target-frameworks.md) verwendet wird, mit kompatiblen Paketen funktionieren, in denen kein dotnet TxM deklariert ist. Wird in Ihrem Projekt das dotnet TxM verwendet, müssen folglich alle Pakete, zu denen es eine Abhängigkeit gibt, ebenfalls ein .NET TxM haben. Dies trifft nur dann nicht zu, wenn Sie das `<PackageTargetFallback>`-Element zu Ihrem Projekt hinzufügen, sodass Nicht-dotnet-Plattformen mit dotnet kompatibel sind.
+> [!NOTE]
+> Mit MSBuild 16,6 und höher hat nuget ein experimentelles Feature hinzugefügt, um die statische Graph-Auswertung von der Befehlszeile aus zu verwenden, die die Wiederherstellungszeit für große Depots erheblich verbessert.
 
-Wenn im Projekt beispielsweise das `netstandard1.6` TxM verwendet wird, und ein abhängiges Paket nur `lib/net45/a.dll` und `lib/portable-net45+win81/a.dll` enthält, schlägt die Erstellung des Projekts fehl. Wenn es sich bei dem, was Sie importieren möchten, um die letzte DLL handelt, können Sie ein `PackageTargetFallback`-Element wie folgt hinzufügen, um zu sagen, dass die DLL von `portable-net45+win81` kompatibel ist:
-
-```xml
-<PackageTargetFallback Condition="'$(TargetFramework)'=='netstandard1.6'">
-    portable-net45+win81
-</PackageTargetFallback>
+```cli
+msbuild -t:restore -p:RestoreUseStaticGraphEvaluation=true
 ```
 
-Lassen Sie das Attribut `Condition` deaktiviert, um einen Fallback für alle Ziele in Ihrem Projekt zu deklarieren. Sie können auch alle vorhandenen `PackageTargetFallback`-Elemente erweitern, indem Sie `$(PackageTargetFallback)` einschließen, wie im Folgenden dargestellt:
+Alternativ können Sie Sie aktivieren, indem Sie die-Eigenschaft in "Directory. Build.-Eigenschaften" festlegen.
 
 ```xml
-<PackageTargetFallback>
-    $(PackageTargetFallback);portable-net45+win81
-</PackageTargetFallback >
+<Project>
+  <PropertyGroup>
+    <RestoreUseStaticGraphEvaluation>true</RestoreUseStaticGraphEvaluation>
+  </PropertyGroup>
+</Project>
 ```
+
+> [!NOTE]
+> Ab Visual Studio 2019. x und nuget 5. x gilt dieses Feature als experimentell und als Opt-in. Unter [nuget/Home # 9803](https://github.com/NuGet/Home/issues/9803) finden Sie ausführliche Informationen dazu, wann dieses Feature standardmäßig aktiviert wird.
+
+Bei der statischen Graph-Wiederherstellung wird der MSBuild-Teil der Wiederherstellung, das Lesen und Auswerten des Projekts, aber nicht der Wiederherstellungs Algorithmus geändert. Der Wiederherstellungs Algorithmus ist in allen nuget-Tools (NuGet.exe, MSBuild.exe, dotnet.exe und Visual Studio) identisch.
+
+In sehr wenigen Szenarios kann sich die statische Graph-Wiederherstellung anders als die aktuelle Wiederherstellung Verhalten, und bestimmte deklarierte packagereferences oder ProjectReferences fehlen möglicherweise.
+
+Um Ihre Meinung als einmalige Überprüfung beim Migrieren zur statischen Graph-Wiederherstellung zu vereinfachen, sollten Sie Folgendes ausführen:
+
+```cli
+msbuild.exe -t:restore -p:RestoreUseStaticGraphEvaluation
+msbuild.exe -t:restore
+```
+
+Nuget sollte *keine* Änderungen melden. Wenn eine Abweichung angezeigt wird, melden Sie ein Problem bei [nuget/Home](https://github.com/nuget/home/issues/new).
 
 ### <a name="replacing-one-library-from-a-restore-graph"></a>Ersetzen einer Bibliothek aus einem Wiederherstellungsdiagramm
 
