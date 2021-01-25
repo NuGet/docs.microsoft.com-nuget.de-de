@@ -12,12 +12,12 @@ keywords: NuGet-Symbolpakete, Debugging von NuGet-Paketen, Unterstützung von Nu
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: c42032f1869f4be0af44ffa8fbd5ad522f73c459
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: fbcc035a6b800617f995d3bcebd7e1764aa467b0
+ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80380417"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98235723"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Erstellen von Symbolpaketen (.snupkg)
 
@@ -63,7 +63,7 @@ nuget pack MyPackage.csproj -Symbols -SymbolPackageFormat snupkg
 Die Eigenschaft [`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) kann einen von zwei Werten besitzen: `symbols.nupkg` (Standard) oder `snupkg`. Wenn diese Eigenschaft nicht festgelegt wurde, wird ein älteres Legacypaket erstellt.
 
 > [!Note]
-> Das ältere Format `.symbols.nupkg` wir noch immer unterstützt, jedoch nur aus Kompatibilitätsgründen (weitere Informationen unter [Erstellen von Symbolpaketen](Symbol-Packages.md)). Der NuGet.org-Symbolserver akzeptiert nur das neue Symbolpaketformat `.snupkg`.
+> Das ältere Format `.symbols.nupkg` wird noch immer unterstützt, jedoch nur aus Kompatibilitätsgründen (z. B. native Pakete). Weitere Informationen finden Sie unter [Erstellen von Legacysymbolpaketen (.symbols.nupkg)](Symbol-Packages.md). Der NuGet.org-Symbolserver akzeptiert nur das neue Symbolpaketformat `.snupkg`.
 
 ## <a name="publishing-a-symbol-package"></a>Veröffentlichen eines Symbolpakets
 
@@ -104,6 +104,9 @@ NuGet.org weist die folgenden Einschränkungen für Symbolpakete auf:
 
 Bei Symbol Paketen, die auf NuGet.org veröffentlicht werden, tritt bei der Überprüfung ein Fehler auf, wenn diese Bedingungen nicht erfüllt sind. 
 
+> [!NOTE]
+> Native Projekte wie C++-Projekte erzeugen Windows-PDB-Dateien anstelle von portierbaren PDB-Dateien. Diese werden vom Symbolserver von NuGet.org nicht unterstützt. Verwenden Sie stattdessen [Legacysymbolpakete](Symbol-Packages.md).
+
 ### <a name="symbol-package-validation-and-indexing"></a>Symbolpaketvalidierung und -indizierung
 
 Per Push an [NuGet.org](https://www.nuget.org/) übertragene Symbolpakete werden verschiedenen Prüfungen unterzogen, darunter eine Prüfung auf Schadsoftware. Wenn bei einem Paket ein Fehler bei der Überprüfung auftritt, wird auf dessen Paketdetailseite eine Fehlermeldung angezeigt. Darüber hinaus erhalten die Besitzer des Pakets eine E-Mail mit Anweisungen zum Beheben der erkannten Probleme.
@@ -130,7 +133,7 @@ Das Symbolpaket (.snupkg) weist die folgenden Eigenschaften auf:
 5) Die folgenden Felder werden aus der NUSPEC-Datei von SNUPKG ausgeschlossen: ```authors```, ```owners```, ```requireLicenseAcceptance```, ```license type```, ```licenseUrl``` und ```icon```.
 6) Verwenden Sie nicht das ```<license>```-Element. Eine SNUPKG-Datei wird von der gleichen Lizenz abgedeckt wie die entsprechende NUPKG-Datei.
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 
 Erwägen Sie die Verwendung von SourceLink, um das Debuggen des Quellcodes von .NET-Assemblys zu aktivieren. Weitere Informationen finden Sie in der [SourceLink-Anleitung](/dotnet/standard/library-guidance/sourcelink).
 

@@ -1,16 +1,16 @@
 ---
 title: NuGet-Format „PackageReference“ (Paketverweise in Projektdateien)
 description: Details zu NuGet-PackageReference in Projektdateien unterstützt durch NuGet 4.0 und höher und VS2017 sowie .NET Core 2.0
-author: karann-msft
-ms.author: karann
+author: nkolev92
+ms.author: nikolev
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1127e7aee27d57abd5f14dd3bea82dfff3ba6d93
-ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
+ms.openlocfilehash: dcaed83ca54e3234702e963ffc2ebbde4cd75b28
+ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97699790"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98235762"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Paketverweise (PackageReference) in Projektdateien
 
@@ -390,3 +390,34 @@ Sie können mit einer Sperrdatei verschiedene Verhaltensweisen der Wiederherstel
 | `-LockedMode` | `--locked-mode` | RestoreLockedMode | Ermöglicht den Sperrmodus für die Wiederherstellung. Dies ist nützlich in CI/CD-Szenarien, in denen Sie wiederholbare Builds wünschen.|   
 | `-ForceEvaluate` | `--force-evaluate` | RestoreForceEvaluate | Diese Option ist nützlich bei Paketen, bei denen im Projekt unverankerte Versionen definiert sind. Standardmäßig aktualisiert die NuGet-Wiederherstellung die Paketversion nicht automatisch bei jedem Wiederherstellungsvorgang, wenn Sie diesen Vorgang nicht mit dieser Option ausführen. |
 | `-LockFilePath` | `--lock-file-path` | NuGetLockFilePath | Definiert einen benutzerdefinierten Speicherort der Sperrdatei für ein Projekt. Standardmäßig unterstützt NuGet `packages.lock.json` im Stammverzeichnis. Wenn Sie über mehrere Projekte im gleichen Verzeichnis verfügen, unterstützt NuGet die projektspezifische Sperrdatei `packages.<project_name>.lock.json`. |
+
+## <a name="assettargetfallback"></a>AssetTargetFallback
+
+Mit der Eigenschaft `AssetTargetFallback` können Sie zusätzliche kompatible Frameworkversionen für Projekte angeben, auf die Ihr Projekt verweist, sowie Frameworkversionen für NuGet-Pakete angeben, die Ihr Projekt nutzt.
+
+Wenn Sie mit `PackageReference` eine Paketabhängigkeit angeben, aber das entsprechende Paket keine Objekte enthält, die mit dem Zielframework Ihres Projekts kompatibel sind, kommt die Eigenschaft `AssetTargetFallback` ins Spiel. Die Kompatibilität des referenzierten Pakets wird erneut anhand jedes Zielframeworks überprüft, das in `AssetTargetFallback` angegeben ist.
+Wenn über `AssetTargetFallback` auf `project` oder `package` verwiesen wird, wird die Warnung [NU1701](../reference/errors-and-warnings/NU1701.md) ausgelöst.
+
+In der Tabelle unten finden Sie Beispiele, wie sich `AssetTargetFallback` auf die Kompatibilität auswirkt.
+
+| Projektframework | AssetTargetFallback | Paketframeworks | Ergebnis |
+|-------------------|---------------------|--------------------|--------|
+| .NET Framework 4.7.2 | | .NET-Standard 2.0 | .NET-Standard 2.0 |
+| .NET Core 3.1-App | | .NET Standard 2.0, .NET Framework 4.7.2 | .NET-Standard 2.0 |
+| .NET Core 3.1-App | | .NET Framework 4.7.2 | Inkompatibel: Bei [`NU1202`](../reference/errors-and-warnings/NU1202.md) tritt ein Fehler auf. |
+| .NET Core 3.1-App | net472;net471 | .NET Framework 4.7.2 | .NET Framework 4.7.2 mit [`NU1701`](../reference/errors-and-warnings/NU1701.md) |
+
+Mithilfe von `;` als Trennzeichen können mehrere Frameworks angegeben werden. Wenn Sie ein Fallbackframework hinzufügen möchten, haben Sie die folgende Möglichkeit:
+
+```xml
+<AssetTargetFallback Condition=" '$(TargetFramework)'=='netcoreapp3.1' ">
+    $(AssetTargetFallback);net472;net471
+</AssetTargetFallback>
+```
+
+Sie können `$(AssetTargetFallback)` auslassen, wenn Sie eine Überschreibung durchführen möchten, anstatt eine Hinzufügung zu den vorhandenen `AssetTargetFallback`-Werten vorzunehmen.
+
+> [!NOTE]
+> Wenn Sie ein [auf dem .NET SDK basierendes Projekt](/dotnet/core/sdk) verwenden, werden entsprechende `$(AssetTargetFallback)`-Werte konfiguriert. Sie müssen diese nicht manuell festlegen.
+>
+> Bei `$(PackageTargetFallback)` handelt es sich um ein früheres Feature, das diese Herausforderung lösen sollte. Dieses Feature funktioniert jedoch nicht und *sollte* nicht verwendet werden. Wenn Sie von `$(PackageTargetFallback)` zu `$(AssetTargetFallback)` migrieren möchten, ändern Sie einfach den Eigenschaftenname.
