@@ -1,48 +1,48 @@
 ---
-title: Anmerkungen zu NuGet 3.4.2
-description: Anmerkungen zu dieser Version für die Einbindung von NuGet 3.4.2 bekannte Probleme, Fehlerkorrekturen, hinzugefügter Features und DCRs.
-author: karann-msft
-ms.author: karann
+title: Nuget 3.4.2 Anmerkungen zu dieser Version
+description: Anmerkungen zu dieser Version von nuget 3.4.2 einschließlich bekannter Probleme, Fehlerbehebungen, hinzugefügter Features und dcrs.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 4c8aa75df822ca5b2f1c4bd274272218f16ad917
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 6e6aa174582d059faa5bef9469cd83b19da51cf3
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549150"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780250"
 ---
-# <a name="nuget-342-release-notes"></a>Anmerkungen zu NuGet 3.4.2
+# <a name="nuget-342-release-notes"></a>Nuget 3.4.2 Anmerkungen zu dieser Version
 
-[Anmerkungen zu NuGet 3.4.1](../release-notes/nuget-3.4.1.md) | [Anmerkungen zu NuGet 3.4.3](../release-notes/nuget-3.4.3.md)
+Anmerkungen zu nuget- [Version 3.4.1](../release-notes/nuget-3.4.1.md)  |  [Nuget 3.4.3 Anmerkungen](../release-notes/nuget-3.4.3.md) zu dieser Version
 
-NuGet 3.4.2 wurde am 8. April 2016, mehrere Probleme zu beheben, die in den 3.4 und 3.4.1 identifiziert wurden veröffentlicht freizugeben.
+Nuget 3.4.2 wurde am 8. April 2016 veröffentlicht, um verschiedene Probleme zu beheben, die in der Version 3,4 und 3.4.1 identifiziert wurden.
 
-## <a name="nugetexe-342-rc-is-now-available"></a>NuGet.exe 3.4.2 RC ist jetzt verfügbar
+## <a name="nugetexe-342-rc-is-now-available"></a>nuget.exe 3.4.2 RC ist jetzt verfügbar.
 
-Sie können den Release Candidate von nuget.exe 3.4.2 [hier](https://dist.nuget.org/index.html).
+Sie können den Release Candidate nuget.exe 3.4.2 [hier](https://dist.nuget.org/index.html)herunterladen.
 
 ## <a name="updates-and-improvements"></a>Updates und Verbesserungen
 
-* Wir haben die Leistung von Updates in ein bestimmtes Szenario, erheblich verbessert, in dem Updates für Pakete mit Tiefen Abhängigkeitsdiagrammen eine sehr lange gedauert, und nicht reagiert Visual Studio.
-* NuGet-Wiederherstellung ohne Netzwerkdatenverkehr ist 2,5-Mal-3-Mal schneller in Visual Studio.
-* Zusätzlich zu dieser Änderung haben wir ein Problem behoben, in denen wurden wir das Netzwerk erreichen zweimal, wenn in der Visual Studio-Benutzeroberfläche zählen das Update abgerufen. Dies war für einige Erfahrung im 3.4/3.4.1 Timeout Probleme Kunden teilweise verantwortlich.
-* Unterstützung für die Einstellung für "no_proxy"
+* Wir haben die Leistung von Updates in einem bestimmten Szenario erheblich verbessert, bei dem Updates von Paketen mit Deep-Abhängigkeits Diagrammen sehr lange gedauert haben und Visual Studio nicht reagiert haben.
+* die nuget-Wiederherstellung ohne Netzwerk Datenverkehr erfolgt in Visual Studio 2,5 x – 3X schneller.
+* Zusätzlich zu dieser Änderung haben wir ein Problem behoben, bei dem das Netzwerk zweimal beim Abrufen der Update Anzahl in der vs-Benutzeroberfläche aufgetreten ist. Dies war teilweise verantwortlich für einige Timeout Probleme, die Kunden in 3.4/3.4.1 hatten.
+* Unterstützung für no_proxy Einstellung hinzugefügt
 
 ## <a name="fixes"></a>Fehlerbehebungen
 
-* Wurde "NuGet.org" Quelle nach der Aktualisierung auf 3.4.1 im NuGet-Einstellungen oder der Konfiguration fehlt behoben ein Problem.
-* Ein Problem behoben, in dem eine Änderung zur Groß-und Kleinschreibung zu FindPackagesById 3.4.1 Artifactory unterbrochen.
-* Ein Problem mit FIPS, die aufgrund von Fehlern bei der NuGet-Wiederherstellung von nuget.exe korrigiert.
-* Korrektur eines Absturzes, beim Durchsuchen von Datenquellen mit ungültige Symbol-URL.
-* Korrigiert: Probleme mit dem Zusammenführen von Versionen und Einträge aus "Alle Quellen".
+* Es wurde ein Problem behoben, bei dem nuget.org source in den nuget-Einstellungen oder-Konfigurationen nach dem Aktualisieren auf 3.4.1 fehlt.
+* Es wurde ein Problem behoben, bei dem eine Änderung der Groß-/Kleinschreibung von "findpackagesbyid" in 3.4.1 in
+* Es wurde ein Problem mit dem Fehler behoben, das eine nuget-Wiederherstellung mit nuget.exe verursacht hat.
+* Beim Durchsuchen von Quellen mit ungültiger Symbol-URL wurde ein Absturz korrigiert.
+* Behobene Probleme beim Zusammenführen von Versionen und Einträgen aus "alle Quellen".
 
-## <a name="known-issues-in-342-windows-x86-commandline-rc"></a>Bekannte Probleme in 3.4.2 X86-Windows-Befehlszeile (RC)
+## <a name="known-issues-in-342-windows-x86-commandline-rc"></a>Bekannte Probleme in 3.4.2 Windows x86 commandline (RC)
 
-Diese Probleme werden die Anfang der nächsten Woche vor der stoßen wir auf die RTM-Version behoben werden.
+Diese Probleme werden frühzeitig in der nächsten Woche behoben, bevor RTM getroffen wird.
 
-*  Ausgeführte Nuget-Wiederherstellung in einer Projektmappe fehl, wenn in einer niedrigeren Ordnerhierarchie als die Projektdateien die Projektmappendatei platziert wird.
-*  Ausführen von Nuget-Delete-Befehl für ein Paket mit dem V2-Feed schlägt fehl. Verwenden Sie stattdessen V3-Feeds.
+*  Das Ausführen der nuget-Wiederherstellung für eine Lösung schlägt fehl, wenn die Projektmappendatei in einer niedrigeren Ordnerhierarchie platziert wird als die Projektdateien.
+*  Das Ausführen des Befehls "nuget löschen" für ein Paket mit dem V2-Feed schlägt fehl. Verwenden Sie stattdessen den V3-Feed.
 
 
-Die vollständige Liste der Korrekturen und Verbesserungen in dieser Version, sehen Sie sich die Liste der Probleme [hier](https://github.com/NuGet/Home/issues?utf8=%E2%9C%93&q=is%3Aissue+milestone%3A3.4.2++is%3Aclosed+).
+Eine umfassende Liste der Fehlerbehebungen und Verbesserungen in dieser Version finden Sie in der Liste [der Probleme.](https://github.com/NuGet/Home/issues?utf8=%E2%9C%93&q=is%3Aissue+milestone%3A3.4.2++is%3Aclosed+)

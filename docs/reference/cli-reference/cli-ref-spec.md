@@ -1,16 +1,16 @@
 ---
 title: Befehl "nuget CLI-Spezifikation"
 description: Referenz für den nuget.exe spec-Befehl
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 17603fa30a75c7906f867c96c5d77f31732eaa59
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: b7780ee5d2e722da5e1623f44709059dd9aa3d45
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622563"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779146"
 ---
 # <a name="spec-command-nuget-cli"></a>spec-Befehl (nuget-CLI)
 

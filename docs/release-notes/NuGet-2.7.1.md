@@ -1,21 +1,21 @@
 ---
-title: Anmerkungen zu NuGet 2.7.1
-description: Anmerkungen zu dieser Version für die Einbindung von NuGet 2.7.1 bekannte Probleme, Fehlerkorrekturen, hinzugefügter Features und DCRs.
-author: karann-msft
-ms.author: karann
+title: Anmerkungen zu dieser Version von nuget 2.7.1
+description: Anmerkungen zu dieser Version von nuget 2.7.1 einschließlich bekannter Probleme, Fehlerbehebungen, hinzugefügter Features und dcrs.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 218a86f419a9a4a2cb6f35bf7bdfa8f65fdc1dee
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 42c0aa83cddb056828508df03c3af1ec67905d12
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551577"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780377"
 ---
-# <a name="nuget-271-release-notes"></a>Anmerkungen zu NuGet 2.7.1
+# <a name="nuget-271-release-notes"></a>Anmerkungen zu dieser Version von nuget 2.7.1
 
-[Anmerkungen zu NuGet 2.7](../release-notes/nuget-2.7.md) | [Anmerkungen zu NuGet 2.7.2](../release-notes/nuget-2.7.2.md)
+Anmerkungen zu dieser [Version von nuget 2,7](../release-notes/nuget-2.7.md)  |  [Nuget 2.7.2 Anmerkungen](../release-notes/nuget-2.7.2.md) zu dieser Version
 
-NuGet 2.7.1 wurde am 7. Oktober 2013 veröffentlicht.  Dies ist ein kleines Update für unsere aktuellen 2.7 Version mit gezielten Korrekturen zur Verbesserung des neuen 2.7 Funktionen vorgenommen. Eine Liste der Arbeit Elemente eine feste NuGet 2.7.1, bitte Ansicht der [NuGet Issue Tracker für diese Version](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.7.1&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
+Nuget 2.7.1 wurde am 7. Oktober 2013 veröffentlicht.  Dabei handelt es sich um ein geringfügiges Update für unsere aktuelle Version 2,7 mit einigen gezielten Korrekturen, um die Möglichkeiten neuer 2,7-Features zu verbessern. Eine Liste der Arbeitselemente, die in nuget 2.7.1 behoben wurden, finden Sie in der [nuget-Problemverfolgung für diese Version](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.7.1&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
 
-Der vollständige Satz von Funktionen in 2.7 finden Sie in der [Anmerkungen zu dieser Version](../release-notes/nuget-2.7.md) hier.
+Den gesamten Funktions Satz in 2,7 finden Sie in den Anmerkungen zu dieser [Version](../release-notes/nuget-2.7.md) .

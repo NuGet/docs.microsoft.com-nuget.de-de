@@ -1,128 +1,128 @@
 ---
-title: Anmerkungen zu NuGet 3.0 Preview
-description: Anmerkungen zu NuGet 3.0 Vorschauversion ein, wie bekannte Probleme, Fehlerkorrekturen, hinzugefügter Features und DCRs.
-author: karann-msft
-ms.author: karann
+title: Anmerkungen zu dieser Version von nuget 3,0 Preview
+description: Anmerkungen zu dieser Version von nuget 3,0, einschließlich bekannter Probleme, Fehlerbehebungen, hinzugefügter Features und dcrs.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 9389639476172d05556b95d589e429ddfe0e3026
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: ecaed21c5e689a488e033404f8042cd1f17eed0d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546464"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780324"
 ---
-# <a name="nuget-30-preview-release-notes"></a>Anmerkungen zu NuGet 3.0 Preview
+# <a name="nuget-30-preview-release-notes"></a>Anmerkungen zu dieser Version von nuget 3,0 Preview
 
-[Anmerkungen zu dieser Version von NuGet 2.9 RC](../release-notes/nuget-2.9-rc.md) | [Anmerkungen zu NuGet 3.0 Beta](../release-notes/nuget-3.0-beta.md)
+Anmerkungen zu dieser [Version von nuget 2,9 RC](../release-notes/nuget-2.9-rc.md)  |  [Anmerkungen zu dieser Version von nuget 3,0 Beta](../release-notes/nuget-3.0-beta.md)
 
-NuGet 3.0-Vorschauversion wurde am 12. November 2014 als Teil der Visual Studio 2015 Preview-Version veröffentlicht. NuGet 3.0 Preview veröffentlicht. Dies ist ein umfangreiches Release für uns, (wenn auch eine Vorschau), und wir freuen uns, die ab jetzt erhalten Sie Feedback zu unseren Änderungen.
+Nuget 3,0 Preview wurde am 12. November 2014 als Teil der Visual Studio 2015 Preview-Version veröffentlicht. Wir haben nuget 3,0 Preview veröffentlicht. Dies ist eine umfangreiche Version für uns (auch als Vorschau), und wir freuen uns, uns mit dem Feedback zu unseren Änderungen zu beschäftigen.
 
 ## <a name="visual-studio-2012"></a>Visual Studio 2012 und höher
 
-Dieser Preview-Version des NuGet 3.0 ist in Visual Studio 2015 Preview enthalten. Wir arbeiten daran, Vorschau löscht sehr bald für Visual Studio 2012 und Visual Studio 2013 machen. Wir haben unsere Absicht, zuvor freigegeben [Updates für Visual Studio 2010 eingestellt](http://blog.nuget.org/20141002/visual-studio-2010.html), und wir, schwierige Entscheidung treffen.
+Diese nuget 3,0 Preview-Version ist in Visual Studio 2015 Preview enthalten. Wir arbeiten daran, die Vorschau für Visual Studio 2012 zu erhalten, und Visual Studio 2013 sehr bald. Wir haben unsere Absicht bereits zum [Beenden von Updates für Visual Studio 2010](http://blog.nuget.org/20141002/visual-studio-2010.html)freigegeben, und wir haben diese schwierige Entscheidung getroffen.
 
 ## <a name="brand-new-ui"></a>Neue Benutzeroberfläche
 
-Als Erstes fällt Ihnen NuGet 3.0 Preview ist unsere neue Benutzeroberfläche. Es ist nicht mehr ein modales Dialogfeld an. Es ist jetzt ein vollständiger Dokumentfenster von Visual Studio. Dadurch können Sie die Benutzeroberfläche für mehrere Projekte (bzw. die Projektmappe) auf einmal öffnen, entfernen das Fenster aus, auf einen anderen Bildschirm, jedoch, wie z. B. usw. möchten Andocken.
+Das erste, was Sie über nuget 3,0 Preview bemerken, ist die neue Benutzeroberfläche. Es handelt sich nicht mehr um ein modales Dialogfeld. Es ist jetzt ein vollständiges Visual Studio-Dokument Fenster. Auf diese Weise können Sie die Benutzeroberfläche für mehrere Projekte (und/oder die Projekt Mappe) gleichzeitig öffnen, das Fenster an einen anderen Monitor andocken, Sie nach Belieben andocken, usw.
 
-![Die neue NuGet UI](./media/NuGet-3.0-Preview/new-ui.png)
+![Die neue nuget-Benutzeroberfläche](./media/NuGet-3.0-Preview/new-ui.png)
 
-Über die Nutzbarkeit Unterschiede aufgrund das modale Dialogfeld Abbrechen haben wir auch viele neue Features in der neuen Benutzeroberfläche.
+Abgesehen von den Nutzbarkeits unterschieden, da das modale Dialogfeld abgebrochen wurde, haben wir auch viele neue Features in der neuen Benutzeroberfläche.
 
-### <a name="version-selection"></a>Versionsauswahl
+### <a name="version-selection"></a>Versions Auswahl
 
-Vielleicht am häufigsten gewünscht UI-Funktion ist, um Auswahl für die Paketinstallation und Update - Version zu ermöglichen. Dies ist jetzt verfügbar.
+Die am meisten angeforderte Benutzeroberfläche ist, die Versions Auswahl für die Paketinstallation und das Update zuzulassen. Dies ist jetzt verfügbar.
 
-![Paket-Versionsauswahl](./media/NuGet-3.0-Preview/version-selection.png)
+![Paket Versions Auswahl](./media/NuGet-3.0-Preview/version-selection.png)
 
-Sie installieren oder Aktualisieren eines Pakets, kann der versionsdropdownliste aus Sie alle Versionen zur Verfügung, für das Paket mit einigen wichtigen Versionen höher gestuft, an den Anfang der Liste für die einfache Auswahl finden Sie unter. Sie müssen nicht mehr auf die PowerShell-Konsole verwenden, um bestimmte Versionen zu erhalten, die nicht die neueste Version.
+Unabhängig davon, ob Sie ein Paket installieren oder aktualisieren, können Sie in der Dropdown Liste Version alle für das Paket verfügbaren Versionen anzeigen, wobei einige relevante Versionen zur einfacheren Auswahl an den Anfang der Liste herauf gestuft werden. Sie müssen nicht mehr die PowerShell-Konsole verwenden, um bestimmte Versionen zu erhalten, die nicht die neuesten Versionen sind.
 
-### <a name="combined-installedonlineupdates-workflows"></a>Kombinierte installierte/Online/Updates-Workflows
+### <a name="combined-installedonlineupdates-workflows"></a>Kombinierte installierte/Online/Update-Workflows
 
-Unsere vorherigen UI mussten 3 Registerkarten installiert, Online, und Updates. Die aufgeführten Pakete wurden speziell für diese Workflows und die verfügbaren Aktionen wurden speziell für den Workflows auch. Während, die logische schien, gehört es, dass viele von Ihnen oft durch diese Trennung gebracht erhalten würde.
+Unsere vorherige Benutzeroberfläche verfügte über drei Registerkarten für installierte, Online und Updates. Die aufgelisteten Pakete waren spezifisch für diese Workflows, und die verfügbaren Aktionen waren auch für die Workflows spezifisch. Obwohl das logisch war, haben wir gehört, dass viele von Ihnen häufig durch diese Trennung eingeschnitten werden.
 
-Wir haben jetzt eine kombinierte zu, in dem Sie installieren, aktualisieren oder Deinstallieren eines Pakets, unabhängig davon, wie Sie das Paket ausgewählt haben. Um mit den Workflows zu unterstützen, wir verfügen jetzt über ein Filter-Dropdownmenü, in dem Sie die Pakete, die sichtbar filtern kann, aber klicken Sie dann die Aktionen für das Paket konsistent sind.
+Wir haben jetzt eine kombinierte Funktion, in der Sie ein Paket installieren, aktualisieren oder deinstallieren können, unabhängig davon, wie Sie das Paket ausgewählt haben. Zur Unterstützung der spezifischen Workflows verfügen wir jetzt über eine Filter Dropdown Liste, mit der Sie die verfügbaren Pakete filtern können. die für das Paket verfügbaren Aktionen sind jedoch konsistent.
 
 ![Deinstallieren eines Pakets](./media/NuGet-3.0-Preview/uninstall-package.png)
 
-Verwenden den Filter "Installiert", klicken Sie dann ganz einfach erkennen Sie Ihre installierten Pakete, welche über die verfügbaren Updates verfügen, und klicken Sie dann können Sie entweder deinstallieren oder Aktualisieren des Pakets durch Ändern der Versionsauswahl finden Sie unter Ändern Sie die Aktion zur Verfügung.
+Mithilfe des Filters "installiert" können Sie die installierten Pakete auf einfache Weise anzeigen, für die Updates verfügbar sind, und Sie können das Paket entweder deinstallieren oder aktualisieren, indem Sie die Versions Auswahl ändern, um die verfügbare Aktion zu ändern.
 
 ![Aktualisieren eines Pakets](./media/NuGet-3.0-Preview/update-package.png)
 
-### <a name="version-consolidation"></a>Version-Konsolidierung
+### <a name="version-consolidation"></a>Versions Konsolidierung
 
-Es ist üblich, die das gleiche Paket in mehreren Projekten innerhalb einer Projektmappe installiert wird, verwenden. Die Versionen in jedem Projekt installiert wird, können manchmal voneinander abweichen, und es ist notwendig, den verwendeten Versionen zu konsolidieren. NuGet 3.0 Preview lernen Sie ein neues Feature für genau dieses Szenario.
+Es ist üblich, dass das gleiche Paket in mehreren Projekten in der Lösung installiert ist. Manchmal können die in den einzelnen Projekten installierten Versionen voneinander abweichen, und es ist erforderlich, die verwendeten Versionen zu konsolidieren. In der Vorschauversion von nuget 3,0 wird nur für dieses Szenario ein neues Feature eingeführt.
 
-Verwaltungsfenster auf Projektmappenebene-Paket kann zugegriffen werden, indem Sie mit der rechten Maustaste auf die Projektmappe und Auswählen von NuGet-Pakete für Projektmappe verwalten. Wenn Sie ein Paket auswählen, die in mehrere Projekte, aber mit unterschiedlichen Versionen verwendet werden, installiert ist, wird eine neue Aktion für "Konsolidieren" dort verfügbar. Im Screenshot unten `Newtonsoft.Json` installiert wurde, in der `SamplesClassLibrary` mit Version `6.0.4` und installierten in `SamplesConsoleApp` mit Version `5.0.4`.
+Sie können auf das Fenster Paketverwaltung auf Projektmappenebene zugreifen, indem Sie mit der rechten Maustaste auf die Lösung klicken und nuget-Pakete für Projekt Mappe verwalten auswählen. Wenn Sie ein Paket auswählen, das in mehreren Projekten installiert ist, aber mit unterschiedlichen Versionen verwendet wird, wird eine neue Aktion "konsolidieren" verfügbar. Im Screenshot unten `Newtonsoft.Json` wurde in `SamplesClassLibrary` mit Version installiert `6.0.4` und in `SamplesConsoleApp` mit Version installiert `5.0.4` .
 
 ![Konsolidieren von Versionen](./media/NuGet-3.0-Preview/consolidate.png)
 
-So sieht der Workflow für die Konsolidierung auf eine einzelne Version aus.
+Im folgenden finden Sie den Workflow für die Konsolidierung auf eine einzelne Version.
 
-1. Wählen Sie die `Newtonsoft.Json` Paket in der Liste
-1. Wählen Sie `Consolidate` aus der `Action` Dropdownliste
-1. Verwenden der `Version` Dropdownliste zum Auswählen der Version auf konsolidiert werden soll
-1. Aktivieren Sie die Kontrollkästchen für die Projekte, die auf diese Version (Beachten Sie, die Projekte, die bereits für die ausgewählte Version abgeblendet ist) konsolidiert werden soll
-1. Klicken Sie auf die `Consolidate` Schaltfläche, um die Konsolidierung durchführen
+1. Wählen Sie das `Newtonsoft.Json` Paket in der Liste aus.
+1. `Consolidate`Aus der `Action` Dropdown Liste auswählen
+1. Verwenden `Version` Sie die Dropdown Liste, um die zu konsolidierte Version auszuwählen.
+1. Aktivieren Sie die Kontrollkästchen für die Projekte, die auf diese Version konsolidiert werden sollen (Beachten Sie, dass Projekte, die bereits in der ausgewählten Version vorhanden sind, abgeblendet werden).
+1. Klicken Sie `Consolidate` auf die Schaltfläche, um die Konsolidierung auszuführen.
 
-### <a name="operation-previews"></a>Vorgang Vorschauversionen
+### <a name="operation-previews"></a>Vorgangs Vorschau
 
-Unabhängig davon, welcher Vorgang, die Sie durchführen – bietet die Benutzeroberfläche für die neue Installation/Aktualisierung/Deinstallation – jetzt eine Möglichkeit, eine Vorschau der Änderungen, die zu Ihrem Projekt vorgenommen werden. Dieser Preview-Version werden neue Pakete, die installiert werden, Pakete, die aktualisiert werden, und die Pakete angezeigt, die, zusammen mit Paketen deinstalliert werden, die während des Vorgangs nicht geändert werden.
+Unabhängig von dem Vorgang, den Sie ausführen: installieren/aktualisieren/deinstallieren: die neue Benutzeroberfläche bietet nun eine Möglichkeit, die Änderungen in der Vorschau anzuzeigen, die an Ihrem Projekt vorgenommen werden. Diese Vorschau zeigt alle neuen Pakete, die installiert werden sollen, zu Aktualisier Ende Pakete und Pakete, die deinstalliert werden, zusammen mit Paketen, die während des Vorgangs unverändert bleiben werden.
 
-Im folgenden Beispiel sehen wir, dass das Installieren der Microsoft.AspNet.SignalR einige Änderungen auf das Projekt führt.
+Im folgenden Beispiel sehen Sie, dass die Installation von Microsoft. Aspnet. signalr zu einigen Änderungen am Projekt führt.
 
-![Installieren von SignalR (Vorschau)](./media/NuGet-3.0-Preview/preview.png)
+![Vorschau der Installation von signalr](./media/NuGet-3.0-Preview/preview.png)
 
 ### <a name="installation-options"></a>Installationsoptionen
 
-Verwenden die PowerShell-Konsole, hatten Sie Kontrolle über ein paar wichtige Installationsoptionen. Wir haben diese Funktionen jetzt in der Benutzeroberfläche sowie geschaltet. Sie können jetzt steuern, dass die Abhängigkeit Auflösungsverhalten wie die Abhängigkeiten ausgewählt werden.
+Mithilfe der PowerShell-Konsole haben Sie die Kontrolle über einige wichtige Installationsoptionen. Wir haben diese Features nun ebenfalls in die Benutzeroberfläche gebracht. Sie können jetzt das Verhalten der Abhängigkeitsauflösung steuern, wie Versionen der Abhängigkeiten ausgewählt werden.
 
-![Verhalten der Abhängigkeit](./media/NuGet-3.0-Preview/dependency-behavior.png)
+![Abhängigkeitsverhalten](./media/NuGet-3.0-Preview/dependency-behavior.png)
 
-Sie können auch angeben, dass die Aktion an, wenn Inhaltsdateien von Paketen mit Dateien bereits im Projekt in Konflikt stehen.
+Sie können auch angeben, welche Aktion ausgeführt werden soll, wenn Inhalts Dateien aus Paketen mit Dateien in Konflikt stehen, die bereits im Projekt vorhanden sind.
 
-![Datei-Konfliktlösung-Aktion](./media/NuGet-3.0-Preview/file-conflict-action.png)
+![Dateikonflikt Aktion](./media/NuGet-3.0-Preview/file-conflict-action.png)
 
-### <a name="infinite-scrolling"></a>Unbegrenzte Bildläufe
+### <a name="infinite-scrolling"></a>Unendliches Scrollen
 
-Es verwendet, um ein wenig des Feedbacks unserer GUI müssen sowohl den Bildlauf und Paradigmen paging, wenn Pakete aufgelistet. Es war ziemlich üblich, einen Bildlauf zum unteren Rand die kurze Liste und klicken Sie auf die Nummer der nächsten Seite blättern Sie dann erneut zu verwenden. Mit der neuen Benutzeroberfläche haben wir die unbegrenzte Bildläufe in der Paketliste, Sie nur Scrollen – keine weiteren Paging müssen implementiert.
+Wir haben uns für ein sehr wenig Feedback zu unserer Benutzeroberfläche verwendet, das beim Auflisten von Paketen sowohl den Bildlauf als auch das Auslagerungs Paradigma hat. Es war ziemlich üblich, einen Bildlauf bis zum Ende der Kurzliste durchführen zu müssen, auf die nächste Seitenzahl zu klicken und dann erneut einen Bildlauf durchführen. Mit der neuen Benutzeroberfläche haben wir einen unendlichen Bildlauf in der Paketliste implementiert, sodass Sie nur einen Bildlauf durchführen müssen, ohne dass Sie auslagern müssen.
 
-![Unbegrenzte Bildläufe](./media/NuGet-3.0-Preview/infinite-scrolling.png)
+![Unendliches Scrollen](./media/NuGet-3.0-Preview/infinite-scrolling.png)
 
-### <a name="make-it-work-make-it-fast-make-it-pretty"></a>Erleichtern Sie Arbeit, stellen Sie schnelle, machen es sehr
+### <a name="make-it-work-make-it-fast-make-it-pretty"></a>Arbeiten Sie, machen Sie es so schnell, machen Sie es
 
-Wir freuen uns, diese neue Benutzeroberfläche für die Sie testen zu machen. Während dieser Preview-Meilenstein, wir haben befolgen die gute alte Spruch der "Mach es funktioniert, können sie schnell, besser formatieren." In dieser Vorschau haben wir die meisten erreicht der das erste Ziel – es funktioniert. Wir wissen es sehr schnell noch nicht, und wir wissen, dass es ganz Recht noch nicht ist. Vertrauen Sie, dass wir werden auf diese Ziele zwischen jetzt und die RC-Version arbeiten. In der Zwischenzeit wir würden uns über Ihr Feedback hören die *benutzerfreundlichkeit* der neuen Benutzeroberfläche – die Workflows, Betrieb, und wie es *fühlt* verwenden Sie die neue Benutzeroberfläche.
+Wir freuen uns, diese neue Benutzeroberfläche zu testen, die Sie ausprobieren können. Im Rahmen dieses Vorschau Meilensteins haben wir uns auf die gute alte Sprichworts "make it work, Make it fast, Make it" (so gut wie möglich) und eine ziemlich gute Folge " In dieser Vorschauversion haben wir das erste Ziel erreicht, es funktioniert. Wir wissen, dass es noch nicht so schnell ist, und wir wissen, dass es noch nicht ganz so einfach ist. Wir arbeiten an diesen Zielen zwischen jetzt und der RC-Version. In der Zwischenzeit würden wir uns Ihr *Feedback zur* *Benutzerfreundlichkeit* der neuen Benutzeroberfläche, den Workflows, den Vorgängen und der Verwendung der neuen Benutzeroberfläche gefallen.
 
-Es gibt eine Reihe von Funktionen, die wir im Vergleich zur alten Benutzeroberfläche entfernt haben. Eines der folgenden haben wir absichtlich getan, und der andere eine gerade nicht erledigt rechtzeitig.
+Im Vergleich zur alten Benutzeroberfläche haben wir einige Funktionen entfernt. Eine davon war beabsichtigt, und die andere war einfach nicht in der Zeit.
 
-#### <a name="searching-all-package-sources"></a>Suchen "All" Paketquellen
+#### <a name="searching-all-package-sources"></a>Alle Paketquellen suchen
 
-Die alte Benutzeroberfläche konnten Sie eine paketsuche für alle Ihre Paketquellen durchzuführen. Wir haben dieses Feature in der Benutzeroberfläche entfernt und es wird nicht werden schaltet sie wieder. Diese Funktion verwendet, um den Search-Vorgängen für alle Ihre Paketquellen und binden die Ergebnisse zusammen, und versuchen zum Sortieren der Ergebnisse basierend auf Ihrer Auswahl sortieren.
+Mit der alten Benutzeroberfläche können Sie eine Paket Suche für alle Paketquellen durchführen. Wir haben diese Funktion in der Benutzeroberfläche entfernt und werden nicht wieder zurückgebracht. Diese Funktion wird verwendet, um Suchvorgänge für alle Ihre Paketquellen auszuführen, die Ergebnisse zu kombinieren und zu versuchen, die Ergebnisse auf der Grundlage ihrer Sortier Auswahl zu ordnen.
 
-Wir festgestellt, dass die Suchrelevanz nur schwer zu zusammen mit Ihrer Hilfe ist. Können Sie sich vorstellen, Durchführen einer Suche mit Google und Bing und bearbeiten die Ergebnisse zusammen? Darüber hinaus wurde dieses Feature, langsam ist, einfach zu *versehentlich* verwenden, und wir sind der Meinung war es nur selten tatsächlich nützlich. Aufgrund der Probleme, wurden die das Feature eingeführt, eine Anzahl von Fehlerberichten auf, die noch nie konnten behoben wurden.
+Wir haben festgestellt, dass die Such Relevanz wirklich schwer zu vermischen ist. Könnten Sie sich vorstellen, dass Sie eine Suche für Google und die Suche durchführen und die Ergebnisse miteinander kombinieren? Außerdem war dieses Feature langsam und leicht *zu verwenden,* und wir glauben, dass es selten wirklich nützlich war. Aufgrund der Probleme, die das Feature eingeführt hat, erhielten wir eine Reihe von Fehlerberichten, die nie korrigiert wurden.
 
 #### <a name="update-all"></a>Alle aktualisieren
 
-Um eine Schaltfläche "Alle aktualisieren" in der alten Benutzeroberfläche zu erhalten, die es in der neuen Benutzeroberfläche noch nicht verwendet. Wir werden dieses Feature für unsere RC-Version erwecken.
+Wir haben eine Schaltfläche "Alle aktualisieren" in der alten Benutzeroberfläche verwendet, die noch nicht in der neuen Benutzeroberfläche vorhanden ist. Wir werden dieses Feature für unsere RC-Version wiederbeleben.
 
 ## <a name="new-clientserver-api"></a>Neue Client/Server-API
 
-Zusätzlich zu allen neuen Funktionen in unserer neuen paketverwaltungs-UI haben wir auch einige Implementierungsdetails für NuGets-Client/Server-Protokoll gearbeitet. Die Arbeit habe ist die Erstellung von "-API v3" für NuGet, das entworfen wurde, um hochverfügbarkeit für kritische Szenarien wie z. B. das Wiederherstellen von Paketen und Installieren von Paketen. Die neue API basiert auf REST und Hypermedia, und wir ausgewählt haben [JSON-LD](http://json-ld.org) als unsere Ressourcenformat.
+Zusätzlich zu allen neuen Features in unserer neuen Benutzeroberfläche für die Paketverwaltung haben wir auch einige Implementierungsdetails für das Client/Server-Protokoll von nuget gearbeitet. Die Arbeit, die wir erledigt haben, ist das Erstellen von "API v3" für nuget, das um hohe Verfügbarkeit für kritische Szenarien wie die Paket Wiederherstellung und die Installation von Paketen entworfen wurde. Die neue API basiert auf Rest und Hypermedia, und wir haben [JSON-LD](http://json-ld.org) als Ressourcen Format ausgewählt.
 
-In der NuGet 3.0 Preview-Teile sehen Sie eine neue Paketquelle, die Namen "preview.nuget.org" in der Dropdownliste der Paket-Quelle. Wenn Sie diese Paketquelle auswählen, verwenden wir unsere neue API, sondern für die Verbindung "NuGet.org". Wir haben die Preview-Quelle in der Benutzeroberfläche verfügbar gemacht, während wir weiterhin zu testen, überarbeiten und verbessern die neue API. In NuGet 3.0 RC wird diese neue API-v3-basierte Paketquelle Paketquelle von v2-basierte "nuget.org" ersetzt.
+In den nuget 3,0-Vorschau Bits wird in der Dropdown Liste Paketquelle eine neue Paketquelle namens "Preview.nuget.org" angezeigt. Wenn Sie diese Paketquelle auswählen, verwenden wir stattdessen unsere neue API, um eine Verbindung mit nuget.org herzustellen. Wir haben die Vorschau Quelle auf der Benutzeroberfläche zur Verfügung gestellt, während wir weiterhin testen, überarbeiten und die neue API verbessern. In nuget 3,0 RC ersetzt diese neue API-v3-basierte Paketquelle die V2-basierte Paketquelle "nuget.org".
 
-Trotz der Investition, die wir in-API v3 ablegen, haben wir all diese neuen Features auch mit unserer vorhandenen API-v2-Protokoll, arbeiten, was bedeutet, dass sie mit vorhandenen Paketquellen als "NuGet.org" auch funktionieren vorgenommen.
+Trotz der Investitionen, die wir in API v3 umsetzen, haben wir alle diese neuen Features auch mit unserem vorhandenen API v2-Protokoll zusammengearbeitet, was bedeutet, dass Sie mit vorhandenen Paketquellen außer nuget.org arbeiten.
 
-## <a name="new-features-coming"></a>Neuen Funktionen
+## <a name="new-features-coming"></a>Neue Features
 
-Zwischen jetzt und RTM-Version 3.0 arbeiten wir auch über einige grundlegenden neuen NuGet Funktionen, nach was Sie in der Benutzeroberfläche angezeigt wird. Hier ist eine kurze Liste der wichtigsten Investitionsbereiche:
+Zwischen jetzt und 3,0 RTM arbeiten wir auch an einigen grundlegenden neuen nuget-Features, die über das, was Sie in der Benutzeroberfläche sehen, hinausgehen. Im folgenden finden Sie eine kurze Liste der wichtigsten Investitionsbereiche:
 
-1. Eine Partnerschaft möchten wir mit dem Visual Studio und MSBuild-teams um erhalten [NuGet tiefer in die Plattform](http://blog.nuget.org/20141014/in-the-platform.html).
-1. Wir arbeiten daran, Installationszeit paketkonventionen Abbrechen und stattdessen diese Konventionen zur Verpackungszeit anwenden, durch die Einführung einer neuen "autorisierend" [Paketmanifest](http://blog.nuget.org/20141023/package-manifests.html).
-1. Wir arbeiten daran, für das Umgestalten des NuGet-Pakets Codebasis, um die Client- und Serverkomponenten in unterschiedlichen Domänen außerhalb der paketverwaltung in Visual Studio wiederverwendbarkeit sicherzustellen.
-1. Wir untersuchen das Konzept der "private Abhängigkeiten", ein Paket, dass die It angeben kann, verfügt über Abhängigkeiten von anderen Paketen nur Implementierungsdetails, und diese Abhängigkeiten sollten nicht als Abhängigkeiten der obersten Ebene angezeigt werden.
+1. Wir arbeiten mit den Visual Studio-und MSBuild-Teams zusammen, um [nuget tiefer in die Plattform](http://blog.nuget.org/20141014/in-the-platform.html)zu bringen.
+1. Wir arbeiten daran, die Installationszeit Paket Konventionen zu verwerfen, und wenden diese Konventionen stattdessen zur verpackungszeit an, indem wir ein neues autoritative [Paket Manifest](http://blog.nuget.org/20141023/package-manifests.html)einführen.
+1. Wir arbeiten daran, die nuget-Codebasis umzugestalten, damit die Client-und Serverkomponenten in verschiedenen Domänen über die Paketverwaltung hinaus in Visual Studio wiederverwendbar sind.
+1. Wir untersuchen das Konzept von "privaten Abhängigkeiten", bei dem ein Paket angeben kann, dass es Abhängigkeiten von anderen Paketen für Implementierungsdetails aufweist, und diese Abhängigkeiten nicht als Abhängigkeiten auf oberster Ebene festzulegen sind.
 
 ## <a name="stay-tuned"></a>Bleiben Sie dran
 
-Bitte achten Sie auf [unseren Blog](http://blog.nuget.org) für die weitere Bearbeitung sowie Ankündigungen von NuGet 3.0!
+Im [Blog](http://blog.nuget.org) erhalten Sie weitere Informationen zum Fortschritt und Ankündigungen für nuget 3,0!

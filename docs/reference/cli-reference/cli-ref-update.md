@@ -1,16 +1,16 @@
 ---
 title: Befehl "nuget CLI-Update"
 description: Referenz für den nuget.exe Update-Befehl
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 106c4027f03d8e8c1d19545b3ca9b6cd5263830e
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: cfa7fdcc6af46fd5f4030ba424754291f697bc43
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93236788"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779137"
 ---
 # <a name="update-command-nuget-cli"></a>Befehl Aktualisieren (nuget-CLI)
 
@@ -24,7 +24,7 @@ Der `update` Befehl aktualisiert außerdem Assemblyverweise in der Projektdatei,
 
 Dieser Befehl kann auch verwendet werden, um nuget.exe mit dem *-Self-* Flag zu aktualisieren.
 
-## <a name="usage"></a>Verbrauch
+## <a name="usage"></a>Verwendung
 
 ```cli
 nuget update <configPath> [options]
@@ -40,7 +40,7 @@ dabei `<configPath>` identifiziert entweder eine `packages.config` oder eine Pro
   
 - **`-DependencyVersion [Lowest, HighestPatch, HighestMinor, Highest, Ignore]`**
 
-  Gibt die Version der zu verwendenden Abhängigkeits Pakete an. dabei kann es sich um einen der folgenden handeln:<br/><ul><li>*Niedrigste* (Standard): die niedrigste Version</li><li>*Highestpatch* : die Version mit dem niedrigsten, niedrigsten, niedrigsten, größten Patch</li><li>*Highestminor* : die Version mit dem niedrigsten Haupt-, höchst-und Höchstwert</li><li>*Höchste* Version: die höchste Version</li><li>*Ignore* : Es werden keine Abhängigkeits Pakete verwendet.</li></ul>
+  Gibt die Version der zu verwendenden Abhängigkeits Pakete an. dabei kann es sich um einen der folgenden handeln:<br/><ul><li>*Niedrigste* (Standard): die niedrigste Version</li><li>*Highestpatch*: die Version mit dem niedrigsten, niedrigsten, niedrigsten, größten Patch</li><li>*Highestminor*: die Version mit dem niedrigsten Haupt-, höchst-und Höchstwert</li><li>*Höchste* Version: die höchste Version</li><li>*Ignore*: Es werden keine Abhängigkeits Pakete verwendet.</li></ul>
 
 - **`-FileConflictAction [PromptUser, Overwrite, Ignore]`**
 

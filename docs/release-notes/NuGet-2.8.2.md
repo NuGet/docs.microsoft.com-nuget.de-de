@@ -1,48 +1,48 @@
 ---
-title: Anmerkungen zu NuGet 2.8.2
-description: Anmerkungen zu dieser Version für die Einbindung von NuGet 2.8.2 bekannte Probleme, Fehlerkorrekturen, hinzugefügter Features und DCRs.
-author: karann-msft
-ms.author: karann
+title: Nuget 2.8.2 Anmerkungen zu dieser Version
+description: Anmerkungen zu dieser Version von nuget 2.8.2 einschließlich bekannter Probleme, Fehlerbehebungen, hinzugefügter Features und dcrs.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: ed22aef6766bbe8e4b688e0587304a18eaeb8895
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: d39f2dc9a429ed264461174325c2080468fa8aae
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551147"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780366"
 ---
-# <a name="nuget-282-release-notes"></a>Anmerkungen zu NuGet 2.8.2
+# <a name="nuget-282-release-notes"></a>Nuget 2.8.2 Anmerkungen zu dieser Version
 
-[Anmerkungen zu NuGet 2.8.1](../release-notes/nuget-2.8.1.md) | [Anmerkungen zu NuGet 2.8.3](../release-notes/nuget-2.8.3.md)
+Anmerkungen zu dieser [Version von nuget 2.8.1](../release-notes/nuget-2.8.1.md)  |  [Nuget 2.8.3 Anmerkungen](../release-notes/nuget-2.8.3.md) zu dieser Version
 
-NuGet 2.8.2 wurde am 22. Mai 2014 veröffentlicht.  Dieser Release enthalten nur Änderungen an der Befehlszeile nuget.exe, das Paket "NuGet.Server" und andere NuGet-Pakete.  Die Version es sich nicht um eine aktualisierte Erweiterung für Visual Studio oder WebMatrix-Erweiterung enthalten.
+Nuget 2.8.2 wurde am 22. Mai 2014 veröffentlicht.  Diese Version enthielt nur Änderungen an der Befehlszeile nuget.exe, das nuget. Server-Paket und andere nuget-Pakete.  Das Release enthielt keine aktualisierte Visual Studio-Erweiterung oder webmatrix-Erweiterung.
 
-## <a name="notable-updates"></a>Wichtige Updates
+## <a name="notable-updates"></a>Relevante Updates
 
-Die wichtigsten Updates wurden in der Befehlszeile nuget.exe und das Paket "NuGet.Server" (für selbst gehostete NuGet-Feeds).
+Die bemerkenswertesten Updates waren in der nuget.exe-Befehlszeile und im nuget. Server-Paket (bei selbstgeh osteten nuget-Feeds).
 
-### <a name="important-nugetexe-bug-fixes"></a>Wichtige nuget.exe-Fehlerbehebungen
+### <a name="important-nugetexe-bug-fixes"></a>Wichtige nuget.exe Fehlerbehebungen
 
-1. [NuGet.exe Push schlägt fehl, und behält die Wiederholung](https://nuget.codeplex.com/workitem/4000)
-1. [NuGet.exe Push keine Anmeldeinformationen für Standardauthentifizierung ordnungsgemäß gesendet](https://nuget.codeplex.com/workitem/4109)
-1. [NuGet.exe Push wird nicht temporäre Umleitung folgen.](https://nuget.codeplex.com/workitem/4050)
+1. [nuget.exe Push schlägt fehl und führt einen Wiederholungsversuch durch.](https://nuget.codeplex.com/workitem/4000)
+1. [nuget.exe Push sendet die grundlegenden Authentifizierungs Anmelde Informationen nicht ordnungsgemäß.](https://nuget.codeplex.com/workitem/4109)
+1. [nuget.exe Push folgt nicht der temporären Umleitung](https://nuget.codeplex.com/workitem/4050)
 
-### <a name="important-nugetserver-bug-fix"></a>Programmfehlerbehebung für wichtige "NuGet.Server"
+### <a name="important-nugetserver-bug-fix"></a>Wichtige Fehlerbehebung für nuget. Server
 
-1. [Falscher Wert für "NuGet.Server" zurückgegebenes IsAbsoluteLatestVersion](https://nuget.codeplex.com/workitem/4147)
+1. [Der von "nuget. Server" zurückgegebene falsche Wert von "isabsolutelatestversion".](https://nuget.codeplex.com/workitem/4147)
 
-## <a name="packages-updated"></a>Pakete aktualisiert
+## <a name="packages-updated"></a>Aktualisierte Pakete
 
-Die Befehlszeile nuget.exe und "NuGet.Server" Korrekturen werden als NuGet-Paket-Updates ausgeliefert.  Andere Pakete, die mit 2.8.2 auch aktualisiert wurden.
+Die nuget.exe-Befehlszeilen-und nuget. Server-Fehlerbehebungen werden als nuget-Paket Aktualisierungen ausgeliefert.  Es wurden auch andere Pakete mit 2.8.2 aktualisiert.
 
-So sieht die Liste der aktualisierten Pakete aus:
+Im folgenden finden Sie die Liste der aktualisierten Pakete:
 
-1. [NuGet.Core](https://www.nuget.org/packages/NuGet.Core/)
-1. [NuGet.CommandLine](https://www.nuget.org/packages/NuGet.CommandLine/)
+1. [Nuget. Core](https://www.nuget.org/packages/NuGet.Core/)
+1. ["Nuget. CommandLine"](https://www.nuget.org/packages/NuGet.CommandLine/)
 1. [NuGet.Server](https://www.nuget.org/packages/NuGet.Server/)
-1. [NuGet.Build](https://www.nuget.org/packages/NuGet.Build/)
-1. [NuGet.VisualStudio](https://www.nuget.org/packages/NuGet.VisualStudio/) (das Paket, nicht die Erweiterung)
+1. [Nuget. Build](https://www.nuget.org/packages/NuGet.Build/)
+1. [Nuget. VisualStudio](https://www.nuget.org/packages/NuGet.VisualStudio/) (das Paket, nicht die Erweiterung)
 
 ## <a name="all-changes"></a>Alle Änderungen
-Es waren 10 in der Release behobenen Problemen. Eine vollständige Liste der Arbeit Elemente eine feste NuGet 2.8.2, bitte Ansicht der [NuGet Issue Tracker für diese Version](https://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%202.8.2&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0&reasonClosed=All).
+In der Version wurden 10 Probleme behoben. Eine vollständige Liste der Arbeitselemente, die in nuget-2.8.2 korrigiert sind, finden Sie in der [nuget-Problemverfolgung für diese Version](https://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%202.8.2&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0&reasonClosed=All).

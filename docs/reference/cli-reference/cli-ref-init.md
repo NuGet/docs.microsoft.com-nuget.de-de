@@ -1,16 +1,16 @@
 ---
 title: Befehl "nuget CLI-init"
 description: Referenz für den nuget.exe init-Befehl
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 3b830d678a473c917b70bd46900bdb0206d3652e
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: f37572624cea744ce60a9a2e58ad3cbe2696cb9e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623083"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780073"
 ---
 # <a name="init-command-nuget-cli"></a>init-Befehl (nuget-CLI)
 

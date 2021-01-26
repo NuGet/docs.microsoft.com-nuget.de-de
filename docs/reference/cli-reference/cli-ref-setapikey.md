@@ -1,16 +1,16 @@
 ---
 title: Befehl "nuget CLI-Befehl" | tapikey
 description: Referenz für den Befehl "nuget.exe".
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: b84d4257c580f6e734c26ebfc589be27bea10c82
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 3e0c2f84e336e0a642b1b5e815e74a1fb0878467
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622810"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780023"
 ---
 # <a name="setapikey-command-nuget-cli"></a>Befehl "stapikey" (nuget-CLI)
 
@@ -27,8 +27,8 @@ nuget setapikey <key> -Source <url> [options]
 dabei `<source>` identifiziert den Server und `<key>` den Schlüssel, der gespeichert werden soll. Wenn `<source>` weggelassen wird, wird nuget.org angenommen. 
 
 > [!NOTE]
-> Der API-Schlüssel wird nicht für die Authentifizierung mit dem privaten Feed verwendet. Informationen zum Verwalten von Anmelde Informationen für die Authentifizierung bei der Quelle finden Sie unter [ `nuget sources` Befehl](../cli-reference/cli-ref-sources.md) .
-> API-Schlüssel können von den einzelnen nuget-Servern abgerufen werden. Informationen zum Erstellen und Verwalten von apikeys für nuget.org finden Sie unter "Abruf [-an-API-Schlüssel](../../nuget-org/scoped-api-keys.md#acquire-an-api-key) ".
+> Der API-Schlüssel wird nicht für die Authentifizierung bei dem privaten Feed verwendet. Informationen zum Verwalten von Anmeldeinformationen für die Authentifizierung bei der Quelle finden Sie unter dem [`nuget sources`-Befehl](../cli-reference/cli-ref-sources.md).
+> API-Schlüssel können von den einzelnen NuGet-Servern abgerufen werden. Informationen zum Erstellen und Verwalten von apikeys für nuget.org finden Sie unter "Abruf [-an-API-Schlüssel](../../nuget-org/scoped-api-keys.md#acquire-an-api-key) ".
 
 ## <a name="options"></a>Optionen
 

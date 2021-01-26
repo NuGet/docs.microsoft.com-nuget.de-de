@@ -1,16 +1,16 @@
 ---
 title: Anmerkungen zu dieser Version von nuget 5,5
 description: Anmerkungen zu dieser Version von nuget 5,5, einschließlich neuer Features, Fehlerbehebungen und dcrs.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 03/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0e8ab66c937058e84420bc3e3a5031cbc133aad7
-ms.sourcegitcommit: 1a63a84da2719c8141823ac89a20bf507fd22b00
+ms.openlocfilehash: 0fde67dd03c31e986ed89f2f8627608e279ef908
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80148282"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780112"
 ---
 # <a name="nuget-55-release-notes"></a>Anmerkungen zu dieser Version von nuget 5,5
 
@@ -18,7 +18,7 @@ Möglichkeiten der NuGet-Verteilung:
 
 | NuGet-Version | Verfügbar in der Visual Studio-Version| Verfügbar in .NET SDK(s)|
 |:---|:---|:---|
-| [**5.5.0**](https://nuget.org/downloads) | [Visual Studio 2019, Version 16,5](https://visualstudio.microsoft.com/downloads/) | [3.1.200](https://dotnet.microsoft.com/download/dotnet-core/3.1)<sup>1</sup> |
+| [**5.5.0**](https://nuget.org/downloads) | [Visual Studio 2019 Version 16.5](https://visualstudio.microsoft.com/downloads/) | [3.1.200](https://dotnet.microsoft.com/download/dotnet-core/3.1)<sup>1</sup> |
 
 <sup>1</sup> Installiert mit Visual Studio 2019 mit .net Core-Arbeitsauslastung
 
@@ -32,23 +32,23 @@ Möglichkeiten der NuGet-Verteilung:
 
 * Unterstützung für eigenständige Symbole in der Visual Studio-Paket-Manager-Benutzeroberfläche für Pakete, die auf lokalen Feeds gehostet werden [#8189](https://github.com/NuGet/Home/issues/8189)
 
-* Erheblich verbesserte Leistung von No-op-Wiederherstellung mit `RestoreUseStaticGraphEvaluation`, die Auswertungen durch Aufrufen von statischen MSBuild-Graph-APIs beschleunigt- [8791](https://github.com/NuGet/Home/issues/8791)
+* Erheblich verbesserte Leistung bei der nicht-op `RestoreUseStaticGraphEvaluation` -Wiederherstellung, bei der Auswertungen durch Aufrufen von MSBuild static Graph APIs- [8791](https://github.com/NuGet/Home/issues/8791) beschleunigt werden.
 
-* Verbesserte dotnet. exe-Zuverlässigkeit durch plattformübergreifende Authentifizierungs-Plug-ins
+* Verbesserte dotnet.exe Zuverlässigkeit durch plattformübergreifende Authentifizierungs-Plug-ins
     * DotNet Restore Fehler mit "TaskCanceledException- [#7842](https://github.com/NuGet/Home/issues/7842)
     * Plug-in: "eine Aufgabe wurde abgebrochen": Problem bei der ADO-Authentifizierung. - [#8528](https://github.com/NuGet/Home/issues/8528)
 
-* Hinzufügen `dotnet nuget <add|remove|update|disable|enable|list> source` Befehls [#4126](https://github.com/NuGet/Home/issues/4126)
+* `dotnet nuget <add|remove|update|disable|enable|list> source`Befehls [#4126](https://github.com/NuGet/Home/issues/4126) hinzufügen
 
-* Suport für `--skip-duplicate` mithilfe von dotnet nuget Push- [#8778](https://github.com/NuGet/Home/issues/8778)
+* Suport für die `--skip-duplicate`  Verwendung von dotnet nuget Push- [#8778](https://github.com/NuGet/Home/issues/8778)
 
-* Unterstützung von `packages.config` mit MSBuild/Restore- [#8506](https://github.com/NuGet/Home/issues/8506)
+* Unterstützung `packages.config` mit MSBuild/Restore- [#8506](https://github.com/NuGet/Home/issues/8506)
 
 ### <a name="issues-fixed-in-this-release"></a>In diesem Release behobene Probleme
 
 **Fehler**
 
-* Rework-Self-Updater mit v3-APIs- [#4197](https://github.com/NuGet/Home/issues/4197)
+* Self-Updater mit v3-APIs neu arbeiten- [#4197](https://github.com/NuGet/Home/issues/4197)
 
 * Falsche Paket Abhängigkeits Version, wenn die Version der Paketabhängigkeit auf "*" festgelegt ist [#6697](https://github.com/NuGet/Home/issues/6697)
 
@@ -56,7 +56,7 @@ Möglichkeiten der NuGet-Verteilung:
 
 * Die Sperrdatei wird in "*"-Szenarios nicht berücksichtigt [#8073](https://github.com/NuGet/Home/issues/8073)
 
-* "Nuget. exe" wird bei Verwendung von * in packagereferenzierung (MSBuild/dotnet/vs Restore do) nicht in die neueste Version eines Pakets aufgelöst [#8432](https://github.com/NuGet/Home/issues/8432)
+* NuGet.exe wird nicht in die neueste Version eines Pakets aufgelöst, wenn * in packagereferenziert wird (MSBuild/dotnet/vs Restore do)- [#8432](https://github.com/NuGet/Home/issues/8432)
 
 * DotNet List-Paket mit Multi-Ziel-WPF-Projekt [#8463](https://github.com/NuGet/Home/issues/8463)
 
@@ -92,9 +92,9 @@ Möglichkeiten der NuGet-Verteilung:
 
 * Restore: große Zeichen folgen, die auf dem großen Objekt Heap (Loh) erstellt wurden, [#9031](https://github.com/NuGet/Home/issues/9031)
 
-* Benutzerdefinierte nuget. exe-Datei auf neuerem Mono kann aufgrund des MSBuild-SDK-Resolvers unterbrechen- [8848](https://github.com/NuGet/Home/issues/8848)
+* Benutzerdefinierte nuget.exe in neuerem Mono kann aufgrund des MSBuild-SDK-Resolvers unterbrechen- [8848](https://github.com/NuGet/Home/issues/8848)
 
-* Restore schlägt fehl, wenn "nuget. dgspec. JSON" von einem anderen Prozess verwendet wird "- [8692](https://github.com/NuGet/Home/issues/8692)
+* Restore schlägt fehl, wenn nuget.dgspec.json "von einem anderen Prozess verwendet wird"- [8692](https://github.com/NuGet/Home/issues/8692)
 
 **DCRs**
 

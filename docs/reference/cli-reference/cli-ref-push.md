@@ -1,16 +1,16 @@
 ---
 title: Befehl "nuget CLI Push"
 description: Referenz für den nuget.exe Push-Befehl
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: d53a2e7f41219e68e59b195d1d5a9d1f62ad7c63
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 54a09361173ae10040433b05fcfae7304e39452e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622844"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779182"
 ---
 # <a name="push-command-nuget-cli"></a>Push-Befehl (nuget-CLI)
 
@@ -67,7 +67,7 @@ Gibt an, wo `<packagePath>` das Paket angibt, das per Push an den Server über
 
 - **`-src|-Source`**
 
-  Gibt die Server-URL an. Nuget identifiziert eine UNC-oder lokale Ordner Quelle und kopiert die Datei dort, anstatt Sie per HTTP zu pushen.  Ab nuget 3.4.2 handelt es sich hierbei um einen obligatorischen Parameter, es sei denn, die `NuGet.Config` Datei gibt einen *defaultpushsource* -Wert an (Weitere Informationen finden Sie unter [Konfigurieren des nuget-Verhaltens](../../consume-packages/configuring-nuget-behavior.md)).
+  Gibt die Server-URL an. NuGet identifiziert eine UNC oder lokale Ordnerquelle und kopiert die Datei dorthin, anstatt sie mithilfe von HTTP zu pushen.  Ab nuget 3.4.2 handelt es sich hierbei um einen obligatorischen Parameter, es sei denn, die `NuGet.Config` Datei gibt einen *defaultpushsource* -Wert an (Weitere Informationen finden Sie unter [Konfigurieren des nuget-Verhaltens](../../consume-packages/configuring-nuget-behavior.md)).
 
 - **`-SkipDuplicate`**
 

@@ -1,16 +1,16 @@
 ---
 title: Nuget-Open-PackagePage PowerShell-Referenz
 description: Referenz für Open-PackagePage PowerShell-Befehl in der nuget-Paket-Manager-Konsole in Visual Studio.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: ba90e09c017ec66d73c35a60025474bc77cf65a7
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: d34a91007197f8004e4923deedb1cdb26d662d53
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238061"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780402"
 ---
 # <a name="open-packagepage-package-manager-console-in-visual-studio"></a>Open-PackagePage (Paket-Manager-Konsole in Visual Studio)
 

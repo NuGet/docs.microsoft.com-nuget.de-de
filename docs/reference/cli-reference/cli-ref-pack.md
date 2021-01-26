@@ -1,16 +1,16 @@
 ---
 title: Befehl "nuget CLI Pack"
 description: Referenz für den nuget.exe Pack-Befehl
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 0483a75c7ee1fd851f935f44d96a417e2e86bf20
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: e2906d53119cb8c922df7d177cd686836ac50a5a
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622953"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780039"
 ---
 # <a name="pack-command-nuget-cli"></a>Pack-Befehl (nuget-CLI)
 
@@ -105,7 +105,7 @@ dabei `<nuspecPath>` `<projectPath>` Geben Sie die-oder- `.nuspec` Projektdatei 
 
 - **`-p|-Properties`**
 
-  Sollte zuletzt in der Befehlszeile nach anderen Optionen angezeigt werden. Gibt eine Liste von Eigenschaften an, die Werte in der Projektdatei überschreiben. Weitere Informationen finden Sie unter [allgemeine MSBuild-Projekteigenschaften für Eigenschaften](/visualstudio/msbuild/common-msbuild-project-properties) Namen. Das hier angegebene Properties-Argument ist eine Liste von Token = Wert-Paaren, die durch Semikolons getrennt sind, wobei jedes Vorkommen von `$token$` in der `.nuspec` Datei durch den angegebenen Wert ersetzt wird. Werte können Zeichen folgen in Anführungszeichen sein. Beachten Sie, dass für die Eigenschaft "Configuration" der Standardwert "Debug" lautet. Verwenden Sie, um zu einer Releasekonfiguration zu wechseln `-Properties Configuration=Release` . **Im allgemeinen**sollten Eigenschaften identisch sein, die während des entsprechenden Projektbuilds verwendet wurden, um potenziell merkwürdiges Verhalten zu vermeiden.
+  Sollte zuletzt in der Befehlszeile nach anderen Optionen angezeigt werden. Gibt eine Liste von Eigenschaften an, die Werte in der Projektdatei überschreiben. Weitere Informationen finden Sie unter [allgemeine MSBuild-Projekteigenschaften für Eigenschaften](/visualstudio/msbuild/common-msbuild-project-properties) Namen. Das hier angegebene Properties-Argument ist eine Liste von Token = Wert-Paaren, die durch Semikolons getrennt sind, wobei jedes Vorkommen von `$token$` in der `.nuspec` Datei durch den angegebenen Wert ersetzt wird. Werte können Zeichen folgen in Anführungszeichen sein. Beachten Sie, dass für die Eigenschaft "Configuration" der Standardwert "Debug" lautet. Verwenden Sie, um zu einer Releasekonfiguration zu wechseln `-Properties Configuration=Release` . **Im allgemeinen** sollten Eigenschaften identisch sein, die während des entsprechenden Projektbuilds verwendet wurden, um potenziell merkwürdiges Verhalten zu vermeiden.
 
 - **`-SolutionDirectory`**
 

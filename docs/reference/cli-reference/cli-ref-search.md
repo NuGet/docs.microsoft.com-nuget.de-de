@@ -1,16 +1,16 @@
 ---
 title: Befehl "nuget CLI-Suche"
 description: Referenz für den nuget.exe Search-Befehl
-author: advay26
-ms.author: t-adtand
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/17/2020
 ms.topic: reference
-ms.openlocfilehash: 8d63efefb8f14c03fbe3986d8d7eebcc3eb5bcac
-ms.sourcegitcommit: 6cda91f135e58cf57a2471b0c7c4a2f748f40024
+ms.openlocfilehash: 6f4adcdf3981e5ec0e5e88337a8c3bcdd9158ca3
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89359681"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779158"
 ---
 # <a name="search-command-nuget-cli"></a>Suchbefehl (nuget-CLI)
 
@@ -46,15 +46,15 @@ Siehe auch [Umgebungsvariablen](cli-ref-environment-variables.md)
 
 ## <a name="examples"></a>Beispiele
 
-Suchen Sie nach *Protokollierungs*bezogenen Paketen aus Standard Quellen:
+Suchen Sie nach *Protokollierungs* bezogenen Paketen aus Standard Quellen:
 ```
 nuget search logging
 ```
-Suchen Sie nach *Protokollierungs*bezogenen Paketen mit ausführlicher Ausführlichkeit:
+Suchen Sie nach *Protokollierungs* bezogenen Paketen mit ausführlicher Ausführlichkeit:
 ```
 nuget search logging -Verbosity detailed
 ```
-Suchen Sie nach *Protokollierungs*bezogenen Paketen, und zeigen Sie nur die ersten 5 Ergebnisse an:
+Suchen Sie nach *Protokollierungs* bezogenen Paketen, und zeigen Sie nur die ersten 5 Ergebnisse an:
 ```
 nuget search logging -Take 5
 ```

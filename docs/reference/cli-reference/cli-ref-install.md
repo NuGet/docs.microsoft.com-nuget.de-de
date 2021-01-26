@@ -1,16 +1,16 @@
 ---
 title: Befehl "nuget CLI-Installation"
 description: Referenz für den nuget.exe Installations Befehl
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 23856728d07d07183b5aedcd6218a56a444c410b
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 34b79bfa7a0dddf5da6b5c465293caec49129f6c
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623096"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779266"
 ---
 # <a name="install-command-nuget-cli"></a>Installations Befehl (nuget-CLI)
 
@@ -45,7 +45,7 @@ nuget install <packageID | configFilePath> [options]
 
 - **`-DependencyVersion`**
 
-  *(4.4* und höher) Die Version der zu verwendenden Abhängigkeits Pakete. Dies kann eine der folgenden sein:<br/><ul><li>*Niedrigste* (Standard): die niedrigste Version</li><li>*Highestpatch*: die Version mit dem niedrigsten, niedrigsten, niedrigsten, größten Patch</li><li>*Highestminor*: die Version mit dem niedrigsten Haupt-, höchst-und Höchstwert</li><li>*Höchste*Version: die höchste Version</li><li>*Ignore*: Es werden keine Abhängigkeits Pakete verwendet.</li></ul>
+  *(4.4* und höher) Die Version der zu verwendenden Abhängigkeits Pakete. Dies kann eine der folgenden sein:<br/><ul><li>*Niedrigste* (Standard): die niedrigste Version</li><li>*Highestpatch*: die Version mit dem niedrigsten, niedrigsten, niedrigsten, größten Patch</li><li>*Highestminor*: die Version mit dem niedrigsten Haupt-, höchst-und Höchstwert</li><li>*Höchste* Version: die höchste Version</li><li>*Ignore*: Es werden keine Abhängigkeits Pakete verwendet.</li></ul>
 
 - **`-DirectDownload`**
 
@@ -93,7 +93,7 @@ nuget install <packageID | configFilePath> [options]
 
 - **`-PreRelease`**
 
-  Ermöglicht die Installation von vorab Versionen. Dieses Flag ist beim Wiederherstellen von Paketen mit nicht erforderlich `packages.config` .
+  Ermöglicht die Installation von Paketen mit Vorabversionen Dieses Flag ist beim Wiederherstellen von Paketen mit nicht erforderlich `packages.config` .
 
 - **`-RequireConsent`**
 
