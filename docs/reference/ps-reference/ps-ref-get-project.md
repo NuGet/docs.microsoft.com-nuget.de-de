@@ -1,16 +1,16 @@
 ---
 title: Nuget-Get-Project PowerShell-Referenz
 description: Referenz für den getproject PowerShell-Befehl in der nuget-Paket-Manager-Konsole in Visual Studio.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 6d9e1d48c8e1838f193878cab3483b1bfba7d7f0
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 16b3ffc0a375b8027c615020243a7289520715f8
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238074"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777473"
 ---
 # <a name="get-project-package-manager-console-in-visual-studio"></a>Get-Project (Paket-Manager-Konsole in Visual Studio)
 
@@ -29,7 +29,7 @@ Get-Project [[-Name] <string>] [-All] [<CommonParameters>]
 | Parameter | BESCHREIBUNG |
 | --- | --- |
 | Name | Gibt das anzuzeigende Projekt an. das Standard Projekt, das in der Paket-Manager-Konsole ausgewählt ist, wird standardmäßig angezeigt. Der Schalter "-Name" ist optional. |
-| Alle | Zeigt Informationen für jedes Projekt in der Projekt Mappe an. die Reihenfolge der Projekte ist nicht deterministisch. |
+| All | Zeigt Informationen für jedes Projekt in der Projekt Mappe an. die Reihenfolge der Projekte ist nicht deterministisch. |
 
 Keiner dieser Parameter akzeptiert Pipeline Eingabe-oder Platzhalter Zeichen.
 

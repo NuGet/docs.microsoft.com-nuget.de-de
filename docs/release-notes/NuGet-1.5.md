@@ -1,20 +1,20 @@
 ---
 title: Anmerkungen zu dieser Version von nuget 1,5
 description: Anmerkungen zu dieser Version von nuget 1,5 einschließlich bekannter Probleme, Fehlerbehebungen, hinzugefügter Features und dcrs.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 940a19cdc485d611d03b52ee3102bc95a78a36bb
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: c9946f3d8cf545ec14f842c40105743c231b4b72
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383348"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777088"
 ---
 # <a name="nuget-15-release-notes"></a>Anmerkungen zu dieser Version von nuget 1,5
 
-Anmerkungen zu [nuget 1,4](../release-notes/nuget-1.4.md) | Anmerkungen zur [nuget](../release-notes/nuget-1.6.md) -Version 1,6
+Anmerkungen zu dieser [Version von nuget 1,4](../release-notes/nuget-1.4.md)  |  [Anmerkungen zu dieser Version von nuget 1,6](../release-notes/nuget-1.6.md)
 
 Nuget 1,5 wurde am 30. August 2011 veröffentlicht.
 
@@ -29,7 +29,7 @@ Weitere Informationen zu diesem Feature finden Sie in diesem [Blogbeitrag vom En
 
 ### <a name="explicit-assembly-references"></a>Explizite Assemblyverweise
 
-Es wurde ein neues `<references />` Element hinzugefügt, mit dem explizit festgelegt wird, auf welche Assemblys im Paket verwiesen werden soll.
+Es wurde ein neues Element hinzugefügt `<references />` , mit dem explizit angegeben wird, auf welche Assemblys im Paket verwiesen werden soll.
 
 Wenn Sie z. b. Folgendes hinzufügen:
 
@@ -40,18 +40,18 @@ Wenn Sie z. b. Folgendes hinzufügen:
 </references>
 ```
 
-Dann werden nur die `xunit.dll` und `xunit.extensions.dll` aus dem entsprechenden [Framework/Profil-Unterordner](../reference/nuspec.md#explicit-assembly-references) des `lib` Ordners referenziert, auch wenn im Ordner weitere Assemblys vorhanden sind.
+`xunit.dll`Auf und wird nur `xunit.extensions.dll` aus dem entsprechenden [Framework/Profil-Unterordner](../reference/nuspec.md#explicit-assembly-references) des `lib` Ordners verwiesen, auch wenn im Ordner weitere Assemblys vorhanden sind.
 
 Wenn dieses Element weggelassen wird, gilt das übliche Verhalten, das auf jede Assembly im `lib` Ordner verweist.
 
 __Wofür wird dieses Feature verwendet?__
 
-Diese Funktion unterstützt nur-Assemblys zur Entwurfszeit. Wenn z. b. Code Verträge verwendet werden, müssen sich die Vertragsassemblys neben den ausführungsassemblys befinden, die Sie erweitern, sodass Sie von Visual Studio gefunden werden können, aber die Vertragsassemblys sollten nicht tatsächlich vom Projekt referenziert werden und sollten nicht in den `bin` Ordner kopiert werden.
+Diese Funktion unterstützt nur-Assemblys zur Entwurfszeit. Wenn Sie z. b. Code Verträge verwenden, müssen sich die Vertragsassemblys neben den ausführungsassemblys befinden, die Sie erweitern, sodass Sie von Visual Studio gefunden werden können, aber die Vertragsassemblys sollten nicht tatsächlich vom Projekt referenziert werden und sollten nicht in den Ordner kopiert werden `bin` .
 
 Ebenso kann die-Funktion für Komponenten Test-Frameworks wie xUnit verwendet werden, deren toolsassemblys sich neben den Laufzeitassemblys befinden, aber von Projekt verweisen ausgeschlossen werden.
 
 ### <a name="added-ability-to-exclude-files-in-the-nuspec"></a>Hinzugefügte Fähigkeit zum Ausschließen von Dateien in der. nuspec-Datei
-Das `<file>`-Element innerhalb einer `.nuspec`-Datei kann verwendet werden, um eine bestimmte Datei oder einen Satz von Dateien mithilfe eines Platzhalters einzuschließen. Wenn Sie einen Platzhalter verwenden, besteht keine Möglichkeit, eine bestimmte Teilmenge der enthaltenen Dateien auszuschließen. Angenommen, Sie möchten alle Textdateien in einem Ordner außer einem bestimmten Ordner.
+Das- `<file>` Element in einer- `.nuspec` Datei kann verwendet werden, um eine bestimmte Datei oder einen Satz von Dateien mithilfe eines Platzhalters einzuschließen. Wenn Sie einen Platzhalter verwenden, besteht keine Möglichkeit, eine bestimmte Teilmenge der enthaltenen Dateien auszuschließen. Angenommen, Sie möchten alle Textdateien in einem Ordner außer einem bestimmten Ordner.
 
 ```xml
 <files>
@@ -81,10 +81,12 @@ Wenn Sie ein Paket mit Abhängigkeiten deinstallieren, werden Sie von nuget aufg
 ![Entfernen von abhängigen Paketen](./media/remove-dependent-packages.png)
 
 
-### <a name="get-package-command-improvement"></a>`Get-Package`-Befehls Verbesserung
-Der `Get-Package`-Befehl unterstützt jetzt einen `-ProjectName`-Parameter. Der Befehl
+### <a name="get-package-command-improvement"></a>`Get-Package` Befehls Verbesserung
+Der- `Get-Package` Befehl unterstützt jetzt einen- `-ProjectName` Parameter. Der Befehl
 
-    Get-Package –ProjectName A
+```
+Get-Package –ProjectName A
+```
 
 Listet alle Pakete auf, die in Project A installiert sind.
 
@@ -109,8 +111,8 @@ Nuget-Pakete enthalten jetzt Unterstützung für Versions Anmerkungen. Die Anmer
 
 Verwenden Sie zum Hinzufügen von Versions Anmerkungen zu einem Paket das neue `<releaseNotes />` Metadata-Element in der nuspec-Datei.
 
-### <a name="nuspec-ltfiles-gt-improvement"></a>. nuspec & ltfiles/&gt; Verbesserung
-Die `.nuspec` Datei lässt jetzt leeres `<files />` Element zu, das nuget. exe anweist, keine Datei in das Paket aufzunehmen.
+### <a name="nuspec-ltfiles-gt-improvement"></a>. nuspec &ltfiles/ &gt; Improvement
+Die `.nuspec` Datei lässt jetzt ein leeres- `<files />` Element zu, das anweist, nuget.exe keine Datei in das Paket aufzunehmen.
 
 ## <a name="bug-fixes"></a>Fehlerkorrekturen
 Für nuget 1,5 wurden insgesamt 107 Arbeitselemente korrigiert. 103 von diesen wurden als Fehler gekennzeichnet.
@@ -119,6 +121,6 @@ Eine vollständige Liste der Arbeitselemente, die in nuget 1,5 behoben wurden, f
 
 ## <a name="bug-fixes-worth-noting"></a>Fehlerbehebungen beachten Sie Folgendes:
 
-* [Problem 1273](http://nuget.codeplex.com/workitem/1273): durch das alphabetische Sortieren von Paketen und das Entfernen zusätzlicher Leerräume wurde `packages.config` eine bessere Versionskontrolle gemacht.
-* [Problem 844](http://nuget.codeplex.com/workitem/844): Versionsnummern werden jetzt normalisiert, sodass `Install-Package 1.0` an einem Paket mit der Version `1.0.0`funktioniert.
-* [Problem 1060](http://nuget.codeplex.com/workitem/1060): beim Erstellen eines Pakets mithilfe von "nuget. exe" überschreibt das `-Version`-Flag das `<version />`-Element.
+* [Problem 1273](http://nuget.codeplex.com/workitem/1273): Sie haben `packages.config` eine bessere Versionskontrolle erzielt, indem Sie Pakete alphabetisch sortieren und zusätzliche Leerzeichen entfernen.
+* [Problem 844](http://nuget.codeplex.com/workitem/844): Versionsnummern werden jetzt normalisiert, sodass Sie `Install-Package 1.0` für ein Paket mit der-Version verwendet werden können `1.0.0` .
+* [Problem 1060](http://nuget.codeplex.com/workitem/1060): Wenn Sie ein Paket mit nuget.exe erstellen, `-Version` überschreibt das Flag das- `<version />` Element.

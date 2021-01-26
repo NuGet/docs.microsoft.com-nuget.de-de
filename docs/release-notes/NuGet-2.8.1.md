@@ -1,38 +1,38 @@
 ---
-title: Anmerkungen zu NuGet 2.8.1
-description: Anmerkungen zu dieser Version für die Einbindung von NuGet 2.8.1 bekannte Probleme, Fehlerkorrekturen, hinzugefügter Features und DCRs.
-author: karann-msft
-ms.author: karann
+title: Anmerkungen zu dieser Version von nuget 2.8.1
+description: Anmerkungen zu dieser Version von nuget 2.8.1 einschließlich bekannter Probleme, Fehlerbehebungen, hinzugefügter Features und dcrs.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 39fb7db00e18e32eef15adc11764a122c97ddfd5
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 4dcd8ab140026c39345f850ac00a7a5f26a0e62c
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545238"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776763"
 ---
-# <a name="nuget-281-release-notes"></a>Anmerkungen zu NuGet 2.8.1
+# <a name="nuget-281-release-notes"></a>Anmerkungen zu dieser Version von nuget 2.8.1
 
-[Anmerkungen zu NuGet 2.8](../release-notes/nuget-2.8.md) | [Anmerkungen zu NuGet 2.8.2](../release-notes/nuget-2.8.2.md)
+Anmerkungen zu dieser [Version von nuget 2,8](../release-notes/nuget-2.8.md)  |  [Nuget 2.8.2 Anmerkungen](../release-notes/nuget-2.8.2.md) zu dieser Version
 
-NuGet 2.8.1 wurde am 2. April 2014 veröffentlicht.
+Nuget 2.8.1 wurde am 2. April 2014 veröffentlicht.
 
 ## <a name="notable-features-in-the-release"></a>Wichtige Features in der Version
 
-### <a name="support-for-windows-phone-81-projects"></a>Unterstützung für Windows Phone 8.1-Projekte
-Diese Version unterstützt jetzt die folgenden neuen Target frameworkMoniker das Ziel Windows Phone 8.1-Projekten verwendet werden kann:
+### <a name="support-for-windows-phone-81-projects"></a>Unterstützung für Windows Phone 8,1-Projekte
+In dieser Version werden nun die folgenden neuen zielframeworkmoniker unterstützt, die zum Ziel Windows Phone 8,1-Projekten verwendet werden können:
 
-* WindowsPhone81 / WP81 (für Windows Phone Silverlight-basierte Projekte)
-* WindowsPhoneApp81 / WPA81 (für WinRT-basierten Windows Phone-App-Projekte)
+* WindowsPhone81/WP81 (für Silverlight-basierte Windows Phone-Projekte)
+* WindowsPhoneApp81/WPA81 (für WinRT-basierte Windows Phone-App-Projekte)
 
-### <a name="update-of-the-nuget-webmatrix-extension"></a>Update der NuGet WebMatrix-Erweiterung
-Diese Version aktualisiert die NuGet-Client finden Sie in WebMatrix zum [NuGet.Core](https://www.nuget.org/packages/Nuget.Core/2.6.1) 2.6.1 und mit es bietet Ihnen z. B. mithilfe von XDT-Transformationen. Noch wichtiger ist, dass die 2.6.1 Core Update ermöglicht, dem WebMatrix-Client, die NuGet-Pakete zu installieren, die neuere Versionen enthalten die `.nuspec` -Schema, das die ASP.NET NuGet-Pakete enthält.
+### <a name="update-of-the-nuget-webmatrix-extension"></a>Aktualisieren der nuget-webmatrix-Erweiterung
+Diese Version aktualisiert den nuget-Client in webmatrix an [nuget. Core](https://www.nuget.org/packages/Nuget.Core/2.6.1) 2.6.1 und bietet IT-Funktionen wie xdt-Transformationen. Noch wichtiger ist, dass das 2.6.1 Core-Update dem webmatrix-Client ermöglicht, nuget-Pakete zu installieren, die neuere Versionen des `.nuspec` Schemas enthalten, einschließlich der ASP.net nuget-Pakete.
 
-Weitere Informationen zu dem Update der WebMatrix-Erweiterung finden Sie die speziellen [Anmerkungen zu dieser Version](../release-notes/nuget-2.6.1-for-WebMatrix.md).
+Weitere Informationen zum Update der webmatrix-Erweiterung finden Sie in den [Anmerkungen](../release-notes/nuget-2.6.1-for-WebMatrix.md)zu dieser Version.
 
 ### <a name="bug-fixes"></a>Fehlerkorrekturen
-Neben diesen Features enthält diese Version von NuGet andere Fehlerkorrekturen. Gab es 16 insgesamt in den Release behobenen Problemen. Eine vollständige Liste der Arbeit Elemente eine feste NuGet 2.8.1, bitte Ansicht der [NuGet Issue Tracker für diese Version](https://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%202.8.1&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0&reasonClosed=All).
+Zusätzlich zu diesen Features enthält diese Version von nuget andere Fehlerbehebungen. In der Version wurden 16 Gesamtprobleme behandelt. Eine vollständige Liste der Arbeitselemente, die in nuget 2.8.1 behoben sind, finden Sie in der [nuget-Problemverfolgung für diese Version](https://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%202.8.1&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0&reasonClosed=All).
 
-### <a name="reshipping-with-visual-studio-14-ctp"></a>Werden mit Visual Studio "14" CTP-Version
-In Visual Studio "14" CTP-Version am 3. Juni-2014 veröffentlicht wird NuGet 2.8.1 gelieferten. Die Funktionen, die sie unterstützen bleiben in Par mit anderen 2.8.1 VSIXes wie für Visual Studio 2013.
+### <a name="reshipping-with-visual-studio-14-ctp"></a>Erneute Bereitstellung mit Visual Studio "14" CTP
+In Visual Studio "14" CTP, das am 3. Juni 2014 veröffentlicht wurde, wird nuget 2.8.1 in der Box ausgeliefert. Die von ihm unterstützten Funktionen bleiben mit anderen 2.8.1-vsixes, z. b. dem für Visual Studio 2013, unverändert.

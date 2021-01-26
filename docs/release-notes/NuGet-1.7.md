@@ -1,20 +1,20 @@
 ---
 title: Anmerkungen zu dieser Version von nuget 1,7
 description: Anmerkungen zu dieser Version von nuget 1,7 einschließlich bekannter Probleme, Fehlerbehebungen, hinzugefügter Features und dcrs.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: a98da76038582202396c8da96f8eae166e6096f6
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 50eb326c5ada4f74685b07c0d1b0f84b14e547ac
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383318"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777066"
 ---
 # <a name="nuget-17-release-notes"></a>Anmerkungen zu dieser Version von nuget 1,7
 
-Anmerkungen zu [nuget 1,6](../release-notes/nuget-1.6.md) | Anmerkungen zur [nuget](../release-notes/nuget-1.8.md) -Version 1,8
+Anmerkungen zu dieser [Version von nuget 1,6](../release-notes/nuget-1.6.md)  |  [Anmerkungen zu dieser Version von nuget 1,8](../release-notes/nuget-1.8.md)
 
 Nuget 1,7 wurde am 4. April 2012 veröffentlicht.
 
@@ -27,8 +27,8 @@ Hinweis: Wenn Visual Studio die Deinstallation der Erweiterung nicht zulässt (d
 
 ## <a name="features"></a>Features
 
-### <a name="support-opening-readmetxt-file-after-installation"></a>Das Öffnen der Datei "Infodatei. txt" nach der Installation
-Neu in 1,7, wenn Ihr Paket eine `readme.txt`-Datei im Stamm des Pakets enthält, wird diese Datei von nuget automatisch geöffnet, nachdem die Installation des Pakets abgeschlossen ist.
+### <a name="support-opening-readmetxt-file-after-installation"></a>Unterstützung für das Öffnen readme.txt Datei nach der Installation
+Neu in 1,7, wenn Ihr Paket eine `readme.txt` Datei im Stamm des Pakets enthält, wird diese Datei von nuget automatisch geöffnet, nachdem die Installation des Pakets abgeschlossen ist.
 
 ### <a name="show-prerelease-packages-in-the-manage-nuget-packages-dialog"></a>Vorab Versionen von Paketen im Dialogfeld "nuget-Pakete verwalten" anzeigen
 Das Dialogfeld nuget-Pakete verwalten enthält jetzt eine Dropdown Liste, die die Option zum Anzeigen von vorab Paketen bereitstellt.
@@ -36,18 +36,18 @@ Das Dialogfeld nuget-Pakete verwalten enthält jetzt eine Dropdown Liste, die di
 ![Vorabversions Pakete werden angezeigt.](./media/prerelease-dropdown.png)
 
 ### <a name="show-package-restore-button-when-package-files-are-missing"></a>Schaltfläche "Paket Wiederherstellung" anzeigen, wenn Paketdateien fehlen
-Wenn Sie die Paket-Manager-Konsole oder das Manager-Dialogfeld "nuget-Pakete" öffnen, überprüft nuget, ob die aktuelle Lösung den Paket Wiederherstellungs Modus aktiviert hat und ob Paketdateien im Ordner "`packages`" fehlen. Wenn diese beiden Bedingungen erfüllt sind, werden Sie von nuget benachrichtigt, und es wird eine bequeme Schaltfläche Wiederherstellen angezeigt. Wenn Sie auf diese Schaltfläche klicken, wird nuget zum Wiederherstellen aller fehlenden Pakete hinzu kommen.
+Wenn Sie die Paket-Manager-Konsole oder das Manager-Dialogfeld "nuget-Pakete" öffnen, überprüft nuget, ob die aktuelle Lösung den Paket Wiederherstellungs Modus aktiviert hat und ob Paketdateien im `packages` Ordner fehlen. Wenn diese beiden Bedingungen erfüllt sind, werden Sie von nuget benachrichtigt, und es wird eine bequeme Schaltfläche Wiederherstellen angezeigt. Wenn Sie auf diese Schaltfläche klicken, wird nuget zum Wiederherstellen aller fehlenden Pakete hinzu kommen.
 
 ![Schaltfläche Paket Wiederherstellung im Dialogfeld](./media/packagerestore-dialog.png)
 
 ![Schaltfläche Paket Wiederherstellung in der Konsole](./media/packagerestore-console.png)
 
-### <a name="add-solution-level-packagesconfig-file"></a>Projektmappendatei "Packages. config" hinzufügen
-In früheren Versionen von nuget verfügt jedes Projekt über eine `packages.config`-Datei, die nachverfolgt, welche nuget-Pakete in diesem Projekt installiert werden. Es gab jedoch keine ähnliche Datei auf Lösungsebene, um Pakete auf Projektmappenebene nachzuverfolgen. Folglich gab es keine Möglichkeit, Pakete auf Projektmappenebene wiederherzustellen.
-Diese Funktion ist jetzt in nuget 1,7 implementiert. Die `packages.config` Datei auf Projektmappenebene wird unter dem Ordner "`.nuget`" unter dem Projektmappenstamm abgelegt und speichert nur Pakete auf Projektmappenebene.
+### <a name="add-solution-level-packagesconfig-file"></a>packages.config Datei auf Projektmappenebene hinzufügen
+In früheren Versionen von nuget verfügt jedes Projekt über eine Datei, mit der nachverfolgt wird, `packages.config` welche nuget-Pakete in diesem Projekt installiert werden. Es gab jedoch keine ähnliche Datei auf Lösungsebene, um Pakete auf Projektmappenebene nachzuverfolgen. Folglich gab es keine Möglichkeit, Pakete auf Projektmappenebene wiederherzustellen.
+Diese Funktion ist jetzt in nuget 1,7 implementiert. Die `packages.config` Datei auf `.nuget` Projektmappenebene wird unter dem Ordner unter dem Projektmappenstamm abgelegt und speichert nur Pakete auf Projektmappenebene.
 
-### <a name="remove-new-package-command"></a>Befehl "New-Package" entfernen
-Aufgrund der geringen Auslastung wurde der New-Package-Befehl entfernt. Entwickler sollten nuget. exe oder den praktischen nuget-Paket-Explorer verwenden, um Pakete zu erstellen.
+### <a name="remove-new-package-command"></a>New-Package Befehl entfernen
+Aufgrund der geringen Auslastung wurde der New-Package Befehl entfernt. Entwicklern wird empfohlen, nuget.exe oder den praktischen nuget-Paket-Explorer zu verwenden, um Pakete zu erstellen.
 
 ## <a name="bug-fixes"></a>Fehlerkorrekturen
 Nuget 1,7 hat viele Fehler im Zusammenhang mit dem Paket Wiederherstellungs Workflow und den Netzwerk-/Quellcodeverwaltungs-Szenarien behoben.

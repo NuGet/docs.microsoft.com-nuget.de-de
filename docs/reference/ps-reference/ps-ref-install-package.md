@@ -1,16 +1,16 @@
 ---
 title: Nuget-Install-Package PowerShell-Referenz
 description: Referenz für Install-Package PowerShell-Befehl in der nuget-Paket-Manager-Konsole in Visual Studio.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 06/01/2017
 ms.topic: reference
-ms.openlocfilehash: 5bda888e0fb526faca79e88da93b0ceb9aff5348
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 110b41e830636d60741b14292c17840aa5a63dfd
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237204"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777447"
 ---
 # <a name="install-package-package-manager-console-in-visual-studio"></a>Install-Package (Paket-Manager-Konsole in Visual Studio)
 
@@ -36,14 +36,14 @@ Install-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 | Parameter | BESCHREIBUNG |
 | --- | --- |
-| Id | Benötigten Der Bezeichner des zu installierenden Pakets. ( *3.0* und höher) Der Bezeichner kann ein Pfad oder eine URL einer `packages.config` Datei oder eine `.nupkg` Datei sein. Der Schalter-ID selbst ist optional. |
+| Id | Benötigten Der Bezeichner des zu installierenden Pakets. (*3.0* und höher) Der Bezeichner kann ein Pfad oder eine URL einer `packages.config` Datei oder eine `.nupkg` Datei sein. Der Schalter-ID selbst ist optional. |
 | Ignoreabhängigkeiten | Installieren Sie nur dieses Paket und nicht seine Abhängigkeiten. |
 | ProjectName | Das Projekt, in dem das Paket installiert werden soll, und standardmäßig das Standard Projekt. |
 | `Source` | Die URL oder der Ordner Pfad für die Paketquelle, die durchsucht werden soll. Lokale Ordner Pfade können absolut oder relativ zum aktuellen Ordner sein. Wenn kein Wert angezeigt wird, wird `Install-Package` die aktuell ausgewählte Paketquelle durchsucht. |
 | Version | Die Version des zu installierenden Pakets, standardmäßig auf die neueste Version. |
 | Incluabprerelease | Berücksichtigt vorab Pakete für die Installation. Wenn dieser Parameter nicht angegeben wird, werden nur stabile Pakete berücksichtigt. |
-| Fileconflictaction | Die Aktion, die ausgeführt werden soll, wenn die vom Projekt referenzierten Dateien überschrieben oder ignoriert werden sollen. Mögliche Werte sind " *überschreiben", "ignorieren", "keine", "überschreiben* " und " *(3.0 +)* *IgnoreAll* ". |
-| Dependencyversion | Die Version der zu verwendenden Abhängigkeits Pakete. Dies kann eine der folgenden sein:<br/><ul><li>*Niedrigste* (Standard): die niedrigste Version</li><li>*Highestpatch* : die Version mit dem niedrigsten, niedrigsten, niedrigsten, größten Patch</li><li>*Highestminor* : die Version mit dem niedrigsten Haupt-, höchst-und Höchstwert</li><li>*Höchste* (Standardeinstellung für Update-Package ohne Parameter): die höchste Version</li></ul>Sie können den Standardwert mithilfe der- [`dependencyVersion`](../nuget-config-file.md#config-section) Einstellung in der `Nuget.Config` Datei festlegen. |
+| Fileconflictaction | Die Aktion, die ausgeführt werden soll, wenn die vom Projekt referenzierten Dateien überschrieben oder ignoriert werden sollen. Mögliche Werte sind " *überschreiben", "ignorieren", "keine", "überschreiben*" und " *(3.0 +)* *IgnoreAll*". |
+| Dependencyversion | Die Version der zu verwendenden Abhängigkeits Pakete. Dies kann eine der folgenden sein:<br/><ul><li>*Niedrigste* (Standard): die niedrigste Version</li><li>*Highestpatch*: die Version mit dem niedrigsten, niedrigsten, niedrigsten, größten Patch</li><li>*Highestminor*: die Version mit dem niedrigsten Haupt-, höchst-und Höchstwert</li><li>*Höchste* (Standardeinstellung für Update-Package ohne Parameter): die höchste Version</li></ul>Sie können den Standardwert mithilfe der- [`dependencyVersion`](../nuget-config-file.md#config-section) Einstellung in der `Nuget.Config` Datei festlegen. |
 | WhatIf | Zeigt, was geschehen würde, wenn der Befehl ausgeführt wird, ohne die Installation tatsächlich auszuführen. |
 
 Keiner dieser Parameter akzeptiert Pipeline Eingabe-oder Platzhalter Zeichen.

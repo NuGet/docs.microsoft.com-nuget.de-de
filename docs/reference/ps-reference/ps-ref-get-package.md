@@ -1,16 +1,16 @@
 ---
 title: Nuget-Get-Package PowerShell-Referenz
 description: Referenz für Get-Package PowerShell-Befehl in der nuget-Paket-Manager-Konsole in Visual Studio.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 1576e3f20eba1ecdd099b1e7c23aef6b1a1a0a4f
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 8394f888ec3d5e57eacd351a4867173da1070ead
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237230"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777496"
 ---
 # <a name="get-package-package-manager-console-in-visual-studio"></a>Get-Package (Paket-Manager-Konsole in Visual Studio)
 
@@ -36,7 +36,7 @@ Ohne Parameter `Get-Package` zeigt die Liste der Pakete an, die im Standard Proj
 | ListAvailable | Listet die Pakete auf, die in einer Paketquelle verfügbar sind, und standardmäßig nuget.org. Zeigt einen Standardwert von 50-Paketen an, es sei denn, es werden-PageSize und/oder-First angegeben |
 | Aktualisierungen | Listet Pakete auf, für die ein Update in der Paketquelle verfügbar ist. |
 | ProjectName | Das Projekt, aus dem installierte Pakete zu erhalten sind. Wenn der Wert nicht angezeigt wird, gibt die installierten Projekte für die gesamte Projekt Mappe |
-| Filter | Eine Filter Zeichenfolge, die verwendet wird, um die Liste der Pakete einzugrenzen, indem Sie Sie auf die Paket-ID, die Beschreibung und Tags anwenden. |
+| Filtern | Eine Filter Zeichenfolge, die verwendet wird, um die Liste der Pakete einzugrenzen, indem Sie Sie auf die Paket-ID, die Beschreibung und Tags anwenden. |
 | First | Die Anzahl der Pakete, die vom Anfang der Liste zurückgegeben werden sollen. Wenn nicht angegeben, wird standardmäßig 50 verwendet. |
 | Überspringen | Lässt die ersten &lt; int- &gt; Pakete aus der angezeigten Liste aus.  |
 | AllVersions | Zeigt alle verfügbaren Versionen der einzelnen Pakete anstelle der neuesten Version an. |

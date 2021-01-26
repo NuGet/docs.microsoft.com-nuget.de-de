@@ -1,16 +1,16 @@
 ---
 title: Verweis auf nuget.config Datei
 description: Verweis auf Datei „NuGet.Config“ einschließlich der Abschnitte „config“, „bindingRedirects“, „packageRestore“, „solution“ und „packageSource“.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: 371f0d934fcd3c1f111d277131553c1eed0200be
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 9b15550d0e6e8aec4d526391d77c654a756f343e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238100"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777666"
 ---
 # <a name="nugetconfig-reference"></a>nuget.config Referenz
 
@@ -38,7 +38,7 @@ Enthält verschiedene Konfigurationseinstellungen, die mit dem- [ `nuget config`
 | http_proxy http_proxy.user http_proxy.password no_proxy | Proxyeinstellungen, die beim Herstellen einer Verbindung zu Paketquellen verwendet werden sollen; `http_proxy` sollte das Format `http://<username>:<password>@<domain>` aufweisen. Kennwörter sind verschlüsselt und können nicht manuell hinzugefügt werden. Bei `no_proxy` ist der Wert eine durch Kommas getrennte Liste mit Domänen, die den Proxy-Server umgehen. Alternativ können Sie für diese Werte die Umgebungsvariablen „http_proxy“ und „no_proxy“ verwenden. Weitere Informationen finden Sie unter [NuGet proxy settings (NuGet-Proxyeinstellungen)](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
 | signaturevalidationmode | Gibt den Validierungs Modus an, der zum Überprüfen von Paket Signaturen für Paketinstallation und-Wiederherstellung verwendet wird. Die Werte `accept` lauten `require` . Wird standardmäßig auf `accept` festgelegt.
 
-**Beispiel:**
+**Beispiel**:
 
 ```xml
 <config>
@@ -58,7 +58,7 @@ Konfiguriert, ob NuGet bei der Installation eines Pakets automatische Bindungsum
 | --- | --- |
 | skip | Ein boolescher Wert, der angibt, ob automatische Bindungsumleitungen übersprungen werden sollen. Der Standardwert ist false. |
 
-**Beispiel:**
+**Beispiel**:
 
 ```xml
 <bindingRedirects>
@@ -75,7 +75,7 @@ Steuert die Paketwiederherstellung während der Erstellung von Builds.
 | enabled | Ein boolescher Wert, der angibt, ob NuGet eine automatische Wiederherstellung durchführen kann. Sie können die Umgebungsvariable `EnableNuGetPackageRestore` auch mit dem Wert `True` festlegen, statt diesen Schlüssel in der Konfigurationsdatei festzulegen. |
 | automatic | Ein boolescher Wert, der angibt, ob NuGet während der Erstellung eines Builds eine Überprüfung auf fehlende Pakete durchführen sollte. |
 
-**Beispiel:**
+**Beispiel**:
 
 ```xml
 <packageRestore>
@@ -90,9 +90,9 @@ Steuert, ob der Ordner `packages` einer Projektmappe in der Quellcodeverwaltung 
 
 | Schlüssel | Wert |
 | --- | --- |
-| disableSourceControlIntegration | Ein boolescher Wert, der angibt, ob der Paketordner während der Arbeit mit der Quellcodeverwaltung ignoriert werden soll. Der Standardwert ist false. |
+| disableSourceControlIntegration | Ein boolescher Wert, der angibt, ob der Paketordner während der Arbeit mit der Quellcodeverwaltung ignoriert werden soll. Der Standardwert ist „FALSE“. |
 
-**Beispiel:**
+**Beispiel**:
 
 ```xml
 <solution>
@@ -116,7 +116,7 @@ Listet alle bekannte Paketquellen auf. Die Reihenfolge wird bei Wiederherstellun
 | --- | --- |
 | (Der Name, der der Paketquelle zuzuweisen ist) | Der Pfad oder die URL der Paketquelle. |
 
-**Beispiel:**
+**Beispiel**:
 
 ```xml
 <packageSources>
@@ -213,7 +213,7 @@ Speichert Schlüssel für Quellen, die die API-Schlüssel Authentifizierung verw
 | --- | --- |
 | (Quell-URL) | Der verschlüsselte API-Schlüssel. |
 
-**Beispiel:**
+**Beispiel**:
 
 ```xml
 <apikeys>
@@ -250,7 +250,7 @@ Identifiziert die derzeit aktive Quelle oder gibt das Aggregat aller Quellen an.
 | --- | --- |
 | (Name der Quelle) oder `All` | Wenn es sich bei dem Schlüssel um den Namen einer Quelle handelt, ist der Wert der Quellpfad oder die URL. Wenn `All` festgelegt ist, sollte der Wert `(Aggregate source)` lauten, damit alle Paketquellen kombiniert werden können, die nicht auf andere Weise deaktiviert sind. |
 
-**Beispiel:**
+**Beispiel**:
 
 ```xml
 <activePackageSource>
@@ -278,7 +278,7 @@ Die unterstützten Hash Algorithmen für einen Zertifikat Fingerabdruck sind `SH
 
 , Wenn ein angibt, dass `certificate` `allowUntrustedRoot` `true` das angegebene Zertifikat während der Signatur Überprüfung mit einem nicht vertrauenswürdigen Stamm verkettet werden darf.
 
-**Beispiel:**
+**Beispiel**:
 
 ```xml
 <trustedSigners>
@@ -311,7 +311,7 @@ Wenn keine Entsprechung gefunden wird, überprüft nuget die Datei Quellen und a
 | --- | --- |
 | (Name des Fall Back Ordners) | Pfad zum Fall Back Ordner. |
 
-**Beispiel:**
+**Beispiel**:
 
 ```xml
 <fallbackPackageFolders>
@@ -325,10 +325,10 @@ Legt das Standardformat für die Paketverwaltung fest, entweder *packages.config
 
 | Schlüssel | Wert |
 | --- | --- |
-| format | Ein boolescher Wert, der das Standardformat für die Paketverwaltung angibt. Gibt an, dass das `1` Format packagereferenziert wird. Wenn der Wert ist `0` , wird das Format *packages.config* . |
+| format | Ein boolescher Wert, der das Standardformat für die Paketverwaltung angibt. Gibt an, dass das `1` Format packagereferenziert wird. Wenn der Wert ist `0` , wird das Format *packages.config*. |
 | deaktiviert | Ein boolescher Wert, der angibt, ob die Eingabeaufforderung zum Auswählen eines Standardpaket Formats bei der ersten Paketinstallation angezeigt werden soll. `False` Blendet die Eingabeaufforderung aus. |
 
-**Beispiel:**
+**Beispiel**:
 
 ```xml
 <packageManagement>

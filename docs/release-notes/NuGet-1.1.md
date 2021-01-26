@@ -1,16 +1,16 @@
 ---
 title: Anmerkungen zu dieser Version von nuget 1,0 und 1,1
 description: Anmerkungen zu dieser Version von nuget 1,1 einschließlich bekannter Probleme, Fehlerbehebungen, hinzugefügter Features und dcrs.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 4f90888eae4d039c99d6f6879a06107ec5a31a82
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: cdd4bad54b08d956dbfdaf54220971492fd3ab02
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384696"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777209"
 ---
 # <a name="nuget-10-and-11-release-notes"></a>Anmerkungen zu dieser Version von nuget 1,0 und 1,1
 
@@ -18,7 +18,7 @@ ms.locfileid: "75384696"
 
 Nuget 1,0 wurde am 13. Januar 2011 veröffentlicht.  Nuget 1,1 wurde am 12. Februar 2011 veröffentlicht.
 
-## <a name="overview"></a>Übersicht über
+## <a name="overview"></a>Übersicht
 
 Dieses Dokument enthält die Versions Hinweise für die verschiedenen Versionen von nuget 1,0, gruppiert nach der Haupt Vorschauversion.
 
@@ -31,7 +31,7 @@ Nuget umfasst die folgenden Komponenten:
 
 Die Visual Studio-Erweiterung für nuget-Tools (*nuget. Tools. vsix*) erfordert Folgendes:
 
-* Visual Studio 2010 oder Visual Web Developer 2010 Express.
+* Visual Studio 2010 oder Visual Web Developer 2010 Express
 
 Das nuget-Befehlszeilen Tool erfordert Folgendes:
 
@@ -43,7 +43,7 @@ So verwenden Sie die [neueste Version](http://nuget.codeplex.com/releases/view/5
 
 * Deinstallieren Sie zuerst Ihren älteren Build. Hierfür müssen Sie vs als Administrator ausführen.
 * Entfernen Sie alle vorhandenen Feeds, die Sie besitzen.
-* Fügen Sie einen neuen Feed hinzu, der auf <https://go.microsoft.com/fwlink/?LinkId=206669>zeigt.
+* Fügen Sie einen neuen Feed hinzu, der auf verweist <https://go.microsoft.com/fwlink/?LinkId=206669> .
 
 ## <a name="nuget-11"></a>NuGet 1.1
 
@@ -110,14 +110,14 @@ Im folgenden finden Sie die Änderungen, die seit CTP 2 in diesem Release Candid
 * [Unterstützen von Bindungs Umleitungen für Assemblys mit starkem Namen](http://nuget.codeplex.com/workitem/238)
 * [Paket Verweis hinzufügen... Benutzeroberfläche zum Einschließen der Dropdown-Datei für Paketquelle](http://nuget.codeplex.com/workitem/226)
 * [Nupack muss die config-Transformation agnostisch des Konfigurations Dateinamens unterstützen.](http://nuget.codeplex.com/workitem/224)
-* [Ermöglicht das Überschreiben von "BasePath" in "nupack. exe".](http://nuget.codeplex.com/workitem/222)
+* [Ermöglicht das Überschreiben von BasePath in NuPack.exe](http://nuget.codeplex.com/workitem/222)
 * [Fall Back Verhalten der Paketquelle](http://nuget.codeplex.com/workitem/204)
 * [Absturz auf GUI](http://nuget.codeplex.com/workitem/201)
 * [Sortieroptionen zum Dialog Feld "Paket hinzufügen" hinzufügen](http://nuget.codeplex.com/workitem/179)
 * [Tastenkombination zum Löschen der Paket-Manager-Konsole](http://nuget.codeplex.com/workitem/174)
 * [Die powerconsole bewirkt, dass die nupack-Konsole ausfällt](http://nuget.codeplex.com/workitem/166)
 * [Das Dialog Feld "Konsole" und "Paket hinzufügen" sollte Benutzer-Agent](http://nuget.codeplex.com/workitem/141)
-* [Legen Sie die Versionsnummer der VSIX-und nupack. exe-Datei im Build fest.](http://nuget.codeplex.com/workitem/134)
+* [Legen Sie die Versionsnummer der VSIX und NuPack.exe im Build fest.](http://nuget.codeplex.com/workitem/134)
 * [Allgemeine PowerShell-Parameter aus-? ausblenden](http://nuget.codeplex.com/workitem/118)
 * [Hinzufügen-ausführliche Hilfe für Konsolenbefehle](http://nuget.codeplex.com/workitem/110)
 * [Dialog Feld "Paket hinzufügen" sollte das Auswählen der aktuellen Paketquelle ermöglichen](http://nuget.codeplex.com/workitem/88)
@@ -129,9 +129,9 @@ Im folgenden finden Sie die Änderungen, die seit CTP 2 in diesem Release Candid
 
 Im folgenden finden Sie die wichtigsten Änderungen, die in CTP 2 vorgenommen werden:
 
-* Der paketfeed wurde von Atom zu einem odata-Dienst Endpunkt gewechselt: Wenn Sie ein Upgrade auf die CTP2-Version von nuget durchführen, müssen Sie die folgende URL als Paketquelle hinzufügen: `https://feed.nuget.org/ctp2/odata/v1/`.
-* Der Befehl "Add-Package" wurde in " *install-Package*" umbenannt.
-* Das `.nuspec`-Format wurde aktualisiert. Das `.nuspec`-Format enthält jetzt das Feld *IconUrl* zum Angeben des Symbols 32x32 PNG, das im Dialog Feld Paket hinzufügen angezeigt wird. Stellen Sie daher sicher, dass Sie das Paket unterscheiden. Das `.nuspec`-Format enthält auch das neue *projecturl* -Feld, das Sie verwenden können, um auf eine Webseite zu verweisen, die weitere Informationen zu Ihrem Paket bereitstellt.
+* Wechsel des paketfeeds von Atom zu einem odata-Dienst Endpunkt: Wenn Sie ein Upgrade auf die CTP2-Version von nuget durchführen, stellen Sie sicher, dass Sie die folgende URL als Paketquelle hinzufügen: `https://feed.nuget.org/ctp2/odata/v1/` .
+* Der Add-Package-Befehl wurde in " *install-Package*" umbenannt.
+* Das Format wurde aktualisiert `.nuspec` . Das `.nuspec` Format enthält jetzt das Feld *IconUrl* zum Angeben des Symbols 32x32 PNG, das im Dialog Feld Paket hinzufügen angezeigt wird. Stellen Sie daher sicher, dass Sie das Paket unterscheiden. Das `.nuspec` Format enthält auch das neue *projecturl* -Feld, das Sie verwenden können, um auf eine Webseite zu verweisen, die weitere Informationen zu Ihrem Paket bereitstellt.
 
 Dieser Build funktioniert nicht mit alten `.nupkg` Dateien. Wenn Sie NULL-Verweis Ausnahmen erhalten, verwenden Sie eine alte `.nupkg` Datei, die Sie mit dem aktualisierten [nuget-Befehlszeilen Tool](http://nuget.codeplex.com/releases/52017/download/165468)neu erstellen müssen.
 
@@ -139,7 +139,7 @@ Im folgenden finden Sie eine Liste der Features und Fehler, die für nuget CTP 2
 
 * [Fehler beim Entpacken von paketassemblys beim Angeben von TargetFramework für eine Assembly.](http://nuget.codeplex.com/workitem/10)
 * [Einerkennbarer anerkennbaren nupack-Konsolenfenster](http://nuget.codeplex.com/workitem/14)
-* ["Nupack. exe"-Version ILMerge](http://nuget.codeplex.com/workitem/19)
+* [nupack.exe Release ILMerge](http://nuget.codeplex.com/workitem/19)
 * [Bessere Fehler-und Ausnahmebehandlung](http://nuget.codeplex.com/workitem/24)
 * [[Nupack. core]: packagemanager sollte Feed-bezogene Fehler ordnungsgemäß behandeln.](http://nuget.codeplex.com/workitem/28)
 * [Sie benötigen ein neues Symbol für die Konsole.](http://nuget.codeplex.com/workitem/29)
@@ -147,7 +147,7 @@ Im folgenden finden Sie eine Liste der Features und Fehler, die für nuget CTP 2
 * [Nupack speichert heruntergeladene nupack-Dateien im Arbeitsspeicher](http://nuget.codeplex.com/workitem/40)
 * [Nupack-Konsole: Ändern Sie die Standard Verknüpfung für die Anzeige der Konsole.](http://nuget.codeplex.com/workitem/48)
 * [Projectsystem muss Standardwerte für allgemeine Eigenschaften unterstützen](http://nuget.codeplex.com/workitem/49)
-* [Wenn Sie "nupack. exe" in einem Ordner mit nur einer nuspec-Datei ausführen, sollte diese nuspec verwendet werden.](http://nuget.codeplex.com/workitem/52)
+* [Wenn Sie nupack.exe in einem Ordner mit nur einer nuspec-Datei ausführen, sollte diese nuspec verwendet werden.](http://nuget.codeplex.com/workitem/52)
 * [Das Projekt Menü wird angezeigt, auch wenn kein Projekt/keine Projekt Mappe geladen ist.](http://nuget.codeplex.com/workitem/54)
 * ["Build. cmd" führt bei einem sauberen Klon der Codebasis zu einem Fehler.](http://nuget.codeplex.com/workitem/56)
 * [Verfügbare Features für Updates](http://nuget.codeplex.com/workitem/57)
@@ -156,17 +156,17 @@ Im folgenden finden Sie eine Liste der Features und Fehler, die für nuget CTP 2
 * [Es gibt keine Möglichkeit, zu ermitteln, welche der installierten Pakete über Updates verfügen.](http://nuget.codeplex.com/workitem/82)
 * [Es gibt keine Möglichkeit, ein installiertes Paket im Dialogfeld zu aktualisieren.](http://nuget.codeplex.com/workitem/83)
 * [Es gibt keine Möglichkeit, ein installiertes Paket im Dialogfeld zu deinstallieren.](http://nuget.codeplex.com/workitem/84)
-* [&ldquo;Paket Verweis hinzufügen&hellip;&rdquo; im Kontextmenü installierter Verweise angezeigt.](http://nuget.codeplex.com/workitem/85)
+* [&ldquo;Paket Verweis hinzufügen wird &hellip; &rdquo; im Kontextmenü installierter Verweise angezeigt.](http://nuget.codeplex.com/workitem/85)
 * [Nach dem Aktualisieren eines Pakets über die-Konsole werden sowohl die alte als auch die neue Version als installiert angezeigt.](http://nuget.codeplex.com/workitem/86)
 * [Die Aktivität in der Konsole wird bei Verwendung des Dialog Felds nach der Verwendung nicht mehr angezeigt.](http://nuget.codeplex.com/workitem/87)
-* [Bereinigen der Befehlszeilen Verarbeitung in "nupack. exe"](http://nuget.codeplex.com/workitem/89)
+* [Bereinigen der Befehlszeilen Verarbeitung in nupack.exe](http://nuget.codeplex.com/workitem/89)
 * [Hinzufügen eines anzeigen Amens zu Paketquellen](http://nuget.codeplex.com/workitem/98)
 * [Update. nuspec zur Unterstützung der Einbeziehung von Paket Symbolen](http://nuget.codeplex.com/workitem/103)
 * [Die Feed-Benutzeroberfläche lässt das Kopieren der URL nicht zu](http://nuget.codeplex.com/workitem/105)
 * [Bessere Fehlerbehandlung beim Entfernen von Paketen.](http://nuget.codeplex.com/workitem/107)
 * [Eingabe im Konsolenfenster hängt vom Cursor Fokus ab](http://nuget.codeplex.com/workitem/112)
 * [Fehlermeldungen sind schrecklich.](http://nuget.codeplex.com/workitem/116)
-* [Die Leistung des Remove-Package für ein Paket, das nicht installiert ist, ist falsch.](http://nuget.codeplex.com/workitem/117)
+* [Die Leistung von Remove-Package für ein Paket, das nicht installiert ist, ist schlecht.](http://nuget.codeplex.com/workitem/117)
 * [Das Entfernen eines Pakets schlägt fehl, wenn keine Paketquellen vorhanden sind.](http://nuget.codeplex.com/workitem/119)
 * [Remove-Package schlägt fehl, wenn die Paketquelle nicht verfügbar ist.](http://nuget.codeplex.com/workitem/120)
 * [Fügen Sie den Paket Metadaten und dem Feed den Titel hinzu.](http://nuget.codeplex.com/workitem/125)
@@ -175,14 +175,14 @@ Im folgenden finden Sie eine Liste der Features und Fehler, die für nuget CTP 2
 * [Nupack. Server aktualisieren, um das Herunterladen des Pakets durch den nupack-Benutzer-Agent](http://nuget.codeplex.com/workitem/142)
 * [Im Dialog Feld zum Akzeptieren der Lizenz müssen Lizenzen für alle Abhängigkeiten aufgeführt werden, die akzeptiert werden](http://nuget.codeplex.com/workitem/145)
 * [Protokolliert einen Fehler, wenn ein Paket im Feed ausgelöst wird.](http://nuget.codeplex.com/workitem/150)
-* ["Nupack. exe" darf kein leeres &lt;licen&gt;-Element zulassen.](http://nuget.codeplex.com/workitem/152)
-* [Umbenennen von List-Package in Get-Package, Add-Package zu install-Package und Remove-Package in Uninstall-Package](http://nuget.codeplex.com/workitem/155)
+* [NuPack.exe darf kein leeres &lt; licenenurl-Element zulassen. &gt;](http://nuget.codeplex.com/workitem/152)
+* [Benennen Sie List-Package in Get-Package um, Add-Package Sie in install-Package, und Remove-Package Sie deinstallieren-Package.](http://nuget.codeplex.com/workitem/155)
 * [Verwenden des Menü Elements "Paket Verweis hinzufügen" aus dem projektmappennavigator stürzt Visual Studio ab](http://nuget.codeplex.com/workitem/158)
 * [In der Bezeichnung "verfügbare Paketquellen" fehlt ein Doppelpunkt.](http://nuget.codeplex.com/workitem/160)
 * [Make. nuspec-XML-Element groß-und Kleinschreibung](http://nuget.codeplex.com/workitem/161)
 * [Das VSIX-Manifest von nupack muss das "admin"-Bit aktivieren.](http://nuget.codeplex.com/workitem/162)
-* [Wenn Sie List-Package ohne Feeds ausführen, erhalten Sie einen NULL-Verweis Fehler.](http://nuget.codeplex.com/workitem/164)
-* ["nuget. exe": Zielpfad angeben](http://nuget.codeplex.com/workitem/171)
+* [Wenn Sie List-Package ohne Feeds ausführen, erhalten Sie den Verweis Fehler NULL.](http://nuget.codeplex.com/workitem/164)
+* [nuget.exe: Zielpfad angeben](http://nuget.codeplex.com/workitem/171)
 * [PowerShell-Fehler beim Öffnen Paketverwaltung Konsole unter WinXP](http://nuget.codeplex.com/workitem/175)
 * [VS stürzt beim Laden der Paketliste ab.](http://nuget.codeplex.com/workitem/176)
 * [Meta-Pakete zulassen (keine Dateien, nur Abhängigkeiten)](http://nuget.codeplex.com/workitem/180)
@@ -190,22 +190,22 @@ Im folgenden finden Sie eine Liste der Features und Fehler, die für nuget CTP 2
 * ["Pthresolver" sollte den Pfad Teil vor den Platzhalter Zeichen verwerfen, wenn "target" angegeben ist](http://nuget.codeplex.com/workitem/183)
 * [Keine Abhängigkeiten](http://nuget.codeplex.com/workitem/186)
 * [Fehler beim Installieren von ELMAH.](http://nuget.codeplex.com/workitem/192)
-* [Konfigurations Transformationen funktionieren nicht ordnungsgemäß mit &lt;configabschnitts&gt;](http://nuget.codeplex.com/workitem/194)
+* [Konfigurations Transformationen funktionieren in configabschnitte nicht ordnungsgemäß. &lt;&gt;](http://nuget.codeplex.com/workitem/194)
 * [Die Variable "$Global:p rojectcache" kann nicht abgerufen werden, da Sie nicht festgelegt wurde.](http://nuget.codeplex.com/workitem/203)
 * [MSBuild-Aufgabe zum Erstellen von nupack-Paketen hinzufügen](http://nuget.codeplex.com/workitem/205)
 * [List-Package muss suchen/Filtern unterstützen](http://nuget.codeplex.com/workitem/206)
 * [Immer einen Link zur Lizenz anzeigen, wenn der Paket Ersteller eine Lizenz-URL bereitstellt](http://nuget.codeplex.com/workitem/208)
 * [Gelegentliche Ausnahme "Zugriff verweigert" mit Remove-Package](http://nuget.codeplex.com/workitem/213)
-* [Fehler bei Komponenten Tests: invalidpackageisexcludidfromfeeditems &amp; "featingfeedconvertspackagestoatomentries"](http://nuget.codeplex.com/workitem/214)
+* [Fehler bei Komponenten Tests: invalidpackageisexclutodfromfeeditems " &amp; foratingfeedconvertspackagestoatomentries"](http://nuget.codeplex.com/workitem/214)
 * [Hiermit wird ein Fallback/default-Satz von Dateien zugelassen, wenn eine bestimmtes runas Framework-Version nicht gefunden werden kann.](http://nuget.codeplex.com/workitem/223)
 * [Paket Verweis hinzufügen... Benutzeroberfläche kann ein Paket nicht entfernen.](http://nuget.codeplex.com/workitem/225)
 * [Paket Verweis hinzufügen stürzt Studio ab, wenn ein oder mehrere Projekte entladen werden](http://nuget.codeplex.com/workitem/228)
-* [Die Konfigurations Transformation funktioniert nicht in der Datei "Web. Debug. config".](http://nuget.codeplex.com/workitem/229)
-* [init. ps1 wird nicht für benutzerdefiniertes Paket ausgelöst.](http://nuget.codeplex.com/workitem/237)
+* [Die Konfigurations Transformation scheint nicht für web.debug.config Datei zu funktionieren.](http://nuget.codeplex.com/workitem/229)
+* [init.ps1 wird nicht für benutzerdefiniertes Paket ausgelöst.](http://nuget.codeplex.com/workitem/237)
 * [Wenn Sie der feedlist Pfade hinzufügen, wird die Standard Schaltfläche auf OK festgelegt, sodass beim Drücken der EINGABETASTE automatisch geschlossen wird.](http://nuget.codeplex.com/workitem/240)
 * [Der Versuch, eine Abhängigkeit zu deinstallieren, stürzt im Vergleich zu zwei Mal in einer Zeile ab.](http://nuget.codeplex.com/workitem/241)
 * [Anzeigen der Projekt-URL im Dialogfeld "Paket hinzufügen"](http://nuget.codeplex.com/workitem/253)
-* [Standardmäßiges Dialogfeld "Add-Package" zu installierten Paketen](http://nuget.codeplex.com/workitem/254)
+* [Standard-Dialogfeld "Add-Package" zu installierten Paketen](http://nuget.codeplex.com/workitem/254)
 * [Ändern Sie das Menü Element Paket hinzufügen.](http://nuget.codeplex.com/workitem/261)
 * [Umbenennen von Namespaces und Assemblys](http://nuget.codeplex.com/workitem/274)
 * [Umbenennen des nupack-Projekts in nuget](http://nuget.codeplex.com/workitem/282)
@@ -214,7 +214,7 @@ Im folgenden finden Sie eine Liste der Features und Fehler, die für nuget CTP 2
 * [Ändern Sie den Text im Dialog Feld "Lizenz Annahme" oberhalb der Liste der Pakete.](http://nuget.codeplex.com/workitem/292)
 * [Odata funktioniert nicht mit einer URL für den URL-Link](http://nuget.codeplex.com/workitem/304)
 * [Benutzeroberfläche des Paket-Managers: über aggressives Zwischenspeichern der für das Paging verwendeten Paket Anzahl](http://nuget.codeplex.com/workitem/317)
-* [Nupack-/nuget-&gt; Paket-Manager-Konsolen Fehler](http://nuget.codeplex.com/workitem/335)
+* [Fehler bei nupack/nuget- &gt; Paket-Manager-Konsole](http://nuget.codeplex.com/workitem/335)
 * [Dialog Feld "Paket hinzufügen" zeigt die Lizenz Annahme für bereits installierte Pakete](http://nuget.codeplex.com/workitem/336)
 
 ## <a name="ctp-1"></a>CTP 1
@@ -223,8 +223,8 @@ Im folgenden finden Sie eine Liste der Features und Fehler, die für nuget CTP 1
 
 * [Die Paket Erweiterung sollte in. nupack umbenannt werden.](http://nuget.codeplex.com/workitem/1)
 * [Paketdatei in Ordner verschieben](http://nuget.codeplex.com/workitem/2)
-* [Merge-Installation &amp; Hinzufügen von PS-Befehlen](http://nuget.codeplex.com/workitem/3)
-* [Erstellen von Aliasen für Verb-Substantiv-Cmdlets](http://nuget.codeplex.com/workitem/4)
+* [Merge install &amp; Add PS-Befehle](http://nuget.codeplex.com/workitem/3)
+* [Erstellen von Aliasen für Verb-Noun-Cmdlets](http://nuget.codeplex.com/workitem/4)
 * [Nupack wird beim Wechseln der Projekt Mappe in vs verwechselt](http://nuget.codeplex.com/workitem/6)
 * [Der Projektmappenordner "Packages" sollte standardmäßig ausgeblendet werden.](http://nuget.codeplex.com/workitem/11)
 * [Fügen Sie Unterstützung für die Tokenersetzung in Inhalts Elementen hinzu.](http://nuget.codeplex.com/workitem/12)
@@ -233,10 +233,10 @@ Im folgenden finden Sie eine Liste der Features und Fehler, die für nuget CTP 1
 * [Beim Löschen des Standard Projekts aus der Projekt Mappe wird das gelöschte Projekt weiterhin als Standard angezeigt](http://nuget.codeplex.com/workitem/30)
 * [New-Package schlägt mit "der Teil kann nicht für den angegebenen URI hinzugefügt werden, da er bereits im Paket enthalten ist" fehl.](http://nuget.codeplex.com/workitem/32)
 * [Entfernen von nupack-Zeichen folgen aus Visual Studio GUI](http://nuget.codeplex.com/workitem/35)
-* [Hinzufügen eines Apache-Headers zu einer Copyright. txt-Datei](http://nuget.codeplex.com/workitem/36)
-* [Befehl "Update-packagesource" entfernen](http://nuget.codeplex.com/workitem/37)
+* [Apache-Header zu einer COPYRIGHT.txt Datei hinzufügen](http://nuget.codeplex.com/workitem/36)
+* [Update-PackageSource Befehl entfernen](http://nuget.codeplex.com/workitem/37)
 * [Beim Laden des Profils nicht verwendbar Paket-Manager löst eine Ausnahme aus](http://nuget.codeplex.com/workitem/39)
-* ["init. ps1", "install. ps1" und "Uninstall. ps1" müssen einen zusätzlichen Status erhalten.](http://nuget.codeplex.com/workitem/41)
+* [init.ps1, install.ps1 und uninstall.ps1 müssen einen zusätzlichen Zustand erhalten.](http://nuget.codeplex.com/workitem/41)
 * [Kombinieren von Konsolen-und GUI-Paketen zu einem Paket](http://nuget.codeplex.com/workitem/42)
 * [XML-Transformations Logik funktioniert nicht, wenn Sie auf XML angewendet wird, das nicht im Stammverzeichnis ist](http://nuget.codeplex.com/workitem/43)
 * [Dialogfeld "Paketquellen Einstellungen verwalten" aktualisiert die nupack-Konsole nicht](http://nuget.codeplex.com/workitem/44)
@@ -262,8 +262,8 @@ Im folgenden finden Sie eine Liste der Features und Fehler, die für nuget CTP 1
 * [Warum-Version für Remove-Package](http://nuget.codeplex.com/workitem/113)
 * [Entfernen der Registerkarte "aktuell" in der Dialog Feld Oberfläche](http://nuget.codeplex.com/workitem/115)
 * [VS Absturz, wenn Sie mit der rechten Maustaste auf den Projektmappenordner klicken, nachdem Sie mindestens einen Dialog Feld](http://nuget.codeplex.com/workitem/126)
-* [Ändern Sie den-local-Parameter von List-Package in-installiert.](http://nuget.codeplex.com/workitem/129)
-* [Benennen Sie Packages. XML in "nupack. config" um.](http://nuget.codeplex.com/workitem/132)
+* [Ändern Sie den-local-Parameter von List-Package in-installiert](http://nuget.codeplex.com/workitem/129)
+* [Umbenennen von packages.xml in NuPack.config](http://nuget.codeplex.com/workitem/132)
 * [Die Konsole erzwingt den Cursor bis zum Ende der Zeile.](http://nuget.codeplex.com/workitem/135)
 * [Remove-Package IntelliSense ist beschädigt.](http://nuget.codeplex.com/workitem/136)
 * [Requirelicenseacceptance-Flag zu. nuspec und Feed hinzufügen](http://nuget.codeplex.com/workitem/137)

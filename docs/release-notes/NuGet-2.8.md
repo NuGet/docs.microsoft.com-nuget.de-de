@@ -1,16 +1,16 @@
 ---
 title: Anmerkungen zu dieser Version von nuget 2,8
 description: Anmerkungen zu dieser Version von nuget 2,8 einschließlich bekannter Probleme, Fehlerbehebungen, hinzugefügter Features und dcrs.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 98b8b7334738306e6d40ba7c455409a87c4bb822
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: cb77cf0f049b5b3cfe1039d83ab58e33457674bf
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237020"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776713"
 ---
 # <a name="nuget-28-release-notes"></a>Anmerkungen zu dieser Version von nuget 2,8
 
@@ -42,15 +42,17 @@ Nuget 2,8 wurde am 29. Januar 2014 veröffentlicht.
 
 ## <a name="patch-resolution-for-dependencies"></a>Patchauflösung für Abhängigkeiten
 
-Beim Auflösen von Paketabhängigkeiten hat nuget in der Vergangenheit eine Strategie zum Auswählen der niedrigsten Haupt-und neben Paketversion implementiert, die die Abhängigkeiten des Pakets erfüllt. Anders als bei der Haupt-und neben Version wurde die Patchversion jedoch immer auf die höchste Version aufgelöst. Obwohl das Verhalten wohl gemeint war, wurde für die Installation von Paketen mit Abhängigkeiten ein fehlender Determinismus geschaffen. Betrachten Sie das folgenden Beispiel:
+Beim Auflösen von Paketabhängigkeiten hat nuget in der Vergangenheit eine Strategie zum Auswählen der niedrigsten Haupt-und neben Paketversion implementiert, die die Abhängigkeiten des Pakets erfüllt. Anders als bei der Haupt-und neben Version wurde die Patchversion jedoch immer auf die höchste Version aufgelöst. Obwohl das Verhalten wohl gemeint war, wurde für die Installation von Paketen mit Abhängigkeiten ein fehlender Determinismus geschaffen. Betrachten Sie das folgende Beispiel:
 
-    PackageA@1.0.0 -[ >=1.0.0 ]-> PackageB@1.0.0
+```
+PackageA@1.0.0 -[ >=1.0.0 ]-> PackageB@1.0.0
 
-    Developer1 installs PackageA@1.0.0: installed PackageA@1.0.0 and PackageB@1.0.0
+Developer1 installs PackageA@1.0.0: installed PackageA@1.0.0 and PackageB@1.0.0
 
-    PackageB@1.0.1 is published
+PackageB@1.0.1 is published
 
-    Developer2 installs PackageA@1.0.0: installed PackageA@1.0.0 and PackageB@1.0.1
+Developer2 installs PackageA@1.0.0: installed PackageA@1.0.0 and PackageB@1.0.1
+```
 
 In diesem Beispiel hat die Installation von Developer1 und Developer2 PackageA@1.0.0 jeweils eine andere Version von packageb. Mit nuget 2,8 wird dieses Standardverhalten geändert, sodass das Verhalten der Abhängigkeitsauflösung für Patchversionen mit dem Verhalten für die Haupt-und neben Versionen konsistent ist. Im obigen Beispiel PackageB@1.0.0 wird dann als Ergebnis der Installation von installiert PackageA@1.0.0 , unabhängig von der neueren Patchversion.
 
@@ -64,24 +66,28 @@ Obwohl nuget 2,8 das _Standard_ Verhalten für das Auflösen von Abhängigkeiten
 
 Zusätzlich zum oben beschriebenen Schalter "-dependencyversion" hat nuget auch die Möglichkeit, ein neues Attribut in der Nuget.Config Datei festzulegen, die den Standardwert definiert, wenn der Schalter "-dependencyversion" bei einem Aufruf von "Install-Package" nicht angegeben ist. Dieser Wert wird auch vom Dialog Feld nuget-Paket-Manager für alle Installationspaket Vorgänge beachtet. Um diesen Wert festzulegen, fügen Sie das unten angegebene-Attribut ihrer Nuget.Config-Datei hinzu:
 
-    <config>
-        <add key="dependencyversion" value="Highest" />
-    </config>
+```xml
+<config>
+    <add key="dependencyversion" value="Highest" />
+</config>
+```
 
 ## <a name="preview-nuget-operations-with--whatif"></a>Vorschau von nuget-Vorgängen mit-WhatIf
 
 Einige nuget-Pakete können über Deep-Abhängigkeits Diagramme verfügen. Daher kann es bei einem Installations-, Deinstallations-oder Update Vorgang hilfreich sein, um zuerst zu sehen, was passiert. Nuget 2,8 fügt den standardmäßigen PowerShell-WhatIf-Switch zu den Befehlen install-Package, uninstall-Package und Update-Package hinzu, um die Visualisierung des gesamten Abschlusses von Paketen zu ermöglichen, auf die der Befehl angewendet wird. Beispielsweise `install-package Microsoft.AspNet.WebApi -whatif` ergibt die Ausführung in einer leeren ASP.NET-Webanwendung Folgendes:
 
-    PM> install-package Microsoft.AspNet.WebApi -whatif
-    Attempting to resolve dependency 'Microsoft.AspNet.WebApi.WebHost (≥ 5.0.0)'.
-    Attempting to resolve dependency 'Microsoft.AspNet.WebApi.Core (≥ 5.0.0)'.
-    Attempting to resolve dependency 'Microsoft.AspNet.WebApi.Client (≥ 5.0.0)'.
-    Attempting to resolve dependency 'Newtonsoft.Json (≥ 4.5.11)'.
-    Install Newtonsoft.Json 4.5.11
-    Install Microsoft.AspNet.WebApi.Client 5.0.0
-    Install Microsoft.AspNet.WebApi.Core 5.0.0
-    Install Microsoft.AspNet.WebApi.WebHost 5.0.0
-    Install Microsoft.AspNet.WebApi 5.0.0
+```
+PM> install-package Microsoft.AspNet.WebApi -whatif
+Attempting to resolve dependency 'Microsoft.AspNet.WebApi.WebHost (≥ 5.0.0)'.
+Attempting to resolve dependency 'Microsoft.AspNet.WebApi.Core (≥ 5.0.0)'.
+Attempting to resolve dependency 'Microsoft.AspNet.WebApi.Client (≥ 5.0.0)'.
+Attempting to resolve dependency 'Newtonsoft.Json (≥ 4.5.11)'.
+Install Newtonsoft.Json 4.5.11
+Install Microsoft.AspNet.WebApi.Client 5.0.0
+Install Microsoft.AspNet.WebApi.Core 5.0.0
+Install Microsoft.AspNet.WebApi.WebHost 5.0.0
+Install Microsoft.AspNet.WebApi 5.0.0
+```
 
 ## <a name="downgrade-package"></a>Paket herabstufen
 
@@ -101,12 +107,14 @@ Beim Entwickeln von Anwendungen für mehrere Zielplattformen ist es üblich, das
 
 Obwohl nuget-Pakete in der Regel aus einem Remote Katalog wie [dem nuget](http://www.nuget.org/) -Katalog über eine Netzwerkverbindung genutzt werden, gibt es viele Szenarios, in denen der Client nicht verbunden ist. Ohne eine Netzwerkverbindung konnte der nuget-Client Pakete nicht erfolgreich installieren, auch wenn sich diese Pakete bereits auf dem Client Computer im lokalen nuget-Cache befanden. Nuget 2,8 fügt der Paket-Manager-Konsole einen automatischen Fall Back für den Cache hinzu. Wenn Sie z. b. die Verbindung zwischen dem Netzwerkadapter und der jQuery-Installation trennen, wird in der-Konsole Folgendes angezeigt:
 
-    PM> Install-Package jquery
-    The source at nuget.org [https://www.nuget.org/api/v2/] is unreachable. Falling back to NuGet Local Cache at C:\Users\me\AppData\Local\NuGet\Cache
-    Installing 'jQuery 2.0.3'.
-    Successfully installed 'jQuery 2.0.3'.
-    Adding 'jQuery 2.0.3' to WebApplication18.
-    Successfully added 'jQuery 2.0.3' to WebApplication18.
+```
+PM> Install-Package jquery
+The source at nuget.org [https://www.nuget.org/api/v2/] is unreachable. Falling back to NuGet Local Cache at C:\Users\me\AppData\Local\NuGet\Cache
+Installing 'jQuery 2.0.3'.
+Successfully installed 'jQuery 2.0.3'.
+Adding 'jQuery 2.0.3' to WebApplication18.
+Successfully added 'jQuery 2.0.3' to WebApplication18.
+```
 
 Das Cache Fall Back Feature erfordert keine bestimmten Befehlsargumente. Außerdem funktioniert der Cache Fall Back zurzeit nur in der Paket-Manager-Konsole. das Verhalten funktioniert derzeit nicht im Dialogfeld Paket-Manager.
 

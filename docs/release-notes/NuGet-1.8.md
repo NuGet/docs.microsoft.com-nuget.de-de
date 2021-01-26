@@ -1,16 +1,16 @@
 ---
 title: Anmerkungen zu dieser Version von nuget 1,8
 description: Anmerkungen zu dieser Version von nuget 1,8 einschließlich bekannter Probleme, Fehlerbehebungen, hinzugefügter Features und dcrs.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 9d55534ffe765137731b7fbf4be4bbaa618c769c
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 8dd0fff88424c516d8b894412d07dcc53af19265
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93236838"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777111"
 ---
 # <a name="nuget-18-release-notes"></a>Anmerkungen zu dieser Version von nuget 1,8
 

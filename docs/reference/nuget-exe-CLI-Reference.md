@@ -1,16 +1,16 @@
 ---
-title: Referenz zur nuget-Befehlszeilenschnittstelle (CLI)
+title: Referenz zur nuget-Command-Line Schnittstelle (CLI)
 description: Referenzindex der Befehlszeile für die nuget.exe CLI
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/23/2018
 ms.topic: reference
-ms.openlocfilehash: e9343f1fdddcf839322849925372587e685aef4a
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: a9a5fc4d3b1e0f19fa3ea249ca7759c8ebc2d12e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623148"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777698"
 ---
 # <a name="nuget-cli-reference"></a>Verweis auf NuGet-CLI
 
@@ -68,7 +68,7 @@ Verschiedene Befehle verwenden verschiedene [Umgebungsvariablen](cli-reference/c
 
 Nuget-CLI-Befehle nach anwendbaren Rollen:
 
-| Role | Befehle |
+| Rolle | Befehle |
 | --- | --- |
 | Nutzung | `config`, `help`, `install`, `list`, `locals`, `restore`, `search`, `setapikey`, `sources`, `update` |
 | Erstellung | `config`, `help`, `init`, `pack`, `spec` |

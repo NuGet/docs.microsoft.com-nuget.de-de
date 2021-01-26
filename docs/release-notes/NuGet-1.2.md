@@ -1,16 +1,16 @@
 ---
 title: Anmerkungen zu dieser Version von nuget 1,2
 description: Anmerkungen zu dieser Version von nuget 1,2 einschließlich bekannter Probleme, Fehlerbehebungen, hinzugefügter Features und dcrs.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 5d10d6bf27614980a144c30c3af6f9892a109061
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: af2248a41800f7641be9b77d7bb72e2a94d4ce47
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237184"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777201"
 ---
 # <a name="nuget-12-release-notes"></a>Anmerkungen zu dieser Version von nuget 1,2
 
@@ -42,7 +42,7 @@ Diese Assemblys sind nicht in Ihrem Paket enthalten, da davon ausgegangen wird, 
 
 |attribute |BESCHREIBUNG|
 |----------------|-----------|
-|**assemblyName**|*Erforderlich* . Der Name der Assembly, z `System.Net` . b..|
+|**assemblyName**|*Erforderlich*. Der Name der Assembly, z `System.Net` . b..|
 |**targetFramework**|*Optional:* Ermöglicht das Angeben eines Frameworks und Profil namens (oder Alias), auf den diese FrameworkAssembly angewendet wird, z. b. "net40" oder "SL4". Verwendet das gleiche Format wie bei der [Unterstützung mehrerer Ziel-Frameworks](../create-packages/supporting-multiple-target-frameworks.md).|
 
 ```xml
@@ -65,6 +65,6 @@ Die vorherige Liste war das auffälligste der zahlreichen Features, die wir impl
 
 ## <a name="known-issues"></a>Bekannte Probleme
 
-* **1,2 Paket Inkompatibilität** : mit der neuesten Version des Befehlszeilen Tools, nuget.exe (> 1,2) erstellten Paketen, funktionieren nicht mit älteren Versionen des nuget-vs-Add-Ins (z. b. 1,1). Wenn eine Fehlermeldung angezeigt wird, die etwas über ein nicht kompatibles Schema angibt, wird dieser Fehler angezeigt. Aktualisieren Sie nuget auf die neueste Version.
-* " **Nuget. Server" Inkompatibilität** : Wenn Sie einen internen nuget-Feed mit dem nuget. Server-Projekt verwenden, müssen Sie das Projekt mit der aktuellen Version von "nuget. Server" aktualisieren.
-* **Fehler beim Signieren von Signaturen** : Wenn bei einem Upgrade ein Fehler auftritt, bei dem eine Meldung zu einer Signatur nicht übereinstimmt, müssen Sie zuerst nuget deinstallieren und dann installieren. Dies wird auf der [Seite "bekannte Probleme](../release-notes/known-issues.md) " aufgeführt, die weitere Details enthält. Das Problem betrifft nur diejenigen, die Visual Studio 2010 SP1 ausführen und eine Version von nuget 1,0 installiert haben, die falsch signiert wurde. Diese Version wurde nur für einen kurzen Zeitraum von der CodePlex-Website zur Verfügung gestellt, sodass dieses Problem nicht zu viele Personen betreffen sollte.
+* **1,2 Paket Inkompatibilität**: mit der neuesten Version des Befehlszeilen Tools, nuget.exe (> 1,2) erstellten Paketen, funktionieren nicht mit älteren Versionen des nuget-vs-Add-Ins (z. b. 1,1). Wenn eine Fehlermeldung angezeigt wird, die etwas über ein nicht kompatibles Schema angibt, wird dieser Fehler angezeigt. Aktualisieren Sie nuget auf die neueste Version.
+* " **Nuget. Server" Inkompatibilität**: Wenn Sie einen internen nuget-Feed mit dem nuget. Server-Projekt verwenden, müssen Sie das Projekt mit der aktuellen Version von "nuget. Server" aktualisieren.
+* **Fehler beim Signieren von Signaturen**: Wenn bei einem Upgrade ein Fehler auftritt, bei dem eine Meldung zu einer Signatur nicht übereinstimmt, müssen Sie zuerst nuget deinstallieren und dann installieren. Dies wird auf der [Seite "bekannte Probleme](../release-notes/known-issues.md) " aufgeführt, die weitere Details enthält. Das Problem betrifft nur diejenigen, die Visual Studio 2010 SP1 ausführen und eine Version von nuget 1,0 installiert haben, die falsch signiert wurde. Diese Version wurde nur für einen kurzen Zeitraum von der CodePlex-Website zur Verfügung gestellt, sodass dieses Problem nicht zu viele Personen betreffen sollte.

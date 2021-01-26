@@ -1,16 +1,16 @@
 ---
 title: nuget.exe von Anmelde Informationsanbietern
 description: nuget.exe Anmelde Informationsanbieter authentifizieren sich mit einem-Feed und werden als ausführbare Befehlszeilen Dateien implementiert, die bestimmten Konventionen folgen.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 41e3e63138351bafd5e3a56080268faef10d85a3
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 285504508fa88c96f5c7a23f15ef14d81ebc21e1
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238113"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777768"
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>Authentifizieren von Feeds mit nuget.exe Anmelde Informationsanbietern
 
@@ -22,11 +22,11 @@ Weitere Informationen zu allen Authentifizierungs Ansätzen für finden Sie unte
 
 nuget.exe Anmelde Informationsanbieter können auf drei Arten verwendet werden:
 
-- **Global** : um einen Anmelde Informationsanbieter für alle Instanzen von zur Verfügung zu stellen `nuget.exe` , die unter dem Profil des aktuellen Benutzers ausgeführt werden, fügen Sie ihn zu hinzu `%LocalAppData%\NuGet\CredentialProviders` . Möglicherweise müssen Sie den `CredentialProviders` Ordner erstellen. Anmelde Informationsanbieter können im Stammverzeichnis des `CredentialProviders`  Ordners oder innerhalb eines unter Ordners installiert werden. Wenn ein Anmelde Informationsanbieter über mehrere Dateien/Assemblys verfügt, können Sie Unterordner verwenden, um die Anbieter zu organisieren.
+- **Global**: um einen Anmelde Informationsanbieter für alle Instanzen von zur Verfügung zu stellen `nuget.exe` , die unter dem Profil des aktuellen Benutzers ausgeführt werden, fügen Sie ihn zu hinzu `%LocalAppData%\NuGet\CredentialProviders` . Möglicherweise müssen Sie den `CredentialProviders` Ordner erstellen. Anmelde Informationsanbieter können im Stammverzeichnis des `CredentialProviders`  Ordners oder innerhalb eines unter Ordners installiert werden. Wenn ein Anmelde Informationsanbieter über mehrere Dateien/Assemblys verfügt, können Sie Unterordner verwenden, um die Anbieter zu organisieren.
 
-- **Aus einer Umgebungsvariablen** : Anmelde Informationsanbieter können an einem beliebigen Speicherort gespeichert und zugänglich gemacht werden, `nuget.exe` indem die `%NUGET_CREDENTIALPROVIDERS_PATH%` Umgebungsvariable auf den Speicherort des Anbieters festgelegt wird. Bei dieser Variablen kann es sich um eine durch Semikolons getrennte Liste (z `path1;path2` . b.) handeln, wenn mehrere Standorte vorhanden sind.
+- **Aus einer Umgebungsvariablen**: Anmelde Informationsanbieter können an einem beliebigen Speicherort gespeichert und zugänglich gemacht werden, `nuget.exe` indem die `%NUGET_CREDENTIALPROVIDERS_PATH%` Umgebungsvariable auf den Speicherort des Anbieters festgelegt wird. Bei dieser Variablen kann es sich um eine durch Semikolons getrennte Liste (z `path1;path2` . b.) handeln, wenn mehrere Standorte vorhanden sind.
 
-- **Neben nuget.exe** : nuget.exe Anmelde Informationsanbieter können im selben Ordner abgelegt werden wie `nuget.exe` .
+- **Neben nuget.exe**: nuget.exe Anmelde Informationsanbieter können im selben Ordner abgelegt werden wie `nuget.exe` .
 
 Beim Laden von Anmelde Informationsanbietern `nuget.exe` durchsucht die oben aufgeführten Speicherorte für jede Datei mit dem Namen in der Reihenfolge, `credentialprovider*.exe` in der Sie gefunden wurden. Wenn sich mehrere Anmelde Informationsanbieter im selben Ordner befinden, werden Sie in alphabetischer Reihenfolge geladen.
 
@@ -70,9 +70,11 @@ Ein Anbieter muss folgende Aktionen ausführen:
 
 Beispiel: stdout:
 
-    { "Username" : "freddy@example.com",
-      "Password" : "bwm3bcx6txhprzmxhl2x63mdsul6grctazoomtdb6kfbof7m3a3z",
-      "Message"  : "" }
+```
+{ "Username" : "freddy@example.com",
+    "Password" : "bwm3bcx6txhprzmxhl2x63mdsul6grctazoomtdb6kfbof7m3a3z",
+    "Message"  : "" }
+```
 
 ## <a name="troubleshooting-a-credential-provider"></a>Problembehandlung bei einem Anmelde Informationsanbieter
 
