@@ -10,19 +10,19 @@ ms.technology: ''
 description: Der Veröffentlichungs Dienst ermöglicht Clients das Veröffentlichen neuer Symbol Pakete.
 keywords: Nuget-API-Push-Symbol Paket
 ms.reviewer: karann
-ms.openlocfilehash: bd4a10cc976c9d0775a63cfe61c35327c196065c
-ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
+ms.openlocfilehash: 91bb4c9ca77fd7f1ff35831e02eb4f9d65d641c5
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738876"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98773890"
 ---
 # <a name="push-symbol-packages"></a>Push-Symbol Pakete
 
 Es ist möglich, Symbol Pakete ([snupkg](../create-packages/Symbol-Packages-snupkg.md)) mithilfe der nuget-V3-API per Push zu übermitteln.
 Diese Vorgänge basieren auf der Ressource, die `SymbolPackagePublish` im [Dienst Index](service-index.md)gefunden wurde.
 
-## <a name="versioning"></a>Versionskontrolle
+## <a name="versioning"></a>Versionsverwaltung
 
 Der folgende `@type` Wert wird verwendet:
 
@@ -42,7 +42,9 @@ Die `PUT` http-Methode wird von dieser Ressource unterstützt.
 
 nuget.org unterstützt das Pushen des neuen Symbol Paket Formats ([snupkg](../create-packages/Symbol-Packages-snupkg.md)) mithilfe der folgenden API. 
 
-    PUT https://www.nuget.org/api/v2/symbolpackage
+```
+PUT https://www.nuget.org/api/v2/symbolpackage
+```
 
 Symbol Pakete mit derselben ID und Version können mehrmals übermittelt werden. Ein Symbol Paket wird in den folgenden Fällen zurückgewiesen.
 - Ein Paket mit derselben ID und Version ist nicht vorhanden.
@@ -51,7 +53,7 @@ Symbol Pakete mit derselben ID und Version können mehrmals übermittelt werden.
 
 ### <a name="request-parameters"></a>Anforderungsparameter
 
-Name           | In     | type   | Erforderlich | Notizen
+Name           | In     | Typ   | Erforderlich | Notizen
 -------------- | ------ | ------ | -------- | -----
 X-nuget-APIKey | Header | Zeichenfolge | ja      | Zum Beispiel, `X-NuGet-ApiKey: {USER_API_KEY}`
 

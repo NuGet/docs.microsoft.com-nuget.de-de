@@ -1,115 +1,121 @@
 ---
-title: Mithilfe von Push übertragen Sie und zu löschen Sie, NuGet-API
-description: Publish-Diensts kann Clients Veröffentlichen neuer Pakete und aus der Liste entfernen oder löschen vorhandene Pakete an.
+title: Push und DELETE, nuget-API
+description: Der Veröffentlichungs Dienst ermöglicht es Clients, neue Pakete zu veröffentlichen und vorhandene Pakete zu entfernen oder zu löschen.
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 6e81055796e20186c5769d2ec39849e6c551ff87
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 0a79266011433d5adc1341a8e250838988c84d13
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426723"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98773921"
 ---
-# <a name="push-and-delete"></a>Mithilfe von Push übertragen und löschen
+# <a name="push-and-delete"></a>Push und DELETE
 
-Es ist möglich, mithilfe von Push übertragen, löschen (oder aus der Liste entfernen, je nach serverimplementierung), und stellen Sie Pakete mithilfe der NuGet-API V3. Diese Vorgänge sind basierend auf den `PackagePublish` Ressource finden Sie in der [dienstindex](service-index.md).
+Es ist möglich, abhängig von der Server Implementierung Push, DELETE (oder die Auflistung aufzuheben) und Pakete mit der nuget-V3-API zu wiederholen. Diese Vorgänge basieren auf der Ressource, die `PackagePublish` im [Dienst Index](service-index.md)gefunden wurde.
 
-## <a name="versioning"></a>Versionskontrolle
+## <a name="versioning"></a>Versionsverwaltung
 
-Die folgenden `@type` Wert wird verwendet:
+Der folgende `@type` Wert wird verwendet:
 
-@type -Wert          | Hinweise
+Wert vom Typ @type          | Hinweise
 -------------------- | -----
-PackagePublish/2.0.0 | Die erste Version
+Packagepublish/2.0.0 | Die erste Version
 
 ## <a name="base-url"></a>Basis-URL
 
-Die base-URL für die folgenden APIs ist der Wert des der `@id` Eigenschaft der `PackagePublish/2.0.0` Ressource in der Paketquelle [dienstindex](service-index.md). Die folgende Dokumentation dient Nuget.org URL. Betrachten Sie `https://www.nuget.org/api/v2/package` als Platzhalter für die `@id` Wert in der dienstindex gefunden.
+Die Basis-URL für die folgenden APIs ist der Wert der `@id` -Eigenschaft der `PackagePublish/2.0.0` Ressource im [Dienst Index](service-index.md)der Paketquelle. In der nachfolgenden Dokumentation wird die URL von "nuget. org" verwendet. Beachten Sie `https://www.nuget.org/api/v2/package` als Platzhalter für den `@id` Wert, der im Dienst Index gefunden wurde.
 
-Beachten Sie, dass diese URL, am gleichen Speicherort wie die legacy-V2-Push-Endpunkt, verweist da das Protokoll identisch ist.
+Beachten Sie, dass diese URL auf denselben Speicherort wie der Legacy-v2-Push-Endpunkt verweist, da das Protokoll identisch ist.
 
 ## <a name="http-methods"></a>HTTP-Methoden
 
-Die `PUT`, `POST` und `DELETE` HTTP-Methoden werden durch diese Ressource unterstützt. Welche Methoden für jeden Endpunkt unterstützt werden finden Sie unten.
+Die `PUT` `POST` http- `DELETE` Methoden, und werden von dieser Ressource unterstützt. Informationen dazu, welche Methoden an jedem Endpunkt unterstützt werden, finden Sie unten.
 
-## <a name="push-a-package"></a>Ein Paket mithilfe von Push übertragen
+## <a name="push-a-package"></a>Pushen eines Pakets
 
 > [!Note]
-> "NuGet.org" verfügt über [zusätzliche Anforderungen](NuGet-Protocols.md) für die Interaktion mit der Push-Endpunkt.
+> nuget.org hat [zusätzliche Anforderungen](NuGet-Protocols.md) für die Interaktion mit dem Push-Endpunkt.
 
-NuGet.org unterstützt Ablegevorgänge neuer Pakete mithilfe der folgenden-API. Wenn das Paket mit der angegebenen ID und Version bereits vorhanden ist, lehnt nuget.org den Push. Anderen Paketquellen unterstützen möglicherweise das Ersetzen eines vorhandenen Pakets.
+nuget.org unterstützt das pushen neuer Pakete mithilfe der folgenden API. Wenn das Paket mit der angegebenen ID und Version bereits vorhanden ist, lehnt nuget.org den Push ab. Andere Paketquellen unterstützen möglicherweise das Ersetzen vorhandener Pakete.
 
-    PUT https://www.nuget.org/api/v2/package
+```
+PUT https://www.nuget.org/api/v2/package
+```
 
 ### <a name="request-parameters"></a>Anforderungsparameter
 
-name           | In     | Typ   | Erforderlich | Hinweise
+Name           | In     | Typ   | Erforderlich | Notizen
 -------------- | ------ | ------ | -------- | -----
-X-NuGet-ApiKey | Header | String | ja      | Beispiel: `X-NuGet-ApiKey: {USER_API_KEY}`
+X-nuget-APIKey | Header | Zeichenfolge | ja      | Zum Beispiel, `X-NuGet-ApiKey: {USER_API_KEY}`
 
-Die API-Schlüssel ist eine nicht transparente Zeichenfolge, aus der Paketquelle vom Benutzer abgerufen und in den Client konfiguriert. Kein besonderes Zeichenfolgenformat wird vorgeschrieben, aber der API-Schlüssel sollte nicht länger als eine angemessene Größe für HTTP-Headerwerte.
+Der API-Schlüssel ist eine nicht transparente Zeichenfolge, die vom Benutzer aus der Paketquelle abgerufen und für den Client konfiguriert wurde. Es ist kein bestimmtes Zeichen folgen Format vorgeschrieben, aber die Länge des API-Schlüssels sollte keine angemessene Größe für HTTP-Header Werte überschreiten.
 
 ### <a name="request-body"></a>Anforderungstext
 
-Der Anforderungstext muss in der folgenden Form stehen:
+Der Anforderungs Text muss in der folgenden Form angezeigt werden:
 
 #### <a name="multipart-form-data"></a>Mehrteilige Formulardaten
 
-Der Anforderungsheader `Content-Type` ist `multipart/form-data` und das erste Element im Hauptteil Anforderung ist die unformatierten Bytes des der NUPKG-Datei mithilfe von Push übertragen wird. Nachfolgende Elemente in den mehrteiligen Text werden ignoriert. Der Dateiname oder anderen Header der mehrteiligen Elemente werden ignoriert.
+Der Anforderungs Header `Content-Type` ist `multipart/form-data` , und das erste Element im Anforderungs Text ist die unformatierten Bytes der. nupkg-Datei, die per pushübertragung durchgesetzt wird. Nachfolgende Elemente im mehrteiligen Textkörper werden ignoriert. Der Dateiname oder andere Header der mehrteiligen Elemente werden ignoriert.
 
 ### <a name="response"></a>Antwort
 
 Statuscode | Bedeutung
 ----------- | -------
-201, 202    | Das Paket wurde erfolgreich per Push übertragen
+201, 202    | Das Paket wurde erfolgreich übermittelt.
 400         | Das angegebene Paket ist ungültig.
 409         | Ein Paket mit der angegebenen ID und Version ist bereits vorhanden.
 
-Serverimplementierungen unterscheiden sich auf den Statuscode für Erfolg zurückgegeben, wenn ein Paket wurde erfolgreich per Push übertragen wird.
+Server Implementierungen variieren dem Erfolgsstatus Code, der zurückgegeben wird, wenn ein Paket erfolgreich übermittelt wurde.
 
 ## <a name="delete-a-package"></a>Löschen eines Pakets
 
-"NuGet.org" interpretiert, die Paket-Delete-Anforderung als eine "Auflistung aufheben". Dies bedeutet, dass das Paket noch für vorhandene Benutzer des Pakets verfügbar ist, aber das Paket nicht mehr angezeigt, in den Suchergebnissen oder in der Webschnittstelle wird. Weitere Informationen zu dieser Vorgehensweise finden Sie unter den [Pakete gelöscht](../nuget-org/policies/deleting-packages.md) Richtlinie. Andere serverimplementierungen können dieses Signal als ein hartes löschen interpretieren, vorläufiges löschen oder aus der Liste entfernen. Z. B. ["NuGet.Server"](https://www.nuget.org/packages/NuGet.Server) (eine Server-Implementierung unterstützt nur die älteren V2-API) unterstützt diese Anforderung verarbeitet, als ein Aufheben der Auflistung oder ein hartes löschen, die basierend auf einer Konfigurationsoption.
+nuget.org interpretiert die DELETE-Anforderung des Pakets als "Unlist". Dies bedeutet, dass das Paket weiterhin für vorhandene Consumer des Pakets verfügbar ist, das Paket jedoch nicht mehr in den Suchergebnissen oder der Weboberfläche angezeigt wird. Weitere Informationen zu dieser Vorgehensweise finden Sie in der Richtlinie für [gelöschte Pakete](../nuget-org/policies/deleting-packages.md) . Andere Server Implementierungen können dieses Signal als harte Löschung, vorläufiges löschen oder Unlist interpretieren. Beispielsweise unterstützt [nuget. Server](https://www.nuget.org/packages/NuGet.Server) (eine Server Implementierung, die nur die ältere v2-API unterstützt) die Verarbeitung dieser Anforderung als Auflistung oder Hard Delete basierend auf einer Konfigurationsoption.
 
-    DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
+```
+DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
+```
 
 ### <a name="request-parameters"></a>Anforderungsparameter
 
-name           | In     | Typ   | Erforderlich | Hinweise
+Name           | In     | Typ   | Erforderlich | Notizen
 -------------- | ------ | ------ | -------- | -----
-Id             | URL    | Zeichenfolge | ja      | Die ID des Pakets zu löschenden
-VERSION        | URL    | Zeichenfolge | ja      | Die Version des zu löschenden Pakets
-X-NuGet-ApiKey | Header | String | ja      | beispielsweise `X-NuGet-ApiKey: {USER_API_KEY}`
+id             | URL    | Zeichenfolge | ja      | Die ID des zu löschenden Pakets.
+VERSION        | URL    | Zeichenfolge | ja      | Die Version des zu löschenden Pakets.
+X-nuget-APIKey | Header | Zeichenfolge | ja      | Zum Beispiel, `X-NuGet-ApiKey: {USER_API_KEY}`
 
 ### <a name="response"></a>Antwort
 
 Statuscode | Bedeutung
 ----------- | -------
 204         | Das Paket wurde gelöscht.
-404         | Kein Paket mit dem angegebenen `ID` und `VERSION` vorhanden ist
+404         | Es ist kein Paket mit dem angegebenen vorhanden `ID` und `VERSION` vorhanden.
 
-## <a name="relist-a-package"></a>Neu Auflisten eines Pakets
+## <a name="relist-a-package"></a>Ein Paket erneut auflisten
 
-Wenn ein Paket nicht aufgeführt ist, ist es möglich, das Paket wieder in den Suchergebnissen, die mit dem Endpunkt "Artikel" sichtbar zu machen. Dieser Endpunkt hat die gleiche Form wie die [löschen (aus der Liste entfernen) Endpunkt](#delete-a-package) verwendet jedoch die `POST` anstelle von HTTP-Methode der `DELETE` Methode.
+Wenn ein Paket nicht aufgelistet wird, ist es möglich, dieses Paket erneut in den Suchergebnissen mit dem Endpunkt "relist" sichtbar zu machen. Dieser Endpunkt hat dieselbe Form wie der [Delete (Unlist)-Endpunkt](#delete-a-package) , verwendet jedoch die `POST` http-Methode anstelle der- `DELETE` Methode.
 
-Wenn das Paket bereits aufgeführt wird, ist die Anforderung immer noch erfolgreich.
+Wenn das Paket bereits aufgelistet ist, ist die Anforderung weiterhin erfolgreich.
 
-    POST https://www.nuget.org/api/v2/package/{ID}/{VERSION}
+```
+POST https://www.nuget.org/api/v2/package/{ID}/{VERSION}
+```
 
 ### <a name="request-parameters"></a>Anforderungsparameter
 
-name           | In     | Typ   | Erforderlich | Hinweise
+Name           | In     | Typ   | Erforderlich | Notizen
 -------------- | ------ | ------ | -------- | -----
-Id             | URL    | Zeichenfolge | ja      | Die ID des Pakets, die neu auflisten
-VERSION        | URL    | Zeichenfolge | ja      | Die Version des Pakets neu auflisten
-X-NuGet-ApiKey | Header | String | ja      | beispielsweise `X-NuGet-ApiKey: {USER_API_KEY}`
+id             | URL    | Zeichenfolge | ja      | Die ID des wieder zu erlefenden Pakets.
+VERSION        | URL    | Zeichenfolge | ja      | Die Version des Pakets, das wieder hergestellt werden soll.
+X-nuget-APIKey | Header | Zeichenfolge | ja      | Zum Beispiel, `X-NuGet-ApiKey: {USER_API_KEY}`
 
 ### <a name="response"></a>Antwort
 
 Statuscode | Bedeutung
 ----------- | -------
-200         | Das Paket wird jetzt aufgeführt.
-404         | Kein Paket mit dem angegebenen `ID` und `VERSION` vorhanden ist
+200         | Das Paket ist jetzt aufgeführt.
+404         | Es ist kein Paket mit dem angegebenen vorhanden `ID` und `VERSION` vorhanden.

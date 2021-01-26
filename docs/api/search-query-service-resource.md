@@ -6,14 +6,14 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 86c9d07cf90b84fffd09b04847d41772dd633b98
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 7047dfd48b7f93756bbb1491de1b7e65da2c12b4
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237873"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775404"
 ---
-# <a name="search"></a>Suche
+# <a name="search"></a>Suchen,
 
 Es ist möglich, mithilfe der V3-API nach Paketen zu suchen, die in einer Paketquelle verfügbar sind. Die Ressource, die für die Suche verwendet wird, ist die `SearchQueryService` im [Dienst Index](service-index.md)gefundene Ressource.
 
@@ -21,7 +21,7 @@ Es ist möglich, mithilfe der V3-API nach Paketen zu suchen, die in einer Paketq
 
 Die folgenden `@type` Werte werden verwendet:
 
-Wert vom Typ @type                   | Notizen
+Wert vom Typ @type                   | Hinweise
 ----------------------------- | -----
 Searchqueryservice            | Die erste Version
 Searchqueryservice/3.0.0-Beta | Alias von `SearchQueryService`
@@ -45,16 +45,18 @@ Die Such-API ermöglicht einem Client, eine Seite von Paketen abzufragen, die mi
 
 Ein nicht aufgelistetes Paket sollte nie in den Suchergebnissen angezeigt werden.
 
-    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}&packageType={PACKAGETYPE}
+```
+GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}&packageType={PACKAGETYPE}
+```
 
 ### <a name="request-parameters"></a>Anforderungsparameter
 
-Name        | In     | type    | Erforderlich | Notizen
+Name        | In     | Typ    | Erforderlich | Notizen
 ----------- | ------ | ------- | -------- | -----
 q           | URL    | Zeichenfolge  | nein       | Die Suchbegriffe, die zum Filtern von Paketen verwendet werden.
-skip        | URL    | integer | nein       | Die Anzahl der zu über springenden Ergebnisse für die Paginierung.
-take        | URL    | integer | nein       | Die Anzahl der zurück zugebende Ergebnisse für die Paginierung.
-prerelease  | URL    | boolean | nein       | `true`oder `false` feststellen, ob [vorab Pakete](../create-packages/prerelease-packages.md) eingeschlossen werden sollen
+skip        | URL    | integer | Nein       | Die Anzahl der zu über springenden Ergebnisse für die Paginierung.
+take        | URL    | integer | Nein       | Die Anzahl der zurück zugebende Ergebnisse für die Paginierung.
+prerelease  | URL    | boolean | Nein       | `true`oder `false` feststellen, ob [vorab Pakete](../create-packages/prerelease-packages.md) eingeschlossen werden sollen
 semverlevel | URL    | Zeichenfolge  | nein       | Eine Versions Zeichenfolge für semver 1.0.0 
 packageType | URL    | Zeichenfolge  | nein       | Der Pakettyp, der zum Filtern von Paketen verwendet wird (in hinzugefügt `SearchQueryService/3.5.0` ).
 
@@ -80,54 +82,56 @@ Die Antwort ist das JSON-Dokument, das die `take` Suchergebnisse enthält. Die S
 
 Das JSON-Stamm Objekt verfügt über die folgenden Eigenschaften:
 
-Name      | type             | Erforderlich | Notizen
+Name      | Typ             | Erforderlich | Notizen
 --------- | ---------------- | -------- | -----
 totalhits | integer          | ja      | Die Gesamtanzahl der Übereinstimmungen, wobei und ignoriert werden. `skip``take`
-Daten      | Array von Objekten | ja      | Die Suchergebnisse, die mit der Anforderung übereinstimmen.
+data      | Array von Objekten | ja      | Die Suchergebnisse, die mit der Anforderung übereinstimmen.
 
 ### <a name="search-result"></a>Suchergebnis
 
 Jedes Element im `data` Array ist ein JSON-Objekt, das aus einer Gruppe von Paketversionen besteht, die dieselbe Paket-ID nutzen.
 Das Objekt hat die folgenden Eigenschaften:
 
-Name           | type                       | Erforderlich | Notizen
+Name           | Typ                       | Erforderlich | Notizen
 -------------- | -------------------------- | -------- | -----
 id             | Zeichenfolge                     | ja      | Die ID des übereinstimmenden Pakets.
 version        | Zeichenfolge                     | ja      | Die vollständige semver 2.0.0-Versions Zeichenfolge des Pakets (kann buildmetadaten enthalten)
 description    | Zeichenfolge                     | nein       | 
 versions       | Array von Objekten           | ja      | Alle Versionen des Pakets, die dem Parameter entsprechen `prerelease`
-authors        | Zeichenfolge oder Array von Zeichenfolgen | nein       | 
+authors        | Zeichenfolge oder Array von Zeichenfolgen | Nein       | 
 iconUrl        | Zeichenfolge                     | nein       | 
 licenseUrl     | Zeichenfolge                     | nein       | 
-owners         | Zeichenfolge oder Array von Zeichenfolgen | nein       | 
+owners         | Zeichenfolge oder Array von Zeichenfolgen | Nein       | 
 projectUrl     | Zeichenfolge                     | nein       | 
 Registrierung   | Zeichenfolge                     | nein       | Die absolute URL zum zugeordneten [Registrierungs Index](registration-base-url-resource.md#registration-index) .
 Zusammenfassung        | Zeichenfolge                     | nein       | 
-tags           | Zeichenfolge oder Array von Zeichenfolgen | nein       | 
+tags           | Zeichenfolge oder Array von Zeichenfolgen | Nein       | 
 title          | Zeichenfolge                     | nein       | 
-totaldownloads | integer                    | nein       | Dieser Wert kann durch die Summe der Downloads im Array abgeleitet werden. `versions`
-Zier       | boolean                    | nein       | Ein JSON-boolescher Wert, der angibt, ob das Paket [überprüft](../nuget-org/id-prefix-reservation.md) wird.
+totaldownloads | integer                    | Nein       | Dieser Wert kann durch die Summe der Downloads im Array abgeleitet werden. `versions`
+Zier       | boolean                    | Nein       | Ein JSON-boolescher Wert, der angibt, ob das Paket [überprüft](../nuget-org/id-prefix-reservation.md) wird.
 packageTypes   | Array von Objekten           | ja      | Die vom Paket Ersteller definierten Pakettypen (in hinzugefügt `SearchQueryService/3.5.0` ).
 
 In nuget.org ist ein verifiziertes Paket ein überprüftes Paket, das über eine Paket-ID verfügt, die mit einem reservierten ID-Präfix übereinstimmt und im Besitz eines der reservierten Präfix Weitere Informationen finden Sie in der [Dokumentation zur ID-Präfix Reservierung](../nuget-org/id-prefix-reservation.md).
 
 Die Metadaten, die im Suchergebnis Objekt enthalten sind, stammen aus der aktuellen Paketversion. Jedes Element im `versions` Array ist ein JSON-Objekt mit den folgenden Eigenschaften:
 
-Name      | type    | Erforderlich | Notizen
+Name      | Typ    | Erforderlich | Notizen
 --------- | ------- | -------- | -----
-@id       | string  | ja      | Die absolute URL zum zugeordneten [Registrierungs Blatt](registration-base-url-resource.md#registration-leaf) .
+@id       | Zeichenfolge  | ja      | Die absolute URL zum zugeordneten [Registrierungs Blatt](registration-base-url-resource.md#registration-leaf) .
 version   | Zeichenfolge  | ja      | Die vollständige semver 2.0.0-Versions Zeichenfolge des Pakets (kann buildmetadaten enthalten)
 Downloads | integer | ja      | Die Anzahl der Downloads für diese bestimmte Paketversion.
 
 Das `packageTypes` Array besteht immer aus mindestens einem (1) Element. Der Pakettyp für eine bestimmte Paket-ID wird als die von der aktuellen Version des Pakets definierten Pakettypen in Bezug auf die anderen Suchparameter betrachtet. Jedes Element im `packageTypes` Array ist ein JSON-Objekt mit den folgenden Eigenschaften:
 
-Name      | type    | Erforderlich | Notizen
+Name      | Typ    | Erforderlich | Notizen
 --------- | ------- | -------- | -----
 name      | Zeichenfolge  | ja      | Der Name des Pakettyps.
 
 ### <a name="sample-request"></a>Beispiel für eine Anforderung
 
-    GET https://azuresearch-usnc.nuget.org/query?q=NuGet.Versioning&prerelease=false&semVerLevel=2.0.0
+```
+GET https://azuresearch-usnc.nuget.org/query?q=NuGet.Versioning&prerelease=false&semVerLevel=2.0.0
+```
 
 ### <a name="sample-response"></a>Beispiel für eine Antwort
 

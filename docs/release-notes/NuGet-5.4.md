@@ -1,16 +1,16 @@
 ---
 title: Anmerkungen zu dieser Version von nuget 5,4
 description: Anmerkungen zu dieser Version von nuget 5,4, einschließlich neuer Features, Fehlerbehebungen und dcrs.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: c7fb9c1e587b6603abe63581c662571abfd4506b
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: dd4c10672db3a65b68f18636105ee55ab09da7ef
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384110"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776189"
 ---
 # <a name="nuget-54-release-notes"></a>Anmerkungen zu dieser Version von nuget 5,4
 
@@ -28,7 +28,7 @@ Möglichkeiten der NuGet-Verteilung:
 
 * Neue Hilfsfunktion: Wenn Sie eine Liste von Paket-IDs und-Versionen erhalten, erhalten Sie die wahrscheinlichsten Pakete auf oberster Ebene. - [#8316](https://github.com/NuGet/Home/issues/8316)
 
-* Neue [`nuget/setup-nuget`](https://github.com/marketplace/actions/setup-nuget-exe-for-use-with-actions) Aktion zum Installieren und Konfigurieren von "nuget. exe" auf [GitHub-Aktionen](https://github.com/features/actions). - [#8818](https://github.com/NuGet/Home/issues/8818)
+* Neue [`nuget/setup-nuget`](https://github.com/marketplace/actions/setup-nuget-exe-for-use-with-actions) Aktion zum Installieren und Konfigurieren von NuGet.exe auf [GitHub-Aktionen](https://github.com/features/actions). - [#8818](https://github.com/NuGet/Home/issues/8818)
 
 ### <a name="issues-fixed-in-this-release"></a>In diesem Release behobene Probleme
 
@@ -42,7 +42,7 @@ Möglichkeiten der NuGet-Verteilung:
 
 * Die Sperrdatei wurde nicht ordnungsgemäß generiert. die frameworkreihen Folge sollte die Wiederherstellung mit lockedmode- [#8645](https://github.com/NuGet/Home/issues/8645) nicht beeinträchtigen.
 
-* Fehler bei der lockfile-Überprüfung für Projekte mit <RuntimeIdentifiers> Festlegung in SDK 3.0.100- [#8639](https://github.com/NuGet/Home/issues/8639)
+* Fehler bei der lockfile-Überprüfung für Projekte mit <RuntimeIdentifiers> Set in SDK 3.0.100- [#8639](https://github.com/NuGet/Home/issues/8639)
 
 * Bei der Signatur Überprüfung werden Signaturen mit Zeitstempeln ordnungsgemäß abgelehnt, die zwei Werte unter derselben OID aufweisen [#8629](https://github.com/NuGet/Home/issues/8629)
 

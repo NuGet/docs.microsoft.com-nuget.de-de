@@ -1,60 +1,64 @@
 ---
-title: Melden von Missbrauch URL-Vorlage, NuGet-API
-description: Die Bericht Missbrauch URL-Vorlage kann Clients einen Missbrauch Berichtslink in ihrer Benutzeroberfläche angezeigt.
+title: URL-Vorlage zum Melden von Missbrauch, nuget-API
+description: Mit der Vorlage "Report Abuse URL" können Clients in der Benutzeroberfläche den Link "Missbrauch melden" anzeigen.
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: d0ff41b08eeba5a6e4bc7c44722b6bc57f502047
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: b36058c9c841e2cca6eb61121ada8275f1525a8f
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549338"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775224"
 ---
-# <a name="report-abuse-url-template"></a>Bericht-Missbrauch-URL-Vorlage
+# <a name="report-abuse-url-template"></a>URL-Vorlage zum Melden von Missbrauch
 
-Es ist möglich, dass ein Client eine URL zu erstellen, die vom Benutzer zum Angeben des Missbrauchs zu einem bestimmten Paket verwendet werden können. Dies ist nützlich, wenn möchte, dass eine Paketquelle alle Clientumgebungen, Missbrauch Berichte für die Paketquelle zu delegieren (sogar 3rd Party) zu aktivieren.
+Es ist möglich, dass ein Client eine URL erstellt, die vom Benutzer zum Melden von Missbrauch über ein bestimmtes Paket verwendet werden kann. Dies ist hilfreich, wenn eine Paketquelle die Übertragung von Missbrauchs Berichten an die Paketquelle durch eine Paketquelle ermöglichen möchte (auch von Drittanbietern).
 
-Die Ressource, die zum Erstellen von dieser URL ist die `ReportAbuseUriTemplate` Ressource finden Sie in der [dienstindex](service-index.md).
+Die Ressource, die zum aufbauen dieser URL verwendet wird, ist die Ressource, die `ReportAbuseUriTemplate` im [Dienst Index](service-index.md)gefunden wurde.
 
-## <a name="versioning"></a>Versionskontrolle
+## <a name="versioning"></a>Versionsverwaltung
 
 Die folgenden `@type` Werte werden verwendet:
 
-@type-Wert                       | Hinweise
+Wert vom Typ @type                       | Hinweise
 --------------------------------- | -----
-ReportAbuseUriTemplate/3.0.0-beta | Die erste Version
-ReportAbuseUriTemplate/3.0.0-rc   | Alias der `ReportAbuseUriTemplate/3.0.0-beta`
+Reportabuseuritemplate/3.0.0-Beta | Die erste Version
+Reportabuseuritemplate/3.0.0-RC   | Alias von `ReportAbuseUriTemplate/3.0.0-beta`
 
 ## <a name="url-template"></a>URL-Vorlage
 
-Die URL für die folgende API wird der Wert des der `@id` Eigenschaft, die einer der oben genannten Ressource zugeordneten `@type` Werte.
+Die URL für die folgende API ist der Wert der Eigenschaft, die `@id` mit einem der oben erwähnten Ressourcen `@type` Werte verknüpft ist.
 
 ## <a name="http-methods"></a>HTTP-Methoden
 
-Der Client nicht gedacht ist, um Anforderungen an die URL des Berichts Missbrauch im Auftrag des Benutzers zu senden, sollte die Webseite unterstützen die `GET` Methode, um eine geklickte URL ganz einfach in einem Webbrowser geöffnet werden können.
+Obwohl der Client nicht für das Senden von Anforderungen an die URL zum Melden von Missbrauch im Namen des Benutzers vorgesehen ist, sollte die Webseite die-Methode unterstützen, `GET` damit eine angeklickte URL problemlos in einem Webbrowser geöffnet werden kann.
 
-## <a name="construct-the-url"></a>Erstellen Sie die URL
+## <a name="construct-the-url"></a>Erstellen der URL
 
-Wenn eine bekannte Paket-ID und Version, kann die Client-Implementierung eine URL für den Zugriff auf eine Weboberfläche erstellen. Die Clientimplementierung sollte diese erstellte URL (oder einen klickbaren Link) anzeigen, um dem Benutzer, öffnen einen Webbrowser an die URL, und nehmen alle erforderlichen Missbrauch-Bericht. Die Implementierung den Missbrauch Berichtsformular wird durch die Implementierung der Server bestimmt.
+Wenn eine bekannte Paket-ID und-Version angegeben ist, kann die Client Implementierung eine URL für den Zugriff auf eine Weboberfläche erstellen. Die Client Implementierung sollte diese erstellte URL (oder einen klickbaren Link) dem Benutzer anzeigen, sodass Sie einen Webbrowser mit der URL öffnen und einen erforderlichen Missbrauchsbericht erstellen können. Die Implementierung des Formular für den Missbrauch von Berichten wird von der Server Implementierung bestimmt.
 
-Der Wert des der `@id` ist eine URL-Zeichenfolge, die mit der eines der folgenden Platzhalter-Token:
+Der Wert von `@id` ist eine URL-Zeichenfolge, die eines der folgenden Platzhalter Token enthält:
 
 ### <a name="url-placeholders"></a>URL-Platzhalter
 
-name        | Typ    | Erforderlich | Hinweise
+Name        | Typ    | Erforderlich | Notizen
 ----------- | ------- | -------- | -----
-`{id}`      | Zeichenfolge  | Nein       | Die Paket-ID zum Angeben des Missbrauchs für
-`{version}` | Zeichenfolge  | Nein       | Die Paketversion zum Angeben des Missbrauchs für
+`{id}`      | Zeichenfolge  | nein       | Die Paket-ID, für die Missbrauch gemeldet werden soll.
+`{version}` | Zeichenfolge  | nein       | Die Paketversion, für die Missbrauch gemeldet werden soll.
 
-Die `{id}` und `{version}` Werte interpretiert werden, durch die Implementierung der Server muss Groß-/Kleinschreibung und nicht vertrauliche gibt an, ob die Version normalisiert ist.
+Der `{id}` -Wert und der- `{version}` Wert, der von der Server Implementierung interpretiert wird, müssen die Groß-/Kleinschreibung nicht beachtet werden.
 
-Beispielsweise sieht die Nuget.org Missbrauch Berichtsvorlage folgendermaßen aus:
+Beispielsweise sieht die Vorlage "Bericht Missbrauch" von nuget. org wie folgt aus:
 
-    https://www.nuget.org/packages/{id}/{version}/ReportAbuse
+```
+https://www.nuget.org/packages/{id}/{version}/ReportAbuse
+```
 
-Wenn die Clientimplementierung eine Verknüpfung zum Missbrauch Berichts angezeigt wird, für die NuGet.Versioning 4.3.0 muss, würde er erzeugt die folgende URL, und geben Sie sie für den Benutzer:
+Wenn die Client Implementierung einen Link zum berichtsmissbrauchs-Formular für nuget. Versionierung 4.3.0 anzeigen muss, würde Sie die folgende URL erstellen und für den Benutzer bereitstellen:
 
-    https://www.nuget.org/packages/NuGet.Versioning/4.3.0/ReportAbuse
+```
+https://www.nuget.org/packages/NuGet.Versioning/4.3.0/ReportAbuse
+```

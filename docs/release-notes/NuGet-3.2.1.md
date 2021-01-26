@@ -1,38 +1,38 @@
 ---
-title: Anmerkungen zu NuGet 3.2.1
-description: Anmerkungen zu dieser Version für die Einbindung von NuGet-Version 3.2.1 bekannte Probleme, Fehlerkorrekturen, hinzugefügter Features und DCRs.
-author: karann-msft
-ms.author: karann
+title: Anmerkungen zu dieser Version von nuget 3.2.1
+description: Anmerkungen zu dieser Version von nuget 3.2.1 einschließlich bekannter Probleme, Fehlerbehebungen, hinzugefügter Features und dcrs.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: e5ddbb8aa52ef85c823404364a3aca79fd16f3b1
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: cbbef3517122ceda91cb4b4463fe8be43d204db4
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548189"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776523"
 ---
-# <a name="nuget-321-release-notes"></a>Anmerkungen zu NuGet 3.2.1
+# <a name="nuget-321-release-notes"></a>Anmerkungen zu dieser Version von nuget 3.2.1
 
-[Anmerkungen zu NuGet 3.2](../release-notes/nuget-3.2.md) | [Anmerkungen zu NuGet 3.3](../release-notes/nuget-3.3.md)
+Anmerkungen zu dieser [Version von nuget 3,2](../release-notes/nuget-3.2.md)  |  [Anmerkungen zu dieser Version von nuget 3,3](../release-notes/nuget-3.3.md)
 
-NuGet 3.2.1 für die Befehlszeile am 12. Oktober 2015 kann durch eine Reihe von Optimierungen und Korrekturen für die 3.2-Version wurde veröffentlicht und steht über ["dist.NuGet.org"](http://dist.nuget.org/index.html).
+Nuget 3.2.1 für die Befehlszeile wurde am 12. Oktober 2015 mit einigen Optimierungen und Korrekturen für die 3,2-Version veröffentlicht und ist über [Dist.nuget.org](http://dist.nuget.org/index.html)verfügbar.
 
 ## <a name="improvements"></a>Verbesserungen
 
-* NuGet verwendet nun die Konfigurationsdatei mit dem ursprünglichen Groß-/Kleinschreibung der `NuGet.Config`.  Dies ist wichtig für die Groß-/Kleinschreibung Betriebssysteme [1427](https://github.com/NuGet/Home/issues/1427)
-* NuGet-Wiederherstellung ignoriert nun Dnx-Projekte (`*.xproj`), die verarbeitet werden sollen, mit `dnu` [1227](https://github.com/NuGet/Home/issues/1227)
-* Optimierung der netzwerknutzung, bei der Arbeit mit `index.json` und Packen Sie die Registrierungsdaten [1426](https://github.com/NuGet/Home/issues/1426)
-* Verbesserte Ressourcendownload mit v2-Diensten unter Umständen stabiler sind die Verarbeitung [1448](https://github.com/NuGet/Home/issues/1448)
+* Nuget verwendet nun die Konfigurationsdatei mit der ursprünglichen Schreibweise von `NuGet.Config` .  Dies ist bei Betriebs [1427](https://github.com/NuGet/Home/issues/1427) Systemen mit Unterscheidung nach Groß-/Kleinschreibung wichtig
+* Die nuget-Wiederherstellung ignoriert nun DNX-Projekte ( `*.xproj` ), die mit `dnu` [1227](https://github.com/NuGet/Home/issues/1227) verarbeitet werden sollen.
+* Optimierte Netzwerk Auslastung bei der Arbeit mit `index.json` und Paket Registrierungsdaten [1426](https://github.com/NuGet/Home/issues/1426)
+* Verbesserte Behandlung von Ressourcen Downloads, um mit den V2-Diensten [1448](https://github.com/NuGet/Home/issues/1448) robuster zu sein
 
 ## <a name="fixes"></a>Fehlerbehebungen
 
-* NuGet ordnungsgemäß zur Aktualisierung der `.csproj` / `.vcxproj` Verweise [1483](https://github.com/NuGet/Home/issues/1483)
-* Jetzt verhindern, dass einen lokale .nuget-Ordner erstellt werden, wenn eine SpecialFolders.UserProfile nicht gefunden werden kann [1531](https://github.com/NuGet/Home/issues/1531)
-* Verbesserte Behandlung von Paketen im lokalen Cache, die während des Herunterladens beschädigt sind [1405](https://github.com/NuGet/Home/issues/1405) [1157](https://github.com/NuGet/Home/issues/1157)
+* Aktualisieren von nuget-Updates ordnungsgemäß, `.csproj` / `.vcxproj` Verweise [1483](https://github.com/NuGet/Home/issues/1483)
+* Nun wird verhindert, dass ein lokaler nuget-Ordner erstellt wird, wenn "SpecialFolders. USERPROFILE" nicht gefunden werden kann [1531](https://github.com/NuGet/Home/issues/1531)
+* Verbesserte Behandlung von Paketen im lokalen Cache, die während Download [1405](https://github.com/NuGet/Home/issues/1405) [1157](https://github.com/NuGet/Home/issues/1157) beschädigt sind
 
-Eine vollständige Liste der Probleme, die für die Befehlszeile und Visual Studio-Erweiterung Sie im NuGet GitHub finden [3.2.1 Meilenstein](https://github.com/NuGet/Home/issues?q=milestone%3A3.2.1+is%3Aclosed)
+Eine umfassende Liste der Probleme, die für die Befehlszeile und die Visual Studio-Erweiterung behoben wurden, finden Sie im nuget GitHub [3.2.1-Meilenstein](https://github.com/NuGet/Home/issues?q=milestone%3A3.2.1+is%3Aclosed) .
 
 ## <a name="known-issues"></a>Bekannte Probleme
 
-Wir fahren fort, um Probleme in der Liste unserer GitHub-Probleme nachzuverfolgen, die finden Sie unter: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)
+Wir verfolgen weiterhin Probleme in unserer GitHub-Liste mit Problemen, die unter folgenden Themen zu finden sind: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

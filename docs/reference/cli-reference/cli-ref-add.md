@@ -1,22 +1,22 @@
 ---
 title: Befehl "nuget CLI-Befehl"
 description: Verweis für den nuget.exe Befehl "hinzufügen"
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 89d268946243e8eae07e482db48e809a15260c38
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 096d2f7a61a3c861ce2084368500ab8e8b21f212
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622901"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776088"
 ---
 # <a name="add-command-nuget-cli"></a>Befehl "hinzufügen" (nuget-CLI)
 
-**Gilt für**: &bullet; **unterstützte Versionen**der Paket Veröffentlichung: 3.3 und höher
+**Gilt für**: &bullet; **unterstützte Versionen** der Paket Veröffentlichung: 3.3 und höher
 
-Fügt ein angegebenes Paket zu einer nicht-http-Paketquelle (Ordner oder UNC-Pfad) in einem hierarchischen Layout hinzu, in dem Ordner für die Paket-ID und die Versionsnummer erstellt werden. Beispiel:
+Fügt ein angegebenes Paket zu einer nicht-http-Paketquelle (Ordner oder UNC-Pfad) in einem hierarchischen Layout hinzu, in dem Ordner für die Paket-ID und die Versionsnummer erstellt werden. Zum Beispiel:
 
 ```
 \\myserver\packages

@@ -1,69 +1,69 @@
 ---
-title: Anmerkungen zu NuGet 3.4
-description: Anmerkungen zu NuGet 3.4, einschließlich der bekannten Probleme, Fehlerkorrekturen, hinzugefügter Features und DCRs.
-author: karann-msft
-ms.author: karann
+title: Anmerkungen zu dieser Version von nuget 3,4
+description: Anmerkungen zu dieser Version von nuget 3,4 einschließlich bekannter Probleme, Fehlerbehebungen, hinzugefügter Features und dcrs.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 77c0117fc40031a327e8dcb0aac5cd4045239e97
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 794b25e2d81d7a2c297a185bdb34a7cf68535723
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551190"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776420"
 ---
-# <a name="nuget-34-release-notes"></a>Anmerkungen zu NuGet 3.4
+# <a name="nuget-34-release-notes"></a>Anmerkungen zu dieser Version von nuget 3,4
 
-[Anmerkungen zu NuGet 3.4-RC](../release-notes/nuget-3.4-RC.md) | [Anmerkungen zu NuGet 3.4.1](../release-notes/nuget-3.4.1.md)
+Anmerkungen zu dieser [Version von nuget 3,4-RC](../release-notes/nuget-3.4-RC.md)  |  [Anmerkungen zu nuget-Version 3.4.1](../release-notes/nuget-3.4.1.md)
 
-NuGet 3.4 wurde am 30. März 2016 als Teil der Visual Studio 2015 Update 2 und Visual Studio 15 Preview-Version veröffentlicht und mit wenigen Grundsätze in Köpfen erstellt wurde:
+Nuget 3,4 wurde als Teil von Visual Studio 2015 Update 2 und Visual Studio 15 Preview 2016 veröffentlicht und mit einigen wenigen Grundsätzen erstellt:
 
 * Plattformübergreifende Unterstützung
 * Leistungsverbesserungen
-* Kleinere Verbesserungen der Benutzeroberfläche
+* Kleinere Verbesserung der Benutzeroberfläche
 
-Die folgenden Features wurden waren zuvor hinzugefügt haben, in die RC-Version und aktualisiert oder der Version 3.4 abgeschlossen:
+Die folgenden Features wurden bereits in der RC-Version hinzugefügt und wurden für die Version 3,4 aktualisiert oder abgeschlossen:
 
 ## <a name="new-features"></a>Neue Funktionen
 
-* NuGet-Clients unterstützen jetzt Gzip-inhaltscodierung von Repositorys
-* Unterstützung für PDBs aus Paketen in Xproj-Projekten
-* Unterstützung für IOS- und Android-Buildvorgänge im ContentFiles-element
-* Unterstützung für die Framework-Moniker "Netstandard" und "netstandardapp"
+* Nuget-Clients unterstützen jetzt gzip-Inhalts Codierung aus Depots.
+* Unterstützung für pdsb von Paketen in xproj-Projekten
+* Unterstützung für IOS-und Android-Buildvorgänge im contentfiles-Element
+* Unterstützung für die FrameworkMoniker netstandard und netstandardapp
 
-## <a name="new-user-interface-features"></a>Neue Features der Benutzeroberfläche
+## <a name="new-user-interface-features"></a>Neue Benutzeroberflächen Features
 
-* Signifikante leistungsverbesserungen besonders auf den Registerkarten installiert, Updates und konsolidieren
-* Aggregieren "Alle Paketquellen"-Quelle ist verfügbar, mit der richtigen Suche Ergebnis zusammenführen
-* Installiert und Updates Registerkarten sind jetzt alphabetisch sortiert
-* Schaltfläche "Aktualisieren", die eine Suche aktualisiert werden kann. hinzugefügt
-* Neueste Build-Optionen am oberen Rand der Liste der Versionen
+* Bedeutende Leistungsverbesserungen vor allem auf den Registerkarten installiert, Updates und konsolidiert
+* Die Quelle "alle Paketquellen" ist für die ordnungsgemäße Zusammenführung der Suchergebnisse verfügbar.
+* Registerkarten "installiert" und "Updates" sind nun alphabetisch sortiert
+* Die Schaltfläche "Aktualisieren" wurde hinzugefügt, die die Aktualisierung einer Suche ermöglicht
+* Neueste Buildoptionen am Anfang der Versions Liste
 
 ## <a name="updates-and-improvements"></a>Updates und Verbesserungen
 
-* Pakete, die auf die verwiesen wird `project.json` Gleitkommazahl deren Version wird nicht für jeden Build aktualisiert. Stattdessen werden sie aktualisiert nur, wenn Sie gezwungen, wiederherzustellen, bereinigen, neu erstellen oder ändern Sie `project.json`.
-* NuGet.org-Repository-Quellen werden in einer Projektkonfiguration nicht mehr gezwungen, bei der Verwendung der Benutzeroberfläche für der NuGet-Konfigurations.
-* NuGet nicht mehr stellt Pakete in freigegebene Projekten wieder her und schreibt eine Sperrdatei.
-* Wir Netzwerkfehler wurde verbessert, und wiederholen Sie die Behandlung von nicht erreichbar ist oder langsam, reagieren.
-* Tastatur und Maus Verhaltensweisen werden in der Visual Studio-Paket-Manager-UI verbessert.
-* Wir unterstützen jetzt die neueste Version `project.json` -Schema in DNX.
+* Pakete, auf die in verwiesen wird und die eine unverankerte `project.json` Version aufweisen, werden bei jedem Build nicht aktualisiert Stattdessen werden Sie nur aktualisiert, wenn Sie zum Wiederherstellen, bereinigen, Neuerstellen oder ändern gezwungen werden `project.json` .
+* nuget.org-Repository-Quellen werden nicht mehr in einer Projekt Konfiguration erzwungen, wenn Sie die nuget-Konfigurations Benutzeroberfläche verwenden.
+* Mit nuget werden Pakete nicht mehr in freigegebenen Projekten wieder hergestellt, und es wird keine Sperrdatei geschrieben.
+* Wir haben den Netzwerkfehler verbessert und die Verarbeitung für nicht erreichbare oder langsame Server erneut versucht.
+* Tastatur-und Maus Verhalten werden in der Visual Studio-Benutzeroberfläche des Paket-Managers verbessert.
+* Wir unterstützen jetzt das aktuellste `project.json` Schema in DNX.
 
-## <a name="breaking-changes"></a>Die Lauffähigkeit der Anwendung beeinträchtigende Änderungen
+## <a name="breaking-changes"></a>Aktuelle Änderungen
 
-* Paket-Versionsnummern werden jetzt in das Format normalisiert *wichtigen*. *kleinere*. *Patch*-*Vorabversion* aller Haupt-, neben- und patch werden als Zahlen behandelt, und legen Sie alle führenden Nullen auf.  Die vorabversionsinformationen wird als Zeichenfolge behandelt, und keine Änderungen angewendet werden. Diese Zahlen werden in Abfragen verwendet, indem Sie die NuGet-Clients und die Suche, die von der nuget.org-Dienst bereitgestellt wird.  Weitere Informationen finden Sie in der NuGet-Dokumentation unter [Vorabversion Versionen](../create-packages/prerelease-packages.md).
+* Paket Versionsnummern werden nun in das Format " *Major*" normalisiert. *neben* Version. *Patch* - *vorab* Version   Alle Haupt-, neben-und patchvorgänge werden als ganze Zahlen behandelt, und alle führenden Nullen werden gelöscht.  Die Vorabinformationen werden als Zeichenfolge behandelt, und es werden keine Änderungen darauf angewendet. Diese Zahlen werden in Abfragen von den nuget-Clients und der vom nuget.org-Dienst bereitgestellten Suche verwendet.  Weitere Informationen finden Sie in der nuget-Dokumentation unter [vorab Versionen](../create-packages/prerelease-packages.md).
 
 ## <a name="known-issues"></a>Bekannte Probleme
 
-* **Problem:** Windows 10-v1511-Benutzern möglicherweise auftreten, Probleme oder sogar eine Visual Studio-Absturzes mithilfe von Powershell in Visual Studio in den folgenden Szenarien:
-    * Installieren / Deinstallieren von Paketen, die Install. ps1 / uninstall.ps1-Skripts
-    * Laden von Projekten, die ein Skript init.ps1 (z. B. EntityFramework)
+* **Problem:** Windows 10 v1511 Benutzer haben möglicherweise Probleme oder sogar einen Visual Studio-Absturz mit PowerShell in Visual Studio in den folgenden Szenarien:
+    * Installieren/Deinstallieren von Paketen mit install.ps1/uninstall.ps1-Skripts
+    * Laden von Projekten mit einem init.ps1 Skript (wie z. b. EntityFramework)
     * Veröffentlichen von Webinhalten
 
-* **Problemumgehung:** stellen Sie sicher, dass Ihre Windows 10-Installation die neuesten Patches angewendet, Expecially der Januar 2016 (KB 3124263) oder ein neueres Update ist.  Weitere Informationen finden Sie auf [GitHub-Problem #1638](http://github.com/nuget/home/issues/1638)
+* Problem **Umgehung:** Stellen Sie sicher, dass auf Ihrer Windows 10-Installation die neuesten Patches angewendet wurden, nämlich der Januar 2016 (KB 3124263) oder ein späteres Update.  Weitere Informationen finden Sie unter [GitHub-Problem #1638](http://github.com/nuget/home/issues/1638)
 
 * **Problem:** NuGet v2-Protokollumleitungen sind defekt
 Benutzerdefinierte NuGet-Repositorys, die Anforderungen an einen alternativen Host umleiten, beachten die Umleitungsanforderung nicht.
-* **Problemumgehung:** um dieses Problem zu umgehen, konfigurieren Sie den paketrepository-URI in den Einstellungen, die auf den Standort des umgeleiteten Servers verweist.
-Weitere Informationen finden Sie unter [Pull Request auf GitHub #387](https://github.com/NuGet/NuGet.Client/pull/387).
+* Problem **Umgehung:**  Um dieses Problem zu umgehen, konfigurieren Sie den Paketrepository-URI in den Einstellungen so, dass er auf den umgeleiteten Serverstandort verweist
+Weitere Informationen finden Sie unter [GitHub Pull Request #387](https://github.com/NuGet/NuGet.Client/pull/387).
 
-Wir fahren fort, um Probleme in der Liste unserer GitHub-Probleme nachzuverfolgen, die finden Sie unter: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)
+Wir verfolgen weiterhin Probleme in unserer GitHub-Liste mit Problemen, die unter folgenden Themen zu finden sind: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

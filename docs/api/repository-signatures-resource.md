@@ -1,103 +1,107 @@
 ---
-title: Repository-Signaturen, NuGet-API | Microsoft-Dokumentation
+title: Repository-Signaturen, nuget-API | Microsoft-Dokumentation
 author: joelverhagen
 ms.author: jver
 ms.date: 3/2/2018
 ms.topic: reference
-description: Die Repository-Signaturen-Ressource ermöglicht es Clients Paketquellen, ihrem Repository Signieren Funktionen ankündigen zu können.
+description: Mithilfe der Repository Signature-Ressource können von Clients Paketquellen Ihre Repository-Signatur Funktionen bekanntgegeben werden.
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: ea318446c41a0d85d3fbf959dd38c929a0d0e9a1
-ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
+ms.openlocfilehash: bfdbbb3a11de3be3f2258a3a289c0188740cdfce
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59931851"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775336"
 ---
 # <a name="repository-signatures"></a>Repository-Signaturen
 
-Wenn eine Paketquelle hinzufügen Repository Signaturen veröffentlichte Pakete unterstützt, ist es möglich, ein Client die Signaturzertifikate zu ermitteln, die von der Paketquelle verwendet werden. Diese Ressource ermöglicht Clients erkennen, ob ein Repository signiert. Paket wurde manipuliert oder ein unerwartetes Signaturzertifikat an.
+Wenn eine Paketquelle das Hinzufügen von Repository-Signaturen zu veröffentlichten Paketen unterstützt, kann ein Client die Signatur Zertifikate ermitteln, die von der Paketquelle verwendet werden. Mit dieser Ressource können Clients erkennen, ob ein Repository-signiertes Paket manipuliert wurde oder über ein unerwartetes Signaturzertifikat verfügt.
 
-Die Ressource, die zum Abrufen von diesem Repository Signaturinformationen ist die `RepositorySignatures` Ressource finden Sie in der [dienstindex](service-index.md).
+Die Ressource, die zum Abrufen dieser Repository-Signatur Informationen verwendet wird, ist die Ressource, die `RepositorySignatures` im [Dienst Index](service-index.md)gefunden wurde.
 
-## <a name="versioning"></a>Versionskontrolle
+## <a name="versioning"></a>Versionsverwaltung
 
-Die folgenden `@type` Wert wird verwendet:
+Der folgende `@type` Wert wird verwendet:
 
-@type -Wert                | Hinweise
+Wert vom Typ @type                | Hinweise
 -------------------------- | -----
 RepositorySignatures/4.7.0 | Die erste Version
-RepositorySignatures/4.9.0 | Unterstützt durch NuGet v4.9 +-clients
-RepositorySignatures/5.0.0 | Ermöglicht das Aktivieren der `allRepositorySigned`. Unterstützt durch NuGet-Clients V5. 0 +
+RepositorySignatures/4.9.0 | Unterstützt von nuget-Clients mit Version 4.9 und höher
+RepositorySignatures/5.0.0 | Ermöglicht das Aktivieren von `allRepositorySigned` . Unterstützt von nuget-Clients mit Version 5.0 und höher
 
 ## <a name="base-url"></a>Basis-URL
 
-Der Eintrag-Zugriffspunkt-URL für die folgenden APIs ist der Wert des der `@id` -Eigenschaft zusammen mit den oben genannten Ressourcen `@type` Wert. In diesem Thema verwendet die Platzhalter-URL `{@id}`.
+Die Einstiegspunkt-URL für die folgenden APIs ist der Wert der `@id` Eigenschaft, die dem oben erwähnten Ressourcen Wert zugeordnet ist `@type` . In diesem Thema wird die Platzhalter-URL verwendet `{@id}` .
 
-Beachten Sie, dass im Gegensatz zu anderen Ressourcen, die `{@id}` URL ist erforderlich, um über HTTPS bereitgestellt werden.
+Beachten Sie, dass die URL im Gegensatz zu anderen Ressourcen `{@id}` über HTTPS bereitgestellt werden muss.
 
 ## <a name="http-methods"></a>HTTP-Methoden
 
-Alle URLs, die in den Repositorys Signaturen Ressource unterstützt nur den HTTP-Methoden gefunden `GET` und `HEAD`.
+Alle URLs, die in der Repository Signature-Ressource gefunden werden, unterstützen nur die HTTP `GET` -Methoden und `HEAD` .
 
-## <a name="repository-signatures-index"></a>Index der Repository-Signaturen
+## <a name="repository-signatures-index"></a>Repository-Signaturen-Index
 
-Der Index der Repository-Signaturen enthält zwei Angaben:
+Der Repository-Signatur Index enthält zwei Informationen:
 
-1. Sind an, ob alle Pakete an der Quelle gefunden Repository, die von dieser Quelle signiert.
-1. Die Liste der Zertifikate, die von der Paketquelle verwendet wird, um Pakete zu signieren.
+1. Ob alle Pakete, die in der Quelle gefunden werden, von dieser Paketquelle signiert wurden.
+1. Die Liste der Zertifikate, die von der Paketquelle zum Signieren von Paketen verwendet werden.
 
-In den meisten Fällen wird die Liste der Zertifikate nur angefügt werden. Neue Zertifikate würde zur Liste hinzugefügt werden, wenn das vorherige Signaturzertifikat abgelaufen ist und die Paketquelle beim Einstieg in ein neues Signaturzertifikat muss. Wenn ein Zertifikat aus der Liste entfernt wird, bedeutet, dass an, dass Signaturen für alle Pakete erstellt, mit dem entfernten Signaturzertifikat nicht mehr gültigen vom Client berücksichtigt werden soll. In diesem Fall ist der Paketsignatur (aber nicht unbedingt das Paket) ungültig. Eine Clientrichtlinie können die Installation des Pakets als ohne Vorzeichen.
+In den meisten Fällen wird die Liste der Zertifikate nur an angefügt. Neue Zertifikate werden der Liste hinzugefügt, wenn das vorherige Signaturzertifikat abgelaufen ist und die Paketquelle mit der Verwendung eines neuen Signatur Zertifikats beginnen muss. Wenn ein Zertifikat aus der Liste entfernt wird, bedeutet dies, dass alle mit dem entfernten Signaturzertifikat erstellten Paket Signaturen vom Client nicht mehr als gültig eingestuft werden. In diesem Fall ist die Paket Signatur (aber nicht unbedingt das Paket) ungültig. In einer Client Richtlinie kann die Installation des Pakets als nicht signiert zugelassen werden.
 
-Im Fall von zertifikatsperrung (z. B. schlüsselgefährdung) wird die Paketquelle erwartet, zum erneuten Signieren der alle Pakete, die durch das betroffene Zertifikat signiert. Darüber hinaus sollten die Paketquelle das betroffene Zertifikat aus der Liste der Signierung entfernen.
+Im Fall einer Zertifikat Sperrung (z. b. ein wichtiger Kompromiss), wird von der Paketquelle erwartet, dass alle vom betroffenen Zertifikat signierten Pakete neu signiert werden. Außerdem sollte die Paketquelle das betroffene Zertifikat aus der Liste der Signatur Zertifikate entfernen.
 
-Die folgende Anforderung Ruft den Index der Repository-Signaturen ab.
+Die folgende Anforderung Ruft den Repository-Signatur Index ab.
 
-    GET {@id}
+```
+GET {@id}
+```
 
-Der Index der Repository-Signatur ist ein JSON-Dokument, das ein Objekt mit den folgenden Eigenschaften enthält:
+Der Repository-Signatur Index ist ein JSON-Dokument, das ein-Objekt mit den folgenden Eigenschaften enthält:
 
-Name                | Typ             | Erforderlich | Hinweise
+Name                | Typ             | Erforderlich | Notizen
 ------------------- | ---------------- | -------- | -----
-allRepositorySigned | boolean          | ja      | Muss `false` auf 4.7.0 und 4.9.0
-signingCertificates | Array von Objekten | ja      | 
+allRepositorySigned | boolean          | ja      | Muss sich `false` auf 4.7.0-und 4.9.0-Ressourcen befinden
+signingzertifikate | Array von Objekten | ja      | 
 
-Die `allRepositorySigned` boolescher Wert auf "false" festgelegt ist, wenn die Paketquelle einige Pakete gespeichert sind, die keine Repository-Signatur verfügen. Bei Verwendung der boolesche Wert auf true festgelegt ist, alle Pakete verfügbar muss die Quelle eine Repository-Signatur, die durch eines der Signaturzertifikate in erwähnten erzeugt `signingCertificates`.
+Der `allRepositorySigned` boolesche Wert ist auf "false" festgelegt, wenn die Paketquelle über einige Pakete ohne Repository-Signatur verfügt. Wenn der boolesche Wert auf true festgelegt ist, müssen alle Pakete, die in der Quelle verfügbar sind, über eine Repository-Signatur verfügen, die von einem der Signatur Zertifikate in erstellt wird `signingCertificates` .
 
 > [!Warning]
-> Die `allRepositorySigned` booleschen muss für die Ressourcen 4.7.0 und 4.9.0 falsch gesetzt sein. NuGet v4.9, v4. 7 und v4. 8-Clients können keine Installationspakete aus Quellen, die `allRepositorySigned` auf "true" festgelegt ist.
+> Der `allRepositorySigned` boolesche Wert muss für die 4.7.0-und 4.9.0-Ressourcen den Wert false aufweisen. Die Clients für nuget v 4.7, v 4.8 und v 4.9 können Pakete nicht aus Quellen installieren, bei denen `allRepositorySigned` auf "true" festgelegt ist.
 
-Es muss eine oder mehrere Signaturzertifikate in der `signingCertificates` array, wenn die `allRepositorySigned` booleschen Wert festgelegt ist auf "true". Wenn das Array leer ist und `allRepositorySigned` nastaven NA hodnotu True gibt an, alle Pakete aus der Quelle angesehen werden ungültig ist, obwohl eine Clientrichtlinie möglicherweise weiterhin die Nutzung von Paketen zulässt. Jedes Element im Array ist ein JSON-Objekt mit den folgenden Eigenschaften an.
+`signingCertificates`Wenn der `allRepositorySigned` boolesche Wert auf true festgelegt ist, muss ein oder mehrere Signatur Zertifikate im Array vorhanden sein. Wenn das Array leer ist und `allRepositorySigned` auf true festgelegt ist, sollten alle Pakete aus der Quelle als ungültig eingestuft werden, obwohl eine Client Richtlinie weiterhin die Verwendung von Paketen zulässt. Jedes Element in diesem Array ist ein JSON-Objekt mit den folgenden Eigenschaften.
 
-Name         | Typ   | Erforderlich | Hinweise
+Name         | Typ   | Erforderlich | Notizen
 ------------ | ------ | -------- | -----
-contentUrl   | Zeichenfolge | ja      | Das öffentliche Zertifikat von DER-codierte absolute URL
-Fingerabdrücke | object | ja      |
-Betreff      | Zeichenfolge | ja      | Definierter Antragstellername aus dem Zertifikat
-issuer       | Zeichenfolge | ja      | Der distinguished Name des der Zertifikataussteller
-notBefore    | Zeichenfolge | ja      | Der Gültigkeitszeitraum des Zertifikats den Timestamp des Starts
-notAfter     | Zeichenfolge | ja      | Der Endpunkt Zeitstempel der Gültigkeitszeitraum des Zertifikats
+contentUrl   | Zeichenfolge | ja      | Absolute URL zum der der-codierten öffentlichen Zertifikat
+Abdrücke | object | ja      |
+subject      | Zeichenfolge | ja      | Der Distinguished Name des Antragstellers aus dem Zertifikat.
+Issuer (Aussteller)       | Zeichenfolge | ja      | Der Distinguished Name des Zertifikat Ausstellers.
+notBefore    | Zeichenfolge | ja      | Der Start Zeitstempel für die Gültigkeitsdauer des Zertifikats.
+NotAfter     | Zeichenfolge | ja      | Der Endzeit Stempel der Gültigkeitsdauer des Zertifikats.
 
-Beachten Sie, dass die `contentUrl` ist erforderlich, um über HTTPS bereitgestellt werden. Diese URL verfügt über keine bestimmten URL-Muster und muss dynamisch ermittelt werden mit diesem Repository Signaturen Indizieren von Dokumenten. 
+Beachten Sie, dass `contentUrl` erforderlich ist, um über HTTPS bedient zu werden. Diese URL weist kein bestimmtes URL-Muster auf und muss mithilfe dieses Repository-Signatur Index Dokuments dynamisch erkannt werden. 
 
-Alle Eigenschaften in diesem Objekt (abgesehen vom `contentUrl`) muss aus dem Zertifikat finden Sie unter Geschäftstrends `contentUrl`.
-Diese Geschäftstrends Eigenschaften dienen als praktische Roundtrips zu minimieren.
+Alle Eigenschaften in diesem Objekt (abgesehen von `contentUrl` ) müssen aus dem Zertifikat abgeleitet werden, das sich unter befindet `contentUrl` .
+Diese derisierbaren Eigenschaften dienen als praktische Möglichkeit zur Minimierung von Roundtrips.
 
-Die `fingerprints` Objekt hat die folgenden Eigenschaften:
+Das `fingerprints`-Objekt weist die folgenden Eigenschaften auf:
 
-Name                   | Typ   | Erforderlich | Hinweise
+Name                   | Typ   | Erforderlich | Notizen
 ---------------------- | ------ | -------- | -----
 2.16.840.1.101.3.4.2.1 | Zeichenfolge | ja      | Der SHA-256-Fingerabdruck
 
-Der Name des Schlüssels `2.16.840.1.101.3.4.2.1` ist die OID des SHA-256-Hashalgorithmus.
+Der Schlüssel Name `2.16.840.1.101.3.4.2.1` ist die OID des SHA-256-Hash Algorithmus.
 
-Alle Hashwerte muss hexadezimal-codierten Zeichenfolge mit Kleinbuchstaben Darstellungen des Hash-Digests.
+Alle Hashwerte müssen aus Kleinbuchstaben und hexadezimal codierten Zeichen folgen Darstellungen des Hash Digest bestehen.
 
 ### <a name="sample-request"></a>Beispiel für eine Anforderung
 
-    GET https://api.nuget.org/v3-index/repository-signatures/index.json
+```
+GET https://api.nuget.org/v3-index/repository-signatures/index.json
+```
 
-### <a name="sample-response"></a>Beispielantwort
+### <a name="sample-response"></a>Beispiel für eine Antwort
 
 [!code-JSON [repository-signatures-index.json](./_data/repository-signatures-index.json)]

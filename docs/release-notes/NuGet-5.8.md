@@ -5,12 +5,12 @@ author: dominofire
 ms.author: feaguila
 ms.date: 11/9/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7f641c669cdb0cc979d698f6b219cbb4f2692a2e
-ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
+ms.openlocfilehash: 550971d77ed4b15129fdc58fef95e0cceda8d8d1
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98235749"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776175"
 ---
 # <a name="nuget-58-release-notes"></a>Anmerkungen zu dieser Version von nuget 5,8
 
@@ -18,7 +18,7 @@ Möglichkeiten der NuGet-Verteilung:
 
 | NuGet-Version | Verfügbar in der Visual Studio-Version | Verfügbar in .NET SDK(s) |
 |:---|:---|:---|
-| [**5,8**](https://nuget.org/downloads) | [Visual Studio 2019, Version 16.8](https://visualstudio.microsoft.com/downloads/) | [5,0](https://dotnet.microsoft.com/download/dotnet-core/5.0)<sup>1</sup> |
+| [**5.8**](https://nuget.org/downloads) | [Visual Studio 2019, Version 16.8](https://visualstudio.microsoft.com/downloads/) | [5,0](https://dotnet.microsoft.com/download/dotnet-core/5.0)<sup>1</sup> |
 | [**5.8.1**](https://nuget.org/downloads) | [Visual Studio 2019 Version 16.8.4](https://visualstudio.microsoft.com/downloads/) | |
 
 <sup>1</sup> installiert mit Visual Studio 2019 mit .net Core-Arbeitsauslastung
@@ -34,13 +34,13 @@ Möglichkeiten der NuGet-Verteilung:
 
 * Details zu Paket Sicherheitsrisiken im Detailbereich des Paket-Managers Benutzeroberflächen Paket anzeigen- [#9850](https://github.com/NuGet/Home/issues/9850)
 
-* Überprüfen Sie signierte nuget-Pakete mit dem neuen [`dotnet nuget verify`](https://docs.microsoft.com/dotnet/core/tools/dotnet-nuget-verify) Befehl [#8051](https://github.com/NuGet/Home/issues/8051)
+* Überprüfen Sie signierte nuget-Pakete mit dem neuen [`dotnet nuget verify`](/dotnet/core/tools/dotnet-nuget-verify) Befehl [#8051](https://github.com/NuGet/Home/issues/8051)
 
-* [`dotnet add package`](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package#:~:text=dotnet%20add%20package%201%20Name%202%20Synopsis%203,when%20targeting%20a%20specific%20framework.%20...%206%20Examples) unterstützt `--prerelease` die Option zum Hinzufügen der neuesten Version eines Pakets, einschließlich vorab Versionen [#4699](https://github.com/NuGet/Home/issues/4699)
+* [`dotnet add package`](/dotnet/core/tools/dotnet-add-package#:~:text=dotnet%20add%20package%201%20Name%202%20Synopsis%203,when%20targeting%20a%20specific%20framework.%20...%206%20Examples) unterstützt `--prerelease` die Option zum Hinzufügen der neuesten Version eines Pakets, einschließlich vorab Versionen [#4699](https://github.com/NuGet/Home/issues/4699)
 
-* Suchen von Paketen in der CLI mit [`nuget.exe search`](https://docs.microsoft.com/nuget/reference/cli-reference/cli-ref-search) Befehls [#9704](https://github.com/NuGet/Home/issues/9704)
+* Suchen von Paketen in der CLI mit [`nuget.exe search`](../reference/cli-reference/cli-ref-search.md) Befehls [#9704](https://github.com/NuGet/Home/issues/9704)
 
-* [`dotnet list package`](https://docs.microsoft.com/dotnet/core/tools/dotnet-list-package) Befehl unterstützt `--verbosity` Option- [#9600](https://github.com/NuGet/Home/issues/9600)
+* [`dotnet list package`](/dotnet/core/tools/dotnet-list-package) Befehl unterstützt `--verbosity` Option- [#9600](https://github.com/NuGet/Home/issues/9600)
 
 * Aktivieren Sie die schnelle No-Op Wiederherstellungs Optimierung für csproj-, packagereferenzierungsbasierte Projekte in Visual Studio [#9565](https://github.com/NuGet/Home/issues/9565)
 
@@ -155,4 +155,4 @@ Vielen Dank für alle Mitwirkenden, die dazu beigetragen haben, dass diese nuget
 ## <a name="feedback-welcome"></a>Feedback Willkommen
 
 Ihr Feedback ist uns sehr wichtig.  Wenn bei diesem Release Probleme auftreten, überprüfen Sie unsere [GitHub-Probleme](https://github.com/NuGet/Home/issues) und die [Visual Studio-Entwickler Community](https://developercommunity.visualstudio.com/) auf vorhandene Probleme.  Melden Sie sich bei neuen Problemen in nuget an einem [GitHub-Problem](https://github.com/NuGet/Home/issues/new).
-Wenn Sie allgemeine Probleme mit der nuget-Umgebung haben, informieren Sie uns über die Option " [Problem melden](https://docs.microsoft.com/visualstudio/ide/how-to-report-a-problem-with-visual-studio) " in Ihrer bevorzugten IDE unter **Hilfe > melden Sie ein Problem**.
+Wenn Sie allgemeine Probleme mit der nuget-Umgebung haben, informieren Sie uns über die Option " [Problem melden](/visualstudio/ide/how-to-report-a-problem-with-visual-studio) " in Ihrer bevorzugten IDE unter **Hilfe > melden Sie ein Problem**.

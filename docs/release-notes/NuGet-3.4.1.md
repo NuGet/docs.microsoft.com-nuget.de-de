@@ -1,27 +1,27 @@
 ---
-title: Anmerkungen zu NuGet 3.4.1
-description: Anmerkungen zu dieser Version für die Einbindung von NuGet 3.4.1 bekannte Probleme, Fehlerkorrekturen, hinzugefügter Features und DCRs.
-author: karann-msft
-ms.author: karann
+title: Anmerkungen zu nuget-Version 3.4.1
+description: Anmerkungen zu dieser Version von nuget 3.4.1 einschließlich bekannter Probleme, Fehlerbehebungen, hinzugefügter Features und dcrs.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: e3f90646149b6a1a0e6a2639979110fb779d973c
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 1e234becd2c92ae64fa0f1ac95b358e9a2fb3207
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547556"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776483"
 ---
-# <a name="nuget-341-release-notes"></a>Anmerkungen zu NuGet 3.4.1
+# <a name="nuget-341-release-notes"></a>Anmerkungen zu nuget-Version 3.4.1
 
-[Anmerkungen zu NuGet 3.4](../release-notes/nuget-3.4.md) | [Anmerkungen zu NuGet 3.4.2](../release-notes/nuget-3.4.2.md)
+Anmerkungen zu dieser [Version von nuget 3,4](../release-notes/nuget-3.4.md)  |  [Nuget 3.4.2 Anmerkungen](../release-notes/nuget-3.4.2.md) zu dieser Version
 
-NuGet 3.4.1 wurde am 30. März 2016 zur gleichen Zeit wie die Visual Studio 2015 Update 2 und Visual Studio 15 Preview-Version, mehrere Probleme zu beheben, die in der Version 3.4 identifiziert wurden veröffentlicht.
+Nuget 3.4.1 wurde am 30. März 2016 zur gleichen Zeit wie das Visual Studio 2015 Update 2 und Visual Studio 15 Preview veröffentlicht, um verschiedene Probleme zu beheben, die in der Version 3,4 identifiziert wurden.
 
 ## <a name="updates-and-improvements"></a>Updates und Verbesserungen
 
-* Korrigierte ein Problem, das verhindert, Durchsuchen von Paketen auf der Benutzeroberfläche von Visual Studio mit einer minimalen Visual Studio-Installation
-* Ein Problem mit Visual Studio suchen korrigiert `lucene.net.dll`
-* Alle Quellen darf nicht die Standard-Repository-Quelle sein, nachdem eine NuGet-Erweiterung installieren oder aktualisieren.  Sie können auf dieses Feature aus den Konfigurationseinstellungen teilnehmen.
+* Es wurde ein Problem behoben, das das Durchsuchen von Paketen von der Visual Studio-Benutzeroberfläche mit einer minimalen Visual Studio
+* Es wurde ein Problem mit der Suche von Visual Studio behoben. `lucene.net.dll`
+* Alle Quellen sollten nach der Installation oder Aktualisierung einer nuget-Erweiterung nicht die standardrepository-Quelle sein.  Sie können dieses Feature in den Konfigurationseinstellungen abonnieren.
 
-Wir fahren fort, um Probleme in der Liste unserer GitHub-Probleme nachzuverfolgen, die finden Sie unter: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)
+Wir verfolgen weiterhin Probleme in unserer GitHub-Liste mit Problemen, die unter folgenden Themen zu finden sind: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)
