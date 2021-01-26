@@ -1,20 +1,20 @@
 ---
-title: Anmerkungen zu NuGet 2.8.7
-description: Anmerkungen zu dieser Version für die Einbindung von NuGet 2.8.7 bekannte Probleme, Fehlerkorrekturen, hinzugefügter Features und DCRs.
-author: karann-msft
-ms.author: karann
+title: Nuget 2.8.7 Anmerkungen zu dieser Version
+description: Anmerkungen zu dieser Version von nuget 2.8.7 einschließlich bekannter Probleme, Fehlerbehebungen, hinzugefügter Features und dcrs.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 0b3a9520bb2e1b898e51644169d55d3c2fb8220d
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 6f7098346c92ca67048938faf70d512e36c434a9
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549987"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780339"
 ---
-# <a name="nuget-287-release-notes"></a><span data-ttu-id="ee20d-103">Anmerkungen zu NuGet 2.8.7</span><span class="sxs-lookup"><span data-stu-id="ee20d-103">NuGet 2.8.7 Release Notes</span></span>
+# <a name="nuget-287-release-notes"></a><span data-ttu-id="9f402-103">Nuget 2.8.7 Anmerkungen zu dieser Version</span><span class="sxs-lookup"><span data-stu-id="9f402-103">NuGet 2.8.7 Release Notes</span></span>
 
-<span data-ttu-id="ee20d-104">[Anmerkungen zu NuGet 2.8.6](../release-notes/nuget-2.8.6.md) | [Anmerkungen zu Version 2.9-RC von NuGet](../release-notes/nuget-2.9-RC.md)</span><span class="sxs-lookup"><span data-stu-id="ee20d-104">[NuGet 2.8.6 Release Notes](../release-notes/nuget-2.8.6.md) | [NuGet 2.9-RC Release Notes](../release-notes/nuget-2.9-RC.md)</span></span>
+<span data-ttu-id="9f402-104">[Nuget 2.8.6 Anmerkungen](../release-notes/nuget-2.8.6.md)  |  zu dieser Version [Anmerkungen zu dieser Version von nuget 2,9-RC](../release-notes/nuget-2.9-RC.md)</span><span class="sxs-lookup"><span data-stu-id="9f402-104">[NuGet 2.8.6 Release Notes](../release-notes/nuget-2.8.6.md) | [NuGet 2.9-RC Release Notes](../release-notes/nuget-2.9-RC.md)</span></span>
 
-<span data-ttu-id="ee20d-105">NuGet 2.8.7 wurde veröffentlicht. 27 Juli 2015 als Patch zu aktualisieren, um die 2.8.6 VSIX mit beheben, die spezifisch für einen Fehler, der Implementierung von Richtlinien zur Powershell beeinflusst.</span><span class="sxs-lookup"><span data-stu-id="ee20d-105">NuGet 2.8.7 was released July 27, 2015 as a patch update to the 2.8.6 VSIX with fix specific to a bug that effected Powershell policy implementation.</span></span>
+<span data-ttu-id="9f402-105">Nuget 2.8.7 wurde vom 27. Juli 2015 als Patch-Update für die 2.8.6-VSIX veröffentlicht und ist für einen Fehler spezifisch, der die Implementierung der PowerShell-Richtlinie beeinflusst hat.</span><span class="sxs-lookup"><span data-stu-id="9f402-105">NuGet 2.8.7 was released July 27, 2015 as a patch update to the 2.8.6 VSIX with fix specific to a bug that effected Powershell policy implementation.</span></span>
 [https://github.com/NuGet/Home/issues/974](https://github.com/NuGet/Home/issues/974)
