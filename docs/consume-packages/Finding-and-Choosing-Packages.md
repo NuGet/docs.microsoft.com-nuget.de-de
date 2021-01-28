@@ -1,16 +1,16 @@
 ---
 title: Suchen und Wählen von NuGet-Paketen
 description: Eine Übersicht darüber, wie Sie die besten NuGet-Pakete für ein Projekt suchen und auswählen sowie Details zur Syntax der NuGet-Suche.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: feb21ae1e70144491a5c0fe8f6a7be36e61d9b32
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 4ba51028c1a69a3466cec655db19c2c498e29d9b
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622984"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775171"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Suchen und Auswerten von NuGet-Paketen für Ihr Projekt
 

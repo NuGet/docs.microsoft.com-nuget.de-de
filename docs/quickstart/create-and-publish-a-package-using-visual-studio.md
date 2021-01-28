@@ -1,16 +1,16 @@
 ---
 title: Erstellen und Veröffentlichen eines .NET Standard-NuGet-Pakets – Visual Studio unter Windows
 description: Exemplarische Vorgehensweise zum Erstellen und Veröffentlichen eines .NET Standard-NuGet-Pakets mit Visual Studio unter Windows.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/16/2019
 ms.topic: quickstart
-ms.openlocfilehash: 32dcc1d233154463e2950b1ce46554b1cb89956e
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 53f54f6723ad10fca2ed6f75290ba3829dfb9a5e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237496"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775686"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Schnellstart: Erstellen und Veröffentlichen eines NuGet-Pakets mithilfe von Visual Studio (.NET Standard, nur Windows)
 
@@ -36,7 +36,7 @@ Ein NuGet-Paket kann problemlos über eine .NET Standard-Klassenbibliothek in Vi
 
 Sie können ein vorhandenes Projekt in der .NET Standard-Klassenbibliothek für Code verwenden, den Sie packen wollen, oder wie folgt ein einfaches Projekt erstellen:
 
-1. Wählen Sie in Visual Studio **Datei > Neu > Projekt** aus, erweitern Sie den Knoten **Visual C#-> .NET Standard** , wählen Sie die Vorlage „Klassenbibliothek (.NET Standard)“ aus, geben Sie dem Projekt den Namen „AppLogger“, und klicken Sie auf **OK**.
+1. Wählen Sie in Visual Studio **Datei > Neu > Projekt** aus, erweitern Sie den Knoten **Visual C#-> .NET Standard**, wählen Sie die Vorlage „Klassenbibliothek (.NET Standard)“ aus, geben Sie dem Projekt den Namen „AppLogger“, und klicken Sie auf **OK**.
 
    > [!Tip]
    > Sofern es keinen Grund dafür gibt, der dagegen spricht, ist .NET Standard das bevorzugte Ziel für NuGet-Pakete, da es die größte Kompatibilitätsreichweite für verarbeitende Projekte bietet.
@@ -67,9 +67,9 @@ namespace AppLogger
     ![NuGet-Paketeigenschaften in einem Visual Studio-Projekt](media/qs_create-vs-01-package-properties.png)
 
     > [!Note]
-    > Bei Paketen für die öffentliche Nutzung sollten Sie besonders auf die **Tags** -Eigenschaft achten, da Tags anderen dabei helfen, Ihr Paket zu finden und dessen Funktion zu verstehen.
+    > Bei Paketen für die öffentliche Nutzung sollten Sie besonders auf die **Tags**-Eigenschaft achten, da Tags anderen dabei helfen, Ihr Paket zu finden und dessen Funktion zu verstehen.
 
-1. Geben Sie Ihrem Paket einen eindeutigen Bezeichner, und füllen Sie alle weiteren gewünschten Eigenschaften aus. Eine Zuordnung von MSBuild-Eigenschaften (Projekt im SDK-Format) zu Eigenschaften in einer *NUSPEC* -Datei finden Sie unter [Ziele für „pack“](../reference/msbuild-targets.md#pack-target). Beschreibungen der Eigenschaften finden Sie in der [NUSPEC-Dateireferenz](../reference/nuspec.md). Alle diese Eigenschaften werden in das `.nuspec`-Manifest eingefügt, dass von Visual Studio für das Projekt erstellt wird.
+1. Geben Sie Ihrem Paket einen eindeutigen Bezeichner, und füllen Sie alle weiteren gewünschten Eigenschaften aus. Eine Zuordnung von MSBuild-Eigenschaften (Projekt im SDK-Format) zu Eigenschaften in einer *NUSPEC*-Datei finden Sie unter [Ziele für „pack“](../reference/msbuild-targets.md#pack-target). Beschreibungen der Eigenschaften finden Sie in der [NUSPEC-Dateireferenz](../reference/nuspec.md). Alle diese Eigenschaften werden in das `.nuspec`-Manifest eingefügt, dass von Visual Studio für das Projekt erstellt wird.
 
     > [!Important]
     > Sie müssen dem Paket einen Bezeichner zuweisen, der auf nuget.org bzw. auf dem Host, den Sie verwenden, einzigartig ist. Für diese exemplarische Vorgehensweise wird empfohlen, im Namen „Sample“ oder „Test“ zu verwenden, da der Name in einem späteren Veröffentlichungsschritt öffentlich sichtbar gemacht wird (auch wenn es unwahrscheinlich ist, dass jemand versucht, es zu verwenden).

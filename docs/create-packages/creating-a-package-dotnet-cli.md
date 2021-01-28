@@ -1,16 +1,16 @@
 ---
 title: Erstellen eines NuGet-Pakets mithilfe der dotnet-CLI
 description: Eine ausführliche Anleitung zum Entwerfen und Erstellen eines NuGet-Pakets, einschließlich der wichtigsten Entscheidungspunkte wie Dateien und Versionsverwaltung
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 87b38d7a707d6175eb3347280784d9dfefd9c17d
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 4771a30ee2ff73e68154d05f1c84efd90b584162
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "89359647"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774487"
 ---
 # <a name="create-a-nuget-package-using-the-dotnet-cli"></a>Erstellen eines NuGet-Pakets mithilfe der dotnet-CLI
 

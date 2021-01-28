@@ -1,22 +1,22 @@
 ---
 title: Auflösung von NuGet-Paketabhängigkeiten
 description: Details zum Vorgang, bei dem die Abhängigkeiten eines NuGet-Pakets aufgelöst und in NuGet 2.x und NuGet 3.x und höher installiert werden.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 4b95251e4b055523a9533b4125589b2650be932d
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 0ef309d95c6ef5437765c02791da6dab13794678
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237743"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775266"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Auflösung von Paketabhängigkeiten durch NuGet
 
 Bei jeder Installation oder Neuinstallation eines Pakets, was auch die Installation als Bestandteil eines [Wiederherstellungsprozesses](../consume-packages/package-restore.md) umfasst, installiert NuGet außerdem zusätzliche Pakete, von denen das ursprüngliche Paket abhängig ist.
 
-Diese unmittelbaren Abhängigkeiten verfügen möglicherweise ebenfalls über Abhängigkeiten, die über weitere Abhängigkeiten verfügen, usw. Dadurch entsteht ein sogenanntes *Abhängigkeitsdiagramm* , das die Beziehungen zwischen den Paketen auf sämtlichen Ebenen darstellt.
+Diese unmittelbaren Abhängigkeiten verfügen möglicherweise ebenfalls über Abhängigkeiten, die über weitere Abhängigkeiten verfügen, usw. Dadurch entsteht ein sogenanntes *Abhängigkeitsdiagramm*, das die Beziehungen zwischen den Paketen auf sämtlichen Ebenen darstellt.
 
 Wenn mehrere Pakete über dieselbe Abhängigkeit verfügen, kann in dem Diagramm auch mehrmals dieselbe Paket-ID angezeigt werden, möglicherweise mit verschiedenen Versionseinschränkungen. Trotzdem kann nur eine Version eines vorhandenen Pakets in einem Projekt verwendet werden, sodass NuGet auswählen muss, welche Version verwendet wird. Der genaue Prozess ist abhängig vom verwendeten Paketverwaltungsformat.
 

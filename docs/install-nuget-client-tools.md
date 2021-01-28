@@ -1,16 +1,16 @@
 ---
 title: Installieren von NuGet-Clienttools
 description: Anleitung zum Installieren von Clienttools, der dotnet- und nuget-Befehlszeilenschnittstellen (Command-Line Interface, CLI) und des Paket-Managers für Visual Studio.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 06/20/2019
 ms.topic: quickstart
-ms.openlocfilehash: 2769f0ef0373b26eedb4bac6242fee0e814310c5
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 0e3938fc1ac748285ba26541a7d4e907c9a64156
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428462"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775902"
 ---
 # <a name="install-nuget-client-tools"></a>Installieren von NuGet-Clienttools
 

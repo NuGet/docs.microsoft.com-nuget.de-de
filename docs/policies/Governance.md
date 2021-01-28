@@ -1,16 +1,16 @@
 ---
 title: NuGet-Projektgovernance
 description: Das Governancemodell für NuGet mit Rollen und Zuständigkeiten von Committern, Mitwirkenden und Benutzern.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2aaaf41b3fc4ef3621333e5099780b5d7ef393bc
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 2edaac0218dc936ea6bfe1814c0aab963028ea87
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64500398"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775590"
 ---
 # <a name="nuget-governance"></a>NuGet-Governance
 
@@ -40,7 +40,7 @@ Normalerweise konzentriert sich ein Committer auf einen bestimmten Aspekt des Pr
 
 Committers haben bei der Ausrichtung von NuGet keine Entscheidungsgewalt. Allerdings haben sie das Vertrauen der Projektleitung, die mit Fragen an sie herantritt. Committers sollen sicherstellen, dass die Projektleitung über die Bedürfnisse und die gemeinsamen Ziele der Community informiert ist, und sie sollen Beiträge zum Projekt leisten oder in die Wege leiten. Häufig erhalten Committers die inoffizielle Kontrolle über ihren Zuständigkeitsbereich, und ihnen werden Berechtigungen zum direkten Anpassen gewisser Abschnitte des Quellcodes erteilt. Das heißt also, dass Committers zwar keine Entscheidungsbefugnis haben, ihre Handlungen aber häufig mit den Entscheidungen der Projektleitung übereinstimmen.
 
-### <a name="contributors"></a>Mitwirkende
+### <a name="contributors"></a>Beitragende
 
 Mitwirkende sind Mitglieder der Community, die Patches in NuGet einreichen. Diese Patches können sowohl einmal als auch mehrmals über einen längeren Zeitraum vorkommen. Es wird erwartet, dass Mitwirkende Patches einreichen, die zunächst klein sind und mit wachsendem Vertrauen des Mitwirkenden, der Committers und der Projektleitung in die Qualität von Patches des Mitwirkenden immer größer werden. Mitwirkende werden in den Anmerkungen zu der jeweiligen Version des Produkts anerkannt.
 

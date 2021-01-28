@@ -1,16 +1,16 @@
 ---
 title: Gängige NuGet-Konfigurationen
 description: NuGet.Config-Dateien steuern das Verhalten von NuGet global und auf Projektebene und werden mit dem Befehl „nuget config“ bearbeitet.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: e81c380eab3f1a8635e50e62811c7ae463ec3653
-ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
+ms.openlocfilehash: 35339626b0a20ccfceafa89fef94fb3187013fd7
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97699773"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774854"
 ---
 # <a name="common-nuget-configurations"></a>Gängige NuGet-Konfigurationen
 
@@ -120,14 +120,16 @@ Wenn NuGet Einstellungen in diesen Dateien vorfindet, werden diese folgendermaß
 
 Nehmen wir an, dass Sie über folgende Ordnerstruktur auf zwei separaten Laufwerken verfügen:
 
-    disk_drive_1
-        User
-    disk_drive_2
-       Project1
-         Source
-       Project2
-         Source
-       tmp
+```
+disk_drive_1
+    User
+disk_drive_2
+    Project1
+        Source
+    Project2
+        Source
+    tmp
+```
 
 Sie verfügen dann über vier `NuGet.Config`-Dateien an folgenden Speicherorten mit dem angegebenen Inhalt. (Die Datei auf Computerebene ist in diesem Beispiel nicht enthalten. Diese würde sich jedoch ähnlich wie die Datei auf Benutzerebene verhalten.)
 

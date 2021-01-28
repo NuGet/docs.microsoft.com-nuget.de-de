@@ -1,16 +1,16 @@
 ---
 title: Erstellen von .NET Standard- und .NET Framework-NuGet-Paketen mit Visual Studio 2015
 description: Eine exemplarische End-to-End-Vorgehensweise zum Erstellen von .NET Standard- und .NET Framework-NuGet-Paketen mithilfe von NuGet 3.x und Visual Studio 2015.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 02/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: b16bf422e2627be3b8516a875d749639734064a9
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: d55228bbbd238d8930404ea52c5a80383bc9e0a3
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "72380723"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774391"
 ---
 # <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>Erstellen von .NET Standard- und .NET Framework-Paketen mit Visual Studio 2015
 

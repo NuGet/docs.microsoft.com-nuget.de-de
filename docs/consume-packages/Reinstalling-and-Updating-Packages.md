@@ -1,16 +1,16 @@
 ---
 title: Erneutes Installieren und Aktualisieren von NuGet-Paketen
 description: Hier finden Sie Informationen dazu, wann es nötig ist, Pakete neu zu installieren und zu aktualisieren (z.B. bei fehlerhaften Paketverweisen in Visual Studio).
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: conceptual
-ms.openlocfilehash: 101c6d6b9d93da912f60c40b27559e80327154b8
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 588d546352e5733ba8198061beb8006a79ecedac
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237730"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774971"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Neuinstallieren und Aktualisieren von Paketen
 
@@ -23,7 +23,7 @@ Das Aktualisieren und die Neuinstallation von Paketen erfolgt wie im Folgenden d
 | Methode | Aktualisieren | Neuinstallation |
 | --- | --- | --- |
 | Paket-Manager-Konsole (beschrieben unter [Verwenden des Updatepakets](#using-update-package)) | `Update-Package`-Befehl | `Update-Package -reinstall`-Befehl |
-| Benutzeroberfläche des Paket-Managers | Wählen Sie auf der Registerkarte **Updates** mindestens ein Paket aus, und klicken Sie auf **Update** (Aktualisieren). | Wählen Sie auf der Registerkarte **Installiert** ein Paket aus, dokumentieren Sie dessen Namen, und klicken Sie dann auf **Deinstallieren**. Wechseln Sie zur Registerkarte **Durchsuchen** , suchen Sie nach dem Paketnamen, wählen Sie ihn aus, und klicken Sie dann auf **Installieren**. |
+| Benutzeroberfläche des Paket-Managers | Wählen Sie auf der Registerkarte **Updates** mindestens ein Paket aus, und klicken Sie auf **Update** (Aktualisieren). | Wählen Sie auf der Registerkarte **Installiert** ein Paket aus, dokumentieren Sie dessen Namen, und klicken Sie dann auf **Deinstallieren**. Wechseln Sie zur Registerkarte **Durchsuchen**, suchen Sie nach dem Paketnamen, wählen Sie ihn aus, und klicken Sie dann auf **Installieren**. |
 | nuget.exe-CLI | `nuget update`-Befehl | Löschen Sie für alle Pakete den Paketordner, und führen Sie dann `nuget install` aus. Löschen Sie für ein einzelnes Paket den Paketordner, und verwenden Sie `nuget install <id>`, um den gleichen Ordner neu zu installieren. |
 
 > [!NOTE]
@@ -63,7 +63,7 @@ Verwenden Sie in jedem Fall die unter [Paketversionsverwaltung](../concepts/pack
 
 ## <a name="using-update-package"></a>Verwenden eines Updatepakets
 
-Unter Berücksichtigung der nachfolgend beschriebenen [Überlegungen](#considerations) können Sie einfach beliebige Pakete neu installieren, indem Sie den [Befehl Update-Package](../reference/ps-reference/ps-ref-update-package.md) in der Paket-Manager-Konsole von Visual Studio verwenden ( **Extras** > **NuGet-Paket-Manager** > **Paket-Manager-Konsole** ).
+Unter Berücksichtigung der nachfolgend beschriebenen [Überlegungen](#considerations) können Sie einfach beliebige Pakete neu installieren, indem Sie den [Befehl Update-Package](../reference/ps-reference/ps-ref-update-package.md) in der Paket-Manager-Konsole von Visual Studio verwenden (**Extras** > **NuGet-Paket-Manager** > **Paket-Manager-Konsole**).
 
 ```ps
 Update-Package -Id <package_name> –reinstall

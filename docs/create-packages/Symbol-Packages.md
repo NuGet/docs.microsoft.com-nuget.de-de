@@ -1,17 +1,17 @@
 ---
 title: Erstellen von Legacysymbolpaketen (.symbols.nupkg)
 description: Vorgehensweise bei der Erstellung von NuGet-Paketen, die nur Symbole für die Unterstützung des Debuggings anderer NuGet-Pakete in Visual Studio enthalten.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 374e9ccfc01cd06508e76529765db3f849342222
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: d9a96986bf80aa15423d7dcee6ea3fe59255252b
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "77476268"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774545"
 ---
 # <a name="creating-legacy-symbol-packages-symbolsnupkg"></a>Erstellen von Legacysymbolpaketen (.symbols.nupkg)
 
@@ -46,42 +46,48 @@ Ein Symbolpaket kann für mehrere Zielframeworks verwendet werden, genau wie ein
 
 Ein Legacysymbolpaket für .NET 4.0 und Silverlight 4 würde beispielsweise folgendes Layout aufweisen:
 
-    \lib
-        \net40
-            \MyAssembly.dll
-            \MyAssembly.pdb
-        \sl40
-            \MyAssembly.dll
-            \MyAssembly.pdb
+```
+\lib
+    \net40
+        \MyAssembly.dll
+        \MyAssembly.pdb
+    \sl40
+        \MyAssembly.dll
+        \MyAssembly.pdb
+```
 
 Quelldateien werden dann in einem separaten speziellen Ordner mit dem Namen `src` angeordnet. Dabei muss die relative Struktur Ihres Quellrepositorys eingehalten werden. Grund dafür ist, dass PDB-Dateien absolute Pfade zu Quelldateien für die Kompilierung der entsprechenden DLL enthalten und diese während des Veröffentlichungsprozesses gefunden werden müssen. Ein Basispfad (allgemeine Pfadpräfix) kann entfernt werden. Angenommen beispielsweise, eine Bibliothek wird aus folgenden Dateien erstellt:
 
-    C:\Projects
-        \MyProject
-            \Common
-                \MyClass.cs
-            \Full
-                \Properties
-                    \AssemblyInfo.cs
-                \MyAssembly.csproj (producing \lib\net40\MyAssembly.dll)
-            \Silverlight
-                \Properties
-                    \AssemblyInfo.cs
-                \MySilverlightExtensions.cs
-                \MyAssembly.csproj (producing \lib\sl4\MyAssembly.dll)
-
-Neben dem Ordner `lib` muss ein Legacysymbolpaket dann folgendes Layout enthalten:
-
-    \src
+```
+C:\Projects
+    \MyProject
         \Common
             \MyClass.cs
         \Full
             \Properties
                 \AssemblyInfo.cs
+            \MyAssembly.csproj (producing \lib\net40\MyAssembly.dll)
         \Silverlight
             \Properties
                 \AssemblyInfo.cs
             \MySilverlightExtensions.cs
+            \MyAssembly.csproj (producing \lib\sl4\MyAssembly.dll)
+```
+
+Neben dem Ordner `lib` muss ein Legacysymbolpaket dann folgendes Layout enthalten:
+
+```
+\src
+    \Common
+        \MyClass.cs
+    \Full
+        \Properties
+            \AssemblyInfo.cs
+    \Silverlight
+        \Properties
+            \AssemblyInfo.cs
+        \MySilverlightExtensions.cs
+```
 
 ## <a name="referring-to-files-in-the-nuspec"></a>Verweisen auf Dateien in der NUSPEC-Datei
 

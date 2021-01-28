@@ -1,16 +1,16 @@
 ---
 title: NuGet-Unterstützung für das Visual Studio-Projektsystem
 description: Integration von NuGet in das Visual Studio-Projektsystem für Projekttypen von Drittanbietern.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/09/2017
 ms.topic: reference
-ms.openlocfilehash: 00a64d95c943e9e5cb3a279358a6495125a1bd87
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 7af330f88b47352666933598719d9c8f8cb66a78
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64495933"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779403"
 ---
 # <a name="nuget-support-for-the-visual-studio-project-system"></a>NuGet-Unterstützung für das Visual Studio-Projektsystem
 

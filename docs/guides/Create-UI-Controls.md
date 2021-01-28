@@ -1,16 +1,16 @@
 ---
 title: Packen von UWP-Steuerelementen mit NuGet
 description: Vorgehensweise beim Erstellen von NuGet-Paketen mit UWP- oder WPF-Steuerelementen einschließlich der erforderlichen Metadaten und der unterstützenden Dateien für die Visual Studio- und Blend-Designer.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: 17062d83349fe1b8cd28e57dd888686a226ac9cb
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 317937b4d9d773d74384b8ebfcd2146062236ac1
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238022"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774331"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>Erstellen von Benutzeroberflächensteuerelementen als NuGet-Pakete
 
@@ -36,10 +36,12 @@ Alternativ können Sie die Projektdatei bearbeiten, um `<GenerateLibraryLayout>t
 
 Damit ein XAML-Steuerelement in der Toolbox des XAML-Designers in Visual Studio und im Bereich „Objekte“ in Blend angezeigt wird, müssen Sie im Stammverzeichnis des Ordners `tools` Ihres Paketprojekts die Datei `VisualStudioToolsManifest.xml` erstellen. Diese Datei ist nicht erforderlich, wenn das Steuerelement in der Toolbox oder im Bereich „Objekte“ nicht angezeigt werden muss.
 
-    \build
-    \lib
-    \tools
-        VisualStudioToolsManifest.xml
+```
+\build
+\lib
+\tools
+    VisualStudioToolsManifest.xml
+```
 
 Die Struktur der Datei lautet wie folgt:
 
@@ -59,11 +61,11 @@ Die Struktur der Datei lautet wie folgt:
 
 Dabei gilt:
 
-- *your_package_file* : Der Name Ihrer Steuerungsdatei, wie z.B. `ManagedPackage.winmd` („ManagedPackage“ ist ein beliebiger, in diesem Beispiel verwendeter Name und hat keine andere Bedeutung).
-- *vs_category* : Die Beschriftung der Gruppe, in der das Steuerelement in der Toolbox des Visual Studio-Designers angezeigt werden soll. Damit das Steuerelement in der Toolbox angezeigt wird, ist ein `VSCategory` erforderlich.
-*ui_framework* : Der Name des Frameworks, z. B. „WPF“'. Beachten Sie, dass das Attribut `UIFramework` für ToolboxItems-Knoten in Visual Studio 16.7 Vorschau 3 oder höher erforderlich ist, damit das Steuerelement in der Toolbox angezeigt wird.
-- *blend_category* : Die Bezeichnung der Gruppe, in der das Steuerelement im Bereich „Objekte“ des Blend-Designers angezeigt werden sollte. Damit das Steuerelement unter „Objekte“ angezeigt wird, ist `BlendCategory` erforderlich.
-- *type_full_name_n* : Der vollständig qualifizierte Name der einzelnen Steuerelemente, einschließlich des Namespace, z.B. `ManagedPackage.MyCustomControl`. Beachten Sie, dass das Format mit Punkt für verwaltete und native Typen verwendet wird.
+- *your_package_file*: Der Name Ihrer Steuerungsdatei, wie z.B. `ManagedPackage.winmd` („ManagedPackage“ ist ein beliebiger, in diesem Beispiel verwendeter Name und hat keine andere Bedeutung).
+- *vs_category*: Die Beschriftung der Gruppe, in der das Steuerelement in der Toolbox des Visual Studio-Designers angezeigt werden soll. Damit das Steuerelement in der Toolbox angezeigt wird, ist ein `VSCategory` erforderlich.
+*ui_framework*: Der Name des Frameworks, z. B. „WPF“'. Beachten Sie, dass das Attribut `UIFramework` für ToolboxItems-Knoten in Visual Studio 16.7 Vorschau 3 oder höher erforderlich ist, damit das Steuerelement in der Toolbox angezeigt wird.
+- *blend_category*: Die Bezeichnung der Gruppe, in der das Steuerelement im Bereich „Objekte“ des Blend-Designers angezeigt werden sollte. Damit das Steuerelement unter „Objekte“ angezeigt wird, ist `BlendCategory` erforderlich.
+- *type_full_name_n*: Der vollständig qualifizierte Name der einzelnen Steuerelemente, einschließlich des Namespace, z.B. `ManagedPackage.MyCustomControl`. Beachten Sie, dass das Format mit Punkt für verwaltete und native Typen verwendet wird.
 
 In erweiterten Szenarios können Sie auch mehrere `<File>`-Elemente innerhalb von `<FileList>` einschließen, wenn ein einzelnes Paket mehrere Steuerelementassemblys enthält. Es können auch mehrere `<ToolboxItems>`-Knoten in einem einzelnen `<File>`-Element enthalten sein, wenn Sie Ihre Steuerelemente in separaten Kategorien organisieren möchten.
 
@@ -109,38 +111,45 @@ UWP-Pakete weisen eine TargetPlatformVersion (TPV) und eine TargetPlatformMinVer
 
 Gehen wir z.B. davon aus, dass Sie die TPMinV für Ihr Steuerelementpaket auf Windows 10 Anniversary Edition (10.0; Build 14393) festgelegt haben und sicherstellen möchten, dass das Paket nur von UWP-Projekten genutzt wird, die dieser Untergrenze entsprechen. Damit Ihr Paket von UWP-Projekten genutzt werden kann, müssen Sie Ihre Steuerelemente mit den folgenden Ordnernamen packen:
 
-    \lib\uap10.0.14393\*
-    \ref\uap10.0.14393\*
+```
+\lib\uap10.0.14393\*
+\ref\uap10.0.14393\*
+```
 
 NuGet überprüft automatisch TPMinV des nutzenden Projekts und lässt die Installation fehlschlagen, wenn die Version niedriger als Windows 10 Anniversary Edition (10.0, Build 14393) ist.
 
 Gehen wir bei WPF davon aus, dass Sie möchten, dass Ihr WPF-Steuerelementpaket von Projekten mit .NET Framework 4.6.1 oder höher als Ziel verwendet wird. Sie müssen Ihre Steuerelemente mit den folgenden Ordnernamen packen, um dies zu erzwingen:
 
-    \lib\net461\*
-    \ref\net461\*
+```
+\lib\net461\*
+\ref\net461\*
+```
 
 ## <a name="add-design-time-support"></a>Hinzufügen von Entwurfszeitunterstützung
 
 Wenn Sie konfigurieren möchten, wo die Steuerelementeigenschaften in der Eigenschaftenanalyse erscheinen sollen, wo benutzerdefinierte Adorner hinzugefügt werden können usw., müssen Sie Ihre Datei entsprechend der Zielplattform `design.dll` im Ordner `lib\uap10.0.14393\Design` anordnen. Zudem sollten Sie `Generic.xaml` und alle Ressourcenwörterbücher einschließen, die im Ordner `<your_assembly_name>\Themes` zusammengeführt werden, um sicherzustellen, dass das Feature **[Vorlage bearbeiten > Kopie bearbeiten](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** funktioniert. (Verwenden Sie dafür erneut Ihren Assemblynamen). (Diese Datei hat keine Auswirkungen auf das Laufzeitverhalten eines Steuerelements.) Die Ordnerstruktur sollte dann wie folgt angezeigt werden:
 
-    \lib
-      \uap10.0.14393
-        \Design
-          \MyControl.design.dll
-        \your_assembly_name
-          \Themes
-            Generic.xaml
-
+```
+\lib
+  \uap10.0.14393
+    \Design
+      \MyControl.design.dll
+    \your_assembly_name
+      \Themes
+        Generic.xaml
+```
 
 Gehen wir für WPF weiterhin davon aus, dass Sie möchten, dass Ihr WPF-Steuerelementpaket von Projekten mit .NET Framework 4.6.1 oder höher als Ziel verwendet wird:
 
-    \lib
-      \net461
-        \Design
-          \MyControl.design.dll
-        \your_assembly_name
-          \Themes
-            Generic.xaml
+```
+\lib
+  \net461
+    \Design
+      \MyControl.design.dll
+    \your_assembly_name
+      \Themes
+        Generic.xaml
+```
 
 > [!Note]
 > Steuerelementeigenschaften werden in der Eigenschaftenanalyse standardmäßig in der Kategorie „Sonstiges“ angezeigt.

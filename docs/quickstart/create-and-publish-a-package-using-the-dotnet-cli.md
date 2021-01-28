@@ -1,16 +1,16 @@
 ---
 title: Erstellen und Veröffentlichen eines NuGet-Pakets mithilfe der dotnet-CLI
 description: Eine exemplarische Vorgehensweise zur Erstellung und Veröffentlichung eines NuGet-Pakets mit der .NET Core-CLI „dotnet“.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: a67c8cd92304c6c4abcffbb79ddbe964664d08fb
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: cb63257c874fc4752f3b3d59db4be5996d5ab81d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237483"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775759"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Schnellstart: Erstellen und Veröffentlichen eines Pakets (.NET CLI)
 
@@ -53,7 +53,7 @@ Jedes NuGet-Paket benötigt ein Manifest, das die Inhalte und Abhängigkeiten de
 1. Fügen Sie optionale Eigenschaften wie unter [NuGet-Metadateneigenschaften](/dotnet/core/tools/csproj#nuget-metadata-properties) beschrieben hinzu.
 
     > [!Note]
-    > Bei Paketen für die öffentliche Nutzung sollten Sie besonders auf die **PackageTags** -Eigenschaft achten, da Tags anderen dabei helfen, Ihr Paket zu finden und dessen Funktion zu verstehen.
+    > Bei Paketen für die öffentliche Nutzung sollten Sie besonders auf die **PackageTags**-Eigenschaft achten, da Tags anderen dabei helfen, Ihr Paket zu finden und dessen Funktion zu verstehen.
 
 ## <a name="run-the-pack-command"></a>Ausführen des Befehls pack
 
@@ -124,7 +124,7 @@ Klicken Sie für weitere Informationen zu den Features von NuGet auf folgende Li
 - [Vorabversionen von Paketen](../create-packages/Prerelease-Packages.md)
 - [Unterstützung mehrerer Zielframeworks](../create-packages/multiple-target-frameworks-project-file.md)
 - [Paketversionsverwaltung](../concepts/package-versioning.md)
-- [Hinzufügen eines Lizenzausdrucks oder einer Datei](../reference/msbuild-targets#packing-a-license-expression-or-a-license-file)
+- [Hinzufügen eines Lizenzausdrucks oder einer Datei](../reference/msbuild-targets.md#packing-a-license-expression-or-a-license-file)
 - [Erstellen von lokalisierten Paketen](../create-packages/creating-localized-packages.md)
 - [Erstellen von Symbolpaketen](../create-packages/symbol-packages-snupkg.md)
 - [Signieren von Paketen](../create-packages/Sign-a-package.md)

@@ -1,16 +1,16 @@
 ---
 title: Erstellen eines NuGet-Pakets mit MSBuild
 description: Eine ausführliche Anleitung zum Entwerfen und Erstellen eines NuGet-Pakets, einschließlich der wichtigsten Entscheidungspunkte wie Dateien und Versionsverwaltung
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 47a20c5566affec1cdc7772c86d8101dab162d85
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 48741668af932a532240f2796a9bf5d490ee8e35
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237970"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774437"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>Erstellen eines NuGet-Pakets mit MSBuild
 
@@ -39,7 +39,7 @@ Wenn Sie Nicht-SDK-Projekte packen, die PackageReference verwenden, ist außerde
 
 - `PackageOutputPath`, der Ausgabeordner für das Paket, das beim Paketaufruf generiert wird.
 
-In Visual Studio können Sie diese Werte in den Projekteigenschaften festlegen (Rechtsklick auf das Projekt im Projektmappen-Explorer, wählen Sie **Eigenschaften** und dann die Registerkarte **Paket** aus). Sie können diese Eigenschaften auch direkt in den Projektdateien festlegen ( *.csproj* ).
+In Visual Studio können Sie diese Werte in den Projekteigenschaften festlegen (Rechtsklick auf das Projekt im Projektmappen-Explorer, wählen Sie **Eigenschaften** und dann die Registerkarte **Paket** aus). Sie können diese Eigenschaften auch direkt in den Projektdateien festlegen ( *.csproj*).
 
 ```xml
 <PropertyGroup>
@@ -70,7 +70,7 @@ Das folgende Beispiel zeigt eine einfache, vollständige Projektdatei, in der di
 Sie können auch die optionalen Eigenschaften wie `Title`, `PackageDescription` und `PackageTags` festlegen, wie in [MSBuild-Paketziele](../reference/msbuild-targets.md#pack-target), [Steuern von Abhängigkeitsobjekten](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets) und [NuGet-Metadateneigenschaften](/dotnet/core/tools/csproj#nuget-metadata-properties) beschrieben.
 
 > [!NOTE]
-> Bei Paketen für die öffentliche Nutzung sollten Sie besonders auf die **PackageTags** -Eigenschaft achten, da Tags anderen dabei helfen, Ihr Paket zu finden und dessen Funktion zu verstehen.
+> Bei Paketen für die öffentliche Nutzung sollten Sie besonders auf die **PackageTags**-Eigenschaft achten, da Tags anderen dabei helfen, Ihr Paket zu finden und dessen Funktion zu verstehen.
 
 Weitere Informationen zum Deklarieren von Abhängigkeiten und zum Angeben von Versionsnummern finden Sie unter [Paketverweise in Projektdateien](../consume-packages/package-references-in-project-files.md) und [Paketversionsverwaltung](../concepts/package-versioning.md). Es ist auch möglich, Ressourcen aus Abhängigkeiten mithilfe der Attribute `<IncludeAssets>` und `<ExcludeAssets>` direkt im Paket verfügbar zu machen. Weitere Informationen finden Sie unter [Steuern von Abhängigkeitsobjekten](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
 

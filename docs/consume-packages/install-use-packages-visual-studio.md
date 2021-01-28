@@ -1,8 +1,8 @@
 ---
 title: Installieren und Verwalten von NuGet-Paketen in Visual Studio
 description: Anweisungen zum Verwenden der Benutzeroberfläche des NuGet-Paket-Managers in Visual Studio zum Arbeiten mit NuGet-Paketen.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/08/2019
 ms.topic: conceptual
 f1_keywords:
@@ -10,12 +10,12 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 3adceac8c725d9ea1610aea090753c9c1d8bc818
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 87024dc6bd8e17a39fa7952deb39aa5bd48f6af4
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428420"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775006"
 ---
 # <a name="install-and-manage-packages-in-visual-studio-using-the-nuget-package-manager"></a>Installieren und Verwalten von Paketen in Visual Studio mit dem NuGet-Paket-Manager
 

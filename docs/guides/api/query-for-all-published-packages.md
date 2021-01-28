@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 11/02/2017
 ms.topic: tutorial
 ms.reviewer: kraigb
-ms.openlocfilehash: 749d9466976d51c7cb65332c8b149e3a30862e63
-ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
+ms.openlocfilehash: 7e611b568538e0acfcbad2e5d986a0f9382ac8fd
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97523395"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774122"
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>Abfrage für alle auf nuget.org veröffentlichten Pakete
 
@@ -54,7 +54,9 @@ DateTime cursor = DateTime.UtcNow.AddHours(-1);
 
 Der Speicherort jeder Ressource (Endpunkt) in der NuGet-API sollte über den [Dienstindex](../../api/service-index.md) ermittelt werden. Da nuget.org im Zentrum dieser Anleitung steht, wird der Dienstindex dieser Website verwendet.
 
-    GET https://api.nuget.org/v3/index.json
+```
+GET https://api.nuget.org/v3/index.json
+```
 
 Das Dienstdokument ist ein JSON-Dokument, dass alle Ressourcen auf nuget.org enthält. Suchen Sie nach der Ressource mit dem `@type`-Eigenschaftswert von `Catalog/3.0.0`. Der zugeordnete `@id`-Eigenschaftswert ist die URL des Katalogindexes. 
 
@@ -62,13 +64,17 @@ Das Dienstdokument ist ein JSON-Dokument, dass alle Ressourcen auf nuget.org ent
 
 Laden Sie den Katalogindex mithilfe des `@id`-Eigenschaftswerts aus dem vorherigen Schritt herunter:
 
-    GET https://api.nuget.org/v3/catalog0/index.json
+```
+GET https://api.nuget.org/v3/catalog0/index.json
+```
 
 Deserialisieren Sie den [Katalogindex](../../api/catalog-resource.md#catalog-index). Filtern Sie alle [Katalogseitenobjekte](../../api/catalog-resource.md#catalog-page-object-in-the-index) heraus, in denen `commitTimeStamp` weniger oder gleich dem aktuellen Cursorwert ist.
 
 Laden Sie für jede verbleibende Katalogseite mithilfe der `@id`-Eigenschaft das vollständige Dokument herunter.
 
-    GET https://api.nuget.org/v3/catalog0/page2926.json
+```
+GET https://api.nuget.org/v3/catalog0/page2926.json
+```
 
 Deserialisieren Sie die [Katalogseite](../../api/catalog-resource.md#catalog-page). Filtern Sie alle [Katalogblattobjekte](../../api/catalog-resource.md#catalog-item-object-in-a-page) heraus, in denen `commitTimeStamp` weniger oder gleich dem aktuellen Cursorwert ist.
 
@@ -80,7 +86,9 @@ Jetzt können Sie jeden beliebigen benutzerdefinierten Vorgang für die Kataloge
 
 Wenn Sie sich für die Metadaten des Pakets interessieren (z.B. die Beschreibung, Abhängigkeiten, Größe der NUPKG-Datei), können Sie das [Katalogblattdokument](../../api/catalog-resource.md#catalog-leaf) mithilfe der `@id`-Eigenschaft abrufen.
 
-    GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
+```
+GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
+```
 
 In diesem Dokument sind u.a. alle Metadaten in der [Paketmetadatenressource](../../api/registration-base-url-resource.md) enthalten.
 

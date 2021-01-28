@@ -1,16 +1,16 @@
 ---
 title: Erstellen von Paketen mit COM-Interop-Assemblys
 description: Beschreibt das Erstellen von Paketen, die COM-Interop-Assemblys enthalten
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: de164b136a1636b89f674b8626613094fc53e04c
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 0c663863673b50d0ba4969adf3a5d95151b2ca49
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "75385571"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774488"
 ---
 # <a name="create-nuget-packages-that-contain-com-interop-assemblies"></a>Erstellen von NuGet-Paketen, die COM-Interop-Assemblys enthalten
 

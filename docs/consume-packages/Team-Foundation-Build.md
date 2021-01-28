@@ -1,16 +1,16 @@
 ---
 title: 'Exemplarische Vorgehensweise: Wiederherstellen von NuGet-Paketen mit Team Foundation Build'
 description: Eine exemplarische Vorgehensweise, in der erklärt wird, wie Sie NuGet-Pakete mit Team Foundation Build wiederherstellen können (sowohl Team Foundation Server als auch Visual Studio Team Services).
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: a86a58f8afb4b0f1affeddd47d6c5606fb465757
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 8b993106d439dc137fbe040b51fda373539de81a
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "73611004"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774986"
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>Einrichten der Paketwiederherstellung mit Team Foundation Build
 
@@ -54,26 +54,28 @@ Das Beispielprojekt ist ein einfaches Befehlszeilentool, in dem Befehlszeilenarg
 
 Die Struktur des Repositorys sieht folgendermaßen aus:
 
-    <Project>
-        │   .gitignore
-        │   .tfignore
-        │   build.proj
-        │
-        ├───src
-        │   │   BingSearcher.sln
-        │   │
-        │   └───BingSearcher
-        │       │   App.config
-        │       │   BingSearcher.csproj
-        │       │   packages.config
-        │       │   Program.cs
-        │       │
-        │       └───Properties
-        │               AssemblyInfo.cs
-        │
-        └───tools
-            └───NuGet
-                    nuget.exe
+```
+<Project>
+    │   .gitignore
+    │   .tfignore
+    │   build.proj
+    │
+    ├───src
+    │   │   BingSearcher.sln
+    │   │
+    │   └───BingSearcher
+    │       │   App.config
+    │       │   BingSearcher.csproj
+    │       │   packages.config
+    │       │   Program.cs
+    │       │
+    │       └───Properties
+    │               AssemblyInfo.cs
+    │
+    └───tools
+        └───NuGet
+                nuget.exe
+```
 
 Weder die `packages`-Ordner noch die `.targets`-Dateien wurden eingecheckt.
 
@@ -98,33 +100,39 @@ Es wurden auch IGNORE-Dateien für Git (`.gitignore`) und Team Foundation-Versio
 
 Die `.gitignore`-Datei sieht folgendermaßen aus:
 
-    syntax: glob
-    *.user
-    *.suo
-    bin
-    obj
-    packages
-    *.nupkg
-    project.lock.json
-    project.assets.json
+```
+syntax: glob
+*.user
+*.suo
+bin
+obj
+packages
+*.nupkg
+project.lock.json
+project.assets.json
+```
 
 Die `.gitignore`-Datei ist [leistungsstark](https://www.kernel.org/pub/software/scm/git/docs/gitignore.html). Wenn Sie z.B. prinzipiell keine Inhalte des `packages`-Ordners einchecken, aber das vorherige Eincheckverhalten von `.targets`-Dateien beibehalten möchten, können Sie stattdessen folgende Regel verwenden:
 
-    packages
-    !packages/**/*.targets
+```
+packages
+!packages/**/*.targets
+```
 
 Dadurch werden alle `packages`-Ordner ausgeschlossen, aber alle beinhalteten `.targets`-Dateien eingeschlossen. Eine Vorlage für `.gitignore`-Dateien, die speziell auf die Bedürfnisse von Visual Studio-Entwicklern zugeschnitten ist, finden Sie [hier](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore).
 
 Team Foundation-Versionskontrolle unterstützt mit der [TFIGNORE](/vsts/tfvc/add-files-server#customize-which-files-are-ignored-by-version-control)-Datei einen ähnlichen Mechanismus. Die Syntax ist praktisch die gleiche:
 
-    *.user
-    *.suo
-    bin
-    obj
-    packages
-    *.nupkg
-    project.lock.json
-    project.assets.json
+```
+*.user
+*.suo
+bin
+obj
+packages
+*.nupkg
+project.lock.json
+project.assets.json
+```
 
 ## <a name="buildproj"></a>build.proj
 

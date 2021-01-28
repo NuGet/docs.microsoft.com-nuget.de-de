@@ -1,16 +1,16 @@
 ---
 title: Migrieren vom packages.config-Format zum PackageReference-Format
 description: Hier finden Sie Details zum Migrieren eines Projekts vom packages.config-Verwaltungsformat zum PackageReference-Format, unterstützt durch NuGet 4.0 und höher, VS 2017 und .NET Core 2.0.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 23bd936707173f49a651a8ba432fa8773fa53881
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 8161f4a39d4adfdb9efb25bcb840b20b85a58e07
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237834"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774780"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>Migrieren von „packages.config“ zu PackageReference
 
@@ -18,11 +18,11 @@ Visual Studio 2017 Version 15.7 und höher unterstützt die Migration eines Pr
 
 ## <a name="benefits-of-using-packagereference"></a>Vorteile der Verwendung von PackageReference
 
-* **Verwalten aller Projektabhängigkeiten an einem zentralen Ort** : Ebenso wie Verweise zwischen Projekten und Assemblyverweise werden NuGet-Paketverweise (über den Knoten `PackageReference`) direkt in Projektdateien verwaltet, nicht mithilfe einer separaten packages.config-Datei.
-* **Übersichtliche Anzeige der Abhängigkeiten der obersten Ebene** : Im Gegensatz zu einer packages.config-Datei listet PackageReference nur solche NuGet-Pakete auf, die Sie direkt im Projekt installiert haben. Daher werden die Benutzeroberfläche des NuGet-Paket-Managers und die Projektdatei nicht mit untergeordneten Abhängigkeiten überladen.
-* **Leistungsverbesserungen** : Bei Verwendung von PackageReference werden Pakete im Ordner *global-packages* verwaltet (wie unter [Verwalten des Ordners „global-packages“ und des Cacheordners](../consume-packages/managing-the-global-packages-and-cache-folders.md) beschrieben), nicht in einem `packages`-Ordner in der Projektmappe. Aus diesem Grund ist PackageReference schneller und beansprucht weniger Speicherplatz.
-* **Präzise Kontrolle über Abhängigkeiten und Inhaltsfluss** : Mithilfe der vorhandenen Features von MSBuild können Sie [bedingte Verweise für ein NuGet-Paket verwenden](../consume-packages/Package-References-in-Project-Files.md#adding-a-packagereference-condition) und Paketverweise nach Zielframework, Konfiguration, Plattform und anderen Aspekten auswählen.
-* **PackageReference befindet sich in der aktiven Entwicklung** : Informationen dazu finden Sie unter [PackageReference-Issues](https://aka.ms/nuget-pr-improvements) auf GitHub. „packages.config“ befindet sich nicht mehr in der aktiven Entwicklung.
+* **Verwalten aller Projektabhängigkeiten an einem zentralen Ort**: Ebenso wie Verweise zwischen Projekten und Assemblyverweise werden NuGet-Paketverweise (über den Knoten `PackageReference`) direkt in Projektdateien verwaltet, nicht mithilfe einer separaten packages.config-Datei.
+* **Übersichtliche Anzeige der Abhängigkeiten der obersten Ebene**: Im Gegensatz zu einer packages.config-Datei listet PackageReference nur solche NuGet-Pakete auf, die Sie direkt im Projekt installiert haben. Daher werden die Benutzeroberfläche des NuGet-Paket-Managers und die Projektdatei nicht mit untergeordneten Abhängigkeiten überladen.
+* **Leistungsverbesserungen**: Bei Verwendung von PackageReference werden Pakete im Ordner *global-packages* verwaltet (wie unter [Verwalten des Ordners „global-packages“ und des Cacheordners](../consume-packages/managing-the-global-packages-and-cache-folders.md) beschrieben), nicht in einem `packages`-Ordner in der Projektmappe. Aus diesem Grund ist PackageReference schneller und beansprucht weniger Speicherplatz.
+* **Präzise Kontrolle über Abhängigkeiten und Inhaltsfluss**: Mithilfe der vorhandenen Features von MSBuild können Sie [bedingte Verweise für ein NuGet-Paket verwenden](../consume-packages/Package-References-in-Project-Files.md#adding-a-packagereference-condition) und Paketverweise nach Zielframework, Konfiguration, Plattform und anderen Aspekten auswählen.
+* **PackageReference befindet sich in der aktiven Entwicklung**: Informationen dazu finden Sie unter [PackageReference-Issues](https://aka.ms/nuget-pr-improvements) auf GitHub. „packages.config“ befindet sich nicht mehr in der aktiven Entwicklung.
 
 ### <a name="limitations"></a>Einschränkungen
 

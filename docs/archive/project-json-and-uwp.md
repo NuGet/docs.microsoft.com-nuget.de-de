@@ -1,16 +1,16 @@
 ---
 title: NuGet-Datei „project.json“ mit UWP-Projekten
 description: In diesem Artikel wird beschrieben, wie die Datei „project.json“ verwendet wird, um NuGet-Abhängigkeiten in UWP-Projekten (Universelle Windows-Plattform) nachzuverfolgen.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/17/2017
 ms.topic: conceptual
-ms.openlocfilehash: ac3c137dd0ba50571737093eef11c8ab0ef932b2
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 30e2272aafb5d2ea8d932e3cb0209d97c30b3209
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64494374"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98773809"
 ---
 # <a name="projectjson-and-uwp"></a>„project.json“ und UWP
 
@@ -73,11 +73,13 @@ Das Verhalten des `lib`-Ordners hat sich in Version 3 von NuGet nicht erheblich 
 
 Im Folgenden finden Sie ein Beispiel für eine Lib-Struktur:
 
-    lib
-    ├───net40
-    │       MyLibrary.dll
-    └───wp81
-            MyLibrary.dll
+```
+lib
+├───net40
+│       MyLibrary.dll
+└───wp81
+        MyLibrary.dll
+```
 
 Der `lib`-Ordner enthält Assemblys, die zur Laufzeit verwendet werden. Für die meisten Pakete wird für jeden Ziel-TxM lediglich ein Ordner unter `lib` benötigt.
 
@@ -91,23 +93,25 @@ Die Assemblys, die im Ordner `ref` enthalten sind, stellen die Verweisassemblys 
 
 Die Struktur des `ref`-Ordners entspricht der von `lib`. Beispiel:
 
-    └───MyImageProcessingLib
-         ├───lib
-         │   ├───net40
-         │   │       MyImageProcessingLibrary.dll
-         │   │
-         │   ├───net451
-         │   │       MyImageProcessingLibrary.dll
-         │   │
-         │   └───win81
-         │           MyImageProcessingLibrary.dll
-         │
-         └───ref
-             ├───net40
-             │       MyImageProcessingLibrary.dll
-             │
-             └───portable-net451-win81
-                     MyImageProcessingLibrary.dll
+```
+└───MyImageProcessingLib
+        ├───lib
+        │   ├───net40
+        │   │       MyImageProcessingLibrary.dll
+        │   │
+        │   ├───net451
+        │   │       MyImageProcessingLibrary.dll
+        │   │
+        │   └───win81
+        │           MyImageProcessingLibrary.dll
+        │
+        └───ref
+            ├───net40
+            │       MyImageProcessingLibrary.dll
+            │
+            └───portable-net451-win81
+                    MyImageProcessingLibrary.dll
+```
 
 In diesem Beispiel sind die Assemblys in den `ref`-Verzeichnissen identisch.
 
@@ -119,27 +123,29 @@ Der Ordner „runtimes“ enthält Assemblys und native Bibliotheken, die für b
 
 Im folgenden Beispiel wird ein Paket dargestellt, das über rein verwaltete Implementierungen für verschiedene Plattformen verfügt, aber native Hilfsprogramme unter Windows 8 verwendet, in denen für Windows 8 spezifische native APIs aufgerufen werden können.
 
-    └───MyLibrary
-         ├───lib
-         │   └───net40
-         │           MyLibrary.dll
-         │
-         └───runtimes
-             ├───win8-x64
-             │   ├───lib
-             │   │   └───net40
-             │   │           MyLibrary.dll
-             │   │
-             │   └───native
-             │           MyNativeLibrary.dll
-             │
-             └───win8-x86
-                 ├───lib
-                 │   └───net40
-                 │           MyLibrary.dll
-                 │
-                 └───native
-                         MyNativeLibrary.dll
+```
+└───MyLibrary
+        ├───lib
+        │   └───net40
+        │           MyLibrary.dll
+        │
+        └───runtimes
+            ├───win8-x64
+            │   ├───lib
+            │   │   └───net40
+            │   │           MyLibrary.dll
+            │   │
+            │   └───native
+            │           MyNativeLibrary.dll
+            │
+            └───win8-x86
+                ├───lib
+                │   └───net40
+                │           MyLibrary.dll
+                │
+                └───native
+                        MyNativeLibrary.dll
+```
 
 Wenn das oben angegebene Paket verwendet wird, werden folgende Vorgänge ausgeführt:
 
@@ -155,23 +161,25 @@ Es wird jeweils nur ein einziger `lib`-Ordner ausgewählt. Wenn also ein für ei
 
 Eine weitere Möglichkeit zum Verwenden von Runtimes ist das Einbinden eines Pakets, das einen rein verwalteten Wrapper statt einer nativen Assembly darstellt. In diesem Szenario wird ein Paket erstellt, das Folgendem ähnelt:
 
-    └───MyLibrary
-         └───runtimes
-             ├───win8-x64
-             │   ├───lib
-             │   │   └───net451
-             │   │           MyLibrary.dll
-             │   │
-             │   └───native
-             │           MyImplementation.dll
-             │
-             └───win8-x86
-                 ├───lib
-                 │   └───net451
-                 │           MyLibrary.dll
-                 │
-                 └───native
-                         MyImplementation.dll
+```
+└───MyLibrary
+        └───runtimes
+            ├───win8-x64
+            │   ├───lib
+            │   │   └───net451
+            │   │           MyLibrary.dll
+            │   │
+            │   └───native
+            │           MyImplementation.dll
+            │
+            └───win8-x86
+                ├───lib
+                │   └───net451
+                │           MyLibrary.dll
+                │
+                └───native
+                        MyImplementation.dll
+```
 
 In diesem Fall gibt es keinen `lib`-Ordner auf oberster Ebene, da es keine Implementierung dieses Pakets gibt, das nicht von der zugehörigen nativen Assembly abhängt. Wenn die verwaltete Assembly (`MyLibrary.dll`) für diese beiden Fällen die gleiche wäre, würden Sie sie in einem `lib`-Ordner auf oberster Ebene platzieren. Da die Installation des Pakets (auf einer anderen Plattform als Windows x86 oder Windows x64) jedoch nicht fehlschlägt, wenn eine native Assembly fehlt, würde der lib-Ordner auf oberster Ebene verwendet, aber keine native Assembly kopiert werden.
 
