@@ -1,16 +1,16 @@
 ---
 title: Einrichten lokaler NuGet-Feeds
 description: Vorgehensweise für das Erstellen eines lokalen Feeds für NuGet-Pakete mithilfe von Ordnern Ihres lokalen Netzwerks
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/06/2017
 ms.topic: conceptual
-ms.openlocfilehash: 42a5c30c058a9efb35338c1b484235b6ad111bd0
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 1eb194c9ddaee05281749c7a0420cbaf77044fe3
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "68317593"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774036"
 ---
 # <a name="local-feeds"></a>Lokale Feeds
 
@@ -25,11 +25,13 @@ Fügen Sie den Pfadnamen (z.B. `\\myserver\packages`) mithilfe der [Benutzerober
 
 Die hierarchische Ordnerstruktur mit Versionsangabe besitzt folgende allgemeine Struktur:
 
-    \\myserver\packages
-      └─<packageID>
-        └─<version>
-          ├─<packageID>.<version>.nupkg
-          └─<other files>
+```
+\\myserver\packages
+  └─<packageID>
+    └─<version>
+      ├─<packageID>.<version>.nupkg
+      └─<other files>
+```
 
 Diese Struktur wird in NuGet automatisch erstellt, wenn Sie den Befehl [`nuget add`](../reference/cli-reference/cli-ref-add.md) verwenden, um ein Paket in den Feed zu kopieren:
 

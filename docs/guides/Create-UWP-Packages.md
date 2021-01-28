@@ -1,16 +1,16 @@
 ---
 title: Erstellen von NuGet-Paketen für die universelle Windows-Plattform
 description: Eine exemplarische End-to-End-Vorgehensweise für das Erstellen von NuGet-Paketen für die universelle Windows-Plattform mithilfe einer Komponente für Windows-Runtime.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 03/21/2017
 ms.topic: tutorial
-ms.openlocfilehash: 77aa186291122a8d05018ecacd1329da459badad
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: c077645508cb10e86b3ed1e1f2bf61adcd2013d9
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "72380761"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774236"
 ---
 # <a name="create-uwp-packages"></a>Erstellen von UWP-Paketen
 

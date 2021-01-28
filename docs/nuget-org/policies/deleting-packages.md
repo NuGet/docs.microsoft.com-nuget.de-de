@@ -1,16 +1,16 @@
 ---
 title: Löschen von NuGet-Paketen von nuget.org
 description: Richtlinien für die Aufhebung der Auflistung von Paketen auf nuget.org. Dauerhaftes Löschen wird nur unterstützt, wenn durch Pakete andere Richtlinien verletzt werden.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3abe809d76e75801c2f936aba129d27ba7b64913
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: e5c62177b40162cb8b6b37b0d272fb7a945156c1
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80581264"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775707"
 ---
 # <a name="deleting-packages"></a>Löschen von Paketen
 
@@ -36,7 +36,7 @@ Pakete, auf die eines der folgenden Kriterien zutrifft, sind im öffentlichen Nu
 - Pakete, die nur dazu gedacht sind, Paketbezeichner zu belegen. Dazu zählen auch Pakete, die keinerlei produktiven Inhalt aufweisen. Pakete müssen Code enthalten. Andernfalls müssen die Besitzer den Bezeichner an jemanden abtreten, der tatsächlich ein Produkt anbieten möchte.
 - Dient dem Versuch, dem Katalog Funktionen hinzuzufügen, die dessen Entwickler nicht explizit vorgesehen haben.
 
-Wenn Sie bei einem Paket feststellen, dass ein Verstoß gegen einen oder mehrere dieser Punkte vorliegt, können Sie auf der Seite „Paketdetails“ auf den Link **Missbrauch melden** klicken und dies melden.
+Wenn Sie ein Paket finden, das gegen diese Regeln verstößt, klicken Sie auf der Seite „Paketdetails“ auf den Link **Missbrauch melden**, um einen Bericht zu übermitteln.
 
 Beachten Sie, dass sich das NuGet-Team und .NET Foundation das Recht vorbehalten, diese Kriterien jederzeit zu ändern.
 
