@@ -5,16 +5,16 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 05/21/2018
 ms.topic: reference
-ms.openlocfilehash: 3e5db779f735cd42aa331f9f8a93496d32c8df54
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: da682197d4a156f9dff8ce169aab449a5392ef41
+ms.sourcegitcommit: c19d398cecee3cad2d79a8b22650fc1988d41a3f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777632"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260302"
 ---
 # <a name="packagesconfig-reference"></a>Verweis auf „packages.config“
 
-Die Datei `packages.config` wird bei einigen Projekttypen für die Verwaltung der Pakete verwendet, auf die vom Projekt verwiesen wird. Auf diese Weise kann NuGet die Projektabhängigkeiten problemlos wiederherstellen, wenn das Projekt ohne all diese Pakete auf ein anderes System, z.B. einen Buildserver, übertragen werden soll.
+Die Datei `packages.config` wird bei einigen Projekttypen für die Verwaltung der Pakete verwendet, auf die vom Projekt verwiesen wird. Dadurch kann nuget die Abhängigkeiten des Projekts problemlos wiederherstellen, wenn das Projekt auf einen anderen Computer (z. b. einen Buildserver) übertragen werden soll, ohne dass diese Pakete erstellt werden.
 
 Wenn diese verwendet wird, befindet sich `packages.config` in der Regel in einem Projektstamm. Sie wird automatisch erstellt, wenn der erste nuget-Vorgang ausgeführt wird. Sie kann jedoch auch manuell erstellt werden, bevor Befehle wie ausgeführt werden `nuget restore` .
 
@@ -24,7 +24,7 @@ Projekte, die [packagereferenzierung](../consume-packages/Package-References-in-
 
 Das Schema ist einfach: Dem XML-Standardheader folgt ein `<packages>`-Einzelknoten, der mindestens ein `<package>`-Element enthält (jeweils eines für jeden Verweis). Jedes `<package>`-Element kann die folgenden Attribute aufweisen:
 
-| attribute | Erforderlich | BESCHREIBUNG |
+| Attribut | Erforderlich | BESCHREIBUNG |
 | --- | --- | --- |
 | id | Ja | Der Bezeichner des Pakets, z.B. „Newtonsoft.json“ oder „Microsoft.AspNet.Mvc“. | 
 | version | Ja | Die genaue Version des zu installierenden Pakets, z.B. 3.1.1 oder 4.2.5.11-beta. Eine Versionszeichenfolge muss mindestens drei Ziffern aufweisen, eine vierte Ziffer und ein Vorabreleasesuffix sind optional. Bereiche sind nicht zulässig. | 
