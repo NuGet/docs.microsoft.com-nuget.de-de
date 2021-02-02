@@ -1,22 +1,22 @@
 ---
 title: Installieren und Verwenden eines NuGet-Pakets in Visual Studio
 description: Ein Tutorial mit einer exemplarischen Vorgehensweise bei der Installation und Verwendung eines NuGet-Pakets in einem Visual Studio-Projekt.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: 10bc34653d294cf70b5c91ce79a79cf6532fba1b
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 55f6a64d90ce8ca628d1ac5c68f8133872a214e0
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80147486"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775531"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>Schnellstart: Installieren und Verwenden eines Pakets in Visual Studio (nur Windows)
 
-NuGet-Pakete enthalten wiederverwendbaren Code, der von anderen Entwicklern für die Verwendung in Ihren Projekten verfügbar gemacht wird. Unter [Was ist NuGet?](../What-is-NuGet.md) finden Sie weitere Informationen. Pakete werden über den NuGet-Paket-Manager, die [Paket-Manager-Konsole](../consume-packages/install-use-packages-powershell) oder über [Dotnet-CLI](install-and-use-a-package-using-the-dotnet-cli.md) in einem Visual Studio-Projekt installiert. Dieser Artikel zeigt den Prozess mit dem beliebten [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)-Paket und einem WPF-Projekt (Windows Presentation Foundation). Derselbe Prozess ist auch auf jedes andere .NET oder .NET Core-Projekt anwendbar.
+NuGet-Pakete enthalten wiederverwendbaren Code, der von anderen Entwicklern für die Verwendung in Ihren Projekten verfügbar gemacht wird. Unter [Was ist NuGet?](../What-is-NuGet.md) finden Sie weitere Informationen. Pakete werden über den NuGet-Paket-Manager, die [Paket-Manager-Konsole](../consume-packages/install-use-packages-powershell.md) oder über [Dotnet-CLI](install-and-use-a-package-using-the-dotnet-cli.md) in einem Visual Studio-Projekt installiert. Dieser Artikel zeigt den Prozess mit dem beliebten [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)-Paket und einem WPF-Projekt (Windows Presentation Foundation). Derselbe Prozess ist auch auf jedes andere .NET oder .NET Core-Projekt anwendbar.
 
-Beziehen Sie sich nach der Installation mit `using <namespace>` auf das Paket im Code, wobei \<Namespace\> für das von Ihnen verwendete Paket spezifisch ist. Nachdem der Verweis erfolgt ist, können Sie das Paket über die zugehörige API aufrufen.
+Verweisen Sie nach der Installation mit `using <namespace>` auf das Paket im Code, wobei \<namespace\> speziell für das von Ihnen verwendete Paket gilt. Nachdem der Verweis erfolgt ist, können Sie das Paket über die zugehörige API aufrufen.
 
 > [!Tip]
 > **Einstieg in nuget.org**: .NET-Entwickler finden Komponenten für die Verwendung in ihren eigenen Anwendungen üblicherweise durch das Durchsuchen von *nuget.org*. Sie können *nuget.org* direkt durchsuchen oder in Visual Studio nach Paketen suchen und diese installieren, wie in diesem Artikel dargestellt wird. Allgemeine Informationen finden Sie [Suchen und Auswerten von NuGet-Paketen](../consume-packages/finding-and-choosing-packages.md).
@@ -67,7 +67,7 @@ Sie können entweder dem NuGet-Paket-Manager oder die Paket-Manager-Konsole verw
 
 1. Wenn die Konsole geöffnet wird, überprüfen Sie, ob die Dropdownliste **Standardprojekt** das Projekt anzeigt, in das Sie das Paket installieren möchten. Wenn Sie ein einzelnes Projekt in der Projektmappe haben, ist es bereits ausgewählt.
 
-    ![Suchen des Pakets „Newtonsoft.Json“](media/QS_Use-08-Console1.png)
+    ![Auswählen eines Projekts für das Paket](media/QS_Use-08-Console1.png)
 
 1. Geben Sie den Befehl `Install-Package Newtonsoft.Json` ein (siehe [Install-Package](../reference/ps-reference/ps-ref-install-package.md)). Das Konsolenfenster zeigt die Ausgabe des Befehls. Fehler deuten normalerweise darauf hin, dass das Paket nicht mit dem Zielframework des Projekts kompatibel ist.
 

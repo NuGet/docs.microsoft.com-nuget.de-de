@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7076378b53c439eef51a243fa6efcfb01b8cfa73
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: aa845464dbe939260d5fca3e4b89bd846df471a7
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237905"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775930"
 ---
 # <a name="nugetorg-frequently-asked-questions"></a>Häufig gestellte Fragen zu NuGet.org
 
@@ -92,12 +92,12 @@ Stellen Sie zunächst sicher, dass Sie die aktuelle Version von NuGet verwenden.
 
 - Installieren Sie die aktuelle Version von [Fiddler](https://www.telerik.com/download/fiddler).
 - Starten Sie Fiddler, und deaktivieren Sie die Erfassung des Datenverkehrs mithilfe des Menüs **File > Capture Traffic** (Datei > Datenverkehr erfassen).
-- Entfernen Sie alle Sitzungen, indem Sie alle Elemente in der Liste auswählen und die **ENTF** -Taste drücken.
+- Entfernen Sie alle Sitzungen, indem Sie alle Elemente in der Liste auswählen und die **ENTF**-Taste drücken.
 - Konfigurieren Sie Fiddler dafür, den HTTPS-Datenverkehr zu erfassen, indem Sie **Decrypt HTTPS traffic** (HTTPS-Datenverkehr entschlüsseln) auf der Registerkarte **HTTPS** des Menüs **Tools > Fiddler Options...** (Tools > Fiddler-Optionen...) überprüfen.
 - Schließen Sie Visual Studio.
 - Aktivieren Sie das Menü **File > Capture Traffic** (Datei > Datenverkehr erfassen).
 - Starten Sie Visual Studio oder „nuget.exe“, und führen Sie die Aktionen aus, die nicht funktionieren. Der Datenverkehr, der durch diese Aktionen generiert wird, sollte in Fiddler angezeigt werden.
-- Sobald die Aktionen ausgeführt wurden, verwenden Sie **Tools > Speichern > Alle Sitzungen** , um die erfassten Sitzungen zu speichern.
+- Sobald die Aktionen ausgeführt wurden, verwenden Sie **Tools > Speichern > Alle Sitzungen**, um die erfassten Sitzungen zu speichern.
 
 Hinweis: Es kann erforderlich sein, die Umgebungsvariable `HTTP_PROXY` auf `http://127.0.0.1:8888` festzulegen, um den NuGet-Datenverkehr an Fiddler weiterzuleiten.
 
@@ -192,7 +192,7 @@ Wenn Sie die Anleitung zur [Hilfe bei der Anmeldung](#which-microsoft-account-is
 2. Wenn Sie Ihren Benutzernamen und das Kennwort für Ihr NuGet.org-Konto vergessen haben, befolgen Sie die [Schritte zum Wiederherstellen Ihres Kennworts](#how-to-recover-nugetorg-password-login).
 3. [Melden Sie sich mit Ihrem Benutzernamen und Kennwort auf NuGet.org an](https://www.nuget.org/users/account/LogOnNuGetAccount).
 4. Nach der Anmeldung wird ein Popupfenster angezeigt. In diesem Dialogfeld werden Sie über die Aufhebung des Kennworts informiert.
-5. **HINWEIS** : Ignorieren Sie die Anweisung, sich mit dem angegebenen Microsoft-Konto anzumelden. Sie können Ihr NuGet.org-Konto nun mit einem anderen Microsoft-Konto verknüpfen.
+5. **HINWEIS**: Ignorieren Sie die Anweisung, sich mit dem angegebenen Microsoft-Konto anzumelden. Sie können Ihr NuGet.org-Konto nun mit einem anderen Microsoft-Konto verknüpfen.
 6. Klicken Sie auf **Sign in with Microsoft** (Mit Microsoft anmelden), und melden Sie sich wie in Schritt 1 erläutert mit dem Microsoft-Konto an, auf das Sie zugreifen können.
 7. Ihr Konto wird nun mit dem neuen Microsoft-Konto verknüpft, und Sie können sich jetzt mit diesem Konto auf NuGet.org anmelden.
 
@@ -220,9 +220,7 @@ Wenn Ihr NuGet.org-Konto jedoch nicht mit einem Microsoft-Konto verknüpft ist, 
 
 Wenn bei der Anmeldung mit Ihrer E-Mail-Kontodomäne (@yourdomain.com) folgender Fehler angezeigt wird, führen Sie die nachfolgenden Schritte durch, um Ihr NuGet.org-Konto wiederherzustellen.
 
-<p align="center">
-    <img src="media/unmanaged-aad-tenant.png" />
-</p>
+![Fehler beim Anmelden für AAD-Konten](media/unmanaged-aad-tenant.png)
 
 **Was bedeutet der Status „Nicht verwaltet“ während der Anmeldung? Warum wird dieser angezeigt?** 
 
@@ -242,7 +240,7 @@ Sie können ein neues Microsoft-Konto [erstellen](https://www.microsoft.com/acco
 
 ### <a name="how-do-i-change-my-nugetorg-account-username"></a>Wie kann ich den Benutzernamen meines NuGet.org-Kontos ändern?
 
-Sie können den Benutzernamen nicht ändern. Gemäß der Richtlinien von Microsoft ist eine Änderung des Benutzernamens nicht zulässig. Eine Änderung des Benutzernamens wäre ein Breaking Change für Benutzer, die [auf dem Paketbesitzer basierende Vertrauensrichtlinien für Pakete](../consume-packages/installing-signed-packages.md#trust-package-owners) definiert haben. Sie können Ihren Benutzernamen lediglich ändern, indem Sie ein neues Konto mit dem gewünschten Benutzernamen erstellen. Es wird empfohlen, Ihr bestehendes Konto zu löschen, bevor Sie ein neues erstellen. Andernfalls können Sie Ihr registriertes Microsoft-Konto nicht für das neue Konto verwenden.
+Dies ist nicht möglich. Gemäß der Richtlinien von Microsoft ist eine Änderung des Benutzernamens nicht zulässig. Eine Änderung des Benutzernamens wäre ein Breaking Change für Benutzer, die [auf dem Paketbesitzer basierende Vertrauensrichtlinien für Pakete](../consume-packages/installing-signed-packages.md#trust-package-owners) definiert haben. Sie können Ihren Benutzernamen lediglich ändern, indem Sie ein neues Konto mit dem gewünschten Benutzernamen erstellen. Es wird empfohlen, Ihr bestehendes Konto zu löschen, bevor Sie ein neues erstellen. Andernfalls können Sie Ihr registriertes Microsoft-Konto nicht für das neue Konto verwenden.
 > [!Important]
 > Durch das Löschen des Kontos bleibt der `username` dennoch **reserviert**. Sie können den gleichen Benutzernamen nicht noch einmal verwenden, auch dann nicht, wenn Sie **die Groß- und Kleinschreibung ändern**. Wenn Sie beispielsweise ein Konto mit dem Benutzernamen `mycoolname` erstellt haben und diesen in `MyCoolName` (geänderte Groß- und Kleinschreibung) ändern möchten, ist dieser Vorgang auch nach dem Löschen des Kontos nicht möglich.
 

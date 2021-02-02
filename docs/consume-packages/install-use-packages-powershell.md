@@ -1,18 +1,18 @@
 ---
 title: Installieren und Verwalten von NuGet-Paketen mit der Konsole in Visual Studio
 description: Anweisungen zum Verwenden der NuGet-Paket-Manager-Konsole in Visual Studio zum Arbeiten mit Paketen.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/08/2019
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 31fa51bc017eaaf9306d5f267e5d4b0d7a15ec9c
-ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
+ms.openlocfilehash: 119bf32426e5cbc179c3713e60688c691e133c5d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97699839"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774902"
 ---
 # <a name="install-and-manage-packages-with-the-package-manager-console-in-visual-studio-powershell"></a>Installieren und Verwalten von Paketen mit der Paket-Manager-Konsole in Visual Studio (PowerShell)
 
@@ -162,7 +162,7 @@ Einige Pakete installieren neue Befehle für die Konsole. Beispielsweise erstell
 
 Mit einem PowerShell-Profil können Sie häufig verwendete Befehle überall dort verfügbar machen, wo Sie PowerShell verwenden. NuGet unterstützt ein NuGet-spezifisches Profil, das in der Regel an folgendem Speicherort zu finden ist:
 
-    %UserProfile%\Documents\WindowsPowerShell\NuGet_profile.ps1
+*%UserProfile%\Documents\WindowsPowerShell\NuGet_profile.ps1*
 
 Um das Profil zu suchen, geben Sie `$profile` in der Konsole ein:
 

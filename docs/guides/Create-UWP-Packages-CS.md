@@ -1,16 +1,16 @@
 ---
-title: Erstellen von NuGet-Paketen für die universelle Windows-Plattform
+title: Erstellen von NuGet-Paketen für die universelle Windows-Plattform (C#)
 description: Eine exemplarische End-to-End-Vorgehensweise für das Erstellen von NuGet-Paketen für die universelle Windows-Plattform in C# mithilfe einer Komponente für Windows-Runtime.
 author: rrelyea
 ms.author: rrelyea
 ms.date: 02/28/2020
 ms.topic: tutorial
-ms.openlocfilehash: 6f8037f439d627af158b6d5b7746a633b053e514
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 22df2cd6dc374ba265c79a019747191e797b774c
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238009"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774291"
 ---
 # <a name="create-uwp-packages-c"></a>Erstellen von UWP-Paketen (C#)
 
@@ -26,15 +26,15 @@ In dieser exemplarischen Vorgehensweise erstellen Sie ein NuGet-Paket mit einer 
 
 ## <a name="create-a-uwp-windows-runtime-component"></a>Erstellen einer UWP-Komponente für Windows-Runtime
 
-1. Klicken Sie in Visual Studio auf **Datei > Neu > Projekt** , und suchen Sie nach „uwp c#“. Wählen Sie die Vorlage **Komponente für Windows-Runtime (Universal Windows)** aus, klicken Sie auf „Weiter“, ändern Sie den Namen in ImageEnhancer, und klicken Sie auf „Erstellen“. Übernehmen Sie die Standardwerte für „Zielversion“ und „Mindestens erforderliche Version“, wenn Sie dazu aufgefordert werden.
+1. Klicken Sie in Visual Studio auf **Datei > Neu > Projekt**, und suchen Sie nach „uwp c#“. Wählen Sie die Vorlage **Komponente für Windows-Runtime (Universal Windows)** aus, klicken Sie auf „Weiter“, ändern Sie den Namen in ImageEnhancer, und klicken Sie auf „Erstellen“. Übernehmen Sie die Standardwerte für „Zielversion“ und „Mindestens erforderliche Version“, wenn Sie dazu aufgefordert werden.
 
     ![Erstellen eines neuen UWP-Projekts für eine Komponente für Windows-Runtime](media/UWP-NewProject-CS.png)
 
-1. Klicken Sie mit der rechten Maustaste auf das Projekt in Projektmappen-Explorer, und klicken Sie auf **Hinzufügen > Neues Element**. Klicken Sie auf **Steuerelement mit Vorlagen** , ändern Sie den Namen in „AwesomeImageControl.cs“, und klicken Sie auf **Hinzufügen** :
+1. Klicken Sie mit der rechten Maustaste auf das Projekt in Projektmappen-Explorer, und klicken Sie auf **Hinzufügen > Neues Element**. Klicken Sie auf **Steuerelement mit Vorlagen**, ändern Sie den Namen in „AwesomeImageControl.cs“, und klicken Sie auf **Hinzufügen**:
 
     ![Hinzufügen eines neuen XAML-Steuerelements mit Vorlagen zum Projekt](media/UWP-NewXAMLControl-CS.png)
 
-1. Klicken Sie in Projektmappen-Explorer mit der rechten Maustaste auf das Projekt, und wählen Sie **Eigenschaften** aus. Wählen Sie auf der Seite „Eigenschaften“ die Registerkarte **Erstellen** aus, und aktivieren Sie **XML-Dokumentationsdatei** :
+1. Klicken Sie in Projektmappen-Explorer mit der rechten Maustaste auf das Projekt, und wählen Sie **Eigenschaften** aus. Wählen Sie auf der Seite „Eigenschaften“ die Registerkarte **Erstellen** aus, und aktivieren Sie **XML-Dokumentationsdatei**:
 
     ![„XML-Dokumentationsdatei generieren“ auf „Ja“ einstellen](media/UWP-GenerateXMLDocFiles-CS.png)
 
@@ -42,7 +42,7 @@ In dieser exemplarischen Vorgehensweise erstellen Sie ein NuGet-Paket mit einer 
 
     ![Batcherstellung](media/UWP-BatchBuild-CS.png)
 
-1. Klicken Sie im Dialogfeld „Batcherstellung“ auf **Erstellen** , um das Projekt zu überprüfen und die Ausgabedateien zu erstellen, die für das NuGet-Paket erforderlich sind.
+1. Klicken Sie im Dialogfeld „Batcherstellung“ auf **Erstellen**, um das Projekt zu überprüfen und die Ausgabedateien zu erstellen, die für das NuGet-Paket erforderlich sind.
 
 > [!Note]
 > In dieser exemplarischen Vorgehensweise werden die Debugartefakte für das Paket verwendet. Überprüfen Sie für Nichtdebugpakete stattdessen die Releaseoptionen im Dialogfeld „Batcherstellung“, und verwenden Sie in den folgenden Schritten die als Ergebnis angezeigten Ordner für Releases.

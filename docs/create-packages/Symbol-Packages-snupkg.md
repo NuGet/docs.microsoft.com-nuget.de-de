@@ -1,7 +1,7 @@
 ---
 title: Veröffentlichen von NuGet-Symbolpaketen mithilfe des neuen Formats für Symbolpakete „.snupkg“ | Microsoft-Dokumentation
-author: cristinamanu
-ms.author: cristinamanu
+author: JonDouglas
+ms.author: jodou
 manager: skofman
 ms.date: 10/30/2018
 ms.topic: reference
@@ -12,16 +12,18 @@ keywords: NuGet-Symbolpakete, Debugging von NuGet-Paketen, Unterstützung von Nu
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: fbcc035a6b800617f995d3bcebd7e1764aa467b0
-ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
+ms.openlocfilehash: 001637348fdd435e4ffd3a5a55e8128d1eab453c
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98235723"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774576"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Erstellen von Symbolpaketen (.snupkg)
 
 Für ein benutzerfreundliches Debugging sind Debugsymbole erforderlich, weil diese wichtige Informationen anzeigen, wie z. B. die Zuordnung des kompilierten Codes zum Quellcode, die Namen lokaler Variablen und Stapelüberwachungen. Mithilfe von Symbolpaketen (.snupkg) können Sie diese Symbole verteilen und das Debugging Ihrer NuGet-Pakete optimieren.
+
+> Beachten Sie, dass ein Symbolpaket nicht die einzige Strategie ist, mit der die Debugsymbole den Consumern Ihrer Bibliothek zur Verfügung gestellt werden können. Sie können auch mit der folgenden Projekteigenschaft in die `dll`- oder die `exe`-Datei [eingebettet werden`embed`](https://docs.microsoft.com/dotnet/core/deploying/single-file#include-pdb-files-inside-the-bundle): `<DebugType>embedded</DebugType>`
 
 ## <a name="prerequisites"></a>Voraussetzungen
 

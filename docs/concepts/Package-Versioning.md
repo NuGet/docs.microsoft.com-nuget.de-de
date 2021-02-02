@@ -1,17 +1,17 @@
 ---
 title: Versionsreferenz für NuGet-Pakete
 description: Hier finden Sie genaue Informationen zum Angeben von Versionsnummern und -bereichen für andere Pakete, von denen ein NuGet-Paket abhängig ist, sowie dazu, wie Abhängigkeiten installiert werden.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 4cb12f439d796d583f52d657225c39418d5a4836
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 5ba7860fae1037c0c0eb4c55d2df12d98b1d77cf
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237360"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775117"
 ---
 # <a name="package-versioning"></a>Paketversionsverwaltung
 
@@ -29,17 +29,19 @@ In diesem Thema:
 
 Eine bestimmte Versionsnummer wird in der Form *Hauptversion.Nebenversion.Patch[-Suffix]* angegeben. Die Bestandteile haben folgende Bedeutungen:
 
-- *Hauptversion* : Breaking Changes
-- *Nebenversion* : Neue Funktionen, aber dennoch abwärtskompatibel
-- *Patch* : Nur abwärtskompatible Fehlerkorrekturen
+- *Hauptversion*: Breaking Changes
+- *Nebenversion*: Neue Funktionen, aber dennoch abwärtskompatibel
+- *Patch*: Nur abwärtskompatible Fehlerkorrekturen
 - *-Suffix* (optional): Ein Bindestrich, gefolgt von einer Zeichenfolge, die eine Vorabversion angibt (gemäß der [Konvention „Semantic Versioning“ bzw. SemVer 1.0](https://semver.org/spec/v1.0.0.html)).
 
 **Beispiele:**
 
-    1.0.1
-    6.11.1231
-    4.3.1-rc
-    2.2.44-beta1
+```
+1.0.1
+6.11.1231
+4.3.1-rc
+2.2.44-beta1
+```
 
 > [!Important]
 > nuget.org lehnt alle Paketuploads ab, die keine exakte Versionsnummer aufweisen. Die Version muss in `.nuspec` oder der Projektdatei angegeben werden, die zum Erstellen des Pakets verwendet wird.
@@ -55,18 +57,20 @@ Nichtsdestoweniger befolgen Paketentwickler im Allgemeinen anerkannte Namenskonv
 - `-rc`: Release Candidate (RC); in der Regel ein stabiles Release, das veröffentlicht werden könnte, sofern keine erheblichen Fehler mehr auftreten.
 
 > [!Note]
-> NuGet 4.3.0 und höher unterstützt [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html), die Nummern mit Punktnotation für Vorabversionen unterstützt (z. B. *1.0.1-build.23* ). Die Punktnotation wird für NuGet-Versionen vor Version 4.3.0 nicht unterstützt. Sie können eine Form wie *1.0.1-build23* verwenden.
+> NuGet 4.3.0 und höher unterstützt [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html), die Nummern mit Punktnotation für Vorabversionen unterstützt (z. B. *1.0.1-build.23*). Die Punktnotation wird für NuGet-Versionen vor Version 4.3.0 nicht unterstützt. Sie können eine Form wie *1.0.1-build23* verwenden.
 
 Wenn sich Paketverweise und mehrere Paketversionen beim Auflösen nur durch das Suffix unterscheiden, wählt NuGet zuerst eine Version ohne Suffix aus und wendet dann eine Rangfolge für die Vorabversionen in umgekehrter alphabetischer Reihenfolge an. Die folgenden Versionen würden beispielsweise exakt in der hier gezeigten Reihenfolge ausgewählt:
 
-    1.0.1
-    1.0.1-zzz
-    1.0.1-rc
-    1.0.1-open
-    1.0.1-beta
-    1.0.1-alpha2
-    1.0.1-alpha
-    1.0.1-aaa
+```
+1.0.1
+1.0.1-zzz
+1.0.1-rc
+1.0.1-open
+1.0.1-beta
+1.0.1-alpha2
+1.0.1-alpha
+1.0.1-aaa
+```
 
 ## <a name="semantic-versioning-200"></a>Semantic Versioning 2.0.0
 
@@ -228,18 +232,15 @@ Wenn während eines Installations-, Neuinstallations- oder Wiederherstellungsvor
 
 - Führende Nullen werden von den Versionsnummern entfernt:
 
-        1.00 is treated as 1.0
-        1.01.1 is treated as 1.1.1
-        1.00.0.1 is treated as 1.0.0.1
+  1.00 wird als 1.0 behandelt. 1.01.1 wird als 1.1.1 behandelt. 1.00.0.1 wird als 1.0.0.1 behandelt.
 
 - Eine Null im vierten Teil der Versionsnummer wird ausgelassen:
 
-        1.0.0.0 is treated as 1.0.0
-        1.0.01.0 is treated as 1.0.1
-        
+  1.0.0.0 wird als 1.0.0 behandelt. 1.0.01.0 wird als 1.0.1 behandelt.
+
 - Die Metadaten des Builds 2.0.0 der semantischen Versionierung werden entfernt
 
-        1.0.7+r3456 is treated as 1.0.7
+  1.0.7+r3456 wird als 1.0.7 behandelt.
 
 `pack`- und `restore`-Vorgänge normalisieren Versionen nach Möglichkeit immer. Bei bereits erstellten Paketen wirkt sich diese Normalisierung nicht auf die Versionsnummern in den Paketen selbst aus; sie hat nur Auswirkungen darauf, wie NuGet Versionen beim Auflösen von Abhängigkeiten abgleicht.
 

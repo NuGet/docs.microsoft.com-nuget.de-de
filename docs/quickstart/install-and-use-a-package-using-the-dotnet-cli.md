@@ -1,22 +1,22 @@
 ---
 title: Installieren und Verwenden eines NuGet-Pakets mithilfe der dotnet-CLI
 description: Ein Tutorial mit einer exemplarischen Vorgehensweise bei der Installation und Verwendung eines NuGet-Pakets in einem .NET Core-Projekt.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 006fff8360ac62393e4b88c1a253514591d22f4c
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: adbf8f457d8520e3087e539b91ef932877aec3a0
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "78231274"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775443"
 ---
 # <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>Schnellstart: Installieren und Verwenden eines Pakets mithilfe der .NET CLI
 
 NuGet-Pakete enthalten wiederverwendbaren Code, der von anderen Entwicklern für die Verwendung in Ihren Projekten verfügbar gemacht wird. Unter [Was ist NuGet?](../What-is-NuGet.md) finden Sie weitere Informationen. Pakete werden mithilfe des Befehls `dotnet add package` in einem .NET Core-Projekt installiert, wie in diesem Artikel für das beliebte [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)-Paket beschrieben wird.
 
-Beziehen Sie sich nach der Installation mit `using <namespace>` auf das Paket im Code, wobei \<Namespace\> für das von Ihnen verwendete Paket spezifisch ist. Sie können dann die Paket-API verwenden.
+Verweisen Sie nach der Installation mit `using <namespace>` auf das Paket im Code, wobei \<namespace\> speziell für das von Ihnen verwendete Paket gilt. Sie können dann die Paket-API verwenden.
 
 > [!Tip]
 > **Einstieg in nuget.org**: .NET-Entwickler finden Komponenten für die Verwendung in ihren eigenen Anwendungen üblicherweise durch das Durchsuchen von nuget.org. Sie können nuget.org direkt durchsuchen oder in Visual Studio nach Paketen suchen und diese installieren, wie in diesem Artikel dargestellt wird.

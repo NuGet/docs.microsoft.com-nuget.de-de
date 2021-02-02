@@ -1,16 +1,16 @@
 ---
 title: Festlegung von Zielversionen für NuGet-Pakete in Ihrer Projektdatei
-description: Beschreibung der verschiedenen Methoden für die Ausrichtung mehrerer .NET Framework-Versionen aus einem einzelnen NuGet-Paket.
-author: karann-msft
-ms.author: karann
+description: Beschreibung der verschiedenen Methoden für die Ausrichtung auf mehrere .NET Framework-Versionen mit einem einzelnen NuGet-Paket in Ihrer Projektdatei.
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1d23759433efb405fa5f0035049befced2c43d6b
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: a05d053340bb2fe795991dfa5a2b95d8625dfd44
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "72380675"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774377"
 ---
 # <a name="support-multiple-net-framework-versions-in-your-project-file"></a>Unterstützung für mehrere .NET Framework-Versionen in der Projektdatei
 
