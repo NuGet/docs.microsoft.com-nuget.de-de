@@ -35,9 +35,10 @@
 ## [Erstellen eines Pakets (dotnet CLI)](create-packages/creating-a-package-dotnet-cli.md)
 ## [Erstellen eines Pakets (nuget.exe-CLI)](create-packages/creating-a-package.md)
 ## [Erstellen eines Pakets (MSBuild)](create-packages/creating-a-package-msbuild.md)
-## [Unterstützung für mehrere Zielframeworks in der Projektdatei](create-packages/multiple-target-frameworks-project-file.md)
+## [Bewährte Methoden für die Paketerstellung](create-packages/Package-authoring-best-practices.md)
 ## [Erstellen eines Vorabversionspakets](create-packages/prerelease-packages.md)
 ## [Erstellen eines Symbolpakets](create-packages/symbol-packages-snupkg.md)
+## [Unterstützung für mehrere Zielframeworks in der Projektdatei](create-packages/multiple-target-frameworks-project-file.md)
 ## Aufgaben für Fortgeschrittene
 ### [Unterstützung mehrerer Zielframeworks](create-packages/supporting-multiple-target-frameworks.md)
 ### [Ändern von Quellcode und Konfigurationsdateien](create-packages/source-and-config-file-transformations.md)
