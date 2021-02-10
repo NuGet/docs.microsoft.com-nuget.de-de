@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 11485f583d6993919f6bb8acabcc87d9e4261975
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 6c04453fec9beb7b0998953384ec60694e1213c1
+ms.sourcegitcommit: af059dc776cfdcbad20baab2919b5d6dc1e9022d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774157"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99990158"
 ---
 # <a name="catalog"></a>Katalog
 
@@ -27,7 +27,7 @@ Der- **Katalog** ist eine Ressource, die alle Paket Vorgänge in einer Paketquel
 
 Der folgende `@type` Wert wird verwendet:
 
-Wert vom Typ @type   | Hinweise
+Wert vom Typ @type   | Notizen
 ------------- | -----
 Catalog/3.0.0 | Die erste Version
 
@@ -69,7 +69,7 @@ GET {@id}
 
 Der Katalog Index ist ein JSON-Dokument, das ein-Objekt mit den folgenden Eigenschaften enthält:
 
-Name            | Typ             | Erforderlich | Notizen
+Name            | type             | Erforderlich | Notizen
 --------------- | ---------------- | -------- | -----
 commitId        | Zeichenfolge           | ja      | Eine eindeutige ID, die mit dem letzten Commit verknüpft ist.
 committimestamp | Zeichenfolge           | ja      | Ein Zeitstempel des letzten Commit
@@ -86,7 +86,7 @@ Wenn dem Katalog Elemente hinzugefügt werden, ändert sich der Index, `commitId
 
 Die Katalogseiten Objekte, die in der-Eigenschaft des Katalog Indexes gefunden werden, `items` haben die folgenden Eigenschaften:
 
-Name            | Typ    | Erforderlich | Notizen
+Name            | type    | Erforderlich | Notizen
 --------------- | ------- | -------- | -----
 @id             | Zeichenfolge  | ja      | Die URL zum Abrufen der Katalogseite
 commitId        | Zeichenfolge  | ja      | Eine eindeutige ID, die dem letzten Commit auf dieser Seite zugeordnet ist.
@@ -113,7 +113,7 @@ Neue Katalog Elemente werden der Seite im Katalog Index nur mit dem höchsten Co
 
 Das Katalogseiten Dokument ist ein JSON-Objekt mit den folgenden Eigenschaften:
 
-Name            | Typ             | Erforderlich | Notizen
+Name            | type             | Erforderlich | Notizen
 --------------- | ---------------- | -------- | -----
 commitId        | Zeichenfolge           | ja      | Eine eindeutige ID, die dem letzten Commit auf dieser Seite zugeordnet ist.
 committimestamp | Zeichenfolge           | ja      | Ein Zeitstempel des letzten Commit auf dieser Seite
@@ -133,7 +133,7 @@ Beim Hinzufügen von Elementen zur Seite werden die `commitId` Änderungen und d
 
 Die Katalog Element Objekte in der-Eigenschaft der-Katalogseite `items` haben die folgenden Eigenschaften:
 
-Name            | Typ    | Erforderlich | Notizen
+Name            | type    | Erforderlich | Notizen
 --------------- | ------- | -------- | -----
 @id             | Zeichenfolge  | ja      | Die URL zum Abrufen des Katalog Elements.
 @type           | Zeichenfolge  | ja      | Der Typ des Katalog Elements.
@@ -165,7 +165,7 @@ Das Blatt "Katalog" enthält Metadaten über eine bestimmte Paket-ID und-Version
 
 Das Katalog Blatt Dokument ist ein JSON-Objekt mit den folgenden Eigenschaften:
 
-Name                    | Typ                       | Erforderlich | Notizen
+Name                    | type                       | Erforderlich | Notizen
 ----------------------- | -------------------------- | -------- | -----
 @type                   | Zeichenfolge oder Array von Zeichenfolgen | ja      | Der Typ (n) des Katalog Elements.
 Katalog: comentschärd        | Zeichenfolge                     | ja      | Eine Commit-ID, die diesem Katalog Element zugeordnet ist.
@@ -196,30 +196,31 @@ Clients, die die Katalog Elemente nutzen, sollten nicht versuchen, zu bestimmen,
 
 Paket Details-Katalog Elemente haben zusätzlich zu den in [allen Katalog blättern enthaltenen](#catalog-leaf)Eigenschaften die folgenden Eigenschaften:
 
-Name                    | Typ                       | Erforderlich | Notizen
+Name                    | type                       | Erforderlich | Notizen
 ----------------------- | -------------------------- | -------- | -----
 authors                 | Zeichenfolge                     | nein       |
 created                 | Zeichenfolge                     | nein       | Ein Zeitstempel, zu dem das Paket erstmalig erstellt wurde. Fallback-Eigenschaft: `published` .
-dependencygroups        | Array von Objekten           | Nein       | Die Abhängigkeiten des Pakets, gruppiert nach Ziel Framework ([Gleiches Format wie die Paket Metadaten-Ressource](registration-base-url-resource.md#package-dependency-group))
-veraltungs             | object                     | Nein       | Die dem Paket zugeordnete Veraltung ([Gleiches Format wie die Paket Metadaten-Ressource](registration-base-url-resource.md#package-deprecation))
+dependencygroups        | Array von Objekten           | nein       | Die Abhängigkeiten des Pakets, gruppiert nach Ziel Framework ([Gleiches Format wie die Paket Metadaten-Ressource](registration-base-url-resource.md#package-dependency-group))
+veraltungs             | Objekt (object)                     | nein       | Die dem Paket zugeordnete Veraltung ([Gleiches Format wie die Paket Metadaten-Ressource](registration-base-url-resource.md#package-deprecation))
 description             | Zeichenfolge                     | nein       |
 iconUrl                 | Zeichenfolge                     | nein       |
-IsPreRelease            | boolean                    | Nein       | Gibt an, ob die Paketversion Vorabversion ist. Kann von erkannt werden `version` .
+IsPreRelease            | boolean                    | nein       | Gibt an, ob die Paketversion Vorabversion ist. Kann von erkannt werden `version` .
 language                | Zeichenfolge                     | nein       |
 licenseUrl              | Zeichenfolge                     | nein       |
-Liste                  | boolean                    | Nein       | Gibt an, ob das Paket aufgelistet ist.
+Liste                  | boolean                    | nein       | Gibt an, ob das Paket aufgelistet ist.
 minClientVersion        | Zeichenfolge                     | nein       |
 packagehash             | Zeichenfolge                     | ja      | Der Hashwert des Pakets, Codierung mit [Standardbasis 64](https://tools.ietf.org/html/rfc4648#section-4)
 packageHashAlgorithm    | Zeichenfolge                     | ja      |
 PackageSize             | integer                    | ja      | Die Größe der Datei "Package. nupkg" in Bytes.
-packageTypes            | Array von Objekten           | Nein       | Die vom Autor angegebenen Pakettypen.
+packageTypes            | Array von Objekten           | nein       | Die vom Autor angegebenen Pakettypen.
 projectUrl              | Zeichenfolge                     | nein       |
 releaseNotes            | Zeichenfolge                     | nein       |
-requirelicensagreement | boolean                    | Nein       | `false`Bei Ausschluss ausschließen
+requirelicensagreement | boolean                    | nein       | `false`Bei Ausschluss ausschließen
 Zusammenfassung                 | Zeichenfolge                     | nein       |
-tags                    | array of strings           | Nein       |
+tags                    | array of strings           | nein       |
 title                   | Zeichenfolge                     | nein       |
 verbatimversion         | Zeichenfolge                     | nein       | Die Versions Zeichenfolge, wie Sie ursprünglich in der. nuspec-Datei gefunden wurde.
+Sicherheitsrisiken         | Array von Objekten           | nein       | Die Sicherheitsrisiken des Pakets
 
 Die Paket `version` Eigenschaft ist die vollständige Versions Zeichenfolge nach der Normalisierung. Dies bedeutet, dass die Build-Daten von semver 2.0.0 hier eingefügt werden können.
 
@@ -229,7 +230,7 @@ Der `created` Zeitstempel ist der Zeitpunkt, an dem das Paket zum ersten Mal von
 
 Die- `packageTypes` Eigenschaft ist nur vorhanden, wenn vom Autor ein Pakettyp angegeben wurde. Wenn Sie vorhanden ist, verfügt sie immer über mindestens einen Eintrag (1). Jedes Element im `packageTypes` Array ist ein JSON-Objekt mit den folgenden Eigenschaften:
 
-Name      | Typ    | Erforderlich | Notizen
+Name      | type    | Erforderlich | Notizen
 --------- | ------- | -------- | -----
 name      | Zeichenfolge  | ja      | Der Name des Pakettyps.
 version    | Zeichenfolge  | nein       | Die Version des Pakettyps. Nur vorhanden, wenn der Autor explizit eine Version in der nuspec angegeben hat.
@@ -238,6 +239,17 @@ Der `published` Zeitstempel ist der Zeitpunkt, zu dem das Paket zuletzt aufgelis
 
 > [!Note]
 > Auf nuget.org wird der `published` Wert auf das Jahr 1900 festgelegt, wenn das Paket nicht aufgelistet ist.
+
+#### <a name="vulnerabilities"></a>Sicherheitsrisiken
+
+Ein Array von `vulnerability`-Objekten. Jede Sicherheitslücke verfügt über die folgenden Eigenschaften:
+
+Name         | type   | Erforderlich | Notizen
+------------ | ------ | -------- | -----
+advisoryurl  | Zeichenfolge | ja      | Speicherort der Sicherheitsempfehlung für das Paket
+severity     | Zeichenfolge | ja      | Schweregrad der Empfehlung: "0" = niedrig, "1" = Mittel, "2" = hoch, "3" = kritisch
+
+Wenn die `severity` Eigenschaft andere als die hier aufgeführten Werte enthält, wird der Schweregrad der Empfehlung als niedrig behandelt.
 
 #### <a name="sample-request"></a>Beispiel für eine Anforderung
 
