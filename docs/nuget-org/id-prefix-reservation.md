@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 09/07/2019
 ms.topic: reference
 ms.reviewer: karann
-ms.openlocfilehash: af9969df33c6bf7a62709e6e3535b8b886376e3e
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 428fd3d7b324f6eb825b17e4a87a662fbd84a2f0
+ms.sourcegitcommit: af059dc776cfdcbad20baab2919b5d6dc1e9022d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775919"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99990108"
 ---
 # <a name="package-id-prefix-reservation"></a>Reservierung für Paket-ID-Präfixe
 
@@ -31,7 +31,7 @@ Wenn ein Präfix auf [nuget.org](https://www.nuget.org/) reserviert wird, geschi
 
 1. Jedes Mal, wenn ein Paket auf [nuget.org](https://www.nuget.org/) mit einer ID veröffentlicht wird, die mit dem reservierten ID-Präfix übereinstimmt, wird das Paket abgelehnt, es sei denn, es wird von den Besitzer veröffentlicht, die das ID-Präfix reserviert haben.
 
-1. Jedes Paket, das mit dem reservierten ID-Präfix übereinstimmt und von den Besitzern veröffentlicht wird, die das ID-Präfix reserviert haben, werden in Visual Studio 2017 Version 15.4 und höher und auf [nuget.org](https://www.nuget.org/) Meldungen angezeigt. Dies gilt sowohl für neue als auch bereits vorhandene Pakete des Besitzers oder der Besitzer. **Hinweis**: Die Meldung in Visual Studio wird nur angezeigt, wenn nur ein Feed als Paketquelle ausgewählt wurde.
+1. Jedes Paket, das mit dem reservierten ID-Präfix übereinstimmt und von den Besitzern veröffentlicht wird, die das ID-Präfix reserviert haben, werden in Visual Studio 2017 Version 15.4 und höher und auf [nuget.org](https://www.nuget.org/) Meldungen angezeigt. Dies gilt sowohl für neue als auch bereits vorhandene Pakete des Besitzers oder der Besitzer. **Hinweis**: Die Meldung in Visual Studio wird nur angezeigt, wenn ein einzelner Feed als Paketquelle ausgewählt wurde.
 
 1. Alle vorherigen vorhandenen Pakete, die mit dem reservierten ID-Präfix übereinstimmen aber *nicht* im Besitz des Besitzers des reservierten Präfixes sind, bleiben unverändert (sie werden nicht aus der Auflistung entfernt, aber es wird auch keine Meldung angezeigt). Außerdem können Besitzer dieser Pakete weiterhin neue Paketversionen veröffentlichen.
 
@@ -73,23 +73,25 @@ Nachdem die Anforderung eingereicht wurde, werden Sie informiert, ob diese angen
 
 ### <a name="id-prefix-reservation-criteria"></a>Kriterien für die ID-Präfixreservierung
 
-Bei der Prüfung von Anforderungen für ID-Präfixreservierungen prüft das [nuget.org](https://www.nuget.org/)-Team die Anforderung anhand der unten aufgeführten Kriterien. Nicht alle Kriterien müssen erfüllt werden, damit ein Präfix reserviert wird, aber es kann sein, dass eine Anforderung abgelehnt wird, wenn nicht nachgewiesen werden kann, dass ein Kriterium erfüllt wird (mit einer entsprechenden Erklärung):
+Bei der Überprüfung auf ID-Präfixreservierungen prüft das [NuGet.org](https://www.nuget.org)-Team die Anforderung anhand der unten aufgeführten Kriterien. Beachten Sie, dass nicht alle Kriterien erfüllt sein müssen, damit ein Präfix reserviert wird. Eine Anforderung kann aber abgelehnt werden, wenn nicht eindeutig nachgewiesen werden kann, dass ein Kriterium erfüllt wird (mit einer entsprechenden Erklärung):
 
-1. Gibt das Paket-ID-Präfix den Paketbesitzer eindeutig und ordnungsgemäß an?
+1. Identifiziert das Paket-ID-Präfix den Reservierungsbesitzer eindeutig und ordnungsgemäß?
 
-1. Hat der Paketbesitzer die [zweistufige Authentifizierung für sein NuGet.org-Konto](individual-accounts.md#enable-two-factor-authentication-2fa) aktiviert?
-
-1. Wurden viele der Pakete des Besitzers bereits mit diesem Paket-ID-Präfix veröffentlicht?
+1. Hat der Besitzer die [zweistufige Authentifizierung für sein NuGet.org-Konto](individual-accounts.md#enable-two-factor-authentication-2fa) aktiviert?
 
 1. Ist das Paket-ID-Präfix zu allgemein, als dass es einem einzelnen Besitzer oder einer Organisation zugeordnet werden kann?
 
-1. Wenn das Paket-ID-Präfix *nicht* reserviert würde, würde dies zu Mehrdeutigkeit und Verwirrung in der Community führen?
+1. Wenn das Paket-ID-Präfix *nicht* reserviert würde, würde dies zu Mehrdeutigkeit, Verwirrung oder anderweitigen Nachteilen in der Community führen?
+
+Wenn Sie im Rahmen Ihrer ID-Präfixreservierung Pakete in NuGet.org veröffentlichen, beachten Sie die folgenden Best Practices:
 
 1. Sind die identifizierenden Eigenschaften der Pakete, die mit dem Paket-ID-Präfix übereinstimmen, eindeutig und konsistent (insbesondere der Paketersteller)?
 
 1. Haben die Pakete eine Lizenz (durch das Metadatenelement [license](../reference/nuspec.md#license) angegeben, nicht durch das veraltete licenseUrl)?
 
-1. Wenn die Pakete über ein Symbol verfügen (mit dem Metadatenelement „IconUrl“), verwenden sie dann auch das Metadatenelement [icon](../reference/nuspec.md#icon) (es ist nicht erforderlich, das Element „IconUrl“ zu entfernen)?
+1. Wenn die Pakete über ein Symbol verfügen (mit dem Metadatenelement „iconUrl“), verwenden sie dann auch das Metadatenelement [icon](../reference/nuspec.md#icon)? Es ist nicht erforderlich, die iconUrl zu entfernen, aber eingebettete Symbole müssen verwendet werden.
+ 
+Lesen Sie zusätzlich zu den oben genannten Punkten den [Leitfaden mit bewährten Methoden für die Paketerstellung](../create-packages/package-authoring-best-practices.md).
 
 ## <a name="third-party-feed-provider-scenarios"></a>Szenarios mit externen Feedanbietern
 
