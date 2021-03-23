@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: 60626a5a2a261241e0dce34421f73a86d815e454
-ms.sourcegitcommit: aeb9072f2fcaca73dc9de05b7fd643f1aa7c5821
+ms.openlocfilehash: afc06c81bf0344f2086efd19111cc60d24d7f723
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101101343"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859511"
 ---
 # <a name="nugetconfig-reference"></a>nuget.config Referenz
 
@@ -29,7 +29,7 @@ Enthält verschiedene Konfigurationseinstellungen, die mit dem- [ `nuget config`
 
 `dependencyVersion` und `repositoryPath` gelten nur für Projekte, die verwenden `packages.config` . `globalPackagesFolder` gilt nur für Projekte, die das packagereferenzierungsformat verwenden.
 
-| Key | Wert |
+| Schlüssel | Wert |
 | --- | --- |
 | dependencyVersion (nur `packages.config`) | Der `DependencyVersion`-Standardwert für „package install“, „restore“ und „update“, wenn der `-DependencyVersion`-Switch nicht direkt angegeben ist. Dieser Wert wird auch von der Benutzeroberfläche des NuGet-Paket-Managers verwendet. Die Werte lauten `Lowest`, `HighestPatch`, `HighestMinor`, `Highest`. |
 | globalpackagesfolder (nur Projekte mit packagereferenzierung) | Der Speicherort des Standardordners für globale Pakete. Der Standardwert lautet `%userprofile%\.nuget\packages` (Windows) oder `~/.nuget/packages` (Mac/Linux). Ein relativer Pfad kann in projektspezifischen `nuget.config`-Dateien verwendet werden. Diese Einstellung wird von der `NUGET_PACKAGES` Umgebungsvariablen überschrieben, die Vorrang hat. |
@@ -38,7 +38,7 @@ Enthält verschiedene Konfigurationseinstellungen, die mit dem- [ `nuget config`
 | http_proxy http_proxy.user http_proxy.password no_proxy | Proxyeinstellungen, die beim Herstellen einer Verbindung zu Paketquellen verwendet werden sollen; `http_proxy` sollte das Format `http://<username>:<password>@<domain>` aufweisen. Kennwörter sind verschlüsselt und können nicht manuell hinzugefügt werden. Bei `no_proxy` ist der Wert eine durch Kommas getrennte Liste mit Domänen, die den Proxy-Server umgehen. Alternativ können Sie für diese Werte die Umgebungsvariablen „http_proxy“ und „no_proxy“ verwenden. Weitere Informationen finden Sie unter [NuGet proxy settings (NuGet-Proxyeinstellungen)](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
 | signaturevalidationmode | Gibt den Validierungs Modus an, der zum Überprüfen von Paket Signaturen für Paketinstallation und-Wiederherstellung verwendet wird. Die Werte `accept` lauten `require` . Wird standardmäßig auf `accept` festgelegt.
 
-**Beispiel**:
+**Beispiel:**
 
 ```xml
 <config>
@@ -54,11 +54,11 @@ Enthält verschiedene Konfigurationseinstellungen, die mit dem- [ `nuget config`
 
 Konfiguriert, ob NuGet bei der Installation eines Pakets automatische Bindungsumleitungen durchführt.
 
-| Key | Wert |
+| Schlüssel | Wert |
 | --- | --- |
 | skip | Ein boolescher Wert, der angibt, ob automatische Bindungsumleitungen übersprungen werden sollen. Die Standardeinstellung ist „false“. |
 
-**Beispiel**:
+**Beispiel:**
 
 ```xml
 <bindingRedirects>
@@ -70,12 +70,12 @@ Konfiguriert, ob NuGet bei der Installation eines Pakets automatische Bindungsum
 
 Steuert die Paketwiederherstellung während der Erstellung von Builds.
 
-| Key | Wert |
+| Schlüssel | Wert |
 | --- | --- |
 | enabled | Ein boolescher Wert, der angibt, ob NuGet eine automatische Wiederherstellung durchführen kann. Sie können die Umgebungsvariable `EnableNuGetPackageRestore` auch mit dem Wert `True` festlegen, statt diesen Schlüssel in der Konfigurationsdatei festzulegen. |
 | automatic | Ein boolescher Wert, der angibt, ob NuGet während der Erstellung eines Builds eine Überprüfung auf fehlende Pakete durchführen sollte. |
 
-**Beispiel**:
+**Beispiel:**
 
 ```xml
 <packageRestore>
@@ -88,11 +88,11 @@ Steuert die Paketwiederherstellung während der Erstellung von Builds.
 
 Steuert, ob der Ordner `packages` einer Projektmappe in der Quellcodeverwaltung enthalten ist. Dieser Abschnitt funktioniert nur in Dateien vom Typ `nuget.config` in einem Projektmappenordner.
 
-| Key | Wert |
+| Schlüssel | Wert |
 | --- | --- |
 | disableSourceControlIntegration | Ein boolescher Wert, der angibt, ob der Paketordner während der Arbeit mit der Quellcodeverwaltung ignoriert werden soll. Der Standardwert ist „FALSE“. |
 
-**Beispiel**:
+**Beispiel:**
 
 ```xml
 <solution>
@@ -112,11 +112,11 @@ Beachten Sie, dass die Quell-URL für nuget.org `https://api.nuget.org/v3/index.
 
 Listet alle bekannte Paketquellen auf. Die Reihenfolge wird bei Wiederherstellungs Vorgängen und bei beliebigen Projekten ignoriert, die das packagereferenzierungsformat verwenden. Nuget respektiert die Reihenfolge der Quellen für Installations-und Aktualisierungs Vorgänge mit Projekten, die verwenden `packages.config` .
 
-| Key | Wert |
+| Schlüssel | Wert |
 | --- | --- |
 | (Der Name, der der Paketquelle zuzuweisen ist) | Der Pfad oder die URL der Paketquelle. |
 
-**Beispiel**:
+**Beispiel:**
 
 ```xml
 <packageSources>
@@ -134,7 +134,7 @@ Listet alle bekannte Paketquellen auf. Die Reihenfolge wird bei Wiederherstellun
 Speichert Benutzernamen und Kennwörter für Quellen, die in der Regel mit den `-username`- und `-password`-Switches mit `nuget sources` angegeben werden. Kennwörter werden standardmäßig verschlüsselt, sofern die Option `-storepasswordincleartext` nicht ebenfalls verwendet wird.
 Optional können Sie mit dem-Schalter gültige Authentifizierungs Typen angeben `-validauthenticationtypes` .
 
-| Key | Wert |
+| Schlüssel | Wert |
 | --- | --- |
 | username | Der Benutzername für die Quelle in Nur-Text. |
 | password | Das verschlüsselte Kennwort für die Quelle. Verschlüsselte Kenn Wörter werden nur unter Windows unterstützt und können nur entschlüsselt werden, wenn Sie auf demselben Computer und über denselben Benutzer wie die ursprüngliche Verschlüsselung verwendet werden. |
@@ -209,11 +209,11 @@ Außerdem können gültige Authentifizierungsmethoden bereitgestellt werden:
 
 Speichert Schlüssel für Quellen, die die API-Schlüssel Authentifizierung verwenden, wie mit dem- [ `nuget setapikey` Befehl](../reference/cli-reference/cli-ref-setapikey.md)festgelegt.
 
-| Key | Wert |
+| Schlüssel | Wert |
 | --- | --- |
 | (Quell-URL) | Der verschlüsselte API-Schlüssel. |
 
-**Beispiel**:
+**Beispiel:**
 
 ```xml
 <apikeys>
@@ -225,7 +225,7 @@ Speichert Schlüssel für Quellen, die die API-Schlüssel Authentifizierung verw
 
 Identifizierte, derzeit deaktivierte Quellen. Kann leer sein.
 
-| Key | Wert |
+| Schlüssel | Wert |
 | --- | --- |
 | (Name der Quelle) | Ein boolescher Wert, der angibt, ob die Quelle deaktiviert ist. |
 
@@ -246,11 +246,11 @@ Identifizierte, derzeit deaktivierte Quellen. Kann leer sein.
 
 Identifiziert die derzeit aktive Quelle oder gibt das Aggregat aller Quellen an.
 
-| Key | Wert |
+| Schlüssel | Wert |
 | --- | --- |
 | (Name der Quelle) oder `All` | Wenn es sich bei dem Schlüssel um den Namen einer Quelle handelt, ist der Wert der Quellpfad oder die URL. Wenn `All` festgelegt ist, sollte der Wert `(Aggregate source)` lauten, damit alle Paketquellen kombiniert werden können, die nicht auf andere Weise deaktiviert sind. |
 
-**Beispiel**:
+**Beispiel:**
 
 ```xml
 <activePackageSource>
@@ -278,7 +278,7 @@ Die unterstützten Hash Algorithmen für einen Zertifikat Fingerabdruck sind `SH
 
 , Wenn ein angibt, dass `certificate` `allowUntrustedRoot` `true` das angegebene Zertifikat während der Signatur Überprüfung mit einem nicht vertrauenswürdigen Stamm verkettet werden darf.
 
-**Beispiel**:
+**Beispiel:**
 
 ```xml
 <trustedSigners>
@@ -288,6 +288,7 @@ Die unterstützten Hash Algorithmen für einen Zertifikat Fingerabdruck sind `SH
     </author>
     <repository name="nuget.org" serviceIndex="https://api.nuget.org/v3/index.json">
         <certificate fingerprint="0E5F38F57DC1BCC806D8494F4F90FBCEDD988B46760709CBEEC6F4219AA6157D" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+        <certificate fingerprint="5A2901D6ADA3D18260B9C6DFE2133C95D74B9EEF6AE0E5DC334C8454D1477DF4" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
         <owners>microsoft;aspnet;nuget</owners>
     </repository>
 </trustedSigners>
@@ -307,11 +308,11 @@ Wenn eine der beiden Nachrichten erfolgreich ausgeführt wurde, ist kein Downloa
 
 Wenn keine Entsprechung gefunden wird, überprüft nuget die Datei Quellen und anschließend die HTTP-Quellen, und die Pakete werden heruntergeladen.
 
-| Key | Wert |
+| Schlüssel | Wert |
 | --- | --- |
 | (Name des Fall Back Ordners) | Pfad zum Fall Back Ordner. |
 
-**Beispiel**:
+**Beispiel:**
 
 ```xml
 <fallbackPackageFolders>
@@ -323,12 +324,12 @@ Wenn keine Entsprechung gefunden wird, überprüft nuget die Datei Quellen und a
 
 Legt das Standardformat für die Paketverwaltung fest, entweder *packages.config* oder packagereferenzierung. Projekte im SDK-Stil verwenden immer packagereferenzierung.
 
-| Key | Wert |
+| Schlüssel | Wert |
 | --- | --- |
 | format | Ein boolescher Wert, der das Standardformat für die Paketverwaltung angibt. Gibt an, dass das `1` Format packagereferenziert wird. Wenn der Wert ist `0` , wird das Format *packages.config*. |
 | deaktiviert | Ein boolescher Wert, der angibt, ob die Eingabeaufforderung zum Auswählen eines Standardpaket Formats bei der ersten Paketinstallation angezeigt werden soll. `False` Blendet die Eingabeaufforderung aus. |
 
-**Beispiel**:
+**Beispiel:**
 
 ```xml
 <packageManagement>
@@ -436,6 +437,7 @@ Im folgenden finden Sie eine Beispiel `nuget.config` Datei, die eine Reihe von E
         </author>
         <repository name="nuget.org" serviceIndex="https://api.nuget.org/v3/index.json">
             <certificate fingerprint="0E5F38F57DC1BCC806D8494F4F90FBCEDD988B46760709CBEEC6F4219AA6157D" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+            <certificate fingerprint="5A2901D6ADA3D18260B9C6DFE2133C95D74B9EEF6AE0E5DC334C8454D1477DF4" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
             <owners>microsoft;aspnet;nuget</owners>
         </repository>
     </trustedSigners>

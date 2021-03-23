@@ -5,19 +5,19 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: f324f1e27e0d718571525152fcf16b55b900dbaa
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: ab3bde0d320375f854a8f0a98fb90acfecf54aa3
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777754"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859095"
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>Authentifizieren von Feeds in Visual Studio mit nuget-Anmelde Informationsanbietern
 
 Die nuget Visual Studio-Erweiterung 3.6 und höher unterstützt Anmelde Informationsanbieter, mit denen nuget mit authentifizierten Feeds arbeiten kann.
 Nachdem Sie einen nuget-Anmelde Informationsanbieter für Visual Studio installiert haben, werden die Anmelde Informationen für authentifizierte Feeds von der nuget-Erweiterung für Visual Studio nach Bedarf automatisch abgerufen und aktualisiert.
 
-Eine Beispiel Implementierung finden Sie im [vscredentialprovider-Beispiel](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider).
+Eine Beispiel Implementierung finden Sie im [vscredentialprovider-Beispiel](https://github.com/NuGet/Samples/tree/main/VsCredentialProvider).
 
 In Visual Studio verwendet nuget einen internen, `VsCredentialProviderImporter` der auch nach Plug-in-Anmelde Informationsanbietern sucht. Diese Plug-in-Anmelde Informationsanbieter müssen als MEF-Export vom Typ erkannt werden können `IVsCredentialProvider` .
 
@@ -58,7 +58,7 @@ public interface IVsCredentialProvider
 }
 ```
 
-Eine Beispiel Implementierung finden Sie im [vscredentialprovider-Beispiel](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider).
+Eine Beispiel Implementierung finden Sie im [vscredentialprovider-Beispiel](https://github.com/NuGet/Samples/tree/main/VsCredentialProvider).
 
 Jeder nuget-Anmelde Informationsanbieter für Visual Studio muss folgende Aktionen ausführen:
 
@@ -78,4 +78,4 @@ Ein benutzerdefinierter nuget-Anmelde Informationsanbieter für Visual Studio mu
 | bool nicht interaktiv | True gibt an, dass der Anmelde Informationsanbieter alle Benutzer Aufforderungen unterdrücken und stattdessen Standardwerte verwenden muss. |
 | CancellationToken CancellationToken | Dieses Abbruch Token sollte geprüft werden, um zu bestimmen, ob der Vorgang zum Anfordern von Anmelde Informationen abgebrochen wurde. |
 
-**Rückgabewert**: ein Anmelde Informationsobjekt, das die- [ `System.Net.ICredentials` Schnittstelle](/dotnet/api/system.net.icredentials?view=netstandard-2.0)implementiert.
+**Rückgabewert**: ein Anmelde Informationsobjekt, das die- [ `System.Net.ICredentials` Schnittstelle](/dotnet/api/system.net.icredentials)implementiert.

@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 7671b50b84bf1447fe94e02896786d1f309425dd
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 9172aefb48ab3e542498f5a144f1d4f381ad55bd
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777317"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859485"
 ---
 # <a name="target-frameworks"></a>Zielframeworks
 
@@ -23,17 +23,21 @@ NuGet verwendet Zielframeworkverweise an vielen Stellen, um die Framework-abhän
 - [packages.config:](../reference/packages-config.md) Das `targetframework`-Attribut einer Abhängigkeit gibt die Variante eines Pakets an, das installiert werden soll.
 
 > [!Note]
-> Der Quellcode des NuGet-Clients, der die folgenden Tabellen berechnet, befindet sich an folgenden Speicherorten:
-> - Unterstützte Frameworknamen: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
-> - Rangfolge und Zuordnung von Frameworks: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
+> Nuget unterstützt alle modernen .NET-Ziel-Frameworks:
+> - Eine Liste der neuesten Ziel-Frameworks finden Sie in der Dokumentation zu den [Ziel-Frameworks in SDK-Projekten](/dotnet/standard/frameworks) .
 
 ## <a name="supported-frameworks"></a>Unterstützte Frameworks
 
 Auf ein Framework wird in der Regel durch einen kurzen Zielframeworkmoniker (Target Framework Moniker, TFM) verwiesen. In .NET Standard dies auch in *txm* generalisiert, um einen einzelnen Verweis auf mehrere Frameworks zu ermöglichen.
 
+> [!Note]
+> Der Quellcode des NuGet-Clients, der die folgenden Tabellen berechnet, befindet sich an folgenden Speicherorten:
+> - Unterstützte Frameworknamen: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
+> - Rangfolge und Zuordnung von Frameworks: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
+
 Die NuGet-Clients unterstützen die in der folgenden Tabelle aufgelisteten Frameworks. Äquivalente werden in eckigen Klammern angegeben. Beachten Sie, dass einige Tools (z.B. `dotnet`) möglicherweise Variationen von kanonischen TFMs in einigen Dateien verwenden. `dotnet pack` verwendet beispielsweise `.NETCoreApp2.0` statt `netcoreapp2.0` in einer `.nuspec`-Datei. Die verschiedenen NuGet-Clienttools verarbeiten diese Variationen ordnungsgemäß, Sie sollten jedoch immer kanonische TFMs verwenden, wenn Sie Dateien direkt bearbeiten.
 
-| Name | Abkürzung | TFMs/TxMs |
+| name | Abkürzung | TFMs/TxMs |
 | ------------- | ------------ | --------- |
 |.NET Framework | net | net11 |
 | | | net20 |
@@ -70,7 +74,7 @@ Windows Phone (UWP) | | wpa81 |
 Universelle Windows-Plattform | uap | uap [uap10.0] |
 | | | uap10.0 |
 | | | UAP 10.0. xxxxx (wobei 10.0. xxxxx die Zielplattform für die Mindestversion der verwendeten APP ist) |
-.NET Standard | netstandard | netstandard1.0 |
+.NET-Standard | netstandard | netstandard1.0 |
 | | | netstandard1.1 |
 | | | netstandard1.2 |
 | | | netstandard1.3 |
@@ -141,7 +145,7 @@ Verwenden Sie zum Definieren eines Zielframeworks, das auf mehrere untergeordnet
 
 Zusätzliche Frameworks, die von Drittanbietern definiert wurden, sind mit anderen Umgebungen kompatibel, auf die auf diese Weise zugegriffen werden kann. Darüber hinaus gibt es Kurzformen für verfügbare Profilnummern, die auf diese Kombinationen von verknüpften Frameworks als `Profile#` verweisen. Es wird jedoch nicht empfohlen, diese Nummern zu verwenden, da dadurch die Lesbarkeit der Ordner und `.nuspec`-Dateien reduziert wird.
 
-| Profil # | Frameworks | Vollständiger Name | .NET Standard |
+| Profil # | Frameworks | Vollständiger Name | .NET-Standard |
  --- | --- | --- | ---
  Profile2 | .NETFramework 4.0 | portable-net40+win8+sl4+wp7 |
  | | Windows 8.0 | |
@@ -169,9 +173,9 @@ Zusätzliche Frameworks, die von Drittanbietern definiert wurden, sind mit ander
  | | Silverlight 4.0 |
  Profile24 | .NETFramework 4.5 | portable-net45+sl5
  | | Silverlight 5.0 |
- Profile31 | Windows 8.1 | portable-win81+wp81 | netstandard1.0
+ Profile31 | Windows 8.1 | portable-win81+wp81 | netstandard1.0
  | | WindowsPhone 8.1 (SL) |
- Profile32 | Windows 8.1 | portable-win81+wpa81 | netstandard1.2
+ Profile32 | Windows 8.1 | portable-win81+wpa81 | netstandard1.2
  | | WindowsPhone 8.1 (UWP) |
  Profile36 | .NETFramework 4.0 | portable-net40+sl4+win8+wp8
  | | Silverlight 4.0 |
@@ -187,7 +191,7 @@ Zusätzliche Frameworks, die von Drittanbietern definiert wurden, sind mit ander
  | | Silverlight 5.0 |
  | | Windows 8.0 |
  Profile44 | .NETFramework 4.5.1 | portable-net451+win81 | netstandard1.2
- | | Windows 8.1 |
+ | | Windows 8.1 |
  Profile46 | .NETFramework 4.5 | portable-net45+sl4+win8
  | | Silverlight 4.0 |
  | | Windows 8.0 |
@@ -239,13 +243,13 @@ Zusätzliche Frameworks, die von Drittanbietern definiert wurden, sind mit ander
  | | Windows 8.0 |
  | | WindowsPhone 8.0 (SL) |
  Profile151 | NETFramework 4.5.1 | portable-net451+win81+wpa81 | netstandard1.2
- | | Windows 8.1 |
+ | | Windows 8.1 |
  | | WindowsPhone 8.1 (UWP) |
  Profile154 | .NETFramework 4.5 | portable-net45+sl4+win8+wp8
  | | Silverlight 4.0 |
  | | Windows 8.0 |
  | | WindowsPhone 8.0 (SL) |
- Profile157 | Windows 8.1 | portable-win81+wp81+wpa81 | netstandard1.0
+ Profile157 | Windows 8.1 | portable-win81+wp81+wpa81 | netstandard1.0
  | | WindowsPhone 8.1 (SL) |
  | | WindowsPhone 8.1 (UWP) |
  Profile158 | .NETFramework 4.5 | portable-net45+sl5+win8+wp8
@@ -286,7 +290,7 @@ Zusätzliche Frameworks, die von Drittanbietern definiert wurden, sind mit ander
 
 Darüber hinaus können NuGet-Pakete, die Xamarin anzielen, zusätzliche für Xamarin definierte Frameworks verwenden. Weitere Informationen finden Sie unter [Creating NuGet packages for Xamarin (Erstellen von NuGet-Paketen für Xamarin)](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/).
 
-| Name | BESCHREIBUNG | .NET Standard |
+| name | BESCHREIBUNG | .NET-Standard |
 | --- | --- | ---
 | monoandroid | Mono-Unterstützung für Android | netstandard1.4 |
 | monotouch | Mono-Unterstützung für iOS | netstandard1.4 |

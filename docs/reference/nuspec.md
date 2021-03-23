@@ -6,18 +6,18 @@ ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 6a68b07c42e6abf4ad57d0129fa76d7dd620145f
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 4028657862cfd56d0653b370e8344cab8392d69d
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777684"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859498"
 ---
 # <a name="nuspec-reference"></a>NUSPEC-Referenz
 
 Bei einer `.nuspec`-Datei handelt es sich um eine XML-Manifestdatei, die Paketmetadaten enthält. Diese Manifestdatei wird sowohl für die Erstellung des Pakets als auch zur Bereitstellung von Informationen für die Benutzer verwendet. Manifestdateien sind in allen Paketen enthalten.
 
-Inhalte dieses Themas:
+In diesem Thema:
 
 - [Allgemeine Form und Schema](#general-form-and-schema)
 - [Ersetzungstokens](#replacement-tokens) (bei der Verwendung in einem Visual Studio-Projekt)
@@ -34,7 +34,7 @@ Inhalte dieses Themas:
 
 - `.nuspec`Zum Erstellen von Paketen für [Projekte im SDK-Stil](../resources/check-project-format.md) ist keine Datei erforderlich (in der Regel .net Core-und .NET Standard Projekte, die das [SDK-Attribut](/dotnet/core/tools/csproj#additions)verwenden). (Beachten Sie, dass `.nuspec` beim Erstellen des Pakets eine generiert wird.)
 
-   Wenn Sie ein Paket mit oder erstellen `dotnet.exe pack` `msbuild pack target` , empfiehlt es sich, stattdessen [alle Eigenschaften](../reference/msbuild-targets.md#pack-target) in der-Datei in der- `.nuspec` Projektdatei einzubeziehen. Stattdessen können Sie jedoch [eine Datei verwenden, `.nuspec` um Sie mit `dotnet.exe` oder `msbuild pack target` zu verpacken ](../reference/msbuild-targets.md#packing-using-a-nuspec).
+   Wenn Sie ein Paket mit oder erstellen `dotnet.exe pack` `msbuild pack target` , empfiehlt es sich, stattdessen [alle Eigenschaften](../reference/msbuild-targets.md#pack-target) in der-Datei in der- `.nuspec` Projektdatei einzubeziehen. Stattdessen können Sie jedoch [eine Datei verwenden, `.nuspec` um Sie mit `dotnet.exe` oder `msbuild pack target` zu verpacken ](../reference/msbuild-targets.md#packing-using-a-nuspec-file).
 
 - Für Projekte `packages.config` , die von zu [packagereferenzierung](../consume-packages/package-references-in-project-files.md)migriert wurden, `.nuspec` ist eine Datei zum Erstellen des Pakets nicht erforderlich. Verwenden Sie stattdessen [msbuild-t:Pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
@@ -118,18 +118,18 @@ Beim Hochladen eines Pakets in nuget.org ist das `licenseUrl` Feld auf 4000 Zeic
 
 *Unterstützt mit **nuget 4.9.0** und höher*
 
-Ein spdx-Lizenz Ausdruck oder Pfad zu einer Lizenzdatei innerhalb des Pakets, die häufig in Benutzeroberflächen wie nuget.org angezeigt wird. Wenn Sie das Paket unter einer gemeinsamen Lizenz lizenzieren, wie z. b. mit oder der BSD-2-Klausel, verwenden Sie den zugehörigen [spdx-Lizenz Bezeichner](https://spdx.org/licenses/). Zum Beispiel:
+Ein spdx-Lizenz Ausdruck oder Pfad zu einer Lizenzdatei innerhalb des Pakets, die häufig in Benutzeroberflächen wie nuget.org angezeigt wird. Wenn Sie das Paket unter einer gemeinsamen Lizenz lizenzieren, wie z. b. mit oder der BSD-2-Klausel, verwenden Sie den zugehörigen [spdx-Lizenz Bezeichner](https://spdx.org/licenses/). Beispiel:
 
 `<license type="expression">MIT</license>`
 
 > [!Note]
 > NuGet.org akzeptiert nur Lizenz Ausdrücke, die von der Open Source-Initiative oder der kostenlosen Software Foundation genehmigt werden.
 
-Wenn Ihr Paket unter mehreren gängigen Lizenzen lizenziert ist, können Sie eine zusammengesetzte Lizenz mithilfe der [spdx-Ausdruckssyntax Version 2,0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60)angeben. Zum Beispiel:
+Wenn Ihr Paket unter mehreren gängigen Lizenzen lizenziert ist, können Sie eine zusammengesetzte Lizenz mithilfe der [spdx-Ausdruckssyntax Version 2,0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60)angeben. Beispiel:
 
 `<license type="expression">BSD-2-Clause OR MIT</license>`
 
-Wenn Sie eine benutzerdefinierte Lizenz verwenden, die nicht von Lizenz Ausdrücken unterstützt wird, können Sie eine `.txt` `.md` -oder-Datei mit dem Lizenztext verpacken. Zum Beispiel:
+Wenn Sie eine benutzerdefinierte Lizenz verwenden, die nicht von Lizenz Ausdrücken unterstützt wird, können Sie eine `.txt` `.md` -oder-Datei mit dem Lizenztext verpacken. Beispiel:
 
 ```xml
 <package>
@@ -198,7 +198,7 @@ Fügen Sie z. b. der nuspec-Datei Folgendes hinzu, wenn Sie ein Paket mit nuget.
 </package>
 ```
 
-[Paket Symbol nuspec-Beispiel.](https://github.com/NuGet/Samples/tree/master/PackageIconNuspecExample)
+[Paket Symbol nuspec-Beispiel.](https://github.com/NuGet/Samples/tree/main/PackageIconNuspecExample)
 
 Wenn Sie die MSBuild-Entsprechung benötigen, sehen Sie sich das [Packen einer Symbolbild Datei](msbuild-targets.md#packing-an-icon-image-file)an.
 
@@ -243,7 +243,7 @@ Beim Hochladen eines Pakets in nuget.org ist das `tags` Feld auf 4000 Zeichen be
 #### <a name="repository"></a>repository
 Repository-Metadaten, bestehend aus vier optionalen Attributen: `type` und `url` *(4.0 +)* und `branch` und `commit` *(4.6* und höher). Diese Attribute ermöglichen es Ihnen, das dem `.nupkg` Repository zuzuordnen, von dem es erstellt wurde, und mit der Möglichkeit, den einzelnen branchnamen und/oder den SHA-1-Hash, der das Paket erstellt hat, so detailliert wie möglich zu machen. Dabei sollte es sich um eine öffentlich verfügbare URL handeln, die direkt von einer Versions Kontrollsoftware aufgerufen werden kann. Es sollte sich nicht um eine HTML-Seite handeln, da dies für den Computer vorgesehen ist. Verwenden Sie zum Verknüpfen mit Project Seite stattdessen das- `projectUrl` Feld.
 
-Zum Beispiel:
+Beispiel:
 ```xml
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
@@ -267,7 +267,7 @@ Beim Hochladen eines Pakets in nuget.org ist das `title` Feld auf 256 Zeichen be
 #### <a name="packagetypes"></a>packageTypes
 *(3.5 und höher)* Eine Auflistung, die kein `<packageType>`-Element oder mindestens eins enthält und den Pakettyp angibt, wenn es sich nicht um ein gewöhnliches Abhängigkeitspaket handelt. Jeder „packageType“ verfügt über Attribute von *name* und *version*. Informationen dazu finden Sie unter [Setting a package type (Festlegen eines Pakettypen)](../create-packages/set-package-type.md).
 
-#### <a name="dependencies"></a>Abhängigkeiten
+#### <a name="dependencies"></a>dependencies
 Eine Auflistung, die kein `<dependency>`-Element oder mindestens eins enthält und Abhängigkeiten für das Paket angibt. Jede Abhängigkeit verfügt über Attribute von *id*, *version*, *include* und *exclude* (3.x und höher). Informationen dazu finden Sie im Abschnitt [Abhängigkeiten](#dependencies-element).
 
 #### <a name="frameworkassemblies"></a>frameworkAssemblies
@@ -362,20 +362,20 @@ Das `<dependencies>`-Element in `<metadata>` enthält eine beliebige Anzahl von 
 | --- | --- |
 | `id` | (Erforderlich) Die Paket-ID der Abhängigkeit, z.B. „EntityFramework“ und „NUnit“, die der Name des Pakets „nuget.org“ ist, wird auf einer Paketseite angezeigt. |
 | `version` | (Erforderlich) Der Bereich an Versionen, die als Abhängigkeiten akzeptiert werden. Die genaue Syntax finden Sie unter [Paketversionsverwaltung](../concepts/package-versioning.md#version-ranges). Gleit Komma Versionen werden nicht unterstützt. |
-| include | Eine durch Kommas abgetrennte Liste mit Include/Exclude-Tags (s. Tabelle unten), in der auf die Abhängigkeit verwiesen wird, die in das endgültige Paket eingefügt werden soll. Der Standardwert ist `all`. |
+| include | Eine durch Kommas abgetrennte Liste mit Include/Exclude-Tags (s. Tabelle unten), in der auf die Abhängigkeit verwiesen wird, die in das endgültige Paket eingefügt werden soll. Der Standardwert lautet `all`. |
 | Ausschließen | Eine durch Kommas abgetrennte Liste mit Include/Exclude-Tags (s. Tabelle unten), in der auf die Abhängigkeit verwiesen wird, die nicht in das endgültige Paket eingefügt werden soll. Der Standardwert ist `build,analyzers` , der überschrieben werden kann. Sie `content/ ContentFiles` werden jedoch auch implizit im endgültigen Paket ausgeschlossen, das nicht überschrieben werden kann. `exclude`-Tags haben Vorrang gegenüber `include`-Tags. `include="runtime, compile" exclude="compile"` entspricht beispielsweise `include="runtime"`. |
 
 Beim Hochladen eines Pakets in nuget.org `id` ist das-Attribut jeder Abhängigkeit auf 128 Zeichen beschränkt, und das- `version` Attribut ist auf 256 Zeichen beschränkt.
 
 | Include/Exclude-Tag | Betroffene Ordner im Ziel |
 | --- | --- |
-| contentFiles | Content |
+| contentFiles | Inhalt |
 | Laufzeit | Runtime, Ressourcen und Frameworkassemblys |
 | compile | lib |
 | build | Build (MSBuild-Eigenschaften und -Ziele) |
 | Systemeigen | Systemeigen |
-| none | Keine Ordner |
-| all | Alle Ordner |
+| Keine | Keine Ordner |
+| alle | Alle Ordner |
 
 Beispielsweise verweisen die folgenden Zeilen auf Abhängigkeiten auf `PackageA` Version 1.1.0 und höher und `PackageB` Version 1.x.
 
@@ -508,7 +508,7 @@ Wenn Sie die unter [Creating a Package (Erstellen eines Pakets)](../create-packa
 > [!Important]
 > Wenn ein Paket in einem Projekt installiert wird, fügt NuGet automatisch der DLL des Pakets Assemblyverweise hinzu. Die Verweise, die mit `.resources.dll` benannt sind werden dabei allerdings *nicht* hinzugefügt, da angenommen wird, dass es sich dabei um lokalisierte Satellitenassemblys handelt. Vermeiden Sie aus diesem Grund die Verwendung von `.resources.dll` für Dateien, die darüber hinaus wichtigen Paketcode enthalten.
 
-Legen Sie ein `<files>`-Element als untergeordnetes Element von `<package>` und als gleichgeordnetes Element von `<metadata>` fest, das jeder Datei ein separates `<file>`-Element zuordnet, um diese automatischen Vorgänge zu umgehen und genau zu kontrollieren, welche Dateien in einem Paket enthalten sind. Zum Beispiel:
+Legen Sie ein `<files>`-Element als untergeordnetes Element von `<package>` und als gleichgeordnetes Element von `<metadata>` fest, das jeder Datei ein separates `<file>`-Element zuordnet, um diese automatischen Vorgänge zu umgehen und genau zu kontrollieren, welche Dateien in einem Paket enthalten sind. Beispiel:
 
 ```xml
 <files>
@@ -528,7 +528,7 @@ Jedes `<file>`-Element gibt die folgenden Attribute an:
 | --- | --- |
 | **src** | Der Speicherort der Dateien, die eingefügt werden sollen, unterliegt Ausnahmen, die von dem `exclude`-Attribut angegeben werden. Der Pfad ist relativ zur `.nuspec`-Datei, wenn kein absoluter Pfad angegeben ist. Das Platzhalterzeichen `*` ist zulässig, und das zweifache Platzhalterzeichen `**` impliziert eine rekursive Ordnersuche. |
 | **Ziel** | Der relative Pfad zu dem Ordner in dem Paket, in dem die Quelldateien platziert sind, der mit `lib`, `content`, `build` oder `tools` beginnt. Informationen dazu finden Sie unter [Creating a .nuspec from a convention-based working directory (Erstellen einer NUSPEC-Datei aus einem auf Konventionen basierenden Arbeitsverzeichnis)](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). |
-| **Ausschließen** | Eine durch Semikolons abgetrennte Datei oder Dateimuster, die sich nicht im `src`-Speicherort befinden dürfen. Das Platzhalterzeichen `*` ist zulässig, und das zweifache Platzhalterzeichen `**` impliziert eine rekursive Ordnersuche. |
+| **schli** | Eine durch Semikolons abgetrennte Datei oder Dateimuster, die sich nicht im `src`-Speicherort befinden dürfen. Das Platzhalterzeichen `*` ist zulässig, und das zweifache Platzhalterzeichen `**` impliziert eine rekursive Ordnersuche. |
 
 ### <a name="examples"></a>Beispiele
 
@@ -758,10 +758,10 @@ Diese Dateien werden zusammen mit mehreren Attributen angegeben, die beschreiben
 | attribute | BESCHREIBUNG |
 | --- | --- |
 | **darunter** | (Erforderlich) Der Speicherort der Dateien, die eingefügt werden sollen, unterliegt Ausnahmen, die von dem `exclude`-Attribut angegeben werden. Der Pfad ist relativ zum `contentFiles` Ordner, es sei denn, es wurde ein absoluter Pfad angegeben. Das Platzhalterzeichen `*` ist zulässig, und das zweifache Platzhalterzeichen `**` impliziert eine rekursive Ordnersuche. |
-| **Ausschließen** | Eine durch Semikolons abgetrennte Datei oder Dateimuster, die sich nicht im `src`-Speicherort befinden dürfen. Das Platzhalterzeichen `*` ist zulässig, und das zweifache Platzhalterzeichen `**` impliziert eine rekursive Ordnersuche. |
+| **schli** | Eine durch Semikolons abgetrennte Datei oder Dateimuster, die sich nicht im `src`-Speicherort befinden dürfen. Das Platzhalterzeichen `*` ist zulässig, und das zweifache Platzhalterzeichen `**` impliziert eine rekursive Ordnersuche. |
 | **buildAction** | Die Buildaktion, die dem Inhalts Element für MSBuild zugewiesen werden soll, z `Content` `None` . b.,, `Embedded Resource` , `Compile` usw. Der Standardwert ist `Compile` . |
-| **copyToOutput** | Ein boolescher Wert, der angibt, ob Inhaltselemente in den Build-Ausgabeordner (oder veröffentlichen) kopiert werden sollen. Der Standardwert ist false. |
-| **flatten** | Ein boolescher Wert, der angibt, ob Inhaltselemente in einen Ordner in der Buildausgabe kopiert werden sollen (TRUE) oder ob die Ordnerstruktur in den Paketen beibehalten werden soll (FALSE). Diese Flag funktioniert nur, wenn das copyToOutput-Flag auf TRUE festgelegt ist. Der Standardwert ist false. |
+| **copyToOutput** | Ein boolescher Wert, der angibt, ob Inhaltselemente in den Build-Ausgabeordner (oder veröffentlichen) kopiert werden sollen. Die Standardeinstellung ist „false“. |
+| **flatten** | Ein boolescher Wert, der angibt, ob Inhaltselemente in einen Ordner in der Buildausgabe kopiert werden sollen (TRUE) oder ob die Ordnerstruktur in den Paketen beibehalten werden soll (FALSE). Diese Flag funktioniert nur, wenn das copyToOutput-Flag auf TRUE festgelegt ist. Die Standardeinstellung ist „false“. |
 
 NuGet wendet die untergeordneten Elemente von `<contentFiles>` bei der Installation eines Pakets von unten nach oben an. Wenn mehrere Einträge in einer Datei vorhanden sind, werden sie alle angewendet. Der höher geordnete Eintrag setzt die untergeordneten Einträge außer Kraft, wenn ein Konflikt für ein Attribut entsteht.
 
@@ -777,7 +777,7 @@ Das Paketprojekt sollte Inhalte mithilfe des folgenden Musters strukturieren:
 - `TxM` ist ein für das Zielframework zulässiger Moniker, der NuGet unterstützt (Informationen dazu finden Sie unter [Zielframeworks](../reference/target-frameworks.md)).
 - An das Ende der Syntax kann eine beliebige Ordnerstruktur angehängt werden.
 
-Zum Beispiel:
+Beispiel:
 
 ```
 Language- and framework-agnostic:
