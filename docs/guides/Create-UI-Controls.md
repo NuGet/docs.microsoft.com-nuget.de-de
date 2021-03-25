@@ -5,16 +5,16 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: 317937b4d9d773d74384b8ebfcd2146062236ac1
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 7660203ec44db75b7764767b519c9ff10dd1122e
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774331"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859082"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>Erstellen von Benutzeroberflächensteuerelementen als NuGet-Pakete
 
-Ab Visual Studio 2017 können Sie zusätzliche Funktionen für UWP- und WPF-Steuerelemente nutzen, die Sie in NuGet-Pakete bereitstellen. Dieser Leitfaden führt Sie anhand des [ExtensionSDKasNuGetPackage-Beispiels](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage) durch diese Funktionen bezüglich UWP-Steuerelementen. Das gleiche gilt auch für WPF-Steuerelemente, wenn nicht anders angegeben.
+Ab Visual Studio 2017 können Sie zusätzliche Funktionen für UWP- und WPF-Steuerelemente nutzen, die Sie in NuGet-Pakete bereitstellen. Dieser Leitfaden führt Sie anhand des [ExtensionSDKasNuGetPackage-Beispiels](https://github.com/NuGet/Samples/tree/main/ExtensionSDKasNuGetPackage) durch diese Funktionen bezüglich UWP-Steuerelementen. Das gleiche gilt auch für WPF-Steuerelemente, wenn nicht anders angegeben.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -90,7 +90,7 @@ Im folgenden Beispiel wird das in `ManagedPackage.winmd` angezeigte Steuerelemen
 
 ## <a name="add-custom-icons-to-your-controls"></a>Hinzufügen benutzerdefinierter Symbole zu Ihren Steuerelementen
 
-Damit Sie ein benutzerdefiniertes Symbol in der Toolbox bzw. im Bereich „Objekte“ anzeigen können, müssen Sie ein Image zu Ihrem Projekt oder dem entsprechenden `design.dll`-Projekt mit dem Namen „Namespace.ControlName.extension“ hinzufügen und den Buildvorgang auf „Eingebettete Ressource“ festlegen. Sie müssen außerdem sicherstellen, dass die zugeordnete `AssemblyInfo.cs` das ProvideMetadata-Attribut angibt: `[assembly: ProvideMetadata(typeof(RegisterMetadata))]`. Sehen Sie sich dazu dieses [Beispiel](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/NativePackage.Design/Properties/AssemblyInfo.cs#L20) an.
+Damit Sie ein benutzerdefiniertes Symbol in der Toolbox bzw. im Bereich „Objekte“ anzeigen können, müssen Sie ein Image zu Ihrem Projekt oder dem entsprechenden `design.dll`-Projekt mit dem Namen „Namespace.ControlName.extension“ hinzufügen und den Buildvorgang auf „Eingebettete Ressource“ festlegen. Sie müssen außerdem sicherstellen, dass die zugeordnete `AssemblyInfo.cs` das ProvideMetadata-Attribut angibt: `[assembly: ProvideMetadata(typeof(RegisterMetadata))]`. Sehen Sie sich dazu dieses [Beispiel](https://github.com/NuGet/Samples/blob/main/ExtensionSDKasNuGetPackage/NativePackage.Design/Properties/AssemblyInfo.cs#L20) an.
 
 Als Formate werden `.png`, `.jpg`, `.jpeg`, `.gif` und `.bmp` unterstützt. Das empfohlene Format lautet BMP24 in 16×16 Pixeln.
 
@@ -158,7 +158,7 @@ Gehen wir für WPF weiterhin davon aus, dass Sie möchten, dass Ihr WPF-Steuerel
 
 Sie können Zeichenfolgenressourcen (`.resw`) in Ihr Paket einbetten, das durch Ihr Steuerelement oder das verwendete UWP-Projekt verwendet werden kann, und die Eigenschaft **Buildvorgang** der `.resw`-Datei auf **PRIResource** festlegen.
 
-Ein entsprechendes Beispiel finden Sie unter [MyCustomControl.cs](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/ManagedPackage/MyCustomControl.cs) im ExtensionSDKasNuGetPackage-Beispiel.
+Ein entsprechendes Beispiel finden Sie unter [MyCustomControl.cs](https://github.com/NuGet/Samples/blob/main/ExtensionSDKasNuGetPackage/ManagedPackage/MyCustomControl.cs) im ExtensionSDKasNuGetPackage-Beispiel.
 
 > [!Note]
 > Dies gilt nur für UWP-Steuerelemente.
@@ -166,4 +166,4 @@ Ein entsprechendes Beispiel finden Sie unter [MyCustomControl.cs](https://github
 ## <a name="see-also"></a>Weitere Informationen
 
 - [Erstellen von UWP-Paketen](create-uwp-packages.md)
-- [Beispiel „ExtensionSDKasNuGetPackage“](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage)
+- [Beispiel „ExtensionSDKasNuGetPackage“](https://github.com/NuGet/Samples/tree/main/ExtensionSDKasNuGetPackage)

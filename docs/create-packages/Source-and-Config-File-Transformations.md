@@ -6,16 +6,16 @@ ms.author: jodou
 ms.date: 04/24/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 5bd0e409f527fb668008204fb16ad002f4784c46
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 76c589b5ad034127675fb2bbf79ea97992883ebe
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774591"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859108"
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>Transformieren von Quellcode und Konfigurationsdateien
 
-Bei einer **Quellcodetransformation** wird während der Installation des Pakets eine unidirektionale Tokenersetzung auf Dateien Ordner `content` oder `contentFiles` des Pakets angewendet (`content` für Kunden, die `packages.config` und `contentFiles` für `PackageReference` verwenden). Dabei beziehen sich die Token auf die [Projekteigenschaften](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) von Visual Studio. Dies bietet Ihnen die Möglichkeit, eine Datei in den Namespace des Projekts einzufügen oder Code anzupassen, der normalerweise in `global.asax` in einem ASP.NET-Projekt eingefügt werden würde.
+Bei einer **Quellcodetransformation** wird während der Installation des Pakets eine unidirektionale Tokenersetzung auf Dateien Ordner `content` oder `contentFiles` des Pakets angewendet (`content` für Kunden, die `packages.config` und `contentFiles` für `PackageReference` verwenden). Dabei beziehen sich die Token auf die [Projekteigenschaften](/dotnet/api/vslangproj.projectproperties) von Visual Studio. Dies bietet Ihnen die Möglichkeit, eine Datei in den Namespace des Projekts einzufügen oder Code anzupassen, der normalerweise in `global.asax` in einem ASP.NET-Projekt eingefügt werden würde.
 
 Bei einer **Konfigurationsdateitransformation** können Sie Dateien ändern, die bereits in einem Zielprojekt vorhanden sind, wie z.B. `web.config` und `app.config`. In Ihrem Paket müsste beispielsweise ein Element zu Abschnitt `modules` in der Konfigurationsdatei hinzugefügt werden. Diese Transformation erfolgt durch das Einschließen spezieller Dateien in das Paket, in denen die zu den Konfigurationsdateien hinzuzufügenden Abschnitte beschrieben werden. Bei der Deinstallation eines Pakets werden diese Änderungen wieder zurückgesetzt, wodurch diese Transformation zu einer bidirektionalen Transformation wird.
 
@@ -45,7 +45,7 @@ Bei einer **Konfigurationsdateitransformation** können Sie Dateien ändern, die
 
     Bei der Installation ersetzt NuGet `$rootnamespace$`, wobei es davon ausgeht, dass `Fabrikam` das Zielprojekt ist, dessen Stammnamespace `Fabrikam` lautet.
 
-Das Token `$rootnamespace$` stellt die am häufigsten verwendete Projekteigenschaft dar. Alle weiteren Token werden unter [Projekteigenschaften](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) aufgelistet. Bedenken Sie jedoch, dass einige Eigenschaften möglicherweise für den Projekttyp spezifisch sind.
+Das Token `$rootnamespace$` stellt die am häufigsten verwendete Projekteigenschaft dar. Alle weiteren Token werden unter [Projekteigenschaften](/dotnet/api/vslangproj.projectproperties) aufgelistet. Bedenken Sie jedoch, dass einige Eigenschaften möglicherweise für den Projekttyp spezifisch sind.
 
 ## <a name="specifying-config-file-transformations"></a>Angeben von Konfigurationsdateitransformationen
 
@@ -113,9 +113,9 @@ Erstellen Sie ein neues ASP.NET-Projekt in Visual Studio (die Vorlage ist unter 
 ### <a name="xdt-transforms"></a>XDT-Transformationen
 
 > [!Note]
-> Wie im [Abschnitt „Probleme mit der Paketkompatibilität“ der Dokumentation für das Migrieren von `packages.config` zu `PackageReference`](../consume-packages/migrate-packages-config-to-package-reference.md#package-compatibility-issues) erwähnt wird, werden XDT-Transformationen wie unten beschrieben nur von `packages.config` unterstützt. Wenn Sie Ihrem Paket die folgenden Dateien hinzufügen, werden bei Anwendern, die Ihr Paket mit `PackageReference` verwenden, die Transformationen nicht angewendet. (Beachten Sie [dieses Beispiel](https://github.com/NuGet/Samples/tree/master/XDTransformExample), damit XDT-Transformationen mit `PackageReference` funktionieren.)
+> Wie im [Abschnitt „Probleme mit der Paketkompatibilität“ der Dokumentation für das Migrieren von `packages.config` zu `PackageReference`](../consume-packages/migrate-packages-config-to-package-reference.md#package-compatibility-issues) erwähnt wird, werden XDT-Transformationen wie unten beschrieben nur von `packages.config` unterstützt. Wenn Sie Ihrem Paket die folgenden Dateien hinzufügen, werden bei Anwendern, die Ihr Paket mit `PackageReference` verwenden, die Transformationen nicht angewendet. (Beachten Sie [dieses Beispiel](https://github.com/NuGet/Samples/tree/main/XDTransformExample), damit XDT-Transformationen mit `PackageReference` funktionieren.)
 
-Sie können Konfigurationsdateien über die [XDT-Syntax](/previous-versions/aspnet/dd465326(v=vs.110)) ändern. Sie können auch veranlassen, dass NuGet Token über [Projekteigenschaften](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) ersetzt, indem der Eigenschaftenname innerhalb der Trennzeichen `$` (ohne Berücksichtigung der Groß-/Kleinschreibung) eingeschlossen wird.
+Sie können Konfigurationsdateien über die [XDT-Syntax](/previous-versions/aspnet/dd465326(v=vs.110)) ändern. Sie können auch veranlassen, dass NuGet Token über [Projekteigenschaften](/dotnet/api/vslangproj.projectproperties) ersetzt, indem der Eigenschaftenname innerhalb der Trennzeichen `$` (ohne Berücksichtigung der Groß-/Kleinschreibung) eingeschlossen wird.
 
 In der folgenden Datei `app.config.install.xdt` wird beispielsweise ein `appSettings`-Element mit den Werten `FullPath`, `FileName`, und `ActiveConfigurationSettings` des Projekts in `app.config` eingefügt:
 

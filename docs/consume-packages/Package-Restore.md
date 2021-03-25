@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: bac4d88c29539f9fbe7b33b44ce11d350920d365
-ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
+ms.openlocfilehash: e5dfd9f8dd0439751ddd3863cad03f3b463e1487
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97523532"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859238"
 ---
 # <a name="restore-packages-using-package-restore"></a>Wiederherstellen von Paketen mithilfe der Paketwiederherstellung
 
@@ -244,4 +244,4 @@ So testen Sie die automatische Paketwiederherstellung:
 
 ## <a name="troubleshooting"></a>Problembehandlung
 
-Informationen zur Problembehandlung finden Sie unter [Problembehandlung bei der Paketwiederherstellung](package-restore-troubleshooting.md).
+Informationen zur Problembehandlung finden Sie unter [Problembehandlung bei der Paketwiederherstellung](Package-restore-troubleshooting.md).

@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 02/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 125579832db2ac32217d24f6fc6fc1b555f54350
-ms.sourcegitcommit: aeb9072f2fcaca73dc9de05b7fd643f1aa7c5821
+ms.openlocfilehash: e0f235d99e41e23a4551fbf7577f6c42e3381f5b
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101101387"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859225"
 ---
 # <a name="best-practices-for-a-secure-software-supply-chain"></a>Bewährte Methoden für eine sichere Softwarelieferkette
 
@@ -75,7 +75,7 @@ Diese ist in der Regel an zwei Stellen vorhanden:
 -   [`packages.config`](../reference/packages-config.md) – im Projektstamm
 -   [`<PackageReference>`](../consume-packages/package-references-in-project-files.md) – in der Projektdatei 
 
-Je nachdem, welche Methode Sie zum Verwalten Ihrer NuGet-Abhängigkeiten verwenden, können Sie auch Visual Studio verwenden, um Ihre Abhängigkeiten direkt im [Projektmappen-Explorer](/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2019#solution-explorer) oder im [NuGet-Paket-Manager](../consume-packages/install-use-packages-visual-studio.md) anzuzeigen.
+Je nachdem, welche Methode Sie zum Verwalten Ihrer NuGet-Abhängigkeiten verwenden, können Sie auch Visual Studio verwenden, um Ihre Abhängigkeiten direkt im [Projektmappen-Explorer](/visualstudio/ide/solutions-and-projects-in-visual-studio#solution-explorer) oder im [NuGet-Paket-Manager](../consume-packages/install-use-packages-visual-studio.md) anzuzeigen.
 
 In CLI-Umgebungen können Sie den Befehl [`dotnet list package`](/dotnet/core/tools/dotnet-list-package) verwenden, um Ihr Projekt oder die Abhängigkeiten der Projektmappe aufzulisten. 
 
@@ -140,7 +140,7 @@ Informationen zum Konfigurieren von Clientvertrauensrichtlinien finden Sie in [d
 
 Sperrdateien speichern den Hash des Paketinhalts. Wenn der Inhaltshash eines Pakets, das Sie installieren möchten, mit der Sperrdatei übereinstimmt, wird die Wiederholbarkeit des Pakets sichergestellt.
 
-Informationen zum Aktivieren von Sperrdateien finden Sie in [der folgenden Dokumentation](../consume-packages/package-references-in-project-files#locking-dependencies).
+Informationen zum Aktivieren von Sperrdateien finden Sie in [der folgenden Dokumentation](../consume-packages/package-references-in-project-files.md#locking-dependencies).
 
 ## <a name="monitor-your-supply-chain"></a>Überwachen der Lieferkette
 

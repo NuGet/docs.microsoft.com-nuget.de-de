@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: 38455e61bd91f115df9f27df090ba47a029f6877
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: fecf14f0f04d5063f89080b2756f988739c1412c
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622940"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859264"
 ---
 # <a name="install-and-manage-packages-using-the-dotnet-cli"></a>Installieren und Verwalten von Paketen mit der dotnet-CLI
 
@@ -47,9 +47,9 @@ Dieser Artikel zeigt die grundlegende Verwendung einiger der gängigsten dotnet-
    Sie können die `.csproj`-Datei öffnen, um den hinzugefügten Verweis anzuzeigen:
 
     ```xml
-   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
-   </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    </ItemGroup>
     ```
 
 ## <a name="install-a-specific-version-of-a-package"></a>Installieren einer bestimmten Paketversion
