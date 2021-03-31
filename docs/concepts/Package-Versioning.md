@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 5ba7860fae1037c0c0eb4c55d2df12d98b1d77cf
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 77b96e83f8fc7afd391537d16120d037585dd379
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775117"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859199"
 ---
 # <a name="package-versioning"></a>Paketversionsverwaltung
 
@@ -106,7 +106,7 @@ Drittanbieterclients:
 
 In Bezug auf Paketabhängigkeiten unterstützt NuGet die Verwendung einer Intervallnotation zur Angabe von Versionsbereichen, die wie folgt zusammengefasst werden kann:
 
-| Notation | Angewendete Regel | Beschreibung |
+| Notation | Angewendete Regel | BESCHREIBUNG |
 |----------|--------------|-------------|
 | 1.0 | x ≥ 1.0 | Mindestversion, einschließlich |
 | (1.0,) | x > 1.0 | Mindestversion, ausschließlich |
@@ -116,7 +116,7 @@ In Bezug auf Paketabhängigkeiten unterstützt NuGet die Verwendung einer Interv
 | [1.0,2.0] | 1.0 ≤ x ≤ 2.0 | Exakter Bereich, einschließlich |
 | (1.0,2.0) | 1.0 < x < 2.0 | Exakter Bereich, ausschließlich |
 | [1.0,2.0) | 1.0 ≤ x < 2.0 | Kombination aus Minimalversion (einschließlich) und Maximalversion (ausschließlich) |
-| (1.0)    | Ungültig | Ungültig |
+| (1.0)    | ungültig | Ungültig |
 
 Wenn das PackageReference-Format verwendet wird, unterstützt NuGet auch die Verwendung einer unverankerten Notation (\*) für das Suffix bei Haupt-, Neben-, Patch- und Vorabversionen. Unverankerte Versionen werden beim `packages.config`-Format nicht unterstützt. Wenn eine unverankerte Version angegeben wird, muss eine Auflösung in die höchste vorhandene Version erfolgen, die mit der Versionsbeschreibung übereinstimmt. Beispiele für unverankerte Versionen und die Auflösungen finden Sie unten.
 
@@ -245,3 +245,13 @@ Wenn während eines Installations-, Neuinstallations- oder Wiederherstellungsvor
 `pack`- und `restore`-Vorgänge normalisieren Versionen nach Möglichkeit immer. Bei bereits erstellten Paketen wirkt sich diese Normalisierung nicht auf die Versionsnummern in den Paketen selbst aus; sie hat nur Auswirkungen darauf, wie NuGet Versionen beim Auflösen von Abhängigkeiten abgleicht.
 
 NuGet-Paketrepositorys müssen diese Werte jedoch auf die gleiche Weise behandeln wie NuGet, um eine Duplizierung von Paketversionen zu verhindern. Daher sollte ein Repository, das Version *1.0* eines Pakets hostet, nicht auch Version *1.0.0* als separates, unterschiedliches Paket hosten.
+
+## <a name="where-nugetversion-diverges-from-semantic-versioning"></a>Wenn NuGetVersion von der semantischen Versionierung abweicht
+
+Wenn Sie NuGet-Paketversionen programmgesteuert verwenden möchten, wird dringend empfohlen, das Paket [NuGet.Versioning](https://www.nuget.org/packages/NuGet.Versioning) einzusetzen. Die statische Methode `NuGetVersion.Parse(string)` kann verwendet werden, um die Versionszeichenfolgen zu analysieren, und `VersionComparer` kann zum Sortieren von `NuGetVersion`-Instanzen verwendet werden.
+
+Wenn Sie NuGet-Funktionen in einer Sprache implementieren, die nicht unter .NET ausgeführt wird, finden Sie hier eine Liste bekannter Unterschiede zwischen `NuGetVersion` und der semantischen Versionierung sowie Informationen zu den Gründen, warum eine bereits vorhandene Bibliothek für die semantische Versionierung möglicherweise nicht für Pakete funktioniert, die bereits auf nuget.org veröffentlicht wurden.
+
+1. `NuGetVersion` unterstützt ein viertes Versionssegment (`Revision`), das mit [`System.Version`](/dotnet/api/system.version) oder einer Obermenge davon kompatibel ist. Aus diesem Grund lautet eine Versionszeichenfolge `Major.Minor.Patch.Revision`. Bezeichnungen zu Vorabreleases und Metadaten sind hierin nicht enthalten. Gemäß der oben beschriebenen Versionsnormalisierung ist `Revision` nicht in der normalisierten Versionszeichenfolge enthalten, wenn der Wert für diesen Bestandteil 0 (null) lautet.
+2. Für `NuGetVersion` ist nur erforderlich, dass das Hauptsegment definiert wird. Alle anderen Segmente sind optional und gleich 0 (null). Dies bedeutet, dass die Werte `1`, `1.0`, `1.0.0` und `1.0.0.0` alle akzeptiert werden und gleich sind.
+3. `NuGetVersion` verwendet für Komponenten von Vorabreleases Zeichenfolgenvergleiche, bei denen die Groß-/Kleinschreibung nicht beachtet wird. Das bedeutet, dass `1.0.0-alpha` und `1.0.0-Alpha` gleich sind.

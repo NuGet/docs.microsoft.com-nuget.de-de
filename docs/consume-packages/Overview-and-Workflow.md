@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5f1856940a988e0585c29ccfd581d823e4f69921
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 92968236262f891106ab2d4cd3ba399f1644400b
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775072"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859212"
 ---
 # <a name="package-consumption-workflow"></a>Workflow der Nutzung von Paketen
 
@@ -45,9 +45,9 @@ Das Verhalten von NuGet wird von den `Nuget.Config`-Dateien gesteuert. Mehrere D
 
 NuGet-Pakete werden über eine beliebige der Methoden heruntergeladen und installiert, die in der folgenden Tabelle beschrieben werden.
 
-| Tool | Beschreibung |
-| --- | --- |
-| [dotnet.exe-CLI](install-use-packages-dotnet-cli.md) | (Alle Plattformen) CLI-Tool für .NET Core- und .NET Standard-Bibliotheken und für Projekte im SDK-Stil für .NET Framework (siehe [SDK-Attribut](/dotnet/core/tools/csproj#additions)). Ruft das durch \<package_name\> identifizierte Paket ab und fügt einen Verweis auf die Projektdatei ein. Ruft auch Abhängigkeiten ab und installiert sie. |
-| Visual Studio | (Windows und Mac) Bietet eine Benutzeroberfläche, über die Sie die Liste der Pakete durchsuchen, Pakete auswählen und diese Pakete und ihre Abhängigkeiten in ein Projekt aus einer angegebenen Paketquelle installieren können. Fügt der Projektdatei Verweise auf installierte Pakete zu.<ul><li>[Installieren und Verwalten von Paketen mit Visual Studio](install-use-packages-visual-studio.md)</li><li>[Einschließen eines NuGet-Pakets in Ihr Projekt (Mac)](/visualstudio/mac/nuget-walkthrough)</li></ul> |
-| [Paket-Manager-Konsole (Visual Studio)](install-use-packages-powershell.md) | (Nur Windows) Ruft das durch \<package_name\> identifizierte Paket aus einer ausgewählten Quelle ab, installiert es in einem angegebenen Projekt in der Projektmappe und fügt dann einen Verweis auf die Projektdatei hinzu. Ruft auch Abhängigkeiten ab und installiert sie. |
-| [nuget.exe-CLI](install-use-packages-nuget-cli.md) | (Alle Plattformen) CLI-Tool für .NET Framework-Bibliotheken und Nicht-SDK-Projekte, die auf .NET Standard-Bibliotheken abzielen. Ruft das durch \<package_name\> identifizierte Paket ab und entpackt seine Inhalte in einem Ordner im aktuellen Verzeichnis. Kann auch alle Pakete abrufen, die in einer `packages.config`-Datei aufgelistet sind. Ruft außerdem Abhängigkeiten ab und installiert sie, nimmt aber keine Änderungen an Projektdateien oder `packages.config` vor. |
+| Tool | Plattformen | Beschreibung |
+| --- | --- | --- |
+| [dotnet-CLI](install-use-packages-dotnet-cli.md) | Alle | CLI-Tool für .NET Core- und .NET Standard-Bibliotheken und für Projekte im SDK-Stil für .NET Framework (Informationen finden Sie unter [SDK-Attribut](/dotnet/core/tools/csproj#additions)). Ruft das durch \<package_name\> identifizierte Paket ab und fügt einen Verweis auf die Projektdatei ein. Ruft auch Abhängigkeiten ab und installiert sie. |
+| Visual Studio | Windows und Mac | Bietet eine Benutzeroberfläche, über die Sie die Liste der Pakete durchsuchen, Pakete auswählen und diese Pakete und ihre Abhängigkeiten in ein Projekt aus einer angegebenen Paketquelle installieren können. Fügt der Projektdatei Verweise auf installierte Pakete zu.<ul><li>[Installieren und Verwalten von Paketen mit Visual Studio](install-use-packages-visual-studio.md)</li><li>[Einschließen eines NuGet-Pakets in Ihr Projekt (Mac)](/visualstudio/mac/nuget-walkthrough)</li></ul> |
+| [Paket-Manager-Konsole (Visual Studio)](install-use-packages-powershell.md) | Nur Windows | Ruft das durch \<package_name\> identifizierte Paket aus einer ausgewählten Quelle ab, installiert es in einem angegebenen Projekt in der Projektmappe und fügt dann einen Verweis auf die Projektdatei hinzu. Ruft auch Abhängigkeiten ab und installiert sie. |
+| [nuget.exe-CLI](install-use-packages-nuget-cli.md) | Alle | CLI-Tool für .NET Framework-Bibliotheken und Nicht-SDK-Projekte, die auf .NET Standard-Bibliotheken abzielen. Ruft das durch \<package_name\> identifizierte Paket ab und entpackt seine Inhalte in einem Ordner im aktuellen Verzeichnis. Kann auch alle Pakete abrufen, die in einer `packages.config`-Datei aufgelistet sind. Ruft außerdem Abhängigkeiten ab und installiert sie, nimmt aber keine Änderungen an Projektdateien oder `packages.config` vor. |

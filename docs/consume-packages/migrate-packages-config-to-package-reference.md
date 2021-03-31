@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8161f4a39d4adfdb9efb25bcb840b20b85a58e07
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: fabfd76a46a38ff26acbc6439406d99eb3f85bf4
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774780"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859160"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>Migrieren von „packages.config“ zu PackageReference
 
@@ -100,31 +100,27 @@ Einige Aspekte, die in „packages.config“ unterstützt wurden, werden in Pack
 
 ### <a name="installps1-scripts-are-ignored-when-the-package-is-installed-after-the-migration"></a>install.ps1-Skripts werden ignoriert, wenn das Paket nach der Migration installiert wird.
 
-| | |
-| --- | --- |
-| **Beschreibung** | Bei Verwendung von PackageReference werden die PowerShell-Skripts „install.ps1“ und „uninstall.ps1“ beim Installieren oder Deinstallieren eines Pakets nicht ausgeführt. |
-| **Mögliche Auswirkung** | Pakete, die von diesen Skripts abhängig sind, um ein bestimmtes Verhalten im Zielprojekt zu konfigurieren, funktionieren möglicherweise nicht wie erwartet. |
+* **Beschreibung:** Mit PackageReference, install.ps1 und uninstall.ps1 werden PowerShell-Skripts während der (De-)Installation eines Pakets nicht ausgeführt.
+
+* **Mögliche Auswirkung:** Pakete, die von diesen Skripts abhängig sind, um ein bestimmtes Verhalten im Zielprojekt zu konfigurieren, funktionieren möglicherweise nicht wie erwartet.
 
 ### <a name="content-assets-are-not-available-when-the-package-is-installed-after-the-migration"></a>Objekte im Ordner „content“ sind nicht verfügbar, wenn das Paket nach der Migration installiert wird.
 
-| | |
-| --- | --- |
-| **Beschreibung** | Objekte im Ordner `content` eines Pakets werden von PackageReference nicht unterstützt und daher ignoriert. PackageReference fügt Unterstützung für `contentFiles` hinzu, um transitive Abhängigkeiten und freigegebene Inhalte besser zu unterstützen.  |
-| **Mögliche Auswirkung** | Objekte in `content` werden nicht in das Projekt kopiert, und für Projektcode, der von solchen Objekten abhängig ist, ist ein Refactoring erforderlich.  |
+* **Beschreibung:** Objekte im Ordner `content` eines Pakets werden von PackageReference nicht unterstützt und daher ignoriert. PackageReference fügt Unterstützung für `contentFiles` hinzu, um transitive Abhängigkeiten und freigegebene Inhalte besser zu unterstützen.
+
+* **Mögliche Auswirkung:** Objekte in `content` werden nicht in das Projekt kopiert, und für Projektcode, der von solchen Objekten abhängig ist, ist ein Refactoring erforderlich.
 
 ### <a name="xdt-transforms-are-not-applied-when-the-package-is-installed-after-the-upgrade"></a>XDT-Transformationen werden nicht angewendet, wenn das Paket nach dem Upgrade installiert wird.
 
-| | |
-| --- | --- |
-| **Beschreibung** | XDT-Transformationen werden von PackageReference nicht unterstützt, und `.xdt`-Dateien werden beim Installieren oder Deinstallieren eines Pakets ignoriert.   |
-| **Mögliche Auswirkung** | XDT-Transformationen werden nicht auf XML-Projektdateien angewendet – zumeist `web.config.install.xdt` und `web.config.uninstall.xdt`. Daher wird die ` web.config`-Datei des Projekts nicht aktualisiert, wenn das Paket installiert oder deinstalliert wird. |
+* **Beschreibung:** XDT-Transformationen werden von PackageReference nicht unterstützt, und `.xdt`-Dateien werden beim Installieren oder Deinstallieren eines Pakets ignoriert.
+
+* **Mögliche Auswirkung:** XDT-Transformationen werden nicht auf XML-Projektdateien angewendet – zumeist `web.config.install.xdt` und `web.config.uninstall.xdt`. Daher wird die Datei ` web.config` des Projekts nicht aktualisiert, wenn das Paket installiert oder deinstalliert wird.
 
 ### <a name="assemblies-in-the-lib-root-are-ignored-when-the-package-is-installed-after-the-migration"></a>Assemblys im lib-Stammverzeichnis werden ignoriert, wenn das Paket nach der Migration installiert wird.
 
-| | |
-| --- | --- |
-| **Beschreibung** | PackageReference ignoriert Assemblys, die ohne zielframeworkspezifischen Unterordner im Stammverzeichnis des `lib`-Ordners vorhanden sind. NuGet sucht nach einem Unterordner, der dem Zielframeworkmoniker (Target Framework Moniker, TFM) des Zielframeworks des Projekts entspricht, und installiert die entsprechenden Assemblys im Projekt. |
-| **Mögliche Auswirkung** | Pakete, die keinen Unterordner aufweisen, der dem Zielframeworkmoniker des Zielframeworks des Projekts entspricht, verhalten sich nach dem Übergang möglicherweise nicht wie erwartet oder können während der Migration nicht installiert werden. |
+* **Beschreibung:** PackageReference ignoriert Assemblys, die ohne zielframeworkspezifischen Unterordner im Stammverzeichnis des Ordners `lib` enthalten sind. NuGet sucht nach einem Unterordner, der dem Zielframeworkmoniker (Target Framework Moniker, TFM) des Zielframeworks des Projekts entspricht, und installiert die entsprechenden Assemblys im Projekt.
+
+* **Mögliche Auswirkung:** Pakete, die keinen Unterordner aufweisen, der dem Zielframeworkmoniker des Zielframeworks des Projekts entspricht, verhalten sich nach dem Übergang möglicherweise nicht wie erwartet oder können während der Migration nicht installiert werden.
 
 ## <a name="found-an-issue-report-it"></a>Haben Sie ein Problem gefunden? Melden Sie es.
 

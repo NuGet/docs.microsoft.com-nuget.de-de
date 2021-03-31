@@ -5,14 +5,14 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: dcaed83ca54e3234702e963ffc2ebbde4cd75b28
-ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
+ms.openlocfilehash: df7c793d115622f04a148cbbc3ebf396a3e4ab69
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98235762"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859186"
 ---
-# <a name="package-references-packagereference-in-project-files"></a>Paketverweise (PackageReference) in Projektdateien
+# <a name="package-references-packagereference-in-project-files"></a>Paketverweise (`PackageReference`) in Projektdateien
 
 Paketverweise über den `PackageReference`-Knoten verwalten NuGet-Abhängigkeiten direkt in den Projektdateien. Es wird keine separate `packages.config`-Datei benötigt. Die Verwendung von PackageReference hat keine Auswirkungen auf andere Aspekte von NuGet. Einstellungen in Dateien vom Typ `NuGet.config` (Paketquellen eingeschlossen) gelten beispielsweise weiterhin wie unter [Gängige NuGet-Konfigurationen](configuring-nuget-behavior.md) beschrieben.
 
@@ -211,7 +211,7 @@ Beachten Sie die generierte [nuget.g.props](../reference/msbuild-targets.md#rest
 In einigen seltenen Fällen enthalten verschiedene Pakete Klassen im selben Namespace. Ab NuGet 5.7 und Visual Studio 2019 Update 7 unterstützt PackageReference ebenso wie ProjectReference [`Aliases`](/dotnet/api/microsoft.codeanalysis.projectreference.aliases).
 Standardmäßig stehen keine Aliasse zur Verfügung. Wenn ein Alias angegeben wird, muss mit dem Alias auf *alle* Assemblys verwiesen werden, die aus dem kommentierten Paket stammen.
 
-Eine Beispielverwendung finden Sie unter [NuGet\Samples](https://github.com/NuGet/Samples/tree/master/PackageReferenceAliasesExample).
+Eine Beispielverwendung finden Sie unter [NuGet\Samples](https://github.com/NuGet/Samples/tree/main/PackageReferenceAliasesExample).
 
 In der Projektdatei können Sie die Aliasse folgendermaßen angeben:
 
