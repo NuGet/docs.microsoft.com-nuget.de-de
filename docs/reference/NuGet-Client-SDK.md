@@ -1,121 +1,124 @@
 ---
 title: NuGet-Client SDK
-description: Die API wird weiterentwickelt und noch nicht dokumentiert, aber Beispiele sind im Blog von Dave Glick verfügbar.
+description: Die API wird weiterentwickelt und noch nicht dokumentiert, aber Beispiele finden Sie im Blog von Dave Glick.
 author: JonDouglas
 ms.author: jodou
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: f9e08d37b30dfea83fd9b61f168c1e20f530ff9f
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 6417c971dc13cf9ed05dcec4e4156af94c0ea058
+ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859407"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387386"
 ---
-# <a name="nuget-client-sdk"></a><span data-ttu-id="922a5-103">NuGet-Client SDK</span><span class="sxs-lookup"><span data-stu-id="922a5-103">NuGet Client SDK</span></span>
+# <a name="nuget-client-sdk"></a><span data-ttu-id="80cef-103">NuGet-Client SDK</span><span class="sxs-lookup"><span data-stu-id="80cef-103">NuGet Client SDK</span></span>
 
-<span data-ttu-id="922a5-104">Das *nuget-Client-SDK* bezieht sich auf eine Gruppe von nuget-Paketen:</span><span class="sxs-lookup"><span data-stu-id="922a5-104">The *NuGet Client SDK* refers to a group of NuGet packages:</span></span>
+<span data-ttu-id="80cef-104">Das *NuGet Client SDK* bezieht sich auf eine Gruppe von NuGet-Paketen:</span><span class="sxs-lookup"><span data-stu-id="80cef-104">The *NuGet Client SDK* refers to a group of NuGet packages:</span></span>
 
-* <span data-ttu-id="922a5-105">[`NuGet.Protocol`](https://www.nuget.org/packages/NuGet.Protocol) -Wird für die Interaktion mit http-und dateibasierten nuget-Feeds verwendet</span><span class="sxs-lookup"><span data-stu-id="922a5-105">[`NuGet.Protocol`](https://www.nuget.org/packages/NuGet.Protocol) - Used to interact with HTTP and file-based NuGet feeds</span></span>
-* <span data-ttu-id="922a5-106">[`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) : Wird für die Interaktion mit nuget-Paketen verwendet.</span><span class="sxs-lookup"><span data-stu-id="922a5-106">[`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) - Used to interact with NuGet packages.</span></span> <span data-ttu-id="922a5-107">`NuGet.Protocol` hängt von diesem Paket ab</span><span class="sxs-lookup"><span data-stu-id="922a5-107">`NuGet.Protocol` depends on this package</span></span>
+* <span data-ttu-id="80cef-105">[`NuGet.Protocol`](https://www.nuget.org/packages/NuGet.Protocol) – Wird für die Interaktion mit HTTP- und dateibasierten NuGet-Feeds verwendet.</span><span class="sxs-lookup"><span data-stu-id="80cef-105">[`NuGet.Protocol`](https://www.nuget.org/packages/NuGet.Protocol) - Used to interact with HTTP and file-based NuGet feeds</span></span>
+* <span data-ttu-id="80cef-106">[`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) – Wird für die Interaktion mit NuGet-Paketen verwendet.</span><span class="sxs-lookup"><span data-stu-id="80cef-106">[`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) - Used to interact with NuGet packages.</span></span> <span data-ttu-id="80cef-107">`NuGet.Protocol` hängt von diesem Paket ab.</span><span class="sxs-lookup"><span data-stu-id="80cef-107">`NuGet.Protocol` depends on this package</span></span>
 
-<span data-ttu-id="922a5-108">Sie finden den Quellcode für diese Pakete im GitHub [-Repository nuget/nuget. Client](https://github.com/NuGet/NuGet.Client) .</span><span class="sxs-lookup"><span data-stu-id="922a5-108">You can find the source code for these packages in the [NuGet/NuGet.Client](https://github.com/NuGet/NuGet.Client) GitHub repository.</span></span>
-<span data-ttu-id="922a5-109">Den Quellcode für diese Beispiele finden Sie im [nuget. Protocol. Samples](https://github.com/NuGet/Samples/tree/main/NuGetProtocolSamples) -Projekt auf GitHub.</span><span class="sxs-lookup"><span data-stu-id="922a5-109">You can find the source code for these examples on the [NuGet.Protocol.Samples](https://github.com/NuGet/Samples/tree/main/NuGetProtocolSamples) project on GitHub.</span></span>
+<span data-ttu-id="80cef-108">Den Quellcode für diese Pakete finden Sie im GitHub-Repository [NuGet/NuGet.Client.](https://github.com/NuGet/NuGet.Client)</span><span class="sxs-lookup"><span data-stu-id="80cef-108">You can find the source code for these packages in the [NuGet/NuGet.Client](https://github.com/NuGet/NuGet.Client) GitHub repository.</span></span>
+<span data-ttu-id="80cef-109">Den Quellcode für diese Beispiele finden Sie im Projekt [NuGet.Protocol.Samples](https://github.com/NuGet/Samples/tree/main/NuGetProtocolSamples) auf GitHub.</span><span class="sxs-lookup"><span data-stu-id="80cef-109">You can find the source code for these examples on the [NuGet.Protocol.Samples](https://github.com/NuGet/Samples/tree/main/NuGetProtocolSamples) project on GitHub.</span></span>
 
 > [!Note]
-> <span data-ttu-id="922a5-110">Dokumentation zum nuget-Server Protokoll finden Sie in der [nuget-Server-API](~/api/overview.md).</span><span class="sxs-lookup"><span data-stu-id="922a5-110">For documentation on the NuGet server protocol, please refer to the [NuGet Server API](~/api/overview.md).</span></span>
+> <span data-ttu-id="80cef-110">Die Dokumentation zum NuGet-Serverprotokoll finden Sie in der [NuGet-Server-API.](~/api/overview.md)</span><span class="sxs-lookup"><span data-stu-id="80cef-110">For documentation on the NuGet server protocol, please refer to the [NuGet Server API](~/api/overview.md).</span></span>
 
-## <a name="nugetprotocol"></a><span data-ttu-id="922a5-111">"Nuget. Protocol"</span><span class="sxs-lookup"><span data-stu-id="922a5-111">NuGet.Protocol</span></span>
+## <a name="nugetprotocol"></a><span data-ttu-id="80cef-111">NuGet.Protocol</span><span class="sxs-lookup"><span data-stu-id="80cef-111">NuGet.Protocol</span></span>
 
-<span data-ttu-id="922a5-112">Installieren `NuGet.Protocol` Sie das Paket, um mit http-und Ordner basierten nuget-Paket Feeds zu interagieren:</span><span class="sxs-lookup"><span data-stu-id="922a5-112">Install the `NuGet.Protocol` package to interact with HTTP and folder-based NuGet package feeds:</span></span>
+<span data-ttu-id="80cef-112">Installieren Sie das `NuGet.Protocol` Paket für die Interaktion mit HTTP- und ordnerbasierten NuGet-Paketfeeds:</span><span class="sxs-lookup"><span data-stu-id="80cef-112">Install the `NuGet.Protocol` package to interact with HTTP and folder-based NuGet package feeds:</span></span>
 
 ```ps1
 dotnet add package NuGet.Protocol
 ```
 
-### <a name="list-package-versions"></a><span data-ttu-id="922a5-113">Auflisten von Paketversionen</span><span class="sxs-lookup"><span data-stu-id="922a5-113">List package versions</span></span>
+> [!Tip]
+> <span data-ttu-id="80cef-113">`Repository.Factory` wird im `NuGet.Protocol.Core.Types` -Namespace definiert, und die `GetCoreV3` -Methode ist eine erweiterungsmethode, die im -Namespace definiert `NuGet.Protocol` ist.</span><span class="sxs-lookup"><span data-stu-id="80cef-113">`Repository.Factory` is defined in the `NuGet.Protocol.Core.Types` namespace, and the `GetCoreV3` method is an extension method defined in the `NuGet.Protocol` namespace.</span></span> <span data-ttu-id="80cef-114">Daher müssen Sie `using` -Anweisungen für beide Namespaces hinzufügen.</span><span class="sxs-lookup"><span data-stu-id="80cef-114">Therefore, you will need to add `using` statements for both namespaces.</span></span>
 
-<span data-ttu-id="922a5-114">Alle Versionen von Newtonsoft.Jsmithilfe der [nuget v3-Paket Inhalts-API](../api/package-base-address-resource.md#enumerate-package-versions)suchen:</span><span class="sxs-lookup"><span data-stu-id="922a5-114">Find all versions of Newtonsoft.Json using the [NuGet V3 Package Content API](../api/package-base-address-resource.md#enumerate-package-versions):</span></span>
+### <a name="list-package-versions"></a><span data-ttu-id="80cef-115">Auflisten von Paketversionen</span><span class="sxs-lookup"><span data-stu-id="80cef-115">List package versions</span></span>
+
+<span data-ttu-id="80cef-116">Suchen Sie alle Versionen von Newtonsoft.Jsmithilfe der [NuGet V3-Paketinhalts-API:](../api/package-base-address-resource.md#enumerate-package-versions)</span><span class="sxs-lookup"><span data-stu-id="80cef-116">Find all versions of Newtonsoft.Json using the [NuGet V3 Package Content API](../api/package-base-address-resource.md#enumerate-package-versions):</span></span>
 
 [!code-csharp[ListPackageVersions](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=ListPackageVersions)]
 
-### <a name="download-a-package"></a><span data-ttu-id="922a5-115">Herunterladen eines Pakets</span><span class="sxs-lookup"><span data-stu-id="922a5-115">Download a package</span></span>
+### <a name="download-a-package"></a><span data-ttu-id="80cef-117">Herunterladen eines Pakets</span><span class="sxs-lookup"><span data-stu-id="80cef-117">Download a package</span></span>
 
-<span data-ttu-id="922a5-116">Laden Sie Newtonsoft.Jsauf v 12.0.1 mit der [nuget v3-Paket Inhalts-API](../api/package-base-address-resource.md)herunter:</span><span class="sxs-lookup"><span data-stu-id="922a5-116">Download Newtonsoft.Json v12.0.1 using the [NuGet V3 Package Content API](../api/package-base-address-resource.md):</span></span>
+<span data-ttu-id="80cef-118">Laden Sie Newtonsoft.Jsunter v12.0.1 mithilfe der [NuGet V3-Paketinhalts-API](../api/package-base-address-resource.md)herunter:</span><span class="sxs-lookup"><span data-stu-id="80cef-118">Download Newtonsoft.Json v12.0.1 using the [NuGet V3 Package Content API](../api/package-base-address-resource.md):</span></span>
 
 [!code-csharp[DownloadPackage](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=DownloadPackage)]
 
-### <a name="get-package-metadata"></a><span data-ttu-id="922a5-117">Paket Metadaten erhalten</span><span class="sxs-lookup"><span data-stu-id="922a5-117">Get package metadata</span></span>
+### <a name="get-package-metadata"></a><span data-ttu-id="80cef-119">Abrufen von Paketmetadaten</span><span class="sxs-lookup"><span data-stu-id="80cef-119">Get package metadata</span></span>
 
-<span data-ttu-id="922a5-118">Holen Sie sich die Metadaten für das Paket "Newtonsoft.Json" mit der [nuget V3-Paketmetadaten-API](../api/registration-base-url-resource.md):</span><span class="sxs-lookup"><span data-stu-id="922a5-118">Get the metadata for the "Newtonsoft.Json" package using the [NuGet V3 Package Metadata API](../api/registration-base-url-resource.md):</span></span>
+<span data-ttu-id="80cef-120">Abrufen der Metadaten für das Paket "Newtonsoft.Json" mithilfe der [NuGet V3-Paketmetadaten-API:](../api/registration-base-url-resource.md)</span><span class="sxs-lookup"><span data-stu-id="80cef-120">Get the metadata for the "Newtonsoft.Json" package using the [NuGet V3 Package Metadata API](../api/registration-base-url-resource.md):</span></span>
 
 [!code-csharp[GetPackageMetadata](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=GetPackageMetadata)]
 
-### <a name="search-packages"></a><span data-ttu-id="922a5-119">Suchen von Paketen</span><span class="sxs-lookup"><span data-stu-id="922a5-119">Search packages</span></span>
+### <a name="search-packages"></a><span data-ttu-id="80cef-121">Suchen von Paketen</span><span class="sxs-lookup"><span data-stu-id="80cef-121">Search packages</span></span>
 
-<span data-ttu-id="922a5-120">Suchen Sie mit der [nuget V3-Such-API](../api/search-query-service-resource.md)nach "JSON"-Paketen:</span><span class="sxs-lookup"><span data-stu-id="922a5-120">Search for "json" packages using the [NuGet V3 Search API](../api/search-query-service-resource.md):</span></span>
+<span data-ttu-id="80cef-122">Suchen Sie mithilfe der [NuGet V3-Such-API nach JSON-Paketen:](../api/search-query-service-resource.md)</span><span class="sxs-lookup"><span data-stu-id="80cef-122">Search for "json" packages using the [NuGet V3 Search API](../api/search-query-service-resource.md):</span></span>
 
 [!code-csharp[SearchPackages](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=SearchPackages)]
 
-### <a name="push-a-package"></a><span data-ttu-id="922a5-121">Pushen eines Pakets</span><span class="sxs-lookup"><span data-stu-id="922a5-121">Push a package</span></span>
+### <a name="push-a-package"></a><span data-ttu-id="80cef-123">Pushen eines Pakets</span><span class="sxs-lookup"><span data-stu-id="80cef-123">Push a package</span></span>
 
-<span data-ttu-id="922a5-122">Übertragung eines Pakets über die [nuget V3-Push-und-DELETE-API](../api/package-publish-resource.md):</span><span class="sxs-lookup"><span data-stu-id="922a5-122">Push a package using the [NuGet V3 Push and Delete API](../api/package-publish-resource.md):</span></span>
+<span data-ttu-id="80cef-124">Pushen eines Pakets mithilfe der [NuGet V3-PUSH- und DELETE-API:](../api/package-publish-resource.md)</span><span class="sxs-lookup"><span data-stu-id="80cef-124">Push a package using the [NuGet V3 Push and Delete API](../api/package-publish-resource.md):</span></span>
 
 [!code-csharp[PushPackage](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=PushPackage)]
 
-### <a name="delete-a-package"></a><span data-ttu-id="922a5-123">Löschen eines Pakets</span><span class="sxs-lookup"><span data-stu-id="922a5-123">Delete a package</span></span>
+### <a name="delete-a-package"></a><span data-ttu-id="80cef-125">Löschen eines Pakets</span><span class="sxs-lookup"><span data-stu-id="80cef-125">Delete a package</span></span>
 
-<span data-ttu-id="922a5-124">Löschen eines Pakets mit der [nuget V3-Push-und DELETE-API](../api/package-publish-resource.md):</span><span class="sxs-lookup"><span data-stu-id="922a5-124">Delete a package using the [NuGet V3 Push and Delete API](../api/package-publish-resource.md):</span></span>
+<span data-ttu-id="80cef-126">Löschen Sie ein Paket mithilfe der [NuGet V3-PUSH- und DELETE-API:](../api/package-publish-resource.md)</span><span class="sxs-lookup"><span data-stu-id="80cef-126">Delete a package using the [NuGet V3 Push and Delete API](../api/package-publish-resource.md):</span></span>
 
 > [!Note]
-> <span data-ttu-id="922a5-125">Nuget-Server können eine Paket Löschanforderung als "Hard Delete", "Vorläufiges löschen" oder "Unlist" interpretieren.</span><span class="sxs-lookup"><span data-stu-id="922a5-125">NuGet servers are free to interpret a package delete request as a "hard delete", "soft delete", or "unlist".</span></span>
-> <span data-ttu-id="922a5-126">Nuget.org interpretiert z. b. die DELETE-Anforderung des Pakets als "Unlist".</span><span class="sxs-lookup"><span data-stu-id="922a5-126">For example, nuget.org interprets the package delete request as an "unlist".</span></span> <span data-ttu-id="922a5-127">Weitere Informationen zu dieser Vorgehensweise finden Sie in der Richtlinie zum [Löschen von Paketen](../nuget-org/policies/deleting-packages.md) .</span><span class="sxs-lookup"><span data-stu-id="922a5-127">For more information about this practice, see the [Deleting Packages](../nuget-org/policies/deleting-packages.md) policy.</span></span>
+> <span data-ttu-id="80cef-127">NuGet-Server können eine Paketlöschanforderung als "hard delete", "soft delete" oder "unlist" interpretieren.</span><span class="sxs-lookup"><span data-stu-id="80cef-127">NuGet servers are free to interpret a package delete request as a "hard delete", "soft delete", or "unlist".</span></span>
+> <span data-ttu-id="80cef-128">Beispielsweise interpretiert nuget.org die Paketlöschanforderung als "Unlist".</span><span class="sxs-lookup"><span data-stu-id="80cef-128">For example, nuget.org interprets the package delete request as an "unlist".</span></span> <span data-ttu-id="80cef-129">Weitere Informationen zu dieser Vorgehensweise finden Sie unter Löschen [von Paketen.](../nuget-org/policies/deleting-packages.md)</span><span class="sxs-lookup"><span data-stu-id="80cef-129">For more information about this practice, see the [Deleting Packages](../nuget-org/policies/deleting-packages.md) policy.</span></span>
 
 [!code-csharp[DeletePackage](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=DeletePackage)]
 
-### <a name="work-with-authenticated-feeds"></a><span data-ttu-id="922a5-128">Arbeiten mit authentifizierten Feeds</span><span class="sxs-lookup"><span data-stu-id="922a5-128">Work with authenticated feeds</span></span>
+### <a name="work-with-authenticated-feeds"></a><span data-ttu-id="80cef-130">Arbeiten mit authentifizierten Feeds</span><span class="sxs-lookup"><span data-stu-id="80cef-130">Work with authenticated feeds</span></span>
 
-<span data-ttu-id="922a5-129">Verwenden [`NuGet.Protocol`](https://www.nuget.org/packages/NuGet.Protocol) Sie, um mit authentifizierten Feeds zu arbeiten.</span><span class="sxs-lookup"><span data-stu-id="922a5-129">Use [`NuGet.Protocol`](https://www.nuget.org/packages/NuGet.Protocol) to work with authenticated feeds.</span></span>
+<span data-ttu-id="80cef-131">Verwenden [`NuGet.Protocol`](https://www.nuget.org/packages/NuGet.Protocol) Sie , um mit authentifizierten Feeds zu arbeiten.</span><span class="sxs-lookup"><span data-stu-id="80cef-131">Use [`NuGet.Protocol`](https://www.nuget.org/packages/NuGet.Protocol) to work with authenticated feeds.</span></span>
 
 [!code-csharp[AuthenticatedFeed](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=AuthenticatedFeed)]
 
-## <a name="nugetpackaging"></a><span data-ttu-id="922a5-130">Nuget. Packaging</span><span class="sxs-lookup"><span data-stu-id="922a5-130">NuGet.Packaging</span></span>
+## <a name="nugetpackaging"></a><span data-ttu-id="80cef-132">NuGet.Packaging</span><span class="sxs-lookup"><span data-stu-id="80cef-132">NuGet.Packaging</span></span>
 
-<span data-ttu-id="922a5-131">Installieren `NuGet.Packaging` Sie das Paket, um mit `.nupkg` -und- `.nuspec` Dateien aus einem Stream zu interagieren:</span><span class="sxs-lookup"><span data-stu-id="922a5-131">Install the `NuGet.Packaging` package to interact with `.nupkg` and `.nuspec` files from a stream:</span></span>
+<span data-ttu-id="80cef-133">Installieren Sie das `NuGet.Packaging` Paket für die Interaktion mit - und `.nupkg` `.nuspec` -Dateien aus einem Stream:</span><span class="sxs-lookup"><span data-stu-id="80cef-133">Install the `NuGet.Packaging` package to interact with `.nupkg` and `.nuspec` files from a stream:</span></span>
 
 ```ps1
 dotnet add package NuGet.Packaging
 ```
 
-### <a name="create-a-package"></a><span data-ttu-id="922a5-132">Erstellen eines Pakets</span><span class="sxs-lookup"><span data-stu-id="922a5-132">Create a package</span></span>
+### <a name="create-a-package"></a><span data-ttu-id="80cef-134">Erstellen eines Pakets</span><span class="sxs-lookup"><span data-stu-id="80cef-134">Create a package</span></span>
 
-<span data-ttu-id="922a5-133">Erstellen Sie ein Paket, legen Sie Metadaten fest, und fügen Sie mithilfe von Abhängigkeiten hinzu [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) .</span><span class="sxs-lookup"><span data-stu-id="922a5-133">Create a package, set metadata, and add dependencies using [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging).</span></span>
+<span data-ttu-id="80cef-135">Erstellen Sie mit ein Paket, legen Sie Metadaten fest, und fügen Sie Abhängigkeiten [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) hinzu.</span><span class="sxs-lookup"><span data-stu-id="80cef-135">Create a package, set metadata, and add dependencies using [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging).</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="922a5-134">Es wird dringend empfohlen, dass nuget-Pakete mit den offiziellen nuget-Tools erstellt werden, **ohne** diese Low-Level-API zu verwenden.</span><span class="sxs-lookup"><span data-stu-id="922a5-134">It is strongly recommended that NuGet packages are created using the official NuGet tooling and **not** using this low-level API.</span></span> <span data-ttu-id="922a5-135">Es gibt eine Vielzahl von Merkmalen, die für ein wohl geformtes Paket wichtig sind, und die neueste Version der Tools hilft bei der Integration dieser bewährten Methoden.</span><span class="sxs-lookup"><span data-stu-id="922a5-135">There are a variety of characteristics important for a well-formed package and the latest version of tooling helps incorporate these best practices.</span></span>
+> <span data-ttu-id="80cef-136">Es wird dringend empfohlen, NuGet-Pakete mit den  offiziellen NuGet-Tools und nicht mit dieser low-level-API zu erstellen.</span><span class="sxs-lookup"><span data-stu-id="80cef-136">It is strongly recommended that NuGet packages are created using the official NuGet tooling and **not** using this low-level API.</span></span> <span data-ttu-id="80cef-137">Es gibt eine Vielzahl von Merkmalen, die für ein wohlgeformte Paket wichtig sind, und die neueste Version der Tools hilft, diese bewährten Methoden zu integrieren.</span><span class="sxs-lookup"><span data-stu-id="80cef-137">There are a variety of characteristics important for a well-formed package and the latest version of tooling helps incorporate these best practices.</span></span>
 > 
-> <span data-ttu-id="922a5-136">Weitere Informationen zum Erstellen von nuget-Paketen finden Sie in der Übersicht über den [Workflow zur Paket Erstellung](../create-packages/overview-and-workflow.md) und in der Dokumentation für offizielle Paket Tools (z. b. [über die dotnet-CLI](../create-packages/creating-a-package-dotnet-cli.md)).</span><span class="sxs-lookup"><span data-stu-id="922a5-136">For more information about creating NuGet packages, see the overview of the [package creation workflow](../create-packages/overview-and-workflow.md) and the documentation for official pack tooling (for example, [using the dotnet CLI](../create-packages/creating-a-package-dotnet-cli.md)).</span></span>
+> <span data-ttu-id="80cef-138">Weitere Informationen zum Erstellen von NuGet-Paketen finden Sie in der Übersicht über den Workflow zur Paketerstellung und in der Dokumentation zu offiziellen Pakettools (z. B. mithilfe der [dotnet-CLI).](../create-packages/creating-a-package-dotnet-cli.md) [](../create-packages/overview-and-workflow.md)</span><span class="sxs-lookup"><span data-stu-id="80cef-138">For more information about creating NuGet packages, see the overview of the [package creation workflow](../create-packages/overview-and-workflow.md) and the documentation for official pack tooling (for example, [using the dotnet CLI](../create-packages/creating-a-package-dotnet-cli.md)).</span></span>
 
 [!code-csharp[CreatePackage](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=CreatePackage)]
 
-### <a name="read-a-package"></a><span data-ttu-id="922a5-137">Lesen eines Pakets</span><span class="sxs-lookup"><span data-stu-id="922a5-137">Read a package</span></span>
+### <a name="read-a-package"></a><span data-ttu-id="80cef-139">Lesen eines Pakets</span><span class="sxs-lookup"><span data-stu-id="80cef-139">Read a package</span></span>
 
-<span data-ttu-id="922a5-138">Lesen eines Pakets aus einem Datei Datenstrom mithilfe von [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) .</span><span class="sxs-lookup"><span data-stu-id="922a5-138">Read a package from a file stream using [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging).</span></span>
+<span data-ttu-id="80cef-140">Lesen eines Pakets aus einem Dateistream mithilfe von [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) .</span><span class="sxs-lookup"><span data-stu-id="80cef-140">Read a package from a file stream using [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging).</span></span>
 
 [!code-csharp[ReadPackage](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=ReadPackage)]
 
-## <a name="third-party-documentation"></a><span data-ttu-id="922a5-139">Dokumentation von Drittanbietern</span><span class="sxs-lookup"><span data-stu-id="922a5-139">Third-party documentation</span></span>
+## <a name="third-party-documentation"></a><span data-ttu-id="80cef-141">Dokumentation von Drittanbietern</span><span class="sxs-lookup"><span data-stu-id="80cef-141">Third-party documentation</span></span>
 
-<span data-ttu-id="922a5-140">Beispiele und Dokumentationen für einige der APIs finden Sie in der folgenden Blog Reihe von Dave Glick, veröffentlicht 2016:</span><span class="sxs-lookup"><span data-stu-id="922a5-140">You can find examples and documentation for some of the API in the following blog series by Dave Glick, published 2016:</span></span>
+<span data-ttu-id="80cef-142">Beispiele und Dokumentation für einige der APIs finden Sie in der folgenden Blogreihe von Dave Glick, veröffentlicht 2016:</span><span class="sxs-lookup"><span data-stu-id="80cef-142">You can find examples and documentation for some of the API in the following blog series by Dave Glick, published 2016:</span></span>
 
-- [<span data-ttu-id="922a5-141">Erkunden der nuget V3-Bibliotheken, Teil 1: Einführung und Konzepte</span><span class="sxs-lookup"><span data-stu-id="922a5-141">Exploring the NuGet v3 Libraries, Part 1: Introduction and concepts</span></span>](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
-- [<span data-ttu-id="922a5-142">Erkunden der nuget V3-Bibliotheken, Teil 2: Suchen nach Paketen</span><span class="sxs-lookup"><span data-stu-id="922a5-142">Exploring the NuGet v3 Libraries, Part 2: Searching for packages</span></span>](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
-- [<span data-ttu-id="922a5-143">Erkunden der nuget V3-Bibliotheken, Teil 3: Installieren von Paketen</span><span class="sxs-lookup"><span data-stu-id="922a5-143">Exploring the NuGet v3 Libraries, Part 3: Installing packages</span></span>](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
+- [<span data-ttu-id="80cef-143">Erkunden der NuGet v3-Bibliotheken, Teil 1: Einführung und Konzepte</span><span class="sxs-lookup"><span data-stu-id="80cef-143">Exploring the NuGet v3 Libraries, Part 1: Introduction and concepts</span></span>](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
+- [<span data-ttu-id="80cef-144">Erkunden der NuGet v3-Bibliotheken, Teil 2: Suchen nach Paketen</span><span class="sxs-lookup"><span data-stu-id="80cef-144">Exploring the NuGet v3 Libraries, Part 2: Searching for packages</span></span>](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
+- [<span data-ttu-id="80cef-145">Erkunden der NuGet v3-Bibliotheken, Teil 3: Installieren von Paketen</span><span class="sxs-lookup"><span data-stu-id="80cef-145">Exploring the NuGet v3 Libraries, Part 3: Installing packages</span></span>](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
 
 > [!Note]
-> <span data-ttu-id="922a5-144">Diese Blogbeiträge wurden kurz nach der Veröffentlichung der **3.4.3** -Version der nuget-Client-SDK-Pakete geschrieben.</span><span class="sxs-lookup"><span data-stu-id="922a5-144">These blog posts were written shortly after the **3.4.3** version of the NuGet client SDK packages were released.</span></span>
-> <span data-ttu-id="922a5-145">Neuere Versionen der Pakete sind möglicherweise nicht mit den Informationen in den Blogbeiträgen kompatibel.</span><span class="sxs-lookup"><span data-stu-id="922a5-145">Newer versions of the packages may be incompatible with the information in the blog posts.</span></span>
+> <span data-ttu-id="80cef-146">Diese Blogbeiträge wurden kurz nach der Veröffentlichung der **Version 3.4.3** der NuGet-Client-SDK-Pakete geschrieben.</span><span class="sxs-lookup"><span data-stu-id="80cef-146">These blog posts were written shortly after the **3.4.3** version of the NuGet client SDK packages were released.</span></span>
+> <span data-ttu-id="80cef-147">Neuere Versionen der Pakete sind möglicherweise nicht mit den Informationen in den Blogbeiträgen kompatibel.</span><span class="sxs-lookup"><span data-stu-id="80cef-147">Newer versions of the packages may be incompatible with the information in the blog posts.</span></span>
 
-<span data-ttu-id="922a5-146">Martin björkström hat einen nachfolgenden Blogbeitrag zur Blog Reihe von Dave Glick durchgeführt, in dem er eine andere Vorgehensweise zum Installieren von nuget-Paketen mit dem nuget-Client-SDK einführt:</span><span class="sxs-lookup"><span data-stu-id="922a5-146">Martin Björkström did a follow-up blog post to Dave Glick's blog series where he introduces a different approach on using the NuGet Client SDK to install NuGet packages:</span></span>
+<span data-ttu-id="80cef-148">Martin Björkzweig hat einen Folgeblogbeitrag zu Dave Glicks Blogreihe geschrieben, in dem er einen anderen Ansatz zur Verwendung des NuGet-Client-SDK zum Installieren von NuGet-Paketen vorstellt:</span><span class="sxs-lookup"><span data-stu-id="80cef-148">Martin Björkström did a follow-up blog post to Dave Glick's blog series where he introduces a different approach on using the NuGet Client SDK to install NuGet packages:</span></span>
 
-- [<span data-ttu-id="922a5-147">Neubesuchen der nuget V3-Bibliotheken</span><span class="sxs-lookup"><span data-stu-id="922a5-147">Revisiting the NuGet v3 Libraries</span></span>](https://martinbjorkstrom.com/posts/2018-09-19-revisiting-nuget-client-libraries)
+- [<span data-ttu-id="80cef-149">Erneutes Aufarbeiten der NuGet v3-Bibliotheken</span><span class="sxs-lookup"><span data-stu-id="80cef-149">Revisiting the NuGet v3 Libraries</span></span>](https://martinbjorkstrom.com/posts/2018-09-19-revisiting-nuget-client-libraries)
