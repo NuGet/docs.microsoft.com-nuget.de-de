@@ -5,18 +5,18 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: e5c62177b40162cb8b6b37b0d272fb7a945156c1
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 574ee874e2d6555a2e3e0a0643962e33b7ec1b09
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775707"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859446"
 ---
 # <a name="deleting-packages"></a>Löschen von Paketen
 
 Das dauerhafte Löschen von Paketen wird von nuget.org nicht unterstützt. Andernfalls würden sämtliche Projekte nicht mehr funktionieren, je nach Verfügbarkeit des Pakets. Dies trifft insbesondere bei Buildworkflows zu, die mit der Paketwiederherstellung arbeiten.
 
-Nuget.org unterstützt jedoch das [Aufheben der Auflistung eines Pakets](#unlisting-a-package). Dieser Vorgang kann auf der Website über die Seite zur Paketverwaltung durchgeführt werden. Nicht aufgelistete Pakete werden weder auf nuget.org noch auf der Benutzeroberfläche von Visual Studio angezeigt. Sie erscheinen auch nicht in den Suchergebnissen. Nicht aufgelistete Pakete können jedoch weiterhin mithilfe einer genauen Versionsnummer, die die Paketwiederherstellung unterstützt, heruntergeladen und installiert werden. Darüber hinaus können nicht aufgelistete Pakete in folgenden spezifischen Szenarios ggf. noch gefunden werden:
+Nuget.org unterstützt das [Aufheben der Auflistung eines Pakets](#unlisting-a-package). Dieser Vorgang kann auf der Website über die Seite zur Paketverwaltung durchgeführt werden. Nicht aufgelistete Pakete werden weder auf nuget.org noch auf der Benutzeroberfläche von Visual Studio angezeigt. Sie erscheinen auch nicht in den Suchergebnissen. Nicht aufgelistete Pakete können jedoch weiterhin mithilfe einer genauen Versionsnummer, die die Paketwiederherstellung unterstützt, heruntergeladen und installiert werden. Darüber hinaus können nicht aufgelistete Pakete in folgenden spezifischen Szenarios ggf. noch gefunden werden:
 
 - Bei Paketwiederherstellung mithilfe von übergreifenden Versionen (z.B. `1.0.0-*`), wenn das neueste verfügbare Paket, das den Versions- oder Abhängigkeitseinschränkungen entspricht, ein nicht aufgelistetes Paket ist
 - Replikation von Paketen durch den Katalog, da der Katalog ebenfalls nicht aufgelistete Pakete enthält
