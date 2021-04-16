@@ -70,6 +70,7 @@
 ## [Paketversionsverwaltung](concepts/package-versioning.md)
 ## [Abhängigkeitsauflösung](concepts/dependency-resolution.md)
 ## [Bewährte Methoden für eine sichere Softwarelieferkette](concepts/Security-Best-Practices.md)
+## [Problembehandlung bei installierten Paketen](concepts/troubleshooting-installed-packages.md)
 # Referenz
 ## [.nuspec](reference/nuspec.md)
 ## [Datei „nuget.config“](reference/nuget-config-file.md)
