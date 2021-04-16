@@ -31,7 +31,7 @@ Möglichkeiten der NuGet-Verteilung:
 
 * Schnelleres Wechseln zwischen den Registerkarten "Installiert" und "Updates", indem es ihnen ermöglicht wurde, eine Datenquelle freizugeben und das Erneute Hochskalieren zu reduzieren – [#8294](https://github.com/NuGet/Home/issues/8294)
 
-* Schnellere Wiederherstellung: Beschleunigung von Auswertungen durch Aufrufen von STATISCHEN GRAPH-APIs von MSBuild (dotnet.exe) [– #9644](https://github.com/NuGet/Home/issues/9644)
+* Schnellere Wiederherstellung – Beschleunigung von Auswertungen durch Aufrufen von STATISCHEN MSBuild-Graph-APIs (dotnet.exe) [– #9644](https://github.com/NuGet/Home/issues/9644)
 
 * Visual Studio Teilwiederherstellung für PackageReference-Projekte (no-op++) hinzugefügt – [#9513](https://github.com/NuGet/Home/issues/9513)
 
@@ -59,7 +59,7 @@ Möglichkeiten der NuGet-Verteilung:
 
 * nuget.exe Spezifikation generiert ein Copyrighttag mit hart codiertem Text copyright YYYY anstelle `$copyright$`  -  [#8696](https://github.com/NuGet/Home/issues/8696)
 
-* NuGet.exe löst die Ausnahme "Authors required" während des Pakets einer CSPROJ-Datei aus, die Platzhalter und assemblyinfo-Attribute ignoriert, wenn der Assemblyname [geändert wird – #4234](https://github.com/NuGet/Home/issues/4234)
+* NuGet.exe löst die Ausnahme "Authors required" während des Pakets einer CSPROJ-Datei aus, die Platzhalter und Assemblyinfo-Attribute ignoriert, wenn der Assemblyname [geändert wird – #4234](https://github.com/NuGet/Home/issues/4234)
 
 * HttpRequestMessage wird mehrmals wiederverwendet, was bei SocketHttpHandler nicht unterstützt [#8661](https://github.com/NuGet/Home/issues/8661)
 
@@ -93,7 +93,7 @@ Möglichkeiten der NuGet-Verteilung:
 
 * Die Registerkarte "Installierte Pakete" sollte die Paketliste nicht [paginieren – #6995](https://github.com/NuGet/Home/issues/6995)
 
-**[Liste aller in diesem Release behobenen Probleme: 5.7](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=5ea77f51ab1a972297db2e92)**
+**[Liste aller in dieser Version behobenen Probleme: 5.7](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=5ea77f51ab1a972297db2e92)**
 
 ### <a name="community-contributions"></a>Beiträge aus der Community
 
@@ -105,7 +105,7 @@ Vielen Dank an alle Mitwirkenden, die dieses NuGet-Release super gemacht haben!
 |[Musser (jnm2)](https://github.com/jnm2)|[3241](https://github.com/NuGet/NuGet.Client/pull/3241)|Das `<owners>` Element wurde unterdrückt, wenn es redundant [ist– #5134](https://github.com/NuGet/Home/issues/5134)|
 |[Volodymyr Shkolka (BlackGad)](https://github.com/BlackGad)|[3273](https://github.com/NuGet/NuGet.Client/pull/3273)|NuGet kann keine Wiederherstellung aus HTTPS-Quellen vornehmen, die Clientzertifikate erfordern [– #5773](https://github.com/NuGet/Home/issues/5773)|
 |[Sollus Ungureakus (Therzok)](https://github.com/Therzok)|[3357](https://github.com/NuGet/NuGet.Client/pull/3357)|HttpSourceAuthenticationHandler SemaphoreSlim – zukünftige Proofing – [#9463](https://github.com/NuGet/Home/issues/9463)|
-|[Sunner (SuNNjek)](https://github.com/SuNNjek)|[3088](https://github.com/NuGet/NuGet.Client/pull/3088)|nuget.exe Spezifikation generiert ein Copyrighttag mit hart codiertem Text copyright YYYY anstelle `$copyright$`  -  [#8696](https://github.com/NuGet/Home/issues/8696)|
+|[Sunner (SuNNjek)](https://github.com/SuNNjek)|[3088](https://github.com/NuGet/NuGet.Client/pull/3088)|nuget.exe Spezifikation generiert ein Copyrighttag mit hart codiertem Text Copyright YYYY anstelle `$copyright$`  -  [#8696](https://github.com/NuGet/Home/issues/8696)|
 |[Lip Spinelli ():/spinelli](https://github.com/olivier-spinelli)|[3335](https://github.com/NuGet/NuGet.Client/pull/3335)|Versuchen Sie bei einer dotnet-CLI-Wiederherstellung beim Starten von Anmeldeinformations-Plug-Ins die dotnet-CLI im Systempfad, wenn die Umgebungsvariable `DOTNET_HOST_PATH`  nicht definiert ist. - [#7438](https://github.com/NuGet/Home/issues/7438)|
 |[goyzhang](https://github.com/goyzhang)|[3370](https://github.com/NuGet/NuGet.Client/pull/3370)|Option `latest` für #8808 `-MSBuildVersion`  -  [](https://github.com/NuGet/Home/issues/8808)|
 
@@ -113,10 +113,10 @@ Vielen Dank an alle Mitwirkenden, die dieses NuGet-Release super gemacht haben!
 
 * Erweitern Sie die Datei .nupkg.metadata, [](https://github.com/NuGet/Home/issues/10354) um die Installationsquelle ein#10354
 
-* Protokollpaketinhalthash während der Wiederherstellungsprotokollierung (während der [Extraktion) – #10384](https://github.com/NuGet/Home/issues/10384)
+* Protokollpaketinhalthash während der Wiederherstellungsprotokollierung (während der [Extraktion)](https://github.com/NuGet/Home/issues/10384) – #10384
 
-* Protokollieren Sie bei der Wiederherstellung bei normaler Ausführlichkeit, aus welcher Quelle ein Paket wiederhergestellt wird– [#10461](https://github.com/NuGet/Home/issues/10461)
+* Protokollieren Sie bei der Wiederherstellung bei normaler Ausführlichkeit, von welcher Quelle ein Paket wiederhergestellt wird– [#10461](https://github.com/NuGet/Home/issues/10461)
 
 **[Liste aller in diesem Release behobenen Probleme: 5.7.1](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=6075f5724f84579cc29a79ee)**
 
-**[Liste der Commits in dieser Version : 5.7.1](https://github.com/NuGet/NuGet.Client/compare/80512866a2c127e52ce3e86fd803fff77e9b9b52...5.7.1.4)**
+**[Liste der Commits in diesem Release : 5.7.1](https://github.com/NuGet/NuGet.Client/compare/80512866a2c127e52ce3e86fd803fff77e9b9b52...5.7.1.4)**
