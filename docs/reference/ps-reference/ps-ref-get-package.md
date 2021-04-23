@@ -1,22 +1,22 @@
 ---
-title: Nuget-Get-Package PowerShell-Referenz
-description: Referenz für Get-Package PowerShell-Befehl in der nuget-Paket-Manager-Konsole in Visual Studio.
+title: NuGet Get-Package PowerShell-Referenz
+description: Referenz zu Get-Package PowerShell-Befehl in der NuGet Paket-Manager Console in Visual Studio.
 author: JonDouglas
 ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 8394f888ec3d5e57eacd351a4867173da1070ead
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 7c91faecaac2967c7a01dd81e72b9097e7bd6cae
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777496"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901732"
 ---
 # <a name="get-package-package-manager-console-in-visual-studio"></a>Get-Package (Paket-Manager-Konsole in Visual Studio)
 
-*In diesem Thema wird der Befehl in der [Paket-Manager-Konsole](../../consume-packages/install-use-packages-powershell.md) in Visual Studio unter Windows beschrieben. Den allgemeinen PowerShell-Get-Package Befehl finden Sie in der [Referenz zu PowerShell packagemanagement](/powershell/module/packagemanagement/?view=powershell-6).*
+*In diesem Thema wird der Befehl in der [Paket-Manager-Konsole](../../consume-packages/install-use-packages-powershell.md) in Visual Studio unter Windows beschrieben. Informationen zum generischen PowerShell Get-Package-Befehl finden Sie in der [PowerShell-PackageManagement-Referenz.](/powershell/module/packagemanagement)*
 
-Ruft die Liste der im lokalen Repository installierten Pakete ab, listet bei der Verwendung mit dem Schalter "-listavailable" die Pakete auf, die in einer Paketquelle verfügbar sind, oder listet verfügbare Updates auf, wenn Sie mit dem Schalter-Update verwendet werden.
+Ruft die Liste der pakete ab, die im lokalen Repository installiert sind, listet pakete auf, die von einer Paketquelle verfügbar sind, wenn sie mit dem Schalter -ListAvailable verwendet werden, oder listet verfügbare Updates auf, wenn sie mit dem Schalter -Update verwendet werden.
 
 ## <a name="syntax"></a>Syntax
 
@@ -26,28 +26,28 @@ Get-Package -Source <string> [-ListAvailable] [-Updates] [-ProjectName <string>]
     [-PageSize] [<CommonParameters>]
 ```
 
-Ohne Parameter `Get-Package` zeigt die Liste der Pakete an, die im Standard Projekt installiert sind.
+Ohne Parameter zeigt die Liste der pakete an, `Get-Package` die im Standardprojekt installiert sind.
 
 ## <a name="parameters"></a>Parameter
 
 | Parameter | BESCHREIBUNG |
 | --- | --- |
-| `Source` | Die URL oder der Ordner Pfad für das Paket. Lokale Ordner Pfade können absolut oder relativ zum aktuellen Ordner sein. Wenn kein Wert angezeigt wird, wird `Get-Package` die aktuell ausgewählte Paketquelle durchsucht. Bei Verwendung mit-listavailable wird standardmäßig auf nuget.org festgelegt. |
-| ListAvailable | Listet die Pakete auf, die in einer Paketquelle verfügbar sind, und standardmäßig nuget.org. Zeigt einen Standardwert von 50-Paketen an, es sei denn, es werden-PageSize und/oder-First angegeben |
-| Aktualisierungen | Listet Pakete auf, für die ein Update in der Paketquelle verfügbar ist. |
-| ProjectName | Das Projekt, aus dem installierte Pakete zu erhalten sind. Wenn der Wert nicht angezeigt wird, gibt die installierten Projekte für die gesamte Projekt Mappe |
-| Filtern | Eine Filter Zeichenfolge, die verwendet wird, um die Liste der Pakete einzugrenzen, indem Sie Sie auf die Paket-ID, die Beschreibung und Tags anwenden. |
-| First | Die Anzahl der Pakete, die vom Anfang der Liste zurückgegeben werden sollen. Wenn nicht angegeben, wird standardmäßig 50 verwendet. |
-| Überspringen | Lässt die ersten &lt; int- &gt; Pakete aus der angezeigten Liste aus.  |
-| AllVersions | Zeigt alle verfügbaren Versionen der einzelnen Pakete anstelle der neuesten Version an. |
-| Incluabprerelease | Schließt vorab Pakete in die Ergebnisse ein. |
-| PageSize | *(3.0* und höher) Bei Verwendung mit-listavailable (erforderlich) die Anzahl der Pakete, die aufgelistet werden sollen, bevor eine Aufforderung zum Fortfahren angezeigt wird. |
+| `Source` | Die URL oder der Ordnerpfad für das Paket . Lokale Ordnerpfade können absolut oder relativ zum aktuellen Ordner sein. Wenn diese Option nicht angegeben ist, `Get-Package` wird die aktuell ausgewählte Paketquelle durchsucht. Bei Verwendung mit -ListAvailable wird standardmäßig nuget.org. |
+| ListAvailable | Listet Pakete auf, die aus einer Paketquelle verfügbar sind, standardmäßig nuget.org. Zeigt den Standardwert von 50 Paketen an, es sei denn, -PageSize und/oder -First sind angegeben. |
+| Aktualisierungen | Listet Pakete auf, für die ein Update über die Paketquelle verfügbar ist. |
+| ProjectName | Das Projekt, aus dem installierte Pakete abzurufen sind. Wenn keine Angabe erfolgt, werden installierte Projekte für die gesamte Projektmappe zurückgegeben. |
+| Filter | Eine Filterzeichenfolge, die verwendet wird, um die Liste der Pakete einzugrenzen, indem sie auf die Paket-ID, Beschreibung und Tags angewendet wird. |
+| First | Die Anzahl der Pakete, die am Anfang der Liste zurückgegeben werden sollen. Wenn keine Angabe erfolgt, wird standardmäßig 50 verwendet. |
+| Überspringen | Lässt die ersten &lt; &gt; int-Pakete aus der angezeigten Liste aus.  |
+| AllVersions | Zeigt alle verfügbaren Versionen jedes Pakets anstelle der neuesten Version an. |
+| IncludePrerelease | Schließt Vorabversionspakete in die Ergebnisse ein. |
+| PageSize | *(3.0 und mehr)* Bei Verwendung mit -ListAvailable (erforderlich) die Anzahl der Pakete, die vor der Eingabeaufforderung zum Fortfahren aufgeführt werden müssen. |
 
-Keiner dieser Parameter akzeptiert Pipeline Eingabe-oder Platzhalter Zeichen.
+Keiner dieser Parameter akzeptiert Pipelineeingaben oder Platzhalterzeichen.
 
 ## <a name="common-parameters"></a>Allgemeine Parameter
 
-`Get-Package` unterstützt die folgenden [allgemeinen PowerShell-Parameter](/powershell/module/microsoft.powershell.core/about/about_commonparameters): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, pipelinevariable, Verbose, WarningAction und WarningVariable.
+`Get-Package` unterstützt die folgenden [allgemeinen PowerShell-Parameter:](/powershell/module/microsoft.powershell.core/about/about_commonparameters)Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction und WarningVariable.
 
 ## <a name="examples"></a>Beispiele
 

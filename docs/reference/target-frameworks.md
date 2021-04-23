@@ -1,34 +1,34 @@
 ---
-title: Ziel Framework-Referenz für nuget
+title: Referenz zu Zielframeworks für NuGet
 description: Durch NuGet-Zielframeworkverweise werden die Framework-abhängigen Komponenten eines Pakets identifiziert und isoliert.
 author: JonDouglas
 ms.author: jodou
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 9172aefb48ab3e542498f5a144f1d4f381ad55bd
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: d7f91880096b5cbdca7447f7838634ff099c3c4c
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859485"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901719"
 ---
 # <a name="target-frameworks"></a>Zielframeworks
 
 NuGet verwendet Zielframeworkverweise an vielen Stellen, um die Framework-abhängigen Komponenten eines Pakets zu identifizieren und zu isolieren:
 
-- [Projektdatei](../create-packages/multiple-target-frameworks-project-file.md): für Projekte im SDK-Stil enthält die *csproj* -Datei die zielframeworkverweise.
+- [Projektdatei:](../create-packages/multiple-target-frameworks-project-file.md)Für Projekte im SDK-Stil enthält die *CSPROJ-Datei* die Zielframeworkverweise.
 - [NUSPEC-Manifest:](../reference/nuspec.md) Ein Paket kann unterschiedliche Pakete angeben, die je nach Zielframework in ein Projekt eingeschlossen werden sollen.
 - [NUPKG-Ordnername:](../create-packages/creating-a-package.md#from-a-convention-based-working-directory) Die Ordner innerhalb des `lib`-Ordners eines Pakets können dem Zielframework entsprechend benannt werden. Jeder Ordner enthält die DLLs und andere geeignete Inhalte für das jeweilige Framework.
 - [packages.config:](../reference/packages-config.md) Das `targetframework`-Attribut einer Abhängigkeit gibt die Variante eines Pakets an, das installiert werden soll.
 
 > [!Note]
-> Nuget unterstützt alle modernen .NET-Ziel-Frameworks:
-> - Eine Liste der neuesten Ziel-Frameworks finden Sie in der Dokumentation zu den [Ziel-Frameworks in SDK-Projekten](/dotnet/standard/frameworks) .
+> NuGet unterstützt alle modernen .NET-Zielframeworks:
+> - Eine Liste der neuesten Zielframeworks finden Sie in der Dokumentation [Zielframeworks im SDK-Stil.](/dotnet/standard/frameworks)
 
 ## <a name="supported-frameworks"></a>Unterstützte Frameworks
 
-Auf ein Framework wird in der Regel durch einen kurzen Zielframeworkmoniker (Target Framework Moniker, TFM) verwiesen. In .NET Standard dies auch in *txm* generalisiert, um einen einzelnen Verweis auf mehrere Frameworks zu ermöglichen.
+Auf ein Framework wird in der Regel durch einen kurzen Zielframeworkmoniker (Target Framework Moniker, TFM) verwiesen. In .NET Standard wird dies auch auf *TxM* generalisiert, um einen einzelnen Verweis auf mehrere Frameworks zu ermöglichen.
 
 > [!Note]
 > Der Quellcode des NuGet-Clients, der die folgenden Tabellen berechnet, befindet sich an folgenden Speicherorten:
@@ -37,7 +37,7 @@ Auf ein Framework wird in der Regel durch einen kurzen Zielframeworkmoniker (Tar
 
 Die NuGet-Clients unterstützen die in der folgenden Tabelle aufgelisteten Frameworks. Äquivalente werden in eckigen Klammern angegeben. Beachten Sie, dass einige Tools (z.B. `dotnet`) möglicherweise Variationen von kanonischen TFMs in einigen Dateien verwenden. `dotnet pack` verwendet beispielsweise `.NETCoreApp2.0` statt `netcoreapp2.0` in einer `.nuspec`-Datei. Die verschiedenen NuGet-Clienttools verarbeiten diese Variationen ordnungsgemäß, Sie sollten jedoch immer kanonische TFMs verwenden, wenn Sie Dateien direkt bearbeiten.
 
-| name | Abkürzung | TFMs/TxMs |
+| Name | Abkürzung | TFMs/TxMs |
 | ------------- | ------------ | --------- |
 |.NET Framework | net | net11 |
 | | | net20 |
@@ -73,8 +73,8 @@ Windows Phone (SL) | wp | wp [wp7] |
 Windows Phone (UWP) | | wpa81 |
 Universelle Windows-Plattform | uap | uap [uap10.0] |
 | | | uap10.0 |
-| | | UAP 10.0. xxxxx (wobei 10.0. xxxxx die Zielplattform für die Mindestversion der verwendeten APP ist) |
-.NET-Standard | netstandard | netstandard1.0 |
+| | | uap10.0.xxxxx (wobei 10.0.xxxxx die Mindestversion der Zielplattform der nutzenden App ist) |
+.NET Standard | netstandard | netstandard1.0 |
 | | | netstandard1.1 |
 | | | netstandard1.2 |
 | | | netstandard1.3 |
@@ -83,13 +83,15 @@ Universelle Windows-Plattform | uap | uap [uap10.0] |
 | | | netstandard1.6 |
 | | | netstandard2.0 |
 | | | netstandard2.1 |
-.NET Core-App | netcoreapp | netcoreapp1.0 |
+.NET 5 oder höher (und .NET Core) | netcoreapp | netcoreapp1.0 |
 | | | netcoreapp1.1 |
 | | | netcoreapp2.0 |
 | | | netcoreapp2.1 |
 | | | netcoreapp2.2 |
 | | | netcoreapp3.0 |
 | | | netcoreapp3.1 |
+| | net | net5.0 |
+| | | net6.0 |
 Tizen | tizen | tizen3 |
 | | | tizen4 |
 
@@ -130,7 +132,7 @@ Einige Frameworks sind miteinander verwandt und kompatibel, aber nicht notwendig
 
 ## <a name="net-standard"></a>NET Standard
 
-[.NET Standard](/dotnet/standard/net-standard) vereinfacht Verweise zwischen Binär kompatiblen Frameworks, wodurch ein einzelnes Ziel Framework auf eine Kombination von anderen verweisen kann. (Weitere Informationen finden Sie unter [.NET Primer (Einführung in .NET)](/dotnet/articles/standard/index).)
+[.NET Standard](/dotnet/standard/net-standard) vereinfacht Verweise zwischen binärkompatiblen Frameworks, sodass ein einzelnes Zielframework auf eine Kombination anderer Frameworks verweisen kann. (Weitere Informationen finden Sie unter [.NET Primer (Einführung in .NET)](/dotnet/articles/standard/index).)
 
 Das NuGet-Tool [Get Nearest Framework](https://aka.ms/s2m3th) simuliert, wie NuGet in einem Paket, das auf dem Framework des Projekts basiert, ein Framework aus vielen verfügbaren Frameworkobjekten auswählt.
 
@@ -139,13 +141,13 @@ Die `dotnet`-Reihe von Monikern sollte in NuGet 3.3 und früher verwendet werden
 ## <a name="portable-class-libraries"></a>Portable Klassenbibliotheken
 
 > [!Warning]
-> **Portable Klassenbibliotheken werden nicht empfohlen.** Obwohl portable Klassenbibliotheken unterstützt werden, sollten Paketersteller stattdessen netstandard unterstützen. Der .net-Platt Form Standard ist eine Weiterentwicklung von pcls und stellt eine plattformübergreifende binäre Portabilität dar, die einen einzelnen Moniker verwendet, der nicht an eine statische Bibliothek wie *Portable-a + b + c-* Moniker gebunden ist.
+> **Portable Klassenbibliotheken werden nicht empfohlen.** Obwohl portable Klassenbibliotheken unterstützt werden, sollten Paketersteller stattdessen netstandard unterstützen. Der .NET Platform Standard ist eine Weiterentwicklung von PCLs und stellt die plattformübergreifende binäre Portabilität mithilfe eines einzelnen Monikers dar, der nicht an eine statische Bibliothek wie *Portable-a+b+c-Moniker* gebunden ist.
 
 Verwenden Sie zum Definieren eines Zielframeworks, das auf mehrere untergeordnete Zielframeworks verweist, das `portable`-Schlüsselwort, um der Liste der Frameworks, auf die verwiesen wird, ein Präfix hinzuzufügen. Vermeiden Sie das künstliche Hinzufügen von zusätzlichen Frameworks, die nicht direkt kompiliert werden, da dies zu unbeabsichtigten Nebeneffekten bei diesen Frameworks führen kann.
 
 Zusätzliche Frameworks, die von Drittanbietern definiert wurden, sind mit anderen Umgebungen kompatibel, auf die auf diese Weise zugegriffen werden kann. Darüber hinaus gibt es Kurzformen für verfügbare Profilnummern, die auf diese Kombinationen von verknüpften Frameworks als `Profile#` verweisen. Es wird jedoch nicht empfohlen, diese Nummern zu verwenden, da dadurch die Lesbarkeit der Ordner und `.nuspec`-Dateien reduziert wird.
 
-| Profil # | Frameworks | Vollständiger Name | .NET-Standard |
+| Profil # | Frameworks | Vollständiger Name | .NET Standard |
  --- | --- | --- | ---
  Profile2 | .NETFramework 4.0 | portable-net40+win8+sl4+wp7 |
  | | Windows 8.0 | |
@@ -173,9 +175,9 @@ Zusätzliche Frameworks, die von Drittanbietern definiert wurden, sind mit ander
  | | Silverlight 4.0 |
  Profile24 | .NETFramework 4.5 | portable-net45+sl5
  | | Silverlight 5.0 |
- Profile31 | Windows 8.1 | portable-win81+wp81 | netstandard1.0
+ Profile31 | Windows 8.1 | portable-win81+wp81 | netstandard1.0
  | | WindowsPhone 8.1 (SL) |
- Profile32 | Windows 8.1 | portable-win81+wpa81 | netstandard1.2
+ Profile32 | Windows 8.1 | portable-win81+wpa81 | netstandard1.2
  | | WindowsPhone 8.1 (UWP) |
  Profile36 | .NETFramework 4.0 | portable-net40+sl4+win8+wp8
  | | Silverlight 4.0 |
@@ -191,7 +193,7 @@ Zusätzliche Frameworks, die von Drittanbietern definiert wurden, sind mit ander
  | | Silverlight 5.0 |
  | | Windows 8.0 |
  Profile44 | .NETFramework 4.5.1 | portable-net451+win81 | netstandard1.2
- | | Windows 8.1 |
+ | | Windows 8.1 |
  Profile46 | .NETFramework 4.5 | portable-net45+sl4+win8
  | | Silverlight 4.0 |
  | | Windows 8.0 |
@@ -243,13 +245,13 @@ Zusätzliche Frameworks, die von Drittanbietern definiert wurden, sind mit ander
  | | Windows 8.0 |
  | | WindowsPhone 8.0 (SL) |
  Profile151 | NETFramework 4.5.1 | portable-net451+win81+wpa81 | netstandard1.2
- | | Windows 8.1 |
+ | | Windows 8.1 |
  | | WindowsPhone 8.1 (UWP) |
  Profile154 | .NETFramework 4.5 | portable-net45+sl4+win8+wp8
  | | Silverlight 4.0 |
  | | Windows 8.0 |
  | | WindowsPhone 8.0 (SL) |
- Profile157 | Windows 8.1 | portable-win81+wp81+wpa81 | netstandard1.0
+ Profile157 | Windows 8.1 | portable-win81+wp81+wpa81 | netstandard1.0
  | | WindowsPhone 8.1 (SL) |
  | | WindowsPhone 8.1 (UWP) |
  Profile158 | .NETFramework 4.5 | portable-net45+sl5+win8+wp8
@@ -290,7 +292,7 @@ Zusätzliche Frameworks, die von Drittanbietern definiert wurden, sind mit ander
 
 Darüber hinaus können NuGet-Pakete, die Xamarin anzielen, zusätzliche für Xamarin definierte Frameworks verwenden. Weitere Informationen finden Sie unter [Creating NuGet packages for Xamarin (Erstellen von NuGet-Paketen für Xamarin)](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/).
 
-| name | BESCHREIBUNG | .NET-Standard |
+| Name | Beschreibung | .NET Standard |
 | --- | --- | ---
 | monoandroid | Mono-Unterstützung für Android | netstandard1.4 |
 | monotouch | Mono-Unterstützung für iOS | netstandard1.4 |

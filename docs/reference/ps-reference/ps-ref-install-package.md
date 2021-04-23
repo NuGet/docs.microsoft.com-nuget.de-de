@@ -1,22 +1,22 @@
 ---
-title: Nuget-Install-Package PowerShell-Referenz
-description: Referenz für Install-Package PowerShell-Befehl in der nuget-Paket-Manager-Konsole in Visual Studio.
+title: NuGet Install-Package PowerShell-Referenz
+description: Referenz zu Install-Package PowerShell-Befehl in der NuGet Paket-Manager Console in Visual Studio.
 author: JonDouglas
 ms.author: jodou
 ms.date: 06/01/2017
 ms.topic: reference
-ms.openlocfilehash: 110b41e830636d60741b14292c17840aa5a63dfd
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: ad551b8701cfc2061f7721fb050ed9b5a4fede32
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777447"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901693"
 ---
 # <a name="install-package-package-manager-console-in-visual-studio"></a>Install-Package (Paket-Manager-Konsole in Visual Studio)
 
-*In diesem Thema wird der Befehl in der [Paket-Manager-Konsole](../../consume-packages/install-use-packages-powershell.md) in Visual Studio unter Windows beschrieben. Den allgemeinen PowerShell-Install-Package Befehl finden Sie in der [Referenz zu PowerShell packagemanagement](/powershell/module/packagemanagement/?view=powershell-6).*
+*In diesem Thema wird der Befehl in der [Paket-Manager-Konsole](../../consume-packages/install-use-packages-powershell.md) in Visual Studio unter Windows beschrieben. Informationen zum generischen PowerShell Install-Package-Befehl finden Sie in der [PowerShell-PackageManagement-Referenz.](/powershell/module/packagemanagement)*
 
-Installiert ein Paket und seine Abhängigkeiten in einem-Projekt.
+Installiert ein Paket und seine Abhängigkeiten in einem Projekt.
 
 ## <a name="syntax"></a>Syntax
 
@@ -26,7 +26,7 @@ Install-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [[-
     [-WhatIf] [<CommonParameters>]
 ```
 
-In nuget 2.8 und höher `Install-Package` kann ein vorhandenes Paket in Ihrem Projekt herabstufen. Wenn Sie z. b. Microsoft. Aspnet. MVC 5.1.0-RC1 installiert haben, würde der folgende Befehl das Downgrade auf 5.0.0 durchführt:
+Ab NuGet 2.8 `Install-Package` kann ein vorhandenes Paket in Ihrem Projekt herabgestuft werden. Wenn Sie beispielsweise Microsoft.AspNet.MVC 5.1.0-rc1 installiert haben, würde der folgende Befehl sie auf 5.0.0 herabstufen:
 
 ```ps
 Install-Package Microsoft.AspNet.MVC -Version 5.0.0.
@@ -36,21 +36,21 @@ Install-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 | Parameter | BESCHREIBUNG |
 | --- | --- |
-| Id | Benötigten Der Bezeichner des zu installierenden Pakets. (*3.0* und höher) Der Bezeichner kann ein Pfad oder eine URL einer `packages.config` Datei oder eine `.nupkg` Datei sein. Der Schalter-ID selbst ist optional. |
-| Ignoreabhängigkeiten | Installieren Sie nur dieses Paket und nicht seine Abhängigkeiten. |
-| ProjectName | Das Projekt, in dem das Paket installiert werden soll, und standardmäßig das Standard Projekt. |
-| `Source` | Die URL oder der Ordner Pfad für die Paketquelle, die durchsucht werden soll. Lokale Ordner Pfade können absolut oder relativ zum aktuellen Ordner sein. Wenn kein Wert angezeigt wird, wird `Install-Package` die aktuell ausgewählte Paketquelle durchsucht. |
-| Version | Die Version des zu installierenden Pakets, standardmäßig auf die neueste Version. |
-| Incluabprerelease | Berücksichtigt vorab Pakete für die Installation. Wenn dieser Parameter nicht angegeben wird, werden nur stabile Pakete berücksichtigt. |
-| Fileconflictaction | Die Aktion, die ausgeführt werden soll, wenn die vom Projekt referenzierten Dateien überschrieben oder ignoriert werden sollen. Mögliche Werte sind " *überschreiben", "ignorieren", "keine", "überschreiben*" und " *(3.0 +)* *IgnoreAll*". |
-| Dependencyversion | Die Version der zu verwendenden Abhängigkeits Pakete. Dies kann eine der folgenden sein:<br/><ul><li>*Niedrigste* (Standard): die niedrigste Version</li><li>*Highestpatch*: die Version mit dem niedrigsten, niedrigsten, niedrigsten, größten Patch</li><li>*Highestminor*: die Version mit dem niedrigsten Haupt-, höchst-und Höchstwert</li><li>*Höchste* (Standardeinstellung für Update-Package ohne Parameter): die höchste Version</li></ul>Sie können den Standardwert mithilfe der- [`dependencyVersion`](../nuget-config-file.md#config-section) Einstellung in der `Nuget.Config` Datei festlegen. |
-| WhatIf | Zeigt, was geschehen würde, wenn der Befehl ausgeführt wird, ohne die Installation tatsächlich auszuführen. |
+| Id | (Erforderlich) Der Bezeichner des zu installierenden Pakets. (*3.0+*) Der Bezeichner kann ein Pfad oder eine URL einer `packages.config` Datei oder Datei `.nupkg` sein. Der Schalter -Id selbst ist optional. |
+| IgnoreDependencies | Installieren Sie nur dieses Paket und nicht seine Abhängigkeiten. |
+| ProjectName | Das Projekt, in dem das Paket installiert werden soll, wobei standardmäßig das Standardprojekt verwendet wird. |
+| `Source` | Die URL oder der Ordnerpfad für die zu durchsuchende Paketquelle. Lokale Ordnerpfade können absolut oder relativ zum aktuellen Ordner sein. Wenn diese Option nicht angegeben ist, `Install-Package` wird die aktuell ausgewählte Paketquelle durchsucht. |
+| Version | Die Version des zu installierenden Pakets, standardmäßig die neueste Version. |
+| IncludePrerelease | Berücksichtigt Vorabversionspakete für die Installation. Wenn dieser Parameter nicht angegeben wird, werden nur stabile Pakete berücksichtigt. |
+| FileConflictAction | Die Aktion, die beim Überschreiben oder Ignorieren vorhandener Dateien, auf die vom Projekt verwiesen wird, verwendet werden soll. Mögliche Werte sind *Overwrite, Ignore, None, OverwriteAll* und *(3.0+)* *IgnoreAll.* |
+| DependencyVersion | Die Version der zu verwendenden Abhängigkeitspakete, die eines der folgenden sein kann:<br/><ul><li>*Niedrigste* (Standardeinstellung): die niedrigste Version</li><li>*HighestPatch:* Die Version mit der niedrigsten Hauptversion, der niedrigsten Nebenversion, dem höchsten Patch</li><li>*HighestMinor:* Die Version mit der niedrigsten Hauptversion, der höchsten Nebenversion und dem höchsten Patch</li><li>*Höchste* (Standardeinstellung für Update-Package ohne Parameter): die höchste Version</li></ul>Sie können den Standardwert mithilfe der [`dependencyVersion`](../nuget-config-file.md#config-section) Einstellung in der Datei `Nuget.Config` festlegen. |
+| WhatIf | Zeigt an, was geschieht, wenn der Befehl ausgeführt wird, ohne die Installation tatsächlich auszuführen. |
 
-Keiner dieser Parameter akzeptiert Pipeline Eingabe-oder Platzhalter Zeichen.
+Keiner dieser Parameter akzeptiert Pipelineeingaben oder Platzhalterzeichen.
 
 ## <a name="common-parameters"></a>Allgemeine Parameter
 
-`Install-Package` unterstützt die folgenden [allgemeinen PowerShell-Parameter](/powershell/module/microsoft.powershell.core/about/about_commonparameters): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, pipelinevariable, Verbose, WarningAction und WarningVariable.
+`Install-Package` unterstützt die folgenden [allgemeinen PowerShell-Parameter:](/powershell/module/microsoft.powershell.core/about/about_commonparameters)Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction und WarningVariable.
 
 ## <a name="examples"></a>Beispiele
 

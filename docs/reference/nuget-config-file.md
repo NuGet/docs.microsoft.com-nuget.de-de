@@ -1,22 +1,22 @@
 ---
-title: Verweis auf nuget.config Datei
+title: nuget.config Dateireferenz
 description: Verweis auf Datei „NuGet.Config“ einschließlich der Abschnitte „config“, „bindingRedirects“, „packageRestore“, „solution“ und „packageSource“.
 author: JonDouglas
 ms.author: jodou
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: afc06c81bf0344f2086efd19111cc60d24d7f723
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 38620058bccde876152328302a6049f011c149db
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859511"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901862"
 ---
-# <a name="nugetconfig-reference"></a>nuget.config Referenz
+# <a name="nugetconfig-reference"></a>`nuget.config` Verweis
 
-Das nuget-Verhalten wird durch Einstellungen in unterschiedlichen- `NuGet.Config` Dateien oder-Dateien gesteuert, `nuget.config` wie in [Common nuget-Konfigurationen](../consume-packages/configuring-nuget-behavior.md)beschrieben.
+Das NuGet-Verhalten wird durch Einstellungen in verschiedenen - oder `NuGet.Config` -Dateien `nuget.config` gesteuert, wie unter [Allgemeine NuGet-Konfigurationen beschrieben.](../consume-packages/configuring-nuget-behavior.md)
 
-`nuget.config` ist eine XML-Datei mit einem `<configuration>`-Knoten der obersten Ebene, in dem die in diesem Thema beschriebenen Abschnittselemente beschrieben werden. Jeder Abschnitt enthält 0 (null) oder mehr Elemente. Siehe die [Beispiele für die Konfigurationsdatei](#example-config-file). Bei Einstellungsnamen ist die Groß-/Kleinschreibung zu beachten, und Werte können [Umgebungsvariablen](#using-environment-variables) verwenden.
+`nuget.config` ist eine XML-Datei mit einem `<configuration>`-Knoten der obersten Ebene, in dem die in diesem Thema beschriebenen Abschnittselemente beschrieben werden. Jeder Abschnitt enthält null oder mehr Elemente. Siehe die [Beispiele für die Konfigurationsdatei](#example-config-file). Bei Einstellungsnamen ist die Groß-/Kleinschreibung zu beachten, und Werte können [Umgebungsvariablen](#using-environment-variables) verwenden.
 
 <a name="dependencyVersion"></a>
 <a name="globalPackagesFolder"></a>
@@ -25,20 +25,20 @@ Das nuget-Verhalten wird durch Einstellungen in unterschiedlichen- `NuGet.Config
 
 ## <a name="config-section"></a>Abschnitt „config“
 
-Enthält verschiedene Konfigurationseinstellungen, die mit dem- [ `nuget config` Befehl](../reference/cli-reference/cli-ref-config.md)festgelegt werden können.
+Enthält verschiedene Konfigurationseinstellungen, die mit dem Befehl festgelegt werden [ `nuget config` können.](../reference/cli-reference/cli-ref-config.md)
 
-`dependencyVersion` und `repositoryPath` gelten nur für Projekte, die verwenden `packages.config` . `globalPackagesFolder` gilt nur für Projekte, die das packagereferenzierungsformat verwenden.
+`dependencyVersion` und `repositoryPath` gelten nur für Projekte mit `packages.config` . `globalPackagesFolder` gilt nur für Projekte mit dem PackageReference-Format.
 
 | Schlüssel | Wert |
 | --- | --- |
 | dependencyVersion (nur `packages.config`) | Der `DependencyVersion`-Standardwert für „package install“, „restore“ und „update“, wenn der `-DependencyVersion`-Switch nicht direkt angegeben ist. Dieser Wert wird auch von der Benutzeroberfläche des NuGet-Paket-Managers verwendet. Die Werte lauten `Lowest`, `HighestPatch`, `HighestMinor`, `Highest`. |
-| globalpackagesfolder (nur Projekte mit packagereferenzierung) | Der Speicherort des Standardordners für globale Pakete. Der Standardwert lautet `%userprofile%\.nuget\packages` (Windows) oder `~/.nuget/packages` (Mac/Linux). Ein relativer Pfad kann in projektspezifischen `nuget.config`-Dateien verwendet werden. Diese Einstellung wird von der `NUGET_PACKAGES` Umgebungsvariablen überschrieben, die Vorrang hat. |
+| globalPackagesFolder (Projekte, die nur PackageReference verwenden) | Der Speicherort des Standardordners für globale Pakete. Der Standardwert lautet `%userprofile%\.nuget\packages` (Windows) oder `~/.nuget/packages` (Mac/Linux). Ein relativer Pfad kann in projektspezifischen `nuget.config`-Dateien verwendet werden. Diese Einstellung wird von der `NUGET_PACKAGES` Umgebungsvariablen überschrieben, die Vorrang hat. |
 | repositoryPath (nur `packages.config`) | Die Position anstelle des Standardordners `$(Solutiondir)/packages`, an der NuGet-Pakete installiert werden sollen. Ein relativer Pfad kann in projektspezifischen `nuget.config`-Dateien verwendet werden. Diese Einstellung wird von der `NUGET_PACKAGES` Umgebungsvariablen überschrieben, die Vorrang hat. |
 | defaultPushSource | Gibt die URL oder den Pfad der Paketquelle an, die bzw. der als Standard verwendet werden sollte, wenn für einen Vorgang keine anderen Paketquellen gefunden werden können. |
 | http_proxy http_proxy.user http_proxy.password no_proxy | Proxyeinstellungen, die beim Herstellen einer Verbindung zu Paketquellen verwendet werden sollen; `http_proxy` sollte das Format `http://<username>:<password>@<domain>` aufweisen. Kennwörter sind verschlüsselt und können nicht manuell hinzugefügt werden. Bei `no_proxy` ist der Wert eine durch Kommas getrennte Liste mit Domänen, die den Proxy-Server umgehen. Alternativ können Sie für diese Werte die Umgebungsvariablen „http_proxy“ und „no_proxy“ verwenden. Weitere Informationen finden Sie unter [NuGet proxy settings (NuGet-Proxyeinstellungen)](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
-| signaturevalidationmode | Gibt den Validierungs Modus an, der zum Überprüfen von Paket Signaturen für Paketinstallation und-Wiederherstellung verwendet wird. Die Werte `accept` lauten `require` . Wird standardmäßig auf `accept` festgelegt.
+| signatureValidationMode | Gibt den Validierungsmodus an, der zum Überprüfen von Paketsignaturen für die Paket-Installation und -Wiederherstellung verwendet wird. Die Werte sind `accept` , `require` . Wird standardmäßig auf `accept` festgelegt.
 
-**Beispiel:**
+**Beispiel**:
 
 ```xml
 <config>
@@ -58,7 +58,7 @@ Konfiguriert, ob NuGet bei der Installation eines Pakets automatische Bindungsum
 | --- | --- |
 | skip | Ein boolescher Wert, der angibt, ob automatische Bindungsumleitungen übersprungen werden sollen. Die Standardeinstellung ist „false“. |
 
-**Beispiel:**
+**Beispiel**:
 
 ```xml
 <bindingRedirects>
@@ -75,7 +75,7 @@ Steuert die Paketwiederherstellung während der Erstellung von Builds.
 | enabled | Ein boolescher Wert, der angibt, ob NuGet eine automatische Wiederherstellung durchführen kann. Sie können die Umgebungsvariable `EnableNuGetPackageRestore` auch mit dem Wert `True` festlegen, statt diesen Schlüssel in der Konfigurationsdatei festzulegen. |
 | automatic | Ein boolescher Wert, der angibt, ob NuGet während der Erstellung eines Builds eine Überprüfung auf fehlende Pakete durchführen sollte. |
 
-**Beispiel:**
+**Beispiel**:
 
 ```xml
 <packageRestore>
@@ -92,7 +92,7 @@ Steuert, ob der Ordner `packages` einer Projektmappe in der Quellcodeverwaltung 
 | --- | --- |
 | disableSourceControlIntegration | Ein boolescher Wert, der angibt, ob der Paketordner während der Arbeit mit der Quellcodeverwaltung ignoriert werden soll. Der Standardwert ist „FALSE“. |
 
-**Beispiel:**
+**Beispiel**:
 
 ```xml
 <solution>
@@ -102,21 +102,21 @@ Steuert, ob der Ordner `packages` einer Projektmappe in der Quellcodeverwaltung 
 
 ## <a name="package-source-sections"></a>Paketquellenabschnitte
 
-`packageSources`, `packageSourceCredentials` , `apikeys` , `activePackageSource` Und werden `disabledPackageSources` zusammen verwendet `trustedSigners` , um die Funktionsweise von nuget mit paketrepositorys bei Installations-, Wiederherstellungs-und Aktualisierungs Vorgängen zu konfigurieren.
+Die `packageSources` `packageSourceCredentials` -, -, -, -, - und -Dateien arbeiten zusammen, um zu konfigurieren, wie NuGet bei Installations-, Wiederherstellungs- und Updatevorgängen mit Paketrepos `apikeys` `activePackageSource` `disabledPackageSources` `trustedSigners` repositorys arbeitet.
 
-Der- [ `nuget sources` Befehl](../reference/cli-reference/cli-ref-sources.md) wird im Allgemeinen verwendet, um diese Einstellungen zu verwalten, mit dem Unterschied, dass `apikeys` mit dem- [ `nuget setapikey` Befehl](../reference/cli-reference/cli-ref-setapikey.md)verwaltet wird und der `trustedSigners` mit dem- [ `nuget trusted-signers` Befehl](../reference/cli-reference/cli-ref-trusted-signers.md)verwaltet wird.
+Der [ `nuget sources` Befehl](../reference/cli-reference/cli-ref-sources.md) wird im Allgemeinen verwendet, um diese Einstellungen zu verwalten, mit Ausnahme von , der mit dem Befehl verwaltet wird, und der mit `apikeys` dem Befehl verwaltet [ `nuget setapikey` ](../reference/cli-reference/cli-ref-setapikey.md) `trustedSigners` [ `nuget trusted-signers` wird.](../reference/cli-reference/cli-ref-trusted-signers.md)
 
 Beachten Sie, dass die Quell-URL für nuget.org `https://api.nuget.org/v3/index.json` ist.
 
 ### <a name="packagesources"></a>packageSources
 
-Listet alle bekannte Paketquellen auf. Die Reihenfolge wird bei Wiederherstellungs Vorgängen und bei beliebigen Projekten ignoriert, die das packagereferenzierungsformat verwenden. Nuget respektiert die Reihenfolge der Quellen für Installations-und Aktualisierungs Vorgänge mit Projekten, die verwenden `packages.config` .
+Listet alle bekannte Paketquellen auf. Die Reihenfolge wird bei Wiederherstellungsvorgängen und bei jedem Projekt ignoriert, das das PackageReference-Format verwendet. NuGet beachtet die Reihenfolge der Quellen für Installations- und Updatevorgänge mit Projekten, die `packages.config` verwenden.
 
 | Schlüssel | Wert |
 | --- | --- |
 | (Der Name, der der Paketquelle zuzuweisen ist) | Der Pfad oder die URL der Paketquelle. |
 
-**Beispiel:**
+**Beispiel**:
 
 ```xml
 <packageSources>
@@ -127,18 +127,18 @@ Listet alle bekannte Paketquellen auf. Die Reihenfolge wird bei Wiederherstellun
 ```
 
 > [!Tip]
-> Wenn `<clear />` für einen bestimmten Knoten vorhanden ist, ignoriert NuGet die zuvor definierten Konfigurationswerte für diesen Knoten. Erfahren [Sie mehr über die Anwendung von Einstellungen](../consume-packages/configuring-nuget-behavior.md#how-settings-are-applied).
+> Wenn `<clear />` für einen bestimmten Knoten vorhanden ist, ignoriert NuGet die zuvor definierten Konfigurationswerte für diesen Knoten. [Erfahren Sie mehr darüber, wie Einstellungen angewendet werden.](../consume-packages/configuring-nuget-behavior.md#how-settings-are-applied)
 
 ### <a name="packagesourcecredentials"></a>packageSourceCredentials
 
 Speichert Benutzernamen und Kennwörter für Quellen, die in der Regel mit den `-username`- und `-password`-Switches mit `nuget sources` angegeben werden. Kennwörter werden standardmäßig verschlüsselt, sofern die Option `-storepasswordincleartext` nicht ebenfalls verwendet wird.
-Optional können Sie mit dem-Schalter gültige Authentifizierungs Typen angeben `-validauthenticationtypes` .
+Optional können gültige Authentifizierungstypen mit dem Schalter angegeben `-validauthenticationtypes` werden.
 
 | Schlüssel | Wert |
 | --- | --- |
 | username | Der Benutzername für die Quelle in Nur-Text. |
-| password | Das verschlüsselte Kennwort für die Quelle. Verschlüsselte Kenn Wörter werden nur unter Windows unterstützt und können nur entschlüsselt werden, wenn Sie auf demselben Computer und über denselben Benutzer wie die ursprüngliche Verschlüsselung verwendet werden. |
-| cleartextpassword | Das unverschlüsselte Kennwort für die Quelle. Hinweis: Umgebungsvariablen können verwendet werden, um die Sicherheit zu verbessern. |
+| password | Das verschlüsselte Kennwort für die Quelle. Verschlüsselte Kennwörter werden nur unter Windows unterstützt und können nur entschlüsselt werden, wenn sie auf demselben Computer und über denselben Benutzer wie die ursprüngliche Verschlüsselung verwendet werden. |
+| cleartextpassword | Das unverschlüsselte Kennwort für die Quelle. Hinweis: Umgebungsvariablen können zur Verbesserung der Sicherheit verwendet werden. |
 | validauthenticationtypes | Durch Trennzeichen getrennte Liste mit gültigen Authentifizierungstypen für diese Quelle. Legen Sie diese Option auf `basic` fest, wenn der Server NTLM oder eine Aushandlung ankündigt und Ihre Anmeldedaten über den Basismechanismus gesendet werden müssen, z. B. bei Verwendung eines persönlichen Zugriffstokens (PAT) mit einer lokalen Azure DevOps Server-Instanz. Andere gültige Werte sind `negotiate`, `kerberos`, `ntlm` und `digest`, aber diese Werte sind wahrscheinlich nicht sinnvoll. |
 
 **Beispiel:**
@@ -158,7 +158,7 @@ In der Konfigurationsdatei enthält das `<packageSourceCredentials>`-Element fü
 </packageSourceCredentials>
 ```
 
-Bei Verwendung unverschlüsselter Kenn Wörter, die in einer Umgebungsvariablen gespeichert sind:
+Bei Verwendung unverschlüsselter Kennwörter, die in einer Umgebungsvariablen gespeichert sind:
 
 ```xml
 <packageSourceCredentials>
@@ -188,7 +188,7 @@ Bei der Verwendung unverschlüsselter Kennwörter:
 </packageSourceCredentials>
 ```
 
-Außerdem können gültige Authentifizierungsmethoden bereitgestellt werden:
+Darüber hinaus können gültige Authentifizierungsmethoden bereitgestellt werden:
 
 ```xml
 <packageSourceCredentials>
@@ -207,13 +207,13 @@ Außerdem können gültige Authentifizierungsmethoden bereitgestellt werden:
 
 ### <a name="apikeys"></a>apikeys
 
-Speichert Schlüssel für Quellen, die die API-Schlüssel Authentifizierung verwenden, wie mit dem- [ `nuget setapikey` Befehl](../reference/cli-reference/cli-ref-setapikey.md)festgelegt.
+Speichert Schlüssel für Quellen, die die API-Schlüsselauthentifizierung verwenden, wie mit dem [ `nuget setapikey` Befehl](../reference/cli-reference/cli-ref-setapikey.md)festgelegt.
 
 | Schlüssel | Wert |
 | --- | --- |
 | (Quell-URL) | Der verschlüsselte API-Schlüssel. |
 
-**Beispiel:**
+**Beispiel**:
 
 ```xml
 <apikeys>
@@ -250,7 +250,7 @@ Identifiziert die derzeit aktive Quelle oder gibt das Aggregat aller Quellen an.
 | --- | --- |
 | (Name der Quelle) oder `All` | Wenn es sich bei dem Schlüssel um den Namen einer Quelle handelt, ist der Wert der Quellpfad oder die URL. Wenn `All` festgelegt ist, sollte der Wert `(Aggregate source)` lauten, damit alle Paketquellen kombiniert werden können, die nicht auf andere Weise deaktiviert sind. |
 
-**Beispiel:**
+**Beispiel**:
 
 ```xml
 <activePackageSource>
@@ -262,23 +262,23 @@ Identifiziert die derzeit aktive Quelle oder gibt das Aggregat aller Quellen an.
 </activePackageSource>
 ```
 
-## <a name="trustedsigners-section"></a>Abschnitt "Treuhänder"
+## <a name="trustedsigners-section"></a>Abschnitt "trustedSigners"
 
-Speichert vertrauenswürdige Signatur Geber, die beim Installieren oder Wiederherstellen von Paketen verwendet werden. Diese Liste darf nicht leer sein, wenn der Benutzer `signatureValidationMode` auf festlegt `require` . 
+Speichert vertrauenswürdige Signierer, die zum Zulassen von Paketen während der Installation oder Wiederherstellung verwendet werden. Diese Liste darf nicht leer sein, wenn der Benutzer `signatureValidationMode` auf `require` festlegt. 
 
-Dieser Abschnitt kann mit dem- [ `nuget trusted-signers` Befehl](../reference/cli-reference/cli-ref-trusted-signers.md)aktualisiert werden.
+Dieser Abschnitt kann mit dem [ `nuget trusted-signers` Befehl](../reference/cli-reference/cli-ref-trusted-signers.md)aktualisiert werden.
 
 **Schema:**
 
-Ein vertrauenswürdiger Signatur Geber verfügt über eine `certificate` Auflistung von Elementen, die alle Zertifikate eintragen, mit denen ein bestimmter Signatur Geber identifiziert wird. Ein vertrauenswürdiger Signatur Geber kann entweder ein `Author` oder ein sein `Repository` .
+Ein vertrauenswürdiger Signierer verfügt über eine Sammlung von `certificate` Elementen, die alle Zertifikate eintragen, die einen bestimmten Signierer identifizieren. Ein vertrauenswürdiger Signierer kann entweder oder `Author` `Repository` sein.
 
-Ein vertrauenswürdiges *Repository* gibt auch den `serviceIndex` für das Repository an (der ein gültiger URI sein muss `https` ) und kann optional eine durch Semikolons getrennte Liste von `owners` angeben, um noch mehr zu beschränken, die von diesem bestimmten Repository als vertrauenswürdig eingestuft werden.
+Ein vertrauenswürdiges *Repository* gibt auch den `serviceIndex` für das Repository an (das ein gültiger URI sein `https` muss) und kann optional eine durch Semikolons getrennte Liste von `owners` angeben, um noch mehr vertrauenswürdige Personen aus diesem bestimmten Repository einzuschränken.
 
-Die unterstützten Hash Algorithmen für einen Zertifikat Fingerabdruck sind `SHA256` , `SHA384` und `SHA512` .
+Die unterstützten Hashalgorithmen, die für einen Zertifikatfingerabdruck verwendet werden, sind `SHA256` , `SHA384` und `SHA512` .
 
-, Wenn ein angibt, dass `certificate` `allowUntrustedRoot` `true` das angegebene Zertifikat während der Signatur Überprüfung mit einem nicht vertrauenswürdigen Stamm verkettet werden darf.
+Wenn ein `certificate` angibt, dass das angegebene Zertifikat beim `allowUntrustedRoot` Erstellen der `true` Zertifikatkette im Rahmen der Signaturüberprüfung mit einem nicht vertrauenswürdigen Stamm verkettet werden darf.
 
-**Beispiel:**
+**Beispiel**:
 
 ```xml
 <trustedSigners>
@@ -294,25 +294,25 @@ Die unterstützten Hash Algorithmen für einen Zertifikat Fingerabdruck sind `SH
 </trustedSigners>
 ```
 
-## <a name="fallbackpackagefolders-section"></a>Abschnitt "fallbackpackagefolders"
+## <a name="fallbackpackagefolders-section"></a>fallbackPackageFolders-Abschnitt
 
-*(3.5* und höher) Bietet eine Möglichkeit, Pakete vorab zu installieren, sodass keine Arbeit ausgeführt werden muss, wenn das Paket in den Fall Back Ordnern gefunden wird. Fall Back Paket Ordner weisen genau dieselbe Ordner-und Dateistruktur auf wie der globale Paket Ordner: *. nupkg* ist vorhanden, und alle Dateien werden extrahiert.
+*(3.5+)* Bietet eine Möglichkeit zum Vorinstallieren von Paketen, sodass keine Arbeit ausgeführt werden muss, wenn das Paket in den Fallbackordnern gefunden wird. Fallbackpaketordner haben genau die gleiche Ordner- und Dateistruktur wie der globale Paketordner: *NUPKG* ist vorhanden, und alle Dateien werden extrahiert.
 
-Die Suchlogik für diese Konfiguration lautet wie folgt:
+Die Suchlogik für diese Konfiguration lautet:
 
-- Suchen Sie im globalen Paket Ordner, ob das Paket bzw. die Version bereits heruntergeladen wurde.
+- Suchen Sie im globalen Paketordner, um festzustellen, ob das Paket bzw. die Version bereits heruntergeladen wurde.
 
-- Suchen Sie in den Fall Back Ordnern nach einer Paket-/Versionsübereinstimmung.
+- Suchen Sie in den Fallbackordnern nach einer Übereinstimmung zwischen Paket und Version.
 
-Wenn eine der beiden Nachrichten erfolgreich ausgeführt wurde, ist kein Download erforderlich.
+Wenn eine der Sucherfolge erfolgreich ist, ist kein Download erforderlich.
 
-Wenn keine Entsprechung gefunden wird, überprüft nuget die Datei Quellen und anschließend die HTTP-Quellen, und die Pakete werden heruntergeladen.
+Wenn keine Übereinstimmung gefunden wird, überprüft NuGet die Dateiquellen und dann die HTTP-Quellen und lädt dann die Pakete herunter.
 
 | Schlüssel | Wert |
 | --- | --- |
-| (Name des Fall Back Ordners) | Pfad zum Fall Back Ordner. |
+| (Name des Fallbackordners) | Pfad zum Fallbackordner. |
 
-**Beispiel:**
+**Beispiel**:
 
 ```xml
 <fallbackPackageFolders>
@@ -320,16 +320,16 @@ Wenn keine Entsprechung gefunden wird, überprüft nuget die Datei Quellen und a
 </fallbackPackageFolders>
 ```
 
-## <a name="packagemanagement-section"></a>Abschnitt "packagemanagement"
+## <a name="packagemanagement-section"></a>packageManagement-Abschnitt
 
-Legt das Standardformat für die Paketverwaltung fest, entweder *packages.config* oder packagereferenzierung. Projekte im SDK-Stil verwenden immer packagereferenzierung.
+Legt das Standardformat für die Paketverwaltung fest, entweder *packages.config* PackageReference. Projekte im SDK-Stil verwenden immer PackageReference.
 
 | Schlüssel | Wert |
 | --- | --- |
-| format | Ein boolescher Wert, der das Standardformat für die Paketverwaltung angibt. Gibt an, dass das `1` Format packagereferenziert wird. Wenn der Wert ist `0` , wird das Format *packages.config*. |
-| deaktiviert | Ein boolescher Wert, der angibt, ob die Eingabeaufforderung zum Auswählen eines Standardpaket Formats bei der ersten Paketinstallation angezeigt werden soll. `False` Blendet die Eingabeaufforderung aus. |
+| format | Ein boolescher Wert, der das Standardformat für die Paketverwaltung angibt. Wenn `1` der Wert ist, ist das Format PackageReference. Gibt `0` an, dass das Format *packages.config.* |
+| deaktiviert | Ein boolescher Wert, der angibt, ob die Aufforderung zum Auswählen eines Standardpaketformats bei der ersten Paketinstallierung angezeigt werden soll. `False` blendet die Eingabeaufforderung aus. |
 
-**Beispiel:**
+**Beispiel**:
 
 ```xml
 <packageManagement>
@@ -344,15 +344,15 @@ Sie können Umgebungsvariablen in `nuget.config`-Werten (NuGet 3.4 und höher) v
 
 Wenn die Umgebungsvariable `HOME` unter Windows beispielsweise auf `c:\users\username` festgelegt ist, wird der Wert von `%HOME%\NuGetRepository` in der Konfigurationsdatei in `c:\users\username\NuGetRepository` aufgelöst.
 
-Beachten Sie, dass Sie Umgebungsvariablen im Windows-Stil verwenden müssen (beginnt und endet mit%). auch unter Mac/Linux. Das vorhanden sein `$HOME/NuGetRepository` einer Konfigurationsdatei wird nicht aufgelöst. Unter Mac/Linux wird der Wert von `%HOME%/NuGetRepository` in aufgelöst `/home/myStuff/NuGetRepository` .
+Beachten Sie, dass Sie Umgebungsvariablen im Windows-Stil verwenden müssen (beginnt und endet mit %) sogar unter Mac/Linux. Das `$HOME/NuGetRepository` Verwenden von in einer Konfigurationsdatei wird nicht gelöst. Unter Mac/Linux wird der Wert `%HOME%/NuGetRepository` von in `/home/myStuff/NuGetRepository` gelöst.
 
-Wenn eine Umgebungsvariable nicht gefunden werden kann, verwendet NuGet den Literalwert aus der Konfigurationsdatei. Beispielsweise `%MY_UNDEFINED_VAR%/NuGetRepository` wird aufgelöst als `path/to/current_working_dir/$MY_UNDEFINED_VAR/NuGetRepository`
+Wenn eine Umgebungsvariable nicht gefunden werden kann, verwendet NuGet den Literalwert aus der Konfigurationsdatei. Beispielsweise wird `%MY_UNDEFINED_VAR%/NuGetRepository` als aufgelöst. `path/to/current_working_dir/$MY_UNDEFINED_VAR/NuGetRepository`
 
-In der folgenden Tabelle sind die Umgebungsvariablen Syntax und Pfad Trennzeichen für NuGet.Config Dateien aufgeführt.
+Die folgende Tabelle zeigt die Umgebungsvariablensyntax und pfadtrennzeichenunterstützung für NuGet.Config Dateien.
 
-### <a name="nugetconfig-environment-variable-support"></a>Unterstützung der NuGet.Config-Umgebungsvariablen
+### <a name="nugetconfig-environment-variable-support"></a>`NuGet.Config` Unterstützung von Umgebungsvariablen
 
-| Syntax | Dir-Trennzeichen | Windows-nuget.exe | Windows-dotnet.exe | Mac-nuget.exe (in Mono) | Mac-dotnet.exe |
+| Syntax | Trennzeichen "Dir" | Windows nuget.exe | Windows dotnet.exe | Mac nuget.exe (in Mono) | Mac dotnet.exe |
 |---|---|---|---|---|---|
 | `%MY_VAR%` | `/`  | Ja | Ja | Ja | Ja |
 | `%MY_VAR%` | `\`  | Ja | Ja | Nein | Nein |
@@ -362,7 +362,7 @@ In der folgenden Tabelle sind die Umgebungsvariablen Syntax und Pfad Trennzeiche
 
 ## <a name="example-config-file"></a>Beispielkonfigurationsdatei
 
-Im folgenden finden Sie eine Beispiel `nuget.config` Datei, die eine Reihe von Einstellungen, einschließlich optionaler, veranschaulicht:
+Im Folgenden finden Sie eine `nuget.config` Beispieldatei, die eine Reihe von Einstellungen veranschaulicht, einschließlich optionaler Einstellungen:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
