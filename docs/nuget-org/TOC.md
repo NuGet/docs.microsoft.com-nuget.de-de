@@ -1,12 +1,13 @@
 # [Übersicht über NuGet.org](overview-nuget-org.md)
 # Kontenverwaltung
-## [Einzelne Konten](individual-accounts.md)
+## [Individuelle Konten](individual-accounts.md)
 ## [Organisationen](organizations-on-nuget-org.md)
 ## [API-Schlüssel](scoped-api-keys.md)
 # Verwalten von Paketen auf NuGet.org
 ## [Veröffentlichen eines Pakets](publish-a-package.md)
 ## [Reservierung für Paket-ID-Präfixe](id-prefix-reservation.md)
 ## [Veraltetes Paket](deprecate-packages.md)
+## [Paketinfodatei](package-readme-on-nuget-org.md)
 # Richtlinien
 ## [Datenanforderungen](policies/Data-requests.md)
 ## [Beilegung von Streitigkeiten](policies/dispute-resolution.md)
