@@ -5,12 +5,12 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 02/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: bb624ec6987dd5c6ee38d5bb7e01200487dd4bed
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: e76fefaf4d3c86aa15cf279090c0adb8ed779aab
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "78231740"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901511"
 ---
 # <a name="consuming-packages-from-authenticated-feeds"></a>Nutzen von Paketen aus authentifizierten Feeds
 
@@ -42,7 +42,7 @@ Folgende Plug-In-Anmeldeinformationsanbieter sind verfügbar:
 
 ### <a name="nugetexe"></a>nuget.exe
 
-Wenn `nuget.exe` Anmeldeinformationen für die Authentifizierung bei einem Feed benötigt, werden diese wie folgt gesucht:
+Wenn `nuget.exe` Anmeldeinformationen für die Authentifizierung bei einem Feed benötigt, werden diese Informationen wie folgt gesucht:
 
 1. Suchen nach Anmeldeinformationen in `NuGet.config`-Dateien.
 1. Verwenden von V2-Plug-In-Anmeldeinformationsanbietern
@@ -61,7 +61,7 @@ Informationen zur Installation und Ermittlung dieser Anbieter finden Sie unter [
 
 #### <a name="available-credential-providers-for-nugetexe"></a>Verfügbare Anmeldeinformationsanbieter für nuget.exe
 
-* [Azure DevOps V2 Credential Providers](/azure/devops/artifacts/nuget/nuget-exe?view=azure-devops#add-a-feed-to-nuget-482-or-later) oder [Azure Artifacts Credential Provider](https://github.com/microsoft/artifacts-credprovider)
+* [Azure DevOps V2 Credential Providers](/azure/devops/artifacts/nuget/nuget-exe#add-a-feed-to-nuget-482-or-later) oder [Azure Artifacts Credential Provider](https://github.com/microsoft/artifacts-credprovider)
 
 Seit Visual Studio 2017 Version 15.9 ist der Azure DevOps-Anmeldeinformationsanbieter in Visual Studio gebündelt.
 Wenn `nuget.exe` MSBuild aus diesem speziellen Visual Studio-Toolset verwendet, wird das Plug-In automatisch erkannt.
@@ -102,4 +102,4 @@ Informationen zur Installation und Ermittlung dieser Anbieter finden Sie unter [
 
 * [Azure Artifacts Credential Provider](https://github.com/microsoft/artifacts-credprovider)
 
-Seit Visual Studio 2017 Update 9 ist der Azure DevOps-Anmeldeinformationsanbieter in Visual Studio gebündelt. Weitere Schritte sind nicht erforderlich.
+Seit Visual Studio 2017 Update 9 ist der Azure DevOps-Anmeldeinformationsanbieter in Visual Studio gebündelt. Es sind keine weiteren Schritte erforderlich.

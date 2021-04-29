@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9bae65573ca49c68d07250228c1923890e0f14ac
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: fa3ec6992002224c9fb56a53aee9096e6d2c6fbb
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775019"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901667"
 ---
 # <a name="omitting-nuget-packages-in-source-control-systems"></a>Überspringen von NuGet-Paketen in Quellcodeverwaltungssystemen
 
@@ -63,7 +63,7 @@ project.assets.json
 So deaktivieren Sie mit TFVC die Integration der Quellcodeverwaltung für ausgewählte Dateien:
 
 1. Erstellen Sie im Projektmappenordner an der Stelle, an der sich die Datei `.sln` befindet, einen Ordner namens `.nuget`.
-    - Tipp: Wenn Sie diesen Ordner unter Windows im Windows-Explorer erstellen möchten, verwenden Sie den Namen `.nuget.` *inklusive* des Punkts am Ende.
+    - Tipp: Wenn Sie diesen Ordner unter Windows im Windows Explorer erstellen möchten, sollten Sie den Namen `.nuget.` *inklusive* des nachgestellten Punkts verwenden.
 
 1. Erstellen Sie in diesem Ordner eine Datei namens `NuGet.Config` und öffnen Sie diese zum Bearbeiten.
 
@@ -80,7 +80,7 @@ So deaktivieren Sie mit TFVC die Integration der Quellcodeverwaltung für ausgew
 
 1. Falls Sie TFS 2010 oder niedriger verwenden, müssen Sie den Ordner `packages` in Ihren Arbeitsbereichszuordnungen verdecken.
 
-1. Falls Sie TFS 2012 oder höher bzw. Visual Studio Team Services verwenden, müssen Sie eine Datei des Typs `.tfignore` erstellen, wie im Artikel zum Thema [Hinzufügen von Dateien zum Server](/vsts/tfvc/add-files-server?view=vsts#tfignore) beschrieben. Kopieren Sie in diese Datei unten stehenden Text, damit Änderungen am Ordner `\packages` auf Repositoryebene sowie einige Zwischendateien explizit ignoriert werden. (Sie können die Datei in Windows Explorer unter dem Namen `.tfignore.` mit dem nachgestellten Punkt erstellen, müssen aber möglicherweise zuerst die Option „Hide known file extensions“ (Bekannte Erweiterungen ausblenden) deaktivieren.):
+1. Falls Sie TFS 2012 oder höher bzw. Visual Studio Team Services verwenden, müssen Sie eine Datei des Typs `.tfignore` erstellen, wie im Artikel zum Thema [Hinzufügen von Dateien zum Server](/vsts/tfvc/add-files-server?view=vsts#tfignore&preserve-view=true) beschrieben. Kopieren Sie in diese Datei unten stehenden Text, damit Änderungen am Ordner `\packages` auf Repositoryebene sowie einige Zwischendateien explizit ignoriert werden. (Sie können die Datei in Windows Explorer unter dem Namen `.tfignore.` mit dem nachgestellten Punkt erstellen, müssen aber möglicherweise zuerst die Option „Hide known file extensions“ (Bekannte Erweiterungen ausblenden) deaktivieren.):
 
    ```cli
    # Ignore NuGet Packages

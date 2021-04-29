@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: e5dfd9f8dd0439751ddd3863cad03f3b463e1487
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 6cdc826c85f233c7108a53ad244aa8c47df0be67
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859238"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901836"
 ---
 # <a name="restore-packages-using-package-restore"></a>Wiederherstellen von Paketen mithilfe der Paketwiederherstellung
 
@@ -181,7 +181,7 @@ msbuild -restore
 
 ## <a name="restore-using-azure-pipelines"></a>Wiederherstellung mit Azure Pipelines
 
-Fügen Sie beim Erstellen einer Builddefinition in Azure Pipelines den [NuGet-](/azure/devops/pipelines/tasks/package/nuget#restore-nuget-packages) oder den [.NET Core-Wiederherstellungstask](/azure/devops/pipelines/tasks/build/dotnet-core-cli?view=azure-devops) vor jeglichen Buildtasks in die Definition ein. Einige Buildvorlagen enthalten standardmäßig den Wiederherstellungstask.
+Fügen Sie beim Erstellen einer Builddefinition in Azure Pipelines den [NuGet-](/azure/devops/pipelines/tasks/package/nuget#restore-nuget-packages) oder den [.NET Core-Wiederherstellungstask](/azure/devops/pipelines/tasks/build/dotnet-core-cli) vor jeglichen Buildtasks in die Definition ein. Einige Buildvorlagen enthalten standardmäßig den Wiederherstellungstask.
 
 ## <a name="restore-using-azure-devops-server"></a>Wiederherstellung mit Azure DevOps Server
 
