@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: 35339626b0a20ccfceafa89fef94fb3187013fd7
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 18e3af7145495b5753b5900915ffb4b07942b856
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774854"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901472"
 ---
 # <a name="common-nuget-configurations"></a>Gängige NuGet-Konfigurationen
 
@@ -18,7 +18,7 @@ Das Verhalten von NuGet wird durch die Eigenschaften gesteuert, die in einer ode
 
 ## <a name="config-file-locations-and-uses"></a>Speicherorte und Verwendungsmöglichkeiten von Konfigurationsdateien
 
-| Bereich | Speicherort der NuGet.Config-Datei | Beschreibung |
+| Bereich | Speicherort der Datei `NuGet.Config` | BESCHREIBUNG |
 | --- | --- | --- |
 | Lösung | Aktueller Ordner (bzw. Projektmappenordner) oder ein beliebiger anderer Ordner im Stammlaufwerk.| In einem Projektmappenordner gelten die Einstellungen für alle Projekte in sämtlichen Unterordnern. Beachten Sie, dass eine Konfigurationsdatei, die in einem Projektordner gespeichert wird, keine Auswirkungen auf das Projekt hat. |
 | Benutzer | **Windows:** `%appdata%\NuGet\NuGet.Config`<br/>**Mac/Linux:** `~/.config/NuGet/NuGet.Config` oder `~/.nuget/NuGet/NuGet.Config` (je nach Betriebssystemdistribution) <br/>Zusätzliche Konfigurationen werden auf allen Plattformen unterstützt. Diese Konfigurationen können von den Tools nicht bearbeitet werden. </br> **Windows:** `%appdata%\NuGet\config\*.Config` <br/>**Mac/Linux:** `~/.config/NuGet/config/*.config` oder `~/.nuget/config/*.config` | Die Einstellungen gelten für alle Vorgänge, werden jedoch durch sämtliche Einstellungen auf Projektebene überschrieben. |
@@ -26,7 +26,7 @@ Das Verhalten von NuGet wird durch die Eigenschaften gesteuert, die in einer ode
 
 Hinweise für frühere Versionen von NuGet:
 - In NuGet 3.3 und früher wurde ein `.nuget`-Ordner für projektmappenweite Einstellungen verwendet. Dieser Ordner wird in NuGet 3.4 oder höher nicht verwendet.
-- Bei NuGet 2.6 bis 3.x unter Windows befindet sich die Konfigurationsdatei auf Computerebene unter %ProgramData%\NuGet\Config[\\{IDE}[\\{Version}[\\{SKU}]]]\NuGet.Config. Hierbei kann *{IDE}* z.B. für *Visual Studio* stehen, *{Version}* stellt die Version von Visual Studio dar, z.B. *14.0*, und *{SKU}* steht für *Community*, *Professional* oder *Enterprise*. Kopieren Sie die Konfigurationsdatei in %ProgramFiles(x86)%\NuGet\Config, um Einstellungen zu NuGet 4.0 und höher zu migrieren. Unter Linux war der Speicherort zuvor /etc/opt, unter Mac /Library/Application Support.
+- Für NuGet 2.6 bis 3.x befand sich die Konfigurationsdatei auf Computerebene unter Windows in `%ProgramData%\NuGet\Config[\{IDE}[\{Version}[\{SKU}]]]\NuGet.Config`, wobei `{IDE}` gleich `VisualStudio` sein kann, `{Version}` die Visual Studio-Version wie `14.0` war, und `{SKU}` entweder `Community`, `Pro` oder `Enterprise` ist. Um die Einstellungen zu NuGet 4.0+ zu migrieren, kopieren Sie einfach die Konfigurationsdatei in `%ProgramFiles(x86)%\NuGet\Config`. Unter Linux war dieser vorherige Speicherort `/etc/opt` und auf einem Mac `/Library/Application Support`.
 
 ## <a name="changing-config-settings"></a>Ändern von Konfigurationseinstellungen
 
@@ -102,18 +102,16 @@ Durch mehrere `NuGet.Config`-Dateien können Sie Einstellungen an verschiedenen 
 
 NuGet lädt Einstellungen aus verschiedenen Konfigurationsdateien in folgender Reihenfolge:
 
-1. Die [NuGetDefaults.Config-Datei](#nuget-defaults-file), die ausschließlich Einstellungen für die Paketquellen enthält.
+1. Die [`NuGetDefaults.Config`-Datei](#nuget-defaults-file), die ausschließlich Einstellungen für die Paketquellen enthält.
 1. Die Datei auf Computerebene.
 1. Die Datei auf Benutzerebene.
 1. Die Datei, die mit `-configFile` angegeben wurde.
-1. Dateien, die vom Stamm des Laufwerks bis zum aktuellen Ordner (in dem „nuget.exe“ ausgeführt wird oder der das Visual Studio-Projekt enthält) in jedem Ordner im Pfad gefunden werden. Wenn beispielsweise ein Befehl in c:\A\B\C aufgerufen wird, sucht NuGet nach Konfigurationsdateien in c:\,, dann in c:\A\B und schließlich in c:\A\B\C und lädt diese anschließend.
+1. Dateien, die vom Stamm des Laufwerks bis zum aktuellen Ordner (in dem `nuget.exe` ausgeführt wird oder der das Visual Studio-Projekt enthält) in jedem Ordner im Pfad gefunden werden. Wenn beispielsweise ein Befehl in `c:\A\B\C` aufgerufen wird, sucht NuGet in `c:\`, dann in `c:\A`, dann in `c:\A\B` und schließlich in `c:\A\B\C` nach Konfigurationsdateien und lädt diese.
 
 Wenn NuGet Einstellungen in diesen Dateien vorfindet, werden diese folgendermaßen angewendet:
 
 1. Für einzelne Elemente ersetzt NuGet jeden zuvor gefundenen Wert mit demselben Schlüssel. Das bedeutet, dass die Einstellungen, die dem aktuellen Ordner oder Projekt „am nächsten“ liegen die zuvor gefundenen überschreiben. Die `defaultPushSource`-Einstellung in `NuGetDefaults.Config` wird beispielsweise überschrieben, wenn diese in einer anderen Konfigurationsdatei vorhanden ist.
-
 1. Bei Auflistungselementen (z.B. `<packageSources>`) kombiniert NuGet die Werte aller Konfigurationsdateien zu einer einzelnen Auflistung.
-
 1. Wenn `<clear />` für einen bestimmten Knoten vorhanden ist, ignoriert NuGet die zuvor definierten Konfigurationswerte für diesen Knoten.
 
 ### <a name="settings-walkthrough"></a>Exemplarische Vorgehensweise: Einstellungen
@@ -144,7 +142,7 @@ Datei A auf Benutzerebene (`%appdata%\NuGet\NuGet.Config` unter Windows, `~/.con
 </configuration>
 ```
 
-Datei B (disk_drive_2/NuGet.Config):
+Datei B. `disk_drive_2/NuGet.Config`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -158,7 +156,7 @@ Datei B (disk_drive_2/NuGet.Config):
 </configuration>
 ```
 
-Datei C (disk_drive_2/Project1/NuGet.Config):
+Datei C. `disk_drive_2/Project1/NuGet.Config`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -174,7 +172,7 @@ Datei C (disk_drive_2/Project1/NuGet.Config):
 </configuration>
 ```
 
-Datei D (disk_drive_2/Project2/NuGet.Config):
+Datei D. `disk_drive_2/Project2/NuGet.Config`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -188,13 +186,13 @@ Datei D (disk_drive_2/Project2/NuGet.Config):
 
 Je nachdem, wo aus NuGet aufgerufen wird, werden die Einstellungen folgendermaßen geladen und angewendet:
 
-- **Aufruf von disk_drive_1/users aus:** Nur die Standardrepository, die in der Konfigurationsdatei auf Benutzerebene (A) aufgeführt wird, wird verwendet, da dies die einzige Datei ist, die auf disk_drive_1 gefunden wurde.
+- **Aufgerufen von `disk_drive_1/users`** : Es wird nur das Standardrepository verwendet, das in der Konfigurationsdatei auf Benutzerebene (A) aufgeführt wird, da dies die einzige Datei ist, die auf `disk_drive_1` gefunden wurde.
 
-- **Aufruf von disk_drive_2/ oder disk_drive_/tmp aus:** Die Datei auf Benutzerebene (A) wird zuerst geladen, dann sucht NuGet im Stamm von disk_drive_2 und findet Datei B. NuGet sucht ebenfalls in /tmp nach einer Konfigurationsdatei, findet jedoch keine. Deshalb wird das Standardrepository auf nuget.org verwendet, außerdem wird die Paketwiederherstellung aktiviert und Pakete werden in disk_drive_2/tmp erweitert.
+- **Aufgerufen von `disk_drive_2/` oder `disk_drive_/tmp`** : Die Datei auf Benutzerebene (A) wird zuerst geladen, dann sucht NuGet im Stamm von `disk_drive_2` und findet Datei (B). NuGet sucht ebenfalls in `/tmp` nach einer Konfigurationsdatei, findet aber keine. Deshalb wird das Standardrepository auf `nuget.org` verwendet, außerdem wird die Paketwiederherstellung aktiviert und Pakete werden in `disk_drive_2/tmp` erweitert.
 
-- **Aufruf von disk_drive_2/Project1 oder disk_drive_2/Project1/Source aus:** Die Datei auf Benutzerebene (A) wird zuerst geladen, dann lädt NuGet Datei B aus dem Stamm von disk_drive_2 und schließlich Datei C. Die Einstellungen in Datei C überschreiben die in Datei A und B. Pakete werden deshalb im `repositoryPath` disk_drive_2/Project1/External/Packages statt in *disk_drive_2/tmp* installiert. Da `<packageSources>` durch Datei C gelöscht wird, ist nuget.org nicht mehr als Quelle verfügbar, sondern nur noch `https://MyPrivateRepo/ES/nuget`.
+- **Aufgerufen von `disk_drive_2/Project1` oder `disk_drive_2/Project1/Source`** : Die Datei auf Benutzerebene (A) wird zuerst geladen, dann lädt NuGet aus dem Stamm von `disk_drive_2` zunächst Datei (B) und anschließend Datei (C). Die Einstellungen in Datei (C) überschreiben die in Datei (A) und (B), sodass der `repositoryPath`, in dem Pakete installiert werden, `disk_drive_2/Project1/External/Packages` anstelle von `disk_drive_2/tmp` lautet. Da `<packageSources>` durch Datei C gelöscht wird, ist nuget.org nicht mehr als Quelle verfügbar, sondern nur noch `https://MyPrivateRepo/ES/nuget`.
 
-- **Aufruf von disk_drive_2/Project2 oder disk_drive_2/Project2/Source aus:** Die Datei auf Benutzerebene (A) wird zuerst geladen, anschließend werden Datei B und D geladen. Da `packageSources` nicht gelöscht wurde, sind `nuget.org` und `https://MyPrivateRepo/DQ/nuget` als Quellen verfügbar. Die Pakete werden wie in Datei B angegeben in disk_drive_2/tmp erweitert.
+- **Aufgerufen von `disk_drive_2/Project2` oder `disk_drive_2/Project2/Source`** : Die Datei auf Benutzerebene (A) wird zuerst geladen, anschließend folgen Datei (B) und Datei (D). Da `packageSources` nicht gelöscht wurde, sind `nuget.org` und `https://MyPrivateRepo/DQ/nuget` als Quellen verfügbar. Die Pakete werden, wie in Datei (B) angegeben, in `disk_drive_2/tmp` erweitert.
 
 ## <a name="additional-user-wide-configuration"></a>Zusätzliche benutzerübergreifende Konfigurationen
 
@@ -217,11 +215,11 @@ Die `NuGetDefaults.Config`-Datei ist vorhanden, um Paketquellen anzugeben, von d
 >
 > Darüber hinaus kann weder `NuGetDefaults.Config` noch ein anderer Mechanismus in NuGet den Zugriff auf Paketquellen wie nuget.org verhindern. Wenn eine Organisation solche Zugriffe blockieren möchte, müssen dafür andere Mittel, z.B. eine Firewall, verwendet werden.
 
-### <a name="nugetdefaultsconfig-location"></a>Speicherort von NuGetDefaults.Config
+### <a name="nugetdefaultsconfig-location"></a>`NuGetDefaults.Config`-Speicherort
 
 In der folgenden Tabelle wird beschrieben, wo die `NuGetDefaults.Config`-Datei gespeichert werden soll. Dies ist vom jeweiligen Betriebssystem abhängig:
 
-| Betriebssystemplattform  | Speicherort von NuGetDefaults.Config |
+| Betriebssystemplattform  | `NuGetDefaults.Config` Speicherort |
 | --- | --- |
 | Windows      | **Visual Studio 2017 oder NuGet 4.x und höher:** `%ProgramFiles(x86)%\NuGet\Config` <br />**Visual Studio 2015 und niedriger oder NuGet 3.x und niedriger:** `%PROGRAMDATA%\NuGet` |
 | Mac/Linux    | `$XDG_DATA_HOME` (in der Regel `~/.local/share` oder `/usr/local/share`, abhängig von der Betriebssystemverteilung)|
@@ -230,9 +228,9 @@ In der folgenden Tabelle wird beschrieben, wo die `NuGetDefaults.Config`-Datei g
 
 - `packageSources`: Diese Auflistung hat in regulären Konfigurationsdateien die gleiche Bedeutung wie `packageSources` und gibt die Standardquellen an. NuGet verwendet die Quellen in der chronologischen Reihenfolge der Installation oder Aktualisierung von Paketen in Projekten unter Verwendung der Verwaltungsformate von `packages.config`. Für Pakete, die das PackageReference-Format verwenden, verwendet NuGet unabhängig von der Reihenfolge der Konfigurationsdateien zuerst die lokalen Quellen, dann die Quellen auf Netzwerkfreigaben und anschließend HTTP-Quellen. NuGet ignoriert immer die Reihenfolge von Quellen mit Wiederherstellungsvorgängen.
 
-- `disabledPackageSources`: Diese Auflistung hat ebenfalls die gleiche Bedeutung wie in `NuGet.Config`-Dateien, bei denen jede betroffene Quelle mit ihrem Namen und einem TRUE- oder FALSE-Wert aufgeführt wird, der angibt, ob diese deaktiviert ist oder nicht. Dadurch wird ermöglicht, dass der Quellname und die URL in `packageSources` verbleiben, ohne dass diese standardmäßig aktiviert sein muss. Einzelne Entwickler können die Quelle erneut aktivieren, indem sie den Wert der Quelle in anderen `NuGet.Config`-Dateien auf FALSE festlegen. Die richtige URL muss somit nicht erneut gesucht werden. Dies ist nützlich, um Entwicklern eine vollständige Liste der internen Quell-URLs für eine Organisation bereitzustellen und gleichzeitig nur eine einzige Quelle für das Team standardmäßig zu aktivieren.
+- `disabledPackageSources`: Diese Auflistung hat ebenfalls die gleiche Bedeutung wie in `NuGet.Config`-Dateien, bei denen jede betroffene Quelle mit ihrem Namen und einem `true`-/`false`-Wert aufgeführt wird, der angibt, ob diese deaktiviert ist oder nicht. Dadurch wird ermöglicht, dass der Quellname und die URL in `packageSources` verbleiben, ohne dass diese standardmäßig aktiviert sein muss. Einzelne Entwickler können die Quelle erneut aktivieren, indem sie den Wert der Quelle in anderen `NuGet.Config`-Dateien auf `false` festlegen. Die richtige URL muss somit nicht erneut gesucht werden. Dies ist nützlich, um Entwicklern eine vollständige Liste der internen Quell-URLs für eine Organisation bereitzustellen und gleichzeitig nur eine einzige Quelle für das Team standardmäßig zu aktivieren.
 
-- `defaultPushSource`: Gibt das Standardziel für `nuget push`-Vorgänge an und überschreibt die integrierten Standardeinstellungen von nuget.org. Administratoren können diese Einstellung bereitstellen, um das versehentliche Veröffentlichen von internen Paketen für den öffentlichen Katalog von nuget.org zu verhindern, da Entwickler `nuget push -Source` verwenden müssen, um auf nuget.org zu veröffentlichen.
+- `defaultPushSource`: Gibt das Standardziel für `nuget push`-Vorgänge an und überschreibt die integrierten Standardeinstellungen von `nuget.org`. Administratoren können diese Einstellung bereitstellen, um das versehentliche Veröffentlichen von internen Paketen für den öffentlichen Katalog von `nuget.org` zu verhindern, da Entwickler spezifisch `nuget push -Source` verwenden müssen, um auf `nuget.org` zu veröffentlichen.
 
 ### <a name="example-nugetdefaultsconfig-and-application"></a>Beispiel für NuGetDefaults.Config und eine Anwendung
 
