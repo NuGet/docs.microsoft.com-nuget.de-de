@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9a75ecbc589afa664e5684005e077b02913e8039
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 2dac6ebd6367f3ed1a5ef9e81d843867a4a22f62
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "67427015"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901875"
 ---
 # <a name="overview-of-nugetorg"></a>Übersicht über NuGet.org
 
@@ -18,7 +18,7 @@ NuGet.org ist ein öffentlicher Host für NuGet-Pakete, der täglich von Million
 
 ## <a name="role-of-nugetorg-in-the-nuget-ecosystem"></a>Rolle von NuGet.org im NuGet-Ökosystem
 
-In seiner Rolle als öffentlicher Host verwaltet NuGet selbst das zentrale Repository von über 100.000 eindeutigen Paketen auf [nuget.org](https://www.nuget.org). NuGet.org ist jedoch nicht der einzige mögliche Host für Pakete. Mit der NuGet-Technologie können Sie auch Pakete privat in der Cloud (z.B. in Azure DevOps), in einem privaten Netzwerk oder sogar nur auf Ihrem lokalen Dateisystem hosten. Wenn Sie an einem anderen Host oder einer anderen Hostingoption interessiert sind, finden Sie weitere Informationen unter [Hosten eigener NuGet-Feeds](../hosting-packages/overview.md).
+In seiner Rolle als öffentlicher Host verwaltet NuGet.org selbst das zentrale Repository mit über 100.000 eindeutigen Paketen auf [nuget.org](https://www.nuget.org). NuGet.org ist nicht der einzige mögliche Host für Pakete. Mit der NuGet-Technologie können Sie auch Pakete privat in der Cloud (z.B. in Azure DevOps), in einem privaten Netzwerk oder sogar nur auf Ihrem lokalen Dateisystem hosten. Wenn Sie an einem anderen Host oder einer anderen Hostingoption interessiert sind, finden Sie weitere Informationen unter [Hosten eigener NuGet-Feeds](../hosting-packages/overview.md).
 
 NuGet.org dient, wie jeder andere Host für NuGet-Pakete, als Verbindungspunkt zwischen *Paketerstellern* und *Paketconsumern*. Paketersteller erstellen nützliche NuGet-Pakete und veröffentlichen sie. Benutzer suchen dann nach nützlichen und kompatiblen Paketen auf zugänglichen Hosts, laden diese Pakete herunter und schließen sie in Ihre Projekte ein. Nach der Installation in einem Projekt sind die Paket-APIs für den restlichen Projektcode verfügbar.
 
@@ -34,7 +34,7 @@ Ein Paket kann einem Organisationskonto ebenso angehören wie einem individuelle
 
 ## <a name="api-keys"></a>API-Schlüssel
 
-Sobald Sie über ein NuGet-Paket ( *.nupkg*-Datei) für die Veröffentlichung verfügen, können Sie es zusammen mit einem von NuGet.org abgerufenen [API-Schlüssel](scoped-api-keys.md) entweder über die nuget.exe-CLI oder die dotnet.exe-CLI veröffentlichen.
+Sobald Sie über ein NuGet-Paket (*.nupkg*-Datei) für die Veröffentlichung verfügen, können Sie es zusammen mit einem von NuGet.org abgerufenen [API-Schlüssel](scoped-api-keys.md) entweder über die nuget.exe-CLI oder die dotnet.exe-CLI veröffentlichen.
 
 Wenn Sie ein [Paket veröffentlichen](../create-packages/creating-a-package.md), schließen Sie den API-Schlüsselwert in den CLI-Befehl ein.
 
@@ -48,6 +48,6 @@ Um NuGet.org als Paketrepository mit NuGet-Clients verwenden zu können, müssen
 
 `https://api.nuget.org/v3/index.json`
 
-Ältere Clients können weiterhin das V2-Protokoll verwenden, um NuGet.org zu erreichen. Beachten Sie jedoch, dass NuGet-Clients der Version 3.0 oder höher mit dem V2-Protokoll einen langsameren und weniger zuverlässigen Dienst in Kauf nehmen müssen:
+Ältere Clients können weiterhin das V2-Protokoll verwenden, um NuGet.org zu erreichen. Beachten Sie jedoch, dass NuGet-Clients ab Version 3.0 oder höher bei Verwendung des V2-Protokolls über langsamere und weniger zuverlässige Dienste verfügen werden:
 
-`https://www.nuget.org/api/v2` (**Das V2-Protokoll ist veraltet!** )
+`https://www.nuget.org/api/v2` (**Das V2-Protokoll ist veraltet.** )

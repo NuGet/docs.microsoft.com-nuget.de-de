@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 5be7a4d4c31df9f2f4bda7bdb1ff9f4887108578
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 05a16d8bf609d727aba3ddbc42959a3deb97b24b
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775988"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901914"
 ---
 # <a name="publishing-packages"></a>Veröffentlichen von Paketen
 
@@ -38,11 +38,9 @@ Als Nächstes können Sie entweder das Paket über das Webportal von nuget.org h
 
 1. nuget.org informiert Sie darüber, ob der Paketname verfügbar ist. Ist dies nicht der Fall, ändern Sie den Paketbezeichner in Ihrem Projekt, erstellen Sie es neu, und wiederholen Sie den Uploadvorgang.
 
-1. Wenn der Paketname verfügbar ist, öffnet nuget.org den Abschnitt **Verify** (Prüfen), in dem Sie die Metadaten aus dem Paketmanifest überprüfen können. Um die Metadaten zu ändern, bearbeiten Sie Ihr Projekt (Projektdatei oder `.nuspec`-Datei), erstellen es neu, erstellen das Paket neu und laden es erneut hoch.
+1. Wenn der Paketname verfügbar ist, öffnet nuget.org den Abschnitt **Verify** (Prüfen), in dem Sie die Metadaten aus dem Paketmanifest überprüfen können. Wenn Sie eine [Infodatei](/docs/nuget-org/package-readme-on-nuget-org.md) in Ihr Paket eingeschlossen haben, sehen Sie sich die Vorschau an, um sicherzustellen, dass der gesamte Inhalt ordnungsgemäß gerendert wird. Um die Metadaten zu ändern, bearbeiten Sie Ihr Projekt (Projektdatei oder `.nuspec`-Datei), erstellen es neu, erstellen das Paket neu und laden es erneut hoch.
 
-1. Unter **Import Documentation** (Dokumentation importieren) können Sie Markdown einfügen, auf Ihre Dokumente mit einer URL verweisen oder eine Dokumentationsdatei hochladen.
-
-1. Wenn alle Informationen eingegeben sind, wählen Sie die Schaltfläche **Submit** (Senden).
+2. Wenn alle Informationen eingegeben sind, wählen Sie die Schaltfläche **Submit** (Senden).
 
 ### <a name="command-line"></a>Befehlszeile
 

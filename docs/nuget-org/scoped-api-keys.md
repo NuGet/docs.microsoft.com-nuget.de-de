@@ -5,18 +5,18 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 12d12d5294a474c4d3e4f5d3cad468bb515d21d5
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: a3d2504528249f3545e2eb5d9bce7713029638db
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "67426945"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901589"
 ---
 # <a name="scoped-api-keys"></a>Bereichsbezogene API-Schlüssel
 
 Sie können API-Schlüssel anhand von Bereichen einschränken, um NuGet eine sicherere Umgebung zur Verteilung von Paketen zu machen.
 
-Wenn Sie Bereiche für Ihre API-Schlüssel festlegen können, können Sie Ihre APIs besser kontrollieren. Ihre Möglichkeiten:
+Wenn Sie Bereiche für Ihre API-Schlüssel festlegen können, können Sie Ihre APIs besser kontrollieren. Sie haben folgende Möglichkeiten:
 
 - Sie können API-Schlüssel mit mehreren Bereichen erstellen, die für unterschiedliche Pakete mit verschiedenen Ablauffristen erstellt werden können.
 - Sie können API-Schlüssel sicher erhalten.
@@ -49,7 +49,7 @@ Im folgenden Beispiel wird der API-Schlüssel `Contoso service CI` verwendet, mi
 
 Wenn Sie mit mehreren Paketen arbeiten und eine lange Liste mit Paketen verwalten müssen, können sie Globmuster verwenden, um mehrere Pakete auf einmal auszuwählen. Wenn sie z. B. einem Schlüssel für alle Pakete, deren ID mit `Fabrikam.Service` beginnt, bestimmte Bereiche zuweisen möchten, können Sie dazu `fabrikam.service.*` im Textfeld **Glob pattern** (Globmuster) angeben.
 
-![Erstellen von API-Schlüsseln](media/scoped-api-keys-glob-pattern.png)
+![Erstellen von API-Schlüsseln – 2](media/scoped-api-keys-glob-pattern.png)
 
 Das Verwenden von Globmustern zum Bestimmen von API-Schlüssel-Berechtigungen gilt auch für neue Pakete, die mit dem Globmuster übereinstimmen. Wenn Sie z. B. versuchen, ein neues Paket mit dem Namen `Fabrikam.Service.Framework` zu pushen, können Sie dies mit dem vormals erstellten Schlüssel tun, da das Paket mit dem Globmuster `fabrikam.service.*` übereinstimmt.
 
@@ -57,19 +57,19 @@ Das Verwenden von Globmustern zum Bestimmen von API-Schlüssel-Berechtigungen gi
 
 Aus Sicherheitsgründen wird ein neu erstellter Schlüssel niemals angezeigt und kann nur über die Schaltfläche **Copy** (Kopieren) verwendet werden. Gleichfalls können Sie nicht mehr auf den Schlüssel zugreifen, nachdem die Seite aktualisiert wurde.
 
-![Erstellen von API-Schlüsseln](media/scoped-api-keys-obtain-keys.png)
+![Erstellen von API-Schlüsseln – 3](media/scoped-api-keys-obtain-keys.png)
 
 ## <a name="edit-existing-api-keys"></a>Bearbeiten vorhandener API-Schlüssel
 
 Sie sollten auch die Schlüsselberechtigungen und Bereiche aktualisieren, ohne den Schlüssel an sich zu ändern. Wenn Sie einen Schlüssel mit einem bestimmten Bereich oder bestimmten Bereichen für ein einzelnes Paket haben, können Sie denselben Bereich oder dieselben Bereichen auf eines oder mehrere andere Pakete anwenden.
 
-![Erstellen von API-Schlüsseln](media/scoped-api-keys-edit.png)
+![Erstellen von API-Schlüsseln – 4](media/scoped-api-keys-edit.png)
 
 ## <a name="refresh-or-delete-existing-api-keys"></a>Aktualisieren oder Löschen vorhandener API-Schlüssel
 
 Der Kontobesitzer kann den Schlüssel aktualisieren. In diesem Fall bleiben die Berechtigungen der Pakete, der Bereich und das Ablaufdatum dieselben, aber es wird ein neuer Schlüssel erstellt, sodass der alte nicht mehr verwendet werden kann. Das ist beim Verwalten veralteter Schlüssel oder bei einem potenziellen API-Schlüsselverlust nützlich.
 
-![Erstellen von API-Schlüsseln](media/scoped-api-keys-refresh.png)
+![Erstellen von API-Schlüsseln – 5](media/scoped-api-keys-refresh.png)
 
 Sie können diese Schlüssel auch löschen, wenn Sie sie nicht mehr benötigen. Wenn Sie den Schlüssel löschen, kann er nicht mehr verwendet werden.
 

@@ -1,16 +1,16 @@
 ---
 title: Erstellen eines NuGet-Pakets mit MSBuild
-description: Eine ausführliche Anleitung zum Entwerfen und Erstellen eines NuGet-Pakets, einschließlich der wichtigsten Entscheidungspunkte wie Dateien und Versionsverwaltung
+description: Eine ausführliche Anleitung zum Entwerfen und Erstellen eines NuGet-Pakets mittels MSBuild, einschließlich der wichtigsten Entscheidungspunkte wie Dateien und Versionsverwaltung.
 author: JonDouglas
 ms.author: jodou
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 48741668af932a532240f2796a9bf5d490ee8e35
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 18e0da335f65fde99d035388b95f35160757ee84
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774437"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901459"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>Erstellen eines NuGet-Pakets mit MSBuild
 
@@ -39,7 +39,7 @@ Wenn Sie Nicht-SDK-Projekte packen, die PackageReference verwenden, ist außerde
 
 - `PackageOutputPath`, der Ausgabeordner für das Paket, das beim Paketaufruf generiert wird.
 
-In Visual Studio können Sie diese Werte in den Projekteigenschaften festlegen (Rechtsklick auf das Projekt im Projektmappen-Explorer, wählen Sie **Eigenschaften** und dann die Registerkarte **Paket** aus). Sie können diese Eigenschaften auch direkt in den Projektdateien festlegen ( *.csproj*).
+In Visual Studio können Sie diese Werte in den Projekteigenschaften festlegen (Rechtsklick auf das Projekt im Projektmappen-Explorer, wählen Sie **Eigenschaften** und dann die Registerkarte **Paket** aus). Sie können diese Eigenschaften auch direkt in den Projektdateien festlegen (*.csproj*).
 
 ```xml
 <PropertyGroup>
@@ -177,7 +177,7 @@ Nachdem Sie ein Paket erstellt haben, das eine `.nupkg`-Datei ist, können Sie s
 
 Sie können auch die Funktionen des Pakets erweitern oder wie in den folgenden Themen beschrieben andere Szenarios unterstützen:
 
-- [NuGet-Befehle „pack“ und „restore“ als MSBuild-Ziele](../reference/msbuild-targets.md)
+- [NuGet pack and restore as MSBuild targets (NuGet-Befehle „pack“ und „restore“ MSBuild-Ziele)](../reference/msbuild-targets.md)
 - [Paketversionsverwaltung](../concepts/package-versioning.md)
 - [Unterstützung mehrerer Zielframeworks](../create-packages/multiple-target-frameworks-project-file.md)
 - [Transformationen von Quell- und Konfigurationsdateien](../create-packages/source-and-config-file-transformations.md)

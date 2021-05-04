@@ -1,29 +1,29 @@
 ---
 title: Anmerkungen zu Version 4.4 RTM von NuGet
-description: Anmerkungen zu Version 4.3 RTM von NuGet, einschließlich bekannter Fehler, Fehlerkorrekturen, hinzugefügter Funktionen und DCRs.
+description: Anmerkungen zu Version 4.4 RTM von NuGet, einschließlich bekannter Probleme, Fehlerkorrekturen, hinzugefügter Funktionen und DCRs.
 author: JonDouglas
 ms.author: jodou
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 970a920a401b8a74c04d84cbad9933c54e3cd19e
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 980afffcd4202e019ffa87de5dccf947300a9c13
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98776291"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901706"
 ---
 # <a name="nuget-44-release-notes"></a>Versionshinweise zu NuGet 4.4
 
 NuGet 4.4 RTM ist im Lieferumfang von [Visual Studio 2017 15.4 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) enthalten.
 
-## <a name="summary-whats-new-in-440"></a>Zusammenfassung: Neuigkeiten in 4.4.0
+## <a name="summary-whats-new-in-440"></a>Zusammenfassung: Neues in 4.4.0
 
-## <a name="summary-whats-new-in-442"></a>Zusammenfassung: Neuerungen in Version 4.4.2
+## <a name="summary-whats-new-in-442"></a>Zusammenfassung: Neues in 4.4.2
 
 * Sicherheitsfix: Die Berechtigungen für Dateien, die in ~/.nuget erstellt werden, sind nicht restriktiv genug ([#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)).
 
-## <a name="summary-whats-new-in-443"></a>Zusammenfassung: Neuerungen in Version 4.4.3
+## <a name="summary-whats-new-in-443"></a>Zusammenfassung: Neues in 4.4.3
 
 * Sicherheitsfix: Dateien innerhalb von NUPKGs können einen relativen Pfad über dem NUPKG-Verzeichnis besitzen ([#7906](https://github.com/NuGet/Home/issues/7906)).
 
@@ -175,9 +175,9 @@ In den [Anmerkungen zu der Version 4.3 RTM von NuGet](../release-notes/nuget-4.3
 
 - [Warnungen und Fehler] „Nowarn“ fließt nicht auf transitive Weise durch P2P-Verweise ([#5501](https://github.com/NuGet/Home/issues/5501))
 
-- Lightweight-Lösung laden: Gemeinsamer Kern für die PM-Benutzeroberfläche und IVs – [#5057](https://github.com/NuGet/Home/issues/5057)
+- Lightweight-Ladevorgang für Projektmappen: Gemeinsamer Kern für die PM-Benutzeroberfläche, PMC und IVs ([#5057](https://github.com/NuGet/Home/issues/5057))
 
-- Lightweight-Lösung laden: Unterstützung – PMC – [#5053](https://github.com/NuGet/Home/issues/5053)
+- Lightweight-Ladevorgang für Projektmappen: PMC-Unterstützung ([#5053](https://github.com/NuGet/Home/issues/5053))
 
 - Hinzufügen der Unterstützung von MSBuild-Zielen vor der Wiederherstellung, die von Visual Studio ausgelöst werden ([#4781](https://github.com/NuGet/Home/issues/4781))
 

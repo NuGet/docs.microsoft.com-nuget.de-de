@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7951b3db0cdcaee0a1eb955a5bf6fedce24c79c9
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 5224a4f5be519e1d72285562c1611d047582f7de
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237613"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901563"
 ---
 # <a name="individual-accounts-on-nugetorg"></a>Individuelle Konten auf NuGet.org
 
@@ -32,7 +32,7 @@ Sie müssen ein persönliches Microsoft-Konto (Managed Service Account, MSA) ode
 
 1. Geben Sie die Details zu Ihrem Microsoft- oder Azure Active Directory-Konto ein.
 
-1. Klicken Sie auf **Yes** (Ja), um der Berechtigungserteilung für die *NuGet.org* -Anwendung zuzustimmen.
+1. Klicken Sie auf **Yes** (Ja), um der Berechtigungserteilung für die *NuGet.org*-Anwendung zuzustimmen.
 
    ![Erteilen von Berechtigungen für NuGet.org](media/nuget-org-permissions.png)
 
@@ -62,11 +62,11 @@ Die zweistufige Authentifizierung, oder 2FA, stellt eine zusätzliche Sicherheit
 
    Überprüfen Sie die Telefonnummer oder Mail-Adresse, die Ihrem Microsoft-Konto bereits zugeordnet ist. Sie müssen möglicherweise eine neue Telefonnummer oder E-Mail-Adresse für Ihr Konto eingeben. Wenn dies der Fall ist, geben Sie die erforderlichen Informationen ein, und klicken Sie auf **Weiter**.
 
-   ![2FA aktivieren](media/nuget-org-sign-in-2fa.png)
+   ![Aktivieren von 2FA und Eingeben der Telefonnummer](media/nuget-org-sign-in-2fa.png)
 
 4. Schauen Sie auf Ihrem Gerät oder in Ihrem E-Mail-Konto nach, und geben Sie den Code ein, den Sie soeben erhalten haben.
 
-   ![2FA aktivieren](media/nuget-org-enter-code-2fa.png)
+   ![Aktivieren von 2FA und Eingeben des Codes](media/nuget-org-enter-code-2fa.png)
 
 5. Befolgen Sie alle weiteren Anweisungen, um die zweistufige Authentifizierung abzuschließen.
 

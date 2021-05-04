@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 64b28c29ae3b533bde7c8f41dd38a4ab0a5afef7
-ms.sourcegitcommit: 0cc6ac680c3202d0b036c0bed7910f6709215682
+ms.openlocfilehash: c0622520a325000d5fcb8fb884cb509ee4b641f4
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94550374"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901901"
 ---
 # <a name="signing-nuget-packages"></a>Signieren von NuGet-Paketen
 
@@ -19,9 +19,9 @@ Signierte Pakete ermöglichen die Überprüfung der Integrität von Inhalten, um
 
 ## <a name="get-a-code-signing-certificate"></a>Abrufen eines Codesignaturzertifikats
 
-Gültige Zertifikate können von öffentlichen Zertifizierungsstellen wie [Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3), [DigiCert](https://www.digicert.com/code-signing/), [Go Daddy](https://www.godaddy.com/web-security/code-signing-certificate), [Global Sign](https://www.globalsign.com/en/code-signing-certificate/), [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php), [Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml) usw. abgerufen werden. Die vollständige Liste aller von Windows als vertrauenswürdig eingestuften Zertifizierungsstellen finden Sie unter [http://aka.ms/trustcertpartners](/security/trusted-root/participants-list).
+Gültige Zertifikate können von einer öffentlichen Zertifizierungsstelle wie [DigiCert](https://www.digicert.com/code-signing/), [Global Sign](https://www.globalsign.com/en/code-signing-certificate/), [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php), [Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml) usw. abgerufen werden. Die vollständige Liste der Zertifizierungsstellen, die von Windows als vertrauenswürdig eingestuft werden, finden Sie unter [http://aka.ms/trustcertpartners](/security/trusted-root/participants-list).
 
-Sie können selbst ausgestellte Zertifikate für Testzwecke verwenden. Pakete, die mit selbst ausgestellten Zertifikaten signiert wurde, werden allerdings von NuGet.org nicht akzeptiert. Weitere Informationen zum [Erstellen einer variablen Gruppe](#create-a-test-certificate)
+Sie können selbst ausgestellte Zertifikate für Testzwecke verwenden. Pakete, die mit selbst ausgestellten Zertifikaten signiert wurden, werden jedoch von NuGet.org nicht akzeptiert. Weitere Informationen zum [Erstellen eines Testzertifikats](#create-a-test-certificate).
 
 ## <a name="export-the-certificate-file"></a>Exportieren der Zertifikatdatei
 
@@ -51,7 +51,7 @@ nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper 
 
 ## <a name="register-the-certificate-on-nugetorg"></a>Registrieren des Zertifikats bei NuGet.org
 
-Um ein signiertes Paket zu veröffentlichen, müssen Sie das Zertifikat zuerst bei NuGet.org registrieren. Sie benötigen das Zertifikat als `.cer`-Datei in einem binären DER-Format.
+Um ein signiertes Paket zu veröffentlichen, müssen Sie das Zertifikat zunächst bei NuGet.org registrieren. Sie benötigen das Zertifikat als `.cer`-Datei im binären DER-Format.
 
 1. [Melden Sie sich](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) bei NuGet.org an.
 1. Wechseln Sie zu `Account settings` (oder `Manage Organization` **>** `Edit Organization`, wenn Sie das Zertifikat für ein Organisationskonto registrieren möchten).
@@ -66,7 +66,7 @@ Um ein signiertes Paket zu veröffentlichen, müssen Sie das Zertifikat zuerst b
 
 ## <a name="publish-the-package"></a>Veröffentlichen des Pakets
 
-Sie können das Paket jetzt auf NuGet.org veröffentlichen. Informationen dazu finden Sie unter [Veröffentlichen von Paketen](../nuget-org/Publish-a-package.md).
+Sie können das Paket jetzt auf NuGet.org veröffentlichen. Siehe [Veröffentlichen von Paketen](../nuget-org/Publish-a-package.md).
 
 ## <a name="create-a-test-certificate"></a>Erstellen eines Testzertifikats
 
