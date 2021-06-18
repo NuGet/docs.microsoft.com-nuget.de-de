@@ -5,12 +5,12 @@ author: erdembayar
 ms.author: eryondon
 ms.date: 3/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 50fd277a4f1f39b4a68a89cd07af4e21f0d3d831
-ms.sourcegitcommit: 1462f9f42ae36b3c990762ad4f02e38ab799ad09
+ms.openlocfilehash: 1152af99cf1421918a42d0d1faa33f1452f54a8f
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107508812"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323881"
 ---
 # <a name="nuget-59-release-notes"></a>Versionshinweise zu NuGet 5.9
 
@@ -30,9 +30,9 @@ Möglichkeiten der NuGet-Verteilung:
 
 * Hinzufügen des Kontextmenüelements "Aktualisieren" für Paketabhängigkeiten, das Paket-Manager Benutzeroberfläche mit vorab ausgewählten Zu aktualisierenden Paketen startet – [#10378](https://github.com/NuGet/Home/issues/10378)
 
-    ![Aktualisieren des Pakets mit der rechten Maustaste](media/releasenotes-59-update.png)
+    ![Klicken Sie mit der rechten Maustaste auf die "Update"-Benutzeroberfläche des Pakets.](media/releasenotes-59-update.png)
 
-* Zeigen Sie die angeforderte Version (einschließlich unverankerte Version oder Versionsbereichsanforderung) in der Spalte "Version" der Projektliste auf Projektmappenebene Paket-Manager Ui an – [#9827](https://github.com/NuGet/Home/issues/9827)
+* Zeigen Sie die angeforderte Version (einschließlich unverankerte Version oder Versionsbereichsanforderung) in der Spalte "Version" der Projektliste auf Projektmappenebene Paket-Manager Benutzeroberfläche an – [#9827](https://github.com/NuGet/Home/issues/9827)
 
     ![Angeforderte Version auf Projektmappenebene Paket-Manager Benutzeroberfläche](media/releasenotes-59-requested-version.png)
 
@@ -40,49 +40,49 @@ Möglichkeiten der NuGet-Verteilung:
 
 * Erweitern Sie die `.nupkg.metadata` Datei so, dass sie die Installationsquelle enthält [– #10354](https://github.com/NuGet/Home/issues/10354)
 
-* Einführung einer neuen msbuild-Eigenschaft zum Ausschließen der Buildausgabe für bestimmte TFMs während der Packaufgabe [– #10396](https://github.com/NuGet/Home/issues/10396)
+* Einführung einer neuen msbuild-Eigenschaft zum Ausschließen der Buildausgabe für bestimmte TFMs während der Packaufgabe – [#10396](https://github.com/NuGet/Home/issues/10396)
 
 ### <a name="issues-fixed-in-this-release"></a>In diesem Release behobene Probleme
 
 **DCRs (Design Change Request):**
 
-* Das Symbol "Nach unten" ist nicht intuitiv, wenn die neueste Paketversion installiert ist. Der alte grüne Teilstrich war perfekt [– #9789](https://github.com/NuGet/Home/issues/9789)
+* Das Symbol nach unten, wenn die neueste Paketversion installiert ist, ist nicht intuitiv. Der alte grüne Tick war perfekt [– #9789](https://github.com/NuGet/Home/issues/9789)
 
-* Ausführlichkeit des NuGet-Debuggens sollte sagen, woher ein Paket stammt – [#3055](https://github.com/NuGet/Home/issues/3055)
+* Die Ausführlichkeit des NuGet-Debuggens sollte sagen, woher ein Paket stammt – [#3055](https://github.com/NuGet/Home/issues/3055)
 
-* NuGet-Paket sollte falsches Auslassen des Punkts in Versionsnummern abfangen [– #9215](https://github.com/NuGet/Home/issues/9215)
+* NuGet-Paket sollte falsches Auslassen des Punkts in Versionsnummern abfangen – [#9215](https://github.com/NuGet/Home/issues/9215)
 
 * [CPVM] Deaktivieren des Anheftens der zentralen transitiven Abhängigkeiten [– #10132](https://github.com/NuGet/Home/issues/10132)
 
-* net5 TFM: Fehler bei fehlendem TPV erzeugen – [#9441](https://github.com/NuGet/Home/issues/9441)
+* net5 TFM: Erzeugt einen Fehler, wenn TPV fehlt – [#9441](https://github.com/NuGet/Home/issues/9441)
 
-* Protokollpaketinhalthash während der Wiederherstellungsprotokollierung (während der [Extraktion)](https://github.com/NuGet/Home/issues/10384) – #10384
+* Protokollpaketinhalthash während der Wiederherstellungsprotokollierung (während der Extraktion) [– #10384](https://github.com/NuGet/Home/issues/10384)
 
-* Implementieren Sie einen Vorregistrierungsmechanismus für ältere PR-Projekte, die die Wiederherstellung bei geöffneter [Projektmappe aufrufen – #9986](https://github.com/NuGet/Home/issues/9986)
+* Implementieren Sie einen Vorregistrierungsmechanismus für ältere PR-Projekte, die die Wiederherstellung beim Öffnen der Projektmappe aufrufen – [#9986](https://github.com/NuGet/Home/issues/9986)
 
-* Das NuGet-Paket recommender sollte funktionieren, wenn im Paket-Manager mehrere Quellen ausgewählt [sind– #10433](https://github.com/NuGet/Home/issues/10433)
+* Die NuGet-Paketempfehlung sollte funktionieren, wenn im Paket-Manager mehrere Quellen ausgewählt sind [– #10433](https://github.com/NuGet/Home/issues/10433)
 
-* Protokollieren Sie bei der Wiederherstellung bei normaler Ausführlichkeit, von welcher Quelle ein Paket wiederhergestellt wird– [#10461](https://github.com/NuGet/Home/issues/10461)
+* Protokollieren Sie beim Wiederherstellen bei normaler Ausführlichkeit, von welcher Quelle ein Paket wiederhergestellt wird [– #10461](https://github.com/NuGet/Home/issues/10461)
 
 **Fehler:**
 
-* INuGetPackageFileService: Abrufen von Images und eingebetteten Lizenzen [](https://github.com/NuGet/Home/issues/10151) für mit Codespaces verbundene und eigenständige #10151
+* INuGetPackageFileService : Abrufen von Images und eingebetteten Lizenzen für mit Codespaces verbundene und eigenständige Lizenzen – [#10151](https://github.com/NuGet/Home/issues/10151)
 
-* VS OE: IProjectMetadataContextInfo missing formatter - [#10079](https://github.com/NuGet/Home/issues/10079)
+* VS OE: IProjectMetadataContextInfo missing formatter – [#10079](https://github.com/NuGet/Home/issues/10079)
 
 * [CPVM-Perf] Reduzieren der in centralTransitiveDependencyGroups geschriebenen Informationen [– #10002](https://github.com/NuGet/Home/issues/10002)
 
-* Wiederherstellungsvorgänge, die aufgrund eines nicht geladenen Projekts auslösen, werden `NoOp` als in Telemetriedaten [gemeldet – #9985](https://github.com/NuGet/Home/issues/9985)
+* Wiederherstellungsvorgänge, die aufgrund eines nicht geladenen Projekts ausgelöst werden, werden als in der Telemetrie gemeldet – `NoOp` [#9985](https://github.com/NuGet/Home/issues/9985)
 
-* Symbole mit bestimmten Farbpaletten verursachen einen Absturz der PM-Benutzeroberfläche in VS [– #10037](https://github.com/NuGet/Home/issues/10037)
+* Symbole mit bestimmten Farbpaletten bewirken, dass die PM-Benutzeroberfläche VS abstürzt [– #10037](https://github.com/NuGet/Home/issues/10037)
 
 * [CPVM-Perf] Reduzieren des PackageSpec-Klons beim Hinzufügen der CPVM-Informationen [– #10003](https://github.com/NuGet/Home/issues/10003)
 
-* PM UI – asyncify icon loading – [#10009](https://github.com/NuGet/Home/issues/10009)
+* PM-Benutzeroberfläche – Symbolladevorgang asynchronisieren [– #10009](https://github.com/NuGet/Home/issues/10009)
 
 * Verzögerung der Benutzeroberfläche beim Laden von Symbol-URLs in der PM-Benutzeroberfläche [– #8505](https://github.com/NuGet/Home/issues/8505)
 
-* Threadaffinität in BitmapSource- und WPF-Benutzeroberflächenthreads [– #9161](https://github.com/NuGet/Home/issues/9161)
+* Threadaffinität in BitmapSource- und WPF-UI-Threads [– #9161](https://github.com/NuGet/Home/issues/9161)
 
 * Warnung für warnung NU5128, wenn packastool mit Targetframework-Alias [– #10097](https://github.com/NuGet/Home/issues/10097)
 
@@ -92,7 +92,7 @@ Möglichkeiten der NuGet-Verteilung:
 
 * Erstellen von NuGetProjectActions für die Deinstallation über die PM-Benutzeroberfläche als parallelen Vorgang [– #9956](https://github.com/NuGet/Home/issues/9956)
 
-* Leistung: Reduzieren von UIDelays in GetPackageSpecsAsync für Legacy- und Nicht-PR-Projekte [– #9953](https://github.com/NuGet/Home/issues/9953)
+* Leistung: Reduzieren von UIDelays in GetPackageSpecsAsync für Legacyprojekte und Nicht-PR-Projekte – [#9953](https://github.com/NuGet/Home/issues/9953)
 
 * ``dotnet nuget push *.nupkg`` pusht nicht mehr als eine Datei [– #4393](https://github.com/NuGet/Home/issues/4393)
 
@@ -106,67 +106,67 @@ Möglichkeiten der NuGet-Verteilung:
 
 * Bei der Überprüfung des Vorhandenseins von Lizenz- und Symboldateien sollte immer die Groß-/Kleinschreibung beachtet [werden – #9817](https://github.com/NuGet/Home/issues/9817)
 
-* DotnetCLiToolReference-Wiederherstellungen erschweren die Ursachen für die Anzahl von No-Op-Projekten/uptodateprojectscount – [#10038](https://github.com/NuGet/Home/issues/10038)
+* DotnetCLiToolReference-Wiederherstellungen erschweren die Ursachen für no-op projects count/uptodateprojectscount – [#10038](https://github.com/NuGet/Home/issues/10038)
 
-* Das Bindestrichfeld des Paketformats ist schwer zu sehen, wenn Sie über die Registerkarte im Dialogfeld "NuGet Paket-Manager Format auswählen" unter Dunkles Design navigieren : [#9729](https://github.com/NuGet/Home/issues/9729)
+* Das Bindestrichfeld des Paketformats ist schwer zu sehen, wenn Sie über die Registerkarte im Dialogfeld "NuGet Paket-Manager Format auswählen" im Design "Dunkel" navigieren : [#9729](https://github.com/NuGet/Home/issues/9729)
 
-* Ausschließen transitiver Frameworkverweise aus `CollectFrameworkReferences`  -  [#10314](https://github.com/NuGet/Home/issues/10314)
+* Ausschließen transitiver Frameworkverweise von `CollectFrameworkReferences`  -  [#10314](https://github.com/NuGet/Home/issues/10314)
 
 * Statische Comparer-Eigenschaften sollten idempotent sein [– #10339](https://github.com/NuGet/Home/issues/10339)
 
-* Auflösen des Ladens interner Verträge (Korrigieren von RPS oder Abrufen einer Ausnahme) – [#9919](https://github.com/NuGet/Home/issues/9919)
+* Auflösen des ladenden internen Vertragsassemblys (Korrigieren von RPS oder Abrufen einer Ausnahme) [– #9919](https://github.com/NuGet/Home/issues/9919)
 
-* Ersetzen Von GetService durch GetServiceAsync in NuGet.Clients, Teil 1: [#10362](https://github.com/NuGet/Home/issues/10362)
+* Ersetzen Von GetService durch GetServiceAsync in NuGet.Clients, Teil [1– #10362](https://github.com/NuGet/Home/issues/10362)
 
 * Cli-Installationen sollten nicht aufgelistete Pakete nicht installieren [– #7466](https://github.com/NuGet/Home/issues/7466)
 
 * Statische MsBuild-Graphwiederherstellung – unnötige Protokollierung über MSBuildStartupDirectory [– #10335](https://github.com/NuGet/Home/issues/10335)
 
-* Project Dependencies of ProjectReferences marked as PrivateAssets should not be included in the lock file up to date check - [#8565](https://github.com/NuGet/Home/issues/8565)
+* Projektabhängigkeiten von ProjectReferences, die als PrivateAssets markiert sind, sollten nicht in der Aktuellen Überprüfung der Sperrdatei enthalten sein – [#8565](https://github.com/NuGet/Home/issues/8565)
 
-* SDK-Projekte mit fehlerhaften Daten ohne Wiederherstellungsfehler in VS – [#10406](https://github.com/NuGet/Home/issues/10406)
+* SDK-Projekte mit fehlerhaften Daten, die keine Wiederherstellungsfehler in VS anzeigen – [#10406](https://github.com/NuGet/Home/issues/10406)
 
-* NU1004 beim Wiederherstellen einer Projektmappe mit gemischten Legacy- und netstandard2-Projekten aus der Befehlszeile mit LockedMode – [#9623](https://github.com/NuGet/Home/issues/9623)
+* NU1004 beim Wiederherstellen einer Projektmappe mit gemischten Legacy- und netstandard2-Projekten aus cmd line mit LockedMode – [#9623](https://github.com/NuGet/Home/issues/9623)
 
-* Das Paket enthält Inhalte, die über Abhängigkeitspakete in das Paket des aktuellen Projekts (nur SDK-basierte Projekte) integriert werden – [#8867](https://github.com/NuGet/Home/issues/8867)
+* Pack enthält Inhalte, die über Abhängigkeitspakete in das Paket des aktuellen Projekts eingebunden werden (nur SDK-basierte Projekte) [– #8867](https://github.com/NuGet/Home/issues/8867)
 
-* Hinzufügen von Telemetriedaten für Fehler in der VS-Erweiterbarkeits-API von NuGet [– #10062](https://github.com/NuGet/Home/issues/10062)
+* Hinzufügen von Telemetriedaten für Die VS-Erweiterbarkeits-API-Fehler von NuGet [– #10062](https://github.com/NuGet/Home/issues/10062)
 
-* Fügen Sie GenerateRestoreGraphFile in der statischen Graphwiederherstellung hinzu, um die Debugbarkeit zu verbessern.  - [#10365](https://github.com/NuGet/Home/issues/10365)
+* Fügen Sie GenerateRestoreGraphFile in der statischen Graphwiederherstellung hinzu, um die Debugfähigkeit zu verbessern.  - [#10365](https://github.com/NuGet/Home/issues/10365)
 
-* Der NuGet-Paket-Manager kann nicht geöffnet [werden – #10336](https://github.com/NuGet/Home/issues/10336)
+* Der NuGet-Paket-Manager kann nicht geöffnet [werden– #10336](https://github.com/NuGet/Home/issues/10336)
 
 * NVDA/Sprachausgabe liest die Bezeichnung "Lizenz" für den Link "Apache-2.0" nicht – [#10425](https://github.com/NuGet/Home/issues/10425)
 
-* Die aktuelle Statusleistenmeldung ist in [](https://github.com/NuGet/Home/issues/9402) VS - #9402
+* Die aktuelle Statusleistenmeldung ist in VS nicht besonders gut – [#9402](https://github.com/NuGet/Home/issues/9402)
 
-* packages.config package.lock.json verwendet ein falsches Zielframework [– #10257](https://github.com/NuGet/Home/issues/10257)
+* packages.config package.lock.jsfür verwendet ein falsches Zielframework [– #10257](https://github.com/NuGet/Home/issues/10257)
 
-* Codespaces: Beheben von Telemetriedaten https://github.com/NuGet/NuGet.Client/pull/3786  -  [#10439](https://github.com/NuGet/Home/issues/10439)
+* Codespaces: Korrigieren von Telemetriedaten aus https://github.com/NuGet/NuGet.Client/pull/3786  -  [#10439](https://github.com/NuGet/Home/issues/10439)
 
-* Fehler NU1004 wird beim Erstellen der Projektmappe nach dem Aktivieren von "RestoreLockedMode" nicht mehr angezeigt [– #8973](https://github.com/NuGet/Home/issues/8973)
+* Fehler NU1004 wird beim Erstellen einer Projektmappe nach dem Aktivieren von "RestoreLockedMode" nicht mehr angezeigt – [#8973](https://github.com/NuGet/Home/issues/8973)
 
-* Wenn Sie die PMUI in umgekehrter Richtung mit der Tabulatoren-TASTE verwenden, sollte die Vorwärtsrichtung [gespiegelt](https://github.com/NuGet/Home/issues/10234) werden – #10234
+* Das Tabulatoren durch PMUI in umgekehrter Richtung sollte die Vorwärtsrichtung spiegeln [– #10234](https://github.com/NuGet/Home/issues/10234)
 
-* Das Debuggen von PMUI in einer experimentellen Instanz löst manchmal InvalidCastException aus SolutionView in ProjectView [#10416](https://github.com/NuGet/Home/issues/10416)
+* Beim Debuggen von PMUI in einer experimentellen Instanz wird manchmal InvalidCastException von SolutionView in ProjectView ausgelöst [– #10416](https://github.com/NuGet/Home/issues/10416)
 
-* Die Standardversion ist NULL, nachdem Sie auf der Registerkarte Durchsuchen auf ein veraltetes Paket geklickt [#10380](https://github.com/NuGet/Home/issues/10380)
+* Die Standardversion ist NULL, nachdem Sie auf der Registerkarte Durchsuchen auf ein veraltetes Paket geklickt haben [– #10380](https://github.com/NuGet/Home/issues/10380)
 
-* Der NuGet-Manager in Visual Studio erneut geladen, wenn der Fokus wiedererlangt wird [– #4176](https://github.com/NuGet/Home/issues/4176)
+* Der NuGet-Manager in Visual Studio wird erneut geladen, wenn der Fokus wieder erreicht wird [– #4176](https://github.com/NuGet/Home/issues/4176)
 
 * Entfernen von IPackageSourceProvider2 und zugehörigen Typen [– #10098](https://github.com/NuGet/Home/issues/10098)
 
-* Das Paket "NameOfPackage" ist mit "all"-Frameworks im Projekt nicht kompatibel – [#5127](https://github.com/NuGet/Home/issues/5127)
+* Das Paket "NameOfPackage" ist nicht mit allen Frameworks im Projekt kompatibel [– #5127](https://github.com/NuGet/Home/issues/5127)
 
-* CreateVersionsAsync führt unnötige NuGetVersion-Vergleiche durch [– #10436](https://github.com/NuGet/Home/issues/10436)
+* CreateVersionsAsync führt unnötige NuGetVersion-Vergleiche durch – [#10436](https://github.com/NuGet/Home/issues/10436)
 
-* NuGet.Client sollte die Verwendung von ManagedImageMonikers durch KnownMonikers ersetzen [– #9977](https://github.com/NuGet/Home/issues/9977)
+* NuGet.Client sollte die Verwendung von ManagedImageMonikers durch KnownMoniker ersetzen [– #9977](https://github.com/NuGet/Home/issues/9977)
 
 * Das veraltete Symbol überschneidet sich mit der Version des veralteten Pakets auf der Registerkarte Durchsuchen – [#10452](https://github.com/NuGet/Home/issues/10452)
 
 * Die Fehlerbehandlung für PackageReference NU1604 unterscheidet sich in VS und befehlszeilenübergreifend (& Paket-Manager Benutzeroberfläche wiederherstellen) [– #9289](https://github.com/NuGet/Home/issues/9289)
 
-* Codespaces: erforderliche Formatierer, die nicht registriert sind [– #10467](https://github.com/NuGet/Home/issues/10467)
+* Codespaces: erforderliche Formatierer nicht registriert – [#10467](https://github.com/NuGet/Home/issues/10467)
 
 * Entfernen von net45 als Zielframework aus NuGet.Frameworks [– #10470](https://github.com/NuGet/Home/issues/10470)
 
@@ -198,16 +198,16 @@ Vielen Dank an alle Mitwirkenden, die dieses NuGet-Release super gemacht haben!
 
 |Wer|Prs|Probleme|
 |----|----|----|
-[omajid](https://github.com/omajid) | [3865](https://github.com/NuGet/NuGet.Client/pull/3865) | Fehler beim Kopieren und Einfügen in V2FeedPackageInfo [– #10480](https://github.com/NuGet/Home/issues/10480)
-[automatisch in-krys wies zu](https://github.com/marcin-krystianc) | [3812](https://github.com/NuGet/NuGet.Client/pull/3812) | Fehlende Tests für den Fall, dass auf Pakete mit dem PrivateAssets="All"-Attribut verwiesen wird [– #10397](https://github.com/NuGet/Home/issues/10397)
-[automatisch in-krys wies zu](https://github.com/marcin-krystianc) | [3739](https://github.com/NuGet/NuGet.Client/pull/3739) | Hinzufügen von Unterstützung für das Pushen mehrerer Pakete [– #4393](https://github.com/NuGet/Home/issues/4393)
-[bei -krysizec](https://github.com/marcin-krystianc) | [3723](https://github.com/NuGet/NuGet.Client/pull/3723) | Die Erstellung von NuGet-Bibliotheken ist unterbrochen, wenn die Assemblysignatur deaktiviert ist [– #10173](https://github.com/NuGet/Home/issues/10173)
-[seit 2002](https://github.com/kant2002) | [3807](https://github.com/NuGet/NuGet.Client/pull/3807) | Bereinige die beitragenden Dokumente [– #10399](https://github.com/NuGet/Home/issues/10399)
-[Solldavid](https://github.com/PathogenDavid) | [3754](https://github.com/NuGet/NuGet.Client/pull/3754) | Bei der Überprüfung des Vorhandenseins von Lizenz- [](https://github.com/NuGet/Home/issues/9817) und Symboldatei sollte immer zwischen Schreibung und #9817
-[besau](https://github.com/campersau) | [3677](https://github.com/NuGet/NuGet.Client/pull/3677) | Verwenden Sie BitmapCreateOptions.IgnoreColorProfile, um das WPF-Problem zu umgehen, wenn DecodePixelWidth - [#10037](https://github.com/NuGet/Home/issues/10037)
+[omajid](https://github.com/omajid) | [3865](https://github.com/NuGet/NuGet.Client/pull/3865) | Kopier-/Einfügefehler in V2FeedPackageInfo [– #10480](https://github.com/NuGet/Home/issues/10480)
+[djin-krysakuc](https://github.com/marcin-krystianc) | [3812](https://github.com/NuGet/NuGet.Client/pull/3812) | Fehlende Tests für den Fall, dass auf Pakete mit dem Attribut PrivateAssets="All" verwiesen wird [– #10397](https://github.com/NuGet/Home/issues/10397)
+[djin-krysakuc](https://github.com/marcin-krystianc) | [3739](https://github.com/NuGet/NuGet.Client/pull/3739) | Hinzufügen von Unterstützung für das Pushen mehrerer Pakete [– #4393](https://github.com/NuGet/Home/issues/4393)
+[djin-krysakuc](https://github.com/marcin-krystianc) | [3723](https://github.com/NuGet/NuGet.Client/pull/3723) | Der Build von NuGet-Bibliotheken ist fehlerhaft, wenn die Assemblysignatur deaktiviert ist [– #10173](https://github.com/NuGet/Home/issues/10173)
+[kant2002](https://github.com/kant2002) | [3807](https://github.com/NuGet/NuGet.Client/pull/3807) | Bereinigen der mitwirkenden Dokumente [– #10399](https://github.com/NuGet/Home/issues/10399)
+[Solldavid](https://github.com/PathogenDavid) | [3754](https://github.com/NuGet/NuGet.Client/pull/3754) | Bei der Überprüfung des Vorhandenseins von Lizenz- und Symboldateien sollte immer die Groß-/Kleinschreibung beachtet werden – [#9817](https://github.com/NuGet/Home/issues/9817)
+[- und -nau](https://github.com/campersau) | [3677](https://github.com/NuGet/NuGet.Client/pull/3677) | Verwenden Sie BitmapCreateOptions.IgnoreColorProfile, um das WPF-Problem bei verwendung von DecodePixelWidth zu umgehen [– #10037](https://github.com/NuGet/Home/issues/10037)
 [bjorkstromm](https://github.com/bjorkstromm) | [3697](https://github.com/NuGet/NuGet.Client/pull/3697) | Windows SDK 10-Link im NuGet.Client Contribution guide - [#10099](https://github.com/NuGet/Home/issues/10099)
 [bjorkstromm](https://github.com/bjorkstromm) | [3696](https://github.com/NuGet/NuGet.Client/pull/3696) | Relative Links sind im NuGet.Client-Debughandbuch fehlerhaft [– #10100](https://github.com/NuGet/Home/issues/10100)
-[Nirmal4G](https://github.com/Nirmal4G) | [3637](https://github.com/NuGet/NuGet.Client/pull/3637) | Verbessern von Testvorrichtungen und zugehörigem Code – [#9996](https://github.com/NuGet/Home/issues/9996)
+[Nirmal4G](https://github.com/Nirmal4G) | [3637](https://github.com/NuGet/NuGet.Client/pull/3637) | Verbessern von Testvorrichtungen und zugehörigem Code [– #9996](https://github.com/NuGet/Home/issues/9996)
 [beimbjarne](https://github.com/rolfbjarne) | [3743](https://github.com/NuGet/NuGet.Client/pull/3743) | Die Ausgabe wird unter macOS mit 80 Zeichen umschlossen, wenn sie umgeleitet wird [– #10198](https://github.com/NuGet/Home/issues/10198)
 [xen2](https://github.com/xen2) | [2861](https://github.com/NuGet/NuGet.Client/pull/2861) | Verfügbarmachen von NuGet.PackageManagement als .NET Standard-Paket [– #6150](https://github.com/NuGet/Home/issues/6150)
 [Anipik](https://github.com/Anipik) | [3810](https://github.com/NuGet/NuGet.Client/pull/3810) | Einführung einer neuen msbuild-Eigenschaft zum Ausschließen der Buildausgabe für bestimmte tfms während der Packaufgabe [– #10396](https://github.com/NuGet/Home/issues/10396)
@@ -221,7 +221,17 @@ Vielen Dank an alle Mitwirkenden, die dieses NuGet-Release super gemacht haben!
 
 **[Liste der Commits in dieser Version – 5.9.1](https://github.com/NuGet/NuGet.Client/compare/5.9.0.7134...5.9.1.8)**
 
+## <a name="known-issues"></a>Bekannte Probleme
+
+### <a name="nuget-59-pack-raises-null-reference-exception---10685"></a>NuGet 5.9 Pack löst `Null Reference` eine Ausnahme aus. - [#10685](https://github.com/NuGet/Home/issues/10685)
+
+#### <a name="issue"></a>Problem
+Wenn eine `pack` Datei verwendet `.nuspec` wird, `NuGet 5.9` löst version eine Ausnahme aus, wenn `null reference` [explizite Assemblyverweise](../reference/nuspec.md#explicit-assembly-references) angegeben werden, ohne `reference groups` für Projekte hinzuzufügen, die auf `multiple frameworks` abzielen.
+
+#### <a name="workaround"></a>Problemumgehung
+Verwenden Sie `nuget.exe` [5.8.1](https://dist.nuget.org/win-x86-commandline/v5.8.1/nuget.exe)  oder die neueste Version außer `5.9.1` .
+
 ## <a name="feedback-welcome"></a>Feedback willkommen
 
 Ihr Feedback ist uns sehr wichtig.  Wenn probleme mit dieser Version auftreten, überprüfen Sie unsere [GitHub-Probleme,](https://github.com/NuGet/Home/issues) und [Visual Studio-Entwicklercommunity](https://developercommunity.visualstudio.com/) auf vorhandene Probleme.  Melden Sie bei neuen Problemen in NuGet ein [GitHub-Problem.](https://github.com/NuGet/Home/issues/new)
-Informieren Sie uns bei allgemeinen Problemen [](/visualstudio/ide/how-to-report-a-problem-with-visual-studio) mit NuGet über die Option Problem melden in Ihrer bevorzugten IDE unter Hilfe > **Problem melden.**
+Informieren Sie uns bei allgemeinen Problemen mit NuGet über die Option [Problem melden](/visualstudio/ide/how-to-report-a-problem-with-visual-studio) in Ihrer bevorzugten IDE unter Hilfe > Melden **eines Problems.**
