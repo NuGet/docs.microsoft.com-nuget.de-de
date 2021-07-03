@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 0ef309d95c6ef5437765c02791da6dab13794678
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 69adbbad20debf2e53f247e85d638b3226c0491d
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775266"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323751"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Auflösung von Paketabhängigkeiten durch NuGet
 
@@ -55,7 +55,7 @@ Wenn eine Anwendung eine genaue Versionsnummer wie 1.2 angibt, die auf dem Feed 
 
 #### <a name="floating-versions"></a>Unverankerte Versionen
 
-Eine unverankerte Abhängigkeitsversion wird mit dem Zeichen \* angegeben. Beispiel: `6.0.*`. Diese Versionsspezifikation legt fest, dass die neueste 6.0.x-Version verwendet werden soll; `4.*` legt hingegen fest, dass die neueste 4.x-Version verwendet werden soll. Durch die Verwendung einer unverankerten Version werden Änderungen an der Projektdatei reduziert, während gleichzeitig die neueste Version einer Abhängigkeit auf dem neuesten Stand gehalten wird.
+Eine unverankerte Abhängigkeitsversion wird mit dem Zeichen \* angegeben. Beispiel: `6.0.*`. Diese Versionsspezifikation legt fest, dass die neueste 6.0.x-Version verwendet werden soll; `4.*` legt hingegen fest, dass die neueste 4.x-Version verwendet werden soll. Durch fließende Versionen müssen weniger Änderungen an der Projektdatei vorgenommen werden, während die Daten auf dem Stand der neuesten Abhängigkeitsversion sind.
 
 Wenn eine unverankerte Version verwendet wird, löst NuGet die höchste Version eines Pakets auf, die dem Versionsmuster entspricht. Beispielsweise wird für `6.0.*` die höchste Version eines Pakets abgerufen, die mit 6.0 beginnt:
 
@@ -102,7 +102,7 @@ Bei `packages.config`-Dateien werden die Abhängigkeiten eines Projekts als flac
 
 Im Hinblick auf die `packages.config`-Datei versucht NuGet, Abhängigkeitskonflikte aufzulösen, die bei der Installation einzelner Pakete entstehen können. Das bedeutet: Wenn Paket A installiert wird und von Paket B abhängig ist, wobei Paket B bereits in der `packages.config`-Datei als Abhängigkeit eines anderen Objekts aufgeführt ist, vergleicht NuGet die verlangten Versionen von Paket B und versucht, eine Version zu finden, die allen Versionseinschränkungen entspricht. NuGet wählt also die niedrigste *Hauptversion.Nebenversion* aus, die allen Abhängigkeiten entspricht.
 
-NuGet 2.8 sucht standardgemäß nach der niedrigsten Patchversion (siehe [NuGet 2.8 release notes (Anmerkungen zu NuGet Version 2.8)](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies)). Diese Einstellung können Sie über das `DependencyVersion`-Attribut in der `Nuget.Config`-Datei und den `-DependencyVersion`-Schalter in der Befehlszeile ändern.  
+NuGet 2.8 sucht standardgemäß nach der niedrigsten Patchversion (siehe [NuGet 2.8 release notes (Anmerkungen zu NuGet Version 2.8)](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies)). Diese Einstellung können Sie über das `DependencyVersion`-Attribut in der `NuGet.Config`-Datei und den `-DependencyVersion`-Schalter in der Befehlszeile ändern.  
 
 Der `packages.config`-Vorgang zum Auflösen von Abhängigkeiten gestaltet sich bei größeren Abhängigkeitsdiagrammen als schwierig. Bei jeder neuen Paketinstallation ist ein Durchlauf des gesamten Diagramms erforderlich, wobei Versionskonflikte entstehen können. Wenn ein Konflikt entsteht, wird die Installation angehalten. Dann befindet sich das Projekt in einem unbestimmten Zustand, insbesondere, wenn Änderungen an der Projektdatei vorgenommen werden. Dieses Problem tritt nicht auf, wenn andere Formate für die Paketverwaltung verwendet werden.
 
