@@ -6,16 +6,16 @@ ms.author: chgill
 ms.date: 02/23/2021
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: a5d68329128c9e9d047fe10e08ce41f1ae0895b4
-ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
+ms.openlocfilehash: ac0e89c1f5ef9eb19c29646bcc76bcb0b460c5cd
+ms.sourcegitcommit: adb261dd4b2a8cd75447f7b5ea6a9e5a1a54d61d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107902224"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122209942"
 ---
 # <a name="package-readme-on-nugetorg"></a>Paketinfodatei auf NuGet.org
 
-[Nehmen Sie eine Infodatei in Ihr NuGet-Paket auf](https://docs.microsoft.com/nuget/reference/msbuild-targets#packagereadmefile), um Ihren Benutzern umfangreichere und informativere Detailinformationen zum Paket zu geben.
+[Nehmen Sie eine Infodatei in Ihr NuGet-Paket auf](/nuget/reference/msbuild-targets#packagereadmefile), um Ihren Benutzern umfangreichere und informativere Detailinformationen zum Paket zu geben.
 
 Dies ist wahrscheinlich eins der ersten Elemente, das Benutzer sehen, wenn sie Ihre Paketdetailseite auf NuGet.org anzeigen, und es ist wichtig, um einen guten Eindruck zu machen.
 
@@ -36,7 +36,7 @@ Beachten Sie, dass hochwertige Infodateien eine Vielzahl von Formaten, Formen un
 
 ## <a name="preview-your-readme"></a>Anzeigen einer Vorschau Ihrer Infodatei
 
-Um eine Vorschau Ihrer Infodatei anzuzeigen, bevor sie auf NuGet.org live geschaltet wird, laden Sie Ihr Paket über [„Upload Package“ (Paket hochladen) im Webportal auf NuGet.org](https://docs.microsoft.com/nuget/nuget-org/publish-a-package#web-portal-use-the-upload-package-tab-on-nugetorg) hoch, und scrollen Sie nach unten zum Abschnitt „Readme File“ (Infodatei) der Metadatenvorschau. Der Bericht könnte beispielsweise wie folgt aussehen:
+Um eine Vorschau Ihrer Infodatei anzuzeigen, bevor sie auf NuGet.org live geschaltet wird, laden Sie Ihr Paket über [„Upload Package“ (Paket hochladen) im Webportal auf NuGet.org](/nuget/nuget-org/publish-a-package#web-portal-use-the-upload-package-tab-on-nugetorg) hoch, und scrollen Sie nach unten zum Abschnitt „Readme File“ (Infodatei) der Metadatenvorschau. Der Bericht könnte beispielsweise wie folgt aussehen:
 
 ![Vorschau der Infodatei](media\readme-upload-preview.PNG)
 
@@ -48,6 +48,7 @@ Aus Sicherheits- und Datenschutzgründen schränkt NuGet.org Domänen ein, aus d
 NuGet.org lässt das Rendern aller Bilder, einschließlich Badges, aus den folgenden vertrauenswürdigen Domänen zu:
 * api.bintray.com
 * api.codacy.com
+* app.codacy.com
 * api.codeclimate.com
 * api.dependabot.com
 * api.travis-ci.com
@@ -59,6 +60,7 @@ NuGet.org lässt das Rendern aller Bilder, einschließlich Badges, aus den folge
 * bettercodehub.com
 * buildstats.info
 * camo.githubusercontent.com
+* cdn.jsdelivr.net
 * ci.appveyor.com
 * circleci.com
 * codecov.io
@@ -68,6 +70,7 @@ NuGet.org lässt das Rendern aller Bilder, einschließlich Badges, aus den folge
 * github.com/.../workflows/.../badge.svg
 * gitlab.com
 * img.shields.io
+* i.imgur.com
 * isitmaintained.com
 * opencollective.com
 * raw.github.com
