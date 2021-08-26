@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 02/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: e0f235d99e41e23a4551fbf7577f6c42e3381f5b
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 4575d4779ed90150cec667489c85875b7fb87a8d
+ms.sourcegitcommit: 5f706c62c97b78bbe3d8c7e95659976535fe486f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859225"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122726976"
 ---
 # <a name="best-practices-for-a-secure-software-supply-chain"></a>Bewährte Methoden für eine sichere Softwarelieferkette
 
@@ -124,7 +124,7 @@ Weitere Informationen zu Dependabot-Warnungen und -Sicherheitsupdates finden Sie
 
 Wenn Sie mehrere öffentliche und private NuGet-Quellfeeds verwenden, kann ein Paket aus allen Feeds heruntergeladen werden. Sie sollten wissen, aus welchen Feeds Ihr Paket stammt, um sicherzustellen, dass Ihr Build vorhersagbar und sicher vor bekannten Angriffen wie einer [Dependency Confusion](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610) (Abhängigkeitsverwechslung) ist. Sie können einen einzelnen Feed oder privaten Feed mit Upstreamingfunktionen für den Schutz verwenden.
 
-Weitere Informationen zum Schützen Ihrer Paketfeeds finden Sie unter [3 Möglichkeiten zur Risikominderung mit privaten Paketfeeds](https://azure.microsoft.com/en-us/resources/3-ways-to-mitigate-risk-using-private-package-feeds/).
+Weitere Informationen zum Schützen Ihrer Paketfeeds finden Sie unter [3 Möglichkeiten zur Risikominderung mit privaten Paketfeeds](https://azure.microsoft.com/resources/3-ways-to-mitigate-risk-using-private-package-feeds/).
 
 ### <a name="client-trust-policies"></a>Clientvertrauensrichtlinien
 
